@@ -1,0 +1,40 @@
+@charset "utf-8";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+li {
+  list-style: none;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #1A1A1A;
+  color: #FFF;
+  font-size: 15px;
+}
+.container {
+  width: 960px;
+  margin: auto;
+}
+#game {
+  margin: auto;
+  font-size: 0;
+}
+.banner {
+  margin-top: 20px;
+  text-align: center;
+}
+.links {
+  margin-top: 20px;
+  font-size: 11px;
+  text-align: center;
+}
+.links a {
+  margin: 0 0.5em;
+  color: #CCC;
+}
