@@ -49,5 +49,6 @@ module.exports = {
       name: 'vendor',
       chunks: 'initial'
     }
-  }
+  },
+  performance: { hints: false }
 }

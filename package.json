@@ -5,7 +5,7 @@
   "author": "Laineus",
   "license": "MIT",
   "scripts": {
-    "dev": "webpack-dev-server",
+    "dev": "webpack-dev-server --mode development",
     "build": "webpack --mode production"
   },
   "dependencies": {
