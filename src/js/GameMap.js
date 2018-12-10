@@ -1,16 +1,16 @@
 export default class GameScene {
-  constructor (scene, debug = false) {
-    const map = new Phaser.Tilemaps.ParseToTilemap(scene, 'map', 16, 16)
-    const tileset = map.addTilesetImage('town', 'tiles')
-    map.staticLayers = []
-    map.staticLayers.push(map.createStaticLayer('layer1', tileset, 0, 0))
-    map.staticLayers.push(map.createStaticLayer('layer2', tileset, 0, 0).setCollisionByProperty({ collides: true }))
-    if (debug) this.displayDebug(scene, map)
-    return map
+  constructor (scene) {
+    this.scene = scene
+    this.tilemap = new Phaser.Tilemaps.ParseToTilemap(scene, 'map', 16, 16)
+    const tileset = this.tilemap.addTilesetImage('town', 'tiles')
+    this.staticLayers = []
+    this.staticLayers.push(this.tilemap.createStaticLayer('layer1', tileset, 0, 0))
+    this.staticLayers.push(this.tilemap.createStaticLayer('layer2', tileset, 0, 0).setCollisionByProperty({ collides: true }))
+    return this
   }
-  displayDebug (scene, map) {
-    const debugGraphics = scene.add.graphics().setAlpha(0.75)
-    map.staticLayers.forEach(layer => {
+  displayDebug () {
+    const debugGraphics = this.scene.add.graphics().setAlpha(0.75)
+    this.staticLayers.forEach(layer => {
       layer.renderDebug(debugGraphics, {
         tileColor: null,
         collidingTileColor: new Phaser.Display.Color(243, 134, 48, 255),
