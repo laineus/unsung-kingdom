@@ -6,7 +6,7 @@ export default class GameScene extends Phaser.Scene {
     const map = new GameMap(this, 'first', 'town')
     map.displayDebug()
     this.player = new Player(this, 10, 10)
-    this.physics.add.collider(this.player, map.staticLayers[1]) // TODO: move to GameMap
+    map.addCollider(this.player)
     this.cursors = this.input.keyboard.createCursorKeys()
   }
   preload () {
