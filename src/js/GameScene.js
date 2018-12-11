@@ -6,8 +6,12 @@ export default class GameScene extends Phaser.Scene {
     // map
     const map = new GameMap(this, 'first')
     map.displayDebug()
-    this.player = new Player(this, 10, 10)
+    this.player = new Player(this, 100, 100)
     map.addCollider(this.player)
+    const camera = this.cameras.main
+    camera.setBounds(0, 0, map.widthInPixels, map.heightInPixels)
+    camera.startFollow(this.player)
+    camera.roundPixels = true
     this.cursors = this.input.keyboard.createCursorKeys()
   }
   preload () {

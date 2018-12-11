@@ -6,6 +6,7 @@ const config = {
   height: 540,
   scene: GameScene,
   parent: 'game',
+  pixelArt: true,
   physics: {
     default: 'arcade',
     arcade: {
