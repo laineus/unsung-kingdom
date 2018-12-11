@@ -1,3 +1,4 @@
+import assets from './assets'
 import Player from './Player'
 import GameMap from './GameMap'
 export default class GameScene extends Phaser.Scene {
@@ -10,10 +11,9 @@ export default class GameScene extends Phaser.Scene {
     this.cursors = this.input.keyboard.createCursorKeys()
   }
   preload () {
-    this.load.image('town', '../img/town.png')
-    this.load.json('town', '../map/town.json')
-    this.load.tilemapTiledJSON('first', '../map/first.json')
-    this.load.image('player', '../img/player.png')
+    Object.keys(assets).forEach(method => {
+      Object.keys(assets[method]).forEach(key => this.load[method](key, assets[method][key]))
+    })
   }
   update (time, delta) {
     this.player.update(this.cursors)
