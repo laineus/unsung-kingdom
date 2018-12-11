@@ -3,7 +3,7 @@ import GameMap from './GameMap'
 export default class GameScene extends Phaser.Scene {
   create () {
     // map
-    const map = new GameMap(this, 'first', 'town')
+    const map = new GameMap(this, 'first')
     map.displayDebug()
     this.player = new Player(this, 10, 10)
     map.addCollider(this.player)
