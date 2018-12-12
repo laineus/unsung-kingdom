@@ -3,7 +3,7 @@ import Player from './Player'
 import GameMap from './GameMap'
 export default class GameScene extends Phaser.Scene {
   create () {
-    this.cursors = this.input.keyboard.createCursorKeys()
+    this.pointer = this.input.activePointer
     // map
     this.map = new GameMap(this, 'first')
     // camera
@@ -19,6 +19,6 @@ export default class GameScene extends Phaser.Scene {
     loadAssets(this)
   }
   update (time, delta) {
-    this.player.update(this.cursors)
+    this.player.update(this.pointer)
   }
 }
