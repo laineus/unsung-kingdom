@@ -4,13 +4,12 @@ export default class Player extends Phaser.GameObjects.Sprite {
     scene.physics.world.enable(this)
     scene.add.existing(this)
   }
-  update (pointer) {
-    if (pointer.isDown) this.setTargetPosition(pointer)
+  update () {
     this._walkToTargetPosition()
   }
-  setTargetPosition (pointer) {
-    this._targetPositionX = pointer.worldX
-    this._targetPositionY = pointer.worldY
+  setTargetPosition (x, y) {
+    this._targetPositionX = x
+    this._targetPositionY = y
   }
   get diffToTargetPositionX () {
     return this._targetPositionX ? this._targetPositionX - this.x : 0

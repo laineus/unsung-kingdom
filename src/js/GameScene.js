@@ -3,7 +3,6 @@ import Player from './Player'
 import GameMap from './GameMap'
 export default class GameScene extends Phaser.Scene {
   create () {
-    this.pointer = this.input.activePointer
     // map
     this.map = new GameMap(this, 'first')
     // camera
@@ -14,11 +13,12 @@ export default class GameScene extends Phaser.Scene {
     this.player = new Player(this, 100, 100)
     this.map.addCollider(this.player)
     this.camera.startFollow(this.player)
+    this.input.on('pointerdown', pointer => this.player.setTargetPosition(pointer.worldX, pointer.worldY))
   }
   preload () {
     loadAssets(this)
   }
   update (time, delta) {
-    this.player.update(this.pointer)
+    this.player.update()
   }
 }
