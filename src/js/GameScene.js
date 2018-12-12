@@ -3,15 +3,17 @@ import Player from './Player'
 import GameMap from './GameMap'
 export default class GameScene extends Phaser.Scene {
   create () {
-    // map
-    const map = new GameMap(this, 'first')
-    this.player = new Player(this, 100, 100)
-    map.addCollider(this.player)
-    const camera = this.cameras.main
-    camera.setBounds(0, 0, map.widthInPixels, map.heightInPixels)
-    camera.startFollow(this.player)
-    camera.roundPixels = true
     this.cursors = this.input.keyboard.createCursorKeys()
+    // map
+    this.map = new GameMap(this, 'first')
+    // camera
+    this.camera = this.cameras.main
+    this.camera.setBounds(0, 0, this.map.widthInPixels, this.map.heightInPixels)
+    this.camera.roundPixels = true
+    // player
+    this.player = new Player(this, 100, 100)
+    this.map.addCollider(this.player)
+    this.camera.startFollow(this.player)
   }
   preload () {
     loadAssets(this)
