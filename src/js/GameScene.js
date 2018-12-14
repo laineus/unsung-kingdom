@@ -13,7 +13,11 @@ export default class GameScene extends Phaser.Scene {
     this.player = new Player(this, 100, 100)
     this.map.addCollider(this.player)
     this.camera.startFollow(this.player)
-    this.input.on('pointerdown', pointer => this.player.setTargetPosition(pointer.worldX, pointer.worldY))
+    const walk = pointer => {
+      if (pointer.isDown) this.player.setTargetPosition(pointer.worldX, pointer.worldY)
+    }
+    this.input.on('pointerdown', walk)
+    this.input.on('pointermove', walk)
   }
   preload () {
     loadAssets(this)
