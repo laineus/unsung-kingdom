@@ -7,7 +7,7 @@ export default class GameScene extends Phaser.Scene {
     this.map = new GameMap(this, 'first')
     // camera
     this.camera = this.cameras.main
-    this.camera.setBounds(0, 0, this.map.widthInPixels, this.map.heightInPixels)
+    this.camera.setBounds(0, 0, this.map.width, this.map.height)
     this.camera.roundPixels = true
     // player
     this.player = new Player(this, 100, 100)

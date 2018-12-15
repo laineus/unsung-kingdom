@@ -8,6 +8,12 @@ export default class GameMap {
     this.staticLayers.forEach(layer => layer.setCollision(collides))
     return this
   }
+  get width () {
+    return this.tilemap.widthInPixels
+  }
+  get height () {
+    return this.tilemap.heightInPixels
+  }
   addCollider (target) {
     this.scene.physics.add.collider(target, this.staticLayers)
   }
