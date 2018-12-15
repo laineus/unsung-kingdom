@@ -1,10 +1,12 @@
 import 'phaser'
 import GameScene from './GameScene'
+import UIScene from './UIScene'
 
 const config = {
+  type: Phaser.AUTO,
   width: 960,
   height: 540,
-  scene: GameScene,
+  scene: [GameScene, UIScene],
   parent: 'game',
   pixelArt: true,
   physics: {
