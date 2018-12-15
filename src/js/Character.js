@@ -3,6 +3,7 @@ export default class Character extends Phaser.GameObjects.Sprite {
     super(scene, x, y, key)
     scene.physics.world.enable(this)
     scene.add.existing(this)
+    this.body.setDrag(300)
     scene.anims.create({ key: 'walkDown', frames: scene.anims.generateFrameNumbers(key, { start: 0, end: 2 }), repeat: -1, frameRate: 5 })
     scene.anims.create({ key: 'walkLeft', frames: scene.anims.generateFrameNumbers(key, { start: 3, end: 5 }), repeat: -1, frameRate: 5 })
     scene.anims.create({ key: 'walkRight', frames: scene.anims.generateFrameNumbers(key, { start: 6, end: 8 }), repeat: -1, frameRate: 5 })
@@ -12,7 +13,7 @@ export default class Character extends Phaser.GameObjects.Sprite {
     this._walkToTargetPosition()
     this._updateAnimation()
   }
-  setTargetPosition (x, y) {
+  setTargetPosition (x = null, y = null) {
     this._targetPositionX = x
     this._targetPositionY = y
   }
@@ -26,11 +27,10 @@ export default class Character extends Phaser.GameObjects.Sprite {
     return Math.hypot(this.body.velocity.x, this.body.velocity.y) > 1
   }
   _walkToTargetPosition () {
-    this.body.setVelocity(0)
-    if (Math.hypot(this.diffToTargetPositionX, this.diffToTargetPositionY) < 1) return
-    this.body.setVelocityX(this.diffToTargetPositionX)
-    this.body.setVelocityY(this.diffToTargetPositionY)
+    if (!this._targetPositionX || !this._targetPositionY) return
+    this.body.setVelocity(this.diffToTargetPositionX, this.diffToTargetPositionY)
     this.body.velocity.normalize().scale(100)
+    if (Math.hypot(this.diffToTargetPositionX, this.diffToTargetPositionY) < 5) this.setTargetPosition()
   }
   _updateAnimation () {
     if (!this.walking) {
