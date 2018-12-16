@@ -1,4 +1,5 @@
 import Player from './Player'
+import Character from './Character'
 import GameMap from './GameMap'
 export default class GameScene extends Phaser.Scene {
   constructor () {
@@ -16,11 +17,16 @@ export default class GameScene extends Phaser.Scene {
     this.player = new Player(this, 100, 100)
     this.map.addCollider(this.player)
     this.camera.startFollow(this.player, true, 0.1, 0.1)
+    // player controll
     const walk = pointer => {
       if (pointer.isDown) this.player.setTargetPosition(pointer.worldX, pointer.worldY)
     }
     this.input.on('pointerdown', walk)
     this.input.on('pointermove', walk)
+    // npc
+    this.npc = new Character(this, 140, 300, 'player')
+    this.map.addCollider(this.npc)
+    this.physics.add.collider(this.player, this.npc)
   }
   update (time, delta) {
     this.player.update()
