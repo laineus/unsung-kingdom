@@ -1,4 +1,5 @@
 import loadAssets from './loadAssets'
+import registerAnims from './registerAnims'
 import Player from './Player'
 import GameMap from './GameMap'
 export default class GameScene extends Phaser.Scene {
@@ -6,6 +7,7 @@ export default class GameScene extends Phaser.Scene {
     super({ key: 'Game', active: true })
   }
   create () {
+    registerAnims(this)
     // map
     this.map = new GameMap(this, 'first')
     // camera

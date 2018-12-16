@@ -1,13 +1,10 @@
 export default class Character extends Phaser.GameObjects.Sprite {
   constructor (scene, x, y, key) {
     super(scene, x, y, key)
+    this.key = key
     scene.physics.world.enable(this)
     scene.add.existing(this)
     this.body.setDrag(300)
-    scene.anims.create({ key: 'walkDown', frames: scene.anims.generateFrameNumbers(key, { start: 0, end: 2 }), repeat: -1, frameRate: 5 })
-    scene.anims.create({ key: 'walkLeft', frames: scene.anims.generateFrameNumbers(key, { start: 3, end: 5 }), repeat: -1, frameRate: 5 })
-    scene.anims.create({ key: 'walkRight', frames: scene.anims.generateFrameNumbers(key, { start: 6, end: 8 }), repeat: -1, frameRate: 5 })
-    scene.anims.create({ key: 'walkUp', frames: scene.anims.generateFrameNumbers(key, { start: 9, end: 11 }), repeat: -1, frameRate: 5 })
   }
   update () {
     this._walkToTargetPosition()
@@ -36,9 +33,9 @@ export default class Character extends Phaser.GameObjects.Sprite {
     if (!this.walking) {
       if (this.anims.currentAnim) this.setFrame(this.anims.currentAnim.frames[1].textureFrame)
     } else if (Math.abs(this.body.velocity.x) > Math.abs(this.body.velocity.y)) {
-      this.anims.play(this.body.velocity.x > 0 ? 'walkRight' : 'walkLeft', true)
+      this.anims.play(this.body.velocity.x > 0 ? `${this.key}_walk_right` : `${this.key}_walk_left`, true)
     } else {
-      this.anims.play(this.body.velocity.y > 0 ? 'walkDown' : 'walkUp', true)
+      this.anims.play(this.body.velocity.y > 0 ? `${this.key}_walk_down` : `${this.key}_walk_up`, true)
     }
   }
 }
