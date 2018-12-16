@@ -25,6 +25,9 @@ body {
   margin: auto;
   font-size: 0;
 }
+#game canvas {
+  height: auto !important;
+}
 .banner {
   margin-top: 20px;
   text-align: center;
