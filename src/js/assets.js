@@ -1,6 +1,7 @@
 export default {
   image: [
-    ['town', '../img/town.png']
+    ['town', '../img/town.png'],
+    ['chara1', '../img/chara1.png']
   ],
   json: [
     ['town', '../map/town.json']
