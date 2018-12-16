@@ -4,8 +4,7 @@ export default class UIScene extends Phaser.Scene {
     super({ key: 'UI', active: false })
   }
   create () {
-    // test
-    const talk = new Talk(this)
+    this.talk = new Talk(this)
   }
   update (time, delta) {
   }
