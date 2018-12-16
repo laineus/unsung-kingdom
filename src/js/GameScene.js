@@ -1,13 +1,10 @@
-import loadAssets from './loadAssets'
-import registerAnims from './registerAnims'
 import Player from './Player'
 import GameMap from './GameMap'
 export default class GameScene extends Phaser.Scene {
   constructor () {
-    super({ key: 'Game', active: true })
+    super({ key: 'Game', active: false })
   }
   create () {
-    registerAnims(this)
     // map
     this.map = new GameMap(this, 'first')
     // camera
@@ -24,9 +21,6 @@ export default class GameScene extends Phaser.Scene {
     }
     this.input.on('pointerdown', walk)
     this.input.on('pointermove', walk)
-  }
-  preload () {
-    loadAssets(this)
   }
   update (time, delta) {
     this.player.update()
