@@ -1,3 +1,4 @@
+import Baloon from './Balloon'
 export default class Character extends Phaser.GameObjects.Container {
   constructor (scene, x, y, key) {
     super(scene, x, y)
@@ -9,6 +10,8 @@ export default class Character extends Phaser.GameObjects.Container {
     scene.add.existing(this)
     this.body.setDrag(300)
     this.body.setCollideWorldBounds(true)
+    const baloon = new Baloon(scene).setPosition(0, -8)
+    this.add(baloon)
   }
   update () {
     this._walkToTargetPosition()
