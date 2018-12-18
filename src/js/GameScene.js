@@ -30,7 +30,7 @@ export default class GameScene extends Phaser.Scene {
     })
     // npc
     this.npc = new Character(this, 140, 300, 'player')
-    this.npc.setInteractive()
+    this.npc.image.setInteractive()
     this.map.addCollider(this.npc)
     this.physics.add.collider(this.player, this.npc)
   }

@@ -1,7 +1,10 @@
-export default class Character extends Phaser.GameObjects.Sprite {
+export default class Character extends Phaser.GameObjects.Container {
   constructor (scene, x, y, key) {
-    super(scene, x, y, key)
+    super(scene, x, y)
     this.key = key
+    this.image = scene.add.sprite(0, 0, key)
+    this.setSize(this.image.width, this.image.height)
+    this.add(this.image)
     scene.physics.world.enable(this)
     scene.add.existing(this)
     this.body.setDrag(300)
@@ -32,11 +35,11 @@ export default class Character extends Phaser.GameObjects.Sprite {
   }
   _updateAnimation () {
     if (!this.walking) {
-      if (this.anims.currentAnim) this.setFrame(this.anims.currentAnim.frames[1].textureFrame)
+      if (this.image.anims.currentAnim) this.image.setFrame(this.image.anims.currentAnim.frames[1].textureFrame)
     } else if (Math.abs(this.body.velocity.x) > Math.abs(this.body.velocity.y)) {
-      this.anims.play(this.body.velocity.x > 0 ? `${this.key}_walk_right` : `${this.key}_walk_left`, true)
+      this.image.anims.play(this.body.velocity.x > 0 ? `${this.key}_walk_right` : `${this.key}_walk_left`, true)
     } else {
-      this.anims.play(this.body.velocity.y > 0 ? `${this.key}_walk_down` : `${this.key}_walk_up`, true)
+      this.image.anims.play(this.body.velocity.y > 0 ? `${this.key}_walk_down` : `${this.key}_walk_up`, true)
     }
   }
 }
