@@ -10,8 +10,8 @@ export default class Character extends Phaser.GameObjects.Container {
     scene.add.existing(this)
     this.body.setDrag(300)
     this.body.setCollideWorldBounds(true)
-    const baloon = new Baloon(scene).setPosition(0, -8)
-    this.add(baloon)
+    const balloon = new Baloon(scene).setPosition(0, -8)
+    this.add(balloon)
   }
   update () {
     this._walkToTargetPosition()
