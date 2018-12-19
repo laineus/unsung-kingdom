@@ -2,6 +2,7 @@ import Baloon from './Balloon'
 export default class Character extends Phaser.GameObjects.Container {
   constructor (scene, x, y, key) {
     super(scene, x, y)
+    this.scene = scene
     this.key = key
     this.image = scene.add.sprite(0, 0, key)
     this.setSize(this.image.width, this.image.height)
@@ -10,8 +11,6 @@ export default class Character extends Phaser.GameObjects.Container {
     scene.add.existing(this)
     this.body.setDrag(300)
     this.body.setCollideWorldBounds(true)
-    const balloon = new Baloon(scene).setPosition(0, -8)
-    this.add(balloon)
   }
   update () {
     this._walkToTargetPosition()
@@ -20,6 +19,16 @@ export default class Character extends Phaser.GameObjects.Container {
   setTargetPosition (x = null, y = null) {
     this._targetPositionX = x
     this._targetPositionY = y
+  }
+  setTalk () {
+    this.talkBalloon = new Baloon(this.scene).setPosition(0, -8)
+    this.talkBalloon.on('pointerdown', this.talk)
+    this.add(this.talkBalloon)
+  }
+  talk (pointer) {
+    pointer.touchcancel()
+    this.scene.player.setTargetPosition()
+    this.scene.scene.get('UI').talk.speak()
   }
   get diffToTargetPositionX () {
     return this._targetPositionX ? this._targetPositionX - this.x : 0

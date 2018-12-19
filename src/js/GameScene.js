@@ -23,13 +23,9 @@ export default class GameScene extends Phaser.Scene {
     }
     this.input.on('pointerdown', walk)
     this.input.on('pointermove', walk)
-    this.input.on('gameobjectdown', (pointer, object) => {
-      pointer.touchcancel()
-      this.player.setTargetPosition()
-      this.scene.get('UI').talk.speak()
-    })
     // npc
     this.npc = new Character(this, 140, 300, 'player')
+    this.npc.setTalk()
     this.map.addCollider(this.npc)
     this.physics.add.collider(this.player, this.npc)
   }
