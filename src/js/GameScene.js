@@ -31,5 +31,6 @@ export default class GameScene extends Phaser.Scene {
   }
   update (time, delta) {
     this.player.update()
+    this.npc.update()
   }
 }

@@ -15,6 +15,7 @@ export default class Character extends Phaser.GameObjects.Container {
   update () {
     this._walkToTargetPosition()
     this._updateAnimation()
+    if (this.talkBalloon) this.talkBalloon.visible = this.distanceToPlayer < 60
   }
   setTargetPosition (x = null, y = null) {
     this._targetPositionX = x
@@ -22,13 +23,19 @@ export default class Character extends Phaser.GameObjects.Container {
   }
   setTalk () {
     this.talkBalloon = new Baloon(this.scene).setPosition(0, -8)
-    this.talkBalloon.on('pointerdown', this.talk)
+    this.talkBalloon.on('pointerdown', this.talk.bind(this))
     this.add(this.talkBalloon)
   }
   talk (pointer) {
     pointer.touchcancel()
     this.scene.player.setTargetPosition()
     this.scene.scene.get('UI').talk.speak()
+  }
+  distanceTo (target) {
+    return Phaser.Math.Distance.Between(this.x, this.y, target.x, target.y)
+  }
+  get distanceToPlayer () {
+    return this.distanceTo(this.scene.player)
   }
   get diffToTargetPositionX () {
     return this._targetPositionX ? this._targetPositionX - this.x : 0
