@@ -1,11 +1,11 @@
 const PADDING = 20
 const SAMPLE = [
   ['ann', 'francisca'],
-  { chara: 'ann', text: 'こんにちは。わたしは犬です。ワンワン。\nさようなら。' },
-  { chara: 'francisca', text: 'はいはいこんにちは。' },
+  { name: 'ann', text: 'こんにちは。わたしは犬です。ワンワン。\nさようなら。' },
+  { name: 'francisca', text: 'はいはいこんにちは。' },
   ['ann', 'francisca', 'jaquelyn'],
-  { chara: 'jaquelyn', text: 'あなたも犬ですか。' },
-  { chara: 'francisca', text: 'はいはい、私も犬です。' }
+  { name: 'jaquelyn', text: 'あなたも犬ですか。' },
+  { name: 'francisca', text: 'はいはい、私も犬です。' }
 ]
 export default class Talk extends Phaser.GameObjects.Container {
   constructor (scene) {
@@ -25,7 +25,9 @@ export default class Talk extends Phaser.GameObjects.Container {
     this.images = this.scene.add.container(0, 0)
     this.window = this.scene.add.rectangle(0, 0, this.width, this.height, 0x000000, 100).setOrigin(0, 0)
     this.text = this.scene.add.text(18, 18, '', { fontSize: 18, lineSpacing: 13 })
-    this.add([this.images, this.window, this.text])
+    this.windowName = this.scene.add.rectangle(0, 0, 200, 30, 0x000000, 100).setOrigin(0, 1)
+    this.textName = this.scene.add.text(18, -20, '', { fontSize: 18, fontStyle: 'bold', fontFamily: 'Ubuntu', lineSpacing: 13 })
+    this.add([this.images, this.window, this.text, this.windowName, this.textName])
     this.next()
   }
   get current () {
@@ -38,6 +40,7 @@ export default class Talk extends Phaser.GameObjects.Container {
       this.index++
       this.next()
     } else {
+      this.textName.text = this.current.name
       this.text.text = this.current.text
       this.index++
     }
