@@ -40,6 +40,9 @@ export default class Talk extends Phaser.GameObjects.Container {
       this.index++
       this.next()
     } else {
+      this.images.list.forEach(image => {
+        image.setTint(image.texture.key === this.current.name ? 0xffffff : 0x777777)
+      })
       this.textName.text = this.current.name
       this.text.text = this.current.text
       this.index++
