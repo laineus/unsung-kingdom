@@ -46,6 +46,9 @@ export default class Character extends Phaser.GameObjects.Container {
   get walking () {
     return Math.hypot(this.body.velocity.x, this.body.velocity.y) > 1
   }
+  get movingHorizontal () {
+    return Math.abs(this.body.velocity.x) > Math.abs(this.body.velocity.y)
+  }
   _walkToTargetPosition () {
     if (!this._targetPositionX || !this._targetPositionY) return
     this.body.setVelocity(this.diffToTargetPositionX, this.diffToTargetPositionY)
@@ -55,7 +58,7 @@ export default class Character extends Phaser.GameObjects.Container {
   _updateAnimation () {
     if (!this.walking) {
       if (this.image.anims.currentAnim) this.image.setFrame(this.image.anims.currentAnim.frames[1].textureFrame)
-    } else if (Math.abs(this.body.velocity.x) > Math.abs(this.body.velocity.y)) {
+    } else if (this.movingHorizontal) {
       this.image.anims.play(this.body.velocity.x > 0 ? `${this.key}_walk_right` : `${this.key}_walk_left`, true)
     } else {
       this.image.anims.play(this.body.velocity.y > 0 ? `${this.key}_walk_down` : `${this.key}_walk_up`, true)
