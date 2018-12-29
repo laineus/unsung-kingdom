@@ -10,7 +10,6 @@ export default class Character extends Phaser.GameObjects.Container {
     scene.physics.world.enable(this)
     scene.add.existing(this)
     this.body.setDrag(300)
-    this.body.setCollideWorldBounds(true)
   }
   update () {
     this._walkToTargetPosition()
