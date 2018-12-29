@@ -1,6 +1,6 @@
 import Player from './Player'
-import Character from './Character'
 import GameMap from './GameMap'
+import room1 from '../map/room1'
 export default class GameScene extends Phaser.Scene {
   constructor () {
     super({ key: 'Game', active: false })
@@ -23,14 +23,10 @@ export default class GameScene extends Phaser.Scene {
     }
     this.input.on('pointerdown', walk)
     this.input.on('pointermove', walk)
-    // npc
-    this.npc = new Character(this, 160, 210, 'player')
-    this.npc.setTalk()
-    this.map.addCollider(this.npc)
-    this.physics.add.collider(this.player, this.npc)
+    room1.create.call(this)
   }
   update (time, delta) {
     this.player.update()
-    this.npc.update()
+    room1.update.call(this)
   }
 }
