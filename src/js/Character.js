@@ -51,7 +51,7 @@ export default class Character extends Phaser.GameObjects.Container {
   _walkToTargetPosition () {
     if (!this._targetPositionX || !this._targetPositionY) return
     this.body.setVelocity(this.diffToTargetPositionX, this.diffToTargetPositionY)
-    this.body.velocity.normalize().scale(100)
+    this.body.velocity.normalize().scale(150)
     if (Math.hypot(this.diffToTargetPositionX, this.diffToTargetPositionY) < 5) this.setTargetPosition()
   }
   _updateAnimation () {

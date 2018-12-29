@@ -14,7 +14,7 @@ export default class GameScene extends Phaser.Scene {
     this.camera.roundPixels = true
     this.camera.setZoom(1)
     // player
-    this.player = new Player(this, 100, 100)
+    this.player = new Player(this, 100, 200)
     this.map.addCollider(this.player)
     this.camera.startFollow(this.player, true, 0.1, 0.1)
     // player controll
@@ -24,7 +24,7 @@ export default class GameScene extends Phaser.Scene {
     this.input.on('pointerdown', walk)
     this.input.on('pointermove', walk)
     // npc
-    this.npc = new Character(this, 140, 200, 'player')
+    this.npc = new Character(this, 160, 200, 'player')
     this.npc.setTalk()
     this.map.addCollider(this.npc)
     this.physics.add.collider(this.player, this.npc)
