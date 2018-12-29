@@ -1,6 +1,6 @@
 import Player from './Player'
 import GameMap from './GameMap'
-import room1 from '../map/room1'
+import maps from '../data/maps'
 export default class GameScene extends Phaser.Scene {
   constructor () {
     super({ key: 'Game', active: false })
@@ -23,10 +23,11 @@ export default class GameScene extends Phaser.Scene {
     }
     this.input.on('pointerdown', walk)
     this.input.on('pointermove', walk)
-    room1.create.call(this)
+    this.event = maps[payload.map]
+    this.event.create.call(this)
   }
   update (time, delta) {
     this.player.update()
-    room1.update.call(this)
+    this.event.update.call(this)
   }
 }
