@@ -1,4 +1,4 @@
-import assets from './assets'
+import assets from '../data/assets'
 export default scene => {
   assets.spritesheet.forEach(args => {
     scene.anims.create({ key: `${args[0]}_walk_down`, frames: scene.anims.generateFrameNumbers(args[0], { start: 0, end: 2 }), repeat: -1, frameRate: 5 })

@@ -1,7 +1,7 @@
 import 'phaser'
-import BootScene from './BootScene'
-import GameScene from './GameScene'
-import UIScene from './UIScene'
+import BootScene from './class/BootScene'
+import GameScene from './class/GameScene'
+import UIScene from './class/UIScene'
 
 const config = {
   type: Phaser.AUTO,

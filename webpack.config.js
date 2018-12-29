@@ -7,7 +7,7 @@ const WriteFilePlugin = require('write-file-webpack-plugin')
 
 module.exports = {
   entry: {
-    app: './src/js/index.js',
+    app: './src/index.js',
     vendor: ['phaser']
   },
   output: {
