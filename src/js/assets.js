@@ -1,15 +1,15 @@
 export default {
   image: [
-    ['town', '../img/town.png'],
+    ['room', '../img/room.png'],
     ['ann', '../img/ann.png'],
     ['francisca', '../img/francisca.png'],
     ['jaquelyn', '../img/jaquelyn.png']
   ],
   json: [
-    ['town', '../map/town.json']
+    ['room', '../map/room.json']
   ],
   tilemapTiledJSON: [
-    ['first', '../map/first.json']
+    ['room1', '../map/room1.json']
   ],
   spritesheet: [
     ['player', '../img/player.png', { frameWidth: 32, frameHeight: 32, endFrame: 12 }]
