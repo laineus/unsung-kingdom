@@ -58,7 +58,7 @@ export default class Talk extends Phaser.GameObjects.Container {
     const x = (this.scene.game.config.width * 1.2) / (array.length + 1)
     array.forEach((name, i) => {
       const oldSprite = this.images.list.find(s => s.texture.key === name)
-      const sprite = oldSprite || this.scene.add.sprite(0, 0, name)
+      const sprite = oldSprite || this.scene.add.sprite(0, 50, name)
       if (!oldSprite) this.images.add(sprite)
       sprite.x = (x * (i + 1)) - (this.scene.game.config.width * 0.1) - PADDING
       sprite.setScale(i < Math.ceil(array.length / 2) ? 1 : -1, 1)
