@@ -5,9 +5,9 @@ export default class GameScene extends Phaser.Scene {
   constructor () {
     super({ key: 'Game', active: false })
   }
-  create () {
+  create (payload) {
     // map
-    this.map = new GameMap(this, 'room1')
+    this.map = new GameMap(this, payload.map)
     // camera
     this.camera = this.cameras.main
     this.camera.setBounds(0, 0, this.map.width, this.map.height)

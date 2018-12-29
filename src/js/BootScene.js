@@ -7,7 +7,7 @@ export default class GameScene extends Phaser.Scene {
   create () {
     registerAnims(this)
     this.scene.start('UI')
-    this.scene.start('Game')
+    this.scene.start('Game', { map: 'room1' })
   }
   preload () {
     loadAssets(this)
