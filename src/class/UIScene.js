@@ -1,3 +1,4 @@
+import moment from 'moment'
 import Talk from './Talk'
 import config from '../data/config'
 export default class UIScene extends Phaser.Scene {
@@ -34,10 +35,11 @@ export default class UIScene extends Phaser.Scene {
     })
   }
   snapShot () {
-    this.game.renderer.snapshot(ss => {
+    const time = moment()
+    this.game.renderer.snapshot(img => {
       const link = document.createElement('a')
-      link.href = ss.src
-      link.download = 'ss.png'
+      link.href = img.src
+      link.download = `ScreenShot_${time.format('YYYYMMDD_HHmmss')}.png`
       document.body.appendChild(link)
       link.click()
       document.body.removeChild(link)
