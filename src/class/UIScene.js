@@ -6,6 +6,7 @@ export default class UIScene extends Phaser.Scene {
   }
   create () {
     this.talk = new Talk(this)
+    this.input.keyboard.on('keydown_S', this.snapShot.bind(this))
   }
   update (time, delta) {
   }
@@ -30,6 +31,16 @@ export default class UIScene extends Phaser.Scene {
         left.destroy()
         right.destroy()
       }
+    })
+  }
+  snapShot () {
+    this.game.renderer.snapshot(ss => {
+      const link = document.createElement('a')
+      link.href = ss.src
+      link.download = 'ss.png'
+      document.body.appendChild(link)
+      link.click()
+      document.body.removeChild(link)
     })
   }
 }
