@@ -13,10 +13,10 @@ export default class Substance extends Phaser.GameObjects.Container {
     this.body.setDrag(300)
   }
   update () {
-    if (this.balloon) this.balloon.visible = this.distanceToPlayer < 60
+    if (this.balloon) this.balloon.visible = this.distanceToPlayer < 150
   }
-  setEvent (callback, balloonText) {
-    this.balloon = new Baloon(this.scene, balloonText).setPosition(0, -8)
+  setEvent (callback) {
+    this.balloon = new Baloon(this.scene).setPosition(0, -30)
     this.balloon.on('pointerdown', callback)
     this.add(this.balloon)
   }
@@ -25,7 +25,7 @@ export default class Substance extends Phaser.GameObjects.Container {
       pointer.touchcancel()
       this.scene.player.setTargetPosition()
       this.scene.scene.get('UI').talk.speak()
-    }, 'Talk')
+    })
   }
   distanceTo (target) {
     return Phaser.Math.Distance.Between(this.x, this.y, target.x, target.y)
