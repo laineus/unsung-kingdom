@@ -1,40 +1,16 @@
-import Baloon from './Balloon'
-export default class Character extends Phaser.GameObjects.Container {
+import Substance from './Substance'
+export default class Character extends Substance {
   constructor (scene, x, y, key) {
-    super(scene, x, y)
-    this.scene = scene
-    this.key = key
-    this.image = scene.add.sprite(0, 0, key)
-    this.setSize(this.image.width, this.image.height)
-    this.add(this.image)
-    scene.physics.world.enable(this)
-    scene.add.existing(this)
-    this.body.setDrag(300)
+    super(scene, x, y, key)
   }
   update () {
+    super.update()
     this._walkToTargetPosition()
     this._updateAnimation()
-    if (this.talkBalloon) this.talkBalloon.visible = this.distanceToPlayer < 60
   }
   setTargetPosition (x = null, y = null) {
     this._targetPositionX = x
     this._targetPositionY = y
-  }
-  setTalk () {
-    this.talkBalloon = new Baloon(this.scene).setPosition(0, -8)
-    this.talkBalloon.on('pointerdown', this.talk.bind(this))
-    this.add(this.talkBalloon)
-  }
-  talk (pointer) {
-    pointer.touchcancel()
-    this.scene.player.setTargetPosition()
-    this.scene.scene.get('UI').talk.speak()
-  }
-  distanceTo (target) {
-    return Phaser.Math.Distance.Between(this.x, this.y, target.x, target.y)
-  }
-  get distanceToPlayer () {
-    return this.distanceTo(this.scene.player)
   }
   get hasTargetPosition () {
     return this._targetPositionX !== null && this._targetPositionY !== null
