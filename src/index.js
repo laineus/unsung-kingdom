@@ -2,11 +2,12 @@ import 'phaser'
 import BootScene from './class/BootScene'
 import GameScene from './class/GameScene'
 import UIScene from './class/UIScene'
+import config from './data/config'
 
-const config = {
+const option = {
   type: Phaser.AUTO,
-  width: 960,
-  height: 540,
+  width: config.SCREEN_WIDTH,
+  height: config.SCREEN_HEIGHT,
   scene: [BootScene, GameScene, UIScene],
   parent: 'game',
   pixelArt: true,
@@ -18,4 +19,4 @@ const config = {
   }
 }
 
-new Phaser.Game(config)
+new Phaser.Game(option)
