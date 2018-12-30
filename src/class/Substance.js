@@ -5,7 +5,7 @@ export default class Substance extends Phaser.GameObjects.Container {
     super(scene, x, y)
     this.scene = scene
     this.key = key
-    this.image = key ? scene.add.sprite(0, 0, key) : scene.add.rectangle(0, 0, config.TILE_SIZE, config.TILE_SIZE, 0xff0000)
+    this.image = key ? scene.add.sprite(0, 0, key) : scene.add.rectangle(0, 0, config.TILE_SIZE, config.TILE_SIZE)
     this.setSize(this.image.width, this.image.height)
     this.add(this.image)
     scene.physics.world.enable(this)
