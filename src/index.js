@@ -6,8 +6,8 @@ import config from './data/config'
 
 const option = {
   type: Phaser.AUTO,
-  width: config.SCREEN_WIDTH,
-  height: config.SCREEN_HEIGHT,
+  width: config.WIDTH,
+  height: config.HEIGHT,
   scene: [BootScene, GameScene, UIScene],
   parent: 'game',
   pixelArt: true,

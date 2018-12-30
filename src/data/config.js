@@ -1,5 +1,5 @@
 export default {
-  SCREEN_WIDTH: 960,
-  SCREEN_HEIGHT: 540,
+  WIDTH: 960,
+  HEIGHT: 540,
   TILE_SIZE: 32
 }
