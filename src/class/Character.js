@@ -36,6 +36,9 @@ export default class Character extends Phaser.GameObjects.Container {
   get distanceToPlayer () {
     return this.distanceTo(this.scene.player)
   }
+  get hasTargetPosition () {
+    return this._targetPositionX !== null && this._targetPositionY !== null
+  }
   get diffToTargetPositionX () {
     return this._targetPositionX ? this._targetPositionX - this.x : 0
   }
@@ -49,7 +52,7 @@ export default class Character extends Phaser.GameObjects.Container {
     return Math.abs(this.body.velocity.x) > Math.abs(this.body.velocity.y)
   }
   _walkToTargetPosition () {
-    if (!this._targetPositionX || !this._targetPositionY) return
+    if (!this.hasTargetPosition) return
     this.body.setVelocity(this.diffToTargetPositionX, this.diffToTargetPositionY)
     this.body.velocity.normalize().scale(150)
     if (Math.hypot(this.diffToTargetPositionX, this.diffToTargetPositionY) < 5) this.setTargetPosition()
