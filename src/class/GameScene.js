@@ -1,7 +1,6 @@
 import Player from './Player'
 import GameMap from './GameMap'
 import maps from '../data/maps'
-import pixelToTile from '../util/pixelToTile'
 export default class GameScene extends Phaser.Scene {
   constructor () {
     super({ key: 'Game', active: false })
@@ -35,7 +34,7 @@ export default class GameScene extends Phaser.Scene {
   }
   setDebugAction () {
     this.input.keyboard.on('keydown_I', () => {
-      console.log(`x: ${this.player.x}, y: ${this.player.y}, tileX: ${pixelToTile(this.player.x)}, tileY: ${pixelToTile(this.player.y)}`)
+      console.log(`x: ${this.player.x}, y: ${this.player.y}, tileX: ${this.player.x.toTile} tileY: ${this.player.y.toTile}`)
     })
   }
 }
