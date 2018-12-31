@@ -4,7 +4,9 @@ export default class GameMap {
     this.tilemap = new Phaser.Tilemaps.ParseToTilemap(scene, mapKey, 16, 16)
     const tilesets = this._getTilesets()
     const collides = this._getCollides()
-    this.staticLayers = this.tilemap.layers.map((_layer, i) => this.tilemap.createStaticLayer(i, tilesets, 0, 0))
+    this.staticLayers = this.tilemap.layers.map((layer, i) => {
+      return layer.visible ? this.tilemap.createStaticLayer(i, tilesets, 0, 0) : null
+    }).filter(v => v)
     this.staticLayers.forEach(layer => layer.setCollision(collides))
     return this
   }
