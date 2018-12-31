@@ -30,7 +30,7 @@ export default class Character extends Substance {
   _walkToTargetPosition () {
     if (!this.hasTargetPosition) return
     this.body.setVelocity(this.diffToTargetPositionX, this.diffToTargetPositionY)
-    this.body.velocity.normalize().scale(150)
+    this.body.velocity.normalize().scale(240)
     if (Math.hypot(this.diffToTargetPositionX, this.diffToTargetPositionY) < 5) this.setTargetPosition()
   }
   _updateAnimation () {
