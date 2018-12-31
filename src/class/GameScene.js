@@ -24,13 +24,13 @@ export default class GameScene extends Phaser.Scene {
     this.input.on('pointerdown', walk)
     this.input.on('pointermove', walk)
     this.event = maps[payload.map]
-    if (this.event) this.event.create.call(this)
+    if (this.event) this.event.create(this)
     // debug
     this.setDebugAction()
   }
   update (time, delta) {
     this.player.update()
-    if (this.event) this.event.update.call(this)
+    if (this.event) this.event.update(this)
   }
   setDebugAction () {
     this.input.keyboard.on('keydown_I', () => {
