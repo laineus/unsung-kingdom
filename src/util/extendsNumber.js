@@ -5,6 +5,9 @@ export default () => {
     get () { return pixelToTile(this) }
   })
   Object.defineProperty(Number.prototype, 'toPixel', {
+    get () { return tileToPixel(this, 0) }
+  })
+  Object.defineProperty(Number.prototype, 'toPixelCenter', {
     get () { return tileToPixel(this) }
   })
 }

@@ -10,7 +10,7 @@ export default class Gate extends Phaser.GameObjects.Zone {
     scene.physics.add.overlap(this, scene.player, () => {
       console.log(`go to ${key}`)
       this.scene.scene.get('UI').transition(() => {
-        scene.scene.start('Game', { map: key, x: position[0].toPixel, y: position[1].toPixel })
+        scene.scene.start('Game', { map: key, x: position[0].toPixelCenter, y: position[1].toPixelCenter })
       })
     })
   }
