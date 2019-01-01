@@ -15,7 +15,8 @@ export default {
   tilemapTiledJSON: [
     ['room1', '../map/room1.json'],
     ['town1', '../map/town1.json'],
-    ['forest1', '../map/forest1.json']
+    ['forest1', '../map/forest1.json'],
+    ['forest2', '../map/forest2.json']
   ],
   spritesheet: [
     ['player', '../img/player.png', { frameWidth: 32, frameHeight: 32, endFrame: 12 }]
