@@ -37,6 +37,12 @@ export default class GameScene extends Phaser.Scene {
     this.player.update()
     if (this.event && this.event.update) this.event.update(this)
   }
+  mapChange (mapKey, tileX, tileY) {
+    console.log(`go to ${mapKey}`)
+    this.scene.get('UI').transition(() => {
+      this.scene.start('Game', { map: mapKey, x: tileX.toPixelCenter, y: tileY.toPixelCenter })
+    })
+  }
   setDebugAction () {
     this.input.keyboard.on('keydown_I', () => {
       console.log(`x: ${this.player.x}, y: ${this.player.y}, tileX: ${this.player.x.toTile} tileY: ${this.player.y.toTile}`)
@@ -52,12 +58,6 @@ export default class GameScene extends Phaser.Scene {
         select.appendChild(option)
       })
       select.onchange = () => this.mapChange(select.value, 20, 20)
-    })
-  }
-  mapChange (mapKey, tileX, tileY) {
-    console.log(`go to ${mapKey}`)
-    this.scene.get('UI').transition(() => {
-      this.scene.start('Game', { map: mapKey, x: tileX.toPixelCenter, y: tileY.toPixelCenter })
     })
   }
 }
