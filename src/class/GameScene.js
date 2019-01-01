@@ -2,6 +2,7 @@ import Player from './Player'
 import GameMap from './GameMap'
 import maps from '../data/maps'
 import Gate from './Gate'
+import assets from '../data/assets'
 export default class GameScene extends Phaser.Scene {
   constructor () {
     super({ key: 'Game', active: false })
@@ -39,6 +40,18 @@ export default class GameScene extends Phaser.Scene {
   setDebugAction () {
     this.input.keyboard.on('keydown_I', () => {
       console.log(`x: ${this.player.x}, y: ${this.player.y}, tileX: ${this.player.x.toTile} tileY: ${this.player.y.toTile}`)
+    })
+    this.input.keyboard.on('keydown_M', () => {
+      const select = document.createElement('select')
+      select.id = 'select'
+      document.getElementById('game').appendChild(select)
+      assets.tilemapTiledJSON.forEach(v => {
+        const option = document.createElement('option')
+        option.value = v[0]
+        option.text = v[0]
+        select.appendChild(option)
+      })
+      select.onchange = () => this.mapChange(select.value, 20, 20)
     })
   }
   mapChange (mapKey, tileX, tileY) {
