@@ -2,24 +2,47 @@ import Substance from './Substance'
 export default class Character extends Substance {
   constructor (scene, x, y, key) {
     super(scene, x, y, key)
+    this.setTarget(null)
   }
   update () {
     super.update()
     this._walkToTargetPosition()
     this._updateAnimation()
   }
+  setTarget (target = null) {
+    this._targetPositionX = null
+    this._targetPositionY = null
+    this.target = target
+  }
   setTargetPosition (x = null, y = null) {
+    this.tartget = null
     this._targetPositionX = x
     this._targetPositionY = y
+  }
+  get hasTarget () {
+    return this.target !== null
   }
   get hasTargetPosition () {
     return this._targetPositionX !== null && this._targetPositionY !== null
   }
-  get diffToTargetPositionX () {
-    return this._targetPositionX ? this._targetPositionX - this.x : 0
+  get followingTarget () {
+    return this.hasTargetPosition || this.hasTarget
   }
-  get diffToTargetPositionY () {
-    return this._targetPositionY ? this._targetPositionY - this.y : 0
+  get followingX () {
+    if (this.hasTargetPosition) return this._targetPositionX
+    if (this.hasTarget) return this.target.x
+    return null
+  }
+  get followingY () {
+    if (this.hasTargetPosition) return this._targetPositionY
+    if (this.hasTarget) return this.target.y
+    return null
+  }
+  get diffToFollowingX () {
+    return this.followingTarget ? this.followingX - this.x : 0
+  }
+  get diffToFollowingY () {
+    return this.followingTarget ? this.followingY - this.y : 0
   }
   get walking () {
     return Math.hypot(this.body.velocity.x, this.body.velocity.y) > 1
@@ -28,10 +51,10 @@ export default class Character extends Substance {
     return Math.abs(this.body.velocity.x) > Math.abs(this.body.velocity.y)
   }
   _walkToTargetPosition () {
-    if (!this.hasTargetPosition) return
-    this.body.setVelocity(this.diffToTargetPositionX, this.diffToTargetPositionY)
+    if (!this.followingTarget) return
+    this.body.setVelocity(this.diffToFollowingX, this.diffToFollowingY)
     this.body.velocity.normalize().scale(240)
-    if (Math.hypot(this.diffToTargetPositionX, this.diffToTargetPositionY) < 5) this.setTargetPosition()
+    if (Math.hypot(this.diffToFollowingX, this.diffToFollowingY) < 5) this.setTargetPosition()
   }
   _updateAnimation () {
     if (!this.walking) {

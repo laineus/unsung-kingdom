@@ -8,6 +8,6 @@ export default class Player extends Character {
   update () {
     super.update()
     this.targetMarker.visible = this.hasTargetPosition
-    this.targetMarker.setPosition(this.diffToTargetPositionX, this.diffToTargetPositionY)
+    this.targetMarker.setPosition(this.diffToFollowingX, this.diffToFollowingY)
   }
 }
