@@ -34,7 +34,6 @@ export default class GameScene extends Phaser.Scene {
     this.setDebugAction()
   }
   update (time, delta) {
-    this.player.update()
     if (this.event && this.event.update) this.event.update(this)
   }
   mapChange (mapKey, tileX, tileY) {

@@ -3,7 +3,7 @@ export default class Enemy extends Character {
   constructor (scene, x, y) {
     super(scene, x, y, 'player')
   }
-  update () {
-    super.update()
+  preUpdate () {
+    super.preUpdate()
   }
 }

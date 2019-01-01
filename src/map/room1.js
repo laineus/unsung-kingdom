@@ -9,8 +9,5 @@ export default {
     this.npc.setTalk()
     scene.map.addCollider(this.npc)
     scene.physics.add.collider(scene.player, this.npc)
-  },
-  update () {
-    this.npc.update()
   }
 }

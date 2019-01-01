@@ -4,8 +4,8 @@ export default class Character extends Substance {
     super(scene, x, y, key)
     this.setTarget(null)
   }
-  update () {
-    super.update()
+  preUpdate () {
+    super.preUpdate()
     this._walkToTargetPosition()
     this._updateAnimation()
   }

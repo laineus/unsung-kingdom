@@ -10,8 +10,6 @@ export default {
     this.enemy.setTarget(scene.player)
     scene.map.addCollider(this.enemy)
     scene.physics.add.collider(scene.player, this.enemy)
-  },
-  update () {
-    this.enemy.update()
+    this.enemy.setActive(true)
   }
 }

@@ -12,7 +12,7 @@ export default class Substance extends Phaser.GameObjects.Container {
     scene.add.existing(this)
     this.body.setDrag(500)
   }
-  update () {
+  preUpdate () {
     if (this.balloon) this.balloon.visible = this.distanceToPlayer < 150
   }
   setEvent (callback) {
