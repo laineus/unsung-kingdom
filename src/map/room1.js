@@ -1,8 +1,9 @@
 import Character from '../class/Character'
-import Gate from '../class/Gate'
 export default {
+  gates: [
+    { key: 'town1', x: 17, y: 35, area: [18, 23, 19, 24] }
+  ],
   create (scene) {
-    new Gate(scene, 'town1', 17, 35, [18, 23, 19, 24])
     // npc
     this.npc = new Character(scene, (12).toPixelCenter, (17).toPixelCenter, 'player')
     this.npc.setTalk()

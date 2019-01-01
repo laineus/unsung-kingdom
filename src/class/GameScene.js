@@ -1,6 +1,7 @@
 import Player from './Player'
 import GameMap from './GameMap'
 import maps from '../data/maps'
+import Gate from './Gate'
 export default class GameScene extends Phaser.Scene {
   constructor () {
     super({ key: 'Game', active: false })
@@ -24,13 +25,16 @@ export default class GameScene extends Phaser.Scene {
     this.input.on('pointerdown', walk)
     this.input.on('pointermove', walk)
     this.event = maps[payload.map]
-    if (this.event) this.event.create(this)
+    if (this.event) {
+      if (this.event.gates) this.event.gates.forEach(gate => new Gate(this, gate.key, gate.x, gate.y, gate.area))
+      if (this.event.create) this.event.create(this)
+    }
     // debug
     this.setDebugAction()
   }
   update (time, delta) {
     this.player.update()
-    if (this.event) this.event.update(this)
+    if (this.event && this.event.update) this.event.update(this)
   }
   setDebugAction () {
     this.input.keyboard.on('keydown_I', () => {

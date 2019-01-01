@@ -1,9 +1,5 @@
-import Gate from '../class/Gate'
 export default {
-  create (scene) {
-    // toTown
-    new Gate(scene, 'town1', 2, 20, [46, 16, 47, 19])
-  },
-  update () {
-  }
+  gates: [
+    { key: 'town1', x: 2, y: 20, area: [46, 16, 47, 19] }
+  ]
 }
