@@ -47,6 +47,9 @@ export default class Character extends Substance {
   get diffToFollowingY () {
     return this.followingTarget ? this.followingY - this.y : 0
   }
+  get diffToFollowingDistance () {
+    return Math.hypot(this.diffToFollowingX, this.diffToFollowingY)
+  }
   get walking () {
     return Math.hypot(this.body.velocity.x, this.body.velocity.y) > 1
   }
@@ -57,7 +60,7 @@ export default class Character extends Substance {
     if (!this.followingTarget) return
     this.body.setVelocity(this.diffToFollowingX, this.diffToFollowingY)
     this.body.velocity.normalize().scale(240)
-    if (Math.hypot(this.diffToFollowingX, this.diffToFollowingY) < 5) this.setTargetPosition()
+    if (this.diffToFollowingDistance < 5) this.setTargetPosition()
   }
   _updateAnimation () {
     if (!this.walking) {
