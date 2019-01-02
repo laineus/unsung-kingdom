@@ -36,7 +36,7 @@ export default class GameMap {
   _getCollides () {
     return this.tilemap.tilesets.map(set => {
       const data = this.scene.cache.json.get(set.name)
-      return Object.keys(data.tiles).filter(id => data.tiles[id].type === 'collides').map(id => Number(id) + set.firstgid)
+      return data.tiles.filter(tile => tile.type === 'collides').map(tile => tile.id + set.firstgid)
     }).flat()
   }
 }
