@@ -36,6 +36,21 @@ export default class Substance extends Phaser.GameObjects.Container {
   distanceTo (target) {
     return Phaser.Math.Distance.Between(this.x, this.y, target.x, target.y)
   }
+  rayCast (x, y, speed = 20) {
+    const distanceDiff = Math.hypot(x - this.x, y - this.y)
+    const count = Math.floor(distanceDiff / speed)
+    const radian = Math.atan2(y - this.y, x - this.x)
+    const xSpeed = Math.cos(radian) * speed
+    const ySpeed = Math.sin(radian) * speed
+    return count.toArray.some(i => {
+      const tileX = (this.x + (xSpeed * (i + 1))).toTile
+      const tileY = (this.y + (ySpeed * (i + 1))).toTile
+      return this.scene.map.staticLayers.some(layer => {
+        const tile = layer.getTileAt(tileX, tileY)
+        return tile && tile.collides
+      })
+    })
+  }
   get distanceToPlayer () {
     return this.distanceTo(this.scene.player)
   }
