@@ -3,6 +3,7 @@ export default class Character extends Substance {
   constructor (scene, x, y, key) {
     super(scene, x, y, key)
     this.setTarget(null)
+    this.setAttackRange()
   }
   preUpdate () {
     super.preUpdate()
@@ -18,6 +19,9 @@ export default class Character extends Substance {
     this.tartget = null
     this._targetPositionX = x
     this._targetPositionY = y
+  }
+  setAttackRange (range = 100) {
+    this.attackRange = range
   }
   get followingEnemy () {
     return this.hasTarget && this.target.constructor.name !== this.constructor.name
@@ -58,6 +62,7 @@ export default class Character extends Substance {
   }
   _walkToTargetPosition () {
     if (!this.followingTarget) return
+    if (this.followingEnemy && this.diffToFollowingDistance < this.attackRange) return
     this.body.setVelocity(this.diffToFollowingX, this.diffToFollowingY)
     this.body.velocity.normalize().scale(240)
     if (this.diffToFollowingDistance < 5) this.setTargetPosition()
