@@ -19,6 +19,9 @@ export default class Character extends Substance {
     this._targetPositionX = x
     this._targetPositionY = y
   }
+  get followingEnemy () {
+    return this.target && this.target.constructor.name !== this.constructor.name
+  }
   get hasTarget () {
     return this.target !== null
   }
