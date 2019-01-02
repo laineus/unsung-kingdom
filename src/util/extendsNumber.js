@@ -10,4 +10,7 @@ export default () => {
   Object.defineProperty(Number.prototype, 'toPixelCenter', {
     get () { return tileToPixel(this) }
   })
+  Object.defineProperty(Number.prototype, 'toArray', {
+    get () { return [...Array(this).keys()] }
+  })
 }
