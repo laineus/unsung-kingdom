@@ -1,5 +1,6 @@
 import config from '../data/config'
 import Baloon from './Balloon'
+import Gauge from './Gauge'
 export default class Substance extends Phaser.GameObjects.Container {
   constructor (scene, x, y, key = null) {
     super(scene, x, y)
@@ -11,6 +12,11 @@ export default class Substance extends Phaser.GameObjects.Container {
     scene.physics.world.enable(this)
     scene.add.existing(this)
     this.body.setDrag(500)
+  }
+  setHp (hp) {
+    const gauge = new Gauge(this.scene, 32, 3).setPosition(0, -40)
+    gauge.value = hp
+    this.add(gauge)
   }
   preUpdate () {
     if (this.balloon) this.balloon.visible = this.distanceToPlayer < 150

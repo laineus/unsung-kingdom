@@ -5,6 +5,7 @@ export default class Player extends Character {
     this.targetMarker = scene.add.circle(0, 0, 5, 0xAA0000, 0.5)
     this.add(this.targetMarker)
     this.setSpeed(240)
+    this.setHp(100)
   }
   preUpdate () {
     super.preUpdate()
