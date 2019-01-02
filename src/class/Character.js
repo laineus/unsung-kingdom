@@ -9,6 +9,7 @@ export default class Character extends Substance {
   preUpdate () {
     super.preUpdate()
     this._walkToTargetPosition()
+    this._attackToTarget()
     this._updateAnimation()
   }
   setTarget (target = null) {
@@ -29,6 +30,9 @@ export default class Character extends Substance {
   }
   get followingEnemy () {
     return this.hasTarget && this.target.constructor.name !== this.constructor.name
+  }
+  get enemyInAttackRange () {
+    return this.followingEnemy && this.diffToFollowingDistance < this.attackRange
   }
   get hasTarget () {
     return this.target !== null
@@ -66,10 +70,14 @@ export default class Character extends Substance {
   }
   _walkToTargetPosition () {
     if (!this.followingTarget) return
-    if (this.followingEnemy && this.diffToFollowingDistance < this.attackRange) return
+    if (this.enemyInAttackRange) return
     this.body.setVelocity(this.diffToFollowingX, this.diffToFollowingY)
     this.body.velocity.normalize().scale(this.speed)
     if (this.diffToFollowingDistance < 5) this.setTargetPosition()
+  }
+  _attackToTarget() {
+    if (!this.enemyInAttackRange) return
+    // attack
   }
   _updateAnimation () {
     if (!this.walking) {
