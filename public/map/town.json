@@ -6,70 +6,70 @@
  "name":"town",
  "spacing":0,
  "tilecount":60,
+ "tiledversion":"2018.12.22",
  "tileheight":32,
- "tiles":
-    {
-     "10":
+ "tiles":[
         {
+         "id":10,
          "type":"collides"
-        },
-     "11":
+        }, 
         {
+         "id":11,
          "type":"collides"
-        },
-     "12":
+        }, 
         {
+         "id":12,
          "type":"collides"
-        },
-     "20":
+        }, 
         {
+         "id":20,
          "type":"collides"
-        },
-     "21":
+        }, 
         {
+         "id":21,
          "type":"collides"
-        },
-     "22":
+        }, 
         {
+         "id":22,
          "type":"collides"
-        },
-     "30":
+        }, 
         {
+         "id":30,
          "type":"collides"
-        },
-     "31":
+        }, 
         {
+         "id":31,
          "type":"collides"
-        },
-     "32":
+        }, 
         {
+         "id":32,
          "type":"collides"
-        },
-     "40":
+        }, 
         {
+         "id":40,
          "type":"collides"
-        },
-     "41":
+        }, 
         {
+         "id":41,
          "type":"collides"
-        },
-     "42":
+        }, 
         {
+         "id":42,
          "type":"collides"
-        },
-     "50":
+        }, 
         {
+         "id":50,
          "type":"collides"
-        },
-     "51":
+        }, 
         {
+         "id":51,
          "type":"collides"
-        },
-     "52":
+        }, 
         {
+         "id":52,
          "type":"collides"
-        }
-    },
+        }],
  "tilewidth":32,
- "type":"tileset"
+ "type":"tileset",
+ "version":1.2
 }
