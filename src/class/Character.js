@@ -4,6 +4,7 @@ export default class Character extends Substance {
     super(scene, x, y, key)
     this.setTarget(null)
     this.setAttackRange()
+    this.setSpeed(120)
   }
   preUpdate () {
     super.preUpdate()
@@ -22,6 +23,9 @@ export default class Character extends Substance {
   }
   setAttackRange (range = 100) {
     this.attackRange = range
+  }
+  setSpeed (speed = 120) {
+    this.speed = speed
   }
   get followingEnemy () {
     return this.hasTarget && this.target.constructor.name !== this.constructor.name
@@ -64,7 +68,7 @@ export default class Character extends Substance {
     if (!this.followingTarget) return
     if (this.followingEnemy && this.diffToFollowingDistance < this.attackRange) return
     this.body.setVelocity(this.diffToFollowingX, this.diffToFollowingY)
-    this.body.velocity.normalize().scale(240)
+    this.body.velocity.normalize().scale(this.speed)
     if (this.diffToFollowingDistance < 5) this.setTargetPosition()
   }
   _updateAnimation () {
