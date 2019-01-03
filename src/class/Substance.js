@@ -19,6 +19,7 @@ export default class Substance extends Phaser.GameObjects.Container {
     this.add(gauge)
   }
   preUpdate () {
+    this.setDepth(this.y)
     if (this.balloon) this.balloon.visible = this.distanceToPlayer < 150
   }
   setEvent (callback) {
