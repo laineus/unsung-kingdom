@@ -5,6 +5,7 @@ export default class Character extends Substance {
     this.setTarget(null)
     this.setAttackRange()
     this.setSpeed(120)
+    this.setAttackDelay()
   }
   preUpdate () {
     super.preUpdate()
@@ -24,6 +25,11 @@ export default class Character extends Substance {
   }
   setAttackRange (range = 100) {
     this.attackRange = range
+  }
+  setAttackDelay (first = 60, interval = 120) {
+    this.attackDelay = first
+    this.attackDelayFirst = first
+    this.attackDelayInterval = interval
   }
   setSpeed (speed = 120) {
     this.speed = speed
@@ -71,13 +77,16 @@ export default class Character extends Substance {
   _walkToTargetPosition () {
     if (!this.followingTarget) return
     if (this.enemyInAttackRange) return
+    this.attackDelay = this.attackDelayFirst
     this.body.setVelocity(this.diffToFollowingX, this.diffToFollowingY)
     this.body.velocity.normalize().scale(this.speed)
     if (this.diffToFollowingDistance < 5) this.setTargetPosition()
   }
   _attackToTarget() {
     if (!this.enemyInAttackRange) return
+    if (this.attackDelay > 0) return this.attackDelay--
     // attack
+    this.attackDelay = this.attackDelayInterval
   }
   _updateAnimation () {
     if (!this.walking) {
