@@ -12,6 +12,8 @@ export default class Substance extends Phaser.GameObjects.Container {
     scene.physics.world.enable(this)
     scene.add.existing(this)
     this.body.setDrag(300)
+    this.tapArea = this.scene.add.rectangle(0, -15, this.width + 20, this.height + 50).setInteractive()
+    this.add(this.tapArea)
   }
   get hp () {
     return this._hp
@@ -34,7 +36,10 @@ export default class Substance extends Phaser.GameObjects.Container {
   }
   setEvent (callback) {
     this.balloon = new Baloon(this.scene).setPosition(0, -30)
-    this.balloon.on('pointerdown', callback)
+    this.tapArea.on('pointerdown', pointer => {
+      if (this.distanceToPlayer >= 150) return
+      callback(pointer)
+    })
     this.add(this.balloon)
   }
   setTalk () {
