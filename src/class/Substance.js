@@ -47,6 +47,10 @@ export default class Substance extends Phaser.GameObjects.Container {
   distanceTo (target) {
     return Phaser.Math.Distance.Between(this.x, this.y, target.x, target.y)
   }
+  attackBy (attacker) {
+    const damage = 10
+    this.hp -= damage
+  }
   rayCast (x, y, speed = 20) {
     const distanceDiff = Math.hypot(x - this.x, y - this.y)
     const count = Math.floor(distanceDiff / speed)

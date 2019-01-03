@@ -86,6 +86,7 @@ export default class Character extends Substance {
     if (!this.enemyInAttackRange) return
     if (this.attackDelay > 0) return this.attackDelay--
     // attack
+    this.target.attackBy(this)
     this.attackDelay = this.attackDelayInterval
   }
   _updateAnimation () {
