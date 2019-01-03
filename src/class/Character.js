@@ -38,7 +38,7 @@ export default class Character extends Substance {
     return this.hasTarget && this.target.constructor.name !== this.constructor.name
   }
   get enemyInAttackRange () {
-    return this.followingEnemy && this.diffToFollowingDistance < this.attackRange
+    return this.followingEnemy && this.diffToFollowingDistance < this.attackRange && !this.rayCast(this.target.x, this.target.y)
   }
   get hasTarget () {
     return this.target !== null
