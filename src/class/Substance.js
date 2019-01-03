@@ -49,6 +49,14 @@ export default class Substance extends Phaser.GameObjects.Container {
   }
   attackBy (attacker) {
     const damage = 10
+    const damageText = this.scene.add.text(this.x, this.y - 50, damage, { fontStyle: 'bold' }).setOrigin(0.5, 0.5)
+    this.scene.add.tween({
+      targets: damageText,
+      ease: Phaser.Math.Easing.Expo.Out,
+      duration: 500,
+      y: damageText.y - 20,
+      onComplete: () => damageText.destroy()
+    })
     this.hp -= damage
   }
   rayCast (x, y, speed = 20) {
