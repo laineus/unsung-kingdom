@@ -13,10 +13,20 @@ export default class Substance extends Phaser.GameObjects.Container {
     scene.add.existing(this)
     this.body.setDrag(500)
   }
+  get hp () {
+    return this._hp
+  }
+  set hp (hp) {
+    if (hp < 0) hp = 0
+    if (hp > this.maxHp) hp = this.maxHp
+    this._hp = hp
+    this.hpGauge.value = this._hp
+  }
   setHp (hp) {
-    const gauge = new Gauge(this.scene, 32, 4).setPosition(0, -40)
-    gauge.value = hp
-    this.add(gauge)
+    this.hpGauge = new Gauge(this.scene, 32, 4, hp).setPosition(0, -40)
+    this.add(this.hpGauge)
+    this.maxHp = hp
+    this.hp = hp
   }
   preUpdate () {
     this.setDepth(this.y)
