@@ -11,7 +11,7 @@ export default class Substance extends Phaser.GameObjects.Container {
     this.add(this.image)
     scene.physics.world.enable(this)
     scene.add.existing(this)
-    this.body.setDrag(500)
+    this.body.setDrag(300)
   }
   get hp () {
     return this._hp
