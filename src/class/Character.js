@@ -19,7 +19,7 @@ export default class Character extends Substance {
     this.target = target
   }
   setTargetPosition (x = null, y = null) {
-    this.tartget = null
+    this.target = null
     this._targetPositionX = x
     this._targetPositionY = y
   }
