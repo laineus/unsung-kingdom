@@ -38,13 +38,13 @@ export default class Substance extends Phaser.GameObjects.Container {
     this.balloon = new Baloon(this.scene).setPosition(0, -30)
     this.tapArea.on('pointerdown', pointer => {
       if (this.distanceToPlayer >= 150) return
+      pointer.touchcancel()
       callback(pointer)
     })
     this.add(this.balloon)
   }
   setTalk () {
-    this.setEvent(pointer => {
-      pointer.touchcancel()
+    this.setEvent(() => {
       this.scene.player.setTargetPosition()
       this.scene.scene.get('UI').talk.speak()
     })
