@@ -13,6 +13,9 @@ export default class Substance extends Phaser.GameObjects.Container {
     scene.add.existing(this)
     this.body.setDrag(300)
   }
+  get isAlive () {
+    return !this.maxHp || this.hp > 0
+  }
   get hp () {
     return this._hp
   }
@@ -29,6 +32,7 @@ export default class Substance extends Phaser.GameObjects.Container {
     this.hp = hp
   }
   preUpdate () {
+    if (this.target && !this.target.isAlive) this.setTarget()
     this.setDepth(this.y)
     if (this.balloon) this.balloon.visible = this.distanceToPlayer < 150
   }
