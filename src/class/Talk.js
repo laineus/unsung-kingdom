@@ -24,7 +24,7 @@ export default class Talk extends Phaser.GameObjects.Container {
     this.index = 0
     this.images = this.scene.add.container(0, 0)
     this.window = this.scene.add.rectangle(0, 0, this.width, this.height, 0x000000, 100).setOrigin(0, 0)
-    this.text = this.scene.add.text(18, 18, '', { fontSize: 18, lineSpacing: 13 })
+    this.text = this.scene.add.text(18, 16, '', { fontSize: 18, lineSpacing: 13 }).setPadding(0, 2, 0, 0)
     this.windowName = this.scene.add.rectangle(0, 0, 200, 30, 0x000000, 100).setOrigin(0, 1)
     this.textName = this.scene.add.text(18, -20, '', { fontSize: 18, fontStyle: 'bold', fontFamily: 'Ubuntu', lineSpacing: 13 })
     this.add([this.images, this.window, this.text, this.windowName, this.textName])
