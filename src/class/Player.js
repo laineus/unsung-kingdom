@@ -6,10 +6,14 @@ export default class Player extends Character {
     this.add(this.targetMarker)
     this.setSpeed(240)
     this.setHp(100)
+    this.setAttackDelay(0, 30)
   }
   preUpdate () {
     super.preUpdate()
     this.targetMarker.visible = this.hasTargetPosition
     this.targetMarker.setPosition(this.diffToFollowingX, this.diffToFollowingY)
+  }
+  die () {
+    // gameover
   }
 }

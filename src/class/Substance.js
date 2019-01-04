@@ -70,6 +70,10 @@ export default class Substance extends Phaser.GameObjects.Container {
       onComplete: () => damageText.destroy()
     })
     this.hp -= damage
+    if (this.hp <= 0) this.die()
+  }
+  die () {
+    this.destroy()
   }
   rayCast (x, y, speed = 20) {
     const distanceDiff = Math.hypot(x - this.x, y - this.y)
