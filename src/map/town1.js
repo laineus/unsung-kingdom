@@ -4,7 +4,7 @@ export default {
   create (scene) {
     // doorToRoom
     this.doorToRoom = new Substance(scene, (17).toPixelCenter, (34).toPixelCenter)
-    this.doorToRoom.setEvent(() => scene.mapChange('room1', 18, 20))
+    this.doorToRoom.setTapEvent(() => scene.mapChange('room1', 18, 20), true, 150)
   },
   update () {
     this.doorToRoom.update()
