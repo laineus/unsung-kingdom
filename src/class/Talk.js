@@ -1,12 +1,4 @@
 const PADDING = 20
-const SAMPLE = [
-  ['ann', 'francisca'],
-  { name: 'ann', text: 'こんにちは。わたしは犬です。ワンワン。\nさようなら。' },
-  { name: 'francisca', text: 'はいはいこんにちは。' },
-  ['ann', 'francisca', 'jaquelyn'],
-  { name: 'jaquelyn', text: 'あなたも犬ですか。' },
-  { name: 'francisca', text: 'はいはい、私も犬です。' }
-]
 export default class Talk extends Phaser.GameObjects.Container {
   constructor (scene) {
     super(scene)
@@ -18,7 +10,6 @@ export default class Talk extends Phaser.GameObjects.Container {
     })
   }
   speak (data) {
-    data = SAMPLE // debug
     this.data = data
     this.scene.scene.pause('Game')
     this.index = 0
