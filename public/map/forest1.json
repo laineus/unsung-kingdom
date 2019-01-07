@@ -36,9 +36,64 @@
          "width":48,
          "x":0,
          "y":0
+        }, 
+        {
+         "draworder":"topdown",
+         "id":4,
+         "name":"event",
+         "objects":[
+                {
+                 "height":64,
+                 "id":1,
+                 "name":"forest2",
+                 "properties":[
+                        {
+                         "name":"x",
+                         "type":"int",
+                         "value":41
+                        }, 
+                        {
+                         "name":"y",
+                         "type":"int",
+                         "value":2
+                        }],
+                 "rotation":0,
+                 "type":"gate",
+                 "visible":true,
+                 "width":192,
+                 "x":288,
+                 "y":960
+                }, 
+                {
+                 "height":128,
+                 "id":3,
+                 "name":"town1",
+                 "properties":[
+                        {
+                         "name":"x",
+                         "type":"int",
+                         "value":2
+                        }, 
+                        {
+                         "name":"y",
+                         "type":"int",
+                         "value":20
+                        }],
+                 "rotation":0,
+                 "type":"gate",
+                 "visible":true,
+                 "width":64,
+                 "x":1472,
+                 "y":512
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "x":0,
+         "y":0
         }],
- "nextlayerid":4,
- "nextobjectid":1,
+ "nextlayerid":5,
+ "nextobjectid":4,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"2018.12.22",
