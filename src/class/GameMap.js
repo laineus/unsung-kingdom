@@ -39,4 +39,17 @@ export default class GameMap {
       return data.tiles.filter(tile => tile.type === 'collides').map(tile => tile.id + set.firstgid)
     }).flat()
   }
+  _getGates () {
+    return this.tilemap.objects.map(v => v.objects).flat().filter(v => v.type === 'gate').map(v => {
+      return {
+        key: v.name,
+        x: v.properties.find(v => v.name === 'x').value,
+        y: v.properties.find(v => v.name === 'y').value,
+        area_x: v.x,
+        area_y: v.y,
+        width: v.width,
+        height: v.height
+      }
+    })
+  }
 }
