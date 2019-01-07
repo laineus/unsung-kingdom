@@ -14,14 +14,18 @@ export default class Character extends Substance {
     this._updateAnimation()
   }
   setTarget (target = null) {
-    this._targetPositionX = null
-    this._targetPositionY = null
+    this.unsetFollowing()
     this.target = target
   }
   setTargetPosition (x = null, y = null) {
-    this.target = null
+    this.unsetFollowing()
     this._targetPositionX = x
     this._targetPositionY = y
+  }
+  unsetFollowing () {
+    this.target = null
+    this._targetPositionX = null
+    this._targetPositionY = null
   }
   setAttackRange (range = 100) {
     this.attackRange = range
@@ -81,7 +85,7 @@ export default class Character extends Substance {
     this.body.setVelocity(this.diffToFollowingX, this.diffToFollowingY)
     const speed = Math.min(this.speed, (this.diffToFollowingDistance * 10))
     this.body.velocity.normalize().scale(speed)
-    if (this.diffToFollowingDistance < 5) this.setTargetPosition()
+    if (this.diffToFollowingDistance < 5) this.unsetFollowing()
   }
   _attackToTarget() {
     if (!this.enemyInAttackRange) return

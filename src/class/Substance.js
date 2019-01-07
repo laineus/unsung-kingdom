@@ -32,7 +32,7 @@ export default class Substance extends Phaser.GameObjects.Container {
     this.hp = hp
   }
   preUpdate () {
-    if (this.target && !this.target.isAlive) this.setTarget()
+    if (this.target && !this.target.isAlive) this.unsetFollowing()
     this.setDepth(this.y)
     if (this.balloon) this.balloon.visible = this.distanceToPlayer < 150
   }
@@ -52,7 +52,7 @@ export default class Substance extends Phaser.GameObjects.Container {
   }
   setTalk (data) {
     this.setTapEvent(() => {
-      this.scene.player.setTargetPosition()
+      this.scene.player.unsetFollowing()
       this.scene.scene.get('UI').talk.speak(data)
     }, true)
   }
