@@ -1,3 +1,4 @@
+import Gate from './Gate'
 export default class GameMap {
   constructor (scene, mapKey) {
     this.scene = scene
@@ -8,6 +9,7 @@ export default class GameMap {
       return layer.visible ? this.tilemap.createStaticLayer(i, tilesets, 0, 0) : null
     }).filter(v => v)
     this.staticLayers.forEach(layer => layer.setCollision(collides))
+    this._getGateObjects().map(gate => new Gate(scene, gate.key, gate.x, gate.y, gate.zone_x, gate.zone_y, gate.zone_width, gate.zone_height))
     return this
   }
   get width () {
@@ -38,5 +40,18 @@ export default class GameMap {
       const data = this.scene.cache.json.get(set.name)
       return data.tiles.filter(tile => tile.type === 'collides').map(tile => tile.id + set.firstgid)
     }).flat()
+  }
+  _getGateObjects () {
+    return this.tilemap.objects.map(v => v.objects).flat().filter(v => v.type === 'gate').map(v => {
+      return {
+        key: v.name,
+        x: v.properties.find(v => v.name === 'x').value,
+        y: v.properties.find(v => v.name === 'y').value,
+        zone_x: v.x,
+        zone_y: v.y,
+        zone_width: v.width,
+        zone_height: v.height
+      }
+    })
   }
 }

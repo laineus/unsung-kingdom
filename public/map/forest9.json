@@ -36,9 +36,42 @@
          "width":32,
          "x":0,
          "y":0
+        }, 
+        {
+         "draworder":"topdown",
+         "id":10,
+         "name":"event",
+         "objects":[
+                {
+                 "height":64,
+                 "id":1,
+                 "name":"forest8",
+                 "properties":[
+                        {
+                         "name":"x",
+                         "type":"int",
+                         "value":6
+                        }, 
+                        {
+                         "name":"y",
+                         "type":"int",
+                         "value":2
+                        }],
+                 "rotation":0,
+                 "type":"gate",
+                 "visible":true,
+                 "width":160,
+                 "x":352,
+                 "y":960
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "x":0,
+         "y":0
         }],
- "nextlayerid":10,
- "nextobjectid":1,
+ "nextlayerid":11,
+ "nextobjectid":2,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"2018.12.22",
