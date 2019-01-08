@@ -1,4 +1,5 @@
 import Gate from './Gate'
+import Enemy from './Enemy'
 export default class GameMap {
   constructor (scene, mapKey) {
     this.scene = scene
@@ -10,6 +11,13 @@ export default class GameMap {
     }).filter(v => v)
     this.staticLayers.forEach(layer => layer.setCollision(collides))
     this._getGateObjects().map(gate => new Gate(scene, gate.key, gate.x, gate.y, gate.zone_x, gate.zone_y, gate.zone_width, gate.zone_height))
+    this._getObjects('enemy').map(data => {
+      const enemy = new Enemy(scene, data.x, data.y, data.name)
+      enemy.setTarget(scene.player)
+      this.addCollider(enemy)
+      scene.physics.add.collider(scene.player, enemy)
+      enemy.setActive(true)
+    })
     return this
   }
   get width () {
@@ -41,8 +49,11 @@ export default class GameMap {
       return data.tiles.filter(tile => tile.type === 'collides').map(tile => tile.id + set.firstgid)
     }).flat()
   }
+  _getObjects (type) {
+    return this.tilemap.objects.map(v => v.objects).flat().filter(v => v.type === type)
+  }
   _getGateObjects () {
-    return this.tilemap.objects.map(v => v.objects).flat().filter(v => v.type === 'gate').map(v => {
+    return this._getObjects('gate').map(v => {
       return {
         key: v.name,
         x: v.properties.find(v => v.name === 'x').value,
