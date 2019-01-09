@@ -10,13 +10,11 @@ export default class GameMap {
       return layer.visible ? this.tilemap.createStaticLayer(i, tilesets, 0, 0) : null
     }).filter(v => v)
     this.staticLayers.forEach(layer => layer.setCollision(collides))
+    scene.physics.add.collider(this.staticLayers, scene.substances)
     this._getGateObjects().map(gate => new Gate(scene, gate.key, gate.x, gate.y, gate.zone_x, gate.zone_y, gate.zone_width, gate.zone_height))
     this._getObjects('enemy').map(data => {
       const enemy = new Enemy(scene, data.x, data.y, data.name)
       enemy.setTarget(scene.player)
-      this.addCollider(enemy)
-      scene.physics.add.collider(scene.player, enemy)
-      enemy.setActive(true)
     })
     return this
   }
@@ -25,9 +23,6 @@ export default class GameMap {
   }
   get height () {
     return this.tilemap.heightInPixels
-  }
-  addCollider (target) {
-    this.scene.physics.add.collider(target, this.staticLayers)
   }
   displayDebug () {
     const debugGraphics = this.scene.add.graphics().setAlpha(0.75)

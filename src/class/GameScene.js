@@ -7,6 +7,8 @@ export default class GameScene extends Phaser.Scene {
     super({ key: 'Game', active: false })
   }
   create (payload) {
+    // substance group
+    this.substances = this.add.group()
     // player
     this.player = new Player(this, payload.x, payload.y)
     // map
@@ -16,7 +18,6 @@ export default class GameScene extends Phaser.Scene {
     this.camera.setBounds(0, 0, this.map.width, this.map.height)
     this.camera.roundPixels = true
     this.camera.setZoom(1)
-    this.map.addCollider(this.player)
     this.camera.startFollow(this.player, true, 0.1, 0.1)
     // player controll
     const walk = pointer => {

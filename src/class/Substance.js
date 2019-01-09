@@ -9,8 +9,10 @@ export default class Substance extends Phaser.GameObjects.Container {
     this.image = key ? scene.add.sprite(0, 0, key) : scene.add.rectangle(0, 0, config.TILE_SIZE, config.TILE_SIZE)
     this.setSize(this.image.width, this.image.height)
     this.add(this.image)
-    scene.physics.world.enable(this)
     scene.add.existing(this)
+    scene.substances.add(this)
+    scene.physics.add.collider(this, scene.substances)
+    scene.physics.world.enable(this)
     this.body.setDrag(300)
   }
   get isAlive () {

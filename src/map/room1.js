@@ -10,7 +10,5 @@ export default {
       ['ann', 'francisca', 'jaquelyn'],
       { name: 'francisca', text: 'こんばんは。' }
     ])
-    scene.map.addCollider(this.npc)
-    scene.physics.add.collider(scene.player, this.npc)
   }
 }
