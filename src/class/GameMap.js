@@ -11,8 +11,8 @@ export default class GameMap {
     }).filter(v => v)
     this.staticLayers.forEach(layer => layer.setCollision(collides))
     scene.physics.add.collider(this.staticLayers, scene.substances)
-    this._getGateObjects().map(gate => new Gate(scene, gate.key, gate.x, gate.y, gate.zone_x, gate.zone_y, gate.zone_width, gate.zone_height))
-    this._getObjects('enemy').map(data => new Enemy(scene, data.x, data.y, data.name))
+    this.gates = this._getGateObjects().map(gate => new Gate(scene, gate.key, gate.x, gate.y, gate.zone_x, gate.zone_y, gate.zone_width, gate.zone_height))
+    this.enemies = this._getObjects('enemy').map(data => new Enemy(scene, data.x, data.y, data.name))
     return this
   }
   get width () {
