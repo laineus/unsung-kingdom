@@ -9,5 +9,12 @@ export default class Enemy extends Character {
   }
   preUpdate () {
     super.preUpdate()
+    this.ditectPlayer()
+  }
+  ditectPlayer () {
+    if (this.hasTarget) return
+    if (this.distanceTo(this.scene.player) < 300) {
+      this.setTarget(this.scene.player)
+    }
   }
 }
