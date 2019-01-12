@@ -1,7 +1,7 @@
 import Character from './Character'
 export default class Enemy extends Character {
-  constructor (scene, x, y) {
-    super(scene, x, y, 'player')
+  constructor (scene, x, y, key) {
+    super(scene, x, y, key)
     this.setHp(100)
     this.setTapEvent(() => {
       scene.player.setTarget(this)

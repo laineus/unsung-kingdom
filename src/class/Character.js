@@ -1,4 +1,5 @@
 import Substance from './Substance'
+import assets from '../data/assets'
 export default class Character extends Substance {
   constructor (scene, x, y, key) {
     super(scene, x, y, key)
@@ -97,10 +98,23 @@ export default class Character extends Substance {
   _updateAnimation () {
     if (!this.walking) {
       if (this.image.anims.currentAnim) this.image.setFrame(this.image.anims.currentAnim.frames[1].textureFrame)
-    } else if (this.movingHorizontal) {
-      this.image.anims.play(this.body.velocity.x > 0 ? `${this.key}_walk_right` : `${this.key}_walk_left`, true)
     } else {
-      this.image.anims.play(this.body.velocity.y > 0 ? `${this.key}_walk_down` : `${this.key}_walk_up`, true)
+      this.image.anims.play(this._animName, true)
+      if (this.frameLength === 6) this.image.setScale(this.body.velocity.x > 0 ? -1 : 1, 1)
+    }
+  }
+  get frameLength () {
+    return assets.spritesheet.find(v => v[0] === this.key)[2].endFrame
+  }
+  get _animName () {
+    if (this.frameLength === 12) {
+      if (this.movingHorizontal) {
+        return this.body.velocity.x > 0 ? `${this.key}_walk_right` : `${this.key}_walk_left`
+      } else {
+        return this.body.velocity.y > 0 ? `${this.key}_walk_down` : `${this.key}_walk_up`
+      }
+    } else if (this.frameLength === 6) {
+      return this.body.velocity.y > 0 ? `${this.key}_walk_front` : `${this.key}_walk_back`
     }
   }
 }
