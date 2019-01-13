@@ -109,7 +109,7 @@ export default class Character extends Substance {
   get _animName () {
     if (this.frameLength === 12) {
       if (this.movingHorizontal) {
-        return this.body.velocity.x < 0 ? `${this.key}_walk_leftt` : `${this.key}_walk_right`
+        return this.body.velocity.x < 0 ? `${this.key}_walk_left` : `${this.key}_walk_right`
       } else {
         return this.body.velocity.y < 0 ? `${this.key}_walk_up` : `${this.key}_walk_down`
       }
