@@ -100,7 +100,7 @@ export default class Character extends Substance {
       if (this.image.anims.currentAnim) this.image.setFrame(this.image.anims.currentAnim.frames[1].textureFrame)
     } else {
       this.image.anims.play(this._animName, true)
-      if (this.frameLength === 6) this.image.setScale(this.body.velocity.x > 0 ? -1 : 1, 1)
+      if (this.frameLength === 6) this.image.setScale(this.body.velocity.x < 0 ? 1 : -1, 1)
     }
   }
   get frameLength () {
@@ -109,12 +109,12 @@ export default class Character extends Substance {
   get _animName () {
     if (this.frameLength === 12) {
       if (this.movingHorizontal) {
-        return this.body.velocity.x > 0 ? `${this.key}_walk_right` : `${this.key}_walk_left`
+        return this.body.velocity.x < 0 ? `${this.key}_walk_leftt` : `${this.key}_walk_right`
       } else {
-        return this.body.velocity.y > 0 ? `${this.key}_walk_down` : `${this.key}_walk_up`
+        return this.body.velocity.y < 0 ? `${this.key}_walk_up` : `${this.key}_walk_down`
       }
     } else if (this.frameLength === 6) {
-      return this.body.velocity.y > 0 ? `${this.key}_walk_front` : `${this.key}_walk_back`
+      return this.body.velocity.y < 0 ? `${this.key}_walk_back` : `${this.key}_walk_front`
     }
   }
 }
