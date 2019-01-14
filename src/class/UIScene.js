@@ -71,7 +71,14 @@ export default class UIScene extends Phaser.Scene {
         })
       })
     })
-    const mask = this.make.graphics().fillRect(LEFT, TOP, WIDTH, HEIGHT)
+    const ratio = config.TILE_SIZE / SIZE
+    field.fillStyle(0x66CCAA)
+    tilemap.objects.forEach(layer => {
+      layer.objects.filter(o => o.type === 'gate').forEach(gate => {
+        field.fillRect(gate.x / ratio, gate.y / ratio, gate.width / ratio, gate.height / ratio)
+      })
+    })
+    const mask = this.make.graphics().fillRoundedRect(LEFT, TOP, WIDTH, HEIGHT, 10)
     const bg = this.add.rectangle(0, 0, WIDTH, HEIGHT, 0xddccaa).setOrigin(0, 0)
     this.minimap = this.add.container(LEFT, TOP).setSize(WIDTH, HEIGHT)
     this.minimap.add([bg, field])
