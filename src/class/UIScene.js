@@ -11,6 +11,7 @@ export default class UIScene extends Phaser.Scene {
   }
   update (time, delta) {
     if (!this.gameScene) return
+    if (!this.minimap) return
     const x = this.gameScene.player.x
     const y = this.gameScene.player.y
     const size = config.TILE_SIZE / this.minimap.size
@@ -20,6 +21,7 @@ export default class UIScene extends Phaser.Scene {
     return this.scene.get('Game')
   }
   transition (callback = null) {
+    this.minimap.destroy() // TODO
     this.scene.pause('Game')
     const left = this.add.rectangle(0, -config.HEIGHT_HALF, config.WIDTH, config.HEIGHT_HALF, 0x111111).setOrigin(0, 0)
     this.add.tween({
@@ -78,12 +80,12 @@ export default class UIScene extends Phaser.Scene {
         field.fillRect(gate.x / ratio, gate.y / ratio, gate.width / ratio, gate.height / ratio)
       })
     })
-    const mask = this.make.graphics().fillRoundedRect(LEFT, TOP, WIDTH, HEIGHT, 10)
     const bg = this.add.rectangle(0, 0, WIDTH, HEIGHT, 0xddccaa).setOrigin(0, 0)
     this.minimap = this.add.container(LEFT, TOP).setSize(WIDTH, HEIGHT)
     this.minimap.add([bg, field])
     this.minimap.field = field
     this.minimap.size = SIZE
-    this.minimap.setMask(new Phaser.Display.Masks.GeometryMask(this, mask))
+    const mask = this.make.graphics().fillRoundedRect(LEFT, TOP, WIDTH, HEIGHT, 10).createGeometryMask()
+    this.minimap.setMask(mask)
   }
 }
