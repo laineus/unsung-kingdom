@@ -46,19 +46,25 @@ export default class UIScene extends Phaser.Scene {
     })
   }
   renderMiniMap (tilemap, size = 4) {
-    if (this.graphics) this.graphics.destroy()
-    const graphics = this.add.graphics()
-    graphics.fillStyle(0xffeecc)
-    graphics.fillRect(0, 0, tilemap.width * size, tilemap.height * size)
-    graphics.fillStyle(0xddccaa)
+    const SIZE = 4
+    const WIDTH = 180
+    const HEIGHT = 180
+    if (this.minimap) this.minimap.destroy()
+    const field = this.make.graphics()
+    field.fillStyle(0xffeecc)
+    field.fillRect(0, 0, tilemap.width * SIZE, tilemap.height * SIZE)
+    field.fillStyle(0xddccaa)
     tilemap.layers.forEach(layer => {
       layer.data.forEach((row, rowIndex) => {
         row.forEach((cell, cellIndex) => {
-          if (cell.collides) graphics.fillRect(cellIndex * size, rowIndex * size, size, size)
+          if (cell.collides) field.fillRect(cellIndex * SIZE, rowIndex * SIZE, SIZE, SIZE)
         })
       })
     })
-    graphics.setPosition(20, 20)
-    this.graphics = graphics
+    const mask = this.make.graphics().fillStyle(0x555555).fillRect(0, 0, WIDTH, HEIGHT)
+    this.minimap = this.add.container()
+    this.minimap.setPosition(20, 20)
+    this.minimap.add([mask, field])
+    this.minimap.setMask(new Phaser.Display.Masks.GeometryMask(this, mask))
   }
 }
