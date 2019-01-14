@@ -13,7 +13,7 @@ export default class UIScene extends Phaser.Scene {
     if (!this.gameScene) return
     const x = this.gameScene.player.x
     const y = this.gameScene.player.y
-    const size = config.TILE_SIZE / 4
+    const size = config.TILE_SIZE / this.minimap.size
     this.minimap.field.setPosition((this.minimap.width / 2) - (x / size), (this.minimap.height / 2) - (y / size))
   }
   get gameScene () {
@@ -55,8 +55,10 @@ export default class UIScene extends Phaser.Scene {
   }
   renderMiniMap (tilemap) {
     const SIZE = 4
-    const WIDTH = 180
-    const HEIGHT = 180
+    const WIDTH = 120
+    const HEIGHT = 120
+    const LEFT = config.WIDTH - WIDTH - 20
+    const TOP = config.HEIGHT - HEIGHT - 20
     if (this.minimap) this.minimap.destroy()
     const field = this.make.graphics()
     field.fillStyle(0xffeecc)
@@ -69,10 +71,12 @@ export default class UIScene extends Phaser.Scene {
         })
       })
     })
-    const mask = this.make.graphics().fillStyle(0x555555).fillRect(0, 0, WIDTH, HEIGHT)
-    this.minimap = this.add.container(20, 20).setSize(WIDTH, HEIGHT)
-    this.minimap.add([mask, field])
+    const mask = this.make.graphics().fillRect(LEFT, TOP, WIDTH, HEIGHT)
+    const bg = this.add.rectangle(0, 0, WIDTH, HEIGHT, 0xddccaa).setOrigin(0, 0)
+    this.minimap = this.add.container(LEFT, TOP).setSize(WIDTH, HEIGHT)
+    this.minimap.add([bg, field])
     this.minimap.field = field
+    this.minimap.size = SIZE
     this.minimap.setMask(new Phaser.Display.Masks.GeometryMask(this, mask))
   }
 }
