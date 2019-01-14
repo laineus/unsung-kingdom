@@ -45,4 +45,20 @@ export default class UIScene extends Phaser.Scene {
       document.body.removeChild(link)
     })
   }
+  renderMiniMap (tilemap, size = 4) {
+    if (this.graphics) this.graphics.destroy()
+    const graphics = this.add.graphics()
+    graphics.fillStyle(0xffeecc)
+    graphics.fillRect(0, 0, tilemap.width * size, tilemap.height * size)
+    graphics.fillStyle(0xddccaa)
+    tilemap.layers.forEach(layer => {
+      layer.data.forEach((row, rowIndex) => {
+        row.forEach((cell, cellIndex) => {
+          if (cell.collides) graphics.fillRect(cellIndex * size, rowIndex * size, size, size)
+        })
+      })
+    })
+    graphics.setPosition(20, 20)
+    this.graphics = graphics
+  }
 }

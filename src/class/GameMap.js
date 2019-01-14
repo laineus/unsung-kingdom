@@ -13,6 +13,7 @@ export default class GameMap {
     scene.physics.add.collider(this.staticLayers, scene.substances)
     this.gates = this._getGateObjects().map(gate => new Gate(scene, gate.key, gate.x, gate.y, gate.zone_x, gate.zone_y, gate.zone_width, gate.zone_height))
     this.enemies = this._getObjects('enemy').map(data => new Enemy(scene, data.x, data.y, data.name))
+    this.scene.scene.get('UI').renderMiniMap(this.tilemap)
     return this
   }
   get width () {
@@ -20,18 +21,6 @@ export default class GameMap {
   }
   get height () {
     return this.tilemap.heightInPixels
-  }
-  renderMiniMap (size) {
-    const graphics = new Phaser.GameObjects.Graphics(this.scene, { fillStyle: { color: 0xBB6600 } })
-    this.staticLayers.forEach(layer => {
-      layer.layer.data.forEach((row, rowIndex) => {
-        row.forEach((cell, cellIndex) => {
-          if (cell.collides) graphics.fillRect(cellIndex * size, rowIndex * size, size, size)
-        })
-      })
-    })
-    this.scene.add.existing(graphics)
-    return graphics
   }
   displayDebug () {
     const debugGraphics = this.scene.add.graphics().setAlpha(0.75)
