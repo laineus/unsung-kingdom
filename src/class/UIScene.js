@@ -10,6 +10,14 @@ export default class UIScene extends Phaser.Scene {
     this.input.keyboard.on('keydown_S', this.snapShot.bind(this))
   }
   update (time, delta) {
+    if (!this.gameScene) return
+    const x = this.gameScene.player.x
+    const y = this.gameScene.player.y
+    const size = config.TILE_SIZE / 4
+    this.minimap.field.setPosition((this.minimap.width / 2) - (x / size), (this.minimap.height / 2) - (y / size))
+  }
+  get gameScene () {
+    return this.scene.get('Game')
   }
   transition (callback = null) {
     this.scene.pause('Game')
@@ -45,7 +53,7 @@ export default class UIScene extends Phaser.Scene {
       document.body.removeChild(link)
     })
   }
-  renderMiniMap (tilemap, size = 4) {
+  renderMiniMap (tilemap) {
     const SIZE = 4
     const WIDTH = 180
     const HEIGHT = 180
@@ -62,9 +70,9 @@ export default class UIScene extends Phaser.Scene {
       })
     })
     const mask = this.make.graphics().fillStyle(0x555555).fillRect(0, 0, WIDTH, HEIGHT)
-    this.minimap = this.add.container()
-    this.minimap.setPosition(20, 20)
+    this.minimap = this.add.container(20, 20).setSize(WIDTH, HEIGHT)
     this.minimap.add([mask, field])
+    this.minimap.field = field
     this.minimap.setMask(new Phaser.Display.Masks.GeometryMask(this, mask))
   }
 }
