@@ -21,6 +21,18 @@ export default class GameMap {
   get height () {
     return this.tilemap.heightInPixels
   }
+  renderMiniMap (size) {
+    const graphics = new Phaser.GameObjects.Graphics(this.scene, { fillStyle: { color: 0xBB6600 } })
+    this.staticLayers.forEach(layer => {
+      layer.layer.data.forEach((row, rowIndex) => {
+        row.forEach((cell, cellIndex) => {
+          if (cell.collides) graphics.fillRect(cellIndex * size, rowIndex * size, size, size)
+        })
+      })
+    })
+    this.scene.add.existing(graphics)
+    return graphics
+  }
   displayDebug () {
     const debugGraphics = this.scene.add.graphics().setAlpha(0.75)
     this.staticLayers.forEach(layer => {
