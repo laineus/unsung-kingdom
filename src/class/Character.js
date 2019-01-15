@@ -7,12 +7,14 @@ export default class Character extends Substance {
     this.setAttackRange()
     this.setSpeed(120)
     this.setAttackDelay()
+    this.r = 0
   }
   preUpdate () {
     super.preUpdate()
     this._walkToTargetPosition()
     this._attackToTarget()
     this._updateAnimation()
+    this._calcRotation()
   }
   setTarget (target = null) {
     this.unsetFollowing()
@@ -78,6 +80,10 @@ export default class Character extends Substance {
   }
   get movingHorizontal () {
     return Math.abs(this.body.velocity.x) > Math.abs(this.body.velocity.y)
+  }
+  _calcRotation () {
+    if (!this.walking) return
+    this.r = Math.atan2(this.body.velocity.y, this.body.velocity.x)
   }
   _walkToTargetPosition () {
     if (!this.followingTarget) return
