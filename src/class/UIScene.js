@@ -1,11 +1,13 @@
 import moment from 'moment'
 import Talk from './Talk'
 import config from '../data/config'
+import storage from '../data/storage'
 export default class UIScene extends Phaser.Scene {
   constructor () {
     super({ key: 'UI', active: false })
   }
   create () {
+    this.storage = storage
     this.talk = new Talk(this)
     this.input.keyboard.on('keydown_S', this.snapShot.bind(this))
   }

@@ -2,11 +2,13 @@ import Player from './Player'
 import GameMap from './GameMap'
 import maps from '../data/maps'
 import assets from '../data/assets'
+import storage from '../data/storage'
 export default class GameScene extends Phaser.Scene {
   constructor () {
     super({ key: 'Game', active: false })
   }
   create (payload) {
+    this.storage = storage
     // substance group
     this.substances = this.add.group()
     // player
