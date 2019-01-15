@@ -88,7 +88,7 @@ export default class UIScene extends Phaser.Scene {
     this.minimap.field = field
     this.minimap.player = tri
     this.minimap.size = SIZE
-    const mask = this.make.graphics().fillRoundedRect(LEFT, TOP, WIDTH, HEIGHT, 0).createGeometryMask()
+    const mask = this.make.graphics().fillRoundedRect(LEFT, TOP, WIDTH, HEIGHT, 5).createGeometryMask()
     this.minimap.setMask(mask)
   }
 }
