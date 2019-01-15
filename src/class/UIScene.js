@@ -16,6 +16,7 @@ export default class UIScene extends Phaser.Scene {
     const y = this.gameScene.player.y
     const size = config.TILE_SIZE / this.minimap.size
     this.minimap.field.setPosition((this.minimap.width / 2) - (x / size), (this.minimap.height / 2) - (y / size))
+    this.minimap.player.setRotation(this.gameScene.player.r)
   }
   get gameScene () {
     return this.scene.get('Game')
@@ -81,11 +82,13 @@ export default class UIScene extends Phaser.Scene {
       })
     })
     const bg = this.add.rectangle(0, 0, WIDTH, HEIGHT, 0xddccaa).setOrigin(0, 0)
+    const tri = this.add.triangle(WIDTH / 2, HEIGHT / 2, 0, 0, 0, 6, 5, 3, 0xee8822)
     this.minimap = this.add.container(LEFT, TOP).setSize(WIDTH, HEIGHT)
-    this.minimap.add([bg, field])
+    this.minimap.add([bg, field, tri])
     this.minimap.field = field
+    this.minimap.player = tri
     this.minimap.size = SIZE
-    const mask = this.make.graphics().fillRoundedRect(LEFT, TOP, WIDTH, HEIGHT, 10).createGeometryMask()
+    const mask = this.make.graphics().fillRoundedRect(LEFT, TOP, WIDTH, HEIGHT, 0).createGeometryMask()
     this.minimap.setMask(mask)
   }
 }
