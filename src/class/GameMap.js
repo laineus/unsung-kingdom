@@ -25,6 +25,12 @@ export default class GameMap {
   get height () {
     return this.tilemap.heightInPixels
   }
+  getCharaById (id) {
+    return this.charas.find(v => v.id === id)
+  }
+  getEnemyById (id) {
+    return this.enemy.find(v => v.id === id)
+  }
   displayDebug () {
     const debugGraphics = this.scene.add.graphics().setAlpha(0.75)
     this.staticLayers.forEach(layer => {
