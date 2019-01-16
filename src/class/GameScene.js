@@ -46,6 +46,7 @@ export default class GameScene extends Phaser.Scene {
   setDebugAction () {
     this.input.keyboard.on('keydown_I', () => {
       console.log(`x: ${this.player.x}, y: ${this.player.y}, tileX: ${this.player.x.toTile} tileY: ${this.player.y.toTile}`)
+      console.log(this.storage.state)
     })
     this.input.keyboard.on('keydown_M', () => {
       const select = document.createElement('select')

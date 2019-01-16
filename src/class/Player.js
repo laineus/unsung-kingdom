@@ -12,6 +12,9 @@ export default class Player extends Character {
     super.preUpdate()
     this.targetMarker.visible = this.hasTargetPosition
     this.targetMarker.setPosition(this.diffToFollowingX, this.diffToFollowingY)
+    this.scene.storage.state.map = this.scene.map.name
+    this.scene.storage.state.x = this.x
+    this.scene.storage.state.y = this.y
   }
   die () {
     // gameover

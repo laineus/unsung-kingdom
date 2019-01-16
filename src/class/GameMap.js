@@ -3,6 +3,7 @@ import Enemy from './Enemy'
 export default class GameMap {
   constructor (scene, mapKey) {
     this.scene = scene
+    this.name = mapKey
     this.tilemap = new Phaser.Tilemaps.ParseToTilemap(scene, mapKey, 16, 16)
     const tilesets = this._getTilesets()
     const collides = this._getCollides()
