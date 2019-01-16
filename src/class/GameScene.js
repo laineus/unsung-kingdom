@@ -65,9 +65,17 @@ export default class GameScene extends Phaser.Scene {
         save.onclick = () => callback()
         document.getElementById('game').appendChild(save)
       }
-      addButton('save', () => console.log('save'))
-      addButton('load', () => console.log('load'))
-      addButton('reset', () => console.log('reset'))
+      addButton('save', () => {
+        this.storage.save()
+        alert('Saved')
+      })
+      addButton('load', () => {
+        location.reload()
+      })
+      addButton('delete', () => {
+        this.storage.delete()
+        alert('Save data deleted')
+      })
     })
   }
 }
