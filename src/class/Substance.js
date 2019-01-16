@@ -14,6 +14,7 @@ export default class Substance extends Phaser.GameObjects.Container {
     scene.physics.add.collider(this, scene.substances)
     scene.physics.world.enable(this)
     this.body.setDrag(300)
+    this.setId(null)
   }
   get isAlive () {
     return !this.maxHp || this.hp > 0
@@ -37,6 +38,10 @@ export default class Substance extends Phaser.GameObjects.Container {
     if (this.target && !this.target.isAlive) this.unsetFollowing()
     this.setDepth(this.y)
     if (this.balloon) this.balloon.visible = this.distanceToPlayer < 150
+  }
+  setId (id) {
+    this.id = id
+    return this
   }
   setTapEvent (callback, balloon = false) {
     const distance = 150

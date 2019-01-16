@@ -1,5 +1,6 @@
 import Gate from './Gate'
 import Enemy from './Enemy'
+import Character from './Character'
 export default class GameMap {
   constructor (scene, mapKey) {
     this.scene = scene
@@ -13,7 +14,8 @@ export default class GameMap {
     this.staticLayers.forEach(layer => layer.setCollision(collides))
     scene.physics.add.collider(this.staticLayers, scene.substances)
     this.gates = this._getGateObjects().map(gate => new Gate(scene, gate.key, gate.x, gate.y, gate.zone_x, gate.zone_y, gate.zone_width, gate.zone_height))
-    this.enemies = this._getObjects('enemy').map(data => new Enemy(scene, data.x, data.y, data.name))
+    this.charas = this._getObjects('chara').map(data => new Character(scene, data.x, data.y, data.name).setId(data.id))
+    this.enemies = this._getObjects('enemy').map(data => new Enemy(scene, data.x, data.y, data.name).setId(data.id))
     this.scene.scene.get('UI').renderMiniMap(this.tilemap)
     return this
   }
