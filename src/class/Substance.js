@@ -60,7 +60,7 @@ export default class Substance extends Phaser.GameObjects.Container {
   setTalk (data) {
     this.setTapEvent(() => {
       this.scene.player.unsetFollowing()
-      this.scene.scene.get('UI').talk.speak(data)
+      this.scene.ui.talk.speak(data)
     }, true)
   }
   distanceTo (target) {

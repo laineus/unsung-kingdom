@@ -37,9 +37,12 @@ export default class GameScene extends Phaser.Scene {
   update (time, delta) {
     if (this.event && this.event.update) this.event.update(this)
   }
+  get ui () {
+    return this.scene.get('UI')
+  }
   mapChange (mapKey, tileX, tileY) {
     console.log(`go to ${mapKey}`)
-    this.scene.get('UI').transition(() => {
+    this.ui.transition(() => {
       this.scene.start('Game', { map: mapKey, x: tileX.toPixelCenter, y: tileY.toPixelCenter })
     })
   }

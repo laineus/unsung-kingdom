@@ -16,7 +16,7 @@ export default class GameMap {
     this.gates = this._getGateObjects().map(gate => new Gate(scene, gate.key, gate.x, gate.y, gate.zone_x, gate.zone_y, gate.zone_width, gate.zone_height))
     this.charas = this._getObjects('chara').map(data => new Character(scene, data.x, data.y, data.name).setId(data.id))
     this.enemies = this._getObjects('enemy').map(data => new Enemy(scene, data.x, data.y, data.name).setId(data.id))
-    this.scene.scene.get('UI').renderMiniMap(this.tilemap)
+    this.scene.ui.renderMiniMap(this.tilemap)
     return this
   }
   get width () {
