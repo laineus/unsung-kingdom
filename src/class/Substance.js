@@ -43,7 +43,7 @@ export default class Substance extends Phaser.GameObjects.Container {
     this.id = id
     return this
   }
-  setTapEvent (callback, balloon = false) {
+  setTapEvent (callback, balloon = true) {
     const distance = 150
     this.tapArea = this.scene.add.rectangle(0, -15, this.width + 20, this.height + 50).setInteractive()
     this.add(this.tapArea)
@@ -54,14 +54,14 @@ export default class Substance extends Phaser.GameObjects.Container {
     this.tapArea.on('pointerdown', pointer => {
       if (balloon && this.distanceToPlayer >= distance) return
       pointer.touchcancel()
+      this.scene.player.unsetFollowing()
       callback(pointer)
     })
   }
   setTalk (data) {
     this.setTapEvent(() => {
-      this.scene.player.unsetFollowing()
-      this.scene.ui.talk.speak(data)
-    }, true)
+      this.scene.speak(data)
+    })
   }
   distanceTo (target) {
     return Phaser.Math.Distance.Between(this.x, this.y, target.x, target.y)

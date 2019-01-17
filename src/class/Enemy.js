@@ -5,7 +5,7 @@ export default class Enemy extends Character {
     this.setHp(100)
     this.setTapEvent(() => {
       scene.player.setTarget(this)
-    })
+    }, false)
   }
   preUpdate () {
     super.preUpdate()
