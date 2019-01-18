@@ -40,8 +40,8 @@ export default class GameScene extends Phaser.Scene {
   get ui () {
     return this.scene.get('UI')
   }
-  speak (data) {
-    this.ui.talk.speak(data)
+  talk (data) {
+    this.ui.talk(data)
   }
   mapChange (mapKey, tileX, tileY) {
     console.log(`go to ${mapKey}`)

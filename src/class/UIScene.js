@@ -8,7 +8,6 @@ export default class UIScene extends Phaser.Scene {
   }
   create () {
     this.storage = storage
-    this.talk = new Talk(this)
     this.input.keyboard.on('keydown_S', this.snapShot.bind(this))
   }
   update (time, delta) {
@@ -22,6 +21,9 @@ export default class UIScene extends Phaser.Scene {
   }
   get gameScene () {
     return this.scene.get('Game')
+  }
+  talk (data) {
+    new Talk(this, data)
   }
   transition (callback = null) {
     this.minimap.destroy() // TODO

@@ -1,18 +1,16 @@
 const PADDING = 20
 export default class Talk extends Phaser.GameObjects.Container {
-  constructor (scene) {
+  constructor (scene, data) {
     super(scene)
     this.scene = scene
+    this.data = data
+    this.index = 0
     this.setPosition(this.left, this.top)
     scene.add.existing(this)
+    scene.scene.pause('Game')
     scene.input.on('pointerdown', () => {
       if (this.data) this.next()
     })
-  }
-  speak (data) {
-    this.data = data
-    this.scene.scene.pause('Game')
-    this.index = 0
     this.images = this.scene.add.container(0, 0)
     this.window = this.scene.add.rectangle(0, 0, this.width, this.height, 0x000000, 100).setOrigin(0, 0)
     this.text = this.scene.add.text(18, 16, '', { fontSize: 18, lineSpacing: 13 }).setPadding(0, 2, 0, 0)
@@ -40,10 +38,8 @@ export default class Talk extends Phaser.GameObjects.Container {
     }
   }
   end () {
-    this.removeAll()
-    this.data = null
-    this.index = null
     this.scene.scene.resume('Game')
+    this.removeAll()
   }
   setImages (array) {
     const x = (this.scene.game.config.width * 1.2) / (array.length + 1)
