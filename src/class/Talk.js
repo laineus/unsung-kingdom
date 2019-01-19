@@ -1,3 +1,4 @@
+import config from '../data/config'
 const PADDING = 20
 export default class Talk extends Phaser.GameObjects.Container {
   constructor (scene, events, callback) {
@@ -9,14 +10,14 @@ export default class Talk extends Phaser.GameObjects.Container {
     this.setPosition(this.left, this.top)
     scene.add.existing(this)
     scene.scene.pause('Game')
-    this.bindedNext = this.next.bind(this)
-    scene.input.on('pointerdown', this.bindedNext)
+    this.tapArea = this.scene.add.rectangle(-this.left, -this.top, config.WIDTH, config.HEIGHT).setOrigin(0, 0).setInteractive()
+    this.tapArea.on('pointerdown', this.next.bind(this))
     this.images = this.scene.add.container(0, 0)
     this.window = this.scene.add.rectangle(0, 0, this.width, this.height, 0x000000, 100).setOrigin(0, 0)
     this.text = this.scene.add.text(18, 16, '', { fontSize: 18, lineSpacing: 13 }).setPadding(0, 2, 0, 0)
     this.windowName = this.scene.add.rectangle(0, 0, 200, 30, 0x000000, 100).setOrigin(0, 1)
     this.textName = this.scene.add.text(18, -20, '', { fontSize: 18, fontStyle: 'bold', fontFamily: 'Ubuntu', lineSpacing: 13 })
-    this.add([this.images, this.window, this.text, this.windowName, this.textName])
+    this.add([this.tapArea, this.images, this.window, this.text, this.windowName, this.textName])
     this.next()
   }
   get current () {
@@ -39,8 +40,6 @@ export default class Talk extends Phaser.GameObjects.Container {
   }
   end () {
     this.scene.scene.resume('Game')
-    this.scene.input.off('pointerdown', this.bindedNext)
-    this.removeAll()
     this.destroy()
     if (this.callback) this.callback()
   }
