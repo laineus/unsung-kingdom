@@ -23,8 +23,8 @@ export default class UIScene extends Phaser.Scene {
   get gameScene () {
     return this.scene.get('Game')
   }
-  talk (talks) {
-    new Talk(this, talks)
+  talk (talks, callback) {
+    new Talk(this, talks, callback)
   }
   select (options, callback) {
     new Select(this, options, callback)

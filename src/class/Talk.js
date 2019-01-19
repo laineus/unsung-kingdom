@@ -1,9 +1,10 @@
 const PADDING = 20
 export default class Talk extends Phaser.GameObjects.Container {
-  constructor (scene, events) {
+  constructor (scene, events, callback) {
     super(scene)
     this.scene = scene
     this.events = events
+    this.callback = callback
     this.index = 0
     this.setPosition(this.left, this.top)
     scene.add.existing(this)
@@ -41,6 +42,7 @@ export default class Talk extends Phaser.GameObjects.Container {
     this.scene.input.off('pointerdown', this.bindedNext)
     this.removeAll()
     this.destroy()
+    if (this.callback) this.callback()
   }
   setImages (array) {
     const x = (this.scene.game.config.width * 1.2) / (array.length + 1)
