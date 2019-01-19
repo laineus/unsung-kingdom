@@ -9,12 +9,15 @@ export default class Select extends Phaser.GameObjects.Container {
       const opt = this.option(text, i).setPosition(0, i * 50)
       this.add(opt)
     })
+    this.setPosition(5, 5)
   }
   option (text, i) {
     const option = this.scene.add.container(0, 0)
     const window = this.scene.add.rectangle(0, 0, 300, 44, 0x000000, 100).setOrigin(0, 0).setInteractive()
     const label = this.scene.add.text(18, 13, text, { fontSize: 18, lineSpacing: 13 }).setPadding(0, 2, 0, 0)
     option.add([window, label])
+    window.on('pointerover', () => label.setColor('#3A8'))
+    window.on('pointerout', () => label.setColor('#FFF'))
     window.on('pointerdown', pointer => {
       this.scene.scene.resume('Game')
       this.destroy()
