@@ -40,8 +40,8 @@ export default class GameScene extends Phaser.Scene {
   get ui () {
     return this.scene.get('UI')
   }
-  talk (data) {
-    this.ui.talk(data)
+  talk (talks) {
+    this.ui.talk(talks)
   }
   select (options, callback) {
     this.ui.select(options, callback)

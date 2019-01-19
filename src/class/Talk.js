@@ -1,16 +1,15 @@
 const PADDING = 20
 export default class Talk extends Phaser.GameObjects.Container {
-  constructor (scene, data) {
+  constructor (scene, events) {
     super(scene)
     this.scene = scene
-    this.data = data
+    this.events = events
     this.index = 0
     this.setPosition(this.left, this.top)
     scene.add.existing(this)
     scene.scene.pause('Game')
-    scene.input.on('pointerdown', () => {
-      if (this.data) this.next()
-    })
+    this.bindedNext = this.next.bind(this)
+    scene.input.on('pointerdown', this.bindedNext)
     this.images = this.scene.add.container(0, 0)
     this.window = this.scene.add.rectangle(0, 0, this.width, this.height, 0x000000, 100).setOrigin(0, 0)
     this.text = this.scene.add.text(18, 16, '', { fontSize: 18, lineSpacing: 13 }).setPadding(0, 2, 0, 0)
@@ -20,7 +19,7 @@ export default class Talk extends Phaser.GameObjects.Container {
     this.next()
   }
   get current () {
-    return (this.data && typeof this.index === 'number') ? this.data[this.index] : null
+    return (this.events && typeof this.index === 'number') ? this.events[this.index] : null
   }
   next () {
     if (!this.current) return this.end()
@@ -39,7 +38,9 @@ export default class Talk extends Phaser.GameObjects.Container {
   }
   end () {
     this.scene.scene.resume('Game')
+    this.scene.input.off('pointerdown', this.bindedNext)
     this.removeAll()
+    this.destroy()
   }
   setImages (array) {
     const x = (this.scene.game.config.width * 1.2) / (array.length + 1)
