@@ -5,7 +5,14 @@ export default {
       scene.talk([
         ['ann'],
         { name: 'ann', text: '犬が迷子になってしまったんだ。' }
-      ])
+      ], () => {
+        scene.select(['はい', 'いいえ'], i => {
+          scene.talk([
+            ['ann'],
+            { name: 'ann', text: i === 0 ? 'わーい' : 'しょんぼり' }
+          ])
+        })
+      })
     })
   }
 }
