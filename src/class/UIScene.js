@@ -2,6 +2,7 @@ import moment from 'moment'
 import Talk from './Talk'
 import config from '../data/config'
 import storage from '../data/storage'
+import Select from './Select'
 export default class UIScene extends Phaser.Scene {
   constructor () {
     super({ key: 'UI', active: false })
@@ -24,6 +25,9 @@ export default class UIScene extends Phaser.Scene {
   }
   talk (data) {
     new Talk(this, data)
+  }
+  select (options, callback) {
+    new Select(this, options, callback)
   }
   transition (callback = null) {
     this.minimap.destroy() // TODO

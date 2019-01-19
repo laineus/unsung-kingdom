@@ -43,6 +43,9 @@ export default class GameScene extends Phaser.Scene {
   talk (data) {
     this.ui.talk(data)
   }
+  select (options, callback) {
+    this.ui.select(options, callback)
+  }
   mapChange (mapKey, tileX, tileY) {
     console.log(`go to ${mapKey}`)
     this.ui.transition(() => {
