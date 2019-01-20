@@ -1,11 +1,12 @@
 import config from '../data/config'
 const PADDING = 20
 export default class Talk extends Phaser.GameObjects.Container {
-  constructor (scene, events, callback) {
+  constructor (scene, events, callback, autoDestroy = true) {
     super(scene)
     this.scene = scene
     this.events = events
     this.callback = callback
+    this.autoDestroy = autoDestroy
     this.index = 0
     this.setPosition(this.left, this.top)
     scene.add.existing(this)
@@ -40,8 +41,12 @@ export default class Talk extends Phaser.GameObjects.Container {
   }
   end () {
     this.scene.scene.resume('Game')
-    this.destroy()
-    if (this.callback) this.callback()
+    if (this.autoDestroy) {
+      this.destroy()
+    } else {
+      this.tapArea.destroy()
+    }
+    if (this.callback) this.callback(this)
   }
   setImages (array) {
     const x = (this.scene.game.config.width * 1.2) / (array.length + 1)

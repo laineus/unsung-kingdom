@@ -23,11 +23,11 @@ export default class UIScene extends Phaser.Scene {
   get gameScene () {
     return this.scene.get('Game')
   }
-  talk (talks, callback) {
-    new Talk(this, talks, callback)
+  talk (talks, callback, autoDestroy) {
+    return new Talk(this, talks, callback, autoDestroy)
   }
   select (options, callback) {
-    new Select(this, options, callback)
+    return new Select(this, options, callback)
   }
   transition (callback = null) {
     this.minimap.destroy() // TODO
