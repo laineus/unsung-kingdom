@@ -5,7 +5,7 @@ export default () => {
     y: 600,
     field: {},
     quest: {
-      five: { begin: false, 1: false, 2: false, 3: false, 4: false, 5: false }
+      five: { begin: false, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, complete: false }
     }
   }
 }
