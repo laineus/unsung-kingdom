@@ -3,7 +3,7 @@ export default (scene, dog, key) => {
     dog.destroy()
   } else {
     dog.setTapEvent(() => {
-      if (!scene.storage.state.quest.five.begin) {
+      if (!scene.storage.state.quest.five.started) {
         scene.talk([['ann'], { name: 'ann', text: 'ワン！' }])
       } else {
         scene.talk([['ann'], { name: 'ann', text: 'ワンワン！' }])
