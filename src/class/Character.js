@@ -89,7 +89,9 @@ export default class Character extends Substance {
     if (!this.followingTarget) return
     if (this.enemyInAttackRange) return
     this.attackDelay = this.attackDelayFirst
-    this.body.setVelocity(this.diffToFollowingX, this.diffToFollowingY)
+    const x = (!this.body.blocked.left && !this.body.blocked.right) ? this.diffToFollowingX : 0
+    const y = (!this.body.blocked.top && !this.body.blocked.down) ? this.diffToFollowingY : 0
+    this.body.setVelocity(x, y)
     const speed = Math.min(this.speed, (this.diffToFollowingDistance * 10))
     this.body.velocity.normalize().scale(speed)
     if (this.diffToFollowingDistance < 5) this.unsetFollowing()
