@@ -43,9 +43,10 @@ export default {
             { name: 'ann', text: 'よろしく頼んだよー。' }
           ])
         } else {
+          const countText = count < 5 ? `あと${count}匹だワン。\n` : ''
           scene.talk([
             ['ann'],
-            { name: 'ann', text: 'よろしく頼んだよー。' }
+            { name: 'ann', text: `${countText}よろしく頼んだよー。` }
           ])
         }
       }
