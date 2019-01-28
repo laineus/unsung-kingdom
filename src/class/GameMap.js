@@ -31,6 +31,12 @@ export default class GameMap {
   getEnemyById (id) {
     return this.enemy.find(v => v.id === id)
   }
+  isCollides (tileX, tileY) {
+    return this.staticLayers.some(layer => {
+      const tile = layer.getTileAt(tileX, tileY)
+      return tile && tile.collides
+    })
+  }
   displayDebug () {
     const debugGraphics = this.scene.add.graphics().setAlpha(0.75)
     this.staticLayers.forEach(layer => {

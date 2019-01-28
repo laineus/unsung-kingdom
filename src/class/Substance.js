@@ -91,10 +91,7 @@ export default class Substance extends Phaser.GameObjects.Container {
     return count.toArray.some(i => {
       const tileX = (this.x + (xSpeed * (i + 1))).toTile
       const tileY = (this.y + (ySpeed * (i + 1))).toTile
-      return this.scene.map.staticLayers.some(layer => {
-        const tile = layer.getTileAt(tileX, tileY)
-        return tile && tile.collides
-      })
+      return this.scene.map.isCollides(tileX, tileY)
     })
   }
   get distanceToPlayer () {
