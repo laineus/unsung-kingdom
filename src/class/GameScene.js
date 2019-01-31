@@ -58,9 +58,12 @@ export default class GameScene extends Phaser.Scene {
       console.log(this.storage.state)
     })
     this.input.keyboard.on('keydown_M', () => {
+      const debugBox = document.createElement('div')
+      debugBox.setAttribute('class', 'debugBox')
+      document.getElementById('game').appendChild(debugBox)
       const select = document.createElement('select')
       select.id = 'select'
-      document.getElementById('game').appendChild(select)
+      debugBox.appendChild(select)
       assets.tilemapTiledJSON.forEach(v => {
         const option = document.createElement('option')
         option.value = v[0]
@@ -72,7 +75,7 @@ export default class GameScene extends Phaser.Scene {
         const save = document.createElement('button')
         save.innerText = text
         save.onclick = () => callback()
-        document.getElementById('game').appendChild(save)
+        debugBox.appendChild(save)
       }
       addButton('save', () => {
         this.storage.save()
@@ -85,6 +88,11 @@ export default class GameScene extends Phaser.Scene {
         this.storage.delete()
         alert('Save data deleted')
       })
+      const info = document.createElement('span')
+      debugBox.appendChild(info)
+      setInterval(() => {
+        info.innerText = `FPS: ${this.game.loop.actualFps}`
+      }, 100)
     })
   }
 }
