@@ -11,10 +11,10 @@ export default class UIScene extends Phaser.Scene {
     this.storage = storage
     this.input.keyboard.on('keydown_S', this.snapShot.bind(this))
     // TODO: fix mask's bug
-    this.menuButton = this.add.circle(config.WIDTH - 40, 40, 20, 0xddccaa).setInteractive().setDepth(-2)
+    this.menuButton = this.add.circle(config.WIDTH - 40, 40, 20, 0xddccaa).setInteractive()
     this.menuButton.on('pointerdown', () => {
       if (this.menuWindow) return
-      this.menuWindow = this.add.rectangle(20, 20, config.WIDTH - 40, config.HEIGHT - 40, 0x000000, 0.7).setOrigin(0, 0).setInteractive().setDepth(-1)
+      this.menuWindow = this.add.rectangle(20, 20, config.WIDTH - 40, config.HEIGHT - 40, 0x000000, 0.7).setOrigin(0, 0).setInteractive()
       this.menuWindow.on('pointerdown', () => {
         this.menuWindow.destroy()
         this.menuWindow = null
@@ -40,7 +40,6 @@ export default class UIScene extends Phaser.Scene {
     return new Select(this, options, callback)
   }
   transition (callback = null) {
-    this.minimap.destroy() // TODO
     this.scene.pause('Game')
     const left = this.add.rectangle(0, -config.HEIGHT_HALF, config.WIDTH, config.HEIGHT_HALF, 0x111111).setOrigin(0, 0)
     this.add.tween({
