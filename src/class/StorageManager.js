@@ -1,5 +1,7 @@
 import defaultState from '../data/defaultState'
+import { encrypt, decrypt } from '../util/encryption'
 const STORAGE_KEY = 'data'
+const SHIFT = 11
 export default class StorageManager {
   constructor () {
     const loadResult = this.load()
@@ -10,10 +12,19 @@ export default class StorageManager {
   }
   getSavedState () {
     const string = localStorage.getItem(STORAGE_KEY)
-    return string ? JSON.parse(string) : null
+    if (!string) return null
+    const json = decrypt(string, -SHIFT)
+    try {
+      return JSON.parse(json)
+    } catch (e) {
+      this.delete()
+      alert('Save data is broken')
+      return false
+    }
   }
   save () {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(this.state))
+    const str = encrypt(JSON.stringify(this.state), SHIFT)
+    localStorage.setItem(STORAGE_KEY, str)
     return true
   }
   load () {
