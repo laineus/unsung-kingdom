@@ -5,8 +5,6 @@ export default class Player extends Character {
     this.targetMarker = scene.add.circle(0, 0, 5, 0xAA0000, 0.5)
     this.add(this.targetMarker)
     this.setSpeed(240)
-    this.setHp(100)
-    this.setAttackDelay(0, 30)
   }
   preUpdate () {
     super.preUpdate()
@@ -15,8 +13,5 @@ export default class Player extends Character {
     this.scene.storage.state.map = this.scene.map.name
     this.scene.storage.state.x = this.x
     this.scene.storage.state.y = this.y
-  }
-  die () {
-    // gameover
   }
 }

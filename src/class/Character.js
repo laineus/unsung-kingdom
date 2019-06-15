@@ -4,15 +4,12 @@ export default class Character extends Substance {
   constructor (scene, x, y, key) {
     super(scene, x, y, key)
     this.setTarget(null)
-    this.setAttackRange()
     this.setSpeed(120)
-    this.setAttackDelay()
     this.r = 0
   }
   preUpdate () {
     super.preUpdate()
     this._walkToTargetPosition()
-    this._attackToTarget()
     this._updateAnimation()
     this._calcRotation()
   }
@@ -31,22 +28,8 @@ export default class Character extends Substance {
     this._targetPositionX = null
     this._targetPositionY = null
   }
-  setAttackRange (range = 100) {
-    this.attackRange = range
-  }
-  setAttackDelay (first = 60, interval = 120) {
-    this.attackDelay = first
-    this.attackDelayFirst = first
-    this.attackDelayInterval = interval
-  }
   setSpeed (speed = 120) {
     this.speed = speed
-  }
-  get followingEnemy () {
-    return this.hasTarget && this.target.constructor.name !== this.constructor.name
-  }
-  get enemyInAttackRange () {
-    return this.followingEnemy && this.diffToFollowingDistance < this.attackRange && !this.rayCast(this.target.x, this.target.y)
   }
   get hasTarget () {
     return this.target !== null
@@ -88,7 +71,6 @@ export default class Character extends Substance {
   }
   _walkToTargetPosition () {
     if (!this.followingTarget) return
-    if (this.enemyInAttackRange) return
     this.attackDelay = this.attackDelayFirst
     const x = (!this.body.blocked.left && !this.body.blocked.right) ? this.diffToFollowingX : 0
     const y = (!this.body.blocked.top && !this.body.blocked.down) ? this.diffToFollowingY : 0
@@ -96,13 +78,6 @@ export default class Character extends Substance {
     const speed = Math.min(this.speed, (this.diffToFollowingDistance * 10))
     this.body.velocity.normalize().scale(speed)
     if (this.diffToFollowingDistance < 5) this.unsetFollowing()
-  }
-  _attackToTarget() {
-    if (!this.enemyInAttackRange) return
-    if (this.attackDelay > 0) return this.attackDelay--
-    // attack
-    this.target.attackBy(this)
-    this.attackDelay = this.attackDelayInterval
   }
   _updateAnimation () {
     if (!this.walking) {
