@@ -4,6 +4,7 @@ export default class Enemy extends Phaser.GameObjects.Container {
     super(scene)
     this.scene = scene
     this.setPosition()
+    this.setHp(500)
     // image
     this.sprite = this.scene.add.sprite(0, 0, 'torrent')
     this.sprite.setScale(1)
@@ -15,12 +16,23 @@ export default class Enemy extends Phaser.GameObjects.Container {
     })
     this.add(this.tapArea)
     // gauge
-    this.gauge = new Gauge(this.scene, 100, 6, 500).setPosition(0, -80)
+    this.gauge = new Gauge(this.scene, 100, 6, this.maxHp).setPosition(0, -80)
     this.add(this.gauge)
+  }
+  setHp (value) {
+    this._hp = value
+    this.maxHp = value
+  }
+  get hp () {
+    return this._hp
+  }
+  set hp (value) {
+    this._hp = Math.min(Math.max(value, 0), this.maxHp)
   }
   addDamage (damage) {
     if (this.gauge.value <= 0) return
-    this.gauge.value -= damage
+    this.hp -= damage
+    this.gauge.value = this.hp
     this.damageEffect()
     this.damageText(damage)
     if (this.gauge.value <= 0) {
