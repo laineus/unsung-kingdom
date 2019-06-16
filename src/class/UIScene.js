@@ -3,6 +3,7 @@ import Talk from './Talk'
 import config from '../data/config'
 import storage from '../data/storage'
 import Select from './Select'
+import downloadImageBySource from '../util/downloadImageBySource'
 export default class UIScene extends Phaser.Scene {
   constructor () {
     super({ key: 'UI', active: false })
@@ -11,7 +12,7 @@ export default class UIScene extends Phaser.Scene {
     this.storage = storage
     this.input.keyboard.on('keydown_S', this.snapShot.bind(this))
     // TODO: fix mask's bug
-    this.menuButton = this.add.circle(config.WIDTH - 40, 40, 20, 0xddccaa).setInteractive()
+    this.menuButton = this.add.circle((40).byRight, 40, 20, 0xddccaa).setInteractive()
     this.menuButton.on('pointerdown', () => {
       if (this.menuWindow) return
       this.menuWindow = this.add.rectangle(20, 20, config.WIDTH - 40, config.HEIGHT - 40, 0x000000, 0.7).setOrigin(0, 0).setInteractive()
@@ -63,22 +64,15 @@ export default class UIScene extends Phaser.Scene {
     })
   }
   snapShot () {
-    const time = moment()
-    this.game.renderer.snapshot(img => {
-      const link = document.createElement('a')
-      link.href = img.src
-      link.download = `ScreenShot_${time.format('YYYYMMDD_HHmmss')}.png`
-      document.body.appendChild(link)
-      link.click()
-      document.body.removeChild(link)
-    })
+    const filename = `ScreenShot_${moment().format('YYYYMMDD_HHmmss')}.png`
+    this.game.renderer.snapshot(img => downloadImageBySource(img.src, filename))
   }
   renderMiniMap (tilemap) {
     const SIZE = 4
     const WIDTH = 120
     const HEIGHT = 120
-    const LEFT = config.WIDTH - WIDTH - 20
-    const TOP = config.HEIGHT - HEIGHT - 20
+    const LEFT = (20 + WIDTH).byRight
+    const TOP = (20 + HEIGHT).byBottom
     if (this.minimap) this.minimap.destroy()
     const field = this.make.graphics()
     field.fillStyle(0xffeecc)

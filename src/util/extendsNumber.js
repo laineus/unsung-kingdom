@@ -1,5 +1,4 @@
-import tileToPixel from './tileToPixel'
-import pixelToTile from './pixelToTile'
+import { pixelToTile, tileToPixel, positionByRight, positionByBottom } from './numberFunctions'
 export default () => {
   Object.defineProperty(Number.prototype, 'toTile', {
     get () { return pixelToTile(this) }
@@ -12,5 +11,11 @@ export default () => {
   })
   Object.defineProperty(Number.prototype, 'toArray', {
     get () { return [...Array(this).keys()] }
+  })
+  Object.defineProperty(Number.prototype, 'byRight', {
+    get () { return positionByRight(this) }
+  })
+  Object.defineProperty(Number.prototype, 'byBottom', {
+    get () { return positionByBottom(this) }
   })
 }
