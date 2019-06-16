@@ -21,7 +21,10 @@ export default class Enemy extends Phaser.GameObjects.Container {
   addDamage (damage) {
     this.gauge.value -= damage
     this.damageEffect()
-    if (this.gauge.value <= 0) this.destroy()
+    this.damageText(damage)
+    if (this.gauge.value <= 0) {
+      setTimeout(() => this.destroy(), 1000)
+    }
   }
   damageEffect () {
     const eff = this.scene.add.sprite(0, 0, 'damage').setScale(0.5, 0.5).setPosition(Math.randomInt(-30, 30), Math.randomInt(-30, 30))
@@ -32,5 +35,20 @@ export default class Enemy extends Phaser.GameObjects.Container {
       scaleX: scale, scaleY: scale, alpha: 0.2,
       onComplete: () => eff.destroy()
     })
+  }
+  damageText (damage) {
+    const text = this.scene.add.text(0, 0, damage, { fill: '#FFEEBB', stroke: '#222', strokeThickness: 5, fontSize: 32, fontStyle: 'bold' })
+    this.scene.add.tween({
+      targets: text, duration: 120,
+      y: -40,
+      onComplete: () => {
+        this.scene.add.tween({
+          targets: text, duration: 120,
+          y: -60, alpha: 0.2,
+          onComplete: () => text.destroy()
+        })
+      }
+    })
+    this.add(text)
   }
 }
