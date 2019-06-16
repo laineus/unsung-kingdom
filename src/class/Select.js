@@ -13,7 +13,7 @@ export default class Select extends Phaser.GameObjects.Container {
       const opt = this.option(text, i).setPosition(0, i * (HEIGHT + MERGIN))
       this.add(opt)
     })
-    this.setPosition(config.WIDTH - 20 - WIDTH, config.HEIGHT - (config.HEIGHT / 4) - 20 - this.sumHeight - MERGIN)
+    this.setPosition((20).byRight - WIDTH, (20).byBottom - (config.HEIGHT / 4) - this.sumHeight - MERGIN)
   }
   option (text, i) {
     const option = this.scene.add.container(0, 0)
