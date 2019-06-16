@@ -22,4 +22,5 @@ export default () => {
     get () { return half(this) }
   })
   Math.randomInt = (min, max) => Math.floor(Math.random() * (max + 1 - min)) + min
+  Math.chance = (percent) => (percent / 100) > Math.random()
 }
