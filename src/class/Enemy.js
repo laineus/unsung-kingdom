@@ -20,6 +20,17 @@ export default class Enemy extends Phaser.GameObjects.Container {
   }
   addDamage (damage) {
     this.gauge.value -= damage
+    this.damageEffect()
     if (this.gauge.value <= 0) this.destroy()
+  }
+  damageEffect () {
+    const eff = this.scene.add.sprite(0, 0, 'damage').setScale(0.5, 0.5).setPosition(Math.randomInt(-30, 30), Math.randomInt(-30, 30))
+    const scale = Math.randomInt(12, 17) / 10
+    this.add(eff)
+    this.scene.add.tween({
+      targets: eff, duration: 120,
+      scaleX: scale, scaleY: scale, alpha: 0.2,
+      onComplete: () => eff.destroy()
+    })
   }
 }
