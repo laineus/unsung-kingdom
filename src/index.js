@@ -3,9 +3,9 @@ import BootScene from './class/BootScene'
 import GameScene from './class/GameScene'
 import UIScene from './class/UIScene'
 import config from './data/config'
-import extendsNumber from './util/extendsNumber'
+import extendNativeClassFunctions from './util/extendNativeClassFunctions'
 
-extendsNumber()
+extendNativeClassFunctions()
 
 const option = {
   type: Phaser.AUTO,

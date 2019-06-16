@@ -21,4 +21,5 @@ export default () => {
   Object.defineProperty(Number.prototype, 'half', {
     get () { return half(this) }
   })
+  Math.randomInt = (min, max) => Math.floor(Math.random() * (max + 1 - min)) + min
 }
