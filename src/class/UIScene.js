@@ -3,6 +3,7 @@ import Talk from './Talk'
 import config from '../data/config'
 import storage from '../data/storage'
 import Select from './Select'
+import downloadImageBySource from '../util/downloadImageBySource'
 export default class UIScene extends Phaser.Scene {
   constructor () {
     super({ key: 'UI', active: false })
@@ -63,15 +64,8 @@ export default class UIScene extends Phaser.Scene {
     })
   }
   snapShot () {
-    const time = moment()
-    this.game.renderer.snapshot(img => {
-      const link = document.createElement('a')
-      link.href = img.src
-      link.download = `ScreenShot_${time.format('YYYYMMDD_HHmmss')}.png`
-      document.body.appendChild(link)
-      link.click()
-      document.body.removeChild(link)
-    })
+    const filename = `ScreenShot_${moment().format('YYYYMMDD_HHmmss')}.png`
+    this.game.renderer.snapshot(img => downloadImageBySource(img.src, filename))
   }
   renderMiniMap (tilemap) {
     const SIZE = 4
