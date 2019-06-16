@@ -13,7 +13,7 @@ export default class Gauge extends Phaser.GameObjects.Container {
     return this._value
   }
   set value (value) {
-    this._value = value
+    this._value = Math.min(Math.max(value, 0), this.valueMax)
     this.bar.setScale(this.barScale, 1)
   }
   get barScale () {
