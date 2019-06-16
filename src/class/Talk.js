@@ -60,7 +60,7 @@ export default class Talk extends Phaser.GameObjects.Container {
   }
   get width () { return this.scene.game.config.width - PADDING * 2 }
   get height () { return this.scene.game.config.height / 4 }
-  get top () { return this.scene.game.config.height - this.height - PADDING }
+  get top () { return (this.height + PADDING).byBottom }
   get left () { return PADDING }
-  get right () { return this.scene.game.config.width - PADDING }
+  get right () { return PADDING.byRight }
 }
