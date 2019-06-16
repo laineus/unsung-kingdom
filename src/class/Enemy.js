@@ -11,7 +11,7 @@ export default class Enemy extends Phaser.GameObjects.Container {
     // tapArea
     this.tapArea = this.scene.add.rectangle(0, 0, 200, 200).setInteractive()
     this.tapArea.on('pointerdown', pointer => {
-      this.addDamage(Math.randomInt(30, 100))
+      this.addDamage(Math.randomInt(60, 200))
     })
     this.add(this.tapArea)
     // gauge
@@ -19,11 +19,17 @@ export default class Enemy extends Phaser.GameObjects.Container {
     this.add(this.gauge)
   }
   addDamage (damage) {
+    if (this.gauge.value <= 0) return
     this.gauge.value -= damage
     this.damageEffect()
     this.damageText(damage)
     if (this.gauge.value <= 0) {
-      setTimeout(() => this.destroy(), 1000)
+      this.sprite.setTint(0xFF0000)
+      this.scene.add.tween({
+        targets: this.sprite, duration: 300, ease: 'Power2',
+        scaleX: 1.3, scaleY: 1.3, alpha: 0.2,
+        onComplete: () => this.destroy()
+      })
     }
   }
   damageEffect () {
@@ -37,7 +43,7 @@ export default class Enemy extends Phaser.GameObjects.Container {
     })
   }
   damageText (damage) {
-    const text = this.scene.add.text(0, 0, damage, { fill: '#FFEEBB', stroke: '#222', strokeThickness: 5, fontSize: 32, fontStyle: 'bold' })
+    const text = this.scene.add.text(0, 0, damage, { fill: '#FFEEBB', stroke: '#222', strokeThickness: 5, fontSize: 32, fontStyle: 'bold' }).setOrigin(0.5, 0.5)
     this.scene.add.tween({
       targets: text, duration: 120,
       y: -40,
