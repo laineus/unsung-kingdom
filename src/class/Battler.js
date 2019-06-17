@@ -2,7 +2,15 @@ export default class Enemy extends Phaser.GameObjects.Container {
   constructor (scene) {
     super(scene)
     this.scene = scene
-    this.setHp(1)
+    this.setStatus({ hp: 1, atk: 1, def: 1, dex: 1, agi: 1 })
+  }
+  setStatus (option) {
+    this.maxHp = option.hp
+    this.hp = option.hp
+    this.atk = option.atk
+    this.def = option.def
+    this.dex = option.dex
+    this.agi = option.agi
   }
   setHp (value) {
     this._hp = value
@@ -13,6 +21,12 @@ export default class Enemy extends Phaser.GameObjects.Container {
   }
   set hp (value) {
     this._hp = Math.min(Math.max(value, 0), this.maxHp)
+  }
+  damageTo (target) {
+    return target.def - this.atk
+  }
+  accuracyTo (target) {
+    return target.agi - this.dex
   }
   addDamage (damage) {
     if (this.gauge.value <= 0) return

@@ -3,7 +3,7 @@ import Gauge from './Gauge'
 export default class EnemyBattler extends Battler {
   constructor (scene) {
     super(scene)
-    this.setHp(500)
+    this.setStatus({ hp: 500, atk: 1, def: 1, dex: 1, agi: 1 })
     // image
     this.sprite = this.scene.add.sprite(0, 0, 'torrent')
     this.sprite.setScale(1)
