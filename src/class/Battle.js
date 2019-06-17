@@ -1,5 +1,6 @@
 import config from '../data/config'
 import EnemyBattler from './EnemyBattler'
+import PlayerBattler from './PlayerBattler'
 const positions = {
   1: [0],
   2: [-130, 130],
@@ -16,11 +17,15 @@ export default class Battle extends Phaser.GameObjects.Container {
     scene.scene.pause('Game')
     this.window = this.scene.add.rectangle(0, 0, config.WIDTH, config.HEIGHT, 0x000000, 100).setOrigin(0, 0)
     this.enemies = this.scene.add.container(0, 0)
-    this.add([this.window, this.enemies])
+    this.players = this.scene.add.container(0, 0)
+    this.add([this.window, this.enemies, this.players])
     // test image
     this.enemies.add(new EnemyBattler(this.scene).setPosition(config.WIDTH.half, config.HEIGHT.half - 100))
     this.enemies.add(new EnemyBattler(this.scene).setPosition(config.WIDTH.half, config.HEIGHT.half - 100))
     this.enemies.add(new EnemyBattler(this.scene).setPosition(config.WIDTH.half, config.HEIGHT.half - 100))
+    // test image
+    this.players.add(new PlayerBattler(this.scene).setPosition(config.WIDTH.half, config.HEIGHT.half + 100))
+    this.players.add(new PlayerBattler(this.scene).setPosition(config.WIDTH.half, config.HEIGHT.half + 100))
   }
   preUpdate () {
     if (this.victory) this.end()
