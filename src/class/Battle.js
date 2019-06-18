@@ -20,9 +20,9 @@ export default class Battle extends Phaser.GameObjects.Container {
     this.players = this.scene.add.container(0, 0)
     this.add([this.window, this.enemies, this.players])
     // test image
-    this.enemies.add(new EnemyBattler(this.scene, this.tapEnemy).setPosition(config.WIDTH.half, config.HEIGHT.half - 100))
-    this.enemies.add(new EnemyBattler(this.scene, this.tapEnemy).setPosition(config.WIDTH.half, config.HEIGHT.half - 100))
-    this.enemies.add(new EnemyBattler(this.scene, this.tapEnemy).setPosition(config.WIDTH.half, config.HEIGHT.half - 100))
+    this.enemies.add(new EnemyBattler(this.scene, this.tapEnemy.bind(this)).setPosition(config.WIDTH.half, config.HEIGHT.half - 100))
+    this.enemies.add(new EnemyBattler(this.scene, this.tapEnemy.bind(this)).setPosition(config.WIDTH.half, config.HEIGHT.half - 100))
+    this.enemies.add(new EnemyBattler(this.scene, this.tapEnemy.bind(this)).setPosition(config.WIDTH.half, config.HEIGHT.half - 100))
     // test image
     this.players.add(new PlayerBattler(this.scene).setPosition(config.WIDTH.half, config.HEIGHT.half + 100))
     this.players.add(new PlayerBattler(this.scene).setPosition(config.WIDTH.half, config.HEIGHT.half + 100))
