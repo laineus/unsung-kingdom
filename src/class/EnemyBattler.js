@@ -1,7 +1,7 @@
 import Battler from './Battler'
 import Gauge from './Gauge'
 export default class EnemyBattler extends Battler {
-  constructor (scene) {
+  constructor (scene, onTap) {
     super(scene)
     this.setStatus({ hp: 500, atk: 1, def: 1, dex: 1, agi: 1 })
     // image
@@ -11,7 +11,7 @@ export default class EnemyBattler extends Battler {
     // tapArea
     this.tapArea = this.scene.add.rectangle(0, 0, 200, 200).setInteractive()
     this.tapArea.on('pointerdown', pointer => {
-      this.addDamage(Math.randomInt(60, 200))
+      onTap(this)
     })
     this.add(this.tapArea)
     // gauge
