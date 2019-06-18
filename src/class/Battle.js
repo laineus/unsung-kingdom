@@ -26,6 +26,12 @@ export default class Battle extends Phaser.GameObjects.Container {
     // test image
     this.players.add(new PlayerBattler(this.scene).setPosition(config.WIDTH.half, config.HEIGHT.half + 100))
     this.players.add(new PlayerBattler(this.scene).setPosition(config.WIDTH.half, config.HEIGHT.half + 100))
+    // register
+    this.all = []
+    this.players.list.forEach(v => this.all.push(v))
+    this.enemies.list.forEach(v => this.all.push(v))
+    this.turnIndex = 0
+    this.execEnemyTurn()
   }
   preUpdate () {
     if (this.victory) this.end()
@@ -33,8 +39,21 @@ export default class Battle extends Phaser.GameObjects.Container {
       v.x = config.WIDTH.half + positions[this.enemies.length][i]
     })
   }
+  increaseTurn () {
+    this.turnIndex = this.turnIndex < (this.all.length - 1) ? this.turnIndex + 1 : 0
+    this.execEnemyTurn()
+  }
+  execEnemyTurn () {
+    if (this.all[this.turnIndex].constructor.name !== 'EnemyBattler') return
+    setTimeout(() => {
+      this.players.list[0].addDamage(Math.randomInt(10, 20))
+      this.increaseTurn()
+    }, 1000)
+  }
   tapEnemy (enemy) {
+    if (this.all[this.turnIndex].constructor.name !== 'PlayerBattler') return
     enemy.addDamage(Math.randomInt(60, 200))
+    this.increaseTurn()
   }
   get victory () {
     return this.enemies.list.length === 0
