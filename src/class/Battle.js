@@ -24,14 +24,14 @@ export default class Battle extends Phaser.GameObjects.Container {
     this.enemies.add(new EnemyBattler(this.scene, this.tapEnemy.bind(this)).setPosition(config.WIDTH.half, config.HEIGHT.half - 100))
     this.enemies.add(new EnemyBattler(this.scene, this.tapEnemy.bind(this)).setPosition(config.WIDTH.half, config.HEIGHT.half - 100))
     // test image
-    this.players.add(new PlayerBattler(this.scene).setPosition(config.WIDTH.half, config.HEIGHT.half + 100))
-    this.players.add(new PlayerBattler(this.scene).setPosition(config.WIDTH.half, config.HEIGHT.half + 100))
+    this.players.add(new PlayerBattler(this.scene).setPosition(config.WIDTH.half - 120, config.HEIGHT.half + 100))
+    this.players.add(new PlayerBattler(this.scene).setPosition(config.WIDTH.half + 120, config.HEIGHT.half + 100))
     // register
     this.all = []
     this.players.list.forEach(v => this.all.push(v))
     this.enemies.list.forEach(v => this.all.push(v))
-    this.turnIndex = 0
-    this.execEnemyTurn()
+    this.turnIndex = -1
+    this.increaseTurn()
   }
   preUpdate () {
     if (this.victory) this.end()
@@ -39,19 +39,26 @@ export default class Battle extends Phaser.GameObjects.Container {
       v.x = config.WIDTH.half + positions[this.enemies.length][i]
     })
   }
+  get currentBattler () {
+    return this.all[this.turnIndex]
+  }
+  get playerTurn () {
+    return this.currentBattler.constructor.name === 'PlayerBattler'
+  }
   increaseTurn () {
     this.turnIndex = this.turnIndex < (this.all.length - 1) ? this.turnIndex + 1 : 0
-    this.execEnemyTurn()
+    const result = this.currentBattler.increaseTurn()
+    if (!result) return this.increaseTurn()
+    if (!this.playerTurn) return this.execEnemyTurn()
   }
   execEnemyTurn () {
-    if (this.all[this.turnIndex].constructor.name !== 'EnemyBattler') return
     setTimeout(() => {
       this.players.list[0].addDamage(Math.randomInt(10, 20))
       this.increaseTurn()
     }, 1000)
   }
   tapEnemy (enemy) {
-    if (this.all[this.turnIndex].constructor.name !== 'PlayerBattler') return
+    if (!this.playerTurn) return
     enemy.addDamage(Math.randomInt(60, 200))
     this.increaseTurn()
   }

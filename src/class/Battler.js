@@ -3,6 +3,7 @@ export default class Enemy extends Phaser.GameObjects.Container {
     super(scene)
     this.scene = scene
     this.setStatus({ hp: 1, atk: 1, def: 1, dex: 1, agi: 1 })
+    this.actionPoint = 0
   }
   setStatus (option) {
     this.maxHp = option.hp
@@ -21,6 +22,11 @@ export default class Enemy extends Phaser.GameObjects.Container {
   }
   set hp (value) {
     this._hp = Math.min(Math.max(value, 0), this.maxHp)
+  }
+  increaseTurn () {
+    const sum = this.actionPoint + this.agi
+    this.actionPoint = sum % 100
+    return sum >= 100
   }
   damageTo (target) {
     return target.def - this.atk
