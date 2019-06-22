@@ -1,8 +1,8 @@
 export default class Enemy extends Phaser.GameObjects.Container {
-  constructor (scene) {
+  constructor (scene, status) {
     super(scene)
     this.scene = scene
-    this.setStatus({ hp: 1, atk: 1, def: 1, dex: 1, agi: 1 })
+    this.setStatus(status || { hp: 1, atk: 1, def: 1, dex: 1, agi: 1 })
     this.actionPoint = 0
   }
   setStatus (option) {
@@ -21,25 +21,46 @@ export default class Enemy extends Phaser.GameObjects.Container {
     return this._hp
   }
   set hp (value) {
-    this._hp = Math.min(Math.max(value, 0), this.maxHp)
+    this._hp = Math.fix(value, 0, this.maxHp)
+  }
+  get alive () {
+    return this.hp > 0
   }
   increaseTurn () {
     const sum = this.actionPoint + this.agi
     this.actionPoint = sum % 100
     return sum >= 100
   }
-  damageTo (target) {
-    return target.def - this.atk
+  baseDamageTo (target) {
+    return (this.atk - target.def) + 10
+  }
+  weaknessTo (target) {
+    return 1
   }
   accuracyTo (target) {
-    return target.agi - this.dex
+    return this.dex * 80 / target.agi
   }
-  addDamage (damage) {
-    if (this.gauge.value <= 0) return
-    this.hp -= damage
-    this.gauge.value = this.hp
-    this.damageEffect()
-    this.damageText(damage)
+  criticalTo (target) {
+    return Math.fix(this.dex * 1.5 - target.agi, 0, 25)
+  }
+  attackTo(target) {
+    const baseDamage = this.baseDamageTo(target)
+    const cri = Math.chance(this.criticalTo(target))
+    const weakness = this.weaknessTo(target)
+    const hit = Math.chance(this.accuracyTo(target))
+    target.addDamage(baseDamage, cri, weakness, hit)
+  }
+  addDamage (baseDamage, cri, weakness, hit) {
+    if (hit) {
+      const damage = baseDamage * (cri ? 2 : 1) * weakness
+      this.hp -= damage
+      this.gauge.value = this.hp
+      this.damageEffect()
+      this.damageText(damage)
+      if (this.hp <= 0) this.die()
+    } else {
+      this.damageText('Miss')
+    }
   }
   damageEffect () {
     const eff = this.scene.add.sprite(0, 0, 'damage').setScale(0.5, 0.5).setPosition(Math.randomInt(-30, 30), Math.randomInt(-30, 30))

@@ -1,9 +1,8 @@
 import Battler from './Battler'
 import Gauge from './Gauge'
 export default class EnemyBattler extends Battler {
-  constructor (scene, onTap) {
-    super(scene)
-    this.setStatus({ hp: 500, atk: 1, def: 1, dex: 1, agi: 1 })
+  constructor (scene, status, onTap) {
+    super(scene, status)
     // image
     this.sprite = this.scene.add.sprite(0, 0, 'torrent')
     this.sprite.setScale(1)
@@ -17,10 +16,6 @@ export default class EnemyBattler extends Battler {
     // gauge
     this.gauge = new Gauge(this.scene, 100, 6, this.maxHp).setPosition(0, -80)
     this.add(this.gauge)
-  }
-  addDamage (damage) {
-    super.addDamage(damage)
-    if (this.hp <= 0) this.die()
   }
   die () {
     this.sprite.setTint(0xFF0000)
