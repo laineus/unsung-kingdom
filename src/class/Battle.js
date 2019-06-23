@@ -1,12 +1,13 @@
 import config from '../data/config'
 import EnemyBattler from './EnemyBattler'
 import PlayerBattler from './PlayerBattler'
+import Button from './Button'
 const positions = {
   1: [0],
   2: [-130, 130],
-  3: [-240, 0, 240],
-  4: [-340, -110, 110, 340],
-  5: [-360, -180, 0, 180, 360],
+  3: [-200, 0, 200],
+  4: [-240, -80, 80, 240],
+  5: [-260, -130, 0, 130, 260],
 }
 export default class Battle extends Phaser.GameObjects.Container {
   constructor (scene, callback) {
@@ -24,14 +25,21 @@ export default class Battle extends Phaser.GameObjects.Container {
     this.add([this.overlay, this.window, this.enemies, this.players])
     // test image
     const sampleStatus1 = { hp: 35, atk: 4, def: 3, dex: 2, agi: 2 }
-    this.enemies.add(new EnemyBattler(this.scene, sampleStatus1, this.tapEnemy.bind(this)).setPosition(config.WIDTH.half, config.HEIGHT.half - 100))
-    this.enemies.add(new EnemyBattler(this.scene, sampleStatus1, this.tapEnemy.bind(this)).setPosition(config.WIDTH.half, config.HEIGHT.half - 100))
-    this.enemies.add(new EnemyBattler(this.scene, sampleStatus1, this.tapEnemy.bind(this)).setPosition(config.WIDTH.half, config.HEIGHT.half - 100))
+    this.enemies.add(new EnemyBattler(this.scene, sampleStatus1, this.tapEnemy.bind(this)).setPosition(config.WIDTH.half, config.HEIGHT.half - 50))
+    this.enemies.add(new EnemyBattler(this.scene, sampleStatus1, this.tapEnemy.bind(this)).setPosition(config.WIDTH.half, config.HEIGHT.half - 50))
+    this.enemies.add(new EnemyBattler(this.scene, sampleStatus1, this.tapEnemy.bind(this)).setPosition(config.WIDTH.half, config.HEIGHT.half - 50))
     // test image
     const sampleStatus2 = { hp: 50, atk: 15, def: 5, dex: 4, agi: 3 }
     this.players.add(new PlayerBattler(this.scene, sampleStatus2).setPosition(config.WIDTH.half - 310, (70).byBottom))
     this.players.add(new PlayerBattler(this.scene, sampleStatus2).setPosition(config.WIDTH.half, (70).byBottom))
     this.players.add(new PlayerBattler(this.scene, sampleStatus2).setPosition(config.WIDTH.half + 310, (70).byBottom))
+    Number(5).toArray.forEach(n => {
+      const y = 320 - n * 52
+      const box = new Button(this.scene, 20, y, 'Attack', 120, 40)
+      const line = this.scene.add.line(136, y + 20, 0, 0, 100, 0, 0xFFFFFF).setOrigin(0, 0)
+      line.setLineWidth(0.5)
+      this.add([box, line])
+    })
     // register
     this.all = []
     this.players.list.forEach(v => this.all.push(v))
