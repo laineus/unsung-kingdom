@@ -4,11 +4,17 @@ import Box from './Box'
 export default class PlayerBattler extends Battler {
   constructor (scene, status) {
     super(scene, status)
+    // bgLight
+    this.bgLight = this.scene.add.polygon(-5, -16, [[26, 0], [104, 40], [300, 40], [282, 130], [0, 130]], 0xAACC22)
+    // this.bgLight = this.scene.add.polygon(-15, -16, [[26, 0], [282, 130], [0, 130]], 0xAACC22)
+    this.bgLight.alpha = 0.7
+    this.bgLight.blendMode = 1
+    this.add(this.bgLight)
     // bg
     this.bg = new Box(this.scene, 0, 0, 300, 90)
     this.add(this.bg)
     // bg2
-    this.bg2 = this.scene.add.polygon(-9, -20, [[26, 0], [282, 130], [0, 130]], 0xaacc22)
+    this.bg2 = this.scene.add.polygon(-9, -20, [[26, 0], [282, 130], [0, 130]], 0x111111)
     this.add(this.bg2)
     // image
     this.sprite = this.scene.add.sprite(-180, -60, 'ann')
@@ -41,5 +47,14 @@ export default class PlayerBattler extends Battler {
   setActive(bool) {
     super.setActive(bool)
     if (this.bg2) this.bg2.visible = bool
+    if (this.bgLight) {
+      this.bgLight.visible = bool
+      this.bgLight.setPosition(0, -21).setAlpha(0)
+      this.scene.add.tween({
+        targets: this.bgLight,
+        duration: 300, ease: 'Power2',
+        x: -5, y: -16, alpha: 1
+      })
+    }
   }
 }
