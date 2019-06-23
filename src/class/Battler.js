@@ -2,6 +2,7 @@ export default class Enemy extends Phaser.GameObjects.Container {
   constructor (scene, status) {
     super(scene)
     this.scene = scene
+    this.setActive(false)
     this.setStatus(status || { hp: 1, atk: 1, def: 1, dex: 1, agi: 1 })
     this.actionPoint = 0
   }
@@ -26,10 +27,15 @@ export default class Enemy extends Phaser.GameObjects.Container {
   get alive () {
     return this.hp > 0
   }
+  setActive(bool) {
+    this.active = bool
+  }
   increaseTurn () {
     const sum = this.actionPoint + this.agi
     this.actionPoint = sum % 100
-    return sum >= 100
+    const result = sum >= 100
+    this.setActive(result)
+    return result
   }
   baseDamageTo (target) {
     return (this.atk - target.def) + 10
@@ -49,6 +55,7 @@ export default class Enemy extends Phaser.GameObjects.Container {
     const weakness = this.weaknessTo(target)
     const hit = Math.chance(this.accuracyTo(target))
     target.addDamage(baseDamage, cri, weakness, hit)
+    this.setActive(false)
   }
   addDamage (baseDamage, cri, weakness, hit) {
     if (hit) {

@@ -27,8 +27,9 @@ export default class Battle extends Phaser.GameObjects.Container {
     this.enemies.add(new EnemyBattler(this.scene, sampleStatus1, this.tapEnemy.bind(this)).setPosition(config.WIDTH.half, config.HEIGHT.half - 100))
     // test image
     const sampleStatus2 = { hp: 50, atk: 15, def: 5, dex: 4, agi: 3 }
-    this.players.add(new PlayerBattler(this.scene, sampleStatus2).setPosition(config.WIDTH.half - 120, config.HEIGHT.half + 100))
-    this.players.add(new PlayerBattler(this.scene, sampleStatus2).setPosition(config.WIDTH.half + 120, config.HEIGHT.half + 100))
+    this.players.add(new PlayerBattler(this.scene, sampleStatus2).setPosition(config.WIDTH.half - 310, (70).byBottom))
+    this.players.add(new PlayerBattler(this.scene, sampleStatus2).setPosition(config.WIDTH.half, (70).byBottom))
+    this.players.add(new PlayerBattler(this.scene, sampleStatus2).setPosition(config.WIDTH.half + 310, (70).byBottom))
     // register
     this.all = []
     this.players.list.forEach(v => this.all.push(v))
