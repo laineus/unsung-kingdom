@@ -16,10 +16,12 @@ export default class Battle extends Phaser.GameObjects.Container {
     scene.add.existing(this)
     scene.scene.pause('Game')
     this.scene.gameScene.blur(true)
-    this.window = this.scene.add.rectangle(0, 0, config.WIDTH, config.HEIGHT, 0x000000, 100).setOrigin(0, 0)
+    this.overlay = this.scene.add.rectangle(0, 0, config.WIDTH, config.HEIGHT, 0x886644, 100).setOrigin(0, 0)
+    this.overlay.blendMode = 1
+    this.window = this.scene.add.sprite(0, 0, 'dark').setOrigin(0, 0)
     this.enemies = this.scene.add.container(0, 0)
     this.players = this.scene.add.container(0, 0)
-    this.add([this.window, this.enemies, this.players])
+    this.add([this.overlay, this.window, this.enemies, this.players])
     // test image
     const sampleStatus1 = { hp: 35, atk: 4, def: 3, dex: 2, agi: 2 }
     this.enemies.add(new EnemyBattler(this.scene, sampleStatus1, this.tapEnemy.bind(this)).setPosition(config.WIDTH.half, config.HEIGHT.half - 100))
