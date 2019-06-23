@@ -15,6 +15,7 @@ export default class Battle extends Phaser.GameObjects.Container {
     this.callback = callback
     scene.add.existing(this)
     scene.scene.pause('Game')
+    this.scene.gameScene.blur(true)
     this.window = this.scene.add.rectangle(0, 0, config.WIDTH, config.HEIGHT, 0x000000, 100).setOrigin(0, 0)
     this.enemies = this.scene.add.container(0, 0)
     this.players = this.scene.add.container(0, 0)
@@ -71,6 +72,7 @@ export default class Battle extends Phaser.GameObjects.Container {
   }
   end () {
     this.scene.scene.resume('Game')
+    this.scene.gameScene.blur(false)
     this.destroy()
     this.callback(this)
   }

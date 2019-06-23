@@ -44,6 +44,10 @@ export default class GameScene extends Phaser.Scene {
   select (options, callback) {
     return this.ui.select(options, callback)
   }
+  blur (bool) {
+    if (bool) this.camera.setRenderToTexture('blur')
+    if (!bool) this.camera.clearRenderToTexture()
+  }
   mapChange (mapKey, tileX, tileY) {
     console.log(`go to ${mapKey}`)
     this.ui.transition(() => {
