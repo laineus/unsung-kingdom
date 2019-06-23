@@ -37,9 +37,9 @@ export default class Battle extends Phaser.GameObjects.Container {
     this.players.add(new PlayerBattler(this.scene, sampleStatus2).setPosition(config.WIDTH.half, (70).byBottom))
     this.players.add(new PlayerBattler(this.scene, sampleStatus2).setPosition(config.WIDTH.half + 310, (70).byBottom))
     Number(this.enemies.length).toArray.forEach(() => {
-      const box = new Button(this.scene, 20, 0, 'Attack', 120, 40)
-      box.line = this.scene.add.line(116, 20, 0, 0, 100, 0, 0xFFFFFF).setOrigin(0, 0).setLineWidth(0.5).setAlpha(0.5)
-      box.circle = this.scene.add.circle(116, 21, 2, 0xFFFFFF).setOrigin(0.5, 0.5)
+      const box = new Button(this.scene, 80, 0, 'Attack', 120, 40)
+      box.line = this.scene.add.line(56, 0, 0, 0, 100, 0, 0xFFFFFF).setOrigin(0, 0).setLineWidth(0.5).setAlpha(0.5)
+      box.circle = this.scene.add.circle(56, 1, 2, 0xFFFFFF).setOrigin(0.5, 0.5)
       box.add([box.line, box.circle])
       this.buttons.add(box)
     })
@@ -60,10 +60,10 @@ export default class Battle extends Phaser.GameObjects.Container {
     })
     this.buttons.list.forEach((button, i) => {
       button.visible = this.playerTurn
-      const y = 370 + (this.enemies.length * -52) + (i * 52)
+      const y = 390 + (this.enemies.length * -52) + (i * 52)
       button.y = y
       button.line.geom.x2 = 340 + positions[this.enemies.length][i]
-      button.circle.x = 460 + positions[this.enemies.length][i]
+      button.circle.x = 400 + positions[this.enemies.length][i]
     })
   }
   get currentBattler () {
