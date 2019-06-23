@@ -14,5 +14,8 @@ export default class Button extends Phaser.GameObjects.Container {
     this.on('pointerout', () => {
       bgLight.visible = false
     })
+    this.on('pointerdown', () => {
+      this.emit('click')
+    })
   }
 }

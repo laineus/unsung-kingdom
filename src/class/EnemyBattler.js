@@ -1,18 +1,12 @@
 import Battler from './Battler'
 import Gauge from './Gauge'
 export default class EnemyBattler extends Battler {
-  constructor (scene, status, onTap) {
+  constructor (scene, status) {
     super(scene, status)
     // image
     this.sprite = this.scene.add.sprite(0, 0, 'torrent')
     this.sprite.setScale(1)
     this.add(this.sprite)
-    // tapArea
-    this.tapArea = this.scene.add.rectangle(0, 0, 200, 200).setInteractive()
-    this.tapArea.on('pointerdown', pointer => {
-      onTap(this)
-    })
-    this.add(this.tapArea)
     // name
     this.nameLabel = this.scene.add.text(0, -155, 'トレント Lv 6', { fill: '#AAAAAA', stroke: '#222', strokeThickness: 2, fontSize: 12, fontStyle: 'bold', fontFamily: 'Ubuntu' }).setOrigin(0.5, 1)
     this.add(this.nameLabel)
