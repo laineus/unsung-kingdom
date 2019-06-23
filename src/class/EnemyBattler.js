@@ -14,7 +14,7 @@ export default class EnemyBattler extends Battler {
     })
     this.add(this.tapArea)
     // gauge
-    this.gauge = new Gauge(this.scene, 100, 6, this.maxHp).setPosition(0, -80)
+    this.gauge = new Gauge(this.scene, 100, 7, this.maxHp, 0xEE8811).setPosition(0, -80)
     this.add(this.gauge)
   }
   die () {

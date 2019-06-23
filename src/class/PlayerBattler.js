@@ -38,7 +38,7 @@ export default class PlayerBattler extends Battler {
     this.lvLabel = this.scene.add.text(122, 38, 'ロングソード', { fill: '#AAAAAA', stroke: '#222', strokeThickness: 2, fontSize: 14, fontFamily: 'Ubuntu' }).setOrigin(1, 1)
     this.add(this.lvLabel)
     // gauge
-    this.gauge = new Gauge(this.scene, 160, 10, this.maxHp).setPosition(45, -8)
+    this.gauge = new Gauge(this.scene, 160, 10, this.maxHp, 0xAACC22).setPosition(45, -8)
     this.add(this.gauge)
   }
   die () {
