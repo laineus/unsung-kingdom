@@ -4,7 +4,7 @@ export default class Gauge extends Phaser.GameObjects.Container {
     this.scene = scene
     scene.add.existing(this)
     this.bg = scene.add.rectangle(0, 0, width, height, 0x222222).setOrigin(0, 0.5).setPosition(width / -2, 0)
-    this.bar = scene.add.rectangle(0, 0, width - 2, height - 2, 0xFFEEBB).setOrigin(0, 0.5).setPosition((width / -2) + 1, 0)
+    this.bar = scene.add.rectangle(0, 0, width - 2, height - 2, 0xAACC22).setOrigin(0, 0.5).setPosition((width / -2) + 1, 0)
     this.add([this.bg, this.bar])
     this.valueMax = valueMax
     this.value = valueMax

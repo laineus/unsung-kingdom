@@ -15,8 +15,24 @@ export default class PlayerBattler extends Battler {
     this.sprite.setScale(0.7).setOrigin(0, 0)
     this.add(this.sprite)
     this.sprite.setCrop(0, 0, this.sprite.width, 150)
+    // name
+    this.nameLabel = this.scene.add.text(-138, 15, 'Ann', { fill: '#AACC22', stroke: '#222', strokeThickness: 2, fontSize: 22, fontStyle: 'bold', fontFamily: 'Ubuntu' })
+    this.add(this.nameLabel)
+    // lv
+    this.lvLabel = this.scene.add.text(-36, 38, 'Lv 15', { fill: '#AAAAAA', stroke: '#222', strokeThickness: 2, fontSize: 13, fontStyle: 'bold', fontFamily: 'Ubuntu' }).setOrigin(0, 1)
+    this.add(this.lvLabel)
+    // hp
+    this.hpLabel = this.scene.add.text(-36, -30, 'HP', { fill: '#FFEEBB', stroke: '#222', strokeThickness: 2, fontSize: 11, fontStyle: 'bold', fontFamily: 'Ubuntu' })
+    this.add(this.hpLabel)
+    this.hpMaxLabel = this.scene.add.text(125, -15, '/200', { fill: '#FFEEBB', stroke: '#222', strokeThickness: 2, fontSize: 16, fontStyle: 'bold', fontFamily: 'Ubuntu' }).setOrigin(1, 1)
+    this.add(this.hpMaxLabel)
+    this.hpValueLabel = this.scene.add.text(this.hpMaxLabel.x - this.hpMaxLabel.width, -14, '180', { fill: '#FFEEBB', stroke: '#222', strokeThickness: 2, fontSize: 22, fontStyle: 'bold', fontFamily: 'Ubuntu' }).setOrigin(1, 1)
+    this.add(this.hpValueLabel)
+    // weapon
+    this.lvLabel = this.scene.add.text(122, 38, 'ロングソード', { fill: '#AAAAAA', stroke: '#222', strokeThickness: 2, fontSize: 14, fontFamily: 'Ubuntu' }).setOrigin(1, 1)
+    this.add(this.lvLabel)
     // gauge
-    this.gauge = new Gauge(this.scene, 140, 8, this.maxHp).setPosition(50, -10)
+    this.gauge = new Gauge(this.scene, 160, 10, this.maxHp).setPosition(45, -8)
     this.add(this.gauge)
   }
   die () {
