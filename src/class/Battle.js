@@ -22,9 +22,12 @@ export default class Battle extends Phaser.GameObjects.Container {
     this.window = this.scene.add.sprite(0, 0, 'dark').setOrigin(0, 0)
     this.enemies = this.scene.add.container(0, 0)
     this.players = this.scene.add.container(0, 0)
-    this.add([this.overlay, this.window, this.enemies, this.players])
+    this.buttons = this.scene.add.container(0, 0)
+    this.add([this.overlay, this.window, this.enemies, this.players, this.buttons])
     // test image
     const sampleStatus1 = { hp: 35, atk: 4, def: 3, dex: 2, agi: 2 }
+    this.enemies.add(new EnemyBattler(this.scene, sampleStatus1, this.tapEnemy.bind(this)).setPosition(config.WIDTH.half, config.HEIGHT.half - 50))
+    this.enemies.add(new EnemyBattler(this.scene, sampleStatus1, this.tapEnemy.bind(this)).setPosition(config.WIDTH.half, config.HEIGHT.half - 50))
     this.enemies.add(new EnemyBattler(this.scene, sampleStatus1, this.tapEnemy.bind(this)).setPosition(config.WIDTH.half, config.HEIGHT.half - 50))
     this.enemies.add(new EnemyBattler(this.scene, sampleStatus1, this.tapEnemy.bind(this)).setPosition(config.WIDTH.half, config.HEIGHT.half - 50))
     this.enemies.add(new EnemyBattler(this.scene, sampleStatus1, this.tapEnemy.bind(this)).setPosition(config.WIDTH.half, config.HEIGHT.half - 50))
@@ -33,12 +36,12 @@ export default class Battle extends Phaser.GameObjects.Container {
     this.players.add(new PlayerBattler(this.scene, sampleStatus2).setPosition(config.WIDTH.half - 310, (70).byBottom))
     this.players.add(new PlayerBattler(this.scene, sampleStatus2).setPosition(config.WIDTH.half, (70).byBottom))
     this.players.add(new PlayerBattler(this.scene, sampleStatus2).setPosition(config.WIDTH.half + 310, (70).byBottom))
-    Number(5).toArray.forEach(n => {
-      const y = 320 - n * 52
-      const box = new Button(this.scene, 20, y, 'Attack', 120, 40)
-      const line = this.scene.add.line(136, y + 20, 0, 0, 100, 0, 0xFFFFFF).setOrigin(0, 0)
-      line.setLineWidth(0.5)
-      this.add([box, line])
+    Number(this.enemies.length).toArray.forEach(() => {
+      const box = new Button(this.scene, 20, 0, 'Attack', 120, 40)
+      box.line = this.scene.add.line(116, 20, 0, 0, 100, 0, 0xFFFFFF).setOrigin(0, 0).setLineWidth(0.5).setAlpha(0.5)
+      box.circle = this.scene.add.circle(116, 21, 2, 0xFFFFFF).setOrigin(0.5, 0.5)
+      box.add([box.line, box.circle])
+      this.buttons.add(box)
     })
     // register
     this.all = []
@@ -51,6 +54,16 @@ export default class Battle extends Phaser.GameObjects.Container {
     if (this.victory) this.end()
     this.enemies.list.forEach((v, i) => {
       v.x = config.WIDTH.half + positions[this.enemies.length][i]
+    })
+    this.buttons.list.forEach((v, i) => {
+      if (i >= this.enemies.length) v.destroy()
+    })
+    this.buttons.list.forEach((button, i) => {
+      button.visible = this.playerTurn
+      const y = 370 + (this.enemies.length * -52) + (i * 52)
+      button.y = y
+      button.line.geom.x2 = 340 + positions[this.enemies.length][i]
+      button.circle.x = 460 + positions[this.enemies.length][i]
     })
   }
   get currentBattler () {
