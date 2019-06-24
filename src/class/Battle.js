@@ -54,6 +54,10 @@ export default class Battle extends Phaser.GameObjects.Container {
     this.increaseTurn()
     this.fixButtons()
     this.slideInButtons()
+    this.players.list.forEach((v, i) => {
+      v.y += 150
+      this.scene.add.tween({ targets: v, duration: 200, ease: 'Power2', delay: i * 50, y: v.y - 150 })
+    })
   }
   preUpdate () {
     if (this.victory) this.end()
