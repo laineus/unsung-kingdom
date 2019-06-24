@@ -52,21 +52,41 @@ export default class Battle extends Phaser.GameObjects.Container {
     this.enemies.list.forEach(v => this.all.push(v))
     this.turnIndex = -1
     this.increaseTurn()
+    this.fixButtons()
+    this.slideInButtons()
   }
   preUpdate () {
     if (this.victory) this.end()
     this.enemies.list.forEach((v, i) => {
       v.x = config.WIDTH.half + positions[this.enemies.length][i]
     })
-    this.buttons.list.forEach((v, i) => {
-      if (i >= this.enemies.length) v.destroy()
+    const updated = this.buttons.list.some((v, i) => {
+      if (i < this.enemies.length) return false
+      v.destroy()
+      return true
     })
-    this.buttons.list.forEach((button, i) => {
+    if (updated) this.fixButtons()
+    this.buttons.list.forEach(button => {
+      if (!button.visible && this.playerTurn) this.slideInButtons()
       button.visible = this.playerTurn
+    })
+  }
+  fixButtons () {
+    this.buttons.list.forEach((button, i) => {
       const y = 390 + (this.enemies.length * -52) + (i * 52)
       button.y = y
       button.line.geom.x2 = 340 + positions[this.enemies.length][i]
       button.circle.x = 400 + positions[this.enemies.length][i]
+    })
+  }
+  slideInButtons () {
+    this.buttons.list.forEach((button, i) => {
+      button.x = 420 + positions[this.enemies.length][i]
+      this.scene.add.tween({ targets: button, duration: 250, ease: 'Power2', x: 80 })
+      button.line.scaleX = 0
+      this.scene.add.tween({ targets: button.line, duration: 250, ease: 'Power2', scaleX: 1 })
+      button.circle.x = 60
+      this.scene.add.tween({ targets: button.circle, duration: 250, ease: 'Power2', x: 400 + positions[this.enemies.length][i] })
     })
   }
   get currentBattler () {
