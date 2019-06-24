@@ -77,6 +77,7 @@ export default class Battle extends Phaser.GameObjects.Container {
       button.y = y
       button.line.geom.x2 = 340 + positions[this.enemies.length][i]
       button.circle.x = 400 + positions[this.enemies.length][i]
+      button.toInactive()
     })
   }
   slideInButtons () {
