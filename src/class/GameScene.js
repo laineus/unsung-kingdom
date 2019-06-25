@@ -59,6 +59,7 @@ export default class GameScene extends Phaser.Scene {
     })
   }
   setDebugAction () {
+    window.storage = storage
     this.input.keyboard.on('keydown_B', () => {
       this.ui.battle()
     })

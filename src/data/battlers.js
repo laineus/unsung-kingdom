@@ -8,7 +8,7 @@ export default [
     hp: 100, atk: 3, def: 2, dex: 3, agi: 4
   },
   {
-    key: 'Jaquelyn', name: 'Jaquelyn', lv: 1,
+    key: 'jaquelyn', name: 'Jaquelyn', lv: 1,
     hp: 100, atk: 2, def: 2, dex: 4, agi: 4
   },
   {

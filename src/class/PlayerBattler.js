@@ -17,7 +17,7 @@ export default class PlayerBattler extends Battler {
     this.bg2 = this.scene.add.polygon(-9, -20, [[26, 0], [282, 130], [0, 130]], 0x111111)
     this.add(this.bg2)
     // image
-    this.sprite = this.scene.add.sprite(-180, -60, 'ann')
+    this.sprite = this.scene.add.sprite(-180, -60, status.key)
     this.sprite.setScale(0.7).setOrigin(0, 0)
     this.add(this.sprite)
     this.sprite.setCrop(0, 0, this.sprite.width, 150)
