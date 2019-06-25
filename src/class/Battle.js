@@ -2,6 +2,7 @@ import config from '../data/config'
 import EnemyBattler from './EnemyBattler'
 import PlayerBattler from './PlayerBattler'
 import Button from './Button'
+import battlers from '../data/battlers'
 const positions = {
   1: [0],
   2: [-130, 130],
@@ -12,7 +13,7 @@ const positions = {
 export default class Battle extends Phaser.GameObjects.Container {
   constructor (scene, group, callback) {
     super(scene)
-    console.log(group)
+    group = group.map(k => battlers.find(v => v.key === k))
     this.scene = scene
     this.callback = callback
     scene.add.existing(this)
@@ -25,13 +26,10 @@ export default class Battle extends Phaser.GameObjects.Container {
     this.players = this.scene.add.container(0, 0)
     this.buttons = this.scene.add.container(0, 0)
     this.add([this.overlay, this.window, this.enemies, this.players, this.buttons])
-    // test image
-    const sampleStatus1 = { hp: 35, atk: 4, def: 3, dex: 2, agi: 2 }
-    this.enemies.add(new EnemyBattler(this.scene, sampleStatus1).setPosition(config.WIDTH.half, config.HEIGHT.half - 50))
-    this.enemies.add(new EnemyBattler(this.scene, sampleStatus1).setPosition(config.WIDTH.half, config.HEIGHT.half - 50))
-    this.enemies.add(new EnemyBattler(this.scene, sampleStatus1).setPosition(config.WIDTH.half, config.HEIGHT.half - 50))
-    this.enemies.add(new EnemyBattler(this.scene, sampleStatus1).setPosition(config.WIDTH.half, config.HEIGHT.half - 50))
-    this.enemies.add(new EnemyBattler(this.scene, sampleStatus1).setPosition(config.WIDTH.half, config.HEIGHT.half - 50))
+    // set enemies
+    group.map(enemy => {
+      return new EnemyBattler(this.scene, enemy).setPosition(config.WIDTH.half, config.HEIGHT.half - 50)
+    }).forEach(e => this.enemies.add(e))
     // test image
     const sampleStatus2 = { hp: 50, atk: 15, def: 5, dex: 4, agi: 3 }
     this.players.add(new PlayerBattler(this.scene, sampleStatus2).setPosition(config.WIDTH.half - 310, (70).byBottom))
