@@ -17,15 +17,15 @@ export default class PlayerBattler extends Battler {
     this.bg2 = this.scene.add.polygon(-9, -20, [[26, 0], [282, 130], [0, 130]], 0x111111)
     this.add(this.bg2)
     // image
-    this.sprite = this.scene.add.sprite(-180, -60, status.key)
+    this.sprite = this.scene.add.sprite(-180, -60, this.key)
     this.sprite.setScale(0.7).setOrigin(0, 0)
     this.add(this.sprite)
     this.sprite.setCrop(0, 0, this.sprite.width, 150)
     // name
-    this.nameLabel = this.scene.add.text(-138, 15, status.name, { fill: '#AACC22', stroke: '#222', strokeThickness: 2, fontSize: 22, fontStyle: 'bold', fontFamily: 'Ubuntu' })
+    this.nameLabel = this.scene.add.text(-138, 15, this.name, { fill: '#AACC22', stroke: '#222', strokeThickness: 2, fontSize: 20, fontStyle: 'bold', fontFamily: 'Ubuntu' })
     this.add(this.nameLabel)
     // lv
-    this.lvLabel = this.scene.add.text(-36, 38, 'Lv 15', { fill: '#AAAAAA', stroke: '#222', strokeThickness: 2, fontSize: 13, fontStyle: 'bold', fontFamily: 'Ubuntu' }).setOrigin(0, 1)
+    this.lvLabel = this.scene.add.text(-36, 38, `Lv ${this.lv}`, { fill: '#AAAAAA', stroke: '#222', strokeThickness: 2, fontSize: 13, fontStyle: 'bold', fontFamily: 'Ubuntu' }).setOrigin(0, 1)
     this.add(this.lvLabel)
     // hp
     this.hpLabel = this.scene.add.text(-36, -30, 'HP', { fill: '#FFEEBB', stroke: '#222', strokeThickness: 2, fontSize: 11, fontStyle: 'bold', fontFamily: 'Ubuntu' })

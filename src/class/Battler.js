@@ -7,16 +7,16 @@ export default class Enemy extends Phaser.GameObjects.Container {
     this.actionPoint = 0
   }
   setStatus (option) {
-    this.maxHp = option.hp
+    this.source = option
+    this.key = option.key
+    this.name = option.name
+    this.lv = option.lv
+    this.maxHp = option.maxHp || option.hp
     this.hp = option.hp
     this.atk = option.atk
     this.def = option.def
     this.dex = option.dex
     this.agi = option.agi
-  }
-  setHp (value) {
-    this._hp = value
-    this.maxHp = value
   }
   get hp () {
     return this._hp
