@@ -3,6 +3,7 @@ import EnemyBattler from './EnemyBattler'
 import PlayerBattler from './PlayerBattler'
 import Button from './Button'
 import battlers from '../data/battlers'
+import storage from '../data/storage'
 const positions = {
   1: [0],
   2: [-130, 130],
@@ -30,11 +31,11 @@ export default class Battle extends Phaser.GameObjects.Container {
     group.map(enemy => {
       return new EnemyBattler(this.scene, enemy).setPosition(config.WIDTH.half, config.HEIGHT.half - 50)
     }).forEach(e => this.enemies.add(e))
-    // test image
-    const sampleStatus2 = { hp: 50, atk: 15, def: 5, dex: 4, agi: 3 }
-    this.players.add(new PlayerBattler(this.scene, sampleStatus2).setPosition(config.WIDTH.half - 310, (70).byBottom))
-    this.players.add(new PlayerBattler(this.scene, sampleStatus2).setPosition(config.WIDTH.half, (70).byBottom))
-    this.players.add(new PlayerBattler(this.scene, sampleStatus2).setPosition(config.WIDTH.half + 310, (70).byBottom))
+    // set players
+    storage.state.battlers.map((player, i) => {
+      const x = config.WIDTH.half + ((i - 1) * 310)
+      return new PlayerBattler(this.scene, player).setPosition(x, (70).byBottom)
+    }).forEach(e => this.players.add(e))
     Number(this.enemies.length).toArray.forEach(i => {
       const box = new Button(this.scene, 80, 0, 'Attack', 120, 40)
       box.line = this.scene.add.line(56, 0, 0, 0, 100, 0, 0xFFFFFF).setOrigin(0, 0).setLineWidth(0.5).setAlpha(0.5)

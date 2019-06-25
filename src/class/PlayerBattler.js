@@ -22,7 +22,7 @@ export default class PlayerBattler extends Battler {
     this.add(this.sprite)
     this.sprite.setCrop(0, 0, this.sprite.width, 150)
     // name
-    this.nameLabel = this.scene.add.text(-138, 15, 'Ann', { fill: '#AACC22', stroke: '#222', strokeThickness: 2, fontSize: 22, fontStyle: 'bold', fontFamily: 'Ubuntu' })
+    this.nameLabel = this.scene.add.text(-138, 15, status.name, { fill: '#AACC22', stroke: '#222', strokeThickness: 2, fontSize: 22, fontStyle: 'bold', fontFamily: 'Ubuntu' })
     this.add(this.nameLabel)
     // lv
     this.lvLabel = this.scene.add.text(-36, 38, 'Lv 15', { fill: '#AAAAAA', stroke: '#222', strokeThickness: 2, fontSize: 13, fontStyle: 'bold', fontFamily: 'Ubuntu' }).setOrigin(0, 1)
