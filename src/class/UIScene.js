@@ -41,8 +41,8 @@ export default class UIScene extends Phaser.Scene {
   select (options, callback) {
     return new Select(this, options, callback)
   }
-  battle () {
-    return new Battle(this, () => {
+  battle (group) {
+    return new Battle(this, group, () => {
       console.log('callback')
     })
   }

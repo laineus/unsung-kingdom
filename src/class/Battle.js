@@ -10,8 +10,9 @@ const positions = {
   5: [-260, -130, 0, 130, 260],
 }
 export default class Battle extends Phaser.GameObjects.Container {
-  constructor (scene, callback) {
+  constructor (scene, group, callback) {
     super(scene)
+    console.log(group)
     this.scene = scene
     this.callback = callback
     scene.add.existing(this)
