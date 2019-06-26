@@ -52,11 +52,11 @@ export default class PlayerBattler extends Battler {
     this.hpMaxLabel.setText(`/${this.maxHp}`)
     this.hpValueLabel.setText(this.hp)
   }
-  addDamage (baseDamage, cri, weakness, hit) {
-    super.addDamage(baseDamage, cri, weakness, hit)
-  }
   die () {
-    this.sprite.setTint(0x555555)
+    return new Promise(resolve => {
+      this.sprite.setTint(0x555555)
+      resolve()
+    })
   }
   setActive(bool) {
     super.setActive(bool)

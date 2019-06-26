@@ -29,15 +29,17 @@ export default class EnemyBattler extends Battler {
     this.hpMaxLabel.setText(`/${this.maxHp}`)
     this.hpValueLabel.setText(this.hp)
   }
-  addDamage (baseDamage, cri, weakness, hit) {
-    super.addDamage(baseDamage, cri, weakness, hit)
-  }
   die () {
-    this.sprite.setTint(0xFF0000)
-    this.scene.add.tween({
-      targets: this.sprite, duration: 300, ease: 'Power2',
-      scaleX: 1.3, scaleY: 1.3, alpha: 0.2,
-      onComplete: () => this.destroy()
+    return new Promise(resolve => {
+      this.sprite.setTint(0xFF0000)
+      this.scene.add.tween({
+        targets: this.sprite, duration: 2300, ease: 'Power2',
+        scaleX: 1.3, scaleY: 1.3, alpha: 0.2,
+        onComplete: () => {
+          this.destroy()
+          resolve()
+        }
+      })
     })
   }
 }

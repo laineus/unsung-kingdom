@@ -52,7 +52,7 @@ export default class Battle extends Phaser.GameObjects.Container {
     this.enemies.list.forEach(v => this.all.push(v))
     this.turnIndex = -1
     this.increaseTurn()
-    this.fixButtons()
+    this.fixButtonsPosition()
     this.slideInButtons()
     this.players.list.forEach((v, i) => {
       v.y += 150
@@ -64,18 +64,20 @@ export default class Battle extends Phaser.GameObjects.Container {
     this.enemies.list.forEach((v, i) => {
       v.x = config.WIDTH.half + positions[this.enemies.length][i]
     })
+  }
+  updateButtons () {
     const updated = this.buttons.list.some((v, i) => {
       if (i < this.enemies.length) return false
       v.destroy()
       return true
     })
-    if (updated) this.fixButtons()
+    if (updated) this.fixButtonsPosition()
     this.buttons.list.forEach(button => {
       if (!button.visible && this.playerTurn) this.slideInButtons()
       button.visible = this.playerTurn
     })
   }
-  fixButtons () {
+  fixButtonsPosition () {
     this.buttons.list.forEach((button, i) => {
       const y = 390 + (this.enemies.length * -52) + (i * 52)
       button.y = y
@@ -104,7 +106,8 @@ export default class Battle extends Phaser.GameObjects.Container {
     this.turnIndex = this.turnIndex < (this.all.length - 1) ? this.turnIndex + 1 : 0
     const result = this.currentBattler.alive && this.currentBattler.increaseTurn()
     if (!result) return this.increaseTurn()
-    if (!this.playerTurn) return this.execEnemyTurn()
+    if (!this.playerTurn) this.execEnemyTurn()
+    this.updateButtons()
   }
   execEnemyTurn () {
     setTimeout(() => {
@@ -114,10 +117,12 @@ export default class Battle extends Phaser.GameObjects.Container {
     }, 1000)
   }
   tapEnemy (enemy) {
+    this.buttons.list.forEach(v => (v.visible = false))
     if (!this.playerTurn) return
-    this.currentBattler.attackTo(enemy)
-    // enemy.addDamage(Math.randomInt(60, 200))
-    this.increaseTurn()
+    this.currentBattler.attackTo(enemy).then(() => {
+      this.buttons.list.forEach(v => (v.visible = true))
+      this.increaseTurn()
+    })
   }
   get victory () {
     return this.enemies.list.length === 0
