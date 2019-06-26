@@ -16,13 +16,21 @@ export default class EnemyBattler extends Battler {
     this.hpValueLabel = this.scene.add.text(0, -135, this.hp, { fill: '#FFEEBB', stroke: '#222', strokeThickness: 2, fontSize: 16, fontStyle: 'bold', fontFamily: 'Ubuntu' }).setOrigin(1, 1)
     this.add(this.hpValueLabel)
     // gauge
-    this.gauge = new Gauge(this.scene, 100, 7, this.maxHp, 0xEE8811).setPosition(0, -130)
+    this.gauge = new Gauge(this.scene, 100, 7, this.hp, 0xEE8811).setPosition(0, -130)
     this.add(this.gauge)
+  }
+  get hp () {
+    return this._hp
+  }
+  set hp (value) {
+    this._hp = Math.fix(value, 0, this.maxHp)
+    if (!this.gauge) return
+    this.gauge.value = this.hp
+    this.hpMaxLabel.setText(`/${this.maxHp}`)
+    this.hpValueLabel.setText(this.hp)
   }
   addDamage (baseDamage, cri, weakness, hit) {
     super.addDamage(baseDamage, cri, weakness, hit)
-    this.hpMaxLabel.setText(`/${this.maxHp}`)
-    this.hpValueLabel.setText(this.hp)
   }
   die () {
     this.sprite.setTint(0xFF0000)

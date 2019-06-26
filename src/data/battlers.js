@@ -13,6 +13,6 @@ export default [
   },
   {
     key: 'torrent', name: 'トレント', lv: 1,
-    hp: 100, atk: 3, def: 4, dex: 3, agi: 2
+    hp: 50, atk: 3, def: 4, dex: 3, agi: 2
   }
 ]

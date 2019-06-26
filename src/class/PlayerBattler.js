@@ -39,12 +39,21 @@ export default class PlayerBattler extends Battler {
     this.add(this.lvLabel)
     // gauge
     this.gauge = new Gauge(this.scene, 160, 10, this.maxHp, 0xAACC22).setPosition(45, -8)
+    this.gauge.value = this.hp
     this.add(this.gauge)
+  }
+  get hp () {
+    return this.source.hp
+  }
+  set hp (value) {
+    this.source.hp = Math.fix(value, 0, this.maxHp)
+    if (!this.gauge) return
+    this.gauge.value = this.hp
+    this.hpMaxLabel.setText(`/${this.maxHp}`)
+    this.hpValueLabel.setText(this.hp)
   }
   addDamage (baseDamage, cri, weakness, hit) {
     super.addDamage(baseDamage, cri, weakness, hit)
-    this.hpMaxLabel.setText(`/${this.maxHp}`)
-    this.hpValueLabel.setText(this.hp)
   }
   die () {
     this.sprite.setTint(0x555555)

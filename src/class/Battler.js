@@ -18,12 +18,6 @@ export default class Enemy extends Phaser.GameObjects.Container {
     this.dex = option.dex
     this.agi = option.agi
   }
-  get hp () {
-    return this._hp
-  }
-  set hp (value) {
-    this._hp = Math.fix(value, 0, this.maxHp)
-  }
   get alive () {
     return this.hp > 0
   }
@@ -61,7 +55,6 @@ export default class Enemy extends Phaser.GameObjects.Container {
     if (hit) {
       const damage = baseDamage * (cri ? 2 : 1) * weakness
       this.hp -= damage
-      this.gauge.value = this.hp
       this.damageEffect()
       this.damageText(damage)
       if (this.hp <= 0) this.die()
