@@ -51,23 +51,15 @@ export default class Enemy extends Phaser.GameObjects.Container {
     this.setActive(false)
     return target.addDamage(baseDamage, cri, weakness, hit)
   }
-  addDamage (baseDamage, cri, weakness, hit) {
-    return new Promise(resolve => {
-      if (hit) {
-        const damage = baseDamage * (cri ? 2 : 1) * weakness
-        this.hp -= damage
-        this.damageEffect()
-        this.damageText(damage)
-        if (this.hp <= 0) {
-          this.die().then(() => resolve())
-        } else {
-          resolve()
-        }
-      } else {
-        this.damageText('Miss')
-        resolve()
-      }
-    })
+  async addDamage (baseDamage, cri, weakness, hit) {
+    if (hit) {
+      const damage = baseDamage * (cri ? 2 : 1) * weakness
+      this.hp -= damage
+      this.damageEffect()
+      this.damageText(damage)
+      return this.hp <= 0 ? this.die() : null
+    }
+    return this.damageText('Miss')
   }
   damageEffect () {
     const eff = this.scene.add.sprite(0, 0, 'damage').setScale(0.5, 0.5).setPosition(Math.randomInt(-30, 30), Math.randomInt(-30, 30))

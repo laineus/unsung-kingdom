@@ -33,7 +33,7 @@ export default class EnemyBattler extends Battler {
     return new Promise(resolve => {
       this.sprite.setTint(0xFF0000)
       this.scene.add.tween({
-        targets: this.sprite, duration: 2300, ease: 'Power2',
+        targets: this.sprite, duration: 300, ease: 'Power2',
         scaleX: 1.3, scaleY: 1.3, alpha: 0.2,
         onComplete: () => {
           this.destroy()

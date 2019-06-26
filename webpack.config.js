@@ -22,7 +22,9 @@ module.exports = {
         include: path.resolve(__dirname, 'src/'),
         loader: 'babel-loader',
         options: {
-          presets: ['babel-preset-env']
+          presets: [
+            ['env', { targets: { node: 'current' } }]
+          ]
         }
       }
     ]
