@@ -1,1 +1,2 @@
 rule_forest_wall.tmx
+rule_forest_crif.tmx
