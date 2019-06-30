@@ -28,6 +28,10 @@ export default class Character extends Substance {
     this._targetPositionX = null
     this._targetPositionY = null
   }
+  stopWalk () {
+    this.unsetFollowing()
+    this.body.setVelocity(0, 0)
+  }
   setSpeed (speed = 120) {
     this.speed = speed
   }

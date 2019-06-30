@@ -15,6 +15,7 @@ export default class GameScene extends Phaser.Scene {
     this.player = new Player(this, payload.x, payload.y)
     this.player.on('walk', () => {
       if (!this.event.enemyGroups || !Math.chance(0.3)) return
+      this.player.stopWalk()
       this.ui.battle(this.event.enemyGroups.random())
     })
     // map
