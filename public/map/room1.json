@@ -39,18 +39,6 @@
                  "width":64,
                  "x":576,
                  "y":736
-                }, 
-                {
-                 "height":0,
-                 "id":5,
-                 "name":"boar",
-                 "point":true,
-                 "rotation":0,
-                 "type":"enemy",
-                 "visible":true,
-                 "width":0,
-                 "x":1009,
-                 "y":469
                 }],
          "opacity":1,
          "type":"objectgroup",

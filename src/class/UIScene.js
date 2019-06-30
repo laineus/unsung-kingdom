@@ -4,6 +4,7 @@ import config from '../data/config'
 import storage from '../data/storage'
 import Select from './Select'
 import downloadImageBySource from '../util/downloadImageBySource'
+import Battle from './Battle'
 export default class UIScene extends Phaser.Scene {
   constructor () {
     super({ key: 'UI', active: false })
@@ -40,6 +41,11 @@ export default class UIScene extends Phaser.Scene {
   select (options, callback) {
     return new Select(this, options, callback)
   }
+  battle (group) {
+    return new Battle(this, group, () => {
+      console.log('callback')
+    })
+  }
   transition (callback = null) {
     this.scene.pause('Game')
     const left = this.add.rectangle(0, -config.HEIGHT_HALF, config.WIDTH, config.HEIGHT_HALF, 0x111111).setOrigin(0, 0)
@@ -68,6 +74,7 @@ export default class UIScene extends Phaser.Scene {
     this.game.renderer.snapshot(img => downloadImageBySource(img.src, filename))
   }
   renderMiniMap (tilemap) {
+    return
     const SIZE = 4
     const WIDTH = 120
     const HEIGHT = 120

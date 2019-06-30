@@ -13,6 +13,10 @@ export default class GameScene extends Phaser.Scene {
     this.substances = this.add.group()
     // player
     this.player = new Player(this, payload.x, payload.y)
+    this.player.on('walk', () => {
+      if (!this.event.enemyGroups || !Math.chance(0.3)) return
+      this.ui.battle(this.event.enemyGroups.random())
+    })
     // map
     this.map = new GameMap(this, payload.map)
     // camera
@@ -28,9 +32,7 @@ export default class GameScene extends Phaser.Scene {
     this.input.on('pointerdown', walk)
     this.input.on('pointermove', walk)
     this.event = maps[payload.map]
-    if (this.event) {
-      if (this.event.create) this.event.create(this)
-    }
+    if (this.event && this.event.create) this.event.create(this)
     // debug
     this.setDebugAction()
   }
@@ -46,6 +48,10 @@ export default class GameScene extends Phaser.Scene {
   select (options, callback) {
     return this.ui.select(options, callback)
   }
+  blur (bool) {
+    if (bool) this.camera.setRenderToTexture('blur')
+    if (!bool) this.camera.clearRenderToTexture()
+  }
   mapChange (mapKey, tileX, tileY) {
     console.log(`go to ${mapKey}`)
     this.ui.transition(() => {
@@ -53,6 +59,10 @@ export default class GameScene extends Phaser.Scene {
     })
   }
   setDebugAction () {
+    window.storage = storage
+    this.input.keyboard.on('keydown_B', () => {
+      this.ui.battle()
+    })
     this.input.keyboard.on('keydown_I', () => {
       console.log(`x: ${this.player.x}, y: ${this.player.y}, tileX: ${this.player.x.toTile} tileY: ${this.player.y.toTile}`)
       console.log(this.storage.state)

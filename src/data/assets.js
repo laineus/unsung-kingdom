@@ -1,10 +1,13 @@
 export default {
   image: [
+    ['dark', '../img/dark.png'],
     ['room', '../img/room.png'],
     ['town', '../img/town.png'],
     ['ann', '../img/ann.png'],
     ['francisca', '../img/francisca.png'],
     ['jaquelyn', '../img/jaquelyn.png'],
+    ['torrent', '../img/torrent.png'],
+    ['damage', '../img/damage.png'],
     ['forest', '../img/forest.png']
   ],
   json: [

@@ -1,7 +1,8 @@
-import Enemy from '../class/Enemy'
 export default {
+  enemyGroups: [
+    ['torrent', 'torrent'],
+    ['torrent', 'torrent', 'torrent'],
+  ],
   create (scene) {
-    // enemy
-    new Enemy(scene, (19).toPixelCenter, (19).toPixelCenter, 'boar')
   }
 }

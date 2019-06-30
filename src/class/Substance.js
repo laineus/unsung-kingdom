@@ -1,6 +1,5 @@
 import config from '../data/config'
 import Baloon from './Balloon'
-import Gauge from './Gauge'
 export default class Substance extends Phaser.GameObjects.Container {
   constructor (scene, x, y, key = null) {
     super(scene, x, y)
@@ -11,28 +10,9 @@ export default class Substance extends Phaser.GameObjects.Container {
     this.add(this.image)
     scene.add.existing(this)
     scene.substances.add(this)
-    scene.physics.add.collider(this, scene.substances)
     scene.physics.world.enable(this)
     this.body.setDrag(300)
     this.setId(null)
-  }
-  get isAlive () {
-    return !this.maxHp || this.hp > 0
-  }
-  get hp () {
-    return this._hp
-  }
-  set hp (hp) {
-    if (hp < 0) hp = 0
-    if (hp > this.maxHp) hp = this.maxHp
-    this._hp = hp
-    this.hpGauge.value = this._hp
-  }
-  setHp (hp) {
-    this.hpGauge = new Gauge(this.scene, 32, 4, hp).setPosition(0, -40)
-    this.add(this.hpGauge)
-    this.maxHp = hp
-    this.hp = hp
   }
   preUpdate () {
     if (this.target && !this.target.isAlive) this.unsetFollowing()
@@ -65,34 +45,6 @@ export default class Substance extends Phaser.GameObjects.Container {
   }
   distanceTo (target) {
     return Phaser.Math.Distance.Between(this.x, this.y, target.x, target.y)
-  }
-  attackBy (attacker) {
-    const damage = 10
-    const damageText = this.scene.add.text(this.x, this.y - 50, damage, { fontStyle: 'bold' }).setOrigin(0.5, 0.5)
-    this.scene.add.tween({
-      targets: damageText,
-      ease: Phaser.Math.Easing.Expo.Out,
-      duration: 500,
-      y: damageText.y - 20,
-      onComplete: () => damageText.destroy()
-    })
-    this.hp -= damage
-    if (this.hp <= 0) this.die()
-  }
-  die () {
-    this.destroy()
-  }
-  rayCast (x, y, speed = 20) {
-    const distanceDiff = Math.hypot(x - this.x, y - this.y)
-    const count = Math.floor(distanceDiff / speed)
-    const radian = Math.atan2(y - this.y, x - this.x)
-    const xSpeed = Math.cos(radian) * speed
-    const ySpeed = Math.sin(radian) * speed
-    return count.toArray.some(i => {
-      const tileX = (this.x + (xSpeed * (i + 1))).toTile
-      const tileY = (this.y + (ySpeed * (i + 1))).toTile
-      return this.scene.map.isCollides(tileX, tileY)
-    })
   }
   get distanceToPlayer () {
     return this.distanceTo(this.scene.player)
