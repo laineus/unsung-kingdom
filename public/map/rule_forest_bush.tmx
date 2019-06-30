@@ -54,7 +54,7 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <layer id="8" name="output_layer1" width="15" height="12">
+ <layer id="8" name="output_layer2" width="15" height="12">
   <data encoding="csv">
 0,0,95,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
