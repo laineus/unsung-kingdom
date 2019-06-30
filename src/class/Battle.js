@@ -4,6 +4,7 @@ import PlayerBattler from './PlayerBattler'
 import Button from './Button'
 import battlers from '../data/battlers'
 import storage from '../data/storage'
+import expTable from '../data/expTable'
 const positions = {
   1: [0],
   2: [-130, 130],
@@ -14,7 +15,7 @@ const positions = {
 export default class Battle extends Phaser.GameObjects.Container {
   constructor (scene, group, callback) {
     super(scene)
-    group = group.map(k => battlers.find(v => v.key === k))
+    this.group = group.map(k => battlers.find(v => v.key === k))
     this.scene = scene
     this.callback = callback
     scene.add.existing(this)
@@ -28,7 +29,7 @@ export default class Battle extends Phaser.GameObjects.Container {
     this.buttons = this.scene.add.container(0, 0)
     this.add([this.overlay, this.window, this.enemies, this.players, this.buttons])
     // set enemies
-    group.map(enemy => {
+    this.group.map(enemy => {
       return new EnemyBattler(this.scene, enemy).setPosition(config.WIDTH.half, config.HEIGHT.half - 50)
     }).forEach(e => this.enemies.add(e))
     // set players
@@ -128,9 +129,31 @@ export default class Battle extends Phaser.GameObjects.Container {
     return this.enemies.list.length === 0
   }
   end () {
+    this.increaceExp()
+    this.levelUpPlayers()
     this.scene.scene.resume('Game')
     this.scene.gameScene.blur(false)
     this.destroy()
     this.callback(this)
+  }
+  increaceExp () {
+    const sumExp = this.group.reduce((before, current) => (before + current.lv * 3), 0)
+    const alives = this.players.list.filter(v => v.alive)
+    alives.forEach(v => {
+      v.source.exp += sumExp / alives.length
+    })
+  }
+  levelUpPlayers () {
+    const levelUp = battler => {
+      const next = expTable[battler.source.lv]
+      if (next && battler.source.exp >= next) {
+        battler.source.lv++
+        Object.keys(battler.source.up).filter(key => Math.chance(battler.source.up[key])).forEach(key => {
+          battler.source[key] += key === 'hp' ? 10 : 1
+        })
+        levelUp(battler)
+      }
+    }
+    this.players.list.filter(v => v.alive).forEach(v => levelUp(v))
   }
 }
