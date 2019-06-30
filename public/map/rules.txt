@@ -1,2 +1,4 @@
+rule_forest_sand.tmx
+rule_forest_bush.tmx
 rule_forest_crif.tmx
 rule_forest_wall.tmx
