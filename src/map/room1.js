@@ -8,7 +8,8 @@ export default {
       { name: 'ann', text: 'こんにちは。' },
       { name: 'francisca', text: 'はいこんにちは。' },
       ['ann', 'francisca', 'jaquelyn'],
-      { name: 'francisca', text: 'こんばんは。' }
+      { name: 'francisca', text: 'こんばんは。' },
+      null
     ])
   }
 }

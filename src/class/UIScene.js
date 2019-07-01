@@ -41,7 +41,9 @@ export default class UIScene extends Phaser.Scene {
     })
   }
   select (options, callback) {
-    return new Select(this, options, callback)
+    return new Promise(resolve => {
+      new Select(this, options, resolve)
+    })
   }
   battle (group) {
     return new Battle(this, group, () => {
