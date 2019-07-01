@@ -1,6 +1,6 @@
 export default {
   create (scene) {
-    scene.map.getCharaById(4).setTapEvent(() => {
+    scene.map.getCharaById(4).setTapEvent().on('tap', () => {
       if (scene.storage.state.quest.five.completed) {
         scene.talk([
           ['ann'],
