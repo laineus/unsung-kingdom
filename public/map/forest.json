@@ -1,11 +1,11 @@
 { "columns":10,
  "image":"..\/img\/forest.png",
- "imageheight":352,
+ "imageheight":384,
  "imagewidth":320,
  "margin":0,
  "name":"forest",
  "spacing":0,
- "tilecount":110,
+ "tilecount":120,
  "tiledversion":"2018.12.22",
  "tileheight":32,
  "tiles":[
@@ -19,6 +19,14 @@
         }, 
         {
          "id":12,
+         "type":"collides"
+        }, 
+        {
+         "id":13,
+         "type":"collides"
+        }, 
+        {
+         "id":14,
          "type":"collides"
         }, 
         {
@@ -46,11 +54,15 @@
          "type":"collides"
         }, 
         {
-         "id":21,
+         "id":22,
          "type":"collides"
         }, 
         {
-         "id":22,
+         "id":23,
+         "type":"collides"
+        }, 
+        {
+         "id":24,
          "type":"collides"
         }, 
         {
@@ -134,6 +146,10 @@
          "type":"collides"
         }, 
         {
+         "id":49,
+         "type":"collides"
+        }, 
+        {
          "id":50,
          "type":"collides"
         }, 
@@ -159,6 +175,42 @@
         }, 
         {
          "id":57,
+         "type":"collides"
+        }, 
+        {
+         "id":59,
+         "type":"collides"
+        }, 
+        {
+         "id":69,
+         "type":"collides"
+        }, 
+        {
+         "id":79,
+         "type":"collides"
+        }, 
+        {
+         "id":98,
+         "type":"collides"
+        }, 
+        {
+         "id":99,
+         "type":"collides"
+        }, 
+        {
+         "id":108,
+         "type":"collides"
+        }, 
+        {
+         "id":109,
+         "type":"collides"
+        }, 
+        {
+         "id":118,
+         "type":"collides"
+        }, 
+        {
+         "id":119,
          "type":"collides"
         }],
  "tilewidth":32,
