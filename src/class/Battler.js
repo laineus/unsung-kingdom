@@ -1,4 +1,4 @@
-export default class Enemy extends Phaser.GameObjects.Container {
+export default class Battler extends Phaser.GameObjects.Container {
   constructor (scene, status) {
     super(scene)
     this.scene = scene
