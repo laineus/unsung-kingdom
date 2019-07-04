@@ -13,6 +13,10 @@ export default class Character extends Substance {
     this._updateAnimation()
     this._calcRotation()
   }
+  setDisplayName (name) {
+    this.displayName = name
+    return this
+  }
   setTarget (target = null) {
     this.unsetFollowing()
     this.target = target

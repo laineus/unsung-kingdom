@@ -1,22 +1,20 @@
 export default {
   create (scene) {
-    scene.map.getCharaById(4).setTapEvent().on('tap', async () => {
+    scene.map.getCharaById(4).setDisplayName('ワンさん').setTapEvent().on('tap', async wansan => {
       if (scene.storage.state.quest.five.completed) {
         scene.talk([
-          ['ann'],
-          { name: 'ann', text: 'ありがとうワン！' },
+          { chara: wansan, text: 'ありがとうワン！' },
           null
         ])
       } else if (!scene.storage.state.quest.five.started) {
         const t = await scene.talk([
-          ['ann'],
-          { name: 'ann', text: '犬が迷子になってしまったんだ。' }
+          { chara: wansan, text: '犬が迷子になってしまったんだ。' },
+          { chara: 'ann', text: 'せやか' }
         ])
         const i = await scene.select(['はい', 'いいえ'])
         t.destroy()
         scene.talk([
-          ['ann'],
-          { name: 'ann', text: i === 0 ? 'わーい' : 'しょんぼり' },
+          { chara: wansan, text: i === 0 ? 'わーい' : 'しょんぼり' },
           null
         ])
         if (i === 0) scene.storage.state.quest.five.started = true
@@ -32,23 +30,20 @@ export default {
         const count = keys.filter(key => scene.storage.state.quest.five[key] === 0).length
         if (count === 0) {
           scene.talk([
-            ['ann'],
-            { name: 'ann', text: 'これで全部だワン！ありがとうだワン！' },
+            { chara: wansan, text: 'これで全部だワン！ありがとうだワン！' },
             null
           ])
           scene.storage.state.quest.five.completed = true
         } else if (found) {
           scene.talk([
-            ['ann'],
-            { name: 'ann', text: `ありがとう！あと${count}匹だワン！` },
-            { name: 'ann', text: 'よろしく頼んだよー。' },
+            { chara: wansan, text: `ありがとう！あと${count}匹だワン！` },
+            { chara: wansan, text: 'よろしく頼んだよー。' },
             null
           ])
         } else {
           const countText = count < 5 ? `あと${count}匹だワン。\n` : ''
           scene.talk([
-            ['ann'],
-            { name: 'ann', text: `${countText}よろしく頼んだよー。` },
+            { chara: wansan, text: `${countText}よろしく頼んだよー。` },
             null
           ])
         }
