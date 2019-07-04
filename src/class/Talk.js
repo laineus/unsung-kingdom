@@ -1,5 +1,5 @@
 import config from '../data/config'
-import SpeachBabble from './SpeachBabble'
+import SpeachBubble from './SpeachBubble'
 export default class Talk extends Phaser.GameObjects.Container {
   constructor (scene, events, callback) {
     super(scene)
@@ -27,23 +27,23 @@ export default class Talk extends Phaser.GameObjects.Container {
   next () {
     if (!this.current) return this.end()
     if (this.sameSpeakerAsBefore) {
-      this.babble.text.text = this.current.text
+      this.bubble.text.text = this.current.text
     } else {
-      this.deleteBabble()
+      this.deleteBubble()
       const isPlayer = (typeof this.current.chara === 'string' && ['ann', 'francisca', 'jaquelyn'])
       const chara = isPlayer ? this.scene.gameScene.player : this.current.chara
       const displayName = isPlayer ? this.current.chara : chara.displayName || 'No name'
       const camera = this.scene.gameScene.camera
       const x = chara.x - camera.scrollX
       const y = chara.y - camera.scrollY - 100
-      this.babble = new SpeachBabble(this.scene, x, y, displayName, this.current.text)
-      this.babble.setScale(0, 0).setPosition(x, y + 100).setAlpha(0)
-      this.scene.add.tween({ targets: this.babble, scaleX: 1, scaleY: 1, y, alpha: 1, duration: 120 })
+      this.bubble = new SpeachBubble(this.scene, x, y, displayName, this.current.text)
+      this.bubble.setScale(0, 0).setPosition(x, y + 100).setAlpha(0)
+      this.scene.add.tween({ targets: this.bubble, scaleX: 1, scaleY: 1, y, alpha: 1, duration: 120 })
     }
     this.index++
   }
   end () {
-    this.deleteBabble()
+    this.deleteBubble()
     this.scene.scene.resume('Game')
     if (this.current === null) {
       this.destroy()
@@ -52,8 +52,8 @@ export default class Talk extends Phaser.GameObjects.Container {
     }
     if (this.callback) this.callback(this)
   }
-  deleteBabble () {
-    if (!this.babble) return
-    this.scene.add.tween({ targets: this.babble, scaleX: 0, scaleY: 0, alpha: 0, duration: 120, onComplete: this.babble.destroy })
+  deleteBubble () {
+    if (!this.bubble) return
+    this.scene.add.tween({ targets: this.bubble, scaleX: 0, scaleY: 0, alpha: 0, duration: 120, onComplete: this.bubble.destroy })
   }
 }

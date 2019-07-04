@@ -1,7 +1,7 @@
 import { lineBreak } from '../util/stringFunctions'
 const points = [[32, 10], [295, 0], [320, 55], [295, 95], [170, 92], [169, 100], [176, 112], [158, 100], [156, 91], [15, 85], [0, 30]]
 const points2 = points.map(point => [270 - point[0], point[1]])
-export default class SpeachBabble extends Phaser.GameObjects.Container {
+export default class SpeachBubble extends Phaser.GameObjects.Container {
   constructor (scene, x, y, name, text) {
     super(scene, x, y)
     this.bg = scene.add.polygon(0, 0, points, 0x000000).setAlpha(0.7)
