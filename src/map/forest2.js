@@ -9,7 +9,8 @@ export default {
       } else if (!scene.storage.state.quest.five.started) {
         const t = await scene.talk([
           { chara: wansan, text: '犬が迷子になってしまったんだ。' },
-          { chara: 'ann', text: 'せやか' }
+          { chara: 'ann', text: 'せやか' },
+          { chara: 'ann', text: 'かわいそ' }
         ])
         const i = await scene.select(['はい', 'いいえ'])
         t.destroy()
