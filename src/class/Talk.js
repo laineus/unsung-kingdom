@@ -38,7 +38,7 @@ export default class Talk extends Phaser.GameObjects.Container {
       const y = chara.y - camera.scrollY - 100
       this.bubble = new SpeachBubble(this.scene, x, y, displayName, this.current.text)
       this.bubble.setScale(0, 0).setPosition(x, y + 100).setAlpha(0)
-      this.scene.add.tween({ targets: this.bubble, scaleX: 1, scaleY: 1, y, alpha: 1, duration: 120 })
+      this.scene.add.tween({ targets: this.bubble, scaleX: 1, scaleY: 1, y, alpha: 1, duration: 120, ease: 'Power2' })
     }
     this.index++
   }
@@ -54,6 +54,6 @@ export default class Talk extends Phaser.GameObjects.Container {
   }
   deleteBubble () {
     if (!this.bubble) return
-    this.scene.add.tween({ targets: this.bubble, scaleX: 0, scaleY: 0, alpha: 0, duration: 120, onComplete: this.bubble.destroy })
+    this.scene.add.tween({ targets: this.bubble, scaleX: 0, scaleY: 0, alpha: 0, duration: 120, ease: 'Power2', onComplete: this.bubble.destroy })
   }
 }
