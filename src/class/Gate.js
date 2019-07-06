@@ -4,13 +4,16 @@ export default class Gate extends Phaser.GameObjects.Zone {
     this.setOrigin(0, 0)
     scene.physics.world.enable(this)
     scene.physics.add.overlap(this, scene.player, () => {
-      if (!this.active) return
+      if (this.blockEvent) {
+        scene.player.setVelocity(scene.player.x - (zone_x + zone_width.half), scene.player.y - (zone_y + zone_height.half))
+        return this.blockEvent()
+      }
       scene.mapChange(key, x, y)
     })
     this.setActive(true)
   }
-  setActive (bool) {
-    this.active = bool
+  setBlocked (callback) {
+    this.blockEvent = callback
     return this
   }
   setId (id) {

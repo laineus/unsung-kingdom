@@ -39,6 +39,11 @@ export default class Character extends Substance {
   setSpeed (speed = 120) {
     this.speed = speed
   }
+  setVelocity (x, y) {
+    this.unsetFollowing()
+    this.body.setVelocity(x, y)
+    this.body.velocity.normalize().scale(this.speed)
+  }
   get hasTarget () {
     return this.target !== null
   }
