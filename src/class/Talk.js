@@ -27,7 +27,7 @@ export default class Talk extends Phaser.GameObjects.Container {
   next () {
     if (!this.current) return this.end()
     if (this.sameSpeakerAsBefore) {
-      this.bubble.text.text = this.current.text
+      this.bubble.setText(this.current.text)
     } else {
       this.deleteBubble()
       const isPlayer = (typeof this.current.chara === 'string' && ['ann', 'francisca', 'jaquelyn'])
