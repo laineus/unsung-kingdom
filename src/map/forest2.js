@@ -1,6 +1,6 @@
 export default {
   create (scene) {
-    scene.map.getCharaById(4).setDisplayName('ワンさん').setTapEvent().on('tap', async wansan => {
+    scene.map.getObjectById(4).setDisplayName('ワンさん').setTapEvent().on('tap', async wansan => {
       if (scene.storage.state.event.dogs.completed) {
         scene.talk([
           { chara: wansan, text: 'ありがとうワン！' },

@@ -1,6 +1,6 @@
 import dogEvent from './dogEvent'
 export default {
   create (scene) {
-    dogEvent(scene, scene.map.getCharaById(3), '3')
+    dogEvent(scene, scene.map.getObjectById(3), '3')
   }
 }

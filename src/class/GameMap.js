@@ -14,13 +14,13 @@ export default class GameMap {
     }).filter(v => v)
     this.staticLayers.forEach(layer => layer.setCollision(collides))
     scene.physics.add.collider(this.staticLayers, scene.substances)
-    this.gates = this._getGateObjects(tilemap).map(gate => new Gate(scene, gate.key, gate.x, gate.y, gate.zone_x, gate.zone_y, gate.zone_width, gate.zone_height))
+    this.gates = this._getGateObjects(tilemap).map(gate => new Gate(scene, gate.key, gate.x, gate.y, gate.zone_x, gate.zone_y, gate.zone_width, gate.zone_height).setId(gate.id))
     this.charas = this._getObjects(tilemap, 'chara').map(data => new Character(scene, data.x, data.y, data.name).setId(data.id))
     this.scene.ui.renderMiniMap(this.tilemap)
     return this
   }
-  getCharaById (id) {
-    return this.charas.find(v => v.id === id)
+  getObjectById (id) {
+    return this.charas.find(v => v.id === id) || this.gates.find(v => v.id === id)
   }
   isCollides (tileX, tileY) {
     return this.staticLayers.some(layer => {
@@ -54,6 +54,7 @@ export default class GameMap {
   _getGateObjects (tilemap) {
     return this._getObjects(tilemap, 'gate').map(v => {
       return {
+        id: v.id,
         key: v.name,
         x: v.properties.find(v => v.name === 'x').value,
         y: v.properties.find(v => v.name === 'y').value,
