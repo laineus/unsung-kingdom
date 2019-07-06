@@ -4,24 +4,20 @@ export default class GameMap {
   constructor (scene, mapKey) {
     this.scene = scene
     this.name = mapKey
-    this.tilemap = new Phaser.Tilemaps.ParseToTilemap(scene, mapKey)
-    const tilesets = this._getTilesets()
-    const collides = this._getCollides()
-    this.staticLayers = this.tilemap.layers.map((layer, i) => {
-      return layer.visible ? this.tilemap.createStaticLayer(i, tilesets, 0, 0) : null
+    const tilemap = new Phaser.Tilemaps.ParseToTilemap(scene, mapKey)
+    this.width = tilemap.widthInPixels
+    this.height = tilemap.heightInPixels
+    const tilesets = this._getTilesets(tilemap)
+    const collides = this._getCollides(tilemap)
+    this.staticLayers = tilemap.layers.map((layer, i) => {
+      return layer.visible ? tilemap.createStaticLayer(i, tilesets, 0, 0) : null
     }).filter(v => v)
     this.staticLayers.forEach(layer => layer.setCollision(collides))
     scene.physics.add.collider(this.staticLayers, scene.substances)
-    this.gates = this._getGateObjects().map(gate => new Gate(scene, gate.key, gate.x, gate.y, gate.zone_x, gate.zone_y, gate.zone_width, gate.zone_height))
-    this.charas = this._getObjects('chara').map(data => new Character(scene, data.x, data.y, data.name).setId(data.id))
+    this.gates = this._getGateObjects(tilemap).map(gate => new Gate(scene, gate.key, gate.x, gate.y, gate.zone_x, gate.zone_y, gate.zone_width, gate.zone_height))
+    this.charas = this._getObjects(tilemap, 'chara').map(data => new Character(scene, data.x, data.y, data.name).setId(data.id))
     this.scene.ui.renderMiniMap(this.tilemap)
     return this
-  }
-  get width () {
-    return this.tilemap.widthInPixels
-  }
-  get height () {
-    return this.tilemap.heightInPixels
   }
   getCharaById (id) {
     return this.charas.find(v => v.id === id)
@@ -43,20 +39,20 @@ export default class GameMap {
     })
   }
   // private
-  _getTilesets () {
-    return this.tilemap.tilesets.map(tileset => this.tilemap.addTilesetImage(tileset.name))
+  _getTilesets (tilemap) {
+    return tilemap.tilesets.map(tileset => tilemap.addTilesetImage(tileset.name))
   }
-  _getCollides () {
-    return this.tilemap.tilesets.map(set => {
+  _getCollides (tilemap) {
+    return tilemap.tilesets.map(set => {
       const data = this.scene.cache.json.get(set.name)
       return data.tiles.filter(tile => tile.type === 'collides').map(tile => tile.id + set.firstgid)
     }).flat()
   }
-  _getObjects (type) {
-    return this.tilemap.objects.map(v => v.objects).flat().filter(v => v.type === type)
+  _getObjects (tilemap, type) {
+    return tilemap.objects.map(v => v.objects).flat().filter(v => v.type === type)
   }
-  _getGateObjects () {
-    return this._getObjects('gate').map(v => {
+  _getGateObjects (tilemap) {
+    return this._getObjects(tilemap, 'gate').map(v => {
       return {
         key: v.name,
         x: v.properties.find(v => v.name === 'x').value,
