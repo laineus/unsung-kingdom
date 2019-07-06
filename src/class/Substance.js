@@ -9,8 +9,11 @@ export default class Substance extends Phaser.GameObjects.Container {
     this.image = key ? scene.add.sprite(0, 0, key) : scene.add.rectangle(0, 0, config.TILE_SIZE, config.TILE_SIZE)
     this.image.setPosition(0, -this.image.height.half)
     this.setSize(width || this.image.width, height || this.image.height)
-    this.shadow = scene.add.circle(4, 0, 8, 0x000000, 0.3).setScale(1, 0.5)
-    this.add([this.shadow, this.image])
+    if (key) {
+      this.shadow = scene.add.circle(4, 0, 8, 0x000000, 0.3).setScale(1, 0.5)
+      this.add(this.shadow)
+    }
+    this.add(this.image)
     scene.add.existing(this)
     scene.substances.add(this)
     scene.physics.world.enable(this)
