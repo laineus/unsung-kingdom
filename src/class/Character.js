@@ -1,8 +1,8 @@
 import Substance from './Substance'
 import assets from '../data/assets'
 export default class Character extends Substance {
-  constructor (scene, x, y, key) {
-    super(scene, x, y, key)
+  constructor (scene, x, y, key, option) {
+    super(scene, x, y, key, option)
     this.setTarget(null)
     this.setSpeed(120)
     this.r = 0

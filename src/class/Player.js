@@ -1,7 +1,8 @@
 import Character from './Character'
+import config from '../data/config'
 export default class Player extends Character {
   constructor (scene, x, y) {
-    super(scene, x, y, 'player')
+    super(scene, x, y, 'player', { width: config.TILE_SIZE, height: config.TILE_SIZE })
     this.targetMarker = scene.add.circle(0, 0, 5, 0xAA0000, 0.5)
     this.add(this.targetMarker)
     this.setSpeed(240)

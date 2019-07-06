@@ -1,12 +1,13 @@
 import config from '../data/config'
 import Baloon from './Balloon'
 export default class Substance extends Phaser.GameObjects.Container {
-  constructor (scene, x, y, key = null) {
+  constructor (scene, x, y, key = null, option = {}) {
     super(scene, x, y)
+    const { width, height } = option
     this.scene = scene
     this.key = key
     this.image = key ? scene.add.sprite(0, 0, key) : scene.add.rectangle(0, 0, config.TILE_SIZE, config.TILE_SIZE)
-    this.setSize(this.image.width, this.image.height)
+    this.setSize(width || this.image.width, height || this.image.height)
     this.add(this.image)
     scene.add.existing(this)
     scene.substances.add(this)
