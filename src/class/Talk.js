@@ -46,7 +46,6 @@ export default class Talk extends Phaser.GameObjects.Container {
     if (this.current === null) {
       this.tapArea.destroy()
     } else {
-      this.deleteBubble()
       this.scene.scene.resume('Game')
       this.destroy()
     }
@@ -55,5 +54,9 @@ export default class Talk extends Phaser.GameObjects.Container {
   deleteBubble () {
     if (!this.bubble) return
     this.scene.add.tween({ targets: this.bubble, scaleX: 0, scaleY: 0, alpha: 0, duration: 120, ease: 'Power2', onComplete: this.bubble.destroy })
+  }
+  destroy () {
+    this.deleteBubble()
+    super.destroy()
   }
 }
