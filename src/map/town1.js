@@ -25,7 +25,7 @@ export default {
           null
         ])
         eState.talked_sick = true
-        scene.map.getObjectById(1).setBlocked(true)
+        scene.map.getObjectById(1).setBlocked(false)
       } else {
         scene.talk([
           { chara, text: 'ワン！' },
