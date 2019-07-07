@@ -4,9 +4,9 @@ export default (scene, dog, key) => {
   } else {
     dog.setDisplayName('ワンさん').setTapEvent().on('tap', wansan => {
       if (!scene.storage.state.event.dogs.started) {
-        scene.talk([{ chara: wansan, text: 'ワン！' }, null])
+        scene.talk([{ chara: wansan, text: 'ワン！' }])
       } else {
-        scene.talk([{ chara: wansan, text: 'ワンワン！' }, null])
+        scene.talk([{ chara: wansan, text: 'ワンワン！' }])
         scene.storage.state.event.dogs[key] = 1
         dog.destroy()
       }

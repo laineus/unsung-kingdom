@@ -7,7 +7,7 @@ export default {
     this.doorToRoom.setTapEvent().on('tap', () => scene.mapChange('room1', 18, 20))
     // chapter1
     if (!eState.talked_sick) scene.map.getObjectById(1).setBlocked(() => {
-      scene.talk([{ chara: 'ann', text: 'こっちに用はない' }, null])
+      scene.talk([{ chara: 'ann', text: 'こっちに用はない' }])
     })
     scene.map.getObjectById(2).setDisplayName('市民').setTapEvent().on('tap', async chara => {
       if (!eState.talked_sick) {
@@ -21,15 +21,13 @@ export default {
           { chara: 'jaquelyn', text: '治らないんですか？' },
           { chara, text: 'どんな病気かは知らないが、ドリスタンという森の賢人なら大抵の病を治せる。' },
           { chara, text: '今回も彼を頼っているはずだが、何故だか難航しているようだ。' },
-          { chara: 'ann', text: 'そうなんですね。ありがとうございました。' },
-          null
+          { chara: 'ann', text: 'そうなんですね。ありがとうございました。' }
         ])
         eState.talked_sick = true
         scene.map.getObjectById(1).setBlocked(false)
       } else {
         scene.talk([
-          { chara, text: 'ワン！' },
-          null
+          { chara, text: 'ワン！' }
         ])
       }
     })

@@ -43,12 +43,12 @@ export default class Talk extends Phaser.GameObjects.Container {
     this.index++
   }
   end () {
-    this.deleteBubble()
-    this.scene.scene.resume('Game')
     if (this.current === null) {
-      this.destroy()
-    } else {
       this.tapArea.destroy()
+    } else {
+      this.deleteBubble()
+      this.scene.scene.resume('Game')
+      this.destroy()
     }
     if (this.callback) this.callback(this)
   }
