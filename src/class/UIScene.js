@@ -40,14 +40,14 @@ export default class UIScene extends Phaser.Scene {
       new Talk(this, talks, resolve)
     })
   }
-  select (options, callback) {
+  select (options) {
     return new Promise(resolve => {
       new Select(this, options, resolve)
     })
   }
   battle (group) {
-    return new Battle(this, group, () => {
-      console.log('callback')
+    return new Promise(resolve => {
+      new Battle(this, group, resolve)
     })
   }
   transition (callback = null) {
