@@ -6,8 +6,7 @@ export default {
     this.npc.setTalk([
       { chara: 'ann', text: 'こんにちは。' },
       { chara: 'francisca', text: 'はいこんにちは。' },
-      { chara: 'francisca', text: 'こんばんは。' },
-      null
+      { chara: 'francisca', text: 'こんばんは。' }
     ])
   }
 }
