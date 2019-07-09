@@ -1,6 +1,6 @@
-import dogEvent from './dogEvent'
+import { dogEventFound } from '../event/dogEvent'
 export default {
   create (scene) {
-    dogEvent(scene, scene.map.getObjectById(4), '4')
+    dogEventFound(scene, scene.map.getObjectById(4), '4')
   }
 }
