@@ -56,7 +56,7 @@ export const dogEventHunter = (scene, hunter) => {
   })
 }
 
-export const dogEvenFound = (scene, dog, key) => {
+export const dogEventFound = (scene, dog, key) => {
   if (scene.storage.state.event.dogs[key] === 1) {
     dog.destroy()
   } else {

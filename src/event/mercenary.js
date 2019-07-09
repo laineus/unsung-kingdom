@@ -39,12 +39,32 @@ export const mercenary1 = (scene, leader) => {
 export const mercenary2 = (scene, flower) => {
   if (scene.storage.state.event.mercenary.solved) return flower.destroy()
   flower.setDisplayName('？').setTapEvent().on('tap', async chara => {
-    if (!scene.storage.state.event.mercenary.started) {
-      scene.talk([{ chara: 'francisca', text: '何この花。へんなの。' }])
-    } else {
-      await scene.ui.battle(['torrent'])
-      scene.talk([{ chara: 'francisca', text: '倒した' }])
-      scene.storage.state.event.mercenary.solved = true
-    }
+    scene.talk([{ chara: 'francisca', text: '何この花。へんなの。' }])
+    if (!scene.storage.state.event.mercenary.started) return
+    await scene.ui.battle(['torrent'])
+    scene.talk([
+      { chara: 'francisca', text: 'うわ、中から人が！' },
+      { chara, text: 'うう…' },
+      { chara: 'ann', text: 'だ、大丈夫ですか？' },
+      { chara, text: '助かった…。' },
+      { chara: 'jaquelyn', text: '花のモンスターに食べられてしまったの？' },
+      { chara, text: 'いや、自分から飛び込んだんだ…。' },
+      { chara: 'francisca', text: '自分から？へんなの。' },
+      { chara, text: '実は、レックスベアから逃げる途中、仲間とはぐれてしまったんだ。' },
+      { chara, text: 'その後ここまで追い込まれてしまって…、' },
+      { chara, text: '目の前にはバグフラワーがいて、後ろにはレックスベア、' },
+      { chara, text: '意を決して、逃げるようにバグフラワーの胃に飛び込んだんだ。' },
+      { chara, text: 'その後自力で出られないことに気づいてから後悔したよ。' },
+      { chara, text: '胃の中でゆっくり溶かされていくくらいなら、' },
+      { chara, text: 'レックスベアにひと思いに殺されればよかったってね。' },
+      { chara, text: 'でもあんたたちのおかげで助かったよ。' },
+      { chara: 'ann', text: 'それは災難でしたね。' },
+      { chara: 'ann', text: 'ところで、仲間というのが傭兵団の人たちのことでしたら、' },
+      { chara: 'ann', text: '南のエリアで探していましたよ。' },
+      { chara, text: '本当か？何から何までありがとう。' },
+      { chara, text: 'あとでそっち寄ってくれないか？お礼をさせてほしい。' },
+      { chara, text: 'じゃあ、あんたたちも気をつけてな。' }
+    ])
+    scene.storage.state.event.mercenary.solved = true
   })
 }
