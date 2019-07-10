@@ -66,6 +66,7 @@ export default class UIScene extends Phaser.Scene {
       this.add.tween({
         targets: left,
         duration: 150,
+        hold: 100,
         y: 0,
         yoyo: true
       })
@@ -73,6 +74,7 @@ export default class UIScene extends Phaser.Scene {
       this.add.tween({
         targets: right,
         duration: 150,
+        hold: 100,
         y: config.HEIGHT_HALF,
         yoyo: true,
         onYoyo: resolve,
