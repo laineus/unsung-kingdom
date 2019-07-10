@@ -1,5 +1,6 @@
 import Gate from './Gate'
 import Character from './Character'
+import Substance from './Substance'
 export default class GameMap {
   constructor (scene, mapKey) {
     this.scene = scene
@@ -16,11 +17,12 @@ export default class GameMap {
     scene.physics.add.collider(this.staticLayers, scene.substances)
     this.gates = this._getGateObjects(tilemap).map(gate => new Gate(scene, gate.key, gate.x, gate.y, gate.zone_x, gate.zone_y, gate.zone_width, gate.zone_height).setId(gate.id))
     this.charas = this._getObjects(tilemap, 'chara').map(data => new Character(scene, data.x, data.y, data.name).setId(data.id))
+    this.objects = this._getObjects(tilemap, 'object').map(data => new Substance(scene, data.x, data.y, data.name).setId(data.id))
     this.scene.ui.renderMiniMap(this.tilemap)
     return this
   }
   getObjectById (id) {
-    return this.charas.find(v => v.id === id) || this.gates.find(v => v.id === id)
+    return this.charas.find(v => v.id === id) || this.gates.find(v => v.id === id) || this.objects.find(v => v.id === id)
   }
   isCollides (tileX, tileY) {
     return this.staticLayers.some(layer => {
