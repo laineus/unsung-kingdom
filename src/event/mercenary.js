@@ -1,6 +1,15 @@
-export const mercenary1 = (scene, leader) => {
+export const mercenary1 = (scene, leader, member) => {
+  if (!scene.storage.state.event.mercenary.solved) member.visible = false
+  member.setDisplayName('負傷した傭兵団員').setTapEvent().on('tap', async chara => {
+    scene.talk([{ chara, text: 'さっきは本当に助かったよ。ありがとな。' }])
+  })
   leader.setDisplayName('負傷した傭兵団長').setTapEvent().on('tap', async chara => {
-    if (scene.storage.state.event.mercenary.started) {
+    if (scene.storage.state.event.mercenary.completed) {
+      scene.talk([{ chara, text: 'レックスベアは諦めて撤退することにするよ。' }])
+    } else if (scene.storage.state.event.mercenary.solved) {
+      scene.talk([{ chara, text: '仲間を助けてくれて助かった。これはお礼だ。' }])
+      scene.storage.state.event.mercenary.completed = true
+    } else if (scene.storage.state.event.mercenary.started) {
       scene.talk([{ chara, text: 'きっとそんなに遠くには行っていないはずだ。頼んだぜ。' }])
     } else {
       const messages = [
