@@ -54,7 +54,7 @@ export default class GameScene extends Phaser.Scene {
     if (!bool) this.camera.clearRenderToTexture()
   }
   mapChange (mapKey, tileX, tileY) {
-    this.ui.transition(() => {
+    this.ui.transition().then(() => {
       this.scene.start('Game', { map: mapKey, x: tileX.toPixelCenter, y: tileY.toPixelCenter })
     })
   }
