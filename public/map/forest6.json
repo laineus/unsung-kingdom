@@ -157,6 +157,18 @@
                  "width":0,
                  "x":258.666666666667,
                  "y":608
+                }, 
+                {
+                 "height":0,
+                 "id":5,
+                 "name":"flower",
+                 "point":true,
+                 "rotation":0,
+                 "type":"object",
+                 "visible":true,
+                 "width":0,
+                 "x":304,
+                 "y":620
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -165,7 +177,7 @@
          "y":0
         }],
  "nextlayerid":9,
- "nextobjectid":5,
+ "nextobjectid":6,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"2018.12.22",
