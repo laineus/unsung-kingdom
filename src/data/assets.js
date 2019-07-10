@@ -8,6 +8,7 @@ export default {
     ['jaquelyn', '../img/jaquelyn.png'],
     ['torrent', '../img/torrent.png'],
     ['damage', '../img/damage.png'],
+    ['flower', '../img/flower.png'],
     ['forest', '../img/forest.png']
   ],
   json: [
