@@ -50,6 +50,15 @@ export default class UIScene extends Phaser.Scene {
       new Battle(this, group, resolve)
     })
   }
+  sleep (time) {
+    this.scene.pause('Game')
+    return new Promise(resolve => {
+      setTimeout(() => {
+        this.scene.resume('Game')
+        resolve()
+      }, time)
+    })
+  }
   transition (callback = null) {
     this.scene.pause('Game')
     const left = this.add.rectangle(0, -config.HEIGHT_HALF, config.WIDTH, config.HEIGHT_HALF, 0x111111).setOrigin(0, 0)
