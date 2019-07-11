@@ -111,6 +111,18 @@
                  "width":160,
                  "x":1088,
                  "y":960
+                }, 
+                {
+                 "height":0,
+                 "id":3,
+                 "name":"player",
+                 "point":true,
+                 "rotation":0,
+                 "type":"chara",
+                 "visible":true,
+                 "width":0,
+                 "x":790.666666666667,
+                 "y":433.333333333333
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -119,7 +131,7 @@
          "y":0
         }],
  "nextlayerid":15,
- "nextobjectid":2,
+ "nextobjectid":4,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"2018.12.22",
