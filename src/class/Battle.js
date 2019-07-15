@@ -2,7 +2,6 @@ import config from '../data/config'
 import EnemyBattler from './EnemyBattler'
 import PlayerBattler from './PlayerBattler'
 import Button from './Button'
-import battlers from '../data/battlers'
 import storage from '../data/storage'
 import expTable from '../data/expTable'
 const positions = {
@@ -15,7 +14,7 @@ const positions = {
 export default class Battle extends Phaser.GameObjects.Container {
   constructor (scene, group, callback) {
     super(scene)
-    this.group = group.map(k => battlers.find(v => v.key === k))
+    this.group = group
     this.scene = scene
     this.callback = callback
     scene.add.existing(this)

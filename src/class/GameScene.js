@@ -3,6 +3,7 @@ import GameMap from './GameMap'
 import maps from '../data/maps'
 import assets from '../data/assets'
 import storage from '../data/storage'
+import generateBattler from '../util/generateBattler'
 export default class GameScene extends Phaser.Scene {
   constructor () {
     super({ key: 'Game', active: false })
@@ -16,7 +17,7 @@ export default class GameScene extends Phaser.Scene {
     this.player.on('walk', () => {
       if (!this.event.enemyGroups || !Math.chance(0.3)) return
       this.player.stopWalk()
-      this.ui.battle(this.event.enemyGroups.random())
+      this.ui.battle(this.event.enemyGroups.random().map(key => generateBattler(key, this.event.enemyLevel)))
     })
     // map
     this.map = new GameMap(this, payload.map)

@@ -1,7 +1,7 @@
 import battlers from '../data/battlers'
 export default (key, lv) => {
   const base = battlers.find(v => v.key === key)
-  const addTimes = lv - 1
+  const addTimes = lv - base.lv
   return Object.assign(Object.assign({}, base), {
     lv,
     hp: base.hp + Math.floor(base.up.hp * addTimes / 20),
