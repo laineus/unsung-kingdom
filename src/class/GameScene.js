@@ -10,12 +10,16 @@ export default class GameScene extends Phaser.Scene {
   }
   create (payload) {
     this.storage = storage
+    this.setEncountDelay()
     // substance group
     this.substances = this.add.group()
     // player
     this.player = new Player(this, payload.x, payload.y)
     this.player.on('walk', () => {
-      if (!this.event.enemyGroups || !Math.chance(0.3)) return
+      if (!this.event.enemyGroups) return
+      this.encountDelay--
+      if (this.encountDelay > 0) return
+      this.setEncountDelay()
       this.player.stopWalk()
       this.ui.battle(this.event.enemyGroups.random().map(key => generateBattler(key, this.event.enemyLevel)))
     })
@@ -58,6 +62,9 @@ export default class GameScene extends Phaser.Scene {
     this.ui.transition().then(() => {
       this.scene.start('Game', { map: mapKey, x: tileX.toPixelCenter, y: tileY.toPixelCenter })
     })
+  }
+  setEncountDelay () {
+    this.encountDelay = Math.randomInt(150, 300)
   }
   setDebugAction () {
     window.storage = storage
