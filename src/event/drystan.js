@@ -1,6 +1,6 @@
 export const drystan = (scene, door, drystan) => {
   // Door
-  const canStart = scene.storage.event.dogs.completed || scene.storage.event.mercenary.completed
+  const canStart = scene.storage.state.event.dogs.completed || scene.storage.state.event.mercenary.completed
   if (canStart) {
     door.destroy()
   } else {
@@ -9,7 +9,7 @@ export const drystan = (scene, door, drystan) => {
     })
   }
   // Drystan
-  const state = scene.storage.event.drystan
+  const state = scene.storage.state.event.drystan
   if (state.completed) return drystan.destroy()
   drystan.setDisplayName('賢人ドリスタン').setTapEvent().on('tap', async chara => {
     const hasMandrake = true

@@ -64,7 +64,7 @@ export default class GameScene extends Phaser.Scene {
     })
   }
   setEncountDelay () {
-    this.encountDelay = Math.randomInt(150, 300)
+    this.encountDelay = Math.randomInt(300, 500)
   }
   setDebugAction () {
     window.storage = storage
