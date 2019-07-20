@@ -5,6 +5,7 @@ import storage from '../data/storage'
 import Select from './Select'
 import downloadImageBySource from '../util/downloadImageBySource'
 import Battle from './Battle'
+import Menu from './Menu'
 export default class UIScene extends Phaser.Scene {
   constructor () {
     super({ key: 'UI', active: false })
@@ -12,15 +13,9 @@ export default class UIScene extends Phaser.Scene {
   create () {
     this.storage = storage
     this.input.keyboard.on('keydown_S', this.snapShot.bind(this))
-    // TODO: fix mask's bug
     this.menuButton = this.add.circle((40).byRight, 40, 20, 0xddccaa).setInteractive()
     this.menuButton.on('pointerdown', () => {
-      if (this.menuWindow) return
-      this.menuWindow = this.add.rectangle(20, 20, config.WIDTH - 40, config.HEIGHT - 40, 0x000000, 0.7).setOrigin(0, 0).setInteractive()
-      this.menuWindow.on('pointerdown', () => {
-        this.menuWindow.destroy()
-        this.menuWindow = null
-      })
+      new Menu(this)
     })
   }
   update (time, delta) {
@@ -36,19 +31,13 @@ export default class UIScene extends Phaser.Scene {
     return this.scene.get('Game')
   }
   talk (talks) {
-    return new Promise(resolve => {
-      new Talk(this, talks, resolve)
-    })
+    return new Promise(resolve => new Talk(this, talks, resolve))
   }
   select (options) {
-    return new Promise(resolve => {
-      new Select(this, options, resolve)
-    })
+    return new Promise(resolve => new Select(this, options, resolve))
   }
   battle (group) {
-    return new Promise(resolve => {
-      new Battle(this, group, resolve)
-    })
+    return new Promise(resolve => new Battle(this, group, resolve))
   }
   sleep (time) {
     this.scene.pause('Game')
