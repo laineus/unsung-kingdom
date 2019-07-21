@@ -1,6 +1,7 @@
 export default {
   image: [
     ['dark', '../img/dark.png'],
+    ['circle', '../img/circle.png'],
     ['room', '../img/room.png'],
     ['town', '../img/town.png'],
     ['ann', '../img/ann.png'],
