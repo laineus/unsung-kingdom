@@ -1,4 +1,8 @@
 import config from '../data/config'
+import MenuMap from './MenuMap'
+const content = [
+  { class: MenuMap }
+]
 export default class Menu extends Phaser.GameObjects.Container {
   constructor (scene) {
     super(scene)
@@ -15,6 +19,7 @@ export default class Menu extends Phaser.GameObjects.Container {
     this.add(this.close)
     this.scene.gameScene.blur(true)
     scene.scene.pause('Game')
+    this.loadContent(0)
   }
   destroy () {
     this.scene.gameScene.blur(false)
@@ -24,5 +29,10 @@ export default class Menu extends Phaser.GameObjects.Container {
   button (x, y) {
     const button = this.scene.add.sprite(x, y, 'circle').setAlpha(0.7).setOrigin(1, 0).setScale(0.100, 0.100)
     return button
+  }
+  loadContent (i) {
+    if (this.content) this.content.destroy()
+    this.content = new content[i].class(this.scene)
+    this.add(this.content)
   }
 }
