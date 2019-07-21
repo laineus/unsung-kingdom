@@ -31,7 +31,10 @@ export default class Menu extends Phaser.GameObjects.Container {
     super.destroy()
   }
   button (content, x, y) {
-    const button = this.scene.add.sprite(x, y, 'circle').setAlpha(0.7).setOrigin(1, 0).setScale(0.100, 0.100)
+    const button = this.scene.add.container(x - 50, y + 50).setSize(100, 100)
+    const bg = this.scene.add.sprite(0, 0, 'circle').setAlpha(0.7).setScale(0.100, 0.100)
+    const tx = this.scene.add.text(0, 40, content.name, { align: 'center', fontSize: 17, fontStyle: 'bold', fontFamily: config.FONT }).setOrigin(0.5, 1).setPadding(0, 2, 0, 0)
+    button.add([bg, tx])
     button.setInteractive().on('pointerdown', this.loadContent.bind(this, content))
     return button
   }
