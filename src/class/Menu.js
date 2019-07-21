@@ -4,15 +4,15 @@ export default class Menu extends Phaser.GameObjects.Container {
     super(scene)
     this.scene = scene
     scene.add.existing(this)
-    this.bg = scene.add.rectangle(0, 0, config.WIDTH, config.HEIGHT, 0x886644, 0.2).setOrigin(0, 0).setInteractive()
+    this.bg = scene.add.rectangle(0, 0, config.WIDTH, config.HEIGHT, 0x886644, 0.2).setOrigin(0, 0)
     this.bg.blendMode = 1
-    this.bg.on('pointerdown', () => {
-      this.destroy()
-    })
-    this.window = scene.add.polygon(0, 0, [[0, 0], [(150).byRight, 0], [(200).byRight, (0).byBottom], [0, (0).byBottom]], 0x000000, 0.7).setOrigin(0, 0).setInteractive()
+    this.window = scene.add.polygon(0, 0, [[0, 0], [(150).byRight, 0], [(200).byRight, (0).byBottom], [0, (0).byBottom]], 0x000000, 0.7).setOrigin(0, 0)
     this.add([this.bg, this.window])
     this.buttons = (4).toArray.map(i => this.button((15).byRight, i * 115 + 15))
     this.add(this.buttons)
+    this.close = scene.add.text((15).byRight, (15).byBottom, 'CLOSE', { align: 'center', fontSize: 21, fontStyle: 'bold', fontFamily: config.FONT }).setOrigin(1, 1).setPadding(0, 2, 0, 0)
+    this.close.setInteractive().on('pointerdown', this.destroy.bind(this))
+    this.add(this.close)
     this.scene.gameScene.blur(true)
     scene.scene.pause('Game')
   }
