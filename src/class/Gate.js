@@ -11,7 +11,7 @@ export default class Gate extends Phaser.GameObjects.Zone {
         scene.player.setVelocity(scene.player.x - (zone_x + zone_width.half), scene.player.y - (zone_y + zone_height.half))
         return this.blockEvent()
       }
-      scene.mapChange(key, x, y)
+      scene.mapChange(key, x.toPixelCenter, y.toPixelCenter)
     })
     this.setActive(true)
   }

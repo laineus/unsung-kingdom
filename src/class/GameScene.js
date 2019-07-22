@@ -58,9 +58,9 @@ export default class GameScene extends Phaser.Scene {
     if (bool) this.camera.setRenderToTexture('blur')
     if (!bool) this.camera.clearRenderToTexture()
   }
-  mapChange (mapKey, tileX, tileY) {
-    this.ui.transition().then(() => {
-      this.scene.start('Game', { map: mapKey, x: tileX.toPixelCenter, y: tileY.toPixelCenter })
+  mapChange (mapKey, x, y) {
+    return this.ui.transition().then(() => {
+      this.scene.start('Game', { map: mapKey, x, y })
     })
   }
   setEncountDelay () {
@@ -88,7 +88,7 @@ export default class GameScene extends Phaser.Scene {
         option.text = v[0]
         select.appendChild(option)
       })
-      select.onchange = () => this.mapChange(select.value, 20, 20)
+      select.onchange = () => this.mapChange(select.value, (20).toPixelCenter, (20).toPixelCenter)
       const addButton = (text, callback) => {
         const save = document.createElement('button')
         save.innerText = text

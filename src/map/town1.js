@@ -4,7 +4,7 @@ export default {
     const eState = scene.storage.state.event
     // doorToRoom
     this.doorToRoom = new Substance(scene, (17).toPixelCenter, (34).toPixelCenter)
-    this.doorToRoom.setTapEvent().on('tap', () => scene.mapChange('room1', 18, 20))
+    this.doorToRoom.setTapEvent().on('tap', () => scene.mapChange('room1', (18).toPixelCenter, (20).toPixelCenter))
     // chapter1
     if (!eState.talked_sick) scene.map.getObjectById(1).setBlocked(() => {
       scene.talk([{ chara: 'ann', text: 'こっちに用はない' }])
