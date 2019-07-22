@@ -4,7 +4,7 @@ const STORAGE_KEY = 'data'
 const SHIFT = 11
 export default class StorageManager {
   constructor () {
-    const loadResult = this.load()
+    const loadResult = this.load(1)
     if (!loadResult) this.setState(defaultState())
   }
   setState (state) {

@@ -42,6 +42,7 @@ export default class Menu extends Phaser.GameObjects.Container {
     if (this.content instanceof content.class) return
     if (this.content) this.content.destroy()
     this.content = new content.class(this.scene)
+    this.content.on('close', this.destroy.bind(this))
     this.add(this.content)
   }
 }

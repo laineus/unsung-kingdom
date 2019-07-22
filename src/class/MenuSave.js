@@ -23,6 +23,9 @@ export default class MenuSave extends Phaser.GameObjects.Container {
       const detail = this.scene.add.text(200, 0, `map: ${data.state.map} x: ${data.state.x} y: ${data.state.y}`, { align: 'center', fontSize: 15, fontFamily: config.FONT })
       load.setInteractive().on('pointerdown', () => {
         this.scene.storage.load(data.number)
+        this.scene.gameScene.mapChange(data.state.map, data.state.x, data.state.y).then(() => {
+          this.emit('close')
+        })
       })
       item.add([load, detail])
     }
