@@ -10,8 +10,14 @@ export default class StorageManager {
   setState (state) {
     this.state = state
   }
-  getSavedState () {
-    const string = localStorage.getItem(STORAGE_KEY)
+  getList () {
+    return (5).toArray.map(i => i + 1).map(number => {
+      const state = this.getSavedState(number)
+      return { number, state, exists: Boolean(state) }
+    })
+  }
+  getSavedState (number) {
+    const string = localStorage.getItem(`${STORAGE_KEY}_${number}`)
     if (!string) return null
     const json = decrypt(string, -SHIFT)
     try {
@@ -22,19 +28,19 @@ export default class StorageManager {
       return false
     }
   }
-  save () {
+  save (number) {
     const str = encrypt(JSON.stringify(this.state), SHIFT)
-    localStorage.setItem(STORAGE_KEY, str)
+    localStorage.setItem(`${STORAGE_KEY}_${number}`, str)
     return true
   }
-  load () {
-    const savedData = this.getSavedState()
+  load (number) {
+    const savedData = this.getSavedState(number)
     if (!savedData) return false
     this.setState(savedData)
     return true
   }
-  delete () {
-    localStorage.removeItem(STORAGE_KEY)
+  delete (number) {
+    localStorage.removeItem(`${STORAGE_KEY}_${number}`)
     return true
   }
 }
