@@ -9,8 +9,8 @@ export default class SpeachBubble extends Phaser.GameObjects.Container {
     this.bg.lineWidth = 1
     this.bg.strokeColor = 0xFFFFFF
     const mask = scene.make.graphics().setPosition(this.x - 80, this.y - 29).fillRect(-80, -60, 160, 120).setRotation(0.05).createGeometryMask()
-    this.image = scene.add.sprite(-82, -91, 'ann').setOrigin(0.5, 0).setScale(0.66, 0.66).setMask(mask)
-    this.name = scene.add.text(-44, -65, name, { fill: '#FFF', fontSize: 17,  fontStyle: 'bold', stroke: '#222', strokeThickness: 4 }).setPadding(0, 2, 0, 0)
+    this.image = scene.add.sprite(-100, -91, 'ann').setOrigin(0.5, 0).setScale(0.66, 0.66).setMask(mask)
+    this.name = scene.add.text(-50, -65, name, { fill: '#FFF', fontSize: 17,  fontStyle: 'bold', stroke: '#222', strokeThickness: 4 }).setPadding(0, 2, 0, 0)
     this.text = scene.add.text(54, -6, '', { fill: '#FFF', fontSize: 14, lineSpacing: 5 }).setOrigin(0.5, 0.5).setPadding(0, 2, 0, 0)
     this.setText(text)
     this.add([this.bg, this.image, this.name, this.text])
