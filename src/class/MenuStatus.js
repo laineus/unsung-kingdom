@@ -1,5 +1,6 @@
 import config from '../data/config'
 import Box from './Box'
+import Gauge from './Gauge'
 export default class MenuStatus extends Phaser.GameObjects.Container {
   constructor (scene) {
     super(scene)
@@ -26,7 +27,13 @@ export default class MenuStatus extends Phaser.GameObjects.Container {
     const imgBg = this.scene.add.sprite(-10, -5, chara.key).setOrigin(0.5, 1).setScale(0.64, 0.64).setTint(0).setAlpha(0.5)
     const img = this.scene.add.sprite(0, 0, chara.key).setOrigin(0.5, 1).setScale(0.64, 0.64)
     this.scene.add.tween({ targets: container, duration: 200, ease: 'Power2', x, alpha: 1 })
-    container.add([imgBg, img])
+    const name = this.scene.add.text(-81, -170, chara.name, { fill: '#AACC22', stroke: '#222', strokeThickness: 2, fontSize: 21, fontStyle: 'bold', fontFamily: config.FONT })
+    const hpLabel = this.scene.add.text(-81, -130, 'HP', { fill: '#FFEEBB', stroke: '#222', strokeThickness: 2, fontSize: 11, fontStyle: 'bold', fontFamily: config.FONT })
+    const hpMaxLabel = this.scene.add.text(85, -115, `/${chara.maxHp}`, { fill: '#FFEEBB', stroke: '#222', strokeThickness: 2, fontSize: 16, fontStyle: 'bold', fontFamily: config.FONT }).setOrigin(1, 1)
+    const hpValueLabel = this.scene.add.text(hpMaxLabel.x - hpMaxLabel.width, -114, chara.hp, { fill: '#FFEEBB', stroke: '#222', strokeThickness: 2, fontSize: 22, fontStyle: 'bold', fontFamily: config.FONT }).setOrigin(1, 1)
+    const gauge = new Gauge(this.scene, 160, 10, chara.maxHp, 0xAACC22).setPosition(0, -108)
+    gauge.value = chara.hp
+    container.add([imgBg, img, name, hpLabel, hpMaxLabel, hpValueLabel, gauge])
     return container
   }
   getTabItem (chara, x, y) {
