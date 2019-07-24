@@ -12,14 +12,20 @@ export default class MenuStatus extends Phaser.GameObjects.Container {
     this.setCharacter(players[0])
   }
   setCharacter (chara) {
-    if (this.chara) this.chara.destroy()
+    if (this.chara) {
+      if (this.chara.battler === chara) return
+      const beforeChara = this.chara
+      this.scene.add.tween({ targets: beforeChara, duration: 200, ease: 'Power2', x: beforeChara.x - 50, alpha: 0, onComplete: () => beforeChara.destroy() })
+    }
     this.chara = this.getCharacter(chara, 180, (30).byBottom)
     this.add(this.chara)
   }
   getCharacter (chara, x, y) {
-    const container = this.scene.add.container(x, y)
+    const container = this.scene.add.container(x - 50, y).setAlpha(0)
+    container.battler = chara
     const imgBg = this.scene.add.sprite(-10, -5, chara.key).setOrigin(0.5, 1).setScale(0.64, 0.64).setTint(0).setAlpha(0.5)
     const img = this.scene.add.sprite(0, 0, chara.key).setOrigin(0.5, 1).setScale(0.64, 0.64)
+    this.scene.add.tween({ targets: container, duration: 200, ease: 'Power2', x, alpha: 1 })
     container.add([imgBg, img])
     return container
   }
