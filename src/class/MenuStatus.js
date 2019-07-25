@@ -24,6 +24,18 @@ export default class MenuStatus extends Phaser.GameObjects.Container {
     }
     this.chara = this.getCharacter(chara, 180, (30).byBottom)
     this.add(this.chara)
+    this.setWeapon()
+  }
+  setWeapon (source) {
+    const keep = source === undefined
+    if (this.currentWeapon) this.currentWeapon.destroy()
+    if (!keep) {
+      const oldId = this.chara.battler.weapon ? this.chara.battler.weapon.id : null
+      const newId = source ? source.id : null
+      this.chara.battler.weapon = oldId !== newId ? source : null
+    }
+    this.currentWeapon = this.getCurrentWeapon(this.chara.battler.weapon, 540, 60)
+    this.add(this.currentWeapon)
   }
   getCharacter (chara, x, y) {
     const container = this.scene.add.container(x - 50, y).setAlpha(0)
@@ -48,12 +60,21 @@ export default class MenuStatus extends Phaser.GameObjects.Container {
     container.add([box, text])
     return container
   }
-  getWeapon (row, x, y) {
-    const data = weapons.find(v => v.id === row.weapon_id)
+  getCurrentWeapon (source, x, y) {
+    const data = source ? weapons.find(v => v.id === source.weapon_id) : null
+    const container = this.scene.add.container(x, y).setSize(320, 45)
+    const box = new Box(this.scene, 0, 0, 320, 40).setOrigin(0.5, 0.5)
+    const text = this.scene.add.text(-145, 0, data ? data.name : '-', { fontSize: 15, fontStyle: 'bold', fontFamily: config.FONT }).setOrigin(0, 0.5)
+    container.setInteractive().on('pointerdown', () => console.log(1))
+    container.add([box, text])
+    return container
+  }
+  getWeapon (source, x, y) {
+    const data = weapons.find(v => v.id === source.weapon_id)
     const container = this.scene.add.container(x, y).setSize(320, 45)
     const box = new Box(this.scene, 0, 0, 320, 40).setOrigin(0.5, 0.5)
     const text = this.scene.add.text(-145, 0, data.name, { fontSize: 15, fontStyle: 'bold', fontFamily: config.FONT }).setOrigin(0, 0.5)
-    container.setInteractive().on('pointerdown', () => console.log(1))
+    container.setInteractive().on('pointerdown', () => this.setWeapon(source))
     container.add([box, text])
     return container
   }
