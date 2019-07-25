@@ -1,6 +1,7 @@
 import config from '../data/config'
 import Box from './Box'
 import Gauge from './Gauge'
+import weapons from '../data/weapons'
 export default class MenuStatus extends Phaser.GameObjects.Container {
   constructor (scene) {
     super(scene)
@@ -10,6 +11,9 @@ export default class MenuStatus extends Phaser.GameObjects.Container {
     const players = scene.storage.state.battlers
     const tabs = players.map((p, i) => this.getTabItem(p, 400 + i * 130, (50).byBottom))
     this.add(tabs)
+    this.weapons = this.scene.add.container(540, 120)
+    this.weapons.add(scene.storage.state.weapons.map((v, i) => this.getWeapon(v, 0, i * 50)))
+    this.add(this.weapons)
     this.setCharacter(players[0])
   }
   setCharacter (chara) {
@@ -41,6 +45,15 @@ export default class MenuStatus extends Phaser.GameObjects.Container {
     const box = new Box(this.scene, 0, 0, 120, 45)
     const text = this.scene.add.text(-45, 18, chara.name, { fontSize: 15, fontStyle: 'bold', fontFamily: config.FONT }).setOrigin(0, 1)
     container.setInteractive().on('pointerdown', () => this.setCharacter(chara))
+    container.add([box, text])
+    return container
+  }
+  getWeapon (row, x, y) {
+    const data = weapons.find(v => v.id === row.weapon_id)
+    const container = this.scene.add.container(x, y).setSize(320, 45)
+    const box = new Box(this.scene, 0, 0, 320, 40).setOrigin(0.5, 0.5)
+    const text = this.scene.add.text(-145, 0, data.name, { fontSize: 15, fontStyle: 'bold', fontFamily: config.FONT }).setOrigin(0, 0.5)
+    container.setInteractive().on('pointerdown', () => console.log(1))
     container.add([box, text])
     return container
   }
