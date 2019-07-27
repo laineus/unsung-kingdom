@@ -6,8 +6,9 @@ export default class MenuStatus extends Phaser.GameObjects.Container {
   constructor (scene) {
     super(scene)
     this.scene = scene
-    const tx = scene.add.text(15, 15, 'CHARACTER', { align: 'center', fontSize: 21, fontStyle: 'bold', fontFamily: config.FONT })
-    this.add(tx)
+    const title = scene.add.text(20, 15, 'CHARACTER', { align: 'center', fill: config.COLORS.theme.toColorString, fontSize: 21, fontStyle: 'bold', fontFamily: config.FONT })
+    const sub = scene.add.text(20, 41, 'キャラクター', { align: 'center', fill: config.COLORS.gray.toColorString, fontSize: 10, fontStyle: 'bold', fontFamily: config.FONT })
+    this.add([title, sub])
     const players = scene.storage.state.battlers
     const tabs = players.map((p, i) => this.getTabItem(p, 400 + i * 130, (50).byBottom))
     this.add(tabs)

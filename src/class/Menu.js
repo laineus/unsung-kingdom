@@ -16,7 +16,7 @@ export default class Menu extends Phaser.GameObjects.Container {
     this.bg.blendMode = 1
     this.window = scene.add.polygon(0, 0, [[0, 0], [(120).byRight, 0], [(220).byRight, (0).byBottom], [0, (0).byBottom]], 0x000000, 0.7).setOrigin(0, 0)
     this.add([this.bg, this.window])
-    this.buttons = contents.map((content, i) => this.button(content, (15).byRight, i * 115 + 15))
+    this.buttons = contents.map((content, i) => this.button(content, (15).byRight, i * 125 + 15))
     this.add(this.buttons)
     this.close = scene.add.text((15).byRight, (15).byBottom, 'CLOSE', { align: 'center', fontSize: 21, fontStyle: 'bold', fontFamily: config.FONT }).setOrigin(1, 1).setPadding(0, 2, 0, 0)
     this.close.setInteractive().on('pointerdown', this.destroy.bind(this))
@@ -32,8 +32,8 @@ export default class Menu extends Phaser.GameObjects.Container {
   }
   button (content, x, y) {
     const button = this.scene.add.container(x - 50, y + 50).setSize(100, 100)
-    const bg = this.scene.add.sprite(0, 0, 'circle').setAlpha(0.7).setScale(0.100, 0.100)
-    const tx = this.scene.add.text(0, 40, content.name, { align: 'center', fontSize: 17, fontStyle: 'bold', fontFamily: config.FONT }).setOrigin(0.5, 1).setPadding(0, 2, 0, 0)
+    const bg = this.scene.add.sprite(0, 0, 'circle').setScale(0.110, 0.110)
+    const tx = this.scene.add.text(0, 35, content.name, { align: 'center', fill: config.COLORS.theme.toColorString, fontSize: 17, fontStyle: 'bold', fontFamily: config.FONT }).setOrigin(0.5, 1).setPadding(0, 2, 0, 0)
     button.add([bg, tx])
     button.setInteractive().on('pointerdown', this.loadContent.bind(this, content))
     return button

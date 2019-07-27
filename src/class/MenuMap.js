@@ -6,8 +6,9 @@ export default class MenuMap extends Phaser.GameObjects.Container {
   constructor (scene) {
     super(scene)
     this.scene = scene
-    const tx = scene.add.text(15, 15, 'MAP & QUEST', { align: 'center', fontSize: 21, fontStyle: 'bold', fontFamily: config.FONT })
-    this.add(tx)
+    const title = scene.add.text(20, 15, 'MAP & QUEST', { align: 'center', fill: config.COLORS.theme.toColorString, fontSize: 21, fontStyle: 'bold', fontFamily: config.FONT })
+    const sub = scene.add.text(20, 41, 'マップ・クエスト', { align: 'center', fill: config.COLORS.gray.toColorString, fontSize: 10, fontStyle: 'bold', fontFamily: config.FONT })
+    this.add([title, sub])
     this.setChapter(0)
   }
   setChapter (i) {
