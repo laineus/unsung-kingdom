@@ -13,6 +13,9 @@ export default () => {
   Object.defineProperty(Number.prototype, 'toArray', {
     get () { return [...Array(this).keys()] }
   })
+  Object.defineProperty(Number.prototype, 'toColorString', {
+    get () { return `#${this.toString(16)}` }
+  })
   Object.defineProperty(Number.prototype, 'byRight', {
     get () { return positionByRight(this) }
   })
@@ -21,6 +24,10 @@ export default () => {
   })
   Object.defineProperty(Number.prototype, 'half', {
     get () { return half(this) }
+  })
+  // String instance methods
+  Object.defineProperty(String.prototype, 'toColorInt', {
+    get () { return parseInt(this.slice(1), 16) }
   })
   // Math class methods
   Math.fix = (value, min, max) => Math.min(Math.max(value, min), max)
