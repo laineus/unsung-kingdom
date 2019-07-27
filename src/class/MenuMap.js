@@ -1,13 +1,17 @@
 import config from '../data/config'
 import chapters from '../data/chapters'
+import missions from '../data/missions'
 export default class MenuMap extends Phaser.GameObjects.Container {
   constructor (scene) {
     super(scene)
     this.scene = scene
     const tx = scene.add.text(15, 15, 'MAP', { align: 'center', fontSize: 21, fontStyle: 'bold', fontFamily: config.FONT })
     this.add(tx)
-    const chapter = this.getChapter(0, 30, 100)
-    this.add(chapter)
+    this.chapter = 1
+    this.chapterLabel = this.getChapter(this.chapter, 30, 100)
+    this.add(this.chapterLabel)
+    this.missionLabels = missions.filter(v => v.chapter === this.chapter).map((mission, i) => this.getMission(mission, 30, 150 + i * 30))
+    this.add(this.missionLabels)
   }
   getChapter (i, x, y) {
     const chapter = chapters[i]
@@ -16,6 +20,12 @@ export default class MenuMap extends Phaser.GameObjects.Container {
     const title = this.scene.add.text(50, -3, chapter.title, { fontSize: 13, fontStyle: 'bold', fontFamily: config.FONT }).setOrigin(0, 0)
     const en = this.scene.add.text(50, 15, chapter.en, { fontSize: 9, fontStyle: 'bold', fontFamily: config.FONT }).setOrigin(0, 0)
     container.add([prefix, title, en])
+    return container
+  }
+  getMission (mission, x, y) {
+    const container = this.scene.add.container(x, y)
+    const title = this.scene.add.text(50, -3, mission.title, { fontSize: 13, fontStyle: 'bold', fontFamily: config.FONT }).setOrigin(0, 0)
+    container.add([title])
     return container
   }
 }
