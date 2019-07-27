@@ -7,11 +7,42 @@ export default class MenuMap extends Phaser.GameObjects.Container {
     this.scene = scene
     const tx = scene.add.text(15, 15, 'MAP', { align: 'center', fontSize: 21, fontStyle: 'bold', fontFamily: config.FONT })
     this.add(tx)
-    this.chapter = 1
+    this.setChapter(0)
+  }
+  setChapter (i) {
+    this.chapter = i
+    if (this.chapterLabel) this.chapterLabel.destroy()
     this.chapterLabel = this.getChapter(this.chapter, 30, 100)
     this.add(this.chapterLabel)
+    if (this.missionLabels) this.missionLabels.forEach(v => v.destroy())
     this.missionLabels = missions.filter(v => v.chapter === this.chapter).map((mission, i) => this.getMission(mission, 30, 150 + i * 30))
     this.add(this.missionLabels)
+    this.setPager()
+  }
+  moveChapter (diff) {
+    if (![-1, 1].includes(diff) || (diff === -1 && !this.hasPrevious) || (diff === 1 && !this.hasNext)) return
+    this.setChapter(this.chapter + diff)
+    this.setPager()
+  }
+  get hasPrevious () {
+    return this.chapter > 0
+  }
+  get hasNext () {
+    return this.chapter < this.scene.storage.state.chapter
+  }
+  setPager () {
+    if (this.pagerPrevious) this.pagerPrevious.destroy()
+    if (this.pagerNext) this.pagerNext.destroy()
+    if (this.hasPrevious) {
+      this.pagerPrevious = this.scene.add.container(30, 500).setSize(100, 30).setInteractive().on('pointerdown', () => this.moveChapter(-1))
+      this.pagerPrevious.add(this.scene.add.text(0, 0, 'Previous', { fontSize: 13, fontStyle: 'bold', fontFamily: config.FONT }).setOrigin(0, 0))
+      this.add(this.pagerPrevious)
+    }
+    if (this.hasNext) {
+      this.pagerNext = this.scene.add.container(230, 500).setSize(100, 30).setInteractive().on('pointerdown', () => this.moveChapter(1))
+      this.pagerNext.add(this.scene.add.text(0, 0, 'Next', { fontSize: 13, fontStyle: 'bold', fontFamily: config.FONT }).setOrigin(0, 0))
+      this.add(this.pagerNext)
+    }
   }
   getChapter (i, x, y) {
     const chapter = chapters[i]
