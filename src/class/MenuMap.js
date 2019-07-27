@@ -1,11 +1,12 @@
 import config from '../data/config'
 import chapters from '../data/chapters'
 import missions from '../data/missions'
+import Box from './Box'
 export default class MenuMap extends Phaser.GameObjects.Container {
   constructor (scene) {
     super(scene)
     this.scene = scene
-    const tx = scene.add.text(15, 15, 'MAP', { align: 'center', fontSize: 21, fontStyle: 'bold', fontFamily: config.FONT })
+    const tx = scene.add.text(15, 15, 'MAP & QUEST', { align: 'center', fontSize: 21, fontStyle: 'bold', fontFamily: config.FONT })
     this.add(tx)
     this.setChapter(0)
   }
@@ -34,13 +35,15 @@ export default class MenuMap extends Phaser.GameObjects.Container {
     if (this.pagerPrevious) this.pagerPrevious.destroy()
     if (this.pagerNext) this.pagerNext.destroy()
     if (this.hasPrevious) {
-      this.pagerPrevious = this.scene.add.container(30, 500).setSize(100, 30).setInteractive().on('pointerdown', () => this.moveChapter(-1))
-      this.pagerPrevious.add(this.scene.add.text(0, 0, 'Previous', { fontSize: 13, fontStyle: 'bold', fontFamily: config.FONT }).setOrigin(0, 0))
+      this.pagerPrevious = this.scene.add.container(70, 500).setSize(100, 30).setInteractive().on('pointerdown', () => this.moveChapter(-1))
+      this.pagerPrevious.add(new Box(this.scene, 0, 0, 100, 30))
+      this.pagerPrevious.add(this.scene.add.text(-40, 0, 'Previous', { fontSize: 13, fontStyle: 'bold', fontFamily: config.FONT }).setOrigin(0, 0.5))
       this.add(this.pagerPrevious)
     }
     if (this.hasNext) {
       this.pagerNext = this.scene.add.container(230, 500).setSize(100, 30).setInteractive().on('pointerdown', () => this.moveChapter(1))
-      this.pagerNext.add(this.scene.add.text(0, 0, 'Next', { fontSize: 13, fontStyle: 'bold', fontFamily: config.FONT }).setOrigin(0, 0))
+      this.pagerNext.add(new Box(this.scene, 0, 0, 100, 30))
+      this.pagerNext.add(this.scene.add.text(40, 0, 'Next', { fontSize: 13, fontStyle: 'bold', fontFamily: config.FONT }).setOrigin(1, 0.5))
       this.add(this.pagerNext)
     }
   }
