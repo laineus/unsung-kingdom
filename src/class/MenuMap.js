@@ -17,14 +17,14 @@ export default class MenuMap extends Phaser.GameObjects.Container {
     this.chapterLabel = this.getChapter(this.chapter, 30, 100)
     this.add(this.chapterLabel)
     if (this.missionLabels) this.missionLabels.forEach(v => v.destroy())
-    this.missionLabels = missions.filter(v => v.chapter === this.chapter).map((mission, i) => this.getMission(mission, 30, 150 + i * 30))
+    this.missionLabels = missions.filter(v => v.chapter === this.chapter).map((mission, i) => this.getMission(mission, 165, 160 + i * 40))
     this.add(this.missionLabels)
     this.setPager()
+    this.setMissionDetail(null)
   }
   moveChapter (diff) {
     if (![-1, 1].includes(diff) || (diff === -1 && !this.hasPrevious) || (diff === 1 && !this.hasNext)) return
     this.setChapter(this.chapter + diff)
-    this.setPager()
   }
   get hasPrevious () {
     return this.chapter > 0
@@ -58,9 +58,25 @@ export default class MenuMap extends Phaser.GameObjects.Container {
     return container
   }
   getMission (mission, x, y) {
+    const container = this.scene.add.container(x, y).setSize(200, 32)
+    const box = new Box(this.scene, 0, 0, 270, 32)
+    container.setInteractive().on('pointerdown', () => this.setMissionDetail(mission))
+    const title = this.scene.add.text(-120, 0, mission.title, { fontSize: 14, fontStyle: 'bold', fontFamily: config.FONT }).setOrigin(0, 0.5)
+    container.add([box, title])
+    return container
+  }
+  setMissionDetail (mission) {
+    if (this.detail) this.detail.destroy()
+    if (!mission) return
+    this.detail = this.getMissionDetail(mission, 330, 400)
+    this.add(this.detail)
+  }
+  getMissionDetail (mission, x, y) {
     const container = this.scene.add.container(x, y)
-    const title = this.scene.add.text(50, -3, mission.title, { fontSize: 13, fontStyle: 'bold', fontFamily: config.FONT }).setOrigin(0, 0)
-    container.add([title])
+    const title = this.scene.add.text(0, 0, mission.title, { fontSize: 15, fontStyle: 'bold', fontFamily: config.FONT }).setOrigin(0, 0)
+    const dumy = 'クエストの詳細文がここにはいるぞ。クエストの詳細文がここにはいるぞ。\nクエストの詳細文がここにはいるぞ。'
+    const desc = this.scene.add.text(0, 30, dumy, { fill: config.COLORS.gray.toColorString, fontSize: 12, fontStyle: 'bold', fontFamily: config.FONT }).setOrigin(0, 0)
+    container.add([title, desc])
     return container
   }
 }
