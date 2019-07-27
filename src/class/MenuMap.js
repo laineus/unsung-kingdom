@@ -36,13 +36,13 @@ export default class MenuMap extends Phaser.GameObjects.Container {
     if (this.pagerPrevious) this.pagerPrevious.destroy()
     if (this.pagerNext) this.pagerNext.destroy()
     if (this.hasPrevious) {
-      this.pagerPrevious = this.scene.add.container(70, 500).setSize(100, 30).setInteractive().on('pointerdown', () => this.moveChapter(-1))
+      this.pagerPrevious = this.scene.add.container(80, 500).setSize(100, 30).setInteractive().on('pointerdown', () => this.moveChapter(-1))
       this.pagerPrevious.add(new Box(this.scene, 0, 0, 100, 30))
       this.pagerPrevious.add(this.scene.add.text(-40, 0, 'Previous', { fontSize: 13, fontStyle: 'bold', fontFamily: config.FONT }).setOrigin(0, 0.5))
       this.add(this.pagerPrevious)
     }
     if (this.hasNext) {
-      this.pagerNext = this.scene.add.container(230, 500).setSize(100, 30).setInteractive().on('pointerdown', () => this.moveChapter(1))
+      this.pagerNext = this.scene.add.container(250, 500).setSize(100, 30).setInteractive().on('pointerdown', () => this.moveChapter(1))
       this.pagerNext.add(new Box(this.scene, 0, 0, 100, 30))
       this.pagerNext.add(this.scene.add.text(40, 0, 'Next', { fontSize: 13, fontStyle: 'bold', fontFamily: config.FONT }).setOrigin(1, 0.5))
       this.add(this.pagerNext)
@@ -53,12 +53,12 @@ export default class MenuMap extends Phaser.GameObjects.Container {
     const container = this.scene.add.container(x, y)
     const prefix = this.scene.add.text(0, 0, chapter.name, { fontSize: 18, fontStyle: 'bold', fontFamily: config.FONT }).setOrigin(0, 0)
     const title = this.scene.add.text(50, -3, chapter.title, { fontSize: 13, fontStyle: 'bold', fontFamily: config.FONT }).setOrigin(0, 0)
-    const en = this.scene.add.text(50, 15, chapter.en, { fontSize: 9, fontStyle: 'bold', fontFamily: config.FONT }).setOrigin(0, 0)
+    const en = this.scene.add.text(50, 15, chapter.en, { fill: config.COLORS.gray.toColorString, fontSize: 9, fontFamily: config.FONT }).setOrigin(0, 0)
     container.add([prefix, title, en])
     return container
   }
   getMission (mission, x, y) {
-    const container = this.scene.add.container(x, y).setSize(200, 32)
+    const container = this.scene.add.container(x, y).setSize(270, 32)
     const box = new Box(this.scene, 0, 0, 270, 32)
     container.setInteractive().on('pointerdown', () => this.setMissionDetail(mission))
     const title = this.scene.add.text(-120, 0, mission.title, { fontSize: 14, fontStyle: 'bold', fontFamily: config.FONT }).setOrigin(0, 0.5)
