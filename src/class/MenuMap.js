@@ -71,6 +71,7 @@ export default class MenuMap extends Phaser.GameObjects.Container {
     if (!mission) return
     this.detail = this.getMissionDetail(mission, 330, 400)
     this.add(this.detail)
+    this.setMap(null, Math.randomInt(100, 500), Math.randomInt(100, 500))
   }
   getMissionDetail (mission, x, y) {
     const container = this.scene.add.container(x, y)
@@ -82,13 +83,17 @@ export default class MenuMap extends Phaser.GameObjects.Container {
   }
   setMap (map, x, y) {
     const mapKey = 'forest_all'
-    if (!this.map || this.map.texture.key !== mapKey) {
+    const firstTime = !this.map
+    if (firstTime || this.map.texture.key !== mapKey) {
       if (this.map) this.map.destroy()
       this.map = this.getMapImage(mapKey)
       this.add(this.map)
       this.sendToBack(this.map)
     }
-    this.map.setPosition(config.WIDTH.half - x * this.map.scale, config.HEIGHT.half - y * this.map.scale)
+    const positionX = config.WIDTH.half - x * this.map.scale
+    const positionY = config.HEIGHT.half - y * this.map.scale
+    if (firstTime) this.map.setPosition(positionX, positionY)
+    this.scene.add.tween({ targets: this.map, duration: 200, ease: 'Power2', x: positionX, y: positionY })
   }
   getMapImage (mapKey) {
     const scale = 1
