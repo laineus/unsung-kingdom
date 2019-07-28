@@ -44,5 +44,6 @@ export default class Menu extends Phaser.GameObjects.Container {
     this.content = new content.class(this.scene)
     this.content.on('close', this.destroy.bind(this))
     this.add(this.content)
+    this.buttons.forEach(b => this.moveTo(b, this.length - 1))
   }
 }

@@ -10,7 +10,8 @@ export default {
     ['torrent', '../img/torrent.png'],
     ['damage', '../img/damage.png'],
     ['flower', '../img/flower.png'],
-    ['forest', '../img/forest.png']
+    ['forest', '../img/forest.png'],
+    ['forest_all', '../img/forest_all.png']
   ],
   json: [
     ['room', '../map/room.json'],

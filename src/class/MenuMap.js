@@ -9,6 +9,7 @@ export default class MenuMap extends Phaser.GameObjects.Container {
     const title = scene.add.text(20, 15, 'MAP & QUEST', { align: 'center', fill: config.COLORS.theme.toColorString, fontSize: 21, fontStyle: 'bold', fontFamily: config.FONT })
     const sub = scene.add.text(20, 41, 'マップ・クエスト', { align: 'center', fill: config.COLORS.gray.toColorString, fontSize: 10, fontStyle: 'bold', fontFamily: config.FONT })
     this.add([title, sub])
+    this.setMap(448, 544)
     this.setChapter(0)
   }
   setChapter (i) {
@@ -78,5 +79,18 @@ export default class MenuMap extends Phaser.GameObjects.Container {
     const desc = this.scene.add.text(0, 30, dumy, { fill: config.COLORS.gray.toColorString, fontSize: 12, fontStyle: 'bold', fontFamily: config.FONT }).setOrigin(0, 0)
     container.add([title, desc])
     return container
+  }
+  setMap (x, y) {
+    if (this.map) this.map.destroy()
+    const scale = 1
+    const mask = this.getMask()
+    this.map = this.scene.add.sprite(0, -0, 'forest_all').setOrigin(0, 0).setScale(scale, scale).setAlpha(0.5).setMask(mask)
+    this.map.setPosition(config.WIDTH.half - x * scale, config.HEIGHT.half - y * scale)
+    this.add(this.map)
+    this.sendToBack(this.map)
+  }
+  getMask () {
+    if (!this.mask) this.mask = this.scene.make.graphics().fillRect(0, -180, 895, 720).setRotation(0.18).createGeometryMask()
+    return this.mask
   }
 }
