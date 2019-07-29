@@ -1,15 +1,16 @@
 export const mercenary1 = (scene, leader, member) => {
-  if (!scene.storage.state.event.mercenary.solved) member.visible = false
+  const state = scene.storage.state.event['1_2']
+  if (!state.solved) member.visible = false
   member.setDisplayName('負傷した傭兵団員').setTapEvent().on('tap', async chara => {
     scene.talk([{ chara, text: 'さっきは本当に助かったよ。ありがとな。' }])
   })
   leader.setDisplayName('負傷した傭兵団長').setTapEvent().on('tap', async chara => {
-    if (scene.storage.state.event.mercenary.completed) {
+    if (state.completed) {
       scene.talk([{ chara, text: 'レックスベアは諦めて撤退することにするよ。' }])
-    } else if (scene.storage.state.event.mercenary.solved) {
+    } else if (state.solved) {
       scene.talk([{ chara, text: '仲間を助けてくれて助かった。これはお礼だ。' }])
-      scene.storage.state.event.mercenary.completed = true
-    } else if (scene.storage.state.event.mercenary.started) {
+      state.completed = true
+    } else if (state.started) {
       scene.talk([{ chara, text: 'きっとそんなに遠くには行っていないはずだ。頼んだぜ。' }])
     } else {
       const messages = [
@@ -35,18 +36,19 @@ export const mercenary1 = (scene, leader, member) => {
           { chara, text: 'おかげでこうして森から撤退できずにいるんだ。' }
         ]
       ]
-      const t = await scene.talk(!scene.storage.state.event.mercenary.talked ? messages[0].concat(messages[1], null) : messages[1].concat(null))
+      const t = await scene.talk(!state.talked ? messages[0].concat(messages[1], null) : messages[1].concat(null))
       const i = await scene.select(['はい', 'いいえ'])
-      scene.storage.state.event.mercenary.talked = true
+      state.talked = true
       t.destroy()
       scene.talk([{ chara, text: i === 0 ? '助かる。礼ははずませてもらうぞ。' : 'そうか。' }])
-      if (i === 0) scene.storage.state.event.mercenary.started = true
+      if (i === 0) state.started = true
     }
   })
 }
 
 export const mercenary2 = (scene, flower, mercenary) => {
-  if (scene.storage.state.event.mercenary.completed || scene.storage.state.event.mercenary.solved) {
+  const state = scene.storage.state.event['1_2']
+  if (state.completed || state.solved) {
     mercenary.destroy()
     flower.destroy()
     return
@@ -54,7 +56,7 @@ export const mercenary2 = (scene, flower, mercenary) => {
   mercenary.visible = false
   flower.setTapEvent().on('tap', async () => {
     await scene.talk([{ chara: 'francisca', text: '何この花。へんなの。' }])
-    if (!scene.storage.state.event.mercenary.started) return
+    if (!state.started) return
     await scene.ui.sleep(300)
     await scene.ui.battle(['torrent'])
     const chara = mercenary.setDisplayName('負傷した傭兵団員')
@@ -83,7 +85,7 @@ export const mercenary2 = (scene, flower, mercenary) => {
       { chara, text: 'あとでそっちに寄ってくれないか？お礼をさせてほしい。' },
       { chara, text: 'じゃあ、あんたたちも気をつけてな。' }
     ])
-    scene.storage.state.event.mercenary.solved = true
+    state.solved = true
     await scene.ui.sleep(300)
     await scene.ui.transition()
     mercenary.visible = false

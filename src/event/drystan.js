@@ -1,6 +1,8 @@
 export const drystan = (scene, door, drystan) => {
+  const state1 = scene.storage.state.event['1_3']
+  const state2 = scene.storage.state.event['1_4']
   // Door
-  const canStart = scene.storage.state.event.dogs.completed || scene.storage.state.event.mercenary.completed
+  const canStart = scene.storage.state.event['1_1'].completed || scene.storage.state.event['1_2'].completed
   if (canStart) {
     door.destroy()
   } else {
@@ -9,11 +11,10 @@ export const drystan = (scene, door, drystan) => {
     })
   }
   // Drystan
-  const state = scene.storage.state.event.drystan
-  if (state.completed) return drystan.destroy()
+  if (state2.completed) return drystan.destroy()
   drystan.setDisplayName('賢人ドリスタン').setTapEvent().on('tap', async chara => {
     const hasMandrake = true
-    if (!state.started) {
+    if (!state1.started) {
       scene.talk([
         { chara: 'ann', text: 'あなたがドリスタンですか？' },
         { chara, text: 'そうだが、何か用かね。' },
@@ -29,13 +30,13 @@ export const drystan = (scene, door, drystan) => {
         { chara, text: 'まずはそれを持ってきなさい。他の材料はその後だ。' },
         { chara: 'ann', text: 'さあ、あまり時間はないぞ。' },
       ])
-      state.started = true
-    } else if(!state.second && !hasMandrake) {
+      state1.started = true
+    } else if(!state1.completed && !hasMandrake) {
       scene.talk([
         { chara, text: 'マンドレイクの根を5つだぞ。' },
         { chara: 'ann', text: '早いところ持ってきなさい。' }
       ])
-    } else if(!state.second && hasMandrake) {
+    } else if(!state1.completed && hasMandrake) {
       scene.talk([
         { chara: 'ann', text: 'マンドレイクの根を集めてきました。' },
         { chara, text: '早かったな。' },
@@ -50,8 +51,9 @@ export const drystan = (scene, door, drystan) => {
         { chara, text: 'だが剣に付着した程度の量では足りぬぞ。仕留めて、瓶一杯に持ってこい。' },
         { chara: 'ann', text: 'わかりました。持ってきます。' }
       ])
-      state.second = true
-    } else if (!state.solved) {
+      state1.completed = true
+      state2.started = true
+    } else if (!state2.solved) {
       scene.talk([
         { chara, text: 'レックスベアだぞ。確実に仕留めて、瓶一杯に持ってこい。' }
       ])
@@ -84,17 +86,17 @@ export const drystan = (scene, door, drystan) => {
         { chara, text: 'そういうことだ。' },
         { chara, text: 'さあ、薬は確かに渡しておくから、さっさと帰ってくれ。' }
       ])
-      state.completed = true
+      state2.completed = true
     }
   })
 }
 export const rexBear = (scene, bear) => {
-  const state = scene.storage.event.drystan
-  if (!state.second || state.solved) return bear.destroy()
+  const state2 = scene.storage.state.event['1_4']
+  if (state2.solved) return bear.destroy()
   flower.setTapEvent().on('tap', async () => {
     await scene.ui.sleep(300)
     await scene.ui.battle(['torrent'])
     bear.destroy()
-    state.solved = true
+    state2.solved = true
   })
 }

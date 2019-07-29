@@ -1,10 +1,11 @@
 export const dogEventHunter = (scene, hunter) => {
+  const state = scene.storage.state.event['1_1']
   hunter.setDisplayName('狩猟家マシュー').setTapEvent().on('tap', async chara => {
-    if (scene.storage.state.event.dogs.completed) {
+    if (state.completed) {
       scene.talk([{ chara, text: '助かったよ。本当にありがとう。' }])
-    } else if (!scene.storage.state.event.dogs.started) {
+    } else if (!state.started) {
       const last = '悪いんだけど、もしみかけたら連れてきてくれないかな？'
-      const t = await scene.talk(!scene.storage.state.event.dogs.talked ? [
+      const t = await scene.talk(!state.talked ? [
         { chara, text: 'この森は危ないから、特別な理由がないならあまり奥には進まないほうが良いよ。' },
         { chara: 'ann', text: 'どうしてですか？' },
         { chara, text: '人食い熊のレックスベアだ。' },
@@ -20,27 +21,27 @@ export const dogEventHunter = (scene, hunter) => {
         null
       ] : [ { chara, text: last }, null ])
       const i = await scene.select(['はい', 'いいえ'])
-      scene.storage.state.event.dogs.talked = true
+      state.talked = true
       t.destroy()
       scene.talk([
         { chara, text: i === 0 ? '助かるよ。よろしく頼んだよ。' : 'そうか。' }
       ])
-      if (i === 0) scene.storage.state.event.dogs.started = true
+      if (i === 0) state.started = true
     } else {
       const keys = ['1', '2', '3', '4', '5']
       const found = keys.reduce((result, key) => {
-        if (scene.storage.state.event.dogs[key] === 1) {
-          scene.storage.state.event.dogs[key] = 2
+        if (state[key] === 1) {
+          state[key] = 2
           return true
         }
         return result
       }, false)
-      const count = keys.filter(key => scene.storage.state.event.dogs[key] === 0).length
+      const count = keys.filter(key => state[key] === 0).length
       if (count === 0) {
         scene.talk([
           { chara, text: 'ありがとう！これで全員だ。' }
         ])
-        scene.storage.state.event.dogs.completed = true
+        state.completed = true
       } else if (found) {
         scene.talk([
           { chara, text: 'ありがとう！' },
@@ -57,15 +58,16 @@ export const dogEventHunter = (scene, hunter) => {
 }
 
 export const dogEventFound = (scene, dog, key) => {
-  if (scene.storage.state.event.dogs[key] === 1) {
+  const state = scene.storage.state.event['1_1']
+  if (state[key] === 1) {
     dog.destroy()
   } else {
     dog.setDisplayName('ワンさん').setTapEvent().on('tap', wansan => {
-      if (!scene.storage.state.event.dogs.started) {
+      if (!state.started) {
         scene.talk([{ chara: wansan, text: 'ワン！' }])
       } else {
         scene.talk([{ chara: wansan, text: 'ワンワン！' }])
-        scene.storage.state.event.dogs[key] = 1
+        state[key] = 1
         dog.destroy()
       }
     })
