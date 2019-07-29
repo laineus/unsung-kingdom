@@ -1,5 +1,9 @@
 import Substance from '../class/Substance'
 export default {
+  area: {
+    key: 'forest_all',
+    x: 0, y: 0
+  },
   create (scene) {
     const eState = scene.storage.state.event
     // doorToRoom
