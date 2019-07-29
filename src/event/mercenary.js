@@ -1,5 +1,5 @@
 export const mercenary1 = (scene, leader, member) => {
-  const state = scene.storage.state.event['1_2']
+  const state = scene.storage.state.event['1-2']
   if (!state.solved) member.visible = false
   member.setDisplayName('負傷した傭兵団員').setTapEvent().on('tap', async chara => {
     scene.talk([{ chara, text: 'さっきは本当に助かったよ。ありがとな。' }])
@@ -47,7 +47,7 @@ export const mercenary1 = (scene, leader, member) => {
 }
 
 export const mercenary2 = (scene, flower, mercenary) => {
-  const state = scene.storage.state.event['1_2']
+  const state = scene.storage.state.event['1-2']
   if (state.completed || state.solved) {
     mercenary.destroy()
     flower.destroy()
