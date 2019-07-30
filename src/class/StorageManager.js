@@ -4,6 +4,7 @@ const STORAGE_KEY = 'data'
 const SHIFT = 11
 export default class StorageManager {
   constructor () {
+    this.lastNumber = null
     const loadResult = this.load(1)
     if (!loadResult) this.setState(defaultState())
   }
@@ -29,14 +30,17 @@ export default class StorageManager {
     }
   }
   save (number) {
+    this.state.saved = new Date().getTime()
     const str = encrypt(JSON.stringify(this.state), SHIFT)
     localStorage.setItem(`${STORAGE_KEY}_${number}`, str)
+    this.lastNumber = number
     return true
   }
   load (number) {
     const savedData = this.getSavedState(number)
     if (!savedData) return false
     this.setState(savedData)
+    this.lastNumber = number
     return true
   }
   delete (number) {

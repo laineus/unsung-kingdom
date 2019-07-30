@@ -11,7 +11,7 @@ export default class MenuMap extends Phaser.GameObjects.Container {
     const sub = scene.add.text(20, 41, 'マップ・クエスト', { align: 'center', fill: config.COLORS.gray.toColorString, fontSize: 10, fontStyle: 'bold', fontFamily: config.FONT })
     this.add([title, sub])
     this.setMap(this.scene.storage.state.map)
-    this.setChapter(0)
+    this.setChapter(this.scene.storage.state.chapter)
   }
   setChapter (i) {
     this.chapter = i
