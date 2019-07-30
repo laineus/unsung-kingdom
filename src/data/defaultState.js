@@ -5,7 +5,7 @@ export default () => {
     x: 500,
     y: 600,
     field: {},
-    chapter: 0,
+    chapter: 1,
     event: {
       m0_1: { started: false, completed: false },
       m1_1: { started: false, completed: false, talked: false, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0},
