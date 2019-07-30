@@ -1,3 +1,4 @@
+import moment from 'moment'
 import defaultState from '../data/defaultState'
 import { encrypt, decrypt } from '../util/encryption'
 const STORAGE_KEY = 'data'
@@ -30,7 +31,7 @@ export default class StorageManager {
     }
   }
   save (number) {
-    this.state.saved = new Date().getTime()
+    this.state.saved = moment().unix()
     const str = encrypt(JSON.stringify(this.state), SHIFT)
     localStorage.setItem(`${STORAGE_KEY}_${number}`, str)
     this.lastNumber = number
