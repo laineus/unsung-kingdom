@@ -1,6 +1,6 @@
 export default [
   {
-    key: '0-1',
+    key: 'm0_1',
     chapter: 0,
     title: '王殺しのジャック',
     en: 'Jack the Kingkiller',
@@ -8,7 +8,7 @@ export default [
     map: 'forest1'
   },
   {
-    key: '1-1',
+    key: 'm1_1',
     chapter: 1,
     title: 'マシューと狩猟犬',
     en: 'Matthew and Hunting dogs',
@@ -16,7 +16,7 @@ export default [
     map: 'forest2'
   },
   {
-    key: '1-2',
+    key: 'm1_2',
     chapter: 1,
     title: 'アイザムバード傭兵団の討伐遠征',
     en: 'Isambard mercenaries',
@@ -24,7 +24,7 @@ export default [
     map: 'forest5'
   },
   {
-    key: '1-3',
+    key: 'm1_3',
     chapter: 1,
     title: '森の賢人ドリスタン',
     en: 'Philosopher Drystan',
@@ -32,7 +32,7 @@ export default [
     map: 'forest9'
   },
   {
-    key: '1-4',
+    key: 'm1_4',
     chapter: 1,
     title: 'ワルコフォレンスの人食い熊',
     en: 'The Rex Bear',
@@ -40,7 +40,7 @@ export default [
     map: 'forest4'
   },
   {
-    key: '2-1',
+    key: 'm2_1',
     chapter: 2,
     title: 'メアリー王女と公爵令嬢ロレッタ',
     en: 'Princess Mary and Loretta',
@@ -48,7 +48,7 @@ export default [
     map: 'forest1'
   },
   {
-    key: '2-2',
+    key: 'm2_2',
     chapter: 2,
     title: '泣くには名誉が足りぬ',
     en: 'Honor for tears',
@@ -56,7 +56,7 @@ export default [
     map: 'forest1'
   },
   {
-    key: '2-3',
+    key: 'm2_3',
     chapter: 2,
     title: '幽閉されしカサンドラ',
     en: 'Incarcerated Cassandra',
@@ -64,7 +64,7 @@ export default [
     map: 'forest1'
   },
   {
-    key: '2-4',
+    key: 'm2_4',
     chapter: 2,
     title: 'コルネリウス騎士団長の企て',
     en: 'The Dirty Knight',
@@ -72,7 +72,7 @@ export default [
     map: 'forest1'
   },
   {
-    key: '3-1',
+    key: 'm3_1',
     chapter: 3,
     title: 'レンフィールド家の大罪',
     en: 'Sins of the Renfield family',
@@ -80,7 +80,7 @@ export default [
     map: 'forest1'
   },
   {
-    key: '3-2',
+    key: 'm3_2',
     chapter: 3,
     title: 'ダリオの哀しみ',
     en: 'The Sorrow of Dario',
@@ -88,7 +88,7 @@ export default [
     map: 'forest1'
   },
   {
-    key: '3-3',
+    key: 'm3_3',
     chapter: 3,
     title: 'マリアンヌの歌を聞いてから死ね',
     en: 'Listen Marianne\'s song before die',
@@ -96,7 +96,7 @@ export default [
     map: 'forest1'
   },
   {
-    key: '3-4',
+    key: 'm3_4',
     chapter: 3,
     title: '呪われしフェルディナンド卿',
     en: 'Cursed Lord Ferdinand',
@@ -104,7 +104,7 @@ export default [
     map: 'forest1'
   },
   {
-    key: '3-5',
+    key: 'm3_5',
     chapter: 3,
     title: 'エヴァンジェリナ妃の亡霊',
     en: 'The Ghost of Princess Evangelina',
@@ -112,7 +112,7 @@ export default [
     map: 'forest1'
   },
   {
-    key: '4-1',
+    key: 'm4_1',
     chapter: 4,
     title: '不浄のロレイン像',
     en: 'Sinning Lorraine\'s statue',
@@ -120,7 +120,7 @@ export default [
     map: 'forest1'
   },
   {
-    key: '4-2',
+    key: 'm4_2',
     chapter: 4,
     title: '女神さまに捧ぐリュート',
     en: 'Lute for goddess',
@@ -128,7 +128,7 @@ export default [
     map: 'forest1'
   },
   {
-    key: '4-3',
+    key: 'm4_3',
     chapter: 4,
     title: 'すべて世は事もなし',
     en: 'All\'s right with the world',
@@ -136,7 +136,7 @@ export default [
     map: 'forest1'
   },
   {
-    key: '4-4',
+    key: 'm4_4',
     chapter: 4,
     title: '聖剣カリブルヌス',
     en: 'Caliburnus',
@@ -144,7 +144,7 @@ export default [
     map: 'forest1'
   },
   {
-    key: '4-5',
+    key: 'm4_5',
     chapter: 4,
     title: '竜殺しの王',
     en: 'The Dragonkiller King',
@@ -152,7 +152,7 @@ export default [
     map: 'forest1'
   },
   {
-    key: '5-1',
+    key: 'm5_1',
     chapter: 5,
     title: '平和王エドガー',
     en: 'Edgar the Peaceful',

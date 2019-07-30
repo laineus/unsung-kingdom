@@ -1,8 +1,8 @@
 export const drystan = (scene, door, drystan) => {
-  const state1 = scene.storage.state.event['1-3']
-  const state2 = scene.storage.state.event['1-4']
+  const state1 = scene.storage.state.event.m1_3
+  const state2 = scene.storage.state.event.m1_4
   // Door
-  const canStart = scene.storage.state.event['1-1'].completed || scene.storage.state.event['1-2'].completed
+  const canStart = scene.storage.state.event.m1_1.completed || scene.storage.state.event.m1_2.completed
   if (canStart) {
     door.destroy()
   } else {
@@ -91,7 +91,7 @@ export const drystan = (scene, door, drystan) => {
   })
 }
 export const rexBear = (scene, bear) => {
-  const state2 = scene.storage.state.event['1-4']
+  const state2 = scene.storage.state.event.m1_4
   if (state2.solved) return bear.destroy()
   flower.setTapEvent().on('tap', async () => {
     await scene.ui.sleep(300)

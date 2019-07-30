@@ -1,5 +1,5 @@
 export const dogEventHunter = (scene, hunter) => {
-  const state = scene.storage.state.event['1-1']
+  const state = scene.storage.state.event.m1_1
   hunter.setDisplayName('狩猟家マシュー').setTapEvent().on('tap', async chara => {
     if (state.completed) {
       scene.talk([{ chara, text: '助かったよ。本当にありがとう。' }])
@@ -58,7 +58,7 @@ export const dogEventHunter = (scene, hunter) => {
 }
 
 export const dogEventFound = (scene, dog, key) => {
-  const state = scene.storage.state.event['1-1']
+  const state = scene.storage.state.event.m1_1
   if (state[key] === 1) {
     dog.destroy()
   } else {
