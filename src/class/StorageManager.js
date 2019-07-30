@@ -13,10 +13,11 @@ export default class StorageManager {
     this.state = state
   }
   getList () {
-    return (5).toArray.map(i => i + 1).map(number => {
-      const state = this.getSavedState(number)
-      return { number, state, exists: Boolean(state) }
-    })
+    return (5).toArray.map(i => i + 1).map(this.getRow.bind(this))
+  }
+  getRow (number) {
+    const state = this.getSavedState(number)
+    return { number, state, exists: Boolean(state) }
   }
   getSavedState (number) {
     const string = localStorage.getItem(`${STORAGE_KEY}_${number}`)
