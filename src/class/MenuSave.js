@@ -1,6 +1,7 @@
 import moment from 'moment'
 import config from '../data/config'
 import Box from './Box'
+import Button from './Button'
 export default class MenuSave extends Phaser.GameObjects.Container {
   constructor (scene) {
     super(scene)
@@ -38,21 +39,21 @@ export default class MenuSave extends Phaser.GameObjects.Container {
     const container = this.scene.add.container(x, y)
     const tx = this.scene.add.text(0, 0, `Data ${data.number}`, { fontSize: 17, fontStyle: 'bold', fontFamily: config.FONT })
     container.add(tx)
-    const save = this.scene.add.text(100, 0, 'save', { align: 'center', fontSize: 16, fontStyle: 'bold', fontFamily: config.FONT })
-    save.setInteractive().on('pointerdown', () => {
+    const buttonWidth = 150
+    const save = new Button(this.scene, buttonWidth.half, 60, 'Save', buttonWidth, 45).on('click', () => {
       this.scene.storage.save(data.number)
     })
     container.add(save)
     if (data.exists) {
-      const load = this.scene.add.text(140, 0, 'load', { align: 'center', fontSize: 17, fontStyle: 'bold', fontFamily: config.FONT })
-      const detail = this.scene.add.text(200, 0, `map: ${data.state.map} x: ${data.state.x} y: ${data.state.y}`, { align: 'center', fontSize: 15, fontFamily: config.FONT })
-      load.setInteractive().on('pointerdown', () => {
+      const detail = this.scene.add.text(200, 0, `map: ${data.state.map}`, { align: 'center', fontSize: 15, fontFamily: config.FONT })
+      container.add(detail)
+      const load = new Button(this.scene, buttonWidth.half + buttonWidth + 10, 60, 'Load', buttonWidth, 45).on('click', () => {
         this.scene.storage.load(data.number)
         this.scene.gameScene.mapChange(data.state.map, data.state.x, data.state.y).then(() => {
           this.emit('close')
         })
       })
-      container.add([load, detail])
+      container.add(load)
     }
     return container
   }
