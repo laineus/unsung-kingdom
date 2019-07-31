@@ -33,7 +33,7 @@ export default {
   ],
   spritesheet: [
     ['player', '../img/player.png', { frameWidth: 25, frameHeight: 41, endFrame: 12 }],
-    ['dog', '../img/dog.png', { frameWidth: 32, frameHeight: 32, endFrame: 12 }],
+    ['dog', '../img/dog.png', { frameWidth: 28, frameHeight: 28, endFrame: 12 }],
     ['boar', '../img/boar.png', { frameWidth: 32, frameHeight: 32, endFrame: 6 }]
   ]
 }
