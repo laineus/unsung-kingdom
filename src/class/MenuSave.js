@@ -3,7 +3,7 @@ import config from '../data/config'
 import Box from './Box'
 import Button from './Button'
 import chapters from '../data/chapters'
-import { listAnimation } from '../util/animations'
+import { slideIn } from '../util/animations'
 export default class MenuSave extends Phaser.GameObjects.Container {
   constructor (scene) {
     super(scene)
@@ -20,7 +20,7 @@ export default class MenuSave extends Phaser.GameObjects.Container {
     const dataList = this.scene.storage.getList()
     this.items = dataList.map((data, i) => this.getItem(data, 165, i * 40 + 120))
     this.add(this.items)
-    if (firstTime) listAnimation(this.scene, this.items)
+    if (firstTime) slideIn(this.scene, this.items)
   }
   getItem (data, x, y) {
     const item = this.scene.add.container(x, y).setSize(240, 30).setInteractive().on('pointerdown', () => {

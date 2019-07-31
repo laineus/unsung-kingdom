@@ -2,7 +2,7 @@ import config from '../data/config'
 import MenuMap from './MenuMap'
 import MenuStatus from './MenuStatus'
 import MenuSave from './MenuSave'
-import { listAnimation } from '../util/animations'
+import { slideIn, slideOut, fadeIn, fadeOut } from '../util/animations'
 const contents = [
   { class: MenuMap, name: 'MAP & QUEST' },
   { class: MenuStatus, name: 'CHARACTER' },
@@ -19,19 +19,24 @@ export default class Menu extends Phaser.GameObjects.Container {
     this.add([this.bg, this.window])
     this.buttons = contents.map((content, i) => this.button(content, (15).byRight, i * 125 + 15))
     this.add(this.buttons)
-    listAnimation(scene, this.buttons, { x: 100 })
     this.close = scene.add.text((15).byRight, (15).byBottom, 'CLOSE', { align: 'center', fontSize: 21, fontStyle: 'bold', fontFamily: config.FONT }).setOrigin(1, 1).setPadding(0, 2, 0, 0)
     this.close.setInteractive().on('pointerdown', this.destroy.bind(this))
     this.add(this.close)
     this.scene.gameScene.blur(true)
     scene.scene.pause('Game')
     this.loadContent(contents[0])
-    listAnimation(scene, [this.window, this.content], { x: -100 })
+    fadeIn(scene, this.bg)
+    slideIn(scene, this.buttons, { x: 100 })
+    slideIn(scene, [this.window, this.content], { x: -100 })
   }
   destroy () {
     this.scene.gameScene.blur(false)
     this.scene.scene.resume('Game')
-    super.destroy()
+    fadeOut(this.scene, this.bg)
+    slideOut(this.scene, this.buttons, { x: 100 })
+    slideOut(this.scene, [this.content, this.window], { x: -100 }).then(() => {
+      super.destroy()
+    })
   }
   button (content, x, y) {
     const button = this.scene.add.container(x - 50, y + 50).setSize(100, 100)

@@ -3,7 +3,7 @@ import chapters from '../data/chapters'
 import missions from '../data/missions'
 import maps from '../data/maps'
 import Box from './Box'
-import { listAnimation } from '../util/animations'
+import { slideIn } from '../util/animations'
 export default class MenuMap extends Phaser.GameObjects.Container {
   constructor (scene) {
     super(scene)
@@ -21,7 +21,7 @@ export default class MenuMap extends Phaser.GameObjects.Container {
     this.add(this.chapterLabel)
     if (this.missionLabels) this.missionLabels.forEach(v => v.destroy())
     this.missionLabels = missions.filter(v => v.chapter === this.chapter).map((mission, i) => this.getMission(mission, 165, 160 + i * 40))
-    listAnimation(this.scene, this.missionLabels)
+    slideIn(this.scene, this.missionLabels)
     this.add(this.missionLabels)
     this.setPager()
     this.setMissionDetail(null)
