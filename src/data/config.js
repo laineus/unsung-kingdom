@@ -7,6 +7,7 @@ export default {
   FONT: 'Oswald',
   COLORS: {
     theme: 0xAACC22,
+    white: 0xFFFFFF,
     gray: 0xAAAAAA
   }
 }

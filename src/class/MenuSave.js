@@ -27,14 +27,18 @@ export default class MenuSave extends Phaser.GameObjects.Container {
     item.add(bg)
     const tx = this.scene.add.text(-120, 0, `Data ${data.number}`, { fontSize: 16, fontStyle: 'bold', fontFamily: config.FONT }).setOrigin(0, 0.5)
     item.add(tx)
+    item.setActive = bool => tx.setFill(config.COLORS[bool ? 'theme' :'white'].toColorString)
     if (data.exists) {
       const timeString = moment(data.state.saved, 'X').format('YYYY-MM-DD HH:mm:ss')
-      const time = this.scene.add.text(120, 0, timeString, { fontSize: 12, fontFamily: config.FONT }).setOrigin(1, 0.5)
+      const time = this.scene.add.text(120, 0, timeString, { fontSize: 12, fontFamily: config.FONT, fill: config.COLORS.gray.toColorString }).setOrigin(1, 0.5)
       item.add(time)
     }
     return item
   }
   setContent (number) {
+    if (this.items) {
+      this.items.forEach((v, i) => v.setActive(i + 1 === number))
+    }
     if (this.content) this.content.destroy()
     const data = this.scene.storage.getRow(number || 1)
     this.content = this.getContent(data, 380, 104)
@@ -45,7 +49,7 @@ export default class MenuSave extends Phaser.GameObjects.Container {
     const tx = this.scene.add.text(0, 220, `Data ${data.number}`, { fontSize: 20, fontStyle: 'bold', fontFamily: config.FONT })
     container.add(tx)
     const buttonWidth = 150
-    const save = new Button(this.scene, buttonWidth.half, 331, 'Save', buttonWidth, 40).on('click', () => {
+    const save = new Button(this.scene, buttonWidth.half, 330, 'Save', buttonWidth, 40).on('click', () => {
       this.scene.storage.save(data.number)
       this.setItems()
       this.setContent(data.number)
