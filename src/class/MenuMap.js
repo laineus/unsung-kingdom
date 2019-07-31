@@ -67,6 +67,8 @@ export default class MenuMap extends Phaser.GameObjects.Container {
     container.setInteractive().on('pointerdown', () => this.setMissionDetail(mission))
     const title = this.scene.add.text(-120, 0, mission.title, { fontSize: 14, fontStyle: 'bold', fontFamily: config.FONT }).setOrigin(0, 0.5)
     container.add([box, title])
+    container.key = mission.key
+    container.setActive = bool => title.setFill(config.COLORS[bool ? 'theme' :'white'].toColorString)
     return container
   }
   setMissionDetail (mission) {
@@ -75,6 +77,7 @@ export default class MenuMap extends Phaser.GameObjects.Container {
     this.detail = this.getMissionDetail(mission, 330, 400)
     this.add(this.detail)
     this.setMap(mission.map)
+    this.missionLabels.forEach(v => v.setActive(v.key === mission.key))
   }
   getMissionDetail (mission, x, y) {
     const container = this.scene.add.container(x, y)
