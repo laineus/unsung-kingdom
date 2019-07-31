@@ -39,6 +39,7 @@ export default class MenuSave extends Phaser.GameObjects.Container {
     return item
   }
   setContent (number) {
+    if (this.content && this.content.number === number) return
     const x = 380
     if (this.items) {
       this.items.forEach((v, i) => v.setActive(i + 1 === number))
@@ -51,6 +52,7 @@ export default class MenuSave extends Phaser.GameObjects.Container {
   }
   getContent (data, x, y) {
     const container = this.scene.add.container(x, y)
+    container.number = data.number
     const tx = this.scene.add.text(0, 220, `Data ${data.number}`, { fontSize: 20, fontStyle: 'bold', fontFamily: config.FONT })
     container.add(tx)
     const buttonWidth = 150
