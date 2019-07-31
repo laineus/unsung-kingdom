@@ -13,7 +13,7 @@ export default class StorageManager {
     this.state = state
   }
   getList () {
-    return (5).toArray.map(i => i + 1).map(this.getRow.bind(this))
+    return (9).toArray.map(i => i + 1).map(this.getRow.bind(this))
   }
   getRow (number) {
     const state = this.getSavedState(number)
