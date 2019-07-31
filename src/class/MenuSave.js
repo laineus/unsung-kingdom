@@ -14,10 +14,18 @@ export default class MenuSave extends Phaser.GameObjects.Container {
     this.setContent(this.scene.storage.lastNumber)
   }
   setItems () {
-    if (this.items) this.items.forEach(v => v.destroy())
+    const firstTime = !this.items
+    if (!firstTime) this.items.forEach(v => v.destroy())
     const dataList = this.scene.storage.getList()
     this.items = dataList.map((data, i) => this.getItem(data, 165, i * 40 + 120))
     this.add(this.items)
+    if (firstTime) {
+      this.items.forEach((v, i) => {
+        v.x -= 200
+        v.alpha = 0
+        this.scene.add.tween({ targets: v, duration: 250, ease: 'Power2', delay: i * 30, x: 165, alpha: 1 })
+      })
+    }
   }
   getItem (data, x, y) {
     const item = this.scene.add.container(x, y).setSize(240, 30).setInteractive().on('pointerdown', () => {
@@ -36,13 +44,15 @@ export default class MenuSave extends Phaser.GameObjects.Container {
     return item
   }
   setContent (number) {
+    const x = 380
     if (this.items) {
       this.items.forEach((v, i) => v.setActive(i + 1 === number))
     }
-    if (this.content) this.content.destroy()
+    if (this.content) this.scene.add.tween({ targets: this.content, duration: 250, ease: 'Power2', x: x + 100, alpha: 0, onComplete: this.content.destroy.bind(this.content) })
     const data = this.scene.storage.getRow(number || 1)
-    this.content = this.getContent(data, 380, 104)
+    this.content = this.getContent(data, x - 100, 104).setAlpha(0)
     this.add(this.content)
+    this.scene.add.tween({ targets: this.content, duration: 250, ease: 'Power2', x, alpha: 1 })
   }
   getContent (data, x, y) {
     const container = this.scene.add.container(x, y)
