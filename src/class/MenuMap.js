@@ -8,8 +8,13 @@ export default class MenuMap extends Phaser.GameObjects.Container {
   constructor (scene) {
     super(scene)
     this.scene = scene
-    const bg = scene.add.rectangle(0, 0, config.WIDTH - 120, config.HEIGHT).setOrigin(0, 0).setInteractive().on('pointerdown', () => {
-      this.setMissionDetail(null)
+    const bg = scene.add.rectangle(0, 0, config.WIDTH - 120, config.HEIGHT).setOrigin(0, 0).setInteractive().on('pointerup', v => {
+      if (v.downX === v.upX && v.downY === v.upY && this.detail) this.setMissionDetail(null)
+    }).on('pointermove', v => {
+      if (v.isDown && this.map) {
+        this.map.x += v.event.movementX
+        this.map.y += v.event.movementY
+      }
     })
     this.add(bg)
     const title = scene.add.text(20, 15, 'MAP & QUEST', { align: 'center', fill: config.COLORS.theme.toColorString, fontSize: 21, fontStyle: 'bold', fontFamily: config.FONT })
