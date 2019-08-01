@@ -10,10 +10,19 @@ export default class MenuMap extends Phaser.GameObjects.Container {
     this.scene = scene
     const bg = scene.add.rectangle(0, 0, config.WIDTH - 120, config.HEIGHT).setOrigin(0, 0).setInteractive().on('pointerup', v => {
       if (v.downX === v.upX && v.downY === v.upY && this.detail) this.setMissionDetail(null)
+      this.lastX = null
+      this.lastY = null
+    }).on('pointerout', v => {
+      this.lastX = null
+      this.lastY = null
     }).on('pointermove', v => {
       if (v.isDown && this.map) {
-        this.map.x += v.event.movementX
-        this.map.y += v.event.movementY
+        if (typeof this.lastX === 'number' && typeof this.lastY === 'number') {
+          this.map.x += v.x - this.lastX
+          this.map.y += v.y - this.lastY
+        }
+        this.lastX = v.x
+        this.lastY = v.y
       }
     })
     this.add(bg)
