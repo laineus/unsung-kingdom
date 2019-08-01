@@ -45,14 +45,14 @@ export default class MenuMap extends Phaser.GameObjects.Container {
     if (this.pagerNext) this.pagerNext.destroy()
     if (this.hasPrevious) {
       this.pagerPrevious = this.scene.add.container(80, 500).setSize(100, 30).setInteractive().on('pointerdown', () => this.moveChapter(-1))
-      this.pagerPrevious.add(new Box(this.scene, 0, 0, 100, 30))
-      this.pagerPrevious.add(this.scene.add.text(-40, 0, 'Previous', { fontSize: 13, fontStyle: 'bold', fontFamily: config.FONT }).setOrigin(0, 0.5))
+      this.pagerPrevious.add(this.scene.add.text(-10, -1, 'Previous', { fontSize: 13, fontStyle: 'bold', fontFamily: config.FONT, fill: config.COLORS.gray.toColorString }).setOrigin(0, 0.5))
+      this.pagerPrevious.add(this.scene.add.sprite(-45, 0, 'arrow').setScale(0.5).setOrigin(0, 0.5))
       this.add(this.pagerPrevious)
     }
     if (this.hasNext) {
       this.pagerNext = this.scene.add.container(250, 500).setSize(100, 30).setInteractive().on('pointerdown', () => this.moveChapter(1))
-      this.pagerNext.add(new Box(this.scene, 0, 0, 100, 30))
-      this.pagerNext.add(this.scene.add.text(40, 0, 'Next', { fontSize: 13, fontStyle: 'bold', fontFamily: config.FONT }).setOrigin(1, 0.5))
+      this.pagerNext.add(this.scene.add.text(10, -1, 'Next', { fontSize: 13, fontStyle: 'bold', fontFamily: config.FONT, fill: config.COLORS.gray.toColorString }).setOrigin(1, 0.5))
+      this.pagerNext.add(this.scene.add.sprite(45, 0, 'arrow').setScale(-0.5, 0.5).setOrigin(0, 0.5))
       this.add(this.pagerNext)
     }
   }

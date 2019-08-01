@@ -1,17 +1,22 @@
 export default {
   image: [
+    // UI
     ['dark', '../img/dark.png'],
     ['circle', '../img/circle.png'],
+    ['arrow', '../img/arrow.png'],
+    // Map
     ['room', '../img/room.png'],
     ['town', '../img/town.png'],
+    ['forest', '../img/forest.png'],
+    ['forest_all', '../img/forest_all.png'],
+    // Character
     ['ann', '../img/ann.png'],
     ['francisca', '../img/francisca.png'],
     ['jaquelyn', '../img/jaquelyn.png'],
+    // Enemy
     ['torrent', '../img/torrent.png'],
     ['damage', '../img/damage.png'],
-    ['flower', '../img/flower.png'],
-    ['forest', '../img/forest.png'],
-    ['forest_all', '../img/forest_all.png']
+    ['flower', '../img/flower.png']
   ],
   json: [
     ['room', '../map/room.json'],
