@@ -45,7 +45,7 @@ export default class MenuMap extends Phaser.GameObjects.Container {
     if (this.pagerNext) this.pagerNext.destroy()
     if (this.hasPrevious) {
       this.pagerPrevious = this.scene.add.container(80, 500).setSize(100, 30).setInteractive().on('pointerdown', () => this.moveChapter(-1))
-      this.pagerPrevious.add(this.scene.add.text(-10, -1, 'Previous', { fontSize: 13, fontStyle: 'bold', fontFamily: config.FONT, fill: config.COLORS.gray.toColorString }).setOrigin(0, 0.5))
+      this.pagerPrevious.add(this.scene.add.text(-10, -1, 'Prev', { fontSize: 13, fontStyle: 'bold', fontFamily: config.FONT, fill: config.COLORS.gray.toColorString }).setOrigin(0, 0.5))
       this.pagerPrevious.add(this.scene.add.sprite(-45, 0, 'arrow').setScale(0.5).setOrigin(0, 0.5))
       this.add(this.pagerPrevious)
     }
