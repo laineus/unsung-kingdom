@@ -8,6 +8,10 @@ export default class MenuMap extends Phaser.GameObjects.Container {
   constructor (scene) {
     super(scene)
     this.scene = scene
+    const bg = scene.add.rectangle(0, 0, config.WIDTH - 120, config.HEIGHT).setOrigin(0, 0).setInteractive().on('pointerdown', () => {
+      this.setMissionDetail(null)
+    })
+    this.add(bg)
     const title = scene.add.text(20, 15, 'MAP & QUEST', { align: 'center', fill: config.COLORS.theme.toColorString, fontSize: 21, fontStyle: 'bold', fontFamily: config.FONT })
     const sub = scene.add.text(20, 41, 'マップ・クエスト', { align: 'center', fill: config.COLORS.gray.toColorString, fontSize: 10, fontStyle: 'bold', fontFamily: config.FONT })
     this.add([title, sub])
@@ -73,7 +77,11 @@ export default class MenuMap extends Phaser.GameObjects.Container {
   }
   setMissionDetail (mission) {
     if (this.detail) this.detail.destroy()
-    if (!mission) return
+    if (!mission) {
+      this.setMap(this.scene.storage.state.map)
+      this.missionLabels.forEach(v => v.setActive(false))
+      return
+    }
     this.detail = this.getMissionDetail(mission, 330, 400)
     this.add(this.detail)
     this.setMap(mission.map)
