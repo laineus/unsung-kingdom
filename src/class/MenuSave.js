@@ -38,8 +38,8 @@ export default class MenuSave extends Phaser.GameObjects.Container {
     }
     return item
   }
-  setContent (number) {
-    if (this.content && this.content.number === number) return
+  setContent (number, reload = false) {
+    if (!reload && this.content && this.content.number === number) return
     const x = 380
     if (this.items) {
       this.items.forEach((v, i) => v.setActive(i + 1 === number))
@@ -59,7 +59,7 @@ export default class MenuSave extends Phaser.GameObjects.Container {
     const save = new Button(this.scene, buttonWidth.half, 330, 'Save', buttonWidth, 40).on('click', () => {
       this.scene.storage.save(data.number)
       this.setItems()
-      this.setContent(data.number)
+      this.setContent(data.number, true)
     })
     container.add(save)
     const thumb = this.scene.add.rectangle(0, 0, 360, 203, 0x000000).setAlpha(0.7).setOrigin(0, 0)

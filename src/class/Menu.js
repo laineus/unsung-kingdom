@@ -20,7 +20,7 @@ export default class Menu extends Phaser.GameObjects.Container {
     this.buttons = contents.map((content, i) => this.button(content, (15).byRight, i * 125 + 15))
     this.add(this.buttons)
     this.close = scene.add.text((15).byRight, (15).byBottom, 'CLOSE', { align: 'center', fontSize: 21, fontStyle: 'bold', fontFamily: config.FONT }).setOrigin(1, 1).setPadding(0, 2, 0, 0)
-    this.close.setInteractive().on('pointerdown', this.destroy.bind(this))
+    this.close.setInteractive().on('pointerdown', this.destroy.bind(this, true))
     this.add(this.close)
     this.scene.gameScene.blur(true)
     scene.scene.pause('Game')
@@ -29,9 +29,10 @@ export default class Menu extends Phaser.GameObjects.Container {
     slideIn(scene, this.buttons, { x: 100 })
     slideIn(scene, [this.window, this.content], { x: -100 })
   }
-  destroy () {
+  destroy (anime = false) {
     this.scene.gameScene.blur(false)
     this.scene.scene.resume('Game')
+    if (!anime) return super.destroy()
     fadeOut(this.scene, this.bg)
     slideOut(this.scene, this.buttons, { x: 100 })
     slideOut(this.scene, [this.content, this.window], { x: -100 }).then(() => {
@@ -51,7 +52,7 @@ export default class Menu extends Phaser.GameObjects.Container {
     if (this.content instanceof content.class) return
     if (this.content) this.content.destroy()
     this.content = new content.class(this.scene)
-    this.content.on('close', this.destroy.bind(this))
+    this.content.on('close', this.destroy.bind(this, false))
     this.add(this.content)
     this.buttons.forEach(b => this.moveTo(b, this.length - 1))
   }
