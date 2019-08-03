@@ -39,6 +39,10 @@ export default {
   spritesheet: [
     ['player', '../img/player.png', { frameWidth: 25, frameHeight: 41, endFrame: 12 }],
     ['hunter', '../img/hunter.png', { frameWidth: 28, frameHeight: 39, endFrame: 12 }],
+    ['hunter', '../img/hunter.png', { frameWidth: 28, frameHeight: 39, endFrame: 12 }],
+    ['mercenary', '../img/mercenary.png', { frameWidth: 28, frameHeight: 39, endFrame: 12 }],
+    ['injured_mercenary', '../img/injured_mercenary.png', { frameWidth: 27, frameHeight: 37, endFrame: 1 }],
+    ['injured_mercenary2', '../img/injured_mercenary2.png', { frameWidth: 27, frameHeight: 37, endFrame: 1 }],
     ['dog', '../img/dog.png', { frameWidth: 26, frameHeight: 26, endFrame: 12 }],
     ['boar', '../img/boar.png', { frameWidth: 32, frameHeight: 32, endFrame: 6 }]
   ]

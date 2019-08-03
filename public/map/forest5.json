@@ -125,7 +125,7 @@
                 {
                  "height":0,
                  "id":4,
-                 "name":"player",
+                 "name":"mercenary",
                  "point":true,
                  "rotation":0,
                  "type":"chara",
@@ -137,7 +137,7 @@
                 {
                  "height":0,
                  "id":5,
-                 "name":"player",
+                 "name":"injured_mercenary2",
                  "point":true,
                  "rotation":0,
                  "type":"chara",
@@ -145,6 +145,18 @@
                  "width":0,
                  "x":1345,
                  "y":837
+                }, 
+                {
+                 "height":0,
+                 "id":6,
+                 "name":"injured_mercenary",
+                 "point":true,
+                 "rotation":0,
+                 "type":"chara",
+                 "visible":true,
+                 "width":0,
+                 "x":1380,
+                 "y":734
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -153,7 +165,7 @@
          "y":0
         }],
  "nextlayerid":11,
- "nextobjectid":6,
+ "nextobjectid":7,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"2018.12.22",
