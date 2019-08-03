@@ -26,7 +26,10 @@ body {
   font-size: 0;
 }
 #game canvas {
+  display: block;
   height: auto !important;
+  max-height: 100vh;
+  margin: auto;
 }
 .banner {
   margin-top: 20px;
