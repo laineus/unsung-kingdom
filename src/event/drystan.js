@@ -1,3 +1,4 @@
+import generateBattler from '../util/generateBattler'
 export const drystan = (scene, door, drystan) => {
   const state1 = scene.storage.state.event.m1_3
   const state2 = scene.storage.state.event.m1_4
@@ -95,7 +96,7 @@ export const rexBear = (scene, bear) => {
   if (state2.solved) return bear.destroy()
   flower.setTapEvent().on('tap', async () => {
     await scene.ui.sleep(300)
-    await scene.ui.battle(['torrent'])
+    await scene.ui.battle([generateBattler('torrent', 8)])
     bear.destroy()
     state2.solved = true
   })
