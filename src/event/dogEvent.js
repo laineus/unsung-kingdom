@@ -28,7 +28,7 @@ export const dogEventHunter = (scene, hunter) => {
       ])
       if (i === 0) state.started = true
     } else {
-      const keys = ['1', '2', '3', '4', '5']
+      const keys = ['d1', 'd2', 'd3', 'd4', 'd5']
       const found = keys.reduce((result, key) => {
         if (state[key] === 1) {
           state[key] = 2
@@ -64,9 +64,16 @@ export const dogEventFound = (scene, dog, key) => {
   } else {
     dog.setDisplayName('ワンさん').setTapEvent().on('tap', wansan => {
       if (!state.started) {
-        scene.talk([{ chara: wansan, text: 'ワン！' }])
+        scene.talk([{ chara: wansan, text: 'ワン！' }, { chara: 'ann', text: 'ワンちゃん、こんなところで何してるの？' }])
       } else {
-        scene.talk([{ chara: wansan, text: 'ワンワン！' }])
+        const messages = {
+          d1: { chara: 'ann', text: 'ほら、こっちにおいで。' },
+          d2: { chara: 'jaquelyn', text: 'いい子ね、こっちよ。' },
+          d3: { chara: 'francisca', text: 'おいで、ワンちゃん。' },
+          d4: { chara: 'ann', text: 'おいでー、ほら。' },
+          d5: { chara: 'jaquelyn', text: 'おいで、ご主人がお待ちよ。' }
+        }
+        scene.talk([{ chara: wansan, text: 'ワンワン！' }, messages[key]])
         state[key] = 1
         dog.destroy()
       }

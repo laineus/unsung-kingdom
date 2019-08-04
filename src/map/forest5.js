@@ -11,7 +11,7 @@ export default {
     ['torrent', 'torrent', 'torrent']
   ],
   create (scene) {
-    dogEventFound(scene, scene.map.getObjectById(3), '2')
+    dogEventFound(scene, scene.map.getObjectById(3), 'd2')
     mercenary1(scene, scene.map.getObjectById(4), scene.map.getObjectById(5))
   }
 }

@@ -8,7 +8,7 @@ export default () => {
     chapter: 1,
     event: {
       m0_1: { started: false, completed: false },
-      m1_1: { started: false, completed: false, talked: false, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0},
+      m1_1: { started: false, completed: false, talked: false, d1: 0, d2: 0, d3: 0, d4: 0, d5: 0},
       m1_2: { started: false, completed: false, talked: false, solved: false  },
       m1_3: { started: false, completed: false },
       m1_4: { started: false, completed: false, solved: false },

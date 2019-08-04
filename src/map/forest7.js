@@ -10,6 +10,6 @@ export default {
     ['torrent', 'torrent', 'torrent']
   ],
   create (scene) {
-    dogEventFound(scene, scene.map.getObjectById(4), '4')
+    dogEventFound(scene, scene.map.getObjectById(4), 'd4')
   }
 }
