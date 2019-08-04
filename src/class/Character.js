@@ -129,7 +129,7 @@ export default class Character extends Substance {
     return angleData[this.angleKey].frame
   }
   setR (value) {
-    this.r = typeof value === 'String' ? angleData[value].r : value
+    this.r = typeof value === 'string' ? angleData[value].r : value
     return this
   }
 }
