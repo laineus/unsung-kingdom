@@ -13,11 +13,11 @@ export default class StorageManager {
     this.state = state
   }
   getList () {
-    return (5).toArray.map(i => i + 1).map(this.getRow.bind(this))
+    return (6).toArray.map(this.getRow.bind(this))
   }
   getRow (number) {
     const state = this.getSavedState(number)
-    return { number, state, exists: Boolean(state) }
+    return { number, name: number === 0 ? 'Auto Save' : `Data ${number}`, state, exists: Boolean(state) }
   }
   getSavedState (number) {
     const string = localStorage.getItem(`${STORAGE_KEY}_${number}`)
@@ -35,7 +35,7 @@ export default class StorageManager {
     this.state.saved = moment().unix()
     const str = encrypt(JSON.stringify(this.state), SHIFT)
     localStorage.setItem(`${STORAGE_KEY}_${number}`, str)
-    this.lastNumber = number
+    if (number > 0) this.lastNumber = number
     return true
   }
   load (number) {
