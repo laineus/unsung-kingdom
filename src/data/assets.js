@@ -4,6 +4,7 @@ export default {
     ['dark', '../img/dark.png'],
     ['circle', '../img/circle.png'],
     ['arrow', '../img/arrow.png'],
+    ['damage', '../img/damage.png'],
     // Map
     ['room', '../img/room.png'],
     ['town', '../img/town.png'],
@@ -13,10 +14,12 @@ export default {
     ['ann', '../img/ann.png'],
     ['francisca', '../img/francisca.png'],
     ['jaquelyn', '../img/jaquelyn.png'],
+    // Object
+    ['flower', '../img/flower.png'],
     // Enemy
-    ['torrent', '../img/torrent.png'],
-    ['damage', '../img/damage.png'],
-    ['flower', '../img/flower.png']
+    ['battler/torrent', '../img/battler/torrent.png'],
+    ['battler/flower', '../img/battler/flower.png'],
+    ['battler/flower', '../img/battler/flower.png']
   ],
   json: [
     ['room', '../map/room.json'],
@@ -38,7 +41,6 @@ export default {
   ],
   spritesheet: [
     ['player', '../img/player.png', { frameWidth: 25, frameHeight: 41, endFrame: 12 }],
-    ['hunter', '../img/hunter.png', { frameWidth: 28, frameHeight: 39, endFrame: 12 }],
     ['hunter', '../img/hunter.png', { frameWidth: 28, frameHeight: 39, endFrame: 12 }],
     ['mercenary', '../img/mercenary.png', { frameWidth: 28, frameHeight: 39, endFrame: 12 }],
     ['injured_mercenary', '../img/injured_mercenary.png', { frameWidth: 27, frameHeight: 37, endFrame: 1 }],

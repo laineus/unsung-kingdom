@@ -5,7 +5,7 @@ export default class EnemyBattler extends Battler {
   constructor (scene, status) {
     super(scene, status)
     // image
-    this.sprite = this.scene.add.sprite(0, 0, 'torrent')
+    this.sprite = this.scene.add.sprite(0, 0, `battler/${status.key}`)
     this.sprite.setScale(1)
     this.add(this.sprite)
     // name
