@@ -82,11 +82,13 @@ export default class UIScene extends Phaser.Scene {
     button.add(this.add.rectangle(0, 0, 120, 50, 0x000000).setAlpha(0))
     button.add(this.add.text(15, -8, 'MENU', { align: 'center', fontSize: 21, fontStyle: 'bold', fontFamily: config.FONT }).setPadding(0, 2, 0, 0).setOrigin(0.5, 0.5))
     button.add(this.add.text(15, 11, 'メニュー', { align: 'center', fontSize: 10, fontStyle: 'bold', fontFamily: config.FONT }).setPadding(0, 2, 0, 0).setOrigin(0.5, 0.5))
-    button.add(this.add.rectangle(-35, -1, 27, 3, config.COLORS.theme).setRotation(Math.PI / 1))
-    button.add(this.add.rectangle(-35, -1, 27, 3, config.COLORS.theme).setRotation(Math.PI / -2))
+    button.add(this.add.rectangle(-35, -1, 25, 3, config.COLORS.theme).setRotation(Math.PI / 1))
+    button.add(this.add.rectangle(-35, -1, 25, 3, config.COLORS.theme).setRotation(Math.PI / -2))
     button.setInteractive().on('pointerdown', () => {
+      if (button.x !== x) return
       slideOut(this, button, { destroy: false, x: 100 })
       this.menu().then(() => {
+        button.x = x
         slideIn(this, button, { x: 100, delay: 100 })
       })
     })
