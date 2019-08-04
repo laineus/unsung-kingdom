@@ -37,10 +37,9 @@ export const mercenary1 = (scene, leader, member) => {
           { chara, text: 'おかげでこうして森から撤退できずにいるんだ。' }
         ]
       ]
-      const t = await scene.talk(!state.talked ? messages[0].concat(messages[1], null) : messages[1].concat(null))
+      const t = await scene.talk(!state.talked ? messages[0].concat(messages[1]) : messages[1])
       const i = await scene.select(['はい', 'いいえ'])
       state.talked = true
-      t.destroy()
       scene.talk([{ chara, text: i === 0 ? '助かる。礼ははずませてもらうぞ。' : 'そうか。' }])
       if (i === 0) state.started = true
     }
