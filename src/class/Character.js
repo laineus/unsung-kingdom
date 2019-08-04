@@ -11,7 +11,7 @@ export default class Character extends Substance {
     super(scene, x, y, key, option)
     this.setTarget(null)
     this.setSpeed(120)
-    this.r = 0
+    this.setR('down')
   }
   preUpdate () {
     super.preUpdate()
@@ -128,7 +128,8 @@ export default class Character extends Substance {
   get angleFrame () {
     return angleData[this.angleKey].frame
   }
-  setR (key) {
-    this.r = angleData[key].r
+  setR (value) {
+    this.r = typeof value === 'String' ? angleData[value].r : value
+    return this
   }
 }
