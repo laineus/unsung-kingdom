@@ -6,6 +6,7 @@ import Select from './Select'
 import downloadImageBySource from '../util/downloadImageBySource'
 import Battle from './Battle'
 import Menu from './Menu'
+import { fadeIn, fadeOut, slideIn, slideOut } from '../util/animations'
 export default class UIScene extends Phaser.Scene {
   constructor () {
     super({ key: 'UI', active: false })
@@ -13,10 +14,8 @@ export default class UIScene extends Phaser.Scene {
   create () {
     this.storage = storage
     this.input.keyboard.on('keydown_S', this.snapShot.bind(this))
-    this.menuButton = this.add.circle((40).byRight, 40, 20, 0xddccaa).setInteractive()
-    this.menuButton.on('pointerdown', () => {
-      new Menu(this)
-    })
+    this.menuButton = this.getMenuButton((70).byRight, (35).byBottom)
+    this.add.existing(this.menuButton)
   }
   update (time, delta) {
     if (!this.gameScene) return
@@ -29,6 +28,9 @@ export default class UIScene extends Phaser.Scene {
   }
   get gameScene () {
     return this.scene.get('Game')
+  }
+  menu () {
+    return new Promise(resolve => new Menu(this, resolve))
   }
   talk (talks) {
     return new Promise(resolve => new Talk(this, talks, resolve))
@@ -74,6 +76,21 @@ export default class UIScene extends Phaser.Scene {
         }
       })
     })
+  }
+  getMenuButton (x, y) {
+    const button = this.add.container(x, y).setSize(120, 50)
+    button.add(this.add.rectangle(0, 0, 120, 50, 0x000000).setAlpha(0))
+    button.add(this.add.text(15, -8, 'MENU', { align: 'center', fontSize: 21, fontStyle: 'bold', fontFamily: config.FONT }).setPadding(0, 2, 0, 0).setOrigin(0.5, 0.5))
+    button.add(this.add.text(15, 11, 'メニュー', { align: 'center', fontSize: 10, fontStyle: 'bold', fontFamily: config.FONT }).setPadding(0, 2, 0, 0).setOrigin(0.5, 0.5))
+    button.add(this.add.rectangle(-35, -1, 27, 3, config.COLORS.theme).setRotation(Math.PI / 1))
+    button.add(this.add.rectangle(-35, -1, 27, 3, config.COLORS.theme).setRotation(Math.PI / -2))
+    button.setInteractive().on('pointerdown', () => {
+      slideOut(this, button, { destroy: false, x: 100 })
+      this.menu().then(() => {
+        slideIn(this, button, { x: 100, delay: 100 })
+      })
+    })
+    return button
   }
   snapShot () {
     const filename = `ScreenShot_${moment().format('YYYYMMDD_HHmmss')}.png`

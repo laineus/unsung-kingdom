@@ -9,9 +9,10 @@ const contents = [
   { class: MenuSave, name: 'SAVE', min: 'セーブ' }
 ]
 export default class Menu extends Phaser.GameObjects.Container {
-  constructor (scene) {
+  constructor (scene, callback) {
     super(scene)
     this.scene = scene
+    this.callback = callback
     scene.add.existing(this)
     this.bg = scene.add.rectangle(0, 0, config.WIDTH, config.HEIGHT, 0x886644, 0.2).setOrigin(0, 0)
     this.bg.blendMode = 1
@@ -31,6 +32,7 @@ export default class Menu extends Phaser.GameObjects.Container {
   destroy (anime = false) {
     this.scene.gameScene.blur(false)
     this.scene.scene.resume('Game')
+    this.callback()
     if (!anime) return super.destroy()
     fadeOut(this.scene, this.bg)
     slideOut(this.scene, [...this.buttons, this.close], { x: 100 })
