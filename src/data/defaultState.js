@@ -4,6 +4,7 @@ export default () => {
     map: 'room1',
     x: 500,
     y: 600,
+    r: 0,
     field: {},
     chapter: 1,
     event: {

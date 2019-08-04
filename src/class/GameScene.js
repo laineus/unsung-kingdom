@@ -14,7 +14,7 @@ export default class GameScene extends Phaser.Scene {
     // substance group
     this.substances = this.add.group()
     // player
-    this.player = new Player(this, payload.x, payload.y)
+    this.player = new Player(this, payload.x, payload.y).setR(this.storage.state.r)
     this.player.on('walk', () => {
       if (!this.event.enemyGroups) return
       this.encountDelay--

@@ -14,6 +14,7 @@ export default class Player extends Character {
     this.scene.storage.state.map = this.scene.map.name
     this.scene.storage.state.x = this.x
     this.scene.storage.state.y = this.y
+    this.scene.storage.state.r = this.r
     if (this.walking) this.emit('walk')
   }
 }
