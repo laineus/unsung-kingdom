@@ -8,7 +8,10 @@ export default class Talk extends Phaser.GameObjects.Container {
     this.callback = callback
     this.index = 0
     scene.add.existing(this)
-    scene.scene.pause('Game')
+    this.events.map(v => v.chara).filter(c => typeof c !== 'string').forEach(c => {
+      c.setR(c.angleTo(this.scene.gameScene.player))
+    })
+    this.scene.time.delayedCall(1, () => scene.scene.pause('Game'))
     this.tapArea = this.scene.add.rectangle(0, 0, config.WIDTH, config.HEIGHT).setOrigin(0, 0)
     this.tapArea.setInteractive().on('pointerdown', this.next.bind(this))
     this.add(this.tapArea)

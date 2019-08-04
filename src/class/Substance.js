@@ -53,6 +53,9 @@ export default class Substance extends Phaser.GameObjects.Container {
   distanceTo (target) {
     return Phaser.Math.Distance.Between(this.x, this.y, target.x, target.y)
   }
+  angleTo (target) {
+    return Math.atan2(target.y - this.y, target.x - this.x)
+  }
   get distanceToPlayer () {
     return this.distanceTo(this.scene.player)
   }
