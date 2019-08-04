@@ -16,8 +16,8 @@ export default class Character extends Substance {
   preUpdate () {
     super.preUpdate()
     this._walkToTargetPosition()
-    this._updateAnimation()
     this._calcRotation()
+    this._updateAnimation()
   }
   setDisplayName (name) {
     this.displayName = name
