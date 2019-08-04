@@ -1,5 +1,11 @@
 import Substance from './Substance'
 import assets from '../data/assets'
+const angleData = {
+  down: { frame: 1, r: Math.PI / 2 },
+  left: { frame: 4, r: Math.PI },
+  right: { frame: 7, r: 0 },
+  up: { frame: 10, r: Math.PI / -2 }
+}
 export default class Character extends Substance {
   constructor (scene, x, y, key, option) {
     super(scene, x, y, key, option)
@@ -94,7 +100,7 @@ export default class Character extends Substance {
   }
   _updateAnimation () {
     if (!this.walking) {
-      if (this.image.anims.currentAnim) this.image.setFrame(this.image.anims.currentAnim.frames[1].textureFrame)
+      if (this.frameLength === 12) this.image.setFrame(this.angleFrame)
     } else {
       this.image.anims.play(this._animName, true)
       if (this.frameLength === 6) this.image.setScale(this.body.velocity.x < 0 ? 1 : -1, 1)
@@ -105,13 +111,24 @@ export default class Character extends Substance {
   }
   get _animName () {
     if (this.frameLength === 12) {
-      if (this.movingHorizontal) {
-        return this.body.velocity.x < 0 ? `${this.key}_walk_left` : `${this.key}_walk_right`
-      } else {
-        return this.body.velocity.y < 0 ? `${this.key}_walk_up` : `${this.key}_walk_down`
-      }
+      return `${this.key}_walk_${this.angleKey}`
     } else if (this.frameLength === 6) {
       return this.body.velocity.y < 0 ? `${this.key}_walk_back` : `${this.key}_walk_front`
     }
+  }
+  get angleKey () {
+    const x = Math.cos(this.r)
+    const y = Math.sin(this.r)
+    if (Math.abs(x) > Math.abs(y)) {
+      return x < 0 ? 'left' : 'right'
+    } else {
+      return y < 0 ? 'up' : 'down'
+    }
+  }
+  get angleFrame () {
+    return angleData[this.angleKey].frame
+  }
+  setR (key) {
+    this.r = angleData[key].r
   }
 }
