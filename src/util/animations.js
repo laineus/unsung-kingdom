@@ -1,5 +1,4 @@
-export const slideIn = (scene, list, option = { x: -200 }) => {
-  const { x } = option
+export const slideIn = (scene, list, { x = -200, delay = 0 } = {}) => {
   return new Promise(resolve => {
     if (!Array.isArray(list)) list = [list]
     list.forEach((v, i) => {
@@ -9,7 +8,7 @@ export const slideIn = (scene, list, option = { x: -200 }) => {
         targets: v,
         duration: 250,
         ease: 'Power2',
-        delay: i * 30,
+        delay: (i * 30) + delay,
         x: v.x - x,
         alpha: 1,
         onComplete() {
@@ -20,19 +19,19 @@ export const slideIn = (scene, list, option = { x: -200 }) => {
   })
 }
 
-export const slideOut = (scene, list, option = { x: 200, destroy: true }) => {
+export const slideOut = (scene, list, { x = 200, destroy = true, delay = 0 } = {}) => {
   return new Promise(resolve => {
-    const { x, destroy } = option
     if (!Array.isArray(list)) list = [list]
     list.forEach((v, i) => {
       scene.add.tween({
         targets: v,
         duration: 250,
         ease: 'Power2',
-        delay: (list.length - 1 - i) * 30,
+        delay: ((list.length - 1 - i) * 30) + delay,
         x: v.x + x,
         alpha: 0,
         onComplete() {
+          v.x -= x
           if (destroy) v.destroy()
           if (i === list.length - 1) resolve()
         }
@@ -41,8 +40,7 @@ export const slideOut = (scene, list, option = { x: 200, destroy: true }) => {
   })
 }
 
-export const fadeIn = (scene, list, option = { duration: 250 }) => {
-  const { duration } = option
+export const fadeIn = (scene, list, { duration = 250 } = {}) => {
   return new Promise(resolve => {
     if (!Array.isArray(list)) list = [list]
     list.forEach(v => v.alpha = 0)
@@ -58,9 +56,8 @@ export const fadeIn = (scene, list, option = { duration: 250 }) => {
   })
 }
 
-export const fadeOut = (scene, list, option = { destroy: true, duration: 250 }) => {
+export const fadeOut = (scene, list, { destroy = true, duration = 250 } = {}) => {
   return new Promise(resolve => {
-    const { destroy, duration } = option
     if (!Array.isArray(list)) list = [list]
     scene.add.tween({
       targets: list,
