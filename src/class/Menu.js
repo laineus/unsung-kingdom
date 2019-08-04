@@ -19,14 +19,13 @@ export default class Menu extends Phaser.GameObjects.Container {
     this.add([this.bg, this.window])
     this.buttons = contents.map((content, i) => this.button(content, (15).byRight, i * 125 + 15))
     this.add(this.buttons)
-    this.close = scene.add.text((15).byRight, (15).byBottom, 'CLOSE', { align: 'center', fontSize: 21, fontStyle: 'bold', fontFamily: config.FONT }).setOrigin(1, 1).setPadding(0, 2, 0, 0)
-    this.close.setInteractive().on('pointerdown', this.destroy.bind(this, true))
+    this.close = this.getClose((70).byRight, (35).byBottom)
     this.add(this.close)
     this.scene.gameScene.blur(true)
     scene.scene.pause('Game')
     this.loadContent(contents[0])
     fadeIn(scene, this.bg)
-    slideIn(scene, this.buttons, { x: 100 })
+    slideIn(scene, [...this.buttons, this.close], { x: 100 })
     slideIn(scene, [this.window, this.content], { x: -100 })
   }
   destroy (anime = false) {
@@ -34,7 +33,7 @@ export default class Menu extends Phaser.GameObjects.Container {
     this.scene.scene.resume('Game')
     if (!anime) return super.destroy()
     fadeOut(this.scene, this.bg)
-    slideOut(this.scene, this.buttons, { x: 100 })
+    slideOut(this.scene, [...this.buttons, this.close], { x: 100 })
     slideOut(this.scene, [this.content, this.window], { x: -100 }).then(() => {
       super.destroy()
     })
@@ -55,5 +54,15 @@ export default class Menu extends Phaser.GameObjects.Container {
     this.content.on('close', this.destroy.bind(this, false))
     this.add(this.content)
     this.buttons.forEach(b => this.moveTo(b, this.length - 1))
+  }
+  getClose (x, y) {
+    const close = this.scene.add.container(x, y).setSize(120, 50)
+    close.add(this.scene.add.rectangle(0, 0, 120, 50, 0x000000).setAlpha(0))
+    close.add(this.scene.add.text(15, -8, 'CLOSE', { align: 'center', fontSize: 21, fontStyle: 'bold', fontFamily: config.FONT }).setPadding(0, 2, 0, 0).setOrigin(0.5, 0.5))
+    close.add(this.scene.add.text(15, 11, '閉じる', { align: 'center', fontSize: 10, fontStyle: 'bold', fontFamily: config.FONT }).setPadding(0, 2, 0, 0).setOrigin(0.5, 0.5))
+    close.add(this.scene.add.rectangle(-35, 0, 30, 3, config.COLORS.theme).setRotation(Math.PI / 4))
+    close.add(this.scene.add.rectangle(-35, 0, 30, 3, config.COLORS.theme).setRotation(Math.PI / -4))
+    close.setInteractive().on('pointerdown', this.destroy.bind(this, true))
+    return close
   }
 }
