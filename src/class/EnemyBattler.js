@@ -9,7 +9,7 @@ export default class EnemyBattler extends Battler {
     this.sprite.setScale(1)
     this.add(this.sprite)
     // name
-    this.nameLabel = this.scene.add.text(0, -155, `トレント Lv ${this.lv}`, { fill: '#AAAAAA', stroke: '#222', strokeThickness: 2, fontSize: 12, fontStyle: 'bold', fontFamily: config.FONT }).setOrigin(0.5, 1)
+    this.nameLabel = this.scene.add.text(0, -155, `${status.name} Lv ${this.lv}`, { fill: '#AAAAAA', stroke: '#222', strokeThickness: 2, fontSize: 12, fontStyle: 'bold', fontFamily: config.FONT }).setOrigin(0.5, 1)
     this.add(this.nameLabel)
     // hp
     this.hpMaxLabel = this.scene.add.text(0, -136, `/${this.maxHp}`, { fill: '#FFEEBB', stroke: '#222', strokeThickness: 2, fontSize: 12, fontStyle: 'bold', fontFamily: config.FONT }).setOrigin(0, 1)

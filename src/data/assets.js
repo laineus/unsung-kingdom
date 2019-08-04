@@ -18,8 +18,11 @@ export default {
     ['flower', '../img/flower.png'],
     // Enemy
     ['battler/torrent', '../img/battler/torrent.png'],
+    ['battler/bee', '../img/battler/bee.png'],
+    ['battler/bee2', '../img/battler/bee2.png'],
+    ['battler/slime', '../img/battler/slime.png'],
     ['battler/flower', '../img/battler/flower.png'],
-    ['battler/flower', '../img/battler/flower.png']
+    ['battler/bear', '../img/battler/bear.png']
   ],
   json: [
     ['room', '../map/room.json'],

@@ -7,8 +7,9 @@ export default {
   },
   enemyLevel: 2,
   enemyGroups: [
-    ['torrent', 'torrent'],
-    ['torrent', 'torrent', 'torrent']
+    ['slime', 'slime'],
+    ['bee', 'bee'],
+    ['bee', 'bee2', 'bee', 'bee2']
   ],
   create (scene) {
     dogEventFound(scene, scene.map.getObjectById(3), 'd2')
