@@ -21,15 +21,16 @@ body {
   width: 960px;
   margin: auto;
 }
-#game {
-  margin: auto;
-  font-size: 0;
-}
-#game canvas {
+.content canvas {
   display: block;
-  height: auto !important;
   max-height: 100vh;
   margin: auto;
+}
+.fullscreen canvas {
+  width: 100vw;
+  height: 100vh;
+  max-width: calc(100vh * (16 / 9));
+  max-height: calc(100vw * (9 / 16));
 }
 .banner {
   margin-top: 20px;
