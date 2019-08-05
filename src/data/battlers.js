@@ -35,6 +35,11 @@ export default [
     up: { hp: 100, atk: 80, def: 95, dex: 50, agi: 50 }
   },
   {
+    key: 'mandrake', name: 'マンドレイク', lv: 1,
+    hp: 24, atk: 3, def: 4, dex: 4, agi: 2,
+    up: { hp: 100, atk: 70, def: 90, dex: 80, agi: 60 }
+  },
+  {
     key: 'flower', name: 'サニズマスク', lv: 1,
     hp: 60, atk: 4, def: 4, dex: 2, agi: 2,
     up: { hp: 100, atk: 90, def: 90, dex: 70, agi: 70 }

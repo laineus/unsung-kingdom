@@ -21,6 +21,7 @@ export default {
     ['battler/bee', '../img/battler/bee.png'],
     ['battler/bee2', '../img/battler/bee2.png'],
     ['battler/slime', '../img/battler/slime.png'],
+    ['battler/mandrake', '../img/battler/mandrake.png'],
     ['battler/flower', '../img/battler/flower.png'],
     ['battler/bear', '../img/battler/bear.png']
   ],
