@@ -1,4 +1,3 @@
 node_modules
 ignore
 /public/js/*.bundle.js
-/public/index.html

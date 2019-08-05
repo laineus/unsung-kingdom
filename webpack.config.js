@@ -2,8 +2,6 @@
 
 const webpack = require('webpack')
 const path = require('path')
-const CopyWebpackPlugin = require('copy-webpack-plugin')
-const WriteFilePlugin = require('write-file-webpack-plugin')
 
 module.exports = {
   entry: {
@@ -34,13 +32,6 @@ module.exports = {
     port: 8080
   },
   plugins: [
-    new WriteFilePlugin(),
-    new CopyWebpackPlugin([
-      {
-        from: path.resolve(__dirname, 'src/index.html'),
-        to: path.resolve(__dirname, 'public')
-      }
-    ]),
     new webpack.DefinePlugin({
       'typeof CANVAS_RENDERER': JSON.stringify(true),
       'typeof WEBGL_RENDERER': JSON.stringify(true)
