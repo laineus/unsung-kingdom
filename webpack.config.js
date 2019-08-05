@@ -2,6 +2,7 @@
 
 const webpack = require('webpack')
 const path = require('path')
+const WriteFilePlugin = require('write-file-webpack-plugin')
 
 module.exports = {
   entry: {
@@ -32,6 +33,7 @@ module.exports = {
     port: 8080
   },
   plugins: [
+    new WriteFilePlugin(),
     new webpack.DefinePlugin({
       'typeof CANVAS_RENDERER': JSON.stringify(true),
       'typeof WEBGL_RENDERER': JSON.stringify(true)
