@@ -9,8 +9,7 @@ export default scene => {
   // blur
   const blurPipeline = scene.game.renderer.addPipeline('blur', new CustomPipeline(scene.game, blur))
   blurPipeline.setFloat1('resolution', config.WIDTH)
-  blurPipeline.setFloat1('radius', 1.0)
-  blurPipeline.setFloat2('dir', 3.0, 3.0)
+  blurPipeline.setFloat1('radius', 10.0)
   // spotlight
   const spot = scene.game.renderer.addPipeline('spotlight', new CustomPipeline(scene.game, spotlight))
   spot.setFloat2('resolution', 1, 1)
