@@ -12,7 +12,7 @@ const positions = {
   5: [-260, -130, 0, 130, 260],
 }
 export default class Battle extends Phaser.GameObjects.Container {
-  constructor (scene, group, callback) {
+  constructor (scene, group, { boss = false } = {}, callback) {
     super(scene)
     this.group = group
     this.scene = scene
@@ -20,7 +20,7 @@ export default class Battle extends Phaser.GameObjects.Container {
     scene.add.existing(this)
     scene.scene.pause('Game')
     this.scene.gameScene.blur(true)
-    this.overlay = this.scene.add.rectangle(0, 0, config.WIDTH, config.HEIGHT, 0x886644, 100).setOrigin(0, 0)
+    this.overlay = this.scene.add.rectangle(0, 0, config.WIDTH, config.HEIGHT, boss ? 0xFF0000 : 0x886644, 100).setOrigin(0, 0)
     this.overlay.blendMode = 1
     this.window = this.scene.add.sprite(0, 0, 'dark').setOrigin(0, 0)
     this.enemies = this.scene.add.container(0, 0)
@@ -29,7 +29,7 @@ export default class Battle extends Phaser.GameObjects.Container {
     this.add([this.overlay, this.window, this.enemies, this.players, this.buttons])
     // set enemies
     this.group.map(enemy => {
-      return new EnemyBattler(this.scene, enemy).setPosition(config.WIDTH.half, config.HEIGHT.half - 50)
+      return new EnemyBattler(this.scene, enemy, boss).setPosition(config.WIDTH.half, config.HEIGHT.half - 50)
     }).forEach(e => this.enemies.add(e))
     // set players
     storage.state.battlers.map((player, i) => {

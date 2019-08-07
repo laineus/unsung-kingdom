@@ -2,23 +2,25 @@ import Battler from './Battler'
 import Gauge from './Gauge'
 import config from '../data/config'
 export default class EnemyBattler extends Battler {
-  constructor (scene, status) {
+  constructor (scene, status, boss) {
     super(scene, status)
     // image
     this.sprite = this.scene.add.sprite(0, 0, `battler/${status.key}`)
     this.sprite.setScale(1)
     this.add(this.sprite)
     // name
-    this.nameLabel = this.scene.add.text(0, -155, `${status.name} Lv ${this.lv}`, { fill: '#AAAAAA', stroke: '#222', strokeThickness: 2, fontSize: 12, fontStyle: 'bold', fontFamily: config.FONT }).setOrigin(0.5, 1)
+    this.nameLabel = this.scene.add.text(0, -155, boss ? status.name : `${status.name} Lv ${this.lv}`, { fill: '#AAAAAA', stroke: '#222', strokeThickness: 2, fontSize: 12, fontStyle: 'bold', fontFamily: config.FONT }).setOrigin(0.5, 1)
     this.add(this.nameLabel)
-    // hp
-    this.hpMaxLabel = this.scene.add.text(0, -136, `/${this.maxHp}`, { fill: '#FFEEBB', stroke: '#222', strokeThickness: 2, fontSize: 12, fontStyle: 'bold', fontFamily: config.FONT }).setOrigin(0, 1)
-    this.add(this.hpMaxLabel)
-    this.hpValueLabel = this.scene.add.text(0, -135, this.hp, { fill: '#FFEEBB', stroke: '#222', strokeThickness: 2, fontSize: 16, fontStyle: 'bold', fontFamily: config.FONT }).setOrigin(1, 1)
-    this.add(this.hpValueLabel)
-    // gauge
-    this.gauge = new Gauge(this.scene, 100, 7, this.hp, 0xEE8811).setPosition(0, -130)
-    this.add(this.gauge)
+    if (!boss) {
+      // hp
+      this.hpMaxLabel = this.scene.add.text(0, -136, `/${this.maxHp}`, { fill: '#FFEEBB', stroke: '#222', strokeThickness: 2, fontSize: 12, fontStyle: 'bold', fontFamily: config.FONT }).setOrigin(0, 1)
+      this.add(this.hpMaxLabel)
+      this.hpValueLabel = this.scene.add.text(0, -135, this.hp, { fill: '#FFEEBB', stroke: '#222', strokeThickness: 2, fontSize: 16, fontStyle: 'bold', fontFamily: config.FONT }).setOrigin(1, 1)
+      this.add(this.hpValueLabel)
+      // gauge
+      this.gauge = new Gauge(this.scene, 100, 7, this.hp, 0xEE8811).setPosition(0, -130)
+      this.add(this.gauge)
+    }
   }
   get hp () {
     return this._hp

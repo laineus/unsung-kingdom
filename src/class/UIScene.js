@@ -38,8 +38,8 @@ export default class UIScene extends Phaser.Scene {
   select (options) {
     return new Promise(resolve => new Select(this, options, resolve))
   }
-  battle (group) {
-    return new Promise(resolve => new Battle(this, group, resolve))
+  battle (group, option) {
+    return new Promise(resolve => new Battle(this, group, option, resolve))
   }
   sleep (time) {
     this.scene.pause('Game')
