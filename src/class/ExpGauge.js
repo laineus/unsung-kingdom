@@ -1,27 +1,54 @@
 import config from '../data/config'
+import expTable from '../data/expTable'
 export default class ExpGauge extends Phaser.GameObjects.Container {
-  constructor (scene, x, y, width, valueMax = 100) {
+  constructor (scene, x, y, width, lv, exp) {
     super(scene)
     this.scene = scene
+    this.lv = lv
+    this.exp = exp
     scene.add.existing(this)
     this.setPosition(x, y)
     const height = 3
     this.bg = scene.add.rectangle(-width.half, 0, width, 1, config.COLORS.soy).setOrigin(0, 0.5)
-    this.bar = scene.add.rectangle(-width.half, 0, width - 9, height, config.COLORS.soy).setOrigin(0, 1)
+    this.bar = scene.add.rectangle(-width.half, 0, width - 9, height, config.COLORS.soy).setOrigin(0, 1).setScale(this.barScale, 1)
     this.arrow = scene.add.polygon(width.half + 1, 5, [[0, -5], [0, 0], [10, 0]], config.COLORS.soy).setOrigin(1, 1)
     this.label = this.scene.add.text(-width.half, -4, 'EXP', { fill: config.COLORS.soy.toColorString, fontSize: 9, fontStyle: 'bold', fontFamily: config.FONT }).setOrigin(0, 1)
     this.add([this.bg, this.bar, this.arrow, this.label])
-    this.valueMax = valueMax
-    this.value = valueMax
   }
   get value () {
-    return this._value
-  }
-  set value (value) {
-    this._value = Math.min(Math.max(value, 0), this.valueMax)
-    this.bar.setScale(this.barScale, 1)
+    return this.exp - this.offset
   }
   get barScale () {
     return this.value / this.valueMax
+  }
+  get offset () {
+    return expTable[this.lv - 1]
+  }
+  get valueMax () {
+    return expTable[this.lv] - this.offset
+  }
+  get next () {
+    return this.valueMax - this.value
+  }
+  addExp (add) {
+    const thisTimeAdd = Math.fix(add, 0, this.next)
+    const scaleX = Math.fix((this.value + thisTimeAdd) / this.valueMax, 0, 1)
+    const diff = scaleX - this.bar.scaleX
+    this.scene.add.tween({
+      targets: this.bar, duration: 1000 * diff, ease: 'Power2',
+      scaleX,
+      onComplete: () => {
+        const nextAdd = add - thisTimeAdd
+        if (nextAdd > 0) {
+          this.lv++
+          this.exp += thisTimeAdd
+          this.bar.scaleX = 0
+          this.addExp(nextAdd)
+          this.emit('lvUp', this.lv)
+        } else {
+          this.emit('completed')
+        }
+      }
+    })
   }
 }
