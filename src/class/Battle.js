@@ -128,31 +128,10 @@ export default class Battle extends Phaser.GameObjects.Container {
     return this.enemies.list.length === 0
   }
   end () {
-    this.increaceExp()
-    this.levelUpPlayers()
+    this.scene.battleResult(this.group)
     this.scene.scene.resume('Game')
     this.scene.gameScene.blur(false)
     this.destroy()
     this.callback(this)
-  }
-  increaceExp () {
-    const sumExp = this.group.reduce((before, current) => (before + current.lv * 3), 0)
-    const alives = this.players.list.filter(v => v.alive)
-    alives.forEach(v => {
-      v.source.exp += sumExp / alives.length
-    })
-  }
-  levelUpPlayers () {
-    const levelUp = battler => {
-      const next = expTable[battler.source.lv]
-      if (next && battler.source.exp >= next) {
-        battler.source.lv++
-        Object.keys(battler.source.up).filter(key => Math.chance(battler.source.up[key])).forEach(key => {
-          battler.source[key] += key === 'hp' ? 10 : 1
-        })
-        levelUp(battler)
-      }
-    }
-    this.players.list.filter(v => v.alive).forEach(v => levelUp(v))
   }
 }

@@ -5,8 +5,9 @@ import storage from '../data/storage'
 import Select from './Select'
 import downloadImageBySource from '../util/downloadImageBySource'
 import Battle from './Battle'
+import BattleResult from './BattleResult'
 import Menu from './Menu'
-import { fadeIn, fadeOut, slideIn, slideOut } from '../util/animations'
+import { slideIn, slideOut } from '../util/animations'
 export default class UIScene extends Phaser.Scene {
   constructor () {
     super({ key: 'UI', active: false })
@@ -40,6 +41,9 @@ export default class UIScene extends Phaser.Scene {
   }
   battle (group, option) {
     return new Promise(resolve => new Battle(this, group, option, resolve))
+  }
+  battleResult (group) {
+    return new Promise(resolve => new BattleResult(this, group, resolve))
   }
   sleep (time) {
     this.scene.pause('Game')
