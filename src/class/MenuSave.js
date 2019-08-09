@@ -64,7 +64,7 @@ export default class MenuSave extends Phaser.GameObjects.Container {
       })
       container.add(save)
     }
-    const thumb = this.scene.add.rectangle(0, 0, 360, 203, 0x000000).setAlpha(0.7).setOrigin(0, 0)
+    const thumb = this.scene.add.rectangle(0, 0, 360, 203, config.COLORS.black).setAlpha(0.7).setOrigin(0, 0)
     container.add(thumb)
     if (data.exists) {
       const chapter = chapters[data.state.chapter]

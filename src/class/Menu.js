@@ -16,7 +16,7 @@ export default class Menu extends Phaser.GameObjects.Container {
     scene.add.existing(this)
     this.bg = scene.add.rectangle(0, 0, config.WIDTH, config.HEIGHT, 0x886644, 0.2).setOrigin(0, 0)
     this.bg.blendMode = 1
-    this.window = scene.add.polygon(0, 0, [[0, 0], [(50).byRight, 0], [(150).byRight, (0).byBottom], [0, (0).byBottom]], 0x000000, 0.7).setOrigin(0, 0)
+    this.window = scene.add.polygon(0, 0, [[0, 0], [(50).byRight, 0], [(150).byRight, (0).byBottom], [0, (0).byBottom]], config.COLORS.black, 0.7).setOrigin(0, 0)
     this.add([this.bg, this.window])
     this.buttons = contents.map((content, i) => this.button(content, (15).byRight, i * 125 + 15))
     this.add(this.buttons)
@@ -59,7 +59,7 @@ export default class Menu extends Phaser.GameObjects.Container {
   }
   getClose (x, y) {
     const close = this.scene.add.container(x, y).setSize(120, 50)
-    close.add(this.scene.add.rectangle(0, 0, 120, 50, 0x000000).setAlpha(0))
+    close.add(this.scene.add.rectangle(0, 0, 120, 50, config.COLORS.black).setAlpha(0))
     close.add(this.scene.add.text(15, -8, 'CLOSE', { align: 'center', fontSize: 21, fontStyle: 'bold', fontFamily: config.FONT }).setPadding(0, 2, 0, 0).setOrigin(0.5, 0.5))
     close.add(this.scene.add.text(15, 11, '閉じる', { align: 'center', fontSize: 10, fontStyle: 'bold', fontFamily: config.FONT }).setPadding(0, 2, 0, 0).setOrigin(0.5, 0.5))
     close.add(this.scene.add.rectangle(-35, 0, 30, 3, config.COLORS.theme).setRotation(Math.PI / 4))

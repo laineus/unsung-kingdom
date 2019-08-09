@@ -9,13 +9,13 @@ export default class EnemyBattler extends Battler {
     this.sprite.setScale(1)
     this.add(this.sprite)
     // name
-    this.nameLabel = this.scene.add.text(0, -155, boss ? status.name : `${status.name} Lv ${this.lv}`, { fill: '#AAAAAA', stroke: '#222', strokeThickness: 2, fontSize: 12, fontStyle: 'bold', fontFamily: config.FONT }).setOrigin(0.5, 1)
+    this.nameLabel = this.scene.add.text(0, -155, boss ? status.name : `${status.name} Lv ${this.lv}`, { fill: config.COLORS.gray.toColorString, stroke: config.COLORS.dark.toColorString, strokeThickness: 2, fontSize: 12, fontStyle: 'bold', fontFamily: config.FONT }).setOrigin(0.5, 1)
     this.add(this.nameLabel)
     if (!boss) {
       // hp
-      this.hpMaxLabel = this.scene.add.text(0, -136, `/${this.maxHp}`, { fill: '#FFEEBB', stroke: '#222', strokeThickness: 2, fontSize: 12, fontStyle: 'bold', fontFamily: config.FONT }).setOrigin(0, 1)
+      this.hpMaxLabel = this.scene.add.text(0, -136, `/${this.maxHp}`, { fill: config.COLORS.soy.toColorString, stroke: config.COLORS.dark.toColorString, strokeThickness: 2, fontSize: 12, fontStyle: 'bold', fontFamily: config.FONT }).setOrigin(0, 1)
       this.add(this.hpMaxLabel)
-      this.hpValueLabel = this.scene.add.text(0, -135, this.hp, { fill: '#FFEEBB', stroke: '#222', strokeThickness: 2, fontSize: 16, fontStyle: 'bold', fontFamily: config.FONT }).setOrigin(1, 1)
+      this.hpValueLabel = this.scene.add.text(0, -135, this.hp, { fill: config.COLORS.soy.toColorString, stroke: config.COLORS.dark.toColorString, strokeThickness: 2, fontSize: 16, fontStyle: 'bold', fontFamily: config.FONT }).setOrigin(1, 1)
       this.add(this.hpValueLabel)
       // gauge
       this.gauge = new Gauge(this.scene, 100, 7, this.hp, 0xEE8811).setPosition(0, -130)

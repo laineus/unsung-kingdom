@@ -38,8 +38,8 @@ export default class Battle extends Phaser.GameObjects.Container {
     }).forEach(e => this.players.add(e))
     Number(this.enemies.length).toArray.forEach(i => {
       const box = new Button(this.scene, 80, 0, 'Attack', 120, 40)
-      box.line = this.scene.add.line(56, 0, 0, 0, 100, 0, 0xFFFFFF).setOrigin(0, 0).setLineWidth(0.5).setAlpha(0.5)
-      box.circle = this.scene.add.circle(56, 1, 2, 0xFFFFFF).setOrigin(0.5, 0.5)
+      box.line = this.scene.add.line(56, 0, 0, 0, 100, 0, config.COLORS.white).setOrigin(0, 0).setLineWidth(0.5).setAlpha(0.5)
+      box.circle = this.scene.add.circle(56, 1, 2, config.COLORS.white).setOrigin(0.5, 0.5)
       box.add([box.line, box.circle])
       box.on('click', () => {
         this.tapEnemy(this.enemies.list[i])

@@ -6,8 +6,8 @@ export default class PlayerBattler extends Battler {
   constructor (scene, status) {
     super(scene, status)
     // bgLight
-    this.bgLight = this.scene.add.polygon(-5, -16, [[26, 0], [104, 40], [300, 40], [282, 130], [0, 130]], 0xAACC22)
-    // this.bgLight = this.scene.add.polygon(-15, -16, [[26, 0], [282, 130], [0, 130]], 0xAACC22)
+    this.bgLight = this.scene.add.polygon(-5, -16, [[26, 0], [104, 40], [300, 40], [282, 130], [0, 130]], config.COLORS.theme)
+    // this.bgLight = this.scene.add.polygon(-15, -16, [[26, 0], [282, 130], [0, 130]], config.COLORS.theme)
     this.bgLight.alpha = 0.7
     this.bgLight.blendMode = 1
     this.add(this.bgLight)
@@ -23,23 +23,23 @@ export default class PlayerBattler extends Battler {
     this.add(this.sprite)
     this.sprite.setCrop(0, 0, this.sprite.width, 150)
     // name
-    this.nameLabel = this.scene.add.text(-138, 15, this.name, { fill: '#AACC22', stroke: '#222', strokeThickness: 2, fontSize: 20, fontStyle: 'bold', fontFamily: config.FONT })
+    this.nameLabel = this.scene.add.text(-138, 15, this.name, { fill: config.COLORS.theme.toColorString, stroke: config.COLORS.dark.toColorString, strokeThickness: 2, fontSize: 20, fontStyle: 'bold', fontFamily: config.FONT })
     this.add(this.nameLabel)
     // lv
-    this.lvLabel = this.scene.add.text(-36, 38, `Lv ${this.lv}`, { fill: '#AAAAAA', stroke: '#222', strokeThickness: 2, fontSize: 13, fontStyle: 'bold', fontFamily: config.FONT }).setOrigin(0, 1)
+    this.lvLabel = this.scene.add.text(-36, 38, `Lv ${this.lv}`, { fill: config.COLORS.gray.toColorString, stroke: config.COLORS.dark.toColorString, strokeThickness: 2, fontSize: 13, fontStyle: 'bold', fontFamily: config.FONT }).setOrigin(0, 1)
     this.add(this.lvLabel)
     // hp
-    this.hpLabel = this.scene.add.text(-36, -30, 'HP', { fill: '#FFEEBB', stroke: '#222', strokeThickness: 2, fontSize: 11, fontStyle: 'bold', fontFamily: config.FONT })
+    this.hpLabel = this.scene.add.text(-36, -30, 'HP', { fill: config.COLORS.soy.toColorString, stroke: config.COLORS.dark.toColorString, strokeThickness: 2, fontSize: 11, fontStyle: 'bold', fontFamily: config.FONT })
     this.add(this.hpLabel)
-    this.hpMaxLabel = this.scene.add.text(125, -15, `/${this.maxHp}`, { fill: '#FFEEBB', stroke: '#222', strokeThickness: 2, fontSize: 16, fontStyle: 'bold', fontFamily: config.FONT }).setOrigin(1, 1)
+    this.hpMaxLabel = this.scene.add.text(125, -15, `/${this.maxHp}`, { fill: config.COLORS.soy.toColorString, stroke: config.COLORS.dark.toColorString, strokeThickness: 2, fontSize: 16, fontStyle: 'bold', fontFamily: config.FONT }).setOrigin(1, 1)
     this.add(this.hpMaxLabel)
-    this.hpValueLabel = this.scene.add.text(this.hpMaxLabel.x - this.hpMaxLabel.width, -14, this.hp, { fill: '#FFEEBB', stroke: '#222', strokeThickness: 2, fontSize: 22, fontStyle: 'bold', fontFamily: config.FONT }).setOrigin(1, 1)
+    this.hpValueLabel = this.scene.add.text(this.hpMaxLabel.x - this.hpMaxLabel.width, -14, this.hp, { fill: config.COLORS.soy.toColorString, stroke: config.COLORS.dark.toColorString, strokeThickness: 2, fontSize: 22, fontStyle: 'bold', fontFamily: config.FONT }).setOrigin(1, 1)
     this.add(this.hpValueLabel)
     // weapon
-    this.lvLabel = this.scene.add.text(122, 38, 'ロングソード', { fill: '#AAAAAA', stroke: '#222', strokeThickness: 2, fontSize: 14, fontFamily: config.FONT }).setOrigin(1, 1)
+    this.lvLabel = this.scene.add.text(122, 38, 'ロングソード', { fill: config.COLORS.gray.toColorString, stroke: config.COLORS.dark.toColorString, strokeThickness: 2, fontSize: 14, fontFamily: config.FONT }).setOrigin(1, 1)
     this.add(this.lvLabel)
     // gauge
-    this.gauge = new Gauge(this.scene, 160, 10, this.maxHp, 0xAACC22).setPosition(45, -8)
+    this.gauge = new Gauge(this.scene, 160, 10, this.maxHp, config.COLORS.theme).setPosition(45, -8)
     this.gauge.value = this.hp
     this.add(this.gauge)
   }

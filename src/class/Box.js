@@ -1,7 +1,8 @@
+import config from '../data/config'
 export default class Box extends Phaser.GameObjects.Polygon {
   constructor (scene, x, y, width, height, option = {}) {
     const {
-      color = 0x000000,
+      color = config.COLORS.black,
       lineColor,
       alpha = 0.6
     } = option

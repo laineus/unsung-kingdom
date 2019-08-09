@@ -1,9 +1,10 @@
+import config from '../data/config'
 export default class Gauge extends Phaser.GameObjects.Container {
-  constructor (scene, width, height, valueMax = 100, color = 0xAACC22) {
+  constructor (scene, width, height, valueMax = 100, color = config.COLORS.theme) {
     super(scene)
     this.scene = scene
     scene.add.existing(this)
-    this.bg = scene.add.rectangle(0, 0, width, height, 0x222222).setOrigin(0, 0.5).setPosition(width / -2, 0)
+    this.bg = scene.add.rectangle(0, 0, width, height, config.COLORS.dark).setOrigin(0, 0.5).setPosition(width / -2, 0)
     this.bar = scene.add.rectangle(0, 0, width - 2, height - 2, color).setOrigin(0, 0.5).setPosition((width / -2) + 1, 0)
     this.add([this.bg, this.bar])
     this.valueMax = valueMax

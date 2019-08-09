@@ -79,7 +79,7 @@ export default class UIScene extends Phaser.Scene {
   }
   getMenuButton (x, y) {
     const button = this.add.container(x, y).setSize(120, 50)
-    button.add(this.add.rectangle(0, 0, 120, 50, 0x000000).setAlpha(0))
+    button.add(this.add.rectangle(0, 0, 120, 50, config.COLORS.black).setAlpha(0))
     button.add(this.add.text(15, -8, 'MENU', { align: 'center', fontSize: 21, fontStyle: 'bold', fontFamily: config.FONT }).setPadding(0, 2, 0, 0).setOrigin(0.5, 0.5))
     button.add(this.add.text(15, 11, 'メニュー', { align: 'center', fontSize: 10, fontStyle: 'bold', fontFamily: config.FONT }).setPadding(0, 2, 0, 0).setOrigin(0.5, 0.5))
     button.add(this.add.rectangle(-35, -1, 25, 3, config.COLORS.theme).setRotation(Math.PI / 1))

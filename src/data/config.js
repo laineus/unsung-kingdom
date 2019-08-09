@@ -8,6 +8,9 @@ export default {
   COLORS: {
     theme: 0xAACC22,
     white: 0xFFFFFF,
-    gray: 0xAAAAAA
+    gray: 0xAAAAAA,
+    dark: 0x222222,
+    black: 0x000000,
+    soy: 0xFFEEBB
   }
 }

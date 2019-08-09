@@ -1,3 +1,4 @@
+import config from '../data/config'
 export default class Battler extends Phaser.GameObjects.Container {
   constructor (scene, status) {
     super(scene)
@@ -72,7 +73,7 @@ export default class Battler extends Phaser.GameObjects.Container {
     })
   }
   damageText (damage) {
-    const text = this.scene.add.text(0, 0, damage, { fill: '#FFEEBB', stroke: '#222', strokeThickness: 5, fontSize: 32, fontStyle: 'bold' }).setOrigin(0.5, 0.5)
+    const text = this.scene.add.text(0, 0, damage, { fill: config.COLORS.soy.toColorString, stroke: config.COLORS.dark.toColorString, strokeThickness: 5, fontSize: 32, fontStyle: 'bold' }).setOrigin(0.5, 0.5)
     this.scene.add.tween({
       targets: text, duration: 120,
       y: -40,
