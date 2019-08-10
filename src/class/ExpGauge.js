@@ -32,19 +32,22 @@ export default class ExpGauge extends Phaser.GameObjects.Container {
   }
   addExp (add) {
     const thisTimeAdd = Math.fix(add, 0, this.next)
-    const scaleX = Math.fix((this.value + thisTimeAdd) / this.valueMax, 0, 1)
+    const thisTimeSum = this.value + thisTimeAdd
+    const scaleX = Math.fix(thisTimeSum / this.valueMax, 0, 1)
     const diff = scaleX - this.bar.scaleX
     this.scene.add.tween({
       targets: this.bar, duration: 1000 * diff, ease: 'Power2',
       scaleX,
       onComplete: () => {
-        const nextAdd = add - thisTimeAdd
-        if (nextAdd > 0) {
+        if (thisTimeSum  === this.valueMax) {
           this.lv++
           this.exp += thisTimeAdd
           this.bar.scaleX = 0
-          this.addExp(nextAdd)
           this.emit('lvUp', this.lv)
+        }
+        const nextAdd = add - thisTimeAdd
+        if (nextAdd > 0) {
+          this.addExp(nextAdd)
         } else {
           this.emit('completed')
         }
