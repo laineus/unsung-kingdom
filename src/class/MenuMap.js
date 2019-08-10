@@ -87,7 +87,8 @@ export default class MenuMap extends Phaser.GameObjects.Container {
     if (state.started) container.setInteractive().on('pointerdown', () => this.setMissionDetail(mission))
     const fill = state.started ? config.COLORS.white.toColorString : config.COLORS.gray.toColorString
     const title = this.scene.add.text(-120, 0, state.started ? mission.title : '？？？', { fontSize: 14, fontStyle: 'bold', fontFamily: config.FONT }).setOrigin(0, 0.5)
-    container.add([box, title])
+    const check = this.scene.add.sprite(113, 0, state.completed ? 'check' : 'check_disabled').setTint(config.COLORS[state.completed ? 'theme' : 'ghost'])
+    container.add([box, title, check])
     container.key = mission.key
     container.setActive = bool => title.setFill(bool ? config.COLORS.theme.toColorString : fill)
     return container

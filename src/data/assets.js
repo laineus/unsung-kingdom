@@ -5,6 +5,8 @@ export default {
     ['circle', '../img/circle.png'],
     ['arrow', '../img/arrow.png'],
     ['damage', '../img/damage.png'],
+    ['check', '../img/check.png'],
+    ['check_disabled', '../img/check_disabled.png'],
     // Map
     ['room', '../img/room.png'],
     ['town', '../img/town.png'],
