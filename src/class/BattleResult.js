@@ -5,13 +5,14 @@ import storage from '../data/storage'
 import expTable from '../data/expTable'
 import { slideIn } from '../util/animations'
 import weapons from '../data/weapons'
+import BattleQuestService from './BattleQuestService'
 export default class Battle extends Phaser.GameObjects.Container {
   constructor (scene, group, callback) {
     super(scene)
     scene.add.existing(this)
     this.scene = scene
     this.group = group
-    const bg = new Box(this.scene, -110, 0, 450, config.HEIGHT).setOrigin(0, 0)
+    const bg = new Box(this.scene, -110, 0, 480, config.HEIGHT).setOrigin(0, 0)
     this.add(bg)
     const title = scene.add.text(20, 15, 'Result', { align: 'center', fill: config.COLORS.theme.toColorString, fontSize: 21, fontStyle: 'bold', fontFamily: config.FONT })
     const sub = scene.add.text(20, 41, '戦闘結果', { align: 'center', fill: config.COLORS.gray.toColorString, fontSize: 10, fontStyle: 'bold', fontFamily: config.FONT })
@@ -28,13 +29,20 @@ export default class Battle extends Phaser.GameObjects.Container {
     if (items.length) {
       const headingItems = scene.add.text(30, secondY, 'Items', { align: 'center', fill: config.COLORS.white.toColorString, fontSize: 16, fontFamily: config.FONT })
       this.add([headingItems])
-      const rows = items.map((weapon, i) => this.getRow(35, 300 + i * 20, `${weapon.name} を獲得！`))
+      const rows = items.map((weapon, i) => this.getRow(35, 305 + i * 20, `${weapon.name} を獲得！`))
       this.add(rows)
       slideIn(this.scene, rows)
     }
-    const questY = items.length ? 300 + (items.length * 20) + 15 : secondY
-    const headingQuest = scene.add.text(30, questY, 'Quest', { align: 'center', fill: config.COLORS.white.toColorString, fontSize: 16, fontFamily: config.FONT })
-    this.add([headingQuest])
+    const quest = new BattleQuestService(this.group).getResult()
+    if (quest.length) {
+      const questY = items.length ? 305 + (items.length * 20) + 15 : secondY
+      const headingQuest = scene.add.text(30, questY, 'Quest', { align: 'center', fill: config.COLORS.white.toColorString, fontSize: 16, fontFamily: config.FONT })
+      this.add([headingQuest])
+      const rows = quest.map((text, i) => this.getRow(35, questY + 30 + i * 20, text))
+      this.add(rows)
+      slideIn(this.scene, rows)
+    }
+    slideIn(this.scene, this)
   }
   getChara (chara, x, y) {
     const container = this.scene.add.container(x, y)
