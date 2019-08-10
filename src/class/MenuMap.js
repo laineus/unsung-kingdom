@@ -4,6 +4,7 @@ import missions from '../data/missions'
 import maps from '../data/maps'
 import Box from './Box'
 import { slideIn } from '../util/animations'
+import storage from '../data/storage'
 export default class MenuMap extends Phaser.GameObjects.Container {
   constructor (scene) {
     super(scene)
@@ -80,13 +81,15 @@ export default class MenuMap extends Phaser.GameObjects.Container {
     return container
   }
   getMission (mission, x, y) {
+    const state = storage.state.event[mission.key]
     const container = this.scene.add.container(x, y).setSize(270, 32)
     const box = new Box(this.scene, 0, 0, 270, 32)
-    container.setInteractive().on('pointerdown', () => this.setMissionDetail(mission))
-    const title = this.scene.add.text(-120, 0, mission.title, { fontSize: 14, fontStyle: 'bold', fontFamily: config.FONT }).setOrigin(0, 0.5)
+    if (state.started) container.setInteractive().on('pointerdown', () => this.setMissionDetail(mission))
+    const fill = state.started ? config.COLORS.white.toColorString : config.COLORS.gray.toColorString
+    const title = this.scene.add.text(-120, 0, state.started ? mission.title : '？？？', { fontSize: 14, fontStyle: 'bold', fontFamily: config.FONT }).setOrigin(0, 0.5)
     container.add([box, title])
     container.key = mission.key
-    container.setActive = bool => title.setFill(config.COLORS[bool ? 'theme' :'white'].toColorString)
+    container.setActive = bool => title.setFill(bool ? config.COLORS.theme.toColorString : fill)
     return container
   }
   setMissionDetail (mission) {
