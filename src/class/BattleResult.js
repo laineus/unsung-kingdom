@@ -10,8 +10,11 @@ export default class Battle extends Phaser.GameObjects.Container {
     scene.add.existing(this)
     this.scene = scene
     this.group = group
-    const b = new Box(this.scene, -110, 0, 450, config.HEIGHT).setOrigin(0, 0)
-    this.add(b)
+    const bg = new Box(this.scene, -110, 0, 450, config.HEIGHT).setOrigin(0, 0)
+    this.add(bg)
+    const title = scene.add.text(20, 15, 'Result', { align: 'center', fill: config.COLORS.theme.toColorString, fontSize: 21, fontStyle: 'bold', fontFamily: config.FONT })
+    const sub = scene.add.text(20, 41, '戦闘結果', { align: 'center', fill: config.COLORS.gray.toColorString, fontSize: 10, fontStyle: 'bold', fontFamily: config.FONT })
+    this.add([title, sub])
     this.charas = storage.state.battlers.map((v, i) => this.getChara(v, 120, 100 + i * 60))
     slideIn(this.scene, this.charas).then(() => {
       this.increaceExp()
