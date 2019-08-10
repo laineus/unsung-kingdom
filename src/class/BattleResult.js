@@ -64,6 +64,7 @@ export default class Battle extends Phaser.GameObjects.Container {
     }
     container.gauge = gauge
     container.add([sprite, gauge, name, lv])
+    if (chara.hp <= 0) container.list.forEach(v => v.setAlpha(0.4))
     return container
   }
   increaceExp () {
