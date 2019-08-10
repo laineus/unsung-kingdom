@@ -1,4 +1,5 @@
 import storage from '../data/storage'
+import { MANDRAKE_COUNT } from '../event/drystan'
 const event = storage.state.event
 export default class BattleQuestService {
   constructor (group) {
@@ -19,6 +20,6 @@ export default class BattleQuestService {
     const result = this.collection('mandrake', 66)
     if (!result) return
     event.m1_3.count += result
-    return `マンドレイクの根を${result}個獲得！（${event.m1_3.count}/7`
+    return `マンドレイクの根を${result}個獲得！（${event.m1_3.count}/${MANDRAKE_COUNT}`
   }
 }

@@ -1,4 +1,5 @@
 import generateBattler from '../util/generateBattler'
+export const MANDRAKE_COUNT = 7
 export const drystan = (scene, door, drystan) => {
   const state1 = scene.storage.state.event.m1_3
   const state2 = scene.storage.state.event.m1_4
@@ -14,7 +15,7 @@ export const drystan = (scene, door, drystan) => {
   // Drystan
   if (state2.completed) return drystan.destroy()
   drystan.setDisplayName('賢人ドリスタン').setTapEvent().on('tap', async chara => {
-    const hasMandrake = true
+    const hasMandrake = state1.count >= MANDRAKE_COUNT
     if (!state1.started) {
       scene.talk([
         { chara: 'ann', text: 'あなたがドリスタンですか？' },
@@ -26,7 +27,7 @@ export const drystan = (scene, door, drystan) => {
         { chara, text: '今のところ、頼んだ材料は誰も持ち帰って来ないがな。' },
         { chara: 'ann', text: 'その材料を教えてもらえますか？' },
         { chara, text: '構わんよ。私は誰が材料を持ってくるかに興味はない。' },
-        { chara, text: 'まずはマンドレイクの根が5つだ。' },
+        { chara, text: `まずはマンドレイクの根が${MANDRAKE_COUNT}つだ。` },
         { chara: 'ann', text: 'はい、他には？' },
         { chara, text: 'まずはそれを持ってきなさい。他の材料はその後だ。' },
         { chara: 'ann', text: 'さあ、あまり時間はないぞ。' },
@@ -34,7 +35,7 @@ export const drystan = (scene, door, drystan) => {
       state1.started = true
     } else if(!state1.completed && !hasMandrake) {
       scene.talk([
-        { chara, text: 'マンドレイクの根を5つだぞ。' },
+        { chara, text: `マンドレイクの根を${MANDRAKE_COUNT}つだぞ。` },
         { chara: 'ann', text: '早いところ持ってきなさい。' }
       ])
     } else if(!state1.completed && hasMandrake) {
