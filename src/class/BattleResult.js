@@ -111,6 +111,10 @@ export default class Battle extends Phaser.GameObjects.Container {
       if (!Math.chance(enemy.dropWeapon.chance)) return false
       return weapons.find(v => v.id === enemy.dropWeapon.id)
     }).filter(v => v)
+    items.forEach(v => {
+      const id = storage.state.weapons.reduce((prev, current) => Math.max(prev, current.id), 0) + 1
+      storage.state.weapons.push({ id, weapon_id: v.id })
+    })
     return items
   }
   getRow (x, y, text) {
