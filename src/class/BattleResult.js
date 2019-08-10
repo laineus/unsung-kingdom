@@ -3,6 +3,7 @@ import Box from './Box'
 import ExpGauge from './ExpGauge'
 import storage from '../data/storage'
 import expTable from '../data/expTable'
+import { slideIn } from '../util/animations'
 export default class Battle extends Phaser.GameObjects.Container {
   constructor (scene, group, callback) {
     super(scene)
@@ -12,7 +13,9 @@ export default class Battle extends Phaser.GameObjects.Container {
     const b = new Box(this.scene, -110, 0, 450, config.HEIGHT).setOrigin(0, 0)
     this.add(b)
     this.charas = storage.state.battlers.map((v, i) => this.getChara(v, 120, 100 + i * 60))
-    this.increaceExp()
+    slideIn(this.scene, this.charas).then(() => {
+      this.increaceExp()
+    })
   }
   increaceExp () {
     const sumExp = this.group.reduce((before, current) => (before + current.lv * 3), 0)
