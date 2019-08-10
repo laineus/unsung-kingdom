@@ -3,7 +3,7 @@ import Box from './Box'
 import ExpGauge from './ExpGauge'
 import storage from '../data/storage'
 import expTable from '../data/expTable'
-import { slideIn } from '../util/animations'
+import { slideIn, slideOut } from '../util/animations'
 import weapons from '../data/weapons'
 import BattleQuestService from './BattleQuestService'
 export default class Battle extends Phaser.GameObjects.Container {
@@ -12,6 +12,7 @@ export default class Battle extends Phaser.GameObjects.Container {
     scene.add.existing(this)
     this.scene = scene
     this.group = group
+    this.callback = callback
     const bg = new Box(this.scene, -110, 0, 480, config.HEIGHT).setOrigin(0, 0)
     this.add(bg)
     const title = scene.add.text(20, 15, 'Result', { align: 'center', fill: config.COLORS.theme.toColorString, fontSize: 21, fontStyle: 'bold', fontFamily: config.FONT })
@@ -21,9 +22,7 @@ export default class Battle extends Phaser.GameObjects.Container {
     this.add([exp])
     this.charas = storage.state.battlers.map((v, i) => this.getChara(v, 125, 110 + i * 52))
     this.add(this.charas)
-    slideIn(this.scene, this.charas).then(() => {
-      this.increaceExp()
-    })
+    slideIn(this.scene, this.charas)
     const secondY = 275
     const items = this.dropWeapons()
     if (items.length) {
@@ -42,11 +41,20 @@ export default class Battle extends Phaser.GameObjects.Container {
       this.add(rows)
       slideIn(this.scene, rows)
     }
-    slideIn(this.scene, this)
+    slideIn(this.scene, this, { x: -100 }).then(() => {
+      const promises = this.increaceExp()
+      Promise.all(promises).then(() => {
+        setTimeout(() => {
+          slideOut(this.scene, this, { x: -100 }).then(() => {
+            this.callback()
+          })
+        }, 1000)
+      })
+    })
   }
   getChara (chara, x, y) {
     const container = this.scene.add.container(x, y)
-    container.data = chara
+    container.source = chara
     const sprite = this.scene.add.sprite(-110, 0, chara.key).setScale(0.25).setOrigin(0, 0)
     sprite.setCrop(0, 0, sprite.width, 150)
     const name = this.scene.add.text(-53, 0, chara.name, { fill: config.COLORS.theme.toColorString, stroke: config.COLORS.dark.toColorString, strokeThickness: 2, fontSize: 14, fontStyle: 'bold', fontFamily: config.FONT })
@@ -71,14 +79,18 @@ export default class Battle extends Phaser.GameObjects.Container {
     const sumExp = this.group.reduce((before, current) => (before + current.lv * 3), 0)
     const alives = storage.state.battlers.filter(v => v.hp > 0)
     const eachExp = sumExp / alives.length
-    this.charas.filter(v => v.data.hp > 0).forEach(v => {
-      v.gauge.addExp(eachExp)
-      v.gauge.on('lvUp', v.lvUp)
+    const promises = this.charas.filter(v => v.source.hp > 0).map(v => {
+      return new Promise((resolve) => {
+        v.gauge.addExp(eachExp)
+        v.gauge.on('lvUp', v.lvUp)
+        v.gauge.on('completed', resolve)
+      })
     })
     alives.forEach(v => {
       v.exp += eachExp
     })
     this.levelUpPlayers()
+    return promises
   }
   levelUpPlayers () {
     const levelUp = battler => {
