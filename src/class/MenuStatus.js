@@ -69,15 +69,19 @@ export default class MenuStatus extends Phaser.GameObjects.Container {
     const container = this.scene.add.container(x, y).setSize(320, 45)
     const box = new Box(this.scene, 0, 0, 320, 40).setOrigin(0.5, 0.5)
     const text = this.scene.add.text(-145, 0, data ? data.name : '-', { fontSize: 15, fontStyle: 'bold', fontFamily: config.FONT }).setOrigin(0, 0.5)
+    const line1 = this.scene.add.line(-157, 0, 0, 0, 40, 0, config.COLORS.white).setOrigin(1, 0).setLineWidth(0.5).setAlpha(0.5)
+    const line2 = this.scene.add.line(-172, 1, 0, 0, -25, 120, config.COLORS.white).setOrigin(1, 0).setLineWidth(0.5).setAlpha(0.5)
+    const line3 = this.scene.add.line(-222, 121, 0, 0, 60, 0, config.COLORS.white).setOrigin(1, 0).setLineWidth(0.5).setAlpha(0.5)
+    const circle = this.scene.add.circle(-282, 123, 2, config.COLORS.white).setOrigin(0.5, 0.5)
     container.setInteractive().on('pointerdown', () => console.log(1))
-    container.add([box, text])
+    container.add([box, text, line1, line2, line3, circle])
     return container
   }
   getWeapon (source, x, y) {
     const data = weapons.find(v => v.id === source.weapon_id)
     const container = this.scene.add.container(x, y).setSize(320, 45)
     const box = new Box(this.scene, 0, 0, 320, 32).setOrigin(0.5, 0.5)
-    const text = this.scene.add.text(-145, 0, data.name, { fontSize: 15, fontStyle: 'bold', fontFamily: config.FONT }).setOrigin(0, 0.5)
+    const text = this.scene.add.text(-145, 0, data.name, { fontSize: 14, fontStyle: 'bold', fontFamily: config.FONT }).setOrigin(0, 0.5)
     container.setInteractive().on('pointerdown', () => this.setWeapon(source))
     container.add([box, text])
     return container
