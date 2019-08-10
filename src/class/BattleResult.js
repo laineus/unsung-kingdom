@@ -23,6 +23,28 @@ export default class Battle extends Phaser.GameObjects.Container {
       this.increaceExp()
     })
   }
+  getChara (chara, x, y) {
+    const container = this.scene.add.container(x, y)
+    container.data = chara
+    const sprite = this.scene.add.sprite(-110, 0, chara.key).setScale(0.25).setOrigin(0, 0)
+    sprite.setCrop(0, 0, sprite.width, 150)
+    const name = this.scene.add.text(-53, 0, chara.name, { fill: config.COLORS.theme.toColorString, stroke: config.COLORS.dark.toColorString, strokeThickness: 2, fontSize: 14, fontStyle: 'bold', fontFamily: config.FONT })
+    const lv = this.scene.add.text(130, 15, `Lv ${chara.lv}`, { fill: config.COLORS.theme.toColorString, stroke: config.COLORS.dark.toColorString, strokeThickness: 2, fontSize: 12, fontStyle: 'bold', fontFamily: config.FONT, align: 'right' }).setOrigin(1, 0.5)
+    const gauge = new ExpGauge(this.scene, 38, 38, 180, chara.lv, chara.exp)
+    container.lvUp = newLv => {
+      lv.text = `Lv ${newLv}`
+      this.scene.add.tween({
+        targets: lv,
+        duration: 100,
+        ease: 'Power2',
+        scale: 1.3,
+        yoyo: true
+      })
+    }
+    container.gauge = gauge
+    container.add([sprite, gauge, name, lv])
+    return container
+  }
   increaceExp () {
     const sumExp = this.group.reduce((before, current) => (before + current.lv * 3), 0)
     const alives = storage.state.battlers.filter(v => v.hp > 0)
@@ -48,27 +70,5 @@ export default class Battle extends Phaser.GameObjects.Container {
       }
     }
     storage.state.battlers.filter(v => v.hp > 0).forEach(v => levelUp(v))
-  }
-  getChara (chara, x, y) {
-    const container = this.scene.add.container(x, y)
-    container.data = chara
-    const sprite = this.scene.add.sprite(-110, 0, chara.key).setScale(0.25).setOrigin(0, 0)
-    sprite.setCrop(0, 0, sprite.width, 150)
-    const name = this.scene.add.text(-53, 0, chara.name, { fill: config.COLORS.theme.toColorString, stroke: config.COLORS.dark.toColorString, strokeThickness: 2, fontSize: 14, fontStyle: 'bold', fontFamily: config.FONT })
-    const lv = this.scene.add.text(130, 15, `Lv ${chara.lv}`, { fill: config.COLORS.theme.toColorString, stroke: config.COLORS.dark.toColorString, strokeThickness: 2, fontSize: 12, fontStyle: 'bold', fontFamily: config.FONT, align: 'right' }).setOrigin(1, 0.5)
-    const gauge = new ExpGauge(this.scene, 38, 38, 180, chara.lv, chara.exp)
-    container.lvUp = newLv => {
-      lv.text = `Lv ${newLv}`
-      this.scene.add.tween({
-        targets: lv,
-        duration: 100,
-        ease: 'Power2',
-        scale: 1.3,
-        yoyo: true
-      })
-    }
-    container.gauge = gauge
-    container.add([sprite, gauge, name, lv])
-    return container
   }
 }
