@@ -111,10 +111,11 @@ export default class Battle extends Phaser.GameObjects.Container {
   }
   execEnemyTurn () {
     setTimeout(() => {
-      this.currentBattler.attackTo(this.players.list.random())
-      // this.players.list[0].addDamage(Math.randomInt(10, 20))
-      this.increaseTurn()
-    }, 1000)
+      this.currentBattler.attackAnim().then(() => {
+        this.currentBattler.attackTo(this.players.list.filter(v => v.alive).random())
+        setTimeout(() => this.increaseTurn(), 400)
+      })
+    }, 400)
   }
   tapEnemy (enemy) {
     this.buttons.list.forEach(v => (v.visible = false))

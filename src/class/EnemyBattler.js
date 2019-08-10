@@ -32,6 +32,21 @@ export default class EnemyBattler extends Battler {
     this.hpMaxLabel.setText(`/${this.maxHp}`)
     this.hpValueLabel.setText(this.hp)
   }
+  attackAnim () {
+    return new Promise(resolve => {
+      this.scene.add.tween({
+        targets: this.sprite, duration: 40, ease: 'Power2', yoyo: true,
+        y: this.sprite.y - 10,
+        onComplete: () => {
+          this.scene.add.tween({
+            targets: this.sprite, duration: 60, ease: 'Power2', yoyo: true,
+            y: this.sprite.y + 50,
+            onComplete: resolve
+          })
+        }
+      })
+    })
+  }
   die () {
     return new Promise(resolve => {
       this.sprite.setTint(0xFF0000)
