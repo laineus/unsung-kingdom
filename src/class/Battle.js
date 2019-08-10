@@ -38,8 +38,8 @@ export default class Battle extends Phaser.GameObjects.Container {
     }).forEach(e => this.players.add(e))
     Number(this.enemies.length).toArray.forEach(i => {
       const box = new Button(this.scene, 80, 0, 'Attack', 120, 40)
-      box.line = this.scene.add.line(56, 0, 0, 0, 100, 0, config.COLORS.white).setOrigin(0, 0).setLineWidth(0.5).setAlpha(0.5)
-      box.circle = this.scene.add.circle(56, 1, 2, config.COLORS.white).setOrigin(0.5, 0.5)
+      box.line = this.scene.add.line(-56, 0, 0, 0, 0, 0, config.COLORS.white).setOrigin(0, 0).setLineWidth(0.5).setAlpha(0.5)
+      box.circle = this.scene.add.circle(0, 1, 2, config.COLORS.white).setOrigin(0.5, 0.5)
       box.add([box.line, box.circle])
       box.on('click', () => {
         this.tapEnemy(this.enemies.list[i])
@@ -79,21 +79,21 @@ export default class Battle extends Phaser.GameObjects.Container {
   }
   fixButtonsPosition () {
     this.buttons.list.forEach((button, i) => {
-      const y = 390 + (this.enemies.length * -52) + (i * 52)
+      const y = 340 + (i * -52)
       button.y = y
-      button.line.geom.x2 = 340 + positions[this.enemies.length][i]
-      button.circle.x = 400 + positions[this.enemies.length][i]
+      button.line.geom.x2 = -340 + positions[this.enemies.length][i]
+      button.circle.x = -396 + positions[this.enemies.length][i]
       button.toInactive()
     })
   }
   slideInButtons () {
     this.buttons.list.forEach((button, i) => {
-      button.x = 420 + positions[this.enemies.length][i]
-      this.scene.add.tween({ targets: button, duration: 250, ease: 'Power2', x: 80 })
+      button.x = config.WIDTH.half + 60 + positions[this.enemies.length][i]
+      this.scene.add.tween({ targets: button, duration: 250, ease: 'Power2', x: config.WIDTH - 80 })
       button.line.scaleX = 0
       this.scene.add.tween({ targets: button.line, duration: 250, ease: 'Power2', scaleX: 1 })
-      button.circle.x = 60
-      this.scene.add.tween({ targets: button.circle, duration: 250, ease: 'Power2', x: 400 + positions[this.enemies.length][i] })
+      button.circle.x = -56
+      this.scene.add.tween({ targets: button.circle, duration: 250, ease: 'Power2', x: -396 + positions[this.enemies.length][i] })
     })
   }
   get currentBattler () {
