@@ -32,7 +32,8 @@ export default [
   {
     key: 'slime', name: 'ベニート', lv: 1,
     hp: 24, atk: 3, def: 4, dex: 2, agi: 2,
-    up: { hp: 100, atk: 80, def: 95, dex: 50, agi: 50 }
+    up: { hp: 100, atk: 80, def: 95, dex: 50, agi: 50 },
+    dropWeapon: { id: 1, chance: 60 },
   },
   {
     key: 'mandrake', name: 'マンドレイク', lv: 1,

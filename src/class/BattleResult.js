@@ -4,6 +4,7 @@ import ExpGauge from './ExpGauge'
 import storage from '../data/storage'
 import expTable from '../data/expTable'
 import { slideIn } from '../util/animations'
+import weapons from '../data/weapons'
 export default class Battle extends Phaser.GameObjects.Container {
   constructor (scene, group, callback) {
     super(scene)
@@ -17,11 +18,23 @@ export default class Battle extends Phaser.GameObjects.Container {
     this.add([title, sub])
     const exp = scene.add.text(30, 75, 'Experience', { align: 'center', fill: config.COLORS.white.toColorString, fontSize: 16, fontFamily: config.FONT })
     this.add([exp])
-    this.charas = storage.state.battlers.map((v, i) => this.getChara(v, 125, 110 + i * 60))
+    this.charas = storage.state.battlers.map((v, i) => this.getChara(v, 125, 110 + i * 52))
     this.add(this.charas)
     slideIn(this.scene, this.charas).then(() => {
       this.increaceExp()
     })
+    const secondY = 275
+    const items = this.dropWeapons()
+    if (items.length) {
+      const headingItems = scene.add.text(30, secondY, 'Items', { align: 'center', fill: config.COLORS.white.toColorString, fontSize: 16, fontFamily: config.FONT })
+      this.add([headingItems])
+      const rows = items.map((weapon, i) => this.getRow(35, 300 + i * 20, `${weapon.name} を獲得！`))
+      this.add(rows)
+      slideIn(this.scene, rows)
+    }
+    const questY = items.length ? 300 + (items.length * 20) + 15 : secondY
+    const headingQuest = scene.add.text(30, questY, 'Quest', { align: 'center', fill: config.COLORS.white.toColorString, fontSize: 16, fontFamily: config.FONT })
+    this.add([headingQuest])
   }
   getChara (chara, x, y) {
     const container = this.scene.add.container(x, y)
@@ -70,5 +83,16 @@ export default class Battle extends Phaser.GameObjects.Container {
       }
     }
     storage.state.battlers.filter(v => v.hp > 0).forEach(v => levelUp(v))
+  }
+  dropWeapons () {
+    const items = this.group.map(enemy => {
+      if (!enemy.dropWeapon) return false
+      if (!Math.chance(enemy.dropWeapon.chance)) return false
+      return weapons.find(v => v.id === enemy.dropWeapon.id)
+    }).filter(v => v)
+    return items
+  }
+  getRow (x, y, text) {
+    return this.scene.add.text(x, y, text, { fill: config.COLORS.white.toColorString, fontSize: 12, fontFamily: config.FONT })
   }
 }
