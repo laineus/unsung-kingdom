@@ -48,7 +48,7 @@ export default class Battle extends Phaser.GameObjects.Container {
           slideOut(this.scene, this, { x: -100 }).then(() => {
             this.callback()
           })
-        }, 1000)
+        }, 1800)
       })
     })
   }
