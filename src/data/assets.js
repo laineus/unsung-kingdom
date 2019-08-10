@@ -5,8 +5,6 @@ export default {
     ['circle', '../img/circle.png'],
     ['arrow', '../img/arrow.png'],
     ['damage', '../img/damage.png'],
-    ['check', '../img/check.png'],
-    ['check_disabled', '../img/check_disabled.png'],
     // Map
     ['room', '../img/room.png'],
     ['town', '../img/town.png'],
@@ -46,6 +44,9 @@ export default {
     ['forest9', '../map/forest9.json']
   ],
   spritesheet: [
+    // UI
+    ['check', '../img/check.png', { frameWidth: 14, frameHeight: 13, endFrame: 2 }],
+    // Charachip
     ['player', '../img/player.png', { frameWidth: 25, frameHeight: 41, endFrame: 12 }],
     ['hunter', '../img/hunter.png', { frameWidth: 28, frameHeight: 39, endFrame: 12 }],
     ['mercenary', '../img/mercenary.png', { frameWidth: 28, frameHeight: 39, endFrame: 12 }],
