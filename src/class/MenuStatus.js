@@ -46,13 +46,14 @@ export default class MenuStatus extends Phaser.GameObjects.Container {
     const img = this.scene.add.sprite(0, 0, chara.key).setOrigin(0.5, 1).setScale(0.64, 0.64)
     this.scene.add.tween({ targets: container, duration: 200, ease: 'Power2', x, alpha: 1 })
     const name = this.scene.add.text(-81, -170, chara.name, { fill: config.COLORS.theme.toColorString, stroke: config.COLORS.dark.toColorString, strokeThickness: 2, fontSize: 21, fontStyle: 'bold', fontFamily: config.FONT })
+    const lv = this.scene.add.text(-60 + chara.name.length * 7, -163, `Lv ${chara.lv}`, { fill: config.COLORS.theme.toColorString, stroke: config.COLORS.dark.toColorString, strokeThickness: 2, fontSize: 14, fontStyle: 'bold', fontFamily: config.FONT })
     const hpLabel = this.scene.add.text(-81, -130, 'HP', { fill: config.COLORS.soy.toColorString, stroke: config.COLORS.dark.toColorString, strokeThickness: 2, fontSize: 11, fontStyle: 'bold', fontFamily: config.FONT })
     const hpMaxLabel = this.scene.add.text(85, -115, `/${chara.maxHp}`, { fill: config.COLORS.soy.toColorString, stroke: config.COLORS.dark.toColorString, strokeThickness: 2, fontSize: 16, fontStyle: 'bold', fontFamily: config.FONT }).setOrigin(1, 1)
     const hpValueLabel = this.scene.add.text(hpMaxLabel.x - hpMaxLabel.width, -114, chara.hp, { fill: config.COLORS.soy.toColorString, stroke: config.COLORS.dark.toColorString, strokeThickness: 2, fontSize: 22, fontStyle: 'bold', fontFamily: config.FONT }).setOrigin(1, 1)
     const gauge = new Gauge(this.scene, 160, 10, chara.maxHp, config.COLORS.theme).setPosition(0, -108)
     const exp = new ExpGauge(this.scene, 0, -75, 160, chara.lv, chara.exp)
     gauge.value = chara.hp
-    container.add([imgBg, img, name, hpLabel, hpMaxLabel, hpValueLabel, gauge, exp])
+    container.add([imgBg, img, name, lv, hpLabel, hpMaxLabel, hpValueLabel, gauge, exp])
     return container
   }
   getTabItem (chara, x, y) {
