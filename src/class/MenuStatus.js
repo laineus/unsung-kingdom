@@ -13,6 +13,7 @@ export default class MenuStatus extends Phaser.GameObjects.Container {
     this.add([title, sub])
     const players = scene.storage.state.battlers
     this.tabs = players.map((p, i) => this.getTabItem(p, 400 + i * 130, (50).byBottom))
+    slideIn(this.scene, this.tabs, { x: -100 })
     this.add(this.tabs)
     this.weapons = this.scene.add.container(540, 120)
     this.weapons.add(scene.storage.state.weapons.map((v, i) => this.getWeapon(v, 0, i * 40)))
@@ -47,7 +48,7 @@ export default class MenuStatus extends Phaser.GameObjects.Container {
     const name = this.scene.add.text(0, 0, chara.name, { fill: config.COLORS.theme.toColorString, stroke: config.COLORS.dark.toColorString, strokeThickness: 2, fontSize: 21, fontStyle: 'bold', fontFamily: config.FONT })
     const lv = this.scene.add.text(21 + chara.name.length * 7, 7, `Lv ${chara.lv}`, { fill: config.COLORS.theme.toColorString, stroke: config.COLORS.dark.toColorString, strokeThickness: 2, fontSize: 14, fontStyle: 'bold', fontFamily: config.FONT })
     const hpLabel = this.scene.add.text(0, 40, 'HP', { fill: config.COLORS.soy.toColorString, stroke: config.COLORS.dark.toColorString, strokeThickness: 2, fontSize: 11, fontStyle: 'bold', fontFamily: config.FONT })
-    const hpMaxLabel = this.scene.add.text(166, 55, `/${chara.maxHp}`, { fill: config.COLORS.soy.toColorString, stroke: config.COLORS.dark.toColorString, strokeThickness: 2, fontSize: 16, fontStyle: 'bold', fontFamily: config.FONT }).setOrigin(1, 1)
+    const hpMaxLabel = this.scene.add.text(162, 55, `/${chara.maxHp}`, { fill: config.COLORS.soy.toColorString, stroke: config.COLORS.dark.toColorString, strokeThickness: 2, fontSize: 16, fontStyle: 'bold', fontFamily: config.FONT }).setOrigin(1, 1)
     const hpValueLabel = this.scene.add.text(hpMaxLabel.x - hpMaxLabel.width, 56, chara.hp, { fill: config.COLORS.soy.toColorString, stroke: config.COLORS.dark.toColorString, strokeThickness: 2, fontSize: 22, fontStyle: 'bold', fontFamily: config.FONT }).setOrigin(1, 1)
     const gauge = new Gauge(this.scene, 160, 10, chara.maxHp, config.COLORS.theme).setPosition(81, 62)
     const exp = new ExpGauge(this.scene, 81, 95, 160, chara.lv, chara.exp)
@@ -86,8 +87,8 @@ export default class MenuStatus extends Phaser.GameObjects.Container {
     const text = this.scene.add.text(-145, 0, data ? data.name : '-', { fontSize: 15, fontStyle: 'bold', fontFamily: config.FONT }).setOrigin(0, 0.5)
     const line1 = this.scene.add.line(-157, 0, 0, 0, 40, 0, config.COLORS.white).setOrigin(1, 0).setLineWidth(0.5).setAlpha(0.5)
     const line2 = this.scene.add.line(-172, 1, 0, 0, -25, 120, config.COLORS.white).setOrigin(1, 0).setLineWidth(0.5).setAlpha(0.5)
-    const line3 = this.scene.add.line(-222, 121, 0, 0, 60, 0, config.COLORS.white).setOrigin(1, 0).setLineWidth(0.5).setAlpha(0.5)
-    const circle = this.scene.add.circle(-282, 123, 2, config.COLORS.white).setOrigin(0.5, 0.5)
+    const line3 = this.scene.add.line(-222, 121, 0, 0, 90, 0, config.COLORS.white).setOrigin(1, 0).setLineWidth(0.5).setAlpha(0.5)
+    const circle = this.scene.add.circle(-312, 123, 2, config.COLORS.white).setOrigin(0.5, 0.5)
     container.setInteractive().on('pointerdown', () => console.log(1))
     container.setSource = source => {
       const data = getData(source)
