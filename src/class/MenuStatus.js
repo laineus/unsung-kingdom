@@ -4,6 +4,7 @@ import Gauge from './Gauge'
 import ExpGauge from './ExpGauge'
 import weapons from '../data/weapons'
 import { slideOut, slideIn } from '../util/animations'
+import storage from '../data/storage'
 export default class MenuStatus extends Phaser.GameObjects.Container {
   constructor (scene) {
     super(scene)
@@ -20,6 +21,21 @@ export default class MenuStatus extends Phaser.GameObjects.Container {
     slideIn(this.scene, this.weapons)
     this.add(this.weapons)
     this.setCharacter(players[0])
+  }
+  get weaponGroup () {
+    const usingWeaponIds = storage.state.battlers.filter(v => v.weapon).map(v => v.weapon.id)
+    const freeWeapons = storage.state.weapons.filter(v => !usingWeaponIds.includes(v.id))
+    const weaponIds = []
+    freeWeapons.forEach((w, i) => {
+      if (!weaponIds.includes(w.weapon_id)) weaponIds.push(w.weapon_id)
+    })
+    weaponIds.sort()
+    const list = weaponIds.map(id => {
+      const data = weapons.find(v => v.id === id)
+      const count = freeWeapons.filter(v => v.weapon_id === id).length
+      return Object.assign({ count }, data)
+    })
+    return list
   }
   setCharacter (chara) {
     if (this.chara) {
