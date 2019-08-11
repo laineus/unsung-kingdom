@@ -17,22 +17,24 @@ export default class MenuStatus extends Phaser.GameObjects.Container {
     slideIn(this.scene, this.tabs, { x: -100 })
     this.add(this.tabs)
     this.weapons = this.scene.add.container(540, 120)
-    this.weapons.add(scene.storage.state.weapons.map((v, i) => this.getWeapon(v, 0, i * 40)))
+    this.weapons.add(this.weaponGroup.map((v, i) => this.getWeapon(v, 0, i * 40)))
     slideIn(this.scene, this.weapons)
     this.add(this.weapons)
     this.setCharacter(players[0])
   }
-  get weaponGroup () {
+  get availableWeapons () {
     const usingWeaponIds = storage.state.battlers.filter(v => v.weapon).map(v => v.weapon.id)
-    const freeWeapons = storage.state.weapons.filter(v => !usingWeaponIds.includes(v.id))
+    return storage.state.weapons.filter(v => !usingWeaponIds.includes(v.id))
+  }
+  get weaponGroup () {
     const weaponIds = []
-    freeWeapons.forEach((w, i) => {
+    this.availableWeapons.forEach((w, i) => {
       if (!weaponIds.includes(w.weapon_id)) weaponIds.push(w.weapon_id)
     })
     weaponIds.sort()
     const list = weaponIds.map(id => {
       const data = weapons.find(v => v.id === id)
-      const count = freeWeapons.filter(v => v.weapon_id === id).length
+      const count = this.availableWeapons.filter(v => v.weapon_id === id).length
       return Object.assign({ count }, data)
     })
     return list
@@ -48,10 +50,11 @@ export default class MenuStatus extends Phaser.GameObjects.Container {
     this.add([this.chara, this.currentWeapon])
     slideIn(this.scene, [this.chara, this.currentWeapon], { x: -50 })
   }
-  setWeapon (source) {
+  setWeapon (weaponId) {
+    const found = this.availableWeapons.find(v => v.weapon_id === weaponId)
     const oldId = this.chara.battler.weapon ? this.chara.battler.weapon.id : null
-    const newId = source ? source.id : null
-    this.chara.battler.weapon = oldId !== newId ? source : null
+    const newId = found ? found.id : null
+    this.chara.battler.weapon = oldId !== newId ? found : null
     this.currentWeapon.setSource(this.chara.battler.weapon)
   }
   getCharacter (chara, x, y) {
@@ -113,12 +116,11 @@ export default class MenuStatus extends Phaser.GameObjects.Container {
     container.add([box, text, line1, line2, line3, circle])
     return container
   }
-  getWeapon (source, x, y) {
-    const data = weapons.find(v => v.id === source.weapon_id)
+  getWeapon (weapon, x, y) {
     const container = this.scene.add.container(x, y).setSize(320, 45)
     const box = new Box(this.scene, 0, 0, 320, 32).setOrigin(0.5, 0.5)
-    const text = this.scene.add.text(-145, 0, data.name, { fontSize: 14, fontStyle: 'bold', fontFamily: config.FONT }).setOrigin(0, 0.5)
-    container.setInteractive().on('pointerdown', () => this.setWeapon(source))
+    const text = this.scene.add.text(-145, 0, weapon.name, { fontSize: 14, fontStyle: 'bold', fontFamily: config.FONT }).setOrigin(0, 0.5)
+    container.setInteractive().on('pointerdown', () => this.setWeapon(weapon.id))
     container.add([box, text])
     return container
   }
