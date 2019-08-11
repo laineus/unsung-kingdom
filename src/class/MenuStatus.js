@@ -16,8 +16,7 @@ export default class MenuStatus extends Phaser.GameObjects.Container {
     this.tabs = players.map((p, i) => this.getTabItem(p, 400 + i * 130, (50).byBottom))
     slideIn(this.scene, this.tabs, { x: -100 })
     this.add(this.tabs)
-    this.weapons = this.scene.add.container(540, 120)
-    this.weapons.add(this.weaponGroup.map((v, i) => this.getWeapon(v, 0, i * 40)))
+    this.setWeaponList()
     slideIn(this.scene, this.weapons)
     this.add(this.weapons)
     this.setCharacter(players[0])
@@ -39,6 +38,11 @@ export default class MenuStatus extends Phaser.GameObjects.Container {
     })
     return list
   }
+  setWeaponList () {
+    if (this.weapons) this.weapons.destroy()
+    this.weapons = this.scene.add.container(540, 120)
+    this.weapons.add(this.weaponGroup.map((v, i) => this.getWeapon(v, 0, i * 40)))
+  }
   setCharacter (chara) {
     if (this.chara) {
       if (this.chara.battler === chara) return
@@ -56,6 +60,7 @@ export default class MenuStatus extends Phaser.GameObjects.Container {
     const newId = found ? found.id : null
     this.chara.battler.weapon = oldId !== newId ? found : null
     this.currentWeapon.setSource(this.chara.battler.weapon)
+    this.setWeaponList()
   }
   getCharacter (chara, x, y) {
     const container = this.scene.add.container(x - 50, y).setAlpha(0)
