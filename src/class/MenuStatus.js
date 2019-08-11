@@ -19,8 +19,7 @@ export default class MenuStatus extends Phaser.GameObjects.Container {
     slideIn(this.scene, this.tabs, { x: -100 })
     this.add(this.tabs)
     this.page = this.pageMax
-    this.setWeaponList()
-    slideIn(this.scene, this.weapons)
+    this.setWeaponList(true)
     this.setCharacter(players[0])
   }
   get availableWeapons () {
@@ -43,13 +42,14 @@ export default class MenuStatus extends Phaser.GameObjects.Container {
   get pageMax () {
     return Math.ceil(this.weaponGroup.length / PER_PAGE)
   }
-  setWeaponList () {
+  setWeaponList (anim) {
     this.page = Math.fix(this.page, 1, this.pageMax)
     if (this.weapons) this.weapons.destroy()
     this.weapons = this.scene.add.container(560, 120)
     const offset = PER_PAGE * (this.page - 1)
     this.weapons.add(this.weaponGroup.slice(offset, offset + PER_PAGE).map((v, i) => this.getWeapon(v, 0, i * 40)))
     this.add(this.weapons)
+    if (anim) slideIn(this.scene, this.weapons.list, { x: -100 })
     if (!this.pager) {
       this.pager = new Pager(this.scene, 380, 415, 360).on('prev', this.movePage.bind(this, -1)).on('next', this.movePage.bind(this, 1))
       this.add(this.pager)
@@ -58,7 +58,7 @@ export default class MenuStatus extends Phaser.GameObjects.Container {
   }
   movePage (add) {
     this.page += add
-    this.setWeaponList()
+    this.setWeaponList(true)
   }
   setCharacter (chara) {
     if (this.chara) {
@@ -75,7 +75,7 @@ export default class MenuStatus extends Phaser.GameObjects.Container {
     const found = this.availableWeapons.find(v => v.weapon_id === weaponId)
     this.chara.battler.weapon = found || null
     this.currentWeapon.setSource(this.chara.battler.weapon)
-    this.setWeaponList()
+    this.setWeaponList(false)
   }
   getCharacter (chara, x, y) {
     const container = this.scene.add.container(x - 50, y).setAlpha(0)
