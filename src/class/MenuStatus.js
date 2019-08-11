@@ -2,9 +2,11 @@ import config from '../data/config'
 import Box from './Box'
 import Gauge from './Gauge'
 import ExpGauge from './ExpGauge'
+import Pager from './Pager'
 import weapons from '../data/weapons'
 import { slideOut, slideIn } from '../util/animations'
 import storage from '../data/storage'
+const PER_PAGE = 7
 export default class MenuStatus extends Phaser.GameObjects.Container {
   constructor (scene) {
     super(scene)
@@ -16,6 +18,7 @@ export default class MenuStatus extends Phaser.GameObjects.Container {
     this.tabs = players.map((p, i) => this.getTabItem(p, 380 + i * 145, (60).byBottom))
     slideIn(this.scene, this.tabs, { x: -100 })
     this.add(this.tabs)
+    this.page = this.pageMax
     this.setWeaponList()
     slideIn(this.scene, this.weapons)
     this.setCharacter(players[0])
@@ -37,15 +40,25 @@ export default class MenuStatus extends Phaser.GameObjects.Container {
     })
     return list
   }
-  setWeaponList (page = 1) {
-    const PER = 3
-    const pageMax = Math.ceil(this.weaponGroup.length / PER)
-    page = Math.fix(page, 1, pageMax)
+  get pageMax () {
+    return Math.ceil(this.weaponGroup.length / PER_PAGE)
+  }
+  setWeaponList () {
+    this.page = Math.fix(this.page, 1, this.pageMax)
     if (this.weapons) this.weapons.destroy()
     this.weapons = this.scene.add.container(560, 120)
-    const offset = PER * (page - 1)
-    this.weapons.add(this.weaponGroup.slice(offset, offset + PER).map((v, i) => this.getWeapon(v, 0, i * 40)))
+    const offset = PER_PAGE * (this.page - 1)
+    this.weapons.add(this.weaponGroup.slice(offset, offset + PER_PAGE).map((v, i) => this.getWeapon(v, 0, i * 40)))
     this.add(this.weapons)
+    if (!this.pager) {
+      this.pager = new Pager(this.scene, 380, 415, 360).on('prev', this.movePage.bind(this, -1)).on('next', this.movePage.bind(this, 1))
+      this.add(this.pager)
+    }
+    this.pager.set(this.page > 1, this.page < this.pageMax)
+  }
+  movePage (add) {
+    this.page += add
+    this.setWeaponList()
   }
   setCharacter (chara) {
     if (this.chara) {
