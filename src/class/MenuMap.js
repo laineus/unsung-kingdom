@@ -3,6 +3,7 @@ import chapters from '../data/chapters'
 import missions from '../data/missions'
 import maps from '../data/maps'
 import Box from './Box'
+import Pager from './Pager'
 import { slideIn } from '../util/animations'
 import storage from '../data/storage'
 export default class MenuMap extends Phaser.GameObjects.Container {
@@ -42,7 +43,11 @@ export default class MenuMap extends Phaser.GameObjects.Container {
     this.missionLabels = missions.filter(v => v.chapter === this.chapter).map((mission, i) => this.getMission(mission, 165, 160 + i * 40))
     slideIn(this.scene, this.missionLabels)
     this.add(this.missionLabels)
-    this.setPager()
+    if (!this.pager) {
+      this.pager = new Pager(this.scene, 30, 500, 270).on('prev', this.moveChapter.bind(this, -1)).on('next', this.moveChapter.bind(this, 1))
+      this.add(this.pager)
+    }
+    this.pager.set(this.hasPrevious, this.hasNext)
     this.setMissionDetail(null)
   }
   moveChapter (diff) {
@@ -54,22 +59,6 @@ export default class MenuMap extends Phaser.GameObjects.Container {
   }
   get hasNext () {
     return this.chapter < this.scene.storage.state.chapter
-  }
-  setPager () {
-    if (this.pagerPrevious) this.pagerPrevious.destroy()
-    if (this.pagerNext) this.pagerNext.destroy()
-    if (this.hasPrevious) {
-      this.pagerPrevious = this.scene.add.container(80, 500).setSize(100, 30).setInteractive().on('pointerdown', () => this.moveChapter(-1))
-      this.pagerPrevious.add(this.scene.add.text(-10, -1, 'Prev', { fontSize: 13, fontStyle: 'bold', fontFamily: config.FONT, fill: config.COLORS.gray.toColorString }).setOrigin(0, 0.5))
-      this.pagerPrevious.add(this.scene.add.sprite(-45, 0, 'arrow').setScale(0.5).setOrigin(0, 0.5))
-      this.add(this.pagerPrevious)
-    }
-    if (this.hasNext) {
-      this.pagerNext = this.scene.add.container(250, 500).setSize(100, 30).setInteractive().on('pointerdown', () => this.moveChapter(1))
-      this.pagerNext.add(this.scene.add.text(10, -1, 'Next', { fontSize: 13, fontStyle: 'bold', fontFamily: config.FONT, fill: config.COLORS.gray.toColorString }).setOrigin(1, 0.5))
-      this.pagerNext.add(this.scene.add.sprite(45, 0, 'arrow').setScale(-0.5, 0.5).setOrigin(0, 0.5))
-      this.add(this.pagerNext)
-    }
   }
   getChapter (i, x, y) {
     const chapter = chapters[i]
