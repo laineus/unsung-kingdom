@@ -49,8 +49,18 @@ export default class MenuStatus extends Phaser.GameObjects.Container {
     const hpValueLabel = this.scene.add.text(hpMaxLabel.x - hpMaxLabel.width, -114, chara.hp, { fill: config.COLORS.soy.toColorString, stroke: config.COLORS.dark.toColorString, strokeThickness: 2, fontSize: 22, fontStyle: 'bold', fontFamily: config.FONT }).setOrigin(1, 1)
     const gauge = new Gauge(this.scene, 160, 10, chara.maxHp, config.COLORS.theme).setPosition(0, -108)
     const exp = new ExpGauge(this.scene, 0, -75, 160, chara.lv, chara.exp)
+    const option = { fill: config.COLORS.soy.toColorString, stroke: config.COLORS.dark.toColorString, strokeThickness: 2, fontSize: 14, fontStyle: 'bold', fontFamily: config.FONT }
+    const atk = this.scene.add.text(-81, -60, 'ATK', option)
+    const atkVal = this.scene.add.text(-11, -60, chara.atk, option).setOrigin(1, 0)
+    const def = this.scene.add.text(-81, -38, 'DEF', option)
+    const defVal = this.scene.add.text(-11, -38, chara.atk, option).setOrigin(1, 0)
+    const dex = this.scene.add.text(11, -60, 'DEX', option)
+    const dexVal = this.scene.add.text(81, -60, chara.dex, option).setOrigin(1, 0)
+    const agi = this.scene.add.text(11, -38, 'AGI', option)
+    const agiVal = this.scene.add.text(81, -38, chara.dex, option).setOrigin(1, 0)
+    const statuses = [atk, atkVal, def, defVal, dex, dexVal, agi, agiVal]
     gauge.value = chara.hp
-    container.add([imgBg, img, name, lv, hpLabel, hpMaxLabel, hpValueLabel, gauge, exp])
+    container.add([imgBg, img, name, lv, hpLabel, hpMaxLabel, hpValueLabel, gauge, exp, ...statuses])
     return container
   }
   getTabItem (chara, x, y) {
