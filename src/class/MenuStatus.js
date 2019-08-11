@@ -29,7 +29,7 @@ export default class MenuStatus extends Phaser.GameObjects.Container {
     this.availableWeapons.forEach((w, i) => {
       if (!weaponIds.includes(w.weapon_id)) weaponIds.push(w.weapon_id)
     })
-    weaponIds.sort()
+    weaponIds.sort((a, b) => a < b)
     const list = weaponIds.map(id => {
       const data = weapons.find(v => v.id === id)
       const count = this.availableWeapons.filter(v => v.weapon_id === id).length
@@ -37,10 +37,14 @@ export default class MenuStatus extends Phaser.GameObjects.Container {
     })
     return list
   }
-  setWeaponList () {
+  setWeaponList (page = 1) {
+    const PER = 3
+    const pageMax = Math.ceil(this.weaponGroup.length / PER)
+    page = Math.fix(page, 1, pageMax)
     if (this.weapons) this.weapons.destroy()
     this.weapons = this.scene.add.container(560, 120)
-    this.weapons.add(this.weaponGroup.map((v, i) => this.getWeapon(v, 0, i * 40)))
+    const offset = PER * (page - 1)
+    this.weapons.add(this.weaponGroup.slice(offset, offset + PER).map((v, i) => this.getWeapon(v, 0, i * 40)))
     this.add(this.weapons)
   }
   setCharacter (chara) {
