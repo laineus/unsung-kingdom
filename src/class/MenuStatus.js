@@ -12,10 +12,11 @@ export default class MenuStatus extends Phaser.GameObjects.Container {
     const sub = scene.add.text(20, 41, 'キャラクター', { align: 'center', fill: config.COLORS.gray.toColorString, fontSize: 10, fontStyle: 'bold', fontFamily: config.FONT })
     this.add([title, sub])
     const players = scene.storage.state.battlers
-    const tabs = players.map((p, i) => this.getTabItem(p, 400 + i * 130, (50).byBottom))
-    this.add(tabs)
+    this.tabs = players.map((p, i) => this.getTabItem(p, 400 + i * 130, (50).byBottom))
+    this.add(this.tabs)
     this.weapons = this.scene.add.container(540, 120)
     this.weapons.add(scene.storage.state.weapons.map((v, i) => this.getWeapon(v, 0, i * 40)))
+    slideIn(this.scene, this.weapons)
     this.add(this.weapons)
     this.setCharacter(players[0])
   }
@@ -24,6 +25,7 @@ export default class MenuStatus extends Phaser.GameObjects.Container {
       if (this.chara.battler === chara) return
       slideOut(this.scene, [this.chara, this.currentWeapon], { x: -50 })
     }
+    this.tabs.forEach(t => t.setActive(t.chara === chara))
     this.chara = this.getCharacter(chara, 180, (30).byBottom)
     this.currentWeapon = this.getCurrentWeapon(this.chara.battler.weapon, 540, 60)
     this.add([this.chara, this.currentWeapon])
@@ -53,10 +55,14 @@ export default class MenuStatus extends Phaser.GameObjects.Container {
   }
   getTabItem (chara, x, y) {
     const container = this.scene.add.container(x, y).setSize(120, 45)
+    container.chara = chara
     const box = new Box(this.scene, 0, 0, 120, 45)
-    const text = this.scene.add.text(-45, 18, chara.name, { fontSize: 15, fontStyle: 'bold', fontFamily: config.FONT }).setOrigin(0, 1)
+    const sprite = this.scene.add.sprite(-66, -16, chara.key).setScale(0.25).setOrigin(0, 0)
+    sprite.setCrop(0, 0, sprite.width, 150)
+    const text = this.scene.add.text(40, 18, chara.name, { fontSize: 15, fontStyle: 'bold', fontFamily: config.FONT }).setOrigin(1, 1)
+    container.setActive = bool => text.setFill(config.COLORS[bool ? 'theme' : 'white'].toColorString)
     container.setInteractive().on('pointerdown', () => this.setCharacter(chara))
-    container.add([box, text])
+    container.add([box, sprite, text])
     return container
   }
   getCurrentWeapon (source, x, y) {
