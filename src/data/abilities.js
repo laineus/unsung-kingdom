@@ -1,5 +1,6 @@
-export default [
-  { key: 'attack_all', name: '全体攻撃' },
-  { key: 'heal', name: 'ヒール' },
-  { key: 'counter', name: 'カウンター' }
-]
+export default {
+  1: 'Multi-Attack',
+  2: 'Heal',
+  3: 'Heal-All',
+  4: 'Counter'
+}

@@ -4,6 +4,7 @@ import Gauge from './Gauge'
 import ExpGauge from './ExpGauge'
 import Pager from './Pager'
 import weapons from '../data/weapons'
+import abilities from '../data/abilities'
 import { slideOut, slideIn } from '../util/animations'
 import storage from '../data/storage'
 const PER_PAGE = 7
@@ -123,7 +124,8 @@ export default class MenuStatus extends Phaser.GameObjects.Container {
     const data = getData(source)
     const container = this.scene.add.container(x, y).setSize(360, 45)
     const box = new Box(this.scene, 0, 0, 360, 40).setOrigin(0.5, 0.5)
-    const text = this.scene.add.text(-165, 0, data ? data.name : '-', { fontSize: 15, fontStyle: 'bold', fontFamily: config.FONT }).setOrigin(0, 0.5)
+    const text = this.scene.add.text(-165, 0, null, { fontSize: 15, fontStyle: 'bold', fontFamily: config.FONT }).setOrigin(0, 0.5)
+    const status = this.scene.add.text(165, 0, null, { fontSize: 12, fontStyle: 'bold', fontFamily: config.FONT, fill: config.COLORS.gray.toColorString }).setOrigin(1, 0.5)
     const line1 = this.scene.add.line(-177, 0, 0, 0, 40, 0, config.COLORS.white).setOrigin(1, 0).setLineWidth(0.5).setAlpha(0.5)
     const line2 = this.scene.add.line(-192, 1, 0, 0, -25, 120, config.COLORS.white).setOrigin(1, 0).setLineWidth(0.5).setAlpha(0.5)
     const line3 = this.scene.add.line(-242, 121, 0, 0, 80, 0, config.COLORS.white).setOrigin(1, 0).setLineWidth(0.5).setAlpha(0.5)
@@ -132,16 +134,24 @@ export default class MenuStatus extends Phaser.GameObjects.Container {
     container.setSource = source => {
       const data = getData(source)
       text.text = data ? data.name : '-'
+      status.text = data ? this.getStatusText(data) : null
     }
-    container.add([box, text, line1, line2, line3, circle])
+    container.setSource(source)
+    container.add([box, text, status, line1, line2, line3, circle])
     return container
+  }
+  getStatusText (source) {
+    return ['ability', 'atk', 'def', 'dex', 'agi'].filter(key => source[key]).map(key => {
+      return key === 'ability' ? `<${abilities[source[key]]}>` : `${key.toUpperCase()}: ${source[key]}`
+    }).join('   ')
   }
   getWeapon (weapon, x, y) {
     const container = this.scene.add.container(x, y).setSize(360, 45)
     const box = new Box(this.scene, 0, 0, 360, 32).setOrigin(0.5, 0.5)
     const text = this.scene.add.text(-165, 0, weapon.name, { fontSize: 14, fontStyle: 'bold', fontFamily: config.FONT }).setOrigin(0, 0.5)
+    const status = this.scene.add.text(165, 0, this.getStatusText(weapon), { fontSize: 12, fontStyle: 'bold', fontFamily: config.FONT, fill: config.COLORS.gray.toColorString }).setOrigin(1, 0.5)
     container.setInteractive().on('pointerdown', () => this.setWeapon(weapon.id))
-    container.add([box, text])
+    container.add([box, text, status])
     return container
   }
 }
