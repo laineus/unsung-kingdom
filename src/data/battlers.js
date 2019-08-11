@@ -41,6 +41,11 @@ export default [
     up: { hp: 100, atk: 70, def: 90, dex: 80, agi: 60 }
   },
   {
+    key: 'wolf', name: 'ヴォルフェス', lv: 1,
+    hp: 28, atk: 3, def: 2, dex: 2, agi: 5,
+    up: { hp: 100, atk: 80, def: 60, dex: 60, agi: 100 }
+  },
+  {
     key: 'flower', name: 'サニズマスク', lv: 1,
     hp: 60, atk: 4, def: 4, dex: 2, agi: 2,
     up: { hp: 100, atk: 90, def: 90, dex: 70, agi: 70 }
