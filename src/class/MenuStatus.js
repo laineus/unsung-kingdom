@@ -13,7 +13,7 @@ export default class MenuStatus extends Phaser.GameObjects.Container {
     const sub = scene.add.text(20, 41, 'キャラクター', { align: 'center', fill: config.COLORS.gray.toColorString, fontSize: 10, fontStyle: 'bold', fontFamily: config.FONT })
     this.add([title, sub])
     const players = scene.storage.state.battlers
-    this.tabs = players.map((p, i) => this.getTabItem(p, 400 + i * 130, (50).byBottom))
+    this.tabs = players.map((p, i) => this.getTabItem(p, 380 + i * 145, (60).byBottom))
     slideIn(this.scene, this.tabs, { x: -100 })
     this.add(this.tabs)
     this.setWeaponList()
@@ -39,7 +39,7 @@ export default class MenuStatus extends Phaser.GameObjects.Container {
   }
   setWeaponList () {
     if (this.weapons) this.weapons.destroy()
-    this.weapons = this.scene.add.container(540, 120)
+    this.weapons = this.scene.add.container(560, 120)
     this.weapons.add(this.weaponGroup.map((v, i) => this.getWeapon(v, 0, i * 40)))
     this.add(this.weapons)
   }
@@ -49,8 +49,8 @@ export default class MenuStatus extends Phaser.GameObjects.Container {
       slideOut(this.scene, [this.chara, this.currentWeapon], { x: -50 })
     }
     this.tabs.forEach(t => t.setActive(t.chara === chara))
-    this.chara = this.getCharacter(chara, 180, (30).byBottom)
-    this.currentWeapon = this.getCurrentWeapon(this.chara.battler.weapon, 540, 60)
+    this.chara = this.getCharacter(chara, 210, (30).byBottom)
+    this.currentWeapon = this.getCurrentWeapon(this.chara.battler.weapon, 560, 60)
     this.add([this.chara, this.currentWeapon])
     slideIn(this.scene, [this.chara, this.currentWeapon], { x: -50 })
   }
@@ -66,7 +66,7 @@ export default class MenuStatus extends Phaser.GameObjects.Container {
     const imgBg = this.scene.add.sprite(-10, -5, chara.key).setOrigin(0.5, 1).setScale(0.64, 0.64).setTint(0).setAlpha(0.5)
     const img = this.scene.add.sprite(0, 0, chara.key).setOrigin(0.5, 1).setScale(0.64, 0.64)
     container.add([imgBg, img])
-    const charaInformation = this.scene.add.container(-81, -170)
+    const charaInformation = this.scene.add.container(-81, -158)
     const name = this.scene.add.text(0, 0, chara.name, { fill: config.COLORS.theme.toColorString, stroke: config.COLORS.dark.toColorString, strokeThickness: 2, fontSize: 21, fontStyle: 'bold', fontFamily: config.FONT })
     const lv = this.scene.add.text(21 + chara.name.length * 7, 7, `Lv ${chara.lv}`, { fill: config.COLORS.theme.toColorString, stroke: config.COLORS.dark.toColorString, strokeThickness: 2, fontSize: 14, fontStyle: 'bold', fontFamily: config.FONT })
     const hpLabel = this.scene.add.text(0, 40, 'HP', { fill: config.COLORS.soy.toColorString, stroke: config.COLORS.dark.toColorString, strokeThickness: 2, fontSize: 11, fontStyle: 'bold', fontFamily: config.FONT })
@@ -90,12 +90,12 @@ export default class MenuStatus extends Phaser.GameObjects.Container {
     return container
   }
   getTabItem (chara, x, y) {
-    const container = this.scene.add.container(x, y).setSize(120, 45)
+    const container = this.scene.add.container(x, y).setSize(140, 45)
     container.chara = chara
-    const box = new Box(this.scene, 0, 0, 120, 45)
-    const sprite = this.scene.add.sprite(-66, -16, chara.key).setScale(0.25).setOrigin(0, 0)
+    const box = new Box(this.scene, 0, 0, 140, 45)
+    const sprite = this.scene.add.sprite(-76, -16, chara.key).setScale(0.25).setOrigin(0, 0)
     sprite.setCrop(0, 0, sprite.width, 150)
-    const text = this.scene.add.text(40, 18, chara.name, { fontSize: 15, fontStyle: 'bold', fontFamily: config.FONT }).setOrigin(1, 1)
+    const text = this.scene.add.text(50, 18, chara.name, { fontSize: 15, fontStyle: 'bold', fontFamily: config.FONT }).setOrigin(1, 1)
     container.setActive = bool => text.setFill(config.COLORS[bool ? 'theme' : 'white'].toColorString)
     container.setInteractive().on('pointerdown', () => this.setCharacter(chara))
     container.add([box, sprite, text])
@@ -104,13 +104,13 @@ export default class MenuStatus extends Phaser.GameObjects.Container {
   getCurrentWeapon (source, x, y) {
     const getData = source => source ? weapons.find(v => v.id === source.weapon_id) : null
     const data = getData(source)
-    const container = this.scene.add.container(x, y).setSize(320, 45)
-    const box = new Box(this.scene, 0, 0, 320, 40).setOrigin(0.5, 0.5)
-    const text = this.scene.add.text(-145, 0, data ? data.name : '-', { fontSize: 15, fontStyle: 'bold', fontFamily: config.FONT }).setOrigin(0, 0.5)
-    const line1 = this.scene.add.line(-157, 0, 0, 0, 40, 0, config.COLORS.white).setOrigin(1, 0).setLineWidth(0.5).setAlpha(0.5)
-    const line2 = this.scene.add.line(-172, 1, 0, 0, -25, 120, config.COLORS.white).setOrigin(1, 0).setLineWidth(0.5).setAlpha(0.5)
-    const line3 = this.scene.add.line(-222, 121, 0, 0, 90, 0, config.COLORS.white).setOrigin(1, 0).setLineWidth(0.5).setAlpha(0.5)
-    const circle = this.scene.add.circle(-312, 123, 2, config.COLORS.white).setOrigin(0.5, 0.5)
+    const container = this.scene.add.container(x, y).setSize(360, 45)
+    const box = new Box(this.scene, 0, 0, 360, 40).setOrigin(0.5, 0.5)
+    const text = this.scene.add.text(-165, 0, data ? data.name : '-', { fontSize: 15, fontStyle: 'bold', fontFamily: config.FONT }).setOrigin(0, 0.5)
+    const line1 = this.scene.add.line(-177, 0, 0, 0, 40, 0, config.COLORS.white).setOrigin(1, 0).setLineWidth(0.5).setAlpha(0.5)
+    const line2 = this.scene.add.line(-192, 1, 0, 0, -25, 120, config.COLORS.white).setOrigin(1, 0).setLineWidth(0.5).setAlpha(0.5)
+    const line3 = this.scene.add.line(-242, 121, 0, 0, 80, 0, config.COLORS.white).setOrigin(1, 0).setLineWidth(0.5).setAlpha(0.5)
+    const circle = this.scene.add.circle(-322, 123, 2, config.COLORS.white).setOrigin(0.5, 0.5)
     container.setInteractive().on('pointerdown', () => this.setWeapon(null))
     container.setSource = source => {
       const data = getData(source)
@@ -120,9 +120,9 @@ export default class MenuStatus extends Phaser.GameObjects.Container {
     return container
   }
   getWeapon (weapon, x, y) {
-    const container = this.scene.add.container(x, y).setSize(320, 45)
-    const box = new Box(this.scene, 0, 0, 320, 32).setOrigin(0.5, 0.5)
-    const text = this.scene.add.text(-145, 0, weapon.name, { fontSize: 14, fontStyle: 'bold', fontFamily: config.FONT }).setOrigin(0, 0.5)
+    const container = this.scene.add.container(x, y).setSize(360, 45)
+    const box = new Box(this.scene, 0, 0, 360, 32).setOrigin(0.5, 0.5)
+    const text = this.scene.add.text(-165, 0, weapon.name, { fontSize: 14, fontStyle: 'bold', fontFamily: config.FONT }).setOrigin(0, 0.5)
     container.setInteractive().on('pointerdown', () => this.setWeapon(weapon.id))
     container.add([box, text])
     return container
