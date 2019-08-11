@@ -29,10 +29,10 @@ export default class MenuStatus extends Phaser.GameObjects.Container {
   }
   get weaponGroup () {
     const weaponIds = []
-    this.availableWeapons.forEach((w, i) => {
+    this.availableWeapons.forEach(w => {
       if (!weaponIds.includes(w.weapon_id)) weaponIds.push(w.weapon_id)
     })
-    weaponIds.sort((a, b) => a < b)
+    weaponIds.sort((a, b) => a - b)
     const list = weaponIds.map(id => {
       const data = weapons.find(v => v.id === id)
       const count = this.availableWeapons.filter(v => v.weapon_id === id).length
