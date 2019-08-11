@@ -46,7 +46,7 @@ export default class MenuStatus extends Phaser.GameObjects.Container {
   setWeaponList (anim) {
     this.page = Math.fix(this.page, 1, this.pageMax)
     if (this.weapons) this.weapons.destroy()
-    this.weapons = this.scene.add.container(560, 120)
+    this.weapons = this.scene.add.container(560, 125)
     const offset = PER_PAGE * (this.page - 1)
     this.weapons.add(this.weaponGroup.slice(offset, offset + PER_PAGE).map((v, i) => this.getWeapon(v, 0, i * 40)))
     this.add(this.weapons)
@@ -121,7 +121,6 @@ export default class MenuStatus extends Phaser.GameObjects.Container {
   }
   getCurrentWeapon (source, x, y) {
     const getData = source => source ? weapons.find(v => v.id === source.weapon_id) : null
-    const data = getData(source)
     const container = this.scene.add.container(x, y).setSize(360, 45)
     const box = new Box(this.scene, 0, 0, 360, 40).setOrigin(0.5, 0.5)
     const text = this.scene.add.text(-165, 0, null, { fontSize: 15, fontStyle: 'bold', fontFamily: config.FONT }).setOrigin(0, 0.5)
