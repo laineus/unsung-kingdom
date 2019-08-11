@@ -18,7 +18,6 @@ export default class MenuStatus extends Phaser.GameObjects.Container {
     this.add(this.tabs)
     this.setWeaponList()
     slideIn(this.scene, this.weapons)
-    this.add(this.weapons)
     this.setCharacter(players[0])
   }
   get availableWeapons () {
@@ -42,6 +41,7 @@ export default class MenuStatus extends Phaser.GameObjects.Container {
     if (this.weapons) this.weapons.destroy()
     this.weapons = this.scene.add.container(540, 120)
     this.weapons.add(this.weaponGroup.map((v, i) => this.getWeapon(v, 0, i * 40)))
+    this.add(this.weapons)
   }
   setCharacter (chara) {
     if (this.chara) {
@@ -56,9 +56,7 @@ export default class MenuStatus extends Phaser.GameObjects.Container {
   }
   setWeapon (weaponId) {
     const found = this.availableWeapons.find(v => v.weapon_id === weaponId)
-    const oldId = this.chara.battler.weapon ? this.chara.battler.weapon.id : null
-    const newId = found ? found.id : null
-    this.chara.battler.weapon = oldId !== newId ? found : null
+    this.chara.battler.weapon = found || null
     this.currentWeapon.setSource(this.chara.battler.weapon)
     this.setWeaponList()
   }
@@ -113,7 +111,7 @@ export default class MenuStatus extends Phaser.GameObjects.Container {
     const line2 = this.scene.add.line(-172, 1, 0, 0, -25, 120, config.COLORS.white).setOrigin(1, 0).setLineWidth(0.5).setAlpha(0.5)
     const line3 = this.scene.add.line(-222, 121, 0, 0, 90, 0, config.COLORS.white).setOrigin(1, 0).setLineWidth(0.5).setAlpha(0.5)
     const circle = this.scene.add.circle(-312, 123, 2, config.COLORS.white).setOrigin(0.5, 0.5)
-    container.setInteractive().on('pointerdown', () => console.log(1))
+    container.setInteractive().on('pointerdown', () => this.setWeapon(null))
     container.setSource = source => {
       const data = getData(source)
       text.text = data ? data.name : '-'
