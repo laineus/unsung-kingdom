@@ -148,9 +148,13 @@ export default class MenuStatus extends Phaser.GameObjects.Container {
     const container = this.scene.add.container(x, y).setSize(360, 45)
     const box = new Box(this.scene, 0, 0, 360, 32).setOrigin(0.5, 0.5)
     const text = this.scene.add.text(-165, 0, weapon.name, { fontSize: 14, fontStyle: 'bold', fontFamily: config.FONT }).setOrigin(0, 0.5)
-    const status = this.scene.add.text(165, 0, this.getStatusText(weapon), { fontSize: 12, fontStyle: 'bold', fontFamily: config.FONT, fill: config.COLORS.gray.toColorString }).setOrigin(1, 0.5)
-    container.setInteractive().on('pointerdown', () => this.setWeapon(weapon.id))
+    const status = this.scene.add.text(165, 0, this.getStatusText(weapon), { fontSize: 12, fontFamily: config.FONT, fill: config.COLORS.gray.toColorString }).setOrigin(1, 0.5)
     container.add([box, text, status])
+    if (weapon.count > 1) {
+      const count = this.scene.add.text(-160 + text.width, 0, `* ${weapon.count}`, { fontSize: 11, fontFamily: config.FONT, fill: config.COLORS.gray.toColorString }).setOrigin(0, 0.5)
+      container.add([count])
+    }
+    container.setInteractive().on('pointerdown', () => this.setWeapon(weapon.id))
     return container
   }
 }
