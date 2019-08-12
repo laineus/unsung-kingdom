@@ -2,6 +2,7 @@ import Battler from './Battler'
 import Gauge from './Gauge'
 import Box from './Box'
 import config from '../data/config'
+import weapons from '../data/weapons';
 export default class PlayerBattler extends Battler {
   constructor (scene, status) {
     super(scene, status)
@@ -36,7 +37,8 @@ export default class PlayerBattler extends Battler {
     this.hpValueLabel = this.scene.add.text(this.hpMaxLabel.x - this.hpMaxLabel.width, -14, this.hp, { fill: config.COLORS.soy.toColorString, stroke: config.COLORS.dark.toColorString, strokeThickness: 2, fontSize: 22, fontStyle: 'bold', fontFamily: config.FONT }).setOrigin(1, 1)
     this.add(this.hpValueLabel)
     // weapon
-    this.lvLabel = this.scene.add.text(122, 38, 'ロングソード', { fill: config.COLORS.gray.toColorString, stroke: config.COLORS.dark.toColorString, strokeThickness: 2, fontSize: 14, fontFamily: config.FONT }).setOrigin(1, 1)
+    this.weapon = this.source.weapon ? weapons.find(v => v.id === this.source.weapon.weapon_id) : null
+    this.lvLabel = this.scene.add.text(122, 38, this.weapon ? this.weapon.name : '-', { fill: config.COLORS.gray.toColorString, stroke: config.COLORS.dark.toColorString, strokeThickness: 2, fontSize: 14, fontFamily: config.FONT }).setOrigin(1, 1)
     this.add(this.lvLabel)
     // gauge
     this.gauge = new Gauge(this.scene, 160, 10, this.maxHp, config.COLORS.theme).setPosition(45, -8)
