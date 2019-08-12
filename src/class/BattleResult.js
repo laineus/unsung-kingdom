@@ -77,8 +77,13 @@ export default class Battle extends Phaser.GameObjects.Container {
     return container
   }
   increaceExp () {
-    const sumExp = this.group.reduce((before, current) => (before + current.lv * 3), 0)
     const alives = storage.state.battlers.filter(v => v.hp > 0)
+    const ownAvgLv = alives.reduce((before, current) => (before + current.lv), 0) / alives.length
+    const sumExp = this.group.reduce((before, current) => {
+      const lvAdjust = current.lv >= ownAvgLv ? 1 : (Math.max(6 - (ownAvgLv - current.lv), 1) * 0.1)
+      const base = before + current.lv * 3
+      return Math.round(base * lvAdjust)
+    }, 0)
     const eachExp = sumExp / alives.length
     const promises = this.charas.filter(v => v.source.hp > 0).map(v => {
       return new Promise((resolve) => {
