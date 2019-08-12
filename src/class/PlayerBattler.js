@@ -68,7 +68,7 @@ export default class PlayerBattler extends Battler {
       resolve()
     })
   }
-  setActive(bool) {
+  setActive (bool) {
     super.setActive(bool)
     if (this.bg2) this.bg2.visible = bool
     if (this.bgLight) {

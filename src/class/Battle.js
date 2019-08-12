@@ -4,6 +4,7 @@ import PlayerBattler from './PlayerBattler'
 import Button from './Button'
 import storage from '../data/storage'
 import expTable from '../data/expTable'
+import abilities from '../data/abilities';
 const positions = {
   1: [0],
   2: [-130, 130],
@@ -58,12 +59,6 @@ export default class Battle extends Phaser.GameObjects.Container {
       v.y += 150
       this.scene.add.tween({ targets: v, duration: 200, ease: 'Power2', delay: i * 50, y: v.y - 150 })
     })
-    // Attack All
-    const attackAllButton = new Button(this.scene, 80, 220, 'Attack All', 120, 40)
-    attackAllButton.setInteractive().on('pointerdown', () => {
-      this.tapEnemyAll()
-    })
-    this.add(attackAllButton)
   }
   preUpdate () {
     if (this.victory) this.end()
@@ -112,6 +107,7 @@ export default class Battle extends Phaser.GameObjects.Container {
     this.turnIndex = this.turnIndex < (this.all.length - 1) ? this.turnIndex + 1 : 0
     const result = this.currentBattler.alive && this.currentBattler.increaseTurn()
     if (!result) return this.increaseTurn()
+    this.setAbilityButtons()
     if (!this.playerTurn) this.execEnemyTurn()
     this.updateButtons()
   }
@@ -122,6 +118,36 @@ export default class Battle extends Phaser.GameObjects.Container {
         setTimeout(() => this.increaseTurn(), 400)
       })
     }, 400)
+  }
+  addOptionButton (name, x, y, onClick) {
+    const button = new Button(this.scene, x, y, name, 120, 40).setInteractive().on('pointerdown', onClick.bind(this))
+    this.add(button)
+    this.ablButtons.push(button)
+  }
+  setAbilityButtons () {
+    if (this.ablButtons) {
+      this.ablButtons.forEach(v => v.destroy())
+    } else {
+      this.ablButtons = []
+    }
+    if (!this.playerTurn) return
+    const ability = this.currentBattler.weapon ? abilities[this.currentBattler.weapon.ability] : null
+    if (!ability) return
+    switch (ability) {
+      case 'Heal':
+        this.players.list.forEach((player, i) => {
+          if (!player.alive || player.hp === player.maxHp) return
+          this.addOptionButton('Heal', 220 + i * 310, 390, () => {
+            console.log(1)
+          })
+        })
+        break
+      case 'Multi-Attack':
+        this.addOptionButton('Multi Attack', 80, 220, () => {
+          this.tapEnemyAll()
+        })
+        break
+    }
   }
   tapEnemy (enemy) {
     if (!this.playerTurn) return
