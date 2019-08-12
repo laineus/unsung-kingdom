@@ -79,6 +79,7 @@ export default class Battle extends Phaser.GameObjects.Container {
     })
   }
   fixButtonsPosition () {
+    if (this.victory) return
     this.buttons.list.forEach((button, i) => {
       const y = 320 + (i * -52)
       button.y = y
