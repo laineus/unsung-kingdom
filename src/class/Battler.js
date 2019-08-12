@@ -44,8 +44,8 @@ export default class Battler extends Phaser.GameObjects.Container {
   criticalTo (target) {
     return Math.fix(this.dex * 1.5 - target.agi, 0, 25)
   }
-  attackTo (target) {
-    const baseDamage = this.baseDamageTo(target)
+  attackTo (target, { multi = false } = {}) {
+    const baseDamage = multi ? Math.round(this.baseDamageTo(target) * 0.66) : this.baseDamageTo(target)
     const cri = Math.chance(this.criticalTo(target))
     const weakness = this.weaknessTo(target)
     const hit = Math.chance(this.accuracyTo(target))

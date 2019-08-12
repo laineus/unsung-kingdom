@@ -143,9 +143,7 @@ export default class Battle extends Phaser.GameObjects.Container {
         })
         break
       case 'Multi-Attack':
-        this.addOptionButton('Multi Attack', 80, 220, () => {
-          this.tapEnemyAll()
-        })
+        this.addOptionButton('Multi Attack', 80, 220, this.multiAttack)
         break
     }
   }
@@ -157,13 +155,11 @@ export default class Battle extends Phaser.GameObjects.Container {
       this.increaseTurn()
     })
   }
-  tapEnemyAll () {
-    if (!this.playerTurn) return
-    this.enemies.list.forEach(enemy => {
-      this.currentBattler.attackTo(enemy).then(() => {
-        this.increaseTurn()
-      })
-    })
+  multiAttack () {
+    const targets = this.playerTurn ? this.enemies.list : this.players.list.filter(v => v.alive)
+    Promise.all(targets.map(enemy => {
+      return this.currentBattler.attackTo(enemy, { multi: this.enemies.list.length })
+    })).then(this.increaseTurn.bind(this))
   }
   get victory () {
     return this.enemies.list.length === 0
