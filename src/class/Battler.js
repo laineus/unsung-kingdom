@@ -62,6 +62,12 @@ export default class Battler extends Phaser.GameObjects.Container {
     }
     return this.damageText('Miss')
   }
+  heal (percent) {
+    const limit = this.maxHp - this.hp
+    const addition = Math.min(Math.round(this.maxHp * percent * 0.01), limit)
+    this.hp += addition
+    this.damageText(addition, 'theme')
+  }
   damageEffect () {
     const eff = this.scene.add.sprite(0, 0, 'damage').setScale(0.5, 0.5).setPosition(Math.randomInt(-30, 30), Math.randomInt(-30, 30))
     const scale = Math.randomInt(12, 17) / 10
@@ -72,8 +78,8 @@ export default class Battler extends Phaser.GameObjects.Container {
       onComplete: () => eff.destroy()
     })
   }
-  damageText (damage) {
-    const text = this.scene.add.text(0, 0, damage, { fill: config.COLORS.soy.toColorString, stroke: config.COLORS.dark.toColorString, strokeThickness: 5, fontSize: 32, fontStyle: 'bold', fontFamily: config.FONT }).setOrigin(0.5, 0.5)
+  damageText (damage, colorKey = 'soy') {
+    const text = this.scene.add.text(0, 0, damage, { fill: config.COLORS[colorKey].toColorString, stroke: config.COLORS.dark.toColorString, strokeThickness: 5, fontSize: 32, fontStyle: 'bold', fontFamily: config.FONT }).setOrigin(0.5, 0.5)
     this.scene.add.tween({
       targets: text, duration: 120,
       y: -40,

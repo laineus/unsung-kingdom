@@ -138,7 +138,8 @@ export default class Battle extends Phaser.GameObjects.Container {
         this.players.list.forEach((player, i) => {
           if (!player.alive || player.hp === player.maxHp) return
           this.addOptionButton('Heal', 220 + i * 310, 390, () => {
-            console.log(1)
+            player.heal(34)
+            this.increaseTurn()
           })
         })
         break
