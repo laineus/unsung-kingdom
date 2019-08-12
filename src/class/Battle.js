@@ -58,6 +58,12 @@ export default class Battle extends Phaser.GameObjects.Container {
       v.y += 150
       this.scene.add.tween({ targets: v, duration: 200, ease: 'Power2', delay: i * 50, y: v.y - 150 })
     })
+    // Attack All
+    const attackAllButton = new Button(this.scene, 80, 220, 'Attack All', 120, 40)
+    attackAllButton.setInteractive().on('pointerdown', () => {
+      this.tapEnemyAll()
+    })
+    this.add(attackAllButton)
   }
   preUpdate () {
     if (this.victory) this.end()
@@ -118,11 +124,19 @@ export default class Battle extends Phaser.GameObjects.Container {
     }, 400)
   }
   tapEnemy (enemy) {
-    this.buttons.list.forEach(v => (v.visible = false))
     if (!this.playerTurn) return
+    this.buttons.list.forEach(v => (v.visible = false))
     this.currentBattler.attackTo(enemy).then(() => {
       this.buttons.list.forEach(v => (v.visible = true))
       this.increaseTurn()
+    })
+  }
+  tapEnemyAll () {
+    if (!this.playerTurn) return
+    this.enemies.list.forEach(enemy => {
+      this.currentBattler.attackTo(enemy).then(() => {
+        this.increaseTurn()
+      })
     })
   }
   get victory () {
