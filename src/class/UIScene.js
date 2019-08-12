@@ -30,6 +30,9 @@ export default class UIScene extends Phaser.Scene {
   get gameScene () {
     return this.scene.get('Game')
   }
+  get inBattle () {
+    return this.children.list.some(v => v instanceof Battle)
+  }
   menu () {
     return new Promise(resolve => new Menu(this, resolve))
   }
@@ -89,7 +92,7 @@ export default class UIScene extends Phaser.Scene {
     button.add(this.add.rectangle(-35, -1, 25, 3, config.COLORS.theme).setRotation(Math.PI / 1))
     button.add(this.add.rectangle(-35, -1, 25, 3, config.COLORS.theme).setRotation(Math.PI / -2))
     button.setInteractive().on('pointerdown', () => {
-      if (button.x !== x) return
+      if (button.x !== x || this.inBattle) return
       slideOut(this, button, { destroy: false, x: 100 })
       this.menu().then(() => {
         button.x = x
