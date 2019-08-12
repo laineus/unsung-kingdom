@@ -30,20 +30,20 @@ export default class PlayerBattler extends Battler {
     this.lvLabel = this.scene.add.text(-36, 38, `Lv ${this.lv}`, { fill: config.COLORS.gray.toColorString, stroke: config.COLORS.dark.toColorString, strokeThickness: 2, fontSize: 13, fontStyle: 'bold', fontFamily: config.FONT }).setOrigin(0, 1)
     this.add(this.lvLabel)
     // hp
-    this.hpLabel = this.scene.add.text(-36, -30, 'HP', { fill: config.COLORS.soy.toColorString, stroke: config.COLORS.dark.toColorString, strokeThickness: 2, fontSize: 11, fontStyle: 'bold', fontFamily: config.FONT })
+    this.hpLabel = this.scene.add.text(-36, -25, 'HP', { fill: config.COLORS.soy.toColorString, stroke: config.COLORS.dark.toColorString, strokeThickness: 2, fontSize: 11, fontStyle: 'bold', fontFamily: config.FONT })
     this.add(this.hpLabel)
-    this.hpMaxLabel = this.scene.add.text(125, -15, `/${this.maxHp}`, { fill: config.COLORS.soy.toColorString, stroke: config.COLORS.dark.toColorString, strokeThickness: 2, fontSize: 16, fontStyle: 'bold', fontFamily: config.FONT }).setOrigin(1, 1)
+    this.hpMaxLabel = this.scene.add.text(125, -10, `/${this.maxHp}`, { fill: config.COLORS.soy.toColorString, stroke: config.COLORS.dark.toColorString, strokeThickness: 2, fontSize: 16, fontStyle: 'bold', fontFamily: config.FONT }).setOrigin(1, 1)
     this.add(this.hpMaxLabel)
-    this.hpValueLabel = this.scene.add.text(this.hpMaxLabel.x - this.hpMaxLabel.width, -14, this.hp, { fill: config.COLORS.soy.toColorString, stroke: config.COLORS.dark.toColorString, strokeThickness: 2, fontSize: 22, fontStyle: 'bold', fontFamily: config.FONT }).setOrigin(1, 1)
+    this.hpValueLabel = this.scene.add.text(this.hpMaxLabel.x - this.hpMaxLabel.width, -9, this.hp, { fill: config.COLORS.soy.toColorString, stroke: config.COLORS.dark.toColorString, strokeThickness: 2, fontSize: 22, fontStyle: 'bold', fontFamily: config.FONT }).setOrigin(1, 1)
     this.add(this.hpValueLabel)
+    // gauge
+    this.gauge = new Gauge(this.scene, 160, 10, this.maxHp, config.COLORS.theme).setPosition(45, -3)
+    this.gauge.value = this.hp
+    this.add(this.gauge)
     // weapon
     this.weapon = this.source.weapon ? weapons.find(v => v.id === this.source.weapon.weapon_id) : null
     this.lvLabel = this.scene.add.text(122, 38, this.weapon ? this.weapon.name : '-', { fill: config.COLORS.gray.toColorString, stroke: config.COLORS.dark.toColorString, strokeThickness: 2, fontSize: 14, fontFamily: config.FONT }).setOrigin(1, 1)
     this.add(this.lvLabel)
-    // gauge
-    this.gauge = new Gauge(this.scene, 160, 10, this.maxHp, config.COLORS.theme).setPosition(45, -8)
-    this.gauge.value = this.hp
-    this.add(this.gauge)
   }
   get hp () {
     return this.source.hp
