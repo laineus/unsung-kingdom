@@ -50,6 +50,7 @@ export default class Battle extends Phaser.GameObjects.Container {
           })
         }, 1800)
       })
+      storage.state.battlers.filter(v => v.hp <= 0).forEach(v => v.hp += 1)
     })
   }
   getChara (chara, x, y) {
