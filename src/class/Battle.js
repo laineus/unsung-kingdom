@@ -85,7 +85,7 @@ export default class Battle extends Phaser.GameObjects.Container {
   }
   fixButtonsPosition () {
     this.buttons.list.forEach((button, i) => {
-      const y = 340 + (i * -52)
+      const y = 320 + (i * -52)
       button.y = y
       button.line.geom.x2 = -340 + positions[this.enemies.length][i]
       button.circle.x = -396 + positions[this.enemies.length][i]
