@@ -3,8 +3,8 @@ import EnemyBattler from './EnemyBattler'
 import PlayerBattler from './PlayerBattler'
 import Button from './Button'
 import storage from '../data/storage'
-import expTable from '../data/expTable'
-import abilities from '../data/abilities';
+import abilities from '../data/abilities'
+import { slideIn } from '../util/animations'
 const positions = {
   1: [0],
   2: [-130, 130],
@@ -155,6 +155,7 @@ export default class Battle extends Phaser.GameObjects.Container {
         this.addOptionButton('Multi Attack', 80, 220, this.multiAttack)
         break
     }
+    slideIn(this.scene, this.ablButtons)
   }
   tapEnemy (enemy) {
     if (!this.playerTurn) return

@@ -9,10 +9,10 @@
 //   3: heal_all
 //   4: counter
 export default [
-  { id: 1, type: 1, name: 'ショートソード', atk: 5, ability: 4 },
-  { id: 2, type: 1, name: 'カトラス', atk: 5, ability: 4 },
-  { id: 3, type: 1, name: 'グラディウス', atk: 8, ability: null },
-  { id: 4, type: 1, name: 'ロングソード', atk: 7, ability: 1 },
+  { id: 1, type: 1, name: 'ショートソード', atk: 5, ability: null },
+  { id: 2, type: 1, name: 'カトラス', atk: 5, ability: 1 },
+  { id: 3, type: 1, name: 'グラディウス', atk: 8, ability: 2 },
+  { id: 4, type: 1, name: 'ロングソード', atk: 7, ability: 3 },
   { id: 5, type: 1, name: 'バスタードソード', atk: 8, ability: null },
   { id: 6, type: 1, name: 'ツヴァイハンダー', atk: 8, ability: null },
   { id: 7, type: 1, name: 'クレイモア', atk: 8, ability: null },
