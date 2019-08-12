@@ -41,7 +41,7 @@ export default class PlayerBattler extends Battler {
     this.gauge.value = this.hp
     this.add(this.gauge)
     // weapon
-    this.weapon = this.source.weapon ? weapons.find(v => v.id === this.source.weapon.weapon_id) : null
+    this.setWeapon()
     this.lvLabel = this.scene.add.text(122, 38, this.weapon ? this.weapon.name : '-', { fill: config.COLORS.gray.toColorString, stroke: config.COLORS.dark.toColorString, strokeThickness: 2, fontSize: 14, fontFamily: config.FONT }).setOrigin(1, 1)
     this.add(this.lvLabel)
   }
@@ -54,6 +54,13 @@ export default class PlayerBattler extends Battler {
     this.gauge.value = this.hp
     this.hpMaxLabel.setText(`/${this.maxHp}`)
     this.hpValueLabel.setText(this.hp)
+  }
+  setWeapon () {
+    this.weapon = this.source.weapon ? weapons.find(v => v.id === this.source.weapon.weapon_id) : null
+    if (!this.weapon) return
+    ['atk', 'def', 'dex', 'agi'].filter(key => this.weapon[key]).forEach(key => {
+      this[key] += this.weapon[key]
+    })
   }
   die () {
     return new Promise(resolve => {

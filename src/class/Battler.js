@@ -22,7 +22,7 @@ export default class Battler extends Phaser.GameObjects.Container {
   get alive () {
     return this.hp > 0
   }
-  setActive(bool) {
+  setActive (bool) {
     this.active = bool
   }
   increaseTurn () {
@@ -44,7 +44,7 @@ export default class Battler extends Phaser.GameObjects.Container {
   criticalTo (target) {
     return Math.fix(this.dex * 1.5 - target.agi, 0, 25)
   }
-  attackTo(target) {
+  attackTo (target) {
     const baseDamage = this.baseDamageTo(target)
     const cri = Math.chance(this.criticalTo(target))
     const weakness = this.weaknessTo(target)
