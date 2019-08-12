@@ -138,9 +138,17 @@ export default class Battle extends Phaser.GameObjects.Container {
         this.players.list.forEach((player, i) => {
           if (!player.alive || player.hp === player.maxHp) return
           this.addOptionButton('Heal', 220 + i * 310, 390, () => {
-            player.heal(34)
+            this.currentBattler.heal(player, 34)
             this.increaseTurn()
           })
+        })
+        break
+      case 'Heal-All':
+        const players = this.players.list.filter(p => p.alive && p.hp < p.maxHp)
+        if (!players.length) return
+        this.addOptionButton('Heal All', 80, 320, () => {
+          players.forEach(p => this.currentBattler.heal(p, 20))
+          this.increaseTurn()
         })
         break
       case 'Multi-Attack':

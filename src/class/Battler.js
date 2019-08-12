@@ -62,11 +62,12 @@ export default class Battler extends Phaser.GameObjects.Container {
     }
     return this.damageText('Miss')
   }
-  heal (percent) {
-    const limit = this.maxHp - this.hp
-    const addition = Math.min(Math.round(this.maxHp * percent * 0.01), limit)
-    this.hp += addition
-    this.damageText(addition, 'theme')
+  heal (target, percent) {
+    this.setActive(false)
+    const limit = target.maxHp - target.hp
+    const addition = Math.min(Math.round(target.maxHp * percent * 0.01), limit)
+    target.hp += addition
+    target.damageText(addition, 'theme')
   }
   damageEffect () {
     const eff = this.scene.add.sprite(0, 0, 'damage').setScale(0.5, 0.5).setPosition(Math.randomInt(-30, 30), Math.randomInt(-30, 30))
