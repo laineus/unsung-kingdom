@@ -11,6 +11,6 @@ export default {
     ['bee', 'bee2', 'bee', 'bee2']
   ],
   create (scene) {
-    dogEventHunter(scene, scene.map.getObjectById(4))
+    dogEventHunter(scene, scene.map.getObjectById(4).setR('left'))
   }
 }

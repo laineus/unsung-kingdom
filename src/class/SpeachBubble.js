@@ -1,4 +1,5 @@
 import { lineBreak } from '../util/stringFunctions'
+import config from '../data/config'
 const points = [[32, 10], [295, 0], [320, 55], [295, 95], [170, 92], [169, 100], [176, 112], [158, 100], [156, 91], [15, 85], [0, 30]]
 const points2 = points.map(point => [270 - point[0], point[1]])
 export default class SpeachBubble extends Phaser.GameObjects.Container {
