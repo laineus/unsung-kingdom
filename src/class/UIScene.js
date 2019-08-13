@@ -7,7 +7,7 @@ import downloadImageBySource from '../util/downloadImageBySource'
 import Battle from './Battle'
 import BattleResult from './BattleResult'
 import Menu from './Menu'
-import { slideIn, slideOut } from '../util/animations'
+import { slideIn, slideOut, fadeIn, fadeOut } from '../util/animations'
 export default class UIScene extends Phaser.Scene {
   constructor () {
     super({ key: 'UI', active: false })
@@ -32,6 +32,14 @@ export default class UIScene extends Phaser.Scene {
   }
   get inBattle () {
     return this.children.list.some(v => v instanceof Battle)
+  }
+  setEncounter (bool) {
+    if (!this.encounter) {
+      this.encounter = this.add.sprite((70).byRight, 70, 'circle').setOrigin(0.5, 0.5).setScale(0.1, 0.1)
+      this.add.tween({ targets: this.encounter, duration: 320, ease: 'Power2', loop: -1, scaleX: 0.11, scaleY: 0.11 })
+      this.encounter.setInteractive().on('pointerdown', () => this.gameScene.encounter(true))
+    }
+    this.encounter.visible = bool
   }
   menu () {
     return new Promise(resolve => new Menu(this, resolve))

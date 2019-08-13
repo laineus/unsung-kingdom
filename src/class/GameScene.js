@@ -10,7 +10,6 @@ export default class GameScene extends Phaser.Scene {
   }
   create (payload) {
     this.storage = storage
-    this.setEncountDelay()
     // substance group
     this.substances = this.add.group()
     // player
@@ -18,10 +17,8 @@ export default class GameScene extends Phaser.Scene {
     this.player.on('walk', () => {
       if (!this.event.enemyGroups) return
       this.encountDelay--
-      if (this.encountDelay > 0) return
-      this.setEncountDelay()
-      this.player.stopWalk()
-      this.ui.battle(this.event.enemyGroups.random().map(key => generateBattler(key, this.event.enemyLevel)))
+      if (this.encountDelay <= (this.stronger ? 200 : 80)) this.ui.setEncounter(true)
+      if (this.encountDelay <= 0) this.encounter(!this.stronger)
     })
     // map
     this.map = new GameMap(this, payload.map)
@@ -39,6 +36,7 @@ export default class GameScene extends Phaser.Scene {
     this.input.on('pointermove', walk)
     this.event = maps[payload.map]
     if (this.event && this.event.create) this.event.create(this)
+    this.encounter(false)
     // auto save
     if (payload.save) setTimeout(() => this.storage.save(0), 1)
     // debug
@@ -65,8 +63,18 @@ export default class GameScene extends Phaser.Scene {
       this.scene.start('Game', { map: mapKey, x, y, save: true })
     })
   }
+  get stronger () {
+    return Math.round(storage.state.battlers.reduce((p, c) => p + c.lv, 0) / 3) > this.event.enemyLevel
+  }
+  encounter (bool) {
+    this.ui.setEncounter(false)
+    this.setEncountDelay()
+    if (!bool) return
+    this.player.stopWalk()
+    this.ui.battle(this.event.enemyGroups.random().map(key => generateBattler(key, this.event.enemyLevel)))
+  }
   setEncountDelay () {
-    this.encountDelay = Math.randomInt(300, 500)
+    this.encountDelay = Math.randomInt(300, 500) + (this.stronger ? 100 : 0)
   }
   setDebugAction () {
     window.storage = storage
