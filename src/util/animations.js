@@ -40,7 +40,7 @@ export const slideOut = (scene, list, { x = 200, destroy = true, delay = 0 } = {
   })
 }
 
-export const fadeIn = (scene, list, { duration = 250 } = {}) => {
+export const fadeIn = (scene, list, { duration = 250, alpha = 1 } = {}) => {
   return new Promise(resolve => {
     if (!Array.isArray(list)) list = [list]
     list.forEach(v => v.alpha = 0)
@@ -48,7 +48,7 @@ export const fadeIn = (scene, list, { duration = 250 } = {}) => {
       targets: list,
       duration,
       ease: 'Power2',
-      alpha: 1,
+      alpha,
       onComplete() {
         resolve()
       }
