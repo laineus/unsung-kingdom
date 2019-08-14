@@ -11,6 +11,7 @@ export default {
     ['bee', 'bee2', 'bee', 'bee2']
   ],
   create (scene) {
-    dogEventHunter(scene, scene.map.getObjectById(4).setR('left'))
+    const hunter = scene.map.getObjectById(4).setR('left').setRandomWalk()
+    dogEventHunter(scene, hunter)
   }
 }

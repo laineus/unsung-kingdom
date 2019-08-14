@@ -10,7 +10,7 @@ export default class Character extends Substance {
   constructor (scene, x, y, key, option) {
     super(scene, x, y, key, option)
     this.setTarget(null)
-    this.setSpeed(120)
+    this.setSpeed(40)
     this.setR('down')
   }
   preUpdate () {
@@ -18,6 +18,8 @@ export default class Character extends Substance {
     this._walkToTargetPosition()
     this._calcRotation()
     this._updateAnimation()
+    this._randomWalk()
+    this._collideWall()
   }
   setDisplayName (name) {
     this.displayName = name
@@ -44,6 +46,7 @@ export default class Character extends Substance {
   }
   setSpeed (speed = 120) {
     this.speed = speed
+    return this
   }
   setVelocity (x, y) {
     this.unsetFollowing()
@@ -131,5 +134,26 @@ export default class Character extends Substance {
   setR (value) {
     this.r = typeof value === 'string' ? angleData[value].r : value
     return this
+  }
+  setRandomWalk (bool = true) {
+    this.randomWalk = bool
+    this.randomWalkDelay = Math.randomInt(100, 200)
+    return this
+  }
+  _randomWalk () {
+    if (!this.randomWalk) return
+    if (!this.walking) this.randomWalkDelay--
+    if (this.randomWalkDelay <= 0) {
+      this.setTargetPosition(this.x + Math.randomInt(-25, 25), this.y + Math.randomInt(-25, 25))
+      this.setRandomWalk()
+    }
+  }
+  _collideWall () {
+    if (this.walking) {
+      const distance = Phaser.Math.Distance.Between(this.x, this.y, this.lastX, this.lastY)
+      if (distance > 0 && distance < 0.15) this.stopWalk()
+    }
+    this.lastX = this.x
+    this.lastY = this.y
   }
 }
