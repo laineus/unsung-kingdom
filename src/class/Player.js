@@ -21,7 +21,7 @@ export default class Player extends Character {
   collideWall () {
     if (this.walking) {
       const distance = Phaser.Math.Distance.Between(this.x, this.y, this.lastX, this.lastY)
-      if (distance > 0 && distance < 0.15) this.unsetFollowing()
+      if (distance > 0 && distance < 0.15) this.stopWalk()
     }
     this.lastX = this.x
     this.lastY = this.y
