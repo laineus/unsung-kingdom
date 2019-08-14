@@ -135,17 +135,22 @@ export default class Character extends Substance {
     this.r = typeof value === 'string' ? angleData[value].r : value
     return this
   }
-  setRandomWalk (bool = true) {
+  setRandomWalk (bool, { speed, range = 50 } = {}) {
     this.randomWalk = bool
-    this.randomWalkDelay = Math.randomInt(100, 200)
+    this.randomWalkRange = Math.round(range / 2)
+    if (speed) this.setSpeed(speed)
+    this.setNextRandomWalkDelay()
     return this
+  }
+  setNextRandomWalkDelay () {
+    this.randomWalkDelay = Math.randomInt(100, 200)
   }
   _randomWalk () {
     if (!this.randomWalk) return
     if (!this.walking) this.randomWalkDelay--
     if (this.randomWalkDelay <= 0) {
-      this.setTargetPosition(this.x + Math.randomInt(-25, 25), this.y + Math.randomInt(-25, 25))
-      this.setRandomWalk()
+      this.setTargetPosition(this.x + Math.randomInt(-this.randomWalkRange, this.randomWalkRange), this.y + Math.randomInt(-this.randomWalkRange, this.randomWalkRange))
+      this.setNextRandomWalkDelay()
     }
   }
   _collideWall () {
