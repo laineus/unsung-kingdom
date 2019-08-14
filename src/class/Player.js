@@ -16,5 +16,14 @@ export default class Player extends Character {
     this.scene.storage.state.y = this.y
     this.scene.storage.state.r = this.r
     if (this.walking) this.emit('walk')
+    this.collideWall()
+  }
+  collideWall () {
+    if (this.walking) {
+      const distance = Phaser.Math.Distance.Between(this.x, this.y, this.lastX, this.lastY)
+      if (distance > 0 && distance < 0.15) this.unsetFollowing()
+    }
+    this.lastX = this.x
+    this.lastY = this.y
   }
 }
