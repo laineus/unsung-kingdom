@@ -96,23 +96,6 @@ export default class GameScene extends Phaser.Scene {
         select.appendChild(option)
       })
       select.onchange = () => this.mapChange(select.value, (20).toPixelCenter, (20).toPixelCenter)
-      const addButton = (text, callback) => {
-        const save = document.createElement('button')
-        save.innerText = text
-        save.onclick = () => callback()
-        debugBox.appendChild(save)
-      }
-      addButton('save', () => {
-        this.storage.save()
-        alert('Saved')
-      })
-      addButton('load', () => {
-        location.reload()
-      })
-      addButton('delete', () => {
-        this.storage.delete()
-        alert('Save data deleted')
-      })
       const info = document.createElement('span')
       debugBox.appendChild(info)
       setInterval(() => {
