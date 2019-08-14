@@ -8,7 +8,7 @@ export const drystan = (scene, door, drystan) => {
   if (canStart) {
     door.destroy()
   } else {
-    door.setTapEvent.on('tap', async () => {
+    door.setTapEvent().on('tap', async () => {
       scene.talk([{ chara: 'ann', text: '留守みたい。' }])
     })
   }
@@ -95,7 +95,7 @@ export const drystan = (scene, door, drystan) => {
 export const rexBear = (scene, bear) => {
   const state2 = scene.storage.state.event.m1_4
   if (state2.solved) return bear.destroy()
-  flower.setTapEvent().on('tap', async () => {
+  bear.setTapEvent().on('tap', async () => {
     await scene.ui.sleep(300)
     await scene.ui.battle([generateBattler('torrent', 8)])
     bear.destroy()
