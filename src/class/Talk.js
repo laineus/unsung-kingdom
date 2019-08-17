@@ -8,8 +8,15 @@ export default class Talk extends Phaser.GameObjects.Container {
     this.callback = callback
     this.index = 0
     scene.add.existing(this)
-    this.events.map(v => v.chara).filter(c => typeof c !== 'string').forEach(c => {
+    const npc = this.events.map(v => v.chara).filter(c => typeof c !== 'string')
+    npc.forEach(c => {
       c.setR(c.angleTo(this.scene.gameScene.player))
+    })
+    const min = Math.min(...npc.map(c => c.x), this.scene.gameScene.player.x)
+    const max = Math.max(...npc.map(c => c.x), this.scene.gameScene.player.x)
+    const averageX = Math.round((min + max) / 2)
+    this.events.filter(v => {
+      v.position = this.getChara(v).x < averageX ? -1 : 1
     })
     this.scene.time.delayedCall(1, () => scene.scene.pause('Game'))
     this.tapArea = this.scene.add.rectangle(0, 0, config.WIDTH, config.HEIGHT).setOrigin(0, 0)
@@ -17,15 +24,22 @@ export default class Talk extends Phaser.GameObjects.Container {
     this.add(this.tapArea)
     this.next()
   }
+  getChara (event) {
+    return typeof event.chara === 'string' ? this.scene.gameScene.player : event.chara
+  }
   get current () {
     return this.events[this.index]
   }
-  get before () {
+  get prev () {
     if (!this.index) return null
     return this.events[this.index - 1]
   }
   get sameSpeakerAsBefore () {
-    return this.current && this.before && this.current.chara === this.before.chara
+    return this.current && this.prev && this.current.chara === this.prev.chara
+  }
+  get currentPosition () {
+    const pos = this.prev && this.current.position === this.prev.position ? -this.current.position : this.current.position
+    return pos === -1 ? 'left' : 'right'
   }
   next () {
     if (!this.current) return this.end()
@@ -33,13 +47,13 @@ export default class Talk extends Phaser.GameObjects.Container {
       this.bubble.setText(this.current.text)
     } else {
       this.deleteBubble()
-      const isPlayer = (typeof this.current.chara === 'string' && ['ann', 'francisca', 'jaquelyn'])
+      const isPlayer = (typeof this.current.chara === 'string')
       const chara = isPlayer ? this.scene.gameScene.player : this.current.chara
       const displayName = isPlayer ? this.current.chara : chara.displayName || 'No name'
       const camera = this.scene.gameScene.camera
       const x = chara.x - camera.scrollX
       const y = chara.y - camera.scrollY - 100
-      this.bubble = new SpeachBubble(this.scene, x, y, displayName, this.current.text)
+      this.bubble = new SpeachBubble(this.scene, x, y, displayName, this.current.text, this.currentPosition)
       this.bubble.setScale(0, 0).setPosition(x, y + 100).setAlpha(0)
       this.scene.add.tween({ targets: this.bubble, scaleX: 1, scaleY: 1, y, alpha: 1, duration: 120, ease: 'Power2' })
     }
