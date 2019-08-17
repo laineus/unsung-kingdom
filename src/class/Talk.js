@@ -38,8 +38,7 @@ export default class Talk extends Phaser.GameObjects.Container {
     return this.current && this.prev && this.current.chara === this.prev.chara
   }
   get currentPosition () {
-    const pos = this.prev && this.current.position === this.prev.position ? -this.current.position : this.current.position
-    return pos === -1 ? 'left' : 'right'
+    return this.prev && this.current.position === this.prev.position ? -this.current.position : this.current.position
   }
   next () {
     if (!this.current) return this.end()
@@ -51,7 +50,7 @@ export default class Talk extends Phaser.GameObjects.Container {
       const chara = isPlayer ? this.scene.gameScene.player : this.current.chara
       const displayName = isPlayer ? this.current.chara : chara.displayName || 'No name'
       const camera = this.scene.gameScene.camera
-      const x = chara.x - camera.scrollX
+      const x = chara.x - camera.scrollX + this.currentPosition * 30
       const y = chara.y - camera.scrollY - 100
       this.bubble = new SpeachBubble(this.scene, x, y, displayName, this.current.text, this.currentPosition)
       this.bubble.setScale(0, 0).setPosition(x, y + 100).setAlpha(0)
