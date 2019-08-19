@@ -53,8 +53,10 @@ export default class Talk extends Phaser.GameObjects.Container {
       const x = chara.x - camera.scrollX + this.currentPosition * 30
       const y = chara.y - camera.scrollY - 100
       this.bubble = new SpeachBubble(this.scene, x, y, displayName, this.current.text, this.currentPosition)
-      this.bubble.setScale(0, 0).setPosition(x, y + 100).setAlpha(0)
-      this.scene.add.tween({ targets: this.bubble, scaleX: 1, scaleY: 1, y, alpha: 1, duration: 120, ease: 'Power2' })
+      const resultX = this.bubble.x
+      const resultY = this.bubble.y
+      this.bubble.setScale(0, 0).setPosition(resultX, resultY + 100).setAlpha(0)
+      this.scene.add.tween({ targets: this.bubble, scaleX: 1, scaleY: 1, y: resultY, alpha: 1, duration: 120, ease: 'Power2' })
     }
     this.index++
   }

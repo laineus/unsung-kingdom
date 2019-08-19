@@ -5,8 +5,12 @@ const points = {
   left,
   right: left.map(point => [360 - point[0], point[1]])
 }
+const paddingX = 180
+const paddingY = 80
 export default class SpeachBubble extends Phaser.GameObjects.Container {
   constructor (scene, x, y, name, text, position = -1) {
+    x = Math.fix(x, paddingX, config.WIDTH - paddingX)
+    y = Math.fix(y, paddingY, config.HEIGHT - paddingY)
     super(scene, x, y)
     this.bg = scene.add.polygon(0, 0, points[position === -1 ? 'left' : 'right'], config.COLORS.black).setAlpha(0.7)
     this.bg.isStroked = true
