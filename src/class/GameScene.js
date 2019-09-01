@@ -17,7 +17,7 @@ export default class GameScene extends Phaser.Scene {
     this.player.on('walk', () => {
       if (!this.event.enemyGroups) return
       this.encountDelay--
-      if (this.encountDelay <= (this.stronger ? 200 : 80)) this.ui.setEncounter(true)
+      if (this.encountDelay <= (this.stronger ? 200 : 80)) this.ui.setEncounter(true, this.stronger)
       if (this.encountDelay <= 0) this.encounter(!this.stronger)
     })
     // map

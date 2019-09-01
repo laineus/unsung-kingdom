@@ -17,6 +17,7 @@ export default class UIScene extends Phaser.Scene {
     this.input.keyboard.on('keydown_S', this.snapShot.bind(this))
     this.menuButton = this.getMenuButton((70).byRight, (35).byBottom)
     this.add.existing(this.menuButton)
+    this.loadEncounter()
   }
   update (time, delta) {
     if (!this.gameScene) return
@@ -33,13 +34,25 @@ export default class UIScene extends Phaser.Scene {
   get inBattle () {
     return this.children.list.some(v => v instanceof Battle)
   }
-  setEncounter (bool) {
-    if (!this.encounter) {
-      this.encounter = this.add.sprite((70).byRight, 70, 'circle').setOrigin(0.5, 0.5).setScale(0.1, 0.1)
-      this.add.tween({ targets: this.encounter, duration: 320, ease: 'Power2', loop: -1, scaleX: 0.11, scaleY: 0.11 })
-      this.encounter.setInteractive().on('pointerdown', () => this.gameScene.encounter(true))
+  loadEncounter () {
+    // 1
+    this.encounter1 = this.add.container((70).byRight, 70).setSize(84, 85)
+    this.encounter1.add(this.add.sprite(0, 0, 'encounter1').setOrigin(0.5, 0.5).setScale(0.9, 0.9))
+    this.encounter1.add(this.add.sprite(0, 60, 'click').setOrigin(0.5, 0.5).setScale(1, 1))
+    this.add.tween({ targets: this.encounter1.list[0], duration: 400, ease: 'Power2', loop: -1, scaleX: 1.1, scaleY: 1.1 })
+    this.add.tween({ targets: this.encounter1.list[1], duration: 400, loop: -1, yoyo: true, y: 65 })
+    this.encounter1.setInteractive().on('pointerdown', () => this.gameScene.encounter(true))
+    // 2
+    this.encounter2 = this.add.sprite((70).byRight, 70, 'encounter2').setOrigin(0.5, 0.5).setScale(0.9, 0.9)
+    this.add.tween({ targets: this.encounter2, duration: 400, ease: 'Power2', loop: -1, scaleX: 1.1, scaleY: 1.1 })
+  }
+  setEncounter (bool, stronger) {
+    if (bool) {
+      this[stronger ? 'encounter1' : 'encounter2'].visible = bool
+    } else {
+      this.encounter1.visible = false
+      this.encounter2.visible = false
     }
-    this.encounter.visible = bool
   }
   menu () {
     return new Promise(resolve => new Menu(this, resolve))
