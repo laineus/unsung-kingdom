@@ -8,6 +8,7 @@ import Battle from './Battle'
 import BattleResult from './BattleResult'
 import Menu from './Menu'
 import { slideIn, slideOut, fadeIn, fadeOut } from '../util/animations'
+import BattlerSummary from './BattlerSummary'
 export default class UIScene extends Phaser.Scene {
   constructor () {
     super({ key: 'UI', active: false })
@@ -18,6 +19,10 @@ export default class UIScene extends Phaser.Scene {
     this.menuButton = this.getMenuButton((70).byRight, (35).byBottom)
     this.add.existing(this.menuButton)
     this.loadEncounter()
+    storage.state.battlers.map((battler, i) => {
+      const s = new BattlerSummary(this, 120 + (i * 140), (42).byBottom, battler)
+      this.add.existing(s)
+    })
   }
   update (time, delta) {
     if (!this.gameScene) return

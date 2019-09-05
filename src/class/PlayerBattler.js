@@ -2,7 +2,7 @@ import Battler from './Battler'
 import Gauge from './Gauge'
 import Box from './Box'
 import config from '../data/config'
-import weapons from '../data/weapons';
+import weapons from '../data/weapons'
 export default class PlayerBattler extends Battler {
   constructor (scene, status) {
     super(scene, status)
