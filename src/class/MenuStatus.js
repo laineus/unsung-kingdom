@@ -24,7 +24,7 @@ export default class MenuStatus extends Phaser.GameObjects.Container {
     this.setCharacter(players[0])
   }
   get availableWeapons () {
-    const usingWeaponIds = storage.state.battlers.filter(v => v.weapon).map(v => v.weapon.id)
+    const usingWeaponIds = storage.state.battlers.map(v => v.weapon).filter(id => id)
     return storage.state.weapons.filter(v => !usingWeaponIds.includes(v.id))
   }
   get weaponGroup () {
@@ -74,7 +74,7 @@ export default class MenuStatus extends Phaser.GameObjects.Container {
   }
   setWeapon (weaponId) {
     const found = this.availableWeapons.find(v => v.weapon_id === weaponId)
-    this.chara.battler.weapon = found || null
+    this.chara.battler.weapon = found ? found.id : null
     this.currentWeapon.setSource(this.chara.battler.weapon)
     this.setWeaponList(false)
   }
@@ -119,8 +119,12 @@ export default class MenuStatus extends Phaser.GameObjects.Container {
     container.add([box, sprite, text])
     return container
   }
-  getCurrentWeapon (source, x, y) {
-    const getData = source => source ? weapons.find(v => v.id === source.weapon_id) : null
+  idToWeaponData (id) {
+    if (!id) return null
+    const src = storage.state.weapons.find(v => v.id === id)
+    return weapons.find(v => v.id === src.weapon_id)
+  }
+  getCurrentWeapon (id, x, y) {
     const container = this.scene.add.container(x, y).setSize(360, 45)
     const box = new Box(this.scene, 0, 0, 360, 40).setOrigin(0.5, 0.5)
     const text = this.scene.add.text(-165, 0, null, { fontSize: 15, fontStyle: 'bold', fontFamily: config.FONT }).setOrigin(0, 0.5)
@@ -130,12 +134,12 @@ export default class MenuStatus extends Phaser.GameObjects.Container {
     const line3 = this.scene.add.line(-242, 121, 0, 0, 80, 0, config.COLORS.white).setOrigin(1, 0).setLineWidth(0.5).setAlpha(0.5)
     const circle = this.scene.add.circle(-322, 123, 2, config.COLORS.white).setOrigin(0.5, 0.5)
     container.setInteractive().on('pointerdown', () => this.setWeapon(null))
-    container.setSource = source => {
-      const data = getData(source)
+    container.setSource = id => {
+      const data = this.idToWeaponData(id)
       text.text = data ? data.name : '-'
       status.text = data ? this.getStatusText(data) : null
     }
-    container.setSource(source)
+    container.setSource(id)
     container.add([box, text, status, line1, line2, line3, circle])
     return container
   }
