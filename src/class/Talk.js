@@ -8,14 +8,14 @@ export default class Talk extends Phaser.GameObjects.Container {
     this.callback = callback
     this.index = 0
     scene.add.existing(this)
-    const npc = this.events.map(v => v.chara).filter(c => typeof c !== 'string')
+    const npc = this.events.filter(v => v && typeof v.chara !== 'string').map(v => v.chara)
     npc.forEach(c => {
       c.setR(c.angleTo(this.scene.gameScene.player))
     })
     const min = Math.min(...npc.map(c => c.x), this.scene.gameScene.player.x)
     const max = Math.max(...npc.map(c => c.x), this.scene.gameScene.player.x)
     const averageX = Math.round((min + max) / 2)
-    this.events.filter(v => {
+    this.events.filter(v => v).forEach(v => {
       v.position = this.getChara(v).x < averageX ? -1 : 1
     })
     this.scene.time.delayedCall(1, () => scene.scene.pause('Game'))
