@@ -20,7 +20,7 @@ export default class UIScene extends Phaser.Scene {
     this.add.existing(this.menuButton)
     this.loadEncounter()
     storage.state.battlers.map((battler, i) => {
-      const s = new BattlerSummary(this, 120 + (i * 140), (42).byBottom, battler)
+      const s = new BattlerSummary(this, 100 + (i * 140), (34).byBottom, battler)
       this.add.existing(s)
     })
   }
