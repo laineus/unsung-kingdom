@@ -3,6 +3,7 @@ import Gauge from './Gauge'
 import Box from './Box'
 import config from '../data/config'
 import weapons from '../data/weapons'
+import storage from '../data/storage'
 export default class PlayerBattler extends Battler {
   constructor (scene, status) {
     super(scene, status)
@@ -56,7 +57,8 @@ export default class PlayerBattler extends Battler {
     this.hpValueLabel.setText(this.hp)
   }
   setWeapon () {
-    this.weapon = this.source.weapon ? weapons.find(v => v.id === this.source.weapon.weapon_id) : null
+    const src = storage.state.weapons.find(v => v.id === this.source.weapon)
+    this.weapon = src ? weapons.find(v => v.id === src.weapon_id) : null
     if (!this.weapon) return
     ['atk', 'def', 'dex', 'agi'].filter(key => this.weapon[key]).forEach(key => {
       this[key] += this.weapon[key]
