@@ -6,9 +6,8 @@ export default {
   },
   enemyLevel: 4,
   enemyGroups: [
-    ['slime', 'slime'],
+    ['wolf'],
     ['bee2', 'bee2'],
-    ['bee', 'bee', 'bee'],
     ['mandrake', 'mandrake'],
     ['mandrake', 'mandrake', 'mandrake']
   ],
