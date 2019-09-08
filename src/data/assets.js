@@ -20,7 +20,6 @@ export default {
     // Object
     ['flower', '../img/flower.png'],
     // Enemy
-    ['battler/torrent', '../img/battler/torrent.png'],
     ['battler/bee', '../img/battler/bee.png'],
     ['battler/bee2', '../img/battler/bee2.png'],
     ['battler/slime', '../img/battler/slime.png'],

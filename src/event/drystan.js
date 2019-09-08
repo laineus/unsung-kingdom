@@ -97,7 +97,7 @@ export const rexBear = (scene, bear) => {
   if (state2.solved) return bear.destroy()
   bear.setTapEvent().on('tap', async () => {
     await scene.ui.sleep(300)
-    await scene.ui.battle([generateBattler('torrent', 8)])
+    await scene.ui.battle([generateBattler('bear', 8)])
     bear.destroy()
     state2.solved = true
   })
