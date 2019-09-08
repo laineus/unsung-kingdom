@@ -34,11 +34,13 @@ export const mercenary1 = (scene, leader, member) => {
         [
           { chara, text: 'この先で俺達の仲間を見かけたら、この場所を伝えてやってくれないか？' },
           { chara, text: 'ここまで逃げてくる途中ではぐれちまったんだよ。' },
-          { chara, text: 'おかげでこうして森から撤退できずにいるんだ。' }
+          { chara, text: 'おかげでこうして森から撤退できずにいるんだ。' },
+          null
         ]
       ]
       const t = await scene.talk(!state.talked ? messages[0].concat(messages[1]) : messages[1])
       const i = await scene.select(['はい', 'いいえ'])
+      t.destroy()
       state.talked = true
       scene.talk([{ chara, text: i === 0 ? '助かる。礼ははずませてもらうぞ。' : 'そうか。' }])
       if (i === 0) state.started = true

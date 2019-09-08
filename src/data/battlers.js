@@ -16,14 +16,14 @@ export default [
   },
   {
     key: 'bee', name: 'ビーストビー', lv: 1,
-    hp: 24, atk: 4, def: 1, dex: 3, agi: 4,
-    up: { hp: 100, atk: 90, def: 50, dex: 70, agi: 70 },
+    hp: 16, atk: 4, def: 1, dex: 3, agi: 4,
+    up: { hp: 70, atk: 90, def: 50, dex: 70, agi: 80 },
     dropWeapon: { id: 4, chance: 3 },
   },
   {
     key: 'bee2', name: 'ビーストビー', lv: 1,
-    hp: 16, atk: 2, def: 1, dex: 3, agi: 5,
-    up: { hp: 80, atk: 60, def: 50, dex: 70, agi: 90 },
+    hp: 18, atk: 3, def: 1, dex: 4, agi: 5,
+    up: { hp: 80, atk: 80, def: 50, dex: 80, agi: 90 },
     dropWeapon: { id: 4, chance: 3 },
   },
   {
