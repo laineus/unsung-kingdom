@@ -8,7 +8,7 @@ import Battle from './Battle'
 import BattleResult from './BattleResult'
 import Menu from './Menu'
 import { slideIn, slideOut, fadeIn, fadeOut } from '../util/animations'
-import BattlerSummary from './BattlerSummary'
+import BattlerSummaryService from './BattlerSummaryService'
 export default class UIScene extends Phaser.Scene {
   constructor () {
     super({ key: 'UI', active: false })
@@ -19,13 +19,10 @@ export default class UIScene extends Phaser.Scene {
     this.menuButton = this.getMenuButton((70).byRight, (35).byBottom)
     this.add.existing(this.menuButton)
     this.loadEncounter()
-    this.summaries = storage.state.battlers.map((battler, i) => {
-      const s = new BattlerSummary(this, 100 + (i * 140), (34).byBottom, battler)
-      this.add.existing(s)
-      return s
-    })
+    this.battlerSummary = new BattlerSummaryService(this)
   }
   update (time, delta) {
+    this.battlerSummary.update()
     if (!this.gameScene) return
     if (!this.minimap) return
     const x = this.gameScene.player.x
@@ -33,9 +30,6 @@ export default class UIScene extends Phaser.Scene {
     const size = config.TILE_SIZE / this.minimap.size
     this.minimap.field.setPosition((this.minimap.width / 2) - (x / size), (this.minimap.height / 2) - (y / size))
     this.minimap.player.setRotation(this.gameScene.player.r)
-  }
-  afterBattle () {
-    this.summaries.forEach(s => s.reload())
   }
   get gameScene () {
     return this.scene.get('Game')
@@ -127,6 +121,7 @@ export default class UIScene extends Phaser.Scene {
       this.menu().then(() => {
         button.x = x
         slideIn(this, button, { x: 100, delay: 100 })
+        this.battlerSummary.show()
       })
     })
     return button

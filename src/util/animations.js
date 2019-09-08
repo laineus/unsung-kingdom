@@ -1,8 +1,9 @@
-export const slideIn = (scene, list, { x = -200, delay = 0 } = {}) => {
+export const slideIn = (scene, list, { x = -200, y = 0, delay = 0 } = {}) => {
   return new Promise(resolve => {
-    if (!Array.isArray(list)) list = [list]
-    list.forEach((v, i) => {
+    const listArray = Array.isArray(list) ? list : [list]
+    listArray.forEach((v, i) => {
       v.x += x
+      v.y += y
       v.alpha = 0
       scene.add.tween({
         targets: v,
@@ -10,30 +11,33 @@ export const slideIn = (scene, list, { x = -200, delay = 0 } = {}) => {
         ease: 'Power2',
         delay: (i * 30) + delay,
         x: v.x - x,
+        y: v.y - y,
         alpha: 1,
         onComplete() {
-          if (i === list.length - 1) resolve()
+          if (i === listArray.length - 1) resolve()
         }
       })
     })
   })
 }
 
-export const slideOut = (scene, list, { x = 200, destroy = true, delay = 0 } = {}) => {
+export const slideOut = (scene, list, { x = 200, y = 0, destroy = true, delay = 0 } = {}) => {
+  const listArray = Array.isArray(list) ? list : [list]
   return new Promise(resolve => {
-    if (!Array.isArray(list)) list = [list]
-    list.forEach((v, i) => {
+    listArray.forEach((v, i) => {
       scene.add.tween({
         targets: v,
         duration: 250,
         ease: 'Power2',
-        delay: ((list.length - 1 - i) * 30) + delay,
+        delay: ((listArray.length - 1 - i) * 30) + delay,
         x: v.x + x,
+        y: v.y + y,
         alpha: 0,
         onComplete() {
           v.x -= x
+          v.y -= y
           if (destroy) v.destroy()
-          if (i === list.length - 1) resolve()
+          if (i === listArray.length - 1) resolve()
         }
       })
     })
@@ -41,11 +45,11 @@ export const slideOut = (scene, list, { x = 200, destroy = true, delay = 0 } = {
 }
 
 export const fadeIn = (scene, list, { duration = 250, alpha = 1 } = {}) => {
+  const listArray = Array.isArray(list) ? list : [list]
   return new Promise(resolve => {
-    if (!Array.isArray(list)) list = [list]
-    list.forEach(v => v.alpha = 0)
+    listArray.forEach(v => v.alpha = 0)
     scene.add.tween({
-      targets: list,
+      targets: listArray,
       duration,
       ease: 'Power2',
       alpha,
@@ -57,15 +61,15 @@ export const fadeIn = (scene, list, { duration = 250, alpha = 1 } = {}) => {
 }
 
 export const fadeOut = (scene, list, { destroy = true, duration = 250 } = {}) => {
+  const listArray = Array.isArray(list) ? list : [list]
   return new Promise(resolve => {
-    if (!Array.isArray(list)) list = [list]
     scene.add.tween({
-      targets: list,
+      targets: listArray,
       duration,
       ease: 'Power2',
       alpha: 0,
       onComplete() {
-        if (destroy) list.forEach(v => v.destroy.bind(v))
+        if (destroy) listArray.forEach(v => v.destroy.bind(v))
         resolve()
       }
     })

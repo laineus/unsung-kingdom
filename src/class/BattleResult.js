@@ -6,7 +6,7 @@ import expTable from '../data/expTable'
 import { slideIn, slideOut } from '../util/animations'
 import weapons from '../data/weapons'
 import BattleQuestService from './BattleQuestService'
-export default class Battle extends Phaser.GameObjects.Container {
+export default class BattleResult extends Phaser.GameObjects.Container {
   constructor (scene, group, callback) {
     super(scene)
     scene.add.existing(this)
@@ -45,8 +45,10 @@ export default class Battle extends Phaser.GameObjects.Container {
       const promises = this.increaceExp()
       Promise.all(promises).then(() => {
         setTimeout(() => {
-          slideOut(this.scene, this, { x: -100 }).then(() => {
+          slideOut(this.scene, this, { x: -100, destroy: false }).then(() => {
+            this.scene.battlerSummary.show()
             this.callback()
+            this.destroy()
           })
         }, 1800)
       })
