@@ -39,6 +39,8 @@ export default class GameScene extends Phaser.Scene {
     this.encounter(false)
     // auto save
     if (payload.save) setTimeout(() => this.storage.save(0), 1)
+    // UI callback
+    this.ui.onMapChanged()
     // debug
     this.setDebugAction()
   }

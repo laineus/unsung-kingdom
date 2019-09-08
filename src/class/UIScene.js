@@ -7,7 +7,7 @@ import downloadImageBySource from '../util/downloadImageBySource'
 import Battle from './Battle'
 import BattleResult from './BattleResult'
 import Menu from './Menu'
-import { slideIn, slideOut, fadeIn, fadeOut } from '../util/animations'
+import { slideIn, slideOut } from '../util/animations'
 import BattlerSummaryService from './BattlerSummaryService'
 export default class UIScene extends Phaser.Scene {
   constructor () {
@@ -30,6 +30,9 @@ export default class UIScene extends Phaser.Scene {
     const size = config.TILE_SIZE / this.minimap.size
     this.minimap.field.setPosition((this.minimap.width / 2) - (x / size), (this.minimap.height / 2) - (y / size))
     this.minimap.player.setRotation(this.gameScene.player.r)
+  }
+  onMapChanged () {
+    this.battlerSummary.show()
   }
   get gameScene () {
     return this.scene.get('Game')
