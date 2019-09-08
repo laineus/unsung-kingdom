@@ -7,9 +7,10 @@ export default {
   enemyLevel: 4,
   enemyGroups: [
     ['slime', 'slime'],
-    ['bee', 'bee'],
-    ['bee', 'bee2', 'bee', 'bee2'],
-    ['mandrake', 'mandrake']
+    ['bee2', 'bee2'],
+    ['bee', 'bee', 'bee'],
+    ['mandrake', 'mandrake'],
+    ['mandrake', 'mandrake', 'mandrake']
   ],
   create (scene) {
     dogEventFound(scene, scene.map.getObjectById(4), 'd4')

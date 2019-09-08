@@ -5,9 +5,8 @@ export default {
   },
   enemyLevel: 1,
   enemyGroups: [
-    ['slime', 'slime'],
-    ['bee'],
-    ['bee', 'bee']
+    ['slime'],
+    ['bee']
   ],
   create (scene) {
   }
