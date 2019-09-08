@@ -17,6 +17,7 @@ export default class Battle extends Phaser.GameObjects.Container {
     super(scene)
     this.group = group
     this.scene = scene
+    this.boss = boss
     this.callback = callback
     scene.add.existing(this)
     scene.scene.pause('Game')
@@ -179,10 +180,23 @@ export default class Battle extends Phaser.GameObjects.Container {
   get victory () {
     return this.enemies.list.length === 0
   }
+  destroyUI () {
+    this.enemies.destroy()
+    this.players.destroy()
+    this.buttons.destroy()
+    this.ablButtons.forEach(v => v.destroy())
+  }
   end (result) {
     if (result) {
-      this.scene.battleResult(this.group)
-      this.destroy()
+      this.destroyUI()
+      if (this.boss) {
+        this.scene.battleResult(this.group).then(() => {
+          this.destroy()
+        })
+      } else {
+        this.scene.battleResult(this.group)
+        this.destroy()
+      }
     } else {
       const blood = this.scene.add.rectangle(0, 0, config.WIDTH, config.HEIGHT, 0xFF0000).setOrigin(0, 0)
       const gameover = this.lvLabel = this.scene.add.text(config.WIDTH.half, config.HEIGHT.half - 10, 'GAME OVER', { align: 'center', fill: config.COLORS.white.toColorString, fontSize: 24, fontFamily: config.FONT }).setOrigin(0.5, 0.5)
