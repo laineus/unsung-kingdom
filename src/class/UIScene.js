@@ -19,9 +19,10 @@ export default class UIScene extends Phaser.Scene {
     this.menuButton = this.getMenuButton((70).byRight, (35).byBottom)
     this.add.existing(this.menuButton)
     this.loadEncounter()
-    storage.state.battlers.map((battler, i) => {
+    this.summaries = storage.state.battlers.map((battler, i) => {
       const s = new BattlerSummary(this, 100 + (i * 140), (34).byBottom, battler)
       this.add.existing(s)
+      return s
     })
   }
   update (time, delta) {
@@ -32,6 +33,9 @@ export default class UIScene extends Phaser.Scene {
     const size = config.TILE_SIZE / this.minimap.size
     this.minimap.field.setPosition((this.minimap.width / 2) - (x / size), (this.minimap.height / 2) - (y / size))
     this.minimap.player.setRotation(this.gameScene.player.r)
+  }
+  afterBattle () {
+    this.summaries.forEach(s => s.reload())
   }
   get gameScene () {
     return this.scene.get('Game')

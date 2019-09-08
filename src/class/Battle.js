@@ -182,6 +182,7 @@ export default class Battle extends Phaser.GameObjects.Container {
   end (result) {
     if (result) {
       this.scene.battleResult(this.group)
+      this.scene.afterBattle()
       this.destroy()
     } else {
       const blood = this.scene.add.rectangle(0, 0, config.WIDTH, config.HEIGHT, 0xFF0000).setOrigin(0, 0)
