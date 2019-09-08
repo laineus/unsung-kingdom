@@ -22,8 +22,8 @@ export default [
   },
   {
     key: 'bee2', name: 'ビーストビー', lv: 1,
-    hp: 24, atk: 2, def: 1, dex: 3, agi: 6,
-    up: { hp: 100, atk: 60, def: 50, dex: 70, agi: 90 },
+    hp: 16, atk: 2, def: 1, dex: 3, agi: 5,
+    up: { hp: 80, atk: 60, def: 50, dex: 70, agi: 90 },
     dropWeapon: { id: 4, chance: 3 },
   },
   {
@@ -34,24 +34,24 @@ export default [
   },
   {
     key: 'mandrake', name: 'マンドレイク', lv: 1,
-    hp: 24, atk: 3, def: 4, dex: 4, agi: 2,
-    up: { hp: 100, atk: 70, def: 90, dex: 80, agi: 60 },
+    hp: 21, atk: 3, def: 4, dex: 4, agi: 2,
+    up: { hp: 90, atk: 70, def: 90, dex: 80, agi: 60 },
     dropWeapon: { id: 2, chance: 5 },
   },
   {
     key: 'wolf', name: 'ヴォルフェス', lv: 1,
-    hp: 28, atk: 3, def: 2, dex: 2, agi: 5,
-    up: { hp: 100, atk: 80, def: 60, dex: 60, agi: 100 },
+    hp: 28, atk: 3, def: 2, dex: 4, agi: 5,
+    up: { hp: 100, atk: 80, def: 60, dex: 80, agi: 100 },
     dropWeapon: { id: 3, chance: 4 },
   },
   {
     key: 'flower', name: 'サニズマスク', lv: 1,
-    hp: 60, atk: 4, def: 4, dex: 2, agi: 2,
+    hp: 80, atk: 4, def: 4, dex: 2, agi: 2,
     up: { hp: 100, atk: 90, def: 90, dex: 70, agi: 70 }
   },
   {
     key: 'bear', name: 'レックスベア', lv: 1,
-    hp: 100, atk: 4, def: 4, dex: 2, agi: 2,
-    up: { hp: 100, atk: 90, def: 90, dex: 70, agi: 70 }
+    hp: 200, atk: 4, def: 4, dex: 2, agi: 2,
+    up: { hp: 100, atk: 95, def: 95, dex: 70, agi: 70 }
   }
 ]
