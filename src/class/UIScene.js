@@ -21,6 +21,13 @@ export default class UIScene extends Phaser.Scene {
     this.loadEncounter()
     this.battlerSummary = new BattlerSummaryService(this)
     if (payload.open) this.open()
+    // TOOD: map name
+    // this.window = this.add.sprite(0, 0, 'dark').setOrigin(0, 0)
+    // this.overlay = this.add.rectangle(0, 0, config.WIDTH, config.HEIGHT, 0x000000).setOrigin(0, 0).setAlpha(0.2)
+    // this.add.text(15, -8, 'ワルコフォレンスの森', { align: 'center', fontSize: 16, fontStyle: 'bold', fontFamily: config.FONT }).setOrigin(0.5, 0.5).setPosition(config.WIDTH.half, config.HEIGHT.half)
+    // setTimeout(() => {
+    //   this.gameScene.blur(true)
+    // }, 100)
   }
   update (time, delta) {
     this.battlerSummary.update()
