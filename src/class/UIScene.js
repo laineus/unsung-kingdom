@@ -13,13 +13,14 @@ export default class UIScene extends Phaser.Scene {
   constructor () {
     super({ key: 'UI', active: false })
   }
-  create () {
+  create (payload = {}) {
     this.storage = storage
     this.input.keyboard.on('keydown_S', this.snapShot.bind(this))
     this.menuButton = this.getMenuButton((70).byRight, (35).byBottom)
     this.add.existing(this.menuButton)
     this.loadEncounter()
     this.battlerSummary = new BattlerSummaryService(this)
+    if (payload.open) this.open()
   }
   update (time, delta) {
     this.battlerSummary.update()
@@ -51,6 +52,7 @@ export default class UIScene extends Phaser.Scene {
     // 2
     this.encounter2 = this.add.sprite((70).byRight, 70, 'encounter2').setOrigin(0.5, 0.5).setScale(0.9, 0.9)
     this.add.tween({ targets: this.encounter2, duration: 400, ease: 'Power2', loop: -1, scaleX: 1.1, scaleY: 1.1 })
+    this.setEncounter(false)
   }
   setEncounter (bool, stronger) {
     if (bool) {
@@ -87,28 +89,46 @@ export default class UIScene extends Phaser.Scene {
   transition () {
     this.scene.pause('Game')
     return new Promise(resolve => {
-      const left = this.add.rectangle(0, -config.HEIGHT_HALF, config.WIDTH, config.HEIGHT_HALF, 0x111111).setOrigin(0, 0)
+      const top = this.add.rectangle(0, -config.HEIGHT.half, config.WIDTH, config.HEIGHT.half, 0x111111).setOrigin(0, 0)
       this.add.tween({
-        targets: left,
+        targets: top,
         duration: 150,
         hold: 100,
         y: 0,
         yoyo: true
       })
-      const right = this.add.rectangle(0, config.HEIGHT, config.WIDTH, config.HEIGHT_HALF, 0x111111).setOrigin(0, 0)
+      const bottom = this.add.rectangle(0, config.HEIGHT, config.WIDTH, config.HEIGHT.half, 0x111111).setOrigin(0, 0)
       this.add.tween({
-        targets: right,
+        targets: bottom,
         duration: 150,
         hold: 100,
-        y: config.HEIGHT_HALF,
+        y: config.HEIGHT.half,
         yoyo: true,
         onYoyo: resolve,
         onComplete: () => {
           this.scene.resume('Game')
-          left.destroy()
-          right.destroy()
+          top.destroy()
+          bottom.destroy()
         }
       })
+    })
+  }
+  open () {
+    const top = this.add.rectangle(0, 0, config.WIDTH, config.HEIGHT.half, 0x111111).setOrigin(0, 0)
+    this.add.tween({
+      targets: top,
+      duration: 150,
+      y: -config.HEIGHT.half
+    })
+    const bottom = this.add.rectangle(0, config.HEIGHT.half, config.WIDTH, config.HEIGHT.half, 0x111111).setOrigin(0, 0)
+    this.add.tween({
+      targets: bottom,
+      duration: 150,
+      y: config.HEIGHT,
+      onComplete: () => {
+        top.destroy()
+        bottom.destroy()
+      }
     })
   }
   getMenuButton (x, y) {

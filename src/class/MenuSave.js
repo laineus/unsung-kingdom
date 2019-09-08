@@ -75,6 +75,7 @@ export default class MenuSave extends Phaser.GameObjects.Container {
       const load = new Button(this.scene, buttonWidth.half + buttonWidth + 10, 331, 'Load', buttonWidth, 40).on('click', () => {
         this.scene.storage.load(data.number)
         this.scene.gameScene.mapChange(data.state.map, data.state.x, data.state.y).then(() => {
+          this.scene.scene.start('UI', { open: true })
           this.emit('close')
         })
       })
