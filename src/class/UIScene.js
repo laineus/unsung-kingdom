@@ -79,6 +79,7 @@ export default class UIScene extends Phaser.Scene {
     return new Promise(resolve => new Select(this, options, resolve))
   }
   battle (group, option) {
+    this.gameScene.setEncountDelay()
     return new Promise(resolve => new Battle(this, group, option, resolve))
   }
   battleResult (group) {

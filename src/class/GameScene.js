@@ -36,7 +36,7 @@ export default class GameScene extends Phaser.Scene {
     this.input.on('pointermove', walk)
     this.event = maps[payload.map]
     if (this.event && this.event.create) this.event.create(this)
-    this.encounter(false)
+    this.setEncountDelay()
     // auto save
     if (payload.save) setTimeout(() => this.storage.save(0), 1)
     // UI callback
@@ -69,13 +69,13 @@ export default class GameScene extends Phaser.Scene {
     return Math.round(storage.state.battlers.reduce((p, c) => p + c.lv, 0) / 3) > this.event.enemyLevel
   }
   encounter (bool) {
-    this.ui.setEncounter(false)
     this.setEncountDelay()
     if (!bool) return
     this.player.stopWalk()
     this.ui.battle(this.event.enemyGroups.random().map(key => generateBattler(key, this.event.enemyLevel)))
   }
   setEncountDelay () {
+    this.ui.setEncounter(false)
     this.encountDelay = Math.randomInt(300, 500) + (this.stronger ? 100 : 0)
   }
   setDebugAction () {
