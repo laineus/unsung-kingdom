@@ -128,11 +128,8 @@ export default class Battle extends Phaser.GameObjects.Container {
     this.ablButtons.push(button)
   }
   setAbilityButtons () {
-    if (this.ablButtons) {
-      this.ablButtons.forEach(v => v.destroy())
-    } else {
-      this.ablButtons = []
-    }
+    if (this.ablButtons) this.ablButtons.forEach(v => v.destroy())
+    this.ablButtons = []
     if (!this.playerTurn) return
     const ability = this.currentBattler.weapon ? abilities[this.currentBattler.weapon.ability] : null
     if (!ability) return
