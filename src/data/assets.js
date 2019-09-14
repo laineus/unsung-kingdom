@@ -2,7 +2,6 @@ export default {
   image: [
     // UI
     ['dark', '../img/dark.png'],
-    ['circle', '../img/circle.png'],
     ['arrow', '../img/arrow.png'],
     ['damage', '../img/damage.png'],
     ['encounter1', '../img/encounter1.png'],

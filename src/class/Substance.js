@@ -10,7 +10,7 @@ export default class Substance extends Phaser.GameObjects.Container {
     this.image.setPosition(0, -this.image.height.half)
     this.setSize(width || this.image.width, height || this.image.height)
     if (key) {
-      this.shadow = scene.add.circle(4, 0, 8, config.COLORS.black, 0.3).setScale(1, 0.5)
+      this.shadow = scene.add.circle(0, 0, 8, config.COLORS.black, 0.3).setScale(1, 0.5)
       this.add(this.shadow)
     }
     this.add(this.image)
