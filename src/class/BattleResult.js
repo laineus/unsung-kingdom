@@ -1,11 +1,11 @@
 import config from '../data/config'
 import Box from './Box'
 import ExpGauge from './ExpGauge'
+import BattleQuestService from './BattleQuestService'
 import storage from '../data/storage'
 import expTable from '../data/expTable'
 import { slideIn, slideOut } from '../util/animations'
-import weapons from '../data/weapons'
-import BattleQuestService from './BattleQuestService'
+import increaseWeapon from '../util/increaseWeapon'
 export default class BattleResult extends Phaser.GameObjects.Container {
   constructor (scene, group, callback) {
     super(scene)
@@ -114,16 +114,11 @@ export default class BattleResult extends Phaser.GameObjects.Container {
     storage.state.battlers.filter(v => v.hp > 0).forEach(v => levelUp(v))
   }
   dropWeapons () {
-    const items = this.group.map(enemy => {
+    return this.group.map(enemy => {
       if (!enemy.dropWeapon) return false
       if (!Math.chance(enemy.dropWeapon.chance)) return false
-      return weapons.find(v => v.id === enemy.dropWeapon.id)
+      return increaseWeapon(enemy.dropWeapon.id)
     }).filter(v => v)
-    items.forEach(v => {
-      const id = storage.state.weapons.reduce((prev, current) => Math.max(prev, current.id), 0) + 1
-      storage.state.weapons.push({ id, weapon_id: v.id })
-    })
-    return items
   }
   getRow (x, y, text) {
     return this.scene.add.text(x, y, text, { fill: config.COLORS.white.toColorString, fontSize: 12, fontFamily: config.FONT })
