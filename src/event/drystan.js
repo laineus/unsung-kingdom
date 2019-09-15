@@ -30,13 +30,13 @@ export const drystan = (scene, door, drystan) => {
         { chara, text: `まずはマンドレイクの根が${MANDRAKE_COUNT}つだ。` },
         { chara: 'ann', text: 'はい、他には？' },
         { chara, text: 'まずはそれを持ってきなさい。他の材料はその後だ。' },
-        { chara: 'ann', text: 'さあ、あまり時間はないぞ。' },
+        { chara, text: 'さあ、あまり時間はないぞ。' },
       ])
       state1.started = true
     } else if(!state1.completed && !hasMandrake) {
       scene.talk([
         { chara, text: `マンドレイクの根を${MANDRAKE_COUNT}つだぞ。` },
-        { chara: 'ann', text: '早いところ持ってきなさい。' }
+        { chara, text: '早いところ持ってきなさい。' }
       ])
     } else if(!state1.completed && hasMandrake) {
       scene.talk([
