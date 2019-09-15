@@ -121,6 +121,6 @@ export default class BattleResult extends Phaser.GameObjects.Container {
     }).filter(v => v)
   }
   getRow (x, y, text) {
-    return this.scene.add.text(x, y, text, { fill: config.COLORS.white.toColorString, fontSize: 12, fontFamily: config.FONT })
+    return this.scene.add.text(x, y, text, { fill: config.COLORS.theme.toColorString, fontSize: 12, fontFamily: config.FONT })
   }
 }
