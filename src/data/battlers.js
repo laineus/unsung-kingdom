@@ -46,12 +46,12 @@ export default [
   },
   {
     key: 'flower', name: 'サニズマスク', lv: 1,
-    hp: 80, atk: 4, def: 4, dex: 2, agi: 2,
+    hp: 35, atk: 4, def: 4, dex: 2, agi: 2,
     up: { hp: 100, atk: 90, def: 90, dex: 70, agi: 70 }
   },
   {
     key: 'bear', name: 'レックスベア', lv: 1,
-    hp: 200, atk: 4, def: 4, dex: 2, agi: 2,
-    up: { hp: 100, atk: 95, def: 95, dex: 70, agi: 70 }
+    hp: 40, atk: 4, def: 4, dex: 2, agi: 2,
+    up: { hp: 100, atk: 100, def: 85, dex: 75, agi: 75 }
   }
 ]

@@ -51,6 +51,7 @@ export const drystan = (scene, door, drystan) => {
         { chara, text: 'そうだ。' },
         { chara, text: '多くの生命力を吸ったヤツの血があれば、王を治す薬など容易い。' },
         { chara, text: 'だが剣に付着した程度の量では足りぬぞ。仕留めて、瓶一杯に持ってこい。' },
+        { chara: 'ann', text: 'レックスベアを倒す必要があるんですね。' },
         { chara: 'ann', text: 'わかりました。持ってきます。' }
       ])
       state1.completed = true
@@ -97,7 +98,7 @@ export const rexBear = (scene, bear) => {
   if (state2.solved) return bear.destroy()
   bear.setTapEvent().on('tap', async () => {
     await scene.ui.sleep(300)
-    await scene.ui.battle([generateBattler('bear', 8)])
+    await scene.ui.battle([generateBattler('bear', 15, { hp: 300 })], { boss: true })
     bear.destroy()
     state2.solved = true
   })
