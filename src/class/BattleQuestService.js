@@ -20,6 +20,6 @@ export default class BattleQuestService {
     const result = this.collection('mandrake', 66)
     if (!result) return
     event.m1_3.count += result
-    return `マンドレイクの根を${result}個獲得！（${event.m1_3.count}/${MANDRAKE_COUNT}`
+    return `マンドレイクの根を${result}個獲得！（${event.m1_3.count}/${MANDRAKE_COUNT}）`
   }
 }
