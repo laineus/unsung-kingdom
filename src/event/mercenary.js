@@ -1,4 +1,5 @@
 import generateBattler from '../util/generateBattler'
+import increaseWeapon from '../util/increaseWeapon'
 export const mercenary1 = (scene, leader, member) => {
   const state = scene.storage.state.event.m1_2
   if (!state.solved) member.visible = false
@@ -9,7 +10,14 @@ export const mercenary1 = (scene, leader, member) => {
     if (state.completed) {
       scene.talk([{ chara, text: 'レックスベアは諦めて撤退することにするよ。' }])
     } else if (state.solved) {
-      scene.talk([{ chara, text: '仲間を助けてくれて助かった。これはお礼だ。' }])
+      scene.talk([
+        { chara, text: 'おお、あんた！' },
+        { chara, text: '仲間から話は聞いたぞ。' },
+        { chara, text: '花のモンスターに飲み込まれていたなんて、' },
+        { chara, text: 'どうりで見つからなかったわけだ。' },
+        { chara, text: '彼を助けてくれてありがとう。これはお礼だ。' }
+      ])
+      increaseWeapon(3)
       state.completed = true
     } else if (state.started) {
       scene.talk([{ chara, text: 'きっとそんなに遠くには行っていないはずだ。頼んだぜ。' }])
