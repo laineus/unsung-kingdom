@@ -26,6 +26,6 @@ export default class SpeachBubble extends Phaser.GameObjects.Container {
     scene.add.existing(this)
   }
   setText(text) {
-    this.text.text = lineBreak(text, 24)
+    this.text.text = lineBreak(text, 28)
   }
 }
