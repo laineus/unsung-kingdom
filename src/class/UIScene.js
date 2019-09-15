@@ -148,9 +148,15 @@ export default class UIScene extends Phaser.Scene {
     button.add(this.add.rectangle(-35, -1, 25, 3, config.COLORS.theme).setRotation(Math.PI / -2))
     button.setInteractive().on('pointerdown', () => {
       if (button.x !== x || this.inBattle) return
+      slideOut(this, this.encounter1, { destroy: false, x: 100 })
+      slideOut(this, this.encounter2, { destroy: false, x: 100 })
       slideOut(this, button, { destroy: false, x: 100 })
       this.menu().then(() => {
         button.x = x
+        this.encounter1.x = (70).byRight
+        this.encounter2.x = (70).byRight
+        slideIn(this, this.encounter1, { x: 100, delay: 100 })
+        slideIn(this, this.encounter2, { x: 100, delay: 100 })
         slideIn(this, button, { x: 100, delay: 100 })
         this.battlerSummary.show()
       })
