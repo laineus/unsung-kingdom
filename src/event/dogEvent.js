@@ -1,3 +1,5 @@
+import increaseWeapon from "../util/increaseWeapon"
+
 export const dogEventHunter = (scene, hunter) => {
   const state = scene.storage.state.event.m1_1
   hunter.setDisplayName('狩猟家マシュー').setTapEvent().on('tap', async chara => {
@@ -39,8 +41,12 @@ export const dogEventHunter = (scene, hunter) => {
       const count = keys.filter(key => state[key] === 0).length
       if (count === 0) {
         scene.talk([
-          { chara, text: 'ありがとう！これで全員だ。' }
+          { chara, text: 'ありがとう！これで全員だ。' },
+          { chara, text: '正直全員無事で戻ってこられるとは思ってなかったよ。' },
+          { chara, text: 'なんとお礼を言ったらいいか。' },
+          { chara, text: 'せめてものお礼にこれを受け取ってくれ。' }
         ])
+        increaseWeapon(6)
         state.completed = true
       } else if (found) {
         scene.talk([
@@ -59,7 +65,7 @@ export const dogEventHunter = (scene, hunter) => {
 
 export const dogEventFound = (scene, dog, key) => {
   const state = scene.storage.state.event.m1_1
-  if (state[key] === 1) {
+  if (state[key] >= 1) {
     dog.destroy()
   } else {
     dog.setDisplayName('ワンさん').setTapEvent().on('tap', async wansan => {
