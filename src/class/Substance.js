@@ -8,9 +8,11 @@ export default class Substance extends Phaser.GameObjects.Container {
     this.key = key
     this.image = key ? scene.add.sprite(0, 0, key) : scene.add.rectangle(0, 0, config.TILE_SIZE, config.TILE_SIZE)
     this.image.setPosition(0, -this.image.height.half)
-    this.setSize(width || this.image.width, height || this.image.height)
+    const w = width || this.image.width
+    const h = height || this.image.height
+    this.setSize(w, h)
     if (key) {
-      this.shadow = scene.add.circle(0, 0, 8, config.COLORS.black, 0.3).setScale(1, 0.5)
+      this.shadow = scene.add.circle(0, h / -18, (w + h) / 8, config.COLORS.black, 0.3).setScale(1, 0.5)
       this.add(this.shadow)
     }
     this.add(this.image)
