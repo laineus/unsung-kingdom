@@ -5,6 +5,6 @@ export default {
     x: 550, y: 150
   },
   create (scene) {
-    rexBear(scene, scene.map.getObjectById(3))
+    rexBear(scene, scene.map.getObjectById(4), scene.map.getObjectById(3))
   }
 }
