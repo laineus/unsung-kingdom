@@ -1,3 +1,4 @@
+import Area from './Area'
 import Gate from './Gate'
 import Character from './Character'
 import Substance from './Substance'
@@ -16,13 +17,16 @@ export default class GameMap {
     this.staticLayers.forEach(layer => layer.setCollision(collides))
     scene.physics.add.collider(this.staticLayers, scene.substances)
     this.gates = this._getObjects(tilemap, 'gate').map(this._toAreaData).map(gate => new Gate(scene, gate.key, gate.x, gate.y, gate.zone_x, gate.zone_y, gate.zone_width, gate.zone_height).setId(gate.id))
+    this.areas = this._getObjects(tilemap, 'area').map(this._toAreaData).map(area => new Area(scene, area.zone_x, area.zone_y, area.zone_width, area.zone_height).setId(area.id))
     this.charas = this._getObjects(tilemap, 'chara').map(data => new Character(scene, data.x, data.y, data.name).setId(data.id))
     this.objects = this._getObjects(tilemap, 'object').map(data => new Substance(scene, data.x, data.y, data.name).setId(data.id))
     this.scene.ui.renderMiniMap(this.tilemap)
     return this
   }
   getObjectById (id) {
-    return this.charas.find(v => v.id === id) || this.gates.find(v => v.id === id) || this.objects.find(v => v.id === id)
+    return ['charas', 'gates', 'areas', 'objects'].reduce((found, key) => {
+      return found || this[key].find(v => v.id === id)
+    }, null)
   }
   isCollides (tileX, tileY) {
     return this.staticLayers.some(layer => {
@@ -57,8 +61,8 @@ export default class GameMap {
     return {
       id: v.id,
       key: v.name,
-      x: v.properties.find(v => v.name === 'x').value,
-      y: v.properties.find(v => v.name === 'y').value,
+      x: v.properties && v.properties.find(v => v.name === 'x').value,
+      y: v.properties && v.properties.find(v => v.name === 'y').value,
       zone_x: v.x,
       zone_y: v.y,
       zone_width: v.width,
