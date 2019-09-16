@@ -65,7 +65,7 @@ export const drystan = (scene, door, drystan) => {
         { chara: 'ann', text: '持ってきました。レックスベアの血液です。' },
         { chara, text: 'ふむ。確かにレックスベアを倒したようだな。' },
         { chara, text: 'よし、薬をやろう。これだ。' },
-        { chara: 'ann', text: 'え、この血液が調薬に必要なのでは？' },
+        { chara: 'ann', text: 'え、薬を作るためにこの血液が必要なのでは？' },
         { chara, text: 'そんなものはいらん。薬に血など混ぜるか。' },
         { chara: 'ann', text: 'ではどうしてレックスベアの血液を？' },
         { chara, text: 'ヤツが邪魔だったからに決まっているだろう。' },
