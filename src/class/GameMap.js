@@ -15,7 +15,7 @@ export default class GameMap {
     }).filter(v => v)
     this.staticLayers.forEach(layer => layer.setCollision(collides))
     scene.physics.add.collider(this.staticLayers, scene.substances)
-    this.gates = this._getGateObjects(tilemap).map(gate => new Gate(scene, gate.key, gate.x, gate.y, gate.zone_x, gate.zone_y, gate.zone_width, gate.zone_height).setId(gate.id))
+    this.gates = this._getObjects(tilemap, 'gate').map(this._toAreaData).map(gate => new Gate(scene, gate.key, gate.x, gate.y, gate.zone_x, gate.zone_y, gate.zone_width, gate.zone_height).setId(gate.id))
     this.charas = this._getObjects(tilemap, 'chara').map(data => new Character(scene, data.x, data.y, data.name).setId(data.id))
     this.objects = this._getObjects(tilemap, 'object').map(data => new Substance(scene, data.x, data.y, data.name).setId(data.id))
     this.scene.ui.renderMiniMap(this.tilemap)
@@ -53,18 +53,16 @@ export default class GameMap {
   _getObjects (tilemap, type) {
     return tilemap.objects.map(v => v.objects).flat().filter(v => v.type === type)
   }
-  _getGateObjects (tilemap) {
-    return this._getObjects(tilemap, 'gate').map(v => {
-      return {
-        id: v.id,
-        key: v.name,
-        x: v.properties.find(v => v.name === 'x').value,
-        y: v.properties.find(v => v.name === 'y').value,
-        zone_x: v.x,
-        zone_y: v.y,
-        zone_width: v.width,
-        zone_height: v.height
-      }
-    })
+  _toAreaData (v) {
+    return {
+      id: v.id,
+      key: v.name,
+      x: v.properties.find(v => v.name === 'x').value,
+      y: v.properties.find(v => v.name === 'y').value,
+      zone_x: v.x,
+      zone_y: v.y,
+      zone_width: v.width,
+      zone_height: v.height
+    }
   }
 }
