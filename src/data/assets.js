@@ -11,6 +11,7 @@ export default {
     ['room', '../img/room.png'],
     ['town', '../img/town.png'],
     ['forest', '../img/forest.png'],
+    ['tree_house', '../img/tree_house.png'],
     ['forest_all', '../img/forest_all.png'],
     // Character
     ['ann', '../img/ann.png'],
