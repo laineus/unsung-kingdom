@@ -9,6 +9,7 @@ export default class GameScene extends Phaser.Scene {
     super({ key: 'Game', active: false })
   }
   create (payload) {
+    this.frame = 0
     this.storage = storage
     // substance group
     this.substances = this.add.group()
@@ -45,6 +46,7 @@ export default class GameScene extends Phaser.Scene {
     this.setDebugAction()
   }
   update (time, delta) {
+    this.frame++
     if (this.event && this.event.update) this.event.update(this)
   }
   get ui () {
