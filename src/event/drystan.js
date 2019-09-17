@@ -95,14 +95,26 @@ export const drystan = (scene, door, drystan) => {
 }
 export const rexBear = (scene, area, bear) => {
   const state2 = scene.storage.state.event.m1_4
-  if (state2.solved) return bear.destroy()
-  area.setEvent(() => {
-    // TODO: bear event
-  })
-  bear.setTapEvent().on('tap', async () => {
-    await scene.ui.sleep(300)
+  if (!state2.started || state2.solved) {
+    area.destroy()
+    bear.destroy()
+    return
+  }
+  bear.visible = false
+  area.setEvent(async () => {
+    scene.setEventMode(true)
+    await scene.player.setTargetPosition(790, 500)
+    await scene.player.setR('up')
+    await scene.ui.sleep(500)
+    await scene.ui.transition('slow')
+    area.setEvent(null)
+    scene.player.stopWalk()
+    bear.visible = true
+    await scene.ui.sleep(1500)
     await scene.ui.battle([generateBattler('bear', 15, { hp: 300 })], { boss: true })
+    area.destroy()
     bear.destroy()
     state2.solved = true
+    scene.setEventMode(false)
   })
 }
