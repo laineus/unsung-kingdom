@@ -34,6 +34,10 @@ export default class Character extends Substance {
     this.unsetFollowing()
     this._targetPositionX = x
     this._targetPositionY = y
+    if (this._targetPositionResolve) this._targetPositionResolve()
+    return new Promise(resolve => {
+      this._targetPositionResolve = resolve
+    })
   }
   unsetFollowing () {
     this.target = null
@@ -99,7 +103,13 @@ export default class Character extends Substance {
     this.body.setVelocity(x, y)
     const speed = Math.min(this.speed, (this.diffToFollowingDistance * 10))
     this.body.velocity.normalize().scale(speed)
-    if (this.diffToFollowingDistance < 5) this.unsetFollowing()
+    if (this.diffToFollowingDistance < 5) {
+      if (this._targetPositionResolve) {
+        this._targetPositionResolve()
+        this._targetPositionResolve = null
+      }
+      this.unsetFollowing()
+    }
   }
   _updateAnimation () {
     if (!this.walking) {
