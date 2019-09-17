@@ -108,7 +108,7 @@ export default class Character extends Substance {
         this._targetPositionResolve()
         this._targetPositionResolve = null
       }
-      this.unsetFollowing()
+      this.stopWalk()
     }
   }
   _updateAnimation () {
@@ -143,6 +143,7 @@ export default class Character extends Substance {
   }
   setR (value) {
     this.r = typeof value === 'string' ? angleData[value].r : value
+    this._updateAnimation()
     return this
   }
   setRandomWalk (bool, { speed, range = 50 } = {}) {
