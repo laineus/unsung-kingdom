@@ -94,22 +94,24 @@ export default class UIScene extends Phaser.Scene {
       }, time)
     })
   }
-  transition () {
+  transition (speed) {
+    const duration = speed === 'slow' ? 300 : 150
+    const hold = speed === 'slow' ? 200 : 100
     this.scene.pause('Game')
     return new Promise(resolve => {
       const top = this.add.rectangle(0, -config.HEIGHT.half, config.WIDTH, config.HEIGHT.half, 0x111111).setOrigin(0, 0)
       this.add.tween({
         targets: top,
-        duration: 150,
-        hold: 100,
+        duration,
+        hold,
         y: 0,
         yoyo: true
       })
       const bottom = this.add.rectangle(0, config.HEIGHT, config.WIDTH, config.HEIGHT.half, 0x111111).setOrigin(0, 0)
       this.add.tween({
         targets: bottom,
-        duration: 150,
-        hold: 100,
+        duration,
+        hold,
         y: config.HEIGHT.half,
         yoyo: true,
         onYoyo: resolve,
