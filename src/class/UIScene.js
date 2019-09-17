@@ -170,7 +170,6 @@ export default class UIScene extends Phaser.Scene {
     this.game.renderer.snapshot(img => downloadImageBySource(img.src, filename))
   }
   renderMiniMap (tilemap) {
-    return
     const SIZE = 4
     const WIDTH = 120
     const HEIGHT = 120
