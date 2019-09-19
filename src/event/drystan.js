@@ -101,8 +101,18 @@ export const rexBear = (scene, area, bear) => {
     return
   }
   bear.visible = false
+  if (!state2.area) {
+    scene.talk([
+      { chara: 'ann', text: 'このエリア、モンスターが全然いない…？' },
+      { chara: 'francisca', text: '怪しいね。注意して調べよう。' }
+    ])
+    state2.area = true
+  }
   area.setEvent(async () => {
     scene.setEventMode(true)
+    await scene.talk([
+      { chara: 'jaquelyn', text: 'あっちから何か聞こえない？' }
+    ])
     await scene.player.setTargetPosition(790, 500)
     await scene.player.setR('up')
     await scene.ui.sleep(500)
@@ -110,8 +120,22 @@ export const rexBear = (scene, area, bear) => {
     area.setEvent(null)
     scene.player.stopWalk()
     bear.visible = true
-    await scene.ui.sleep(1500)
+    await scene.ui.sleep(500)
+    await scene.talk([
+      { chara: 'ann', text: '！' }
+    ])
+    await scene.ui.sleep(500)
     await scene.ui.battle([generateBattler('bear', 15, { hp: 300 })], { boss: true })
+    await scene.ui.sleep(500)
+    await scene.talk([
+      { chara: 'francisca', text: 'なんとか倒したね。' }
+    ])
+    await scene.ui.sleep(500)
+    await scene.ui.transition('slow')
+    await scene.ui.sleep(500)
+    await scene.talk([
+      { chara: 'ann', text: 'よし、血液も回収したし、賢人のところに戻りましょう。' }
+    ])
     area.destroy()
     bear.destroy()
     state2.solved = true
