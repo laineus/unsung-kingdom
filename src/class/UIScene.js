@@ -1,13 +1,14 @@
 import moment from 'moment'
-import Talk from './Talk'
 import config from '../data/config'
 import storage from '../data/storage'
-import Select from './Select'
+import { slideIn, slideOut } from '../util/animations'
 import downloadImageBySource from '../util/downloadImageBySource'
+import Talk from './Talk'
+import Select from './Select'
 import Battle from './Battle'
 import BattleResult from './BattleResult'
 import Menu from './Menu'
-import { slideIn, slideOut } from '../util/animations'
+import Box from './Box'
 import BattlerSummaryService from './BattlerSummaryService'
 export default class UIScene extends Phaser.Scene {
   constructor () {
@@ -68,6 +69,15 @@ export default class UIScene extends Phaser.Scene {
       this.encounter1.visible = false
       this.encounter2.visible = false
     }
+  }
+  async announce (text) {
+    const announcement = this.add.container(20, 50)
+    const tx = this.add.text(15, -1, text, { align: 'left', fontSize: 13, fontFamily: config.FONT }).setPadding(0, 2, 0, 0).setOrigin(0, 0.5)
+    const bg = new Box(this, 0, 0, tx.width + 35, 27).setOrigin(0, 0.5)
+    announcement.add([bg, tx])
+    await slideIn(this, announcement)
+    await slideOut(this, announcement, { x: -200, delay: 2000 })
+    return announcement
   }
   menu () {
     return new Promise(resolve => new Menu(this, resolve))
