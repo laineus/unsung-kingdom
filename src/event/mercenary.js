@@ -10,14 +10,15 @@ export const mercenary1 = (scene, leader, member) => {
     if (state.completed) {
       scene.talk([{ chara, text: 'レックスベアは諦めて撤退することにするよ。' }])
     } else if (state.solved) {
-      scene.talk([
+      await scene.talk([
         { chara, text: 'おお、あんた！' },
         { chara, text: '仲間から話は聞いたぞ。' },
         { chara, text: '花のモンスターに飲み込まれていたなんて、' },
         { chara, text: 'どうりで見つからなかったわけだ。' },
         { chara, text: '彼を助けてくれてありがとう。これはお礼だ。' }
       ])
-      increaseWeapon(3)
+      const weapon = increaseWeapon(3)
+      scene.ui.announce(`${weapon.name}を手に入れた`)
       state.completed = true
     } else if (state.started) {
       scene.talk([{ chara, text: 'きっとそんなに遠くには行っていないはずだ。頼んだぜ。' }])
