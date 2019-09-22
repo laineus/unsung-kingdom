@@ -46,7 +46,8 @@ export const dogEventHunter = (scene, hunter) => {
           { chara, text: 'なんとお礼を言ったらいいか。' },
           { chara, text: 'せめてものお礼にこれを受け取ってくれ。' }
         ])
-        increaseWeapon(6)
+        const weapon = increaseWeapon(6)
+        scene.ui.announce(`${weapon.name}を手に入れた`)
         state.completed = true
       } else if (found) {
         scene.talk([
