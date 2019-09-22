@@ -78,13 +78,17 @@ export default class BattleResult extends Phaser.GameObjects.Container {
     if (chara.hp <= 0) container.list.forEach(v => v.setAlpha(0.4))
     return container
   }
+  expAdjustment (targetLv, ownLv) {
+    if (targetLv > ownLv) return 1
+    if (targetLv === ownLv) return 0.75
+    return Math.max(6 - (ownLv - targetLv), 1) * 0.1
+  }
   increaceExp () {
     const alives = storage.state.battlers.filter(v => v.hp > 0)
-    const ownAvgLv = alives.reduce((before, current) => (before + current.lv), 0) / alives.length
+    const ownAvgLv = Math.round(alives.reduce((before, current) => (before + current.lv), 0) / alives.length)
     const sumExp = this.group.reduce((before, current) => {
-      const lvAdjust = current.lv >= ownAvgLv ? 1 : (Math.max(6 - (ownAvgLv - current.lv), 1) * 0.1)
-      const base = before + current.lv * 3
-      return Math.round(base * lvAdjust)
+      const result = Math.round(current.lv * 3 * this.expAdjustment(current.lv, ownAvgLv))
+      return before + result
     }, 0)
     const eachExp = sumExp / alives.length
     const promises = this.charas.filter(v => v.source.hp > 0).map(v => {
