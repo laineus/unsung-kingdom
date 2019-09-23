@@ -61,7 +61,7 @@ export const drystan = (scene, door, drystan) => {
         { chara, text: 'レックスベアだぞ。確実に仕留めて、瓶一杯に持ってこい。' }
       ])
     } else {
-      scene.talk([
+      await scene.talk([
         { chara: 'ann', text: '持ってきました。レックスベアの血液です。' },
         { chara, text: 'ふむ。確かにレックスベアを倒したようだな。' },
         { chara, text: 'よし、薬をやろう。これだ。' },
@@ -75,9 +75,9 @@ export const drystan = (scene, door, drystan) => {
         { chara, text: '国王の命も大事だろうだろうが、自分の命だって大事だ。' },
         { chara, text: '薬をやると言っているんだから文句はないだろう。' },
         { chara: 'ann', text: '…そうですか。' },
-        { chara, text: '薬、ありがとうございます。' },
+        { chara: 'ann', text: '薬、ありがとうございます。' },
         { chara, text: '自分で飲むなり王家に売りつけるなり好きにしろ。' },
-        { chara, text: 'いえ、これは王室の遣いが戻ったときに渡してください。' },
+        { chara: 'ann', text: 'いえ、これは王室の遣いが戻ったときに渡してください。' },
         { chara, text: '…ふむ。' },
         { chara, text: 'わかった。何を目当てにしているかは知らんが、言うとおりにしよう。' },
         { chara: 'ann', text: 'ところで、王はどうして突然病気になったのですか？' },
@@ -90,6 +90,8 @@ export const drystan = (scene, door, drystan) => {
         { chara, text: 'さあ、薬は確かに渡しておくから、さっさと帰ってくれ。' }
       ])
       state2.completed = true
+      await scene.ui.transition('slow')
+      drystan.destroy()
     }
   })
 }
@@ -126,6 +128,8 @@ export const rexBear = (scene, area, bear) => {
     ])
     await scene.ui.sleep(500)
     await scene.ui.battle([generateBattler('bear', 15, { hp: 300 })], { boss: true })
+    area.destroy()
+    bear.destroy()
     await scene.ui.sleep(500)
     await scene.talk([
       { chara: 'francisca', text: 'なんとか倒したね。' }
@@ -136,8 +140,6 @@ export const rexBear = (scene, area, bear) => {
     await scene.talk([
       { chara: 'ann', text: 'よし、血液も回収したし、賢人のところに戻りましょう。' }
     ])
-    area.destroy()
-    bear.destroy()
     state2.solved = true
     scene.setEventMode(false)
   })
