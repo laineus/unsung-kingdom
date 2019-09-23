@@ -1,5 +1,6 @@
 export default {
   image: [
+    ['title', '../img/title.png'],
     // UI
     ['dark', '../img/dark.png'],
     ['arrow', '../img/arrow.png'],

@@ -1,5 +1,6 @@
 import 'phaser'
 import BootScene from './class/BootScene'
+import TitleScene from './class/TitleScene'
 import GameScene from './class/GameScene'
 import UIScene from './class/UIScene'
 import config from './data/config'
@@ -11,7 +12,7 @@ const option = {
   type: Phaser.AUTO,
   width: config.WIDTH,
   height: config.HEIGHT,
-  scene: [BootScene, GameScene, UIScene],
+  scene: [BootScene, TitleScene, GameScene, UIScene],
   parent: 'game',
   pixelArt: true,
   physics: {
