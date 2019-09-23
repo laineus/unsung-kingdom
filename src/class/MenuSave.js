@@ -73,11 +73,7 @@ export default class MenuSave extends Phaser.GameObjects.Container {
       const date = this.scene.add.text(100, 243, timeString, { fontSize: 12, fontFamily: config.FONT, fill: config.COLORS.gray.toColorString })
       container.add([detail, date])
       const load = new Button(this.scene, buttonWidth.half + buttonWidth + 10, 331, 'Load', buttonWidth, 40).on('click', () => {
-        this.scene.storage.load(data.number)
-        this.scene.gameScene.mapChange(data.state.map, data.state.x, data.state.y).then(() => {
-          this.scene.scene.start('UI', { open: true })
-          this.emit('close')
-        })
+        this.emit('loadData', data)
       })
       container.add(load)
     }
