@@ -10,9 +10,10 @@ export default class TitleScene extends Phaser.Scene {
     this.storage = storage
     this.add.sprite(0, 0, 'title').setOrigin(0, 0)
     this.list = [
-      { text: 'Load Data', callback: this.loadData }
+      { text: 'New Game', callback: this.newGame },
+      { text: 'Continue', callback: this.loadData }
     ].map((v, i) => {
-      const row = this.row(config.WIDTH.half, 60 + i * 40, v.text, v.callback)
+      const row = this.row(config.WIDTH.half, (100).byBottom + i * 40, v.text, v.callback)
       this.add.existing(row)
       return row
     })
@@ -27,17 +28,23 @@ export default class TitleScene extends Phaser.Scene {
   get ui () {
     return this.scene.get('UI')
   }
+  startGame (map, x, y) {
+    this.scene.start('UI')
+    this.ui.transition().then(() => {
+      this.scene.start('Game', { map, x, y })
+      this.scene.remove('Title')
+    })
+  }
+  newGame () {
+    this.startGame('room1', (20).toPixel, (18).toPixel)
+  }
   loadData () {
     this.list.forEach(v => v.setVisible(false))
     const save = new MenuSave(this)
     this.add.existing(save)
     save.on('loadData', data => {
       this.storage.load(data.number)
-      this.scene.start('UI')
-      this.ui.transition().then(() => {
-        this.scene.start('Game', { map: data.state.map, x: data.state.x, y: data.state.y })
-        this.scene.remove('Title')
-      })
+      this.startGame(data.state.map, data.state.x, data.state.y)
     })
   }
 }
