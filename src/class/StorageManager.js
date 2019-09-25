@@ -6,8 +6,7 @@ const SHIFT = 11
 export default class StorageManager {
   constructor () {
     this.lastNumber = null
-    const loadResult = this.load(1)
-    if (!loadResult) this.setState(defaultState())
+    this.setState(defaultState())
   }
   setState (state) {
     this.state = state
