@@ -3,6 +3,8 @@ export default {
     ['title', '../img/title.png'],
     // UI
     ['pin', '../img/pin.png'],
+    ['bubble_talk', '../img/bubble_talk.png'],
+    ['bubble_action', '../img/bubble_action.png'],
     ['dark', '../img/dark.png'],
     ['arrow', '../img/arrow.png'],
     ['damage', '../img/damage.png'],

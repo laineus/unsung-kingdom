@@ -1,5 +1,4 @@
 import config from '../data/config'
-import Baloon from './Balloon'
 export default class Substance extends Phaser.GameObjects.Container {
   constructor (scene, x, y, key = null, option = {}) {
     super(scene, x, y)
@@ -31,12 +30,16 @@ export default class Substance extends Phaser.GameObjects.Container {
     this.id = id
     return this
   }
+  getBalloon () {
+    return this.scene.add.sprite(0, 0, 'bubble_action')
+  }
   setTapEvent (balloon = true) {
     const distance = 150
     this.tapArea = this.scene.add.rectangle(0, -this.image.height, this.image.width + 20, this.image.height + 50).setInteractive()
     this.add(this.tapArea)
     if (balloon) {
-      this.balloon = new Baloon(this.scene).setPosition(0, -this.image.height.half - 50)
+      this.balloon = this.getBalloon().setPosition(0, -this.image.height.half - 32)
+      this.scene.add.tween({ targets: this.balloon, duration: 400, loop: -1, yoyo: true, y: this.balloon.y - 4 })
       this.add(this.balloon)
     }
     this.tapArea.on('pointerdown', (_pointer, _x, _y, e) => {
