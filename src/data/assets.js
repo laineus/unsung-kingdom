@@ -2,6 +2,7 @@ export default {
   image: [
     ['title', '../img/title.png'],
     // UI
+    ['pin', '../img/pin.png'],
     ['dark', '../img/dark.png'],
     ['arrow', '../img/arrow.png'],
     ['damage', '../img/damage.png'],
