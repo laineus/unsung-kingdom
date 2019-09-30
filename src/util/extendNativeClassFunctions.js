@@ -29,6 +29,9 @@ export default () => {
   Object.defineProperty(String.prototype, 'toColorInt', {
     get () { return parseInt(this.slice(1), 16) }
   })
+  Object.defineProperty(String.prototype, 'upperCase', {
+    get () { return this.replace(/^[a-z]/g, v => v.toUpperCase()) }
+  })
   // Math class methods
   Math.fix = (value, min, max) => Math.min(Math.max(value, min), max)
   Math.randomInt = (min, max) => Math.floor(Math.random() * (max + 1 - min)) + min
