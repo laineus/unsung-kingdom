@@ -3,6 +3,7 @@ import config from '../data/config'
 import MenuSave from './MenuSave'
 import Box from './Box'
 import Button from './Button'
+import { slideIn } from '../util/animations'
 export default class TitleScene extends Phaser.Scene {
   constructor () {
     super({ key: 'Title', active: false })
@@ -34,8 +35,11 @@ export default class TitleScene extends Phaser.Scene {
   }
   loadData () {
     this.list.forEach(v => v.setVisible(false))
+    const window = this.add.polygon(0, 0, [[0, 0], [(50).byRight, 0], [(150).byRight, (0).byBottom], [0, (0).byBottom]], config.COLORS.black, 0.7).setOrigin(0, 0)
+    this.add.existing(window)
     const save = new MenuSave(this)
     this.add.existing(save)
+    slideIn(this, [window, save], { x: -100 })
     save.on('loadData', data => {
       this.storage.load(data.number)
       this.startGame(data.state.map, data.state.x, data.state.y)
