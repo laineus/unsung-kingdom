@@ -14,7 +14,7 @@ export default class TitleScene extends Phaser.Scene {
       { text: 'New Game', callback: this.newGame },
       { text: 'Continue', callback: this.loadData }
     ].map((v, i) => {
-      const row = new Button(this, config.WIDTH.half, (100).byBottom + i * 40, v.text, 200, 30).on('click', v.callback)
+      const row = new Button(this, config.WIDTH.half, (100).byBottom + i * 40, v.text, 200, 30).on('click', v.callback.bind(this))
       this.add.existing(row)
       return row
     })
