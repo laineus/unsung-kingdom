@@ -2,6 +2,7 @@ import storage from '../data/storage'
 import config from '../data/config'
 import MenuSave from './MenuSave'
 import Box from './Box'
+import Button from './Button'
 export default class TitleScene extends Phaser.Scene {
   constructor () {
     super({ key: 'Title', active: false })
@@ -13,17 +14,10 @@ export default class TitleScene extends Phaser.Scene {
       { text: 'New Game', callback: this.newGame },
       { text: 'Continue', callback: this.loadData }
     ].map((v, i) => {
-      const row = this.row(config.WIDTH.half, (100).byBottom + i * 40, v.text, v.callback)
+      const row = new Button(this, config.WIDTH.half, (100).byBottom + i * 40, v.text, 200, 30).on('click', v.callback)
       this.add.existing(row)
       return row
     })
-  }
-  row (x, y, text, callback) {
-    const container = this.add.container(x, y).setSize(200, 30)
-    container.add(new Box(this, 0, 0, 200, 30))
-    container.add(this.add.text(0, 0, text, { fontSize: 16, fontStyle: 'bold', fontFamily: config.FONT }).setOrigin(0.5, 0.5))
-    container.setInteractive().on('pointerdown', callback.bind(this))
-    return container
   }
   get ui () {
     return this.scene.get('UI')
