@@ -3,6 +3,7 @@ import MenuMap from './MenuMap'
 import MenuStatus from './MenuStatus'
 import MenuSave from './MenuSave'
 import { slideIn, slideOut, fadeIn, fadeOut } from '../util/animations'
+import UICloseButton from './UICloseButton'
 const contents = [
   { class: MenuMap, name: 'MAP & QUEST', min: 'マップ・クエスト' },
   { class: MenuStatus, name: 'CHARACTER', min: 'キャラクター' },
@@ -20,7 +21,7 @@ export default class Menu extends Phaser.GameObjects.Container {
     this.add([this.bg, this.window])
     this.buttons = contents.map((content, i) => this.button(content, (15).byRight, i * 125 + 15))
     this.add(this.buttons)
-    this.close = this.getClose((70).byRight, (35).byBottom)
+    this.close = new UICloseButton(scene, (70).byRight, (35).byBottom).on('click', this.destroy.bind(this, true))
     this.add(this.close)
     this.scene.gameScene.blur(true)
     scene.scene.pause('Game')
@@ -63,15 +64,5 @@ export default class Menu extends Phaser.GameObjects.Container {
     })
     this.add(this.content)
     this.buttons.forEach(b => this.moveTo(b, this.length - 1))
-  }
-  getClose (x, y) {
-    const close = this.scene.add.container(x, y).setSize(120, 50)
-    close.add(this.scene.add.rectangle(0, 0, 120, 50, config.COLORS.black).setAlpha(0))
-    close.add(this.scene.add.text(15, -8, 'CLOSE', { align: 'center', fontSize: 21, fontStyle: 'bold', fontFamily: config.FONT }).setPadding(0, 2, 0, 0).setOrigin(0.5, 0.5))
-    close.add(this.scene.add.text(15, 11, '閉じる', { align: 'center', fontSize: 10, fontStyle: 'bold', fontFamily: config.FONT }).setPadding(0, 2, 0, 0).setOrigin(0.5, 0.5))
-    close.add(this.scene.add.rectangle(-35, 0, 30, 3, config.COLORS.theme).setRotation(Math.PI / 4))
-    close.add(this.scene.add.rectangle(-35, 0, 30, 3, config.COLORS.theme).setRotation(Math.PI / -4))
-    close.setInteractive().on('pointerdown', this.destroy.bind(this, true))
-    return close
   }
 }

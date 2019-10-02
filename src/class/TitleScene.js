@@ -4,6 +4,7 @@ import MenuSave from './MenuSave'
 import Box from './Box'
 import Button from './Button'
 import { slideIn } from '../util/animations'
+import UICloseButton from './UICloseButton'
 export default class TitleScene extends Phaser.Scene {
   constructor () {
     super({ key: 'Title', active: false })
@@ -40,6 +41,9 @@ export default class TitleScene extends Phaser.Scene {
     const save = new MenuSave(this)
     this.add.existing(save)
     slideIn(this, [window, save], { x: -100 })
+    const close = new UICloseButton(this, (70).byRight, (35).byBottom).on('click', () => null)
+    this.add.existing(close)
+    slideIn(this, close, { x: 100 })
     save.on('loadData', data => {
       this.storage.load(data.number)
       this.startGame(data.state.map, data.state.x, data.state.y)
