@@ -1,9 +1,8 @@
 import storage from '../data/storage'
 import config from '../data/config'
 import MenuSave from './MenuSave'
-import Box from './Box'
 import Button from './Button'
-import { slideIn } from '../util/animations'
+import { slideIn, slideOut } from '../util/animations'
 import UICloseButton from './UICloseButton'
 export default class TitleScene extends Phaser.Scene {
   constructor () {
@@ -41,7 +40,11 @@ export default class TitleScene extends Phaser.Scene {
     const save = new MenuSave(this)
     this.add.existing(save)
     slideIn(this, [window, save], { x: -100 })
-    const close = new UICloseButton(this, (70).byRight, (35).byBottom).on('click', () => null)
+    const close = new UICloseButton(this, (70).byRight, (35).byBottom).on('click', () => {
+      slideOut(this, [close], { x: 100 })
+      slideOut(this, [save, window], { x: -100 })
+      this.list.forEach(v => v.setVisible(true))
+    })
     this.add.existing(close)
     slideIn(this, close, { x: 100 })
     save.on('loadData', data => {
