@@ -5,9 +5,10 @@ import Button from './Button'
 import chapters from '../data/chapters'
 import { slideIn } from '../util/animations'
 export default class MenuSave extends Phaser.GameObjects.Container {
-  constructor (scene) {
+  constructor (scene, readOnly = false) {
     super(scene)
     this.scene = scene
+    this.readOnly = readOnly
     const title = scene.add.text(20, 15, 'SAVE', { align: 'center', fill: config.COLORS.theme.toColorString, fontSize: 21, fontStyle: 'bold', fontFamily: config.FONT })
     const sub = scene.add.text(20, 41, 'セーブ', { align: 'center', fill: config.COLORS.gray.toColorString, fontSize: 10, fontStyle: 'bold', fontFamily: config.FONT })
     this.add([title, sub])
@@ -56,7 +57,7 @@ export default class MenuSave extends Phaser.GameObjects.Container {
     const tx = this.scene.add.text(0, 220, data.name, { fontSize: 20, fontStyle: 'bold', fontFamily: config.FONT })
     container.add(tx)
     const buttonWidth = 150
-    if (data.number > 0) {
+    if (data.number > 0 && !this.readOnly) {
       const save = new Button(this.scene, buttonWidth.half, 330, 'Save', buttonWidth, 40).on('click', () => {
         this.scene.storage.save(data.number)
         this.setItems()

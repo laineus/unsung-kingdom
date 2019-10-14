@@ -37,7 +37,7 @@ export default class TitleScene extends Phaser.Scene {
     this.list.forEach(v => v.setVisible(false))
     const window = this.add.polygon(0, 0, [[0, 0], [(50).byRight, 0], [(150).byRight, (0).byBottom], [0, (0).byBottom]], config.COLORS.black, 0.7).setOrigin(0, 0)
     this.add.existing(window)
-    const save = new MenuSave(this)
+    const save = new MenuSave(this, true)
     this.add.existing(save)
     slideIn(this, [window, save], { x: -100 })
     const close = new UICloseButton(this, (70).byRight, (35).byBottom).on('click', () => {
