@@ -9,8 +9,8 @@ export default class MenuSave extends Phaser.GameObjects.Container {
     super(scene)
     this.scene = scene
     this.readOnly = readOnly
-    const title = scene.add.text(20, 15, 'SAVE', { align: 'center', fill: config.COLORS.theme.toColorString, fontSize: 21, fontStyle: 'bold', fontFamily: config.FONT })
-    const sub = scene.add.text(20, 41, 'セーブ', { align: 'center', fill: config.COLORS.gray.toColorString, fontSize: 10, fontStyle: 'bold', fontFamily: config.FONT })
+    const title = scene.add.text(20, 15, readOnly ? 'LOAD' : 'SAVE', { align: 'center', fill: config.COLORS.theme.toColorString, fontSize: 21, fontStyle: 'bold', fontFamily: config.FONT })
+    const sub = scene.add.text(20, 41, readOnly ? 'ロード' : 'セーブ', { align: 'center', fill: config.COLORS.gray.toColorString, fontSize: 10, fontStyle: 'bold', fontFamily: config.FONT })
     this.add([title, sub])
     this.setItems()
     this.setContent(this.scene.storage.lastNumber || 0)
