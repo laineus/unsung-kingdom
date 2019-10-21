@@ -1,4 +1,4 @@
-import increaseWeapon from "../util/increaseWeapon"
+import increaseWeapon from '../util/increaseWeapon'
 
 export const dogEventHunter = (scene, hunter) => {
   const state = scene.storage.state.event.m1_1
