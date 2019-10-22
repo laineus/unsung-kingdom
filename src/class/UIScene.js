@@ -188,7 +188,7 @@ export default class UIScene extends Phaser.Scene {
       m1.add(this.add.text(0, 0 - 35, MESSAGES[0], { align: 'left', fill: config.COLORS.white.toColorString, fontSize: 18, fontFamily: config.FONT }).setOrigin(0.5, 0.5).setLineSpacing(15))
       m1.add(this.add.text(185, 0 + 55, MESSAGES[1], { align: 'right', fill: config.COLORS.white.toColorString, fontSize: 18, fontFamily: config.FONT }).setOrigin(0.5, 0.5).setLineSpacing(15))
       const m2 = this.add.text(config.WIDTH.half, config.HEIGHT.half - 5, `${MESSAGES[2]}\n\n${MESSAGES[3]}`, { align: 'left', fill: config.COLORS.white.toColorString, fontSize: 18, fontFamily: config.FONT }).setOrigin(0.5, 0.5).setLineSpacing(15)
-      new StoryTelling(this, [m1, m2]).on('beforeEnd', () => {
+      new StoryTelling(this, [m1, m2], true).on('beforeEnd', () => {
         resolve()
       })
     })
