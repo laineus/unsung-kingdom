@@ -25,17 +25,15 @@ export default class TitleScene extends Phaser.Scene {
     return this.scene.get('UI')
   }
   continueGame (map, x, y) {
-    this.ui.transition().then(() => {
-      this.scene.start('Game', { map, x, y })
-      this.scene.remove('Title')
-    })
+    this.ui.transition().then(this.runGame.bind(this, map, x, y))
   }
   newGame () {
-    this.ui.storyTelling().then(() => {
-      this.ui.showController(true)
-      this.scene.start('Game', { map: 'room1', x: (20).toPixel, y: (18).toPixel })
-      this.scene.remove('Title')
-    })
+    this.ui.storyTelling().then(this.runGame.bind(this, 'room1', (20).toPixel, (18).toPixel))
+  }
+  runGame (map, x, y) {
+    this.ui.showController(true)
+    this.scene.start('Game', { map, x, y })
+    this.scene.remove('Title')
   }
   loadData () {
     this.list.forEach(v => v.setVisible(false))
