@@ -2,7 +2,7 @@ import storage from '../data/storage'
 import config from '../data/config'
 import MenuSave from './MenuSave'
 import Button from './Button'
-import { slideIn, slideOut } from '../util/animations'
+import { slideIn, slideOut, fadeIn, fadeOut } from '../util/animations'
 import UICloseButton from './UICloseButton'
 export default class TitleScene extends Phaser.Scene {
   constructor () {
@@ -10,6 +10,32 @@ export default class TitleScene extends Phaser.Scene {
   }
   create () {
     this.storage = storage
+    this.ui.showController(false)
+    this.content()
+    this.logo()
+  }
+  get ui () {
+    return this.scene.get('UI')
+  }
+  async logo () {
+    const bg = this.add.rectangle(0, 0, config.WIDTH, config.HEIGHT, 0x111111).setOrigin(0, 0)
+    await this.delay(200)
+    const logo1 = this.add.sprite(config.WIDTH.half, config.HEIGHT.half, 'logo_laineus').setScale(0.66).setOrigin(0.5, 0.5)
+    await fadeIn(this, logo1)
+    await this.delay(800)
+    await fadeOut(this, logo1)
+    await this.delay(400)
+    const logo2 = this.add.sprite(config.WIDTH.half, config.HEIGHT.half, 'logo_mafu').setScale(0.66).setOrigin(0.5, 0.5)
+    await fadeIn(this, logo2)
+    await this.delay(800)
+    await fadeOut(this, logo2)
+    await this.delay(400)
+    await fadeOut(this, bg)
+  }
+  delay (time) {
+    return new Promise(resolve => setTimeout(resolve, time))
+  }
+  content () {
     this.add.sprite(0, 0, 'title').setOrigin(0, 0)
     this.title = this.add.text(config.WIDTH.half, config.HEIGHT.half -120, 'UNSUNG KINGDOM', { align: 'center', fontSize: 50, fontFamily: config.FONT, fill: 0xAAAAAA.toColorString }).setOrigin(0.5, 0.5)
     this.list = [
@@ -20,10 +46,6 @@ export default class TitleScene extends Phaser.Scene {
       this.add.existing(row)
       return row
     })
-    this.ui.showController(false)
-  }
-  get ui () {
-    return this.scene.get('UI')
   }
   continueGame (map, x, y) {
     this.ui.transition().then(this.runGame.bind(this, map, x, y))

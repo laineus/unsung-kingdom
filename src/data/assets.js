@@ -1,5 +1,7 @@
 export default {
   image: [
+    ['logo_laineus', '../img/logo_laineus.png'],
+    ['logo_mafu', '../img/logo_mafu.png'],
     ['title', '../img/title.png'],
     // UI
     ['pin', '../img/pin.png'],
