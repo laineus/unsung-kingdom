@@ -11,11 +11,12 @@ export default class TitleScene extends Phaser.Scene {
   create () {
     this.storage = storage
     this.add.sprite(0, 0, 'title').setOrigin(0, 0)
+    this.title = this.add.text(config.WIDTH.half, config.HEIGHT.half -120, 'UNSUNG KINGDOM', { align: 'center', fontSize: 50, fontFamily: config.FONT, fill: 0xAAAAAA.toColorString }).setOrigin(0.5, 0.5)
     this.list = [
       { text: 'New Game', callback: this.newGame },
       { text: 'Continue', callback: this.loadData }
     ].map((v, i) => {
-      const row = new Button(this, config.WIDTH.half, (100).byBottom + i * 40, v.text, 200, 30).on('click', v.callback.bind(this))
+      const row = new Button(this, config.WIDTH.half, (140).byBottom + i * 40, v.text, 200, 30).on('click', v.callback.bind(this))
       this.add.existing(row)
       return row
     })
