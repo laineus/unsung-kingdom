@@ -8,8 +8,8 @@ export default class BootScene extends Phaser.Scene {
   create () {
     registerAnims(this)
     registerShaders(this)
-    this.scene.start('Title')
     this.scene.start('UI')
+    this.scene.start('Title')
   }
   preload () {
     loadAssets(this)

@@ -50,6 +50,9 @@ export default class UIScene extends Phaser.Scene {
   onMapChanged () {
     this.battlerSummary.show()
   }
+  showController (bool) {
+    this.menuButton.visible = bool
+  }
   get gameScene () {
     return this.scene.get('Game')
   }

@@ -19,6 +19,7 @@ export default class TitleScene extends Phaser.Scene {
       this.add.existing(row)
       return row
     })
+    this.ui.showController(false)
   }
   get ui () {
     return this.scene.get('UI')
@@ -31,6 +32,7 @@ export default class TitleScene extends Phaser.Scene {
   }
   newGame () {
     this.ui.storyTelling().then(() => {
+      this.ui.showController(true)
       this.scene.start('Game', { map: 'room1', x: (20).toPixel, y: (18).toPixel })
       this.scene.remove('Title')
     })
