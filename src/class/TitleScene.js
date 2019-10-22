@@ -12,7 +12,7 @@ export default class TitleScene extends Phaser.Scene {
     this.storage = storage
     this.ui.showController(false)
     this.content()
-    this.logo()
+    // this.logo()
   }
   get ui () {
     return this.scene.get('UI')
