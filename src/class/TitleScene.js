@@ -23,15 +23,17 @@ export default class TitleScene extends Phaser.Scene {
   get ui () {
     return this.scene.get('UI')
   }
-  startGame (map, x, y) {
-    this.scene.start('UI')
+  continueGame (map, x, y) {
     this.ui.transition().then(() => {
       this.scene.start('Game', { map, x, y })
       this.scene.remove('Title')
     })
   }
   newGame () {
-    this.startGame('room1', (20).toPixel, (18).toPixel)
+    this.ui.storyTelling().then(() => {
+      this.scene.start('Game', { map: 'room1', x: (20).toPixel, y: (18).toPixel })
+      this.scene.remove('Title')
+    })
   }
   loadData () {
     this.list.forEach(v => v.setVisible(false))
@@ -49,7 +51,7 @@ export default class TitleScene extends Phaser.Scene {
     slideIn(this, close, { x: 100 })
     save.on('loadData', data => {
       this.storage.load(data.number)
-      this.startGame(data.state.map, data.state.x, data.state.y)
+      this.continueGame(data.state.map, data.state.x, data.state.y)
     })
   }
 }
