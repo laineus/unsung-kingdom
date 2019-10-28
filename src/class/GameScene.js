@@ -68,7 +68,7 @@ export default class GameScene extends Phaser.Scene {
     if (!bool) this.camera.clearRenderToTexture()
   }
   mapChange (mapKey, x, y, save = true) {
-    return this.ui.transition().then(() => {
+    return this.ui.transition(true).then(() => {
       this.scene.start('Game', { map: mapKey, x, y, save })
     })
   }
