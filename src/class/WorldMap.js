@@ -34,8 +34,9 @@ export default class WorldMap extends Phaser.GameObjects.Container {
     })
     this.button = new Button(this.scene, (105).byRight, (52).byBottom, 'OK', 140, 40).setVisible(false)
     this.button.on('click', () => {
-      this.scene.gameScene.mapChange(this.selected.key, this.selected.mapX.toPixelCenter, this.selected.mapY.toPixelCenter)
-      this.destroy()
+      this.scene.gameScene.mapChange(this.selected.key, this.selected.mapX.toPixelCenter, this.selected.mapY.toPixelCenter).then(() => {
+        this.destroy()
+      })
     })
     this.add(this.button)
   }
