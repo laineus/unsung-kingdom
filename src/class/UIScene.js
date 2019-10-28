@@ -8,6 +8,7 @@ import Select from './Select'
 import Battle from './Battle'
 import BattleResult from './BattleResult'
 import Menu from './Menu'
+import WorldMap from './WorldMap'
 import Box from './Box'
 import BattlerSummaryService from './BattlerSummaryService'
 import StoryTelling from './StoryTelling'
@@ -91,6 +92,9 @@ export default class UIScene extends Phaser.Scene {
   }
   menu () {
     return new Promise(resolve => new Menu(this, resolve))
+  }
+  worldMap () {
+    return new Promise(resolve => new WorldMap(this, resolve))
   }
   talk (talks) {
     return new Promise(resolve => new Talk(this, talks, resolve))

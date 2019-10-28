@@ -3,6 +3,7 @@ export default {
     ['logo_laineus', '../img/logo_laineus.png'],
     ['logo_mafu', '../img/logo_mafu.png'],
     ['title', '../img/title.png'],
+    ['world', '../img/world.png'],
     // UI
     ['pin', '../img/pin.png'],
     ['bubble_talk', '../img/bubble_talk.png'],
