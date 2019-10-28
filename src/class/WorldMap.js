@@ -2,9 +2,9 @@ import config from '../data/config'
 import Box from './Box'
 import Button from './Button'
 const AERA_LIST = [
-  { name: '王都', x: 960, y: 560, chapter: 0, key: 'forest1', mapX: 10, mapY: 10 },
+  { name: '王都', x: 960, y: 560, chapter: 0, key: 'forest1', mapX: 2, mapY: 20 },
   { name: '王城 - 中庭', x: 960, y: 360, chapter: 0, key: 'forest1', mapX: 10, mapY: 10 },
-  { name: 'ワルコフォレンスの森', x: 350, y: 220, chapter: 1, key: 'forest1', mapX: 10, mapY: 10 },
+  { name: 'ワルコフォレンスの森', x: 350, y: 220, chapter: 1, key: 'forest1', mapX: 45, mapY: 17 },
   { name: 'トロイア公爵邸の地下通路', x: 1184, y: 736, chapter: 2, key: 'forest1', mapX: 10, mapY: 10 },
   { name: '聖アンテルスの墓地', x: 960, y: 928, chapter: 3, key: 'forest1', mapX: 10, mapY: 10 },
   { name: 'グリファルデ神殿', x: 1728, y: 485, chapter: 4, key: 'forest1', mapX: 10, mapY: 10 }
@@ -18,11 +18,13 @@ export default class WorldMap extends Phaser.GameObjects.Container {
     super(scene)
     this.scene = scene
     this.callback = callback
+    this.scene.scene.pause('Game')
     this.scene.add.existing(this)
+    this.bg = scene.add.rectangle(0, 0, config.WIDTH, config.HEIGHT, config.COLORS.dark).setOrigin(0, 0)
     this.map = scene.add.sprite(0, 0, 'world').setScale(SCALE.DEFAULT).setOrigin(0, 0).setInteractive().on('pointerdown', () => {
       this.setArea(null)
     })
-    this.add(this.map)
+    this.add([this.bg, this.map])
     this.rows = AERA_LIST.filter(area => {
       return this.scene.storage.state.chapter >= area.chapter
     }).map((area, i, arr) => {
@@ -60,6 +62,7 @@ export default class WorldMap extends Phaser.GameObjects.Container {
     return container
   }
   destroy () {
+    this.scene.scene.resume('Game')
     this.callback()
     super.destroy()
   }
