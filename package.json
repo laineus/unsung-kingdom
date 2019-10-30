@@ -1,5 +1,5 @@
 {
-  "name": "unsung-lingdom",
+  "name": "unsung-kingdom",
   "version": "1.0.0",
   "main": "index.js",
   "author": "Laineus",
@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "moment": "^2.24.0",
-    "phaser": "^3.19.0"
+    "phaser": "^3.20.1"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
