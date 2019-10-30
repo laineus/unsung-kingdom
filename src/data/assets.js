@@ -5,7 +5,7 @@ export default {
     ['title', '../img/title.png'],
     ['world', '../img/world.png'],
     // UI
-    ['pin', '../img/pin.png'],
+    ['focus', '../img/focus.png'],
     ['bubble_talk', '../img/bubble_talk.png'],
     ['bubble_action', '../img/bubble_action.png'],
     ['dark', '../img/dark.png'],
