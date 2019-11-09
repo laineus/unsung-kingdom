@@ -10,11 +10,13 @@ export default class GameMap {
     this.width = tilemap.widthInPixels
     this.height = tilemap.heightInPixels
     const tilesets = this._getTilesets(tilemap)
-    const collides = this._getCollides(tilemap)
+    tilemap.layers.push(this._generateTopLayer(tilemap))
     this.staticLayers = tilemap.layers.map((layer, i) => {
       return layer.visible ? tilemap.createStaticLayer(i, tilesets, 0, 0) : null
     }).filter(v => v)
+    const collides = this._getTileIdsByType(tilemap, 'collides')
     this.staticLayers.forEach(layer => layer.setCollision(collides))
+    this.staticLayers[this.staticLayers.length - 1].setDepth(100000)
     scene.physics.add.collider(this.staticLayers, scene.substances)
     this.gates = this._getObjects(tilemap, 'gate').map(this._toAreaData).map(gate => new Gate(scene, gate.key, gate.x, gate.y, gate.zone_x, gate.zone_y, gate.zone_width, gate.zone_height).setId(gate.id))
     this.areas = this._getObjects(tilemap, 'area').map(this._toAreaData).map(area => new Area(scene, area.zone_x, area.zone_y, area.zone_width, area.zone_height).setId(area.id))
@@ -46,13 +48,25 @@ export default class GameMap {
     })
   }
   // private
+  _generateTopLayer (tilemap) {
+    const visibleLayers = tilemap.layers.filter(v => v.visible).reverse()
+    const topTileIds = this._getTileIdsByType(tilemap, 'top')
+    const top = new Phaser.Tilemaps.LayerData({ name: 'topLayer', width: tilemap.width, height: tilemap.height })
+    top.data = tilemap.height.toArray.map(y => {
+      return tilemap.width.toArray.map(x => {
+        const found = visibleLayers.find(v => topTileIds.includes(v.data[y][x].index))
+        return new Phaser.Tilemaps.Tile(top, (found ? found.data[y][x].index : -1), x, y, 32, 32, 32, 32)
+      })
+    })
+    return top
+  }
   _getTilesets (tilemap) {
     return tilemap.tilesets.map(tileset => tilemap.addTilesetImage(tileset.name))
   }
-  _getCollides (tilemap) {
+  _getTileIdsByType (tilemap, type) {
     return tilemap.tilesets.map(set => {
       const data = this.scene.cache.json.get(set.name)
-      return data.tiles.filter(tile => tile.type === 'collides').map(tile => tile.id + set.firstgid)
+      return data.tiles.filter(tile => tile.type === type).map(tile => tile.id + set.firstgid)
     }).flat()
   }
   _getObjects (tilemap, type) {
