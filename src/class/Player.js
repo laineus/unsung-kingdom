@@ -6,10 +6,10 @@ export default class Player extends Character {
     this.targetMarker = scene.add.sprite(0, 0, 'focus').setOrigin(0.5, 0.5).setScale(0).setAlpha(0)
     this.targetMarker.anim = this.scene.add.tween({
       targets: this.targetMarker,
-      duration: 800,
+      duration: 600,
       ease: 'Power2',
-      scale: 0.5,
-      alpha: 0.7,
+      scale: 0.4,
+      alpha: 0.5,
       loop: 100
     })
     this.targetMarker.blendMode = 1
