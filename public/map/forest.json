@@ -35,15 +35,15 @@
         }, 
         {
          "id":15,
-         "type":"collides"
+         "type":"top"
         }, 
         {
          "id":16,
-         "type":"collides"
+         "type":"top"
         }, 
         {
          "id":17,
-         "type":"collides"
+         "type":"top"
         }, 
         {
          "id":18,
@@ -151,7 +151,7 @@
         }, 
         {
          "id":49,
-         "type":"collides"
+         "type":"top"
         }, 
         {
          "id":50,
@@ -187,7 +187,7 @@
         }, 
         {
          "id":69,
-         "type":"collides"
+         "type":"top"
         }, 
         {
          "id":79,
@@ -195,19 +195,19 @@
         }, 
         {
          "id":98,
-         "type":"collides"
+         "type":"top"
         }, 
         {
          "id":99,
-         "type":"collides"
+         "type":"top"
         }, 
         {
          "id":108,
-         "type":"collides"
+         "type":"top"
         }, 
         {
          "id":109,
-         "type":"collides"
+         "type":"top"
         }, 
         {
          "id":118,
