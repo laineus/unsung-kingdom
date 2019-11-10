@@ -3,12 +3,12 @@ import Box from './Box'
 import Button from './Button'
 import { fadeIn, fadeOut, slideIn, slideOut } from '../util/animations'
 const AERA_LIST = [
-  { name: '王都', x: 960, y: 560, chapter: 0, key: 'town1', mapX: 2, mapY: 20 },
-  { name: '王城 - 中庭', x: 960, y: 360, chapter: 0, key: 'forest1', mapX: 10, mapY: 10 },
-  { name: 'ワルコフォレンスの森', x: 350, y: 220, chapter: 1, key: 'forest1', mapX: 45, mapY: 17 },
-  { name: 'トロイア公爵邸の地下通路', x: 1184, y: 736, chapter: 2, key: 'forest1', mapX: 10, mapY: 10 },
-  { name: '聖アンテルスの墓地', x: 960, y: 928, chapter: 3, key: 'forest1', mapX: 10, mapY: 10 },
-  { name: 'グリファルデ神殿', x: 1728, y: 485, chapter: 4, key: 'forest1', mapX: 10, mapY: 10 }
+  { name: '王都', x: 960, y: 560, key: 'town1', mapX: 2, mapY: 20 },
+  { name: '王城 - 中庭', x: 960, y: 360, key: 'forest1', mapX: 10, mapY: 10 },
+  { name: 'ワルコフォレンスの森', x: 350, y: 220, key: 'forest1', mapX: 45, mapY: 17 },
+  { name: 'トロイア公爵邸の地下通路', x: 1184, y: 736, key: 'forest1', mapX: 10, mapY: 10 },
+  { name: '聖アンテルスの墓地', x: 960, y: 928, key: 'forest1', mapX: 10, mapY: 10 },
+  { name: 'グリファルデ神殿', x: 1728, y: 485, key: 'forest1', mapX: 10, mapY: 10 }
 ]
 const SCALE = {
   DEFAULT: 0.5,
@@ -32,8 +32,8 @@ export default class WorldMap extends Phaser.GameObjects.Container {
     })
     fadeIn(this.scene, this.map, { duration: 400, delay: 150 })
     this.add([this.bg, this.map])
-    this.rows = AERA_LIST.filter(area => {
-      return this.scene.storage.state.chapter >= area.chapter
+    this.rows = AERA_LIST.filter((_, i) => {
+      return this.scene.storage.state.allowed_map >= i
     }).map((area, i, arr) => {
       const height = 40
       const y = (50).byBottom - (arr.length - 1) * height

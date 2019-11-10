@@ -5,17 +5,13 @@ export default {
     x: 0, y: 0
   },
   create (scene) {
-    const eState = scene.storage.state.event
+    const eState = scene.storage.state.event.town
     // doorToRoom
     this.doorToRoom = new Substance(scene, (17).toPixelCenter, (34).toPixelCenter)
     this.doorToRoom.setTapEvent().on('tap', () => scene.mapChange('room1', (18).toPixelCenter, (20).toPixelCenter))
-    // chapter1
-    if (!eState.talked_sick) scene.map.getObjectById(1).setBlocked(() => {
-      scene.talk([{ chara: 'ann', text: 'こっちに用はない' }])
-    })
     scene.map.getObjectById(2).setDisplayName('市民').setTapEvent().on('tap', async chara => {
       if (!eState.talked_sick) {
-        scene.talk([
+        await scene.talk([
           { chara: 'ann', text: 'こんにちは、お兄さん。' },
           { chara, text: 'やあ。何か用かい？お姉さんたち。' },
           { chara: 'ann', text: '国王の病気について聞いてもいいですか？' },
@@ -28,6 +24,8 @@ export default {
           { chara: 'ann', text: 'そうなんですね。ありがとうございました。' }
         ])
         eState.talked_sick = true
+        scene.storage.state.allowed_map = Math.max(scene.storage.state.allowed_map, 2)
+        scene.ui.announce('マップ「ワルコフォレンスの森」が解放された')
         scene.map.getObjectById(1).setBlocked(false)
       } else {
         scene.talk([
