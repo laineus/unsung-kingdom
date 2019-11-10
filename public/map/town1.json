@@ -62,7 +62,7 @@
                  "visible":true,
                  "width":64,
                  "x":0,
-                 "y":544
+                 "y":512
                 }, 
                 {
                  "height":0,
@@ -75,6 +75,28 @@
                  "width":0,
                  "x":392,
                  "y":659
+                }, 
+                {
+                 "height":64,
+                 "id":5,
+                 "name":"world",
+                 "properties":[
+                        {
+                         "name":"x",
+                         "type":"int",
+                         "value":45
+                        }, 
+                        {
+                         "name":"y",
+                         "type":"int",
+                         "value":17
+                        }],
+                 "rotation":0,
+                 "type":"gate",
+                 "visible":true,
+                 "width":192,
+                 "x":384,
+                 "y":0
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -83,7 +105,7 @@
          "y":0
         }],
  "nextlayerid":19,
- "nextobjectid":3,
+ "nextobjectid":6,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"2018.12.22",
