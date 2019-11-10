@@ -42,25 +42,31 @@ export default class WorldMap extends Phaser.GameObjects.Container {
       return row
     })
     slideIn(this.scene, this.rows)
-    this.button = new Button(this.scene, (105).byRight, (52).byBottom, 'OK', 140, 40).setVisible(false)
+    this.button = new Button(this.scene, (105).byRight, (52).byBottom, 'Cancel', 140, 40)
     this.button.on('click', () => {
       slideOut(this.scene, this.rows, { x: -200 })
       slideOut(this.scene, this.button)
-      fadeOut(this.scene, [this.map], { duration: 400 }).then(() => {
-        this.scene.gameScene.mapChange(this.selected.key, this.selected.mapX.toPixelCenter, this.selected.mapY.toPixelCenter).then(() => {
-          this.destroy()
-        })
-      })
+      fadeOut(this.scene, [this.map], { duration: 400 }).then((this.selected ? this.onOk : this.onCancel).bind(this))
     })
     this.add(this.button)
   }
+  onOk () {
+    this.scene.gameScene.mapChange(this.selected.key, this.selected.mapX.toPixelCenter, this.selected.mapY.toPixelCenter).then(() => {
+      this.destroy()
+    })
+  }
+  onCancel () {
+    this.scene.transition(true).then(() => {
+      this.destroy()
+    })
+  }
   setArea (area) {
     this.selected = area
+    this.button.setText(area ? 'OK' : 'Cancel')
     const positionX = area ? config.WIDTH.half - area.x * SCALE.ZOOM : 0
     const positionY = area ? config.HEIGHT.half - area.y * SCALE.ZOOM : 0
     const scale = area ? SCALE.ZOOM : SCALE.DEFAULT
     this.scene.add.tween({ targets: this.map, duration: 400, ease: 'Power2', x: positionX, y: positionY, scale })
-    this.button.setVisible(area !== null)
     this.rows.forEach(row => row.setActive(row.area === area))
   }
   getMission (area, x, y) {
