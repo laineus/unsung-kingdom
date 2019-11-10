@@ -26,12 +26,12 @@
                         {
                          "name":"x",
                          "type":"int",
-                         "value":17
+                         "value":4
                         }, 
                         {
                          "name":"y",
                          "type":"int",
-                         "value":35
+                         "value":30
                         }],
                  "rotation":0,
                  "type":"gate",
