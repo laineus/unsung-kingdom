@@ -4,7 +4,7 @@ import Button from './Button'
 import { fadeIn, fadeOut, slideIn, slideOut } from '../util/animations'
 const AERA_LIST = [
   { name: '王都', x: 960, y: 560, key: 'town1', mapX: 2, mapY: 20 },
-  { name: '王城 - 中庭', x: 960, y: 360, key: 'forest1', mapX: 10, mapY: 10 },
+  { name: '王城 - 中庭', x: 960, y: 360, key: 'castle1', mapX: 48, mapY: 37 },
   { name: 'ワルコフォレンスの森', x: 350, y: 220, key: 'forest1', mapX: 45, mapY: 17 },
   { name: 'トロイア公爵邸の地下通路', x: 1184, y: 736, key: 'forest1', mapX: 10, mapY: 10 },
   { name: '聖アンテルスの墓地', x: 960, y: 928, key: 'forest1', mapX: 10, mapY: 10 },

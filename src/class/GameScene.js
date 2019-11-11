@@ -37,8 +37,8 @@ export default class GameScene extends Phaser.Scene {
     }
     this.input.on('pointerdown', walk)
     this.input.on('pointermove', walk)
-    this.event = maps[payload.map]
-    if (this.event && this.event.create) this.event.create(this)
+    this.event = maps[payload.map] || {}
+    if (this.event.create) this.event.create(this)
     this.setEncountDelay()
     // auto save
     if (payload.save) setTimeout(() => this.storage.save(0), 1)
@@ -49,7 +49,7 @@ export default class GameScene extends Phaser.Scene {
   }
   update (time, delta) {
     this.frame++
-    if (this.event && this.event.update) this.event.update(this)
+    if (this.event.update) this.event.update(this)
   }
   get ui () {
     return this.scene.get('UI')

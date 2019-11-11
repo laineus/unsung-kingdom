@@ -43,6 +43,7 @@ export default {
   tilemapTiledJSON: [
     ['room1', '../map/room1.json'],
     ['town1', '../map/town1.json'],
+    ['castle1', '../map/castle1.json'],
     ['forest1', '../map/forest1.json'],
     ['forest2', '../map/forest2.json'],
     ['forest3', '../map/forest3.json'],

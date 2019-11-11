@@ -1,4 +1,3 @@
-import Substance from '../class/Substance'
 export default {
   area: {
     key: 'forest_all',

@@ -43,40 +43,6 @@
          "name":"event",
          "objects":[
                 {
-                 "height":224,
-                 "id":1,
-                 "name":"world",
-                 "properties":[
-                        {
-                         "name":"x",
-                         "type":"int",
-                         "value":45
-                        }, 
-                        {
-                         "name":"y",
-                         "type":"int",
-                         "value":17
-                        }],
-                 "rotation":0,
-                 "type":"gate",
-                 "visible":true,
-                 "width":64,
-                 "x":0,
-                 "y":512
-                }, 
-                {
-                 "height":0,
-                 "id":2,
-                 "name":"player",
-                 "point":true,
-                 "rotation":0,
-                 "type":"chara",
-                 "visible":true,
-                 "width":0,
-                 "x":392,
-                 "y":659
-                }, 
-                {
                  "height":64,
                  "id":5,
                  "name":"world",
@@ -94,21 +60,9 @@
                  "rotation":0,
                  "type":"gate",
                  "visible":true,
-                 "width":192,
-                 "x":384,
-                 "y":0
-                }, 
-                {
-                 "height":0,
-                 "id":6,
-                 "name":"",
-                 "point":true,
-                 "rotation":0,
-                 "type":"object",
-                 "visible":true,
-                 "width":0,
-                 "x":127,
-                 "y":935
+                 "width":288,
+                 "x":1408,
+                 "y":1216
                 }],
          "opacity":1,
          "type":"objectgroup",
