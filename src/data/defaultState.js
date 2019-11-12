@@ -6,7 +6,7 @@ export default () => {
     y: 600,
     r: 0,
     field: {},
-    chapter: 1,
+    chapter: 0,
     allowed_map: 1,
     event: {
       m0_1: { started: false, completed: false },
