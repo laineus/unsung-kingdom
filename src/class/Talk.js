@@ -12,12 +12,14 @@ export default class Talk extends Phaser.GameObjects.Container {
     npc.forEach(c => {
       c.setR(c.angleTo(this.scene.gameScene.player))
     })
-    const min = Math.min(...npc.map(c => c.x), this.scene.gameScene.player.x)
-    const max = Math.max(...npc.map(c => c.x), this.scene.gameScene.player.x)
-    const averageX = Math.round((min + max) / 2)
-    this.events.filter(v => v).forEach(v => {
+    const averageX = Math.average(...npc.map(c => c.x), this.scene.gameScene.player.x)
+    this.events.filter(v => v).reduce((prev, v) => {
       v.position = this.getChara(v).x < averageX ? -1 : 1
-    })
+      if (prev && prev.chara !== v.chara && prev.position === v.position) {
+        v.position *= -1
+      }
+      return v
+    }, null)
     this.scene.time.delayedCall(1, () => scene.scene.pause('Game'))
     this.tapArea = this.scene.add.rectangle(0, 0, config.WIDTH, config.HEIGHT).setOrigin(0, 0)
     this.tapArea.setInteractive().on('pointerdown', this.next.bind(this))
@@ -56,7 +58,7 @@ export default class Talk extends Phaser.GameObjects.Container {
       const resultX = this.bubble.x
       const resultY = this.bubble.y
       this.bubble.setScale(0, 0).setPosition(resultX, resultY + 100).setAlpha(0)
-      this.scene.add.tween({ targets: this.bubble, scaleX: 1, scaleY: 1, y: resultY, alpha: 1, duration: 120, ease: 'Power2' })
+      this.scene.add.tween({ targets: this.bubble, scaleX: 1, scaleY: 1, y: resultY, alpha: 1, duration: 150, ease: 'Power2' })
     }
     this.index++
   }
@@ -71,7 +73,7 @@ export default class Talk extends Phaser.GameObjects.Container {
   }
   deleteBubble () {
     if (!this.bubble) return
-    this.scene.add.tween({ targets: this.bubble, scaleX: 0, scaleY: 0, alpha: 0, duration: 120, ease: 'Power2', onComplete: this.bubble.destroy })
+    this.scene.add.tween({ targets: this.bubble, scaleX: 0, scaleY: 0, alpha: 0, duration: 150, ease: 'Power2', onComplete: this.bubble.destroy })
   }
   destroy () {
     this.deleteBubble()
