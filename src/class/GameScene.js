@@ -30,6 +30,9 @@ export default class GameScene extends Phaser.Scene {
     this.camera.roundPixels = true
     this.camera.setZoom(1)
     this.camera.startFollow(this.player, true, 0.1, 0.1)
+    this.camera.updateFollow = () => {
+      this.camera.setScroll(this.camera._follow.x - this.camera.centerX, this.camera._follow.y - this.camera.centerY)
+    }
     // player controll
     const walk = pointer => {
       if (this.eventMode) return
