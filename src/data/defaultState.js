@@ -27,7 +27,8 @@ export default () => {
       m4_3: { started: false, completed: false },
       m4_4: { started: false, completed: false },
       m5_1: { started: false, completed: false },
-      town: { talked_sick: false }
+      m0: { room_begin: false },
+      m1: { talked_sick: false }
     },
     battlers: battlers.filter((_, i) => i < 3).map((v, i) => Object.assign(v, { exp: 0, maxHp: v.hp, weapon: i + 1 })),
     items: [{ item_id: 1, count: 5 }],
