@@ -74,6 +74,41 @@
                  "width":672,
                  "x":1376,
                  "y":480
+                }, 
+                {
+                 "height":512,
+                 "id":9,
+                 "name":"",
+                 "rotation":0,
+                 "type":"area",
+                 "visible":true,
+                 "width":96,
+                 "x":672,
+                 "y":448
+                }, 
+                {
+                 "height":0,
+                 "id":10,
+                 "name":"hunter",
+                 "point":true,
+                 "rotation":0,
+                 "type":"chara",
+                 "visible":true,
+                 "width":0,
+                 "x":1568,
+                 "y":1056
+                }, 
+                {
+                 "height":0,
+                 "id":11,
+                 "name":"hunter",
+                 "point":true,
+                 "rotation":0,
+                 "type":"chara",
+                 "visible":true,
+                 "width":0,
+                 "x":512,
+                 "y":416
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -82,7 +117,7 @@
          "y":0
         }],
  "nextlayerid":22,
- "nextobjectid":9,
+ "nextobjectid":12,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"2018.12.22",
