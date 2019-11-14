@@ -1,5 +1,6 @@
 import room1 from '../map/room1'
 import town1 from '../map/town1'
+import castle1 from '../map/castle1'
 import forest1 from '../map/forest1'
 import forest2 from '../map/forest2'
 import forest3 from '../map/forest3'
@@ -12,6 +13,7 @@ import forest9 from '../map/forest9'
 export default {
   room1,
   town1,
+  castle1,
   forest1,
   forest2,
   forest3,
