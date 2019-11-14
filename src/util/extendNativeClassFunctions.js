@@ -33,6 +33,8 @@ export default () => {
     get () { return this.replace(/^[a-z]/g, v => v.toUpperCase()) }
   })
   // Math class methods
+  Math.sum = (...args) => args.reduce((accumulator, current) => accumulator + current)
+  Math.average = (...args) => Math.sum(...args) / args.length
   Math.fix = (value, min, max) => Math.min(Math.max(value, min), max)
   Math.randomInt = (min, max) => Math.floor(Math.random() * (max + 1 - min)) + min
   Math.chance = (percent) => (percent / 100) > Math.random()
