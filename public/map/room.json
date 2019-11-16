@@ -10,6 +10,26 @@
  "tileheight":32,
  "tiles":[
         {
+         "id":0,
+         "type":"top"
+        }, 
+        {
+         "id":1,
+         "type":"top"
+        }, 
+        {
+         "id":2,
+         "type":"top"
+        }, 
+        {
+         "id":3,
+         "type":"collides"
+        }, 
+        {
+         "id":4,
+         "type":"collides"
+        }, 
+        {
          "id":10,
          "type":"collides"
         }, 
@@ -27,6 +47,14 @@
         }, 
         {
          "id":14,
+         "type":"collides"
+        }, 
+        {
+         "id":15,
+         "type":"top"
+        }, 
+        {
+         "id":16,
          "type":"collides"
         }, 
         {
@@ -50,6 +78,14 @@
          "type":"collides"
         }, 
         {
+         "id":25,
+         "type":"collides"
+        }, 
+        {
+         "id":26,
+         "type":"collides"
+        }, 
+        {
          "id":30,
          "type":"collides"
         }, 
@@ -62,6 +98,18 @@
          "type":"collides"
         }, 
         {
+         "id":33,
+         "type":"collides"
+        }, 
+        {
+         "id":34,
+         "type":"collides"
+        }, 
+        {
+         "id":35,
+         "type":"collides"
+        }, 
+        {
          "id":40,
          "type":"collides"
         }, 
@@ -71,18 +119,6 @@
         }, 
         {
          "id":42,
-         "type":"collides"
-        }, 
-        {
-         "id":50,
-         "type":"collides"
-        }, 
-        {
-         "id":51,
-         "type":"collides"
-        }, 
-        {
-         "id":52,
          "type":"collides"
         }],
  "tilewidth":32,

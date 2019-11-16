@@ -5,7 +5,7 @@ export default {
   },
   create (scene) {
     const eState = scene.storage.state.event.town
-    scene.map.getObjectById(6).setTapEvent().on('tap', () => scene.mapChange('room1', (18).toPixelCenter, (20).toPixelCenter))
+    scene.map.getObjectById(6).setTapEvent().on('tap', () => scene.mapChange('room1', (17).toPixel, (16).toPixelCenter))
     scene.map.getObjectById(2).setDisplayName('市民').setTapEvent().on('tap', async chara => {
       if (!eState.talked_sick) {
         await scene.talk([
