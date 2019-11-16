@@ -51,6 +51,30 @@
                  "width":64,
                  "x":512,
                  "y":576
+                }, 
+                {
+                 "height":0,
+                 "id":6,
+                 "name":"player",
+                 "point":true,
+                 "rotation":180,
+                 "type":"chara",
+                 "visible":true,
+                 "width":0,
+                 "x":591,
+                 "y":428
+                }, 
+                {
+                 "height":0,
+                 "id":7,
+                 "name":"player",
+                 "point":true,
+                 "rotation":180,
+                 "type":"chara",
+                 "visible":true,
+                 "width":0,
+                 "x":655,
+                 "y":428
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -59,7 +83,7 @@
          "y":0
         }],
  "nextlayerid":21,
- "nextobjectid":6,
+ "nextobjectid":8,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"2018.12.22",
