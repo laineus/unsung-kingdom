@@ -69,6 +69,6 @@ const events = [
       { chara: 'ann', text: '次会うまでに私たちも強くなろう！' },
       { chara: 'jaquelyn', text: 'そうね。' }
     ])
-    await scene.ui.chapterStart('1章 ワルコフォレンスの森')
+    await scene.ui.chapterStart(`${chapters[1].name} ${chapters[1].title}`)
   }
 ]

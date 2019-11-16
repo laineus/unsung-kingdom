@@ -1,5 +1,6 @@
 import storage from '../data/storage'
 import config from '../data/config'
+import chapters from '../data/chapters'
 import MenuSave from './MenuSave'
 import Button from './Button'
 import { slideIn, slideOut, fadeIn, fadeOut } from '../util/animations'
@@ -53,7 +54,7 @@ export default class TitleScene extends Phaser.Scene {
   newGame () {
     this.ui.storyTelling().then(() => {
       this.add.rectangle(0, 0, config.WIDTH, config.HEIGHT, 0x111111).setOrigin(0, 0)
-      this.ui.chapterStart('序章 王殺しのジャック').then(() => {
+      this.ui.chapterStart(`${chapters[0].name} ${chapters[0].title}`).then(() => {
         this.runGame('room1', (19).toPixelCenter, (10).toPixelCenter)
       })
     })
