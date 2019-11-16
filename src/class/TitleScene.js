@@ -51,7 +51,12 @@ export default class TitleScene extends Phaser.Scene {
     this.ui.transition(true).then(this.runGame.bind(this, map, x, y))
   }
   newGame () {
-    this.ui.storyTelling().then(this.runGame.bind(this, 'room1', (19).toPixelCenter, (10).toPixelCenter))
+    this.ui.storyTelling().then(() => {
+      this.add.rectangle(0, 0, config.WIDTH, config.HEIGHT, 0x111111).setOrigin(0, 0)
+      this.ui.chapterStart('序章 王殺しのジャック').then(() => {
+        this.runGame('room1', (19).toPixelCenter, (10).toPixelCenter)
+      })
+    })
   }
   runGame (map, x, y) {
     this.ui.showController(true)
