@@ -51,7 +51,7 @@ export default class TitleScene extends Phaser.Scene {
     this.ui.transition(true).then(this.runGame.bind(this, map, x, y))
   }
   newGame () {
-    this.ui.storyTelling().then(this.runGame.bind(this, 'room1', (20).toPixel, (18).toPixel))
+    this.ui.storyTelling().then(this.runGame.bind(this, 'room1', (19).toPixelCenter, (10).toPixelCenter))
   }
   runGame (map, x, y) {
     this.ui.showController(true)
