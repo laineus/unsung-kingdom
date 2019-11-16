@@ -39,7 +39,7 @@ export const jack = (scene, area, chara) => {
       { chara: 'ann', text: 'ええと、' },
       { chara: 'ann', text: 'なんていうか…、' },
       { chara: 'jaquelyn', text: 'お花を摘みに来たのよね。' },
-      { chara: 'ann', text: 'そうよ！お花よ！' },
+      { chara: 'ann', text: 'そ、そうよ！お花よ！' },
       { chara, text: 'なに？' },
       { chara, text: '武器を持ってか？' },
       { chara: 'ann', text: 'それは…、' },
