@@ -189,6 +189,14 @@ export default class UIScene extends Phaser.Scene {
     })
     return button
   }
+  chapterStart (text) {
+    return new Promise(resolve => {
+      const m = this.add.text(config.WIDTH.half, config.HEIGHT.half - 5, text, { fill: config.COLORS.white.toColorString, fontSize: 16, fontFamily: config.FONT }).setOrigin(0.5, 0.5)
+      new StoryTelling(this, [m], false).on('beforeEnd', () => {
+        resolve()
+      })
+    })
+  }
   storyTelling () {
     return new Promise(resolve => {
       const m1 = this.add.container(config.WIDTH.half, config.HEIGHT.half)
