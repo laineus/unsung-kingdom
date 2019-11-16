@@ -42,8 +42,10 @@ const events = [
       { chara: 'jaquelyn', text: 'さあ、行きましょう。' }
     ])
   },
-  (scene) => {
-    scene.talk([
+  async (scene) => {
+    scene.player.setR('down')
+    await scene.ui.sleep(500)
+    await scene.talk([
       { chara: 'ann', text: 'あれ！？' },
       { chara: 'ann', text: 'ちょっと、みんなこれ見て！！' },
       { chara: 'jaquelyn', text: 'どうしたの？' },

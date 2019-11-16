@@ -68,6 +68,7 @@ export const jack = (scene, area, chara) => {
       { chara, text: '…。' }
     ])
     await chara.setTargetPosition((41).toPixelCenter, (26).toPixelCenter)
+    scene.player.setR('left')
     await chara.setTargetPosition((32).toPixelCenter, (26).toPixelCenter)
     chara.destroy()
     await scene.ui.sleep(1500)
@@ -112,7 +113,7 @@ export const king = (scene, area, chara) => {
       { chara: 'ann', text: 'うん。' }
     ])
     state.completed = true
-    scene.player.setR('down')
-    scene.mapChange('room1', (19).toPixel, (10).toPixelCenter)
+    scene.storage.state.chapter = 1
+    await scene.mapChange('room1', (19).toPixelCenter, (10).toPixelCenter)
   })
 }
