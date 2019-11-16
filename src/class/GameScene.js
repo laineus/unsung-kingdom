@@ -33,11 +33,13 @@ export default class GameScene extends Phaser.Scene {
       bool ? this.camera.startFollow(this.player, true, 0.1, 0.1) : this.camera.stopFollow()
     }
     this.camera.updateFollow = () => {
-      this.camera.setScroll(this.camera._follow.x - this.camera.centerX, this.camera._follow.y - this.camera.centerY)
+      this.camera.centerOn(this.camera._follow.x, this.camera._follow.y)
     }
     this.camera.move = (x, y, duration) => {
-      return new Promise(resolve => {
-        this.camera.pan(this.camera.scrollX + x, this.camera.scrollY + y, duration, 'Power2', false, (_, progress) => {
+      const newX = this.camera.scrollX + this.camera.centerX + x
+      const newY = this.camera.scrollY + this.camera.centerY + y
+      return new Promise(resolve => {this.camera.centerX
+        this.camera.pan(newX, newY, duration, 'Power2', false, (_, progress) => {
           if (progress === 1) resolve()
         })
       })
