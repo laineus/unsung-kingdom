@@ -55,7 +55,7 @@ export default class TitleScene extends Phaser.Scene {
     this.ui.storyTelling().then(() => {
       this.add.rectangle(0, 0, config.WIDTH, config.HEIGHT, 0x111111).setOrigin(0, 0)
       this.ui.chapterStart(`${chapters[0].name} ${chapters[0].title}`).then(() => {
-        this.runGame('room1', (19).toPixelCenter, (10).toPixelCenter)
+        this.runGame('room1', (19).toPixelCenter, (11).toPixel)
       })
     })
   }

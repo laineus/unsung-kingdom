@@ -114,6 +114,6 @@ export const king = (scene, area, chara) => {
     ])
     state.completed = true
     scene.storage.state.chapter = 1
-    await scene.mapChange('room1', (19).toPixelCenter, (10).toPixelCenter)
+    await scene.mapChange('room1', (19).toPixelCenter, (11).toPixel)
   })
 }
