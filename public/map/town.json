@@ -1,11 +1,11 @@
 { "columns":20,
  "image":"..\/img\/town.png",
- "imageheight":320,
+ "imageheight":416,
  "imagewidth":640,
  "margin":0,
  "name":"town",
  "spacing":0,
- "tilecount":200,
+ "tilecount":260,
  "tiledversion":"2018.12.22",
  "tileheight":32,
  "tiles":[
@@ -362,6 +362,26 @@
          "type":"top"
         }, 
         {
+         "id":160,
+         "type":"top"
+        }, 
+        {
+         "id":161,
+         "type":"top"
+        }, 
+        {
+         "id":162,
+         "type":"top"
+        }, 
+        {
+         "id":163,
+         "type":"collides"
+        }, 
+        {
+         "id":164,
+         "type":"collides"
+        }, 
+        {
          "id":170,
          "type":"collides"
         }, 
@@ -374,6 +394,26 @@
          "type":"collides"
         }, 
         {
+         "id":180,
+         "type":"collides"
+        }, 
+        {
+         "id":181,
+         "type":"collides"
+        }, 
+        {
+         "id":182,
+         "type":"collides"
+        }, 
+        {
+         "id":183,
+         "type":"collides"
+        }, 
+        {
+         "id":184,
+         "type":"collides"
+        }, 
+        {
          "id":190,
          "type":"collides"
         }, 
@@ -383,6 +423,58 @@
         }, 
         {
          "id":192,
+         "type":"collides"
+        }, 
+        {
+         "id":200,
+         "type":"collides"
+        }, 
+        {
+         "id":201,
+         "type":"collides"
+        }, 
+        {
+         "id":202,
+         "type":"collides"
+        }, 
+        {
+         "id":203,
+         "type":"collides"
+        }, 
+        {
+         "id":204,
+         "type":"collides"
+        }, 
+        {
+         "id":220,
+         "type":"collides"
+        }, 
+        {
+         "id":221,
+         "type":"collides"
+        }, 
+        {
+         "id":222,
+         "type":"collides"
+        }, 
+        {
+         "id":223,
+         "type":"collides"
+        }, 
+        {
+         "id":224,
+         "type":"collides"
+        }, 
+        {
+         "id":240,
+         "type":"collides"
+        }, 
+        {
+         "id":241,
+         "type":"collides"
+        }, 
+        {
+         "id":242,
          "type":"collides"
         }],
  "tilewidth":32,
