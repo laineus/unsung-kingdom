@@ -13,11 +13,12 @@ const positions = {
   5: [-260, -130, 0, 130, 260],
 }
 export default class Battle extends Phaser.GameObjects.Container {
-  constructor (scene, group, { boss = false } = {}, callback) {
+  constructor (scene, group, { boss = false, defeatEvent = false } = {}, callback) {
     super(scene)
     this.group = group
     this.scene = scene
     this.boss = boss
+    this.defeatEvent = defeatEvent
     this.callback = callback
     scene.add.existing(this)
     scene.scene.pause('Game')
@@ -184,6 +185,11 @@ export default class Battle extends Phaser.GameObjects.Container {
     this.ablButtons.forEach(v => v.destroy())
   }
   end (result) {
+    if (this.defeatEvent) {
+      this.destroy()
+      storage.state.battlers.forEach(v => v.hp = v.maxHp)
+      return
+    }
     if (result) {
       this.destroyUI()
       if (this.boss) {

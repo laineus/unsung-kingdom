@@ -60,7 +60,7 @@ export const jack = (scene, area, chara) => {
       { chara: 'ann', text: 'アンタ、覚悟しなさい！' }
     ])
     await scene.ui.sleep(500)
-    await scene.ui.battle([generateBattler('bear', 1, { hp: 30 })], { boss: true })
+    await scene.ui.battle([generateBattler('bear', 1, { hp: 30 })], { boss: true, defeatEvent: true })
     await scene.ui.sleep(500)
     await scene.talk([
       { chara: 'ann', text: 'うぅ…。' },
