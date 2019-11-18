@@ -22,7 +22,7 @@ export default class GameMap {
     this.areas = this._getObjects(tilemap, 'area').map(this._toAreaData).map(area => new Area(scene, area.zone_x, area.zone_y, area.zone_width, area.zone_height).setId(area.id))
     this.charas = this._getObjects(tilemap, 'chara').map(data => new Character(scene, data.x, data.y, data.name).setR((data.rotation + 90) * (Math.PI / 180)).setId(data.id))
     this.objects = this._getObjects(tilemap, 'object').map(data => new Substance(scene, data.x, data.y, data.name).setId(data.id))
-    this.images = tilemap.images.map(data => scene.add.sprite(data.x, data.y, data.name).setOrigin(0, 0))
+    this.images = tilemap.images.map(data => scene.add.sprite(data.x, data.y, `field/${data.name}`).setOrigin(0, 0))
     // this.scene.ui.renderMiniMap(tilemap)
     return this
   }

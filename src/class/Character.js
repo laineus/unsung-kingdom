@@ -128,7 +128,7 @@ export default class Character extends Substance {
     }
   }
   get frameLength () {
-    return assets.spritesheet.find(v => v[0] === this.key)[2].endFrame
+    return assets.spritesheet.find(v => v[0] === this.spriteKey)[2].endFrame
   }
   get _animName () {
     if (this.frameLength === 12) {

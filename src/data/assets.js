@@ -18,14 +18,14 @@ export default {
     ['tileset/room', '../img/room.png'],
     ['tileset/town', '../img/town.png'],
     ['tileset/forest', '../img/forest.png'],
-    ['tileset/tree_house', '../img/tree_house.png'],
+    ['field/tree_house', '../img/tree_house.png'],
     ['tileset/forest_all', '../img/forest_all.png'],
     // Character
     ['ann', '../img/ann.png'],
     ['francisca', '../img/francisca.png'],
     ['jaquelyn', '../img/jaquelyn.png'],
     // Object
-    ['flower', '../img/flower.png'],
+    ['field/flower', '../img/flower.png'],
     // Enemy
     ['battler/bee', '../img/battler/bee.png'],
     ['battler/bee2', '../img/battler/bee2.png'],
@@ -58,14 +58,14 @@ export default {
     // UI
     ['check', '../img/check.png', { frameWidth: 14, frameHeight: 13, endFrame: 2 }],
     // Charachip
-    ['player', '../img/player.png', { frameWidth: 25, frameHeight: 41, endFrame: 12 }],
-    ['hunter', '../img/hunter.png', { frameWidth: 28, frameHeight: 39, endFrame: 12 }],
-    ['mercenary', '../img/mercenary.png', { frameWidth: 28, frameHeight: 39, endFrame: 12 }],
-    ['injured_mercenary', '../img/injured_mercenary.png', { frameWidth: 27, frameHeight: 37, endFrame: 1 }],
-    ['injured_mercenary2', '../img/injured_mercenary2.png', { frameWidth: 27, frameHeight: 37, endFrame: 1 }],
-    ['drystan', '../img/drystan.png', { frameWidth: 28, frameHeight: 44, endFrame: 1 }],
-    ['bear', '../img/bear.png', { frameWidth: 54, frameHeight: 84, endFrame: 1 }],
-    ['dog', '../img/dog.png', { frameWidth: 26, frameHeight: 26, endFrame: 12 }],
-    ['boar', '../img/boar.png', { frameWidth: 32, frameHeight: 32, endFrame: 6 }]
+    ['field/player', '../img/player.png', { frameWidth: 25, frameHeight: 41, endFrame: 12 }],
+    ['field/hunter', '../img/hunter.png', { frameWidth: 28, frameHeight: 39, endFrame: 12 }],
+    ['field/mercenary', '../img/mercenary.png', { frameWidth: 28, frameHeight: 39, endFrame: 12 }],
+    ['field/injured_mercenary', '../img/injured_mercenary.png', { frameWidth: 27, frameHeight: 37, endFrame: 1 }],
+    ['field/injured_mercenary2', '../img/injured_mercenary2.png', { frameWidth: 27, frameHeight: 37, endFrame: 1 }],
+    ['field/drystan', '../img/drystan.png', { frameWidth: 28, frameHeight: 44, endFrame: 1 }],
+    ['field/bear', '../img/bear.png', { frameWidth: 54, frameHeight: 84, endFrame: 1 }],
+    ['field/dog', '../img/dog.png', { frameWidth: 26, frameHeight: 26, endFrame: 12 }],
+    ['field/boar', '../img/boar.png', { frameWidth: 32, frameHeight: 32, endFrame: 6 }]
   ]
 }

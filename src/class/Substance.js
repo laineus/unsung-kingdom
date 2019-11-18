@@ -5,7 +5,7 @@ export default class Substance extends Phaser.GameObjects.Container {
     const { width, height } = option
     this.scene = scene
     this.key = key
-    this.image = key ? scene.add.sprite(0, 0, key) : scene.add.rectangle(0, 0, config.TILE_SIZE, config.TILE_SIZE)
+    this.image = key ? scene.add.sprite(0, 0, this.spriteKey) : scene.add.rectangle(0, 0, config.TILE_SIZE, config.TILE_SIZE)
     this.image.setPosition(0, -this.image.height.half)
     const w = width || this.image.width
     const h = height || this.image.height
@@ -63,5 +63,8 @@ export default class Substance extends Phaser.GameObjects.Container {
   }
   get distanceToPlayer () {
     return this.distanceTo(this.scene.player)
+  }
+  get spriteKey () {
+    return `field/${this.key}`
   }
 }
