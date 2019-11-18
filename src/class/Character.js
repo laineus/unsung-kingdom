@@ -12,6 +12,7 @@ export default class Character extends Substance {
     this.setTarget(null)
     this.setSpeed(40)
     this.setR('down')
+    this.setFaceKey(this.key)
   }
   preUpdate () {
     super.preUpdate()
@@ -23,6 +24,10 @@ export default class Character extends Substance {
   }
   setDisplayName (name) {
     this.displayName = name
+    return this
+  }
+  setFaceKey (name) {
+    this.faceKey = name
     return this
   }
   setTarget (target = null) {

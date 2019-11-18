@@ -5,8 +5,8 @@ export const execChapterBeginEvents = (scene) => {
   const state = scene.storage.state.event.chapter_begin
   if (state[chapter]) return
   state[chapter] = true
-  const francisca = scene.map.getObjectById(6).setDisplayName('Francisca')
-  const jaquelyn = scene.map.getObjectById(7).setDisplayName('Jaquelyn')
+  const francisca = scene.map.getObjectById(6).setDisplayName('Francisca').setFaceKey('francisca')
+  const jaquelyn = scene.map.getObjectById(7).setDisplayName('Jaquelyn').setFaceKey('jaquelyn')
   events[chapter](scene, francisca, jaquelyn)
 }
 
