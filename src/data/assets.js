@@ -19,7 +19,7 @@ export default {
     ['tileset/town', '../img/town.png'],
     ['tileset/forest', '../img/forest.png'],
     ['field/tree_house', '../img/tree_house.png'],
-    ['tileset/forest_all', '../img/forest_all.png'],
+    ['map/forest_all', '../img/forest_all.png'],
     // Character
     ['ann', '../img/ann.png'],
     ['francisca', '../img/francisca.png'],
