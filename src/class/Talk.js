@@ -51,7 +51,7 @@ export default class Talk extends Phaser.GameObjects.Container {
       const isPlayer = (typeof this.current.chara === 'string')
       const chara = isPlayer ? this.scene.gameScene.player : this.current.chara
       const displayName = isPlayer ? this.current.chara.upperCase : chara.displayName || 'No name'
-      const imageKey = isPlayer ? this.current.chara : chara.faceKey
+      const imageKey = isPlayer ? this.current.chara : `face/${chara.faceKey}`
       const camera = this.scene.gameScene.camera
       const x = chara.x - camera.scrollX + this.currentPosition * 30
       const y = chara.y - camera.scrollY - 100
