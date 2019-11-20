@@ -24,6 +24,13 @@ export default {
     ['ann', '../img/ann.png'],
     ['francisca', '../img/francisca.png'],
     ['jaquelyn', '../img/jaquelyn.png'],
+    // Face
+    ['face/king', '../img/face/king.png'],
+    ['face/hunter', '../img/face/hunter.png'],
+    ['face/mercenary', '../img/face/mercenary.png'],
+    ['face/injured_mercenary', '../img/face/injured_mercenary.png'],
+    ['face/injured_mercenary2', '../img/face/injured_mercenary2.png'],
+    ['face/drystan', '../img/face/drystan.png'],
     // Object
     ['field/flower', '../img/flower.png'],
     // Enemy
