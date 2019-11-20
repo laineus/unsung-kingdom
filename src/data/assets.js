@@ -32,7 +32,7 @@ export default {
     ['face/injured_mercenary2', '../img/face/injured_mercenary2.png'],
     ['face/drystan', '../img/face/drystan.png'],
     // Object
-    ['field/flower', '../img/flower.png'],
+    ['field/flower', '../img/field/flower.png'],
     // Enemy
     ['battler/bee', '../img/battler/bee.png'],
     ['battler/bee2', '../img/battler/bee2.png'],
@@ -65,13 +65,13 @@ export default {
     // UI
     ['check', '../img/check.png', { frameWidth: 14, frameHeight: 13, endFrame: 2 }],
     // Charachip
-    ['field/player', '../img/charachip/player.png', { frameWidth: 25, frameHeight: 41, endFrame: 12 }],
-    ['field/hunter', '../img/charachip/hunter.png', { frameWidth: 28, frameHeight: 39, endFrame: 12 }],
-    ['field/mercenary', '../img/charachip/mercenary.png', { frameWidth: 28, frameHeight: 39, endFrame: 12 }],
-    ['field/injured_mercenary', '../img/charachip/injured_mercenary.png', { frameWidth: 27, frameHeight: 37, endFrame: 1 }],
-    ['field/injured_mercenary2', '../img/charachip/injured_mercenary2.png', { frameWidth: 27, frameHeight: 37, endFrame: 1 }],
-    ['field/drystan', '../img/charachip/drystan.png', { frameWidth: 28, frameHeight: 44, endFrame: 1 }],
-    ['field/bear', '../img/charachip/bear.png', { frameWidth: 54, frameHeight: 84, endFrame: 1 }],
-    ['field/dog', '../img/charachip/dog.png', { frameWidth: 26, frameHeight: 26, endFrame: 12 }]
+    ['field/player', '../img/field/player.png', { frameWidth: 25, frameHeight: 41, endFrame: 12 }],
+    ['field/hunter', '../img/field/hunter.png', { frameWidth: 28, frameHeight: 39, endFrame: 12 }],
+    ['field/mercenary', '../img/field/mercenary.png', { frameWidth: 28, frameHeight: 39, endFrame: 12 }],
+    ['field/injured_mercenary', '../img/field/injured_mercenary.png', { frameWidth: 27, frameHeight: 37, endFrame: 1 }],
+    ['field/injured_mercenary2', '../img/field/injured_mercenary2.png', { frameWidth: 27, frameHeight: 37, endFrame: 1 }],
+    ['field/drystan', '../img/field/drystan.png', { frameWidth: 28, frameHeight: 44, endFrame: 1 }],
+    ['field/bear', '../img/field/bear.png', { frameWidth: 54, frameHeight: 84, endFrame: 1 }],
+    ['field/dog', '../img/field/dog.png', { frameWidth: 26, frameHeight: 26, endFrame: 12 }]
   ]
 }
