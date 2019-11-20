@@ -27,7 +27,7 @@ export default class WorldMap extends Phaser.GameObjects.Container {
   }
   init () {
     this.bg = this.scene.add.rectangle(0, 0, config.WIDTH, config.HEIGHT, 0x111111).setOrigin(0, 0)
-    this.map = this.scene.add.sprite(0, 0, 'world').setScale(SCALE.DEFAULT).setOrigin(0, 0).setInteractive().on('pointerdown', () => {
+    this.map = this.scene.add.sprite(0, 0, 'map/world').setScale(SCALE.DEFAULT).setOrigin(0, 0).setInteractive().on('pointerdown', () => {
       this.setArea(null)
     })
     fadeIn(this.scene, this.map, { duration: 400, delay: 150 })

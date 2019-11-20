@@ -1,7 +1,7 @@
 import { drystan } from '../event/drystan'
 export default {
   area: {
-    key: 'forest_all',
+    key: 'forest',
     x: 112, y: 112
   },
   create (scene) {

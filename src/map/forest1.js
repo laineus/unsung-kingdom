@@ -1,6 +1,6 @@
 export default {
   area: {
-    key: 'forest_all',
+    key: 'forest',
     x: 1024, y: 528
   },
   enemyLevel: 1,

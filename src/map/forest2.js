@@ -1,7 +1,7 @@
 import { dogEventHunter } from '../event/dogEvent'
 export default {
   area: {
-    key: 'forest_all',
+    key: 'forest',
     x: 750, y: 780
   },
   enemyLevel: 1,

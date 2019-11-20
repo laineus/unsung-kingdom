@@ -3,7 +3,6 @@ export default {
     ['logo_laineus', '../img/logo_laineus.png'],
     ['logo_mafu', '../img/logo_mafu.png'],
     ['title', '../img/title.png'],
-    ['world', '../img/world.png'],
     // UI
     ['focus', '../img/focus.png'],
     ['bubble_talk', '../img/bubble_talk.png'],
@@ -14,12 +13,14 @@ export default {
     ['encounter1', '../img/encounter1.png'],
     ['encounter2', '../img/encounter2.png'],
     ['click', '../img/click.png'],
-    // Map
+    // Tileset
     ['tileset/room', '../img/tileset/room.png'],
     ['tileset/town', '../img/tileset/town.png'],
     ['tileset/forest', '../img/tileset/forest.png'],
     ['tileset/tree_house', '../img/tileset/tree_house.png'],
-    ['map/forest_all', '../img/forest_all.png'],
+    // Map
+    ['map/world', '../img/map/world.png'],
+    ['map/forest', '../img/map/forest.png'],
     // Character
     ['ann', '../img/ann.png'],
     ['francisca', '../img/francisca.png'],

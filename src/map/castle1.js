@@ -1,7 +1,7 @@
 import { jack, king } from '../event/jack'
 export default {
   area: {
-    key: 'forest_all',
+    key: 'forest',
     x: 0, y: 0
   },
   create (scene) {
