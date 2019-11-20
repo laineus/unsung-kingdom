@@ -65,14 +65,13 @@ export default {
     // UI
     ['check', '../img/check.png', { frameWidth: 14, frameHeight: 13, endFrame: 2 }],
     // Charachip
-    ['field/player', '../img/player.png', { frameWidth: 25, frameHeight: 41, endFrame: 12 }],
-    ['field/hunter', '../img/hunter.png', { frameWidth: 28, frameHeight: 39, endFrame: 12 }],
-    ['field/mercenary', '../img/mercenary.png', { frameWidth: 28, frameHeight: 39, endFrame: 12 }],
-    ['field/injured_mercenary', '../img/injured_mercenary.png', { frameWidth: 27, frameHeight: 37, endFrame: 1 }],
-    ['field/injured_mercenary2', '../img/injured_mercenary2.png', { frameWidth: 27, frameHeight: 37, endFrame: 1 }],
-    ['field/drystan', '../img/drystan.png', { frameWidth: 28, frameHeight: 44, endFrame: 1 }],
-    ['field/bear', '../img/bear.png', { frameWidth: 54, frameHeight: 84, endFrame: 1 }],
-    ['field/dog', '../img/dog.png', { frameWidth: 26, frameHeight: 26, endFrame: 12 }],
-    ['field/boar', '../img/boar.png', { frameWidth: 32, frameHeight: 32, endFrame: 6 }]
+    ['field/player', '../img/charachip/player.png', { frameWidth: 25, frameHeight: 41, endFrame: 12 }],
+    ['field/hunter', '../img/charachip/hunter.png', { frameWidth: 28, frameHeight: 39, endFrame: 12 }],
+    ['field/mercenary', '../img/charachip/mercenary.png', { frameWidth: 28, frameHeight: 39, endFrame: 12 }],
+    ['field/injured_mercenary', '../img/charachip/injured_mercenary.png', { frameWidth: 27, frameHeight: 37, endFrame: 1 }],
+    ['field/injured_mercenary2', '../img/charachip/injured_mercenary2.png', { frameWidth: 27, frameHeight: 37, endFrame: 1 }],
+    ['field/drystan', '../img/charachip/drystan.png', { frameWidth: 28, frameHeight: 44, endFrame: 1 }],
+    ['field/bear', '../img/charachip/bear.png', { frameWidth: 54, frameHeight: 84, endFrame: 1 }],
+    ['field/dog', '../img/charachip/dog.png', { frameWidth: 26, frameHeight: 26, endFrame: 12 }]
   ]
 }
