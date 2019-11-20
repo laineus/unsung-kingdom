@@ -3,16 +3,20 @@ import chapters from '../data/chapters'
 export const execChapterBeginEvents = (scene) => {
   const chapter = scene.storage.state.chapter
   const state = scene.storage.state.event.chapter_begin
-  if (state[chapter]) return
-  state[chapter] = true
   const francisca = scene.map.getObjectById(6).setDisplayName('Francisca').setFaceKey('francisca')
   const jaquelyn = scene.map.getObjectById(7).setDisplayName('Jaquelyn').setFaceKey('jaquelyn')
+  if (state[chapter]) {
+    francisca.setVisible(false)
+    jaquelyn.setVisible(false)
+    return
+  }
+  state[chapter] = true
   events[chapter](scene, francisca, jaquelyn)
 }
 
 const events = [
-  (scene, francisca, jaquelyn) => {
-    scene.talk([
+  async (scene, francisca, jaquelyn) => {
+    await scene.talk([
       { chara: 'ann', text: 'じゃ、みんな、あらためてよろしく！' },
       { chara: jaquelyn, text: 'よろしくね、アン。' },
       { chara: francisca, text: 'アンが仕切るの？不安なんですけど。' },
@@ -44,6 +48,9 @@ const events = [
       { chara: jaquelyn, text: 'アンなら大丈夫よ。' },
       { chara: jaquelyn, text: 'さあ、行きましょう。' }
     ])
+    await scene.ui.transition(true, 'slow')
+    francisca.setVisible(false)
+    jaquelyn.setVisible(false)
   },
   async (scene, francisca, jaquelyn) => {
     scene.player.setR('down')
@@ -87,5 +94,7 @@ const events = [
       { chara: jaquelyn, text: 'そうね。' }
     ])
     await scene.ui.chapterStart(`${chapters[1].name} ${chapters[1].title}`)
+    francisca.setVisible(false)
+    jaquelyn.setVisible(false)
   }
 ]
