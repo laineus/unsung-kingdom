@@ -103,7 +103,7 @@ export default class MenuMap extends Phaser.GameObjects.Container {
     return container
   }
   setMap (map) {
-    const imageKey = maps[map].area.key
+    const imageKey = `map/${maps[map].area.key}`
     const x = maps[map].area.x
     const y = maps[map].area.y
     const firstTime = !this.map
@@ -121,6 +121,6 @@ export default class MenuMap extends Phaser.GameObjects.Container {
   getMapImage (imageKey) {
     const scale = 1
     if (!this.mask) this.mask = this.scene.make.graphics().fillRect(0, -180, 895, 720).setRotation(0.18).createGeometryMask()
-    return this.scene.add.sprite(0, -0, `map/${imageKey}`).setOrigin(0, 0).setScale(scale, scale).setAlpha(0.5).setMask(this.mask)
+    return this.scene.add.sprite(0, -0, imageKey).setOrigin(0, 0).setScale(scale, scale).setAlpha(0.5).setMask(this.mask)
   }
 }
