@@ -29,7 +29,6 @@ export default class UIScene extends Phaser.Scene {
     this.add.existing(this.menuButton)
     this.loadEncounter()
     this.battlerSummary = new BattlerSummaryService(this)
-    if (payload.open) this.open()
     // TOOD: map name
     // this.window = this.add.sprite(0, 0, 'dark').setOrigin(0, 0)
     // this.overlay = this.add.rectangle(0, 0, config.WIDTH, config.HEIGHT, 0x000000).setOrigin(0, 0).setAlpha(0.2)
@@ -123,46 +122,19 @@ export default class UIScene extends Phaser.Scene {
     const hold = speed === 'slow' ? 200 : 100
     if (pause) this.scene.pause('Game')
     return new Promise(resolve => {
-      const top = this.add.rectangle(0, -config.HEIGHT.half, config.WIDTH, config.HEIGHT.half, 0x111111).setOrigin(0, 0)
+      const rect = this.add.rectangle(0, 0, config.WIDTH, config.HEIGHT, 0x111111).setOrigin(0, 0).setAlpha(0)
       this.add.tween({
-        targets: top,
+        targets: rect,
         duration,
         hold,
-        y: 0,
-        yoyo: true
-      })
-      const bottom = this.add.rectangle(0, config.HEIGHT, config.WIDTH, config.HEIGHT.half, 0x111111).setOrigin(0, 0)
-      this.add.tween({
-        targets: bottom,
-        duration,
-        hold,
-        y: config.HEIGHT.half,
+        alpha: 1,
         yoyo: true,
         onYoyo: resolve,
         onComplete: () => {
           if (pause) this.scene.resume('Game')
-          top.destroy()
-          bottom.destroy()
+          rect.destroy()
         }
       })
-    })
-  }
-  open () {
-    const top = this.add.rectangle(0, 0, config.WIDTH, config.HEIGHT.half, 0x111111).setOrigin(0, 0)
-    this.add.tween({
-      targets: top,
-      duration: 150,
-      y: -config.HEIGHT.half
-    })
-    const bottom = this.add.rectangle(0, config.HEIGHT.half, config.WIDTH, config.HEIGHT.half, 0x111111).setOrigin(0, 0)
-    this.add.tween({
-      targets: bottom,
-      duration: 150,
-      y: config.HEIGHT,
-      onComplete: () => {
-        top.destroy()
-        bottom.destroy()
-      }
     })
   }
   getMenuButton (x, y) {
