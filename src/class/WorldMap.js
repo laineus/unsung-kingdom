@@ -1,7 +1,7 @@
 import config from '../data/config'
 import Box from './Box'
 import Button from './Button'
-import { fadeIn, fadeOut, slideIn, slideOut } from '../util/animations'
+import { slideIn, slideOut } from '../util/animations'
 const AERA_LIST = [
   { name: '王都', x: 960, y: 560, key: 'town1', mapX: 2, mapY: 20 },
   { name: '王城 - 裏庭', x: 960, y: 360, key: 'castle1', mapX: 48, mapY: 37 },
@@ -26,12 +26,10 @@ export default class WorldMap extends Phaser.GameObjects.Container {
     })
   }
   init () {
-    this.bg = this.scene.add.rectangle(0, 0, config.WIDTH, config.HEIGHT, 0x111111).setOrigin(0, 0)
     this.map = this.scene.add.sprite(0, 0, 'map/world').setScale(SCALE.DEFAULT).setOrigin(0, 0).setInteractive().on('pointerdown', () => {
       this.setArea(null)
     })
-    fadeIn(this.scene, this.map, { duration: 400, delay: 150 })
-    this.add([this.bg, this.map])
+    this.add(this.map)
     this.rows = AERA_LIST.filter((_, i) => {
       return this.scene.storage.state.allowed_map >= i
     }).map((area, i, arr) => {
@@ -46,7 +44,7 @@ export default class WorldMap extends Phaser.GameObjects.Container {
     this.button.on('click', () => {
       slideOut(this.scene, this.rows, { x: -200 })
       slideOut(this.scene, this.button)
-      fadeOut(this.scene, [this.map], { duration: 400 }).then((this.selected ? this.onOk : this.onCancel).bind(this))
+      this.selected ? this.onOk() : this.onCancel()
     })
     this.add(this.button)
   }
