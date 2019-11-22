@@ -14,7 +14,6 @@ const option = {
   height: config.HEIGHT,
   scene: [BootScene, TitleScene, GameScene, UIScene],
   parent: 'game',
-  pixelArt: true,
   physics: {
     default: 'arcade',
     arcade: {

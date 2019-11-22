@@ -14,7 +14,7 @@ export default class SpeachBubble extends Phaser.GameObjects.Container {
     super(scene, x, y)
     this.bg = scene.add.polygon(0, 0, points[position === -1 ? 'left' : 'right'], config.COLORS.black).setAlpha(0.7)
     this.bg.isStroked = true
-    this.bg.lineWidth = 1
+    this.bg.lineWidth = 1.5
     this.bg.strokeColor = config.COLORS.white
     const left = position === -1
     const mask = scene.make.graphics().setPosition(this.x + 80 * position, this.y - 29).fillRect(-80, -55, 160, 120).setRotation(-0.05 * position).createGeometryMask()

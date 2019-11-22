@@ -16,7 +16,7 @@ export default class Box extends Phaser.GameObjects.Polygon {
     this.setAlpha(alpha)
     if (lineColor) {
       this.isStroked = true
-      this.lineWidth = 1
+      this.lineWidth = 1.5
       this.strokeColor = lineColor
     }
   }
