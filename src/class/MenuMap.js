@@ -28,7 +28,7 @@ export default class MenuMap extends Phaser.GameObjects.Container {
       }
     })
     this.add(bg)
-    const title = scene.add.text(20, 15, 'MAP & QUEST', { align: 'center', fill: config.COLORS.theme.toColorString, fontSize: 21, fontStyle: 'bold', fontFamily: config.FONTS.UI })
+    const title = scene.add.text(20, 15, 'MAP & QUEST', { align: 'center', fill: config.COLORS.theme.toColorString, fontSize: 25, fontStyle: 'bold', fontFamily: config.FONTS.UI })
     const sub = scene.add.text(20, 41, 'マップ・クエスト', { align: 'center', fill: config.COLORS.gray.toColorString, fontSize: 10, fontStyle: 'bold', fontFamily: config.FONTS.TEXT })
     this.add([title, sub])
     this.setMap(this.scene.storage.state.map)
@@ -63,9 +63,9 @@ export default class MenuMap extends Phaser.GameObjects.Container {
   getChapter (i, x, y) {
     const chapter = chapters[i]
     const container = this.scene.add.container(x, y)
-    const prefix = this.scene.add.text(0, 0, chapter.name, { fontSize: 18, fontStyle: 'bold', fontFamily: config.FONTS.UI }).setOrigin(0, 0)
-    const title = this.scene.add.text(50, -3, chapter.title, { fontSize: 13, fontStyle: 'bold', fontFamily: config.FONTS.UI }).setOrigin(0, 0)
-    const en = this.scene.add.text(50, 15, chapter.en, { fill: config.COLORS.gray.toColorString, fontSize: 9, fontFamily: config.FONTS.UI }).setOrigin(0, 0)
+    const prefix = this.scene.add.text(0, 0, chapter.name, { fontSize: 17, fontStyle: 'bold', fontFamily: config.FONTS.TEXT }).setOrigin(0, 0)
+    const title = this.scene.add.text(50, -3, chapter.title, { fontSize: 14, fontStyle: 'bold', fontFamily: config.FONTS.TEXT }).setOrigin(0, 0)
+    const en = this.scene.add.text(50, 15, chapter.en, { fill: config.COLORS.gray.toColorString, fontSize: 12, fontFamily: config.FONTS.UI }).setOrigin(0, 0)
     container.add([prefix, title, en])
     return container
   }

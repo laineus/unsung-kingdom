@@ -9,7 +9,7 @@ export default class Button extends Phaser.GameObjects.Container {
     this.bgLight.visible = false
     const bg = new Box(scene, 0, 0, width, height, { color: config.COLORS.black, lineColor: config.COLORS.white }).setOrigin(0.5, 0.5)
     const alignLeft = align === 'left'
-    this.text = scene.add.text(alignLeft ? -width.half + 20 : 0, 0, text, { align, fontFamily: config.FONTS.UI }).setOrigin(alignLeft ? 0 : 0.5, 0.5).setPadding(0, 2, 0, 0)
+    this.text = scene.add.text(alignLeft ? -width.half + 20 : 0, -1, text, { align, fontSize: 19, fontFamily: config.FONTS.UI }).setOrigin(alignLeft ? 0 : 0.5, 0.5).setPadding(0, 2, 0, 0)
     this.add([this.bgLight, bg, this.text])
     this.on('pointerover', () => {
       this.bgLight.visible = true

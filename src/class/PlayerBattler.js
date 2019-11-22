@@ -25,17 +25,17 @@ export default class PlayerBattler extends Battler {
     this.add(this.sprite)
     this.sprite.setCrop(0, 0, this.sprite.width, 150)
     // name
-    this.nameLabel = this.scene.add.text(-138, 15, this.name, { fill: config.COLORS.theme.toColorString, stroke: config.COLORS.dark.toColorString, strokeThickness: 2, fontSize: 20, fontStyle: 'bold', fontFamily: config.FONTS.UI })
+    this.nameLabel = this.scene.add.text(-138, 15, this.name, { fill: config.COLORS.theme.toColorString, stroke: config.COLORS.dark.toColorString, strokeThickness: 2, fontSize: 22, fontStyle: 'bold', fontFamily: config.FONTS.UI })
     this.add(this.nameLabel)
     // lv
-    this.lvLabel = this.scene.add.text(-36, 38, `Lv ${this.lv}`, { fill: config.COLORS.gray.toColorString, stroke: config.COLORS.dark.toColorString, strokeThickness: 2, fontSize: 13, fontStyle: 'bold', fontFamily: config.FONTS.UI }).setOrigin(0, 1)
+    this.lvLabel = this.scene.add.text(-36, 38, `Lv ${this.lv}`, { fill: config.COLORS.gray.toColorString, stroke: config.COLORS.dark.toColorString, strokeThickness: 2, fontSize: 15, fontStyle: 'bold', fontFamily: config.FONTS.UI }).setOrigin(0, 1)
     this.add(this.lvLabel)
     // hp
-    this.hpLabel = this.scene.add.text(-36, -25, 'HP', { fill: config.COLORS.soy.toColorString, stroke: config.COLORS.dark.toColorString, strokeThickness: 2, fontSize: 11, fontStyle: 'bold', fontFamily: config.FONTS.UI })
+    this.hpLabel = this.scene.add.text(-36, -25, 'HP', { fill: config.COLORS.soy.toColorString, stroke: config.COLORS.dark.toColorString, strokeThickness: 2, fontSize: 14, fontStyle: 'bold', fontFamily: config.FONTS.UI })
     this.add(this.hpLabel)
-    this.hpMaxLabel = this.scene.add.text(125, -10, `/${this.maxHp}`, { fill: config.COLORS.soy.toColorString, stroke: config.COLORS.dark.toColorString, strokeThickness: 2, fontSize: 16, fontStyle: 'bold', fontFamily: config.FONTS.UI }).setOrigin(1, 1)
+    this.hpMaxLabel = this.scene.add.text(125, -10, `/${this.maxHp}`, { fill: config.COLORS.soy.toColorString, stroke: config.COLORS.dark.toColorString, strokeThickness: 2, fontSize: 18, fontStyle: 'bold', fontFamily: config.FONTS.UI }).setOrigin(1, 1)
     this.add(this.hpMaxLabel)
-    this.hpValueLabel = this.scene.add.text(this.hpMaxLabel.x - this.hpMaxLabel.width, -9, this.hp, { fill: config.COLORS.soy.toColorString, stroke: config.COLORS.dark.toColorString, strokeThickness: 2, fontSize: 22, fontStyle: 'bold', fontFamily: config.FONTS.UI }).setOrigin(1, 1)
+    this.hpValueLabel = this.scene.add.text(this.hpMaxLabel.x - this.hpMaxLabel.width, -9, this.hp, { fill: config.COLORS.soy.toColorString, stroke: config.COLORS.dark.toColorString, strokeThickness: 2, fontSize: 24, fontStyle: 'bold', fontFamily: config.FONTS.UI }).setOrigin(1, 1)
     this.add(this.hpValueLabel)
     // gauge
     this.gauge = new Gauge(this.scene, 160, 10, this.maxHp, config.COLORS.theme).setPosition(45, -3)
