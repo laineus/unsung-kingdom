@@ -9,8 +9,8 @@ export default class MenuSave extends Phaser.GameObjects.Container {
     super(scene)
     this.scene = scene
     this.readOnly = readOnly
-    const title = scene.add.text(20, 15, readOnly ? 'LOAD' : 'SAVE', { align: 'center', fill: config.COLORS.theme.toColorString, fontSize: 21, fontStyle: 'bold', fontFamily: config.FONT })
-    const sub = scene.add.text(20, 41, readOnly ? 'ロード' : 'セーブ', { align: 'center', fill: config.COLORS.gray.toColorString, fontSize: 10, fontStyle: 'bold', fontFamily: config.FONT })
+    const title = scene.add.text(20, 15, readOnly ? 'LOAD' : 'SAVE', { align: 'center', fill: config.COLORS.theme.toColorString, fontSize: 21, fontStyle: 'bold', fontFamily: config.FONTS.UI })
+    const sub = scene.add.text(20, 41, readOnly ? 'ロード' : 'セーブ', { align: 'center', fill: config.COLORS.gray.toColorString, fontSize: 10, fontStyle: 'bold', fontFamily: config.FONTS.TEXT })
     this.add([title, sub])
     this.setItems()
     this.setContent(this.scene.storage.lastNumber || 0)
@@ -29,12 +29,12 @@ export default class MenuSave extends Phaser.GameObjects.Container {
     })
     const bg = new Box(this.scene, 0, 0, 270, 32)
     item.add(bg)
-    const tx = this.scene.add.text(-120, 0, data.name, { fontSize: 16, fontStyle: 'bold', fontFamily: config.FONT }).setOrigin(0, 0.5)
+    const tx = this.scene.add.text(-120, 0, data.name, { fontSize: 16, fontStyle: 'bold', fontFamily: config.FONTS.UI }).setOrigin(0, 0.5)
     item.add(tx)
     item.setActive = bool => tx.setFill(config.COLORS[bool ? 'theme' :'white'].toColorString)
     if (data.exists) {
       const timeString = moment(data.state.saved, 'X').format('YYYY-MM-DD HH:mm:ss')
-      const time = this.scene.add.text(120, 0, timeString, { fontSize: 12, fontFamily: config.FONT, fill: config.COLORS.gray.toColorString }).setOrigin(1, 0.5)
+      const time = this.scene.add.text(120, 0, timeString, { fontSize: 12, fontFamily: config.FONTS.UI, fill: config.COLORS.gray.toColorString }).setOrigin(1, 0.5)
       item.add(time)
     }
     return item
@@ -54,7 +54,7 @@ export default class MenuSave extends Phaser.GameObjects.Container {
   getContent (data, x, y) {
     const container = this.scene.add.container(x, y)
     container.number = data.number
-    const tx = this.scene.add.text(0, 220, data.name, { fontSize: 20, fontStyle: 'bold', fontFamily: config.FONT })
+    const tx = this.scene.add.text(0, 220, data.name, { fontSize: 20, fontStyle: 'bold', fontFamily: config.FONTS.UI })
     container.add(tx)
     const buttonWidth = 150
     if (data.number > 0 && !this.readOnly) {
@@ -69,9 +69,9 @@ export default class MenuSave extends Phaser.GameObjects.Container {
     container.add(thumb)
     if (data.exists) {
       const chapter = chapters[data.state.chapter]
-      const detail = this.scene.add.text(100, 220, `${chapter.name} ${chapter.title}`, { fontSize: 16, fontStyle: 'bold', fontFamily: config.FONT })
+      const detail = this.scene.add.text(100, 220, `${chapter.name} ${chapter.title}`, { fontSize: 16, fontStyle: 'bold', fontFamily: config.FONTS.TEXT })
       const timeString = moment(data.state.saved, 'X').format('YYYY-MM-DD HH:mm:ss')
-      const date = this.scene.add.text(100, 243, timeString, { fontSize: 12, fontFamily: config.FONT, fill: config.COLORS.gray.toColorString })
+      const date = this.scene.add.text(100, 243, timeString, { fontSize: 12, fontFamily: config.FONTS.UI, fill: config.COLORS.gray.toColorString })
       container.add([detail, date])
       const load = new Button(this.scene, buttonWidth.half + buttonWidth + 10, 331, 'Load', buttonWidth, 40).on('click', () => {
         this.emit('loadData', data)

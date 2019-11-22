@@ -32,7 +32,7 @@ export default class UIScene extends Phaser.Scene {
     // TOOD: map name
     // this.window = this.add.sprite(0, 0, 'dark').setOrigin(0, 0)
     // this.overlay = this.add.rectangle(0, 0, config.WIDTH, config.HEIGHT, 0x000000).setOrigin(0, 0).setAlpha(0.2)
-    // this.add.text(15, -8, 'ワルコフォレンスの森', { align: 'center', fontSize: 16, fontStyle: 'bold', fontFamily: config.FONT }).setOrigin(0.5, 0.5).setPosition(config.WIDTH.half, config.HEIGHT.half)
+    // this.add.text(15, -8, 'ワルコフォレンスの森', { align: 'center', fontSize: 16, fontStyle: 'bold', fontFamily: config.FONTS.TEXT }).setOrigin(0.5, 0.5).setPosition(config.WIDTH.half, config.HEIGHT.half)
     // setTimeout(() => {
     //   this.gameScene.blur(true)
     // }, 100)
@@ -82,7 +82,7 @@ export default class UIScene extends Phaser.Scene {
   }
   async announce (text) {
     const announcement = this.add.container(20, 50)
-    const tx = this.add.text(15, -1, text, { align: 'left', fontSize: 13, fontFamily: config.FONT }).setPadding(0, 2, 0, 0).setOrigin(0, 0.5)
+    const tx = this.add.text(15, -1, text, { align: 'left', fontSize: 13, fontFamily: config.FONTS.TEXT }).setPadding(0, 2, 0, 0).setOrigin(0, 0.5)
     const bg = new Box(this, 0, 0, tx.width + 35, 27).setOrigin(0, 0.5)
     announcement.add([bg, tx])
     await slideIn(this, announcement)
@@ -140,8 +140,8 @@ export default class UIScene extends Phaser.Scene {
   getMenuButton (x, y) {
     const button = this.add.container(x, y).setSize(120, 50)
     button.add(this.add.rectangle(0, 0, 120, 50, config.COLORS.black).setAlpha(0))
-    button.add(this.add.text(15, -8, 'MENU', { align: 'center', fontSize: 21, fontStyle: 'bold', fontFamily: config.FONT }).setPadding(0, 2, 0, 0).setOrigin(0.5, 0.5))
-    button.add(this.add.text(15, 11, 'メニュー', { align: 'center', fontSize: 10, fontStyle: 'bold', fontFamily: config.FONT }).setPadding(0, 2, 0, 0).setOrigin(0.5, 0.5))
+    button.add(this.add.text(15, -8, 'MENU', { align: 'center', fontSize: 21, fontStyle: 'bold', fontFamily: config.FONTS.UI }).setPadding(0, 2, 0, 0).setOrigin(0.5, 0.5))
+    button.add(this.add.text(15, 11, 'メニュー', { align: 'center', fontSize: 10, fontStyle: 'bold', fontFamily: config.FONTS.TEXT }).setPadding(0, 2, 0, 0).setOrigin(0.5, 0.5))
     button.add(this.add.rectangle(-35, -1, 25, 3, config.COLORS.theme).setRotation(Math.PI / 1))
     button.add(this.add.rectangle(-35, -1, 25, 3, config.COLORS.theme).setRotation(Math.PI / -2))
     button.setInteractive().on('pointerdown', () => {
@@ -163,7 +163,7 @@ export default class UIScene extends Phaser.Scene {
   }
   chapterStart (text) {
     return new Promise(resolve => {
-      const m = this.add.text(config.WIDTH.half, config.HEIGHT.half - 5, text, { fill: config.COLORS.white.toColorString, fontSize: 16, fontFamily: config.FONT }).setOrigin(0.5, 0.5)
+      const m = this.add.text(config.WIDTH.half, config.HEIGHT.half - 5, text, { fill: config.COLORS.white.toColorString, fontSize: 16, fontFamily: config.FONTS.TEXT }).setOrigin(0.5, 0.5)
       new StoryTelling(this, [m], false).on('beforeEnd', () => {
         resolve()
       })
@@ -172,9 +172,9 @@ export default class UIScene extends Phaser.Scene {
   storyTelling () {
     return new Promise(resolve => {
       const m1 = this.add.container(config.WIDTH.half, config.HEIGHT.half)
-      m1.add(this.add.text(0, 0 - 35, MESSAGES[0], { align: 'left', fill: config.COLORS.white.toColorString, fontSize: 18, fontFamily: config.FONT }).setOrigin(0.5, 0.5).setLineSpacing(15))
-      m1.add(this.add.text(185, 0 + 55, MESSAGES[1], { align: 'right', fill: config.COLORS.white.toColorString, fontSize: 18, fontFamily: config.FONT }).setOrigin(0.5, 0.5).setLineSpacing(15))
-      const m2 = this.add.text(config.WIDTH.half, config.HEIGHT.half - 5, `${MESSAGES[2]}\n\n${MESSAGES[3]}`, { align: 'left', fill: config.COLORS.white.toColorString, fontSize: 18, fontFamily: config.FONT }).setOrigin(0.5, 0.5).setLineSpacing(15)
+      m1.add(this.add.text(0, 0 - 35, MESSAGES[0], { align: 'left', fill: config.COLORS.white.toColorString, fontSize: 18, fontFamily: config.FONTS.TEXT }).setOrigin(0.5, 0.5).setLineSpacing(15))
+      m1.add(this.add.text(185, 0 + 55, MESSAGES[1], { align: 'right', fill: config.COLORS.white.toColorString, fontSize: 18, fontFamily: config.FONTS.TEXT }).setOrigin(0.5, 0.5).setLineSpacing(15))
+      const m2 = this.add.text(config.WIDTH.half, config.HEIGHT.half - 5, `${MESSAGES[2]}\n\n${MESSAGES[3]}`, { align: 'left', fill: config.COLORS.white.toColorString, fontSize: 18, fontFamily: config.FONTS.TEXT }).setOrigin(0.5, 0.5).setLineSpacing(15)
       new StoryTelling(this, [m1, m2], true).on('beforeEnd', () => {
         resolve()
       })

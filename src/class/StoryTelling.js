@@ -24,7 +24,7 @@ export default class StoryTelling extends Phaser.GameObjects.Container {
     this.destroy()
   }
   async execRow (index = 0) {
-    const text = typeof this.messages[index] === 'string' ? this.scene.add.text(config.WIDTH.half, config.HEIGHT.half, this.messages[index], { align: 'center', fill: config.COLORS.white.toColorString, fontSize: 18, fontFamily: config.FONT }).setOrigin(0.5, 0.5) : this.messages[index]
+    const text = typeof this.messages[index] === 'string' ? this.scene.add.text(config.WIDTH.half, config.HEIGHT.half, this.messages[index], { align: 'center', fill: config.COLORS.white.toColorString, fontSize: 18, fontFamily: config.FONTS.TEXT }).setOrigin(0.5, 0.5) : this.messages[index]
     this.add(text)
     await fadeIn(this.scene, text)
     this.waitToClick ? await this.waitClick() : await this.sleep(3000)

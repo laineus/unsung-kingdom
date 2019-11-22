@@ -15,10 +15,10 @@ export default class BattleResult extends Phaser.GameObjects.Container {
     this.callback = callback
     const bg = new Box(this.scene, -110, 0, 480, config.HEIGHT).setOrigin(0, 0)
     this.add(bg)
-    const title = scene.add.text(20, 15, 'Result', { align: 'center', fill: config.COLORS.theme.toColorString, fontSize: 21, fontStyle: 'bold', fontFamily: config.FONT })
-    const sub = scene.add.text(20, 41, '戦闘結果', { align: 'center', fill: config.COLORS.gray.toColorString, fontSize: 10, fontStyle: 'bold', fontFamily: config.FONT })
+    const title = scene.add.text(20, 15, 'Result', { align: 'center', fill: config.COLORS.theme.toColorString, fontSize: 21, fontStyle: 'bold', fontFamily: config.FONTS.UI })
+    const sub = scene.add.text(20, 41, '戦闘結果', { align: 'center', fill: config.COLORS.gray.toColorString, fontSize: 10, fontStyle: 'bold', fontFamily: config.FONTS.TEXT })
     this.add([title, sub])
-    const exp = scene.add.text(30, 75, 'Experience', { align: 'center', fill: config.COLORS.white.toColorString, fontSize: 16, fontFamily: config.FONT })
+    const exp = scene.add.text(30, 75, 'Experience', { align: 'center', fill: config.COLORS.white.toColorString, fontSize: 16, fontFamily: config.FONTS.UI })
     this.add([exp])
     this.charas = storage.state.battlers.map((v, i) => this.getChara(v, 125, 110 + i * 52))
     this.add(this.charas)
@@ -26,7 +26,7 @@ export default class BattleResult extends Phaser.GameObjects.Container {
     const secondY = 275
     const items = this.dropWeapons()
     if (items.length) {
-      const headingItems = scene.add.text(30, secondY, 'Items', { align: 'center', fill: config.COLORS.white.toColorString, fontSize: 16, fontFamily: config.FONT })
+      const headingItems = scene.add.text(30, secondY, 'Items', { align: 'center', fill: config.COLORS.white.toColorString, fontSize: 16, fontFamily: config.FONTS.UI })
       this.add([headingItems])
       const rows = items.map((weapon, i) => this.getRow(35, 305 + i * 20, `${weapon.name} を獲得！`))
       this.add(rows)
@@ -35,7 +35,7 @@ export default class BattleResult extends Phaser.GameObjects.Container {
     const quest = new BattleQuestService(this.group).getResult()
     if (quest.length) {
       const questY = items.length ? 305 + (items.length * 20) + 15 : secondY
-      const headingQuest = scene.add.text(30, questY, 'Quest', { align: 'center', fill: config.COLORS.white.toColorString, fontSize: 16, fontFamily: config.FONT })
+      const headingQuest = scene.add.text(30, questY, 'Quest', { align: 'center', fill: config.COLORS.white.toColorString, fontSize: 16, fontFamily: config.FONTS.UI })
       this.add([headingQuest])
       const rows = quest.map((text, i) => this.getRow(35, questY + 30 + i * 20, text))
       this.add(rows)
@@ -60,8 +60,8 @@ export default class BattleResult extends Phaser.GameObjects.Container {
     container.source = chara
     const sprite = this.scene.add.sprite(-110, 0, chara.key).setScale(0.25).setOrigin(0, 0)
     sprite.setCrop(0, 0, sprite.width, 150)
-    const name = this.scene.add.text(-53, 0, chara.name, { fill: config.COLORS.theme.toColorString, stroke: config.COLORS.dark.toColorString, strokeThickness: 2, fontSize: 14, fontStyle: 'bold', fontFamily: config.FONT })
-    const lv = this.scene.add.text(130, 15, `Lv ${chara.lv}`, { fill: config.COLORS.theme.toColorString, stroke: config.COLORS.dark.toColorString, strokeThickness: 2, fontSize: 12, fontStyle: 'bold', fontFamily: config.FONT, align: 'right' }).setOrigin(1, 0.5)
+    const name = this.scene.add.text(-53, 0, chara.name, { fill: config.COLORS.theme.toColorString, stroke: config.COLORS.dark.toColorString, strokeThickness: 2, fontSize: 14, fontStyle: 'bold', fontFamily: config.FONTS.UI })
+    const lv = this.scene.add.text(130, 15, `Lv ${chara.lv}`, { fill: config.COLORS.theme.toColorString, stroke: config.COLORS.dark.toColorString, strokeThickness: 2, fontSize: 12, fontStyle: 'bold', fontFamily: config.FONTS.UI, align: 'right' }).setOrigin(1, 0.5)
     const gauge = new ExpGauge(this.scene, 38, 38, 180, chara.lv, chara.exp)
     container.lvUp = newLv => {
       lv.text = `Lv ${newLv}`
@@ -125,6 +125,6 @@ export default class BattleResult extends Phaser.GameObjects.Container {
     }).filter(v => v)
   }
   getRow (x, y, text) {
-    return this.scene.add.text(x, y, text, { fill: config.COLORS.theme.toColorString, fontSize: 12, fontFamily: config.FONT })
+    return this.scene.add.text(x, y, text, { fill: config.COLORS.theme.toColorString, fontSize: 12, fontFamily: config.FONTS.TEXT })
   }
 }

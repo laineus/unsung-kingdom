@@ -72,7 +72,7 @@ export default class WorldMap extends Phaser.GameObjects.Container {
     container.area = area
     const box = new Box(this.scene, 0, 0, 220, 32)
     container.setInteractive().on('pointerdown', () => this.setArea(area))
-    const title = this.scene.add.text(-90, 0, area.name, { fontSize: 14, fontStyle: 'bold', fontFamily: config.FONT }).setOrigin(0, 0.5)
+    const title = this.scene.add.text(-90, 0, area.name, { fontSize: 14, fontStyle: 'bold', fontFamily: config.FONTS.TEXT }).setOrigin(0, 0.5)
     container.add([box, title])
     container.setActive = bool => title.setFill(bool ? config.COLORS.theme.toColorString : config.COLORS.white.toColorString)
     return container

@@ -28,8 +28,8 @@ export default class MenuMap extends Phaser.GameObjects.Container {
       }
     })
     this.add(bg)
-    const title = scene.add.text(20, 15, 'MAP & QUEST', { align: 'center', fill: config.COLORS.theme.toColorString, fontSize: 21, fontStyle: 'bold', fontFamily: config.FONT })
-    const sub = scene.add.text(20, 41, 'マップ・クエスト', { align: 'center', fill: config.COLORS.gray.toColorString, fontSize: 10, fontStyle: 'bold', fontFamily: config.FONT })
+    const title = scene.add.text(20, 15, 'MAP & QUEST', { align: 'center', fill: config.COLORS.theme.toColorString, fontSize: 21, fontStyle: 'bold', fontFamily: config.FONTS.UI })
+    const sub = scene.add.text(20, 41, 'マップ・クエスト', { align: 'center', fill: config.COLORS.gray.toColorString, fontSize: 10, fontStyle: 'bold', fontFamily: config.FONTS.TEXT })
     this.add([title, sub])
     this.setMap(this.scene.storage.state.map)
     this.setChapter(this.scene.storage.state.chapter)
@@ -63,9 +63,9 @@ export default class MenuMap extends Phaser.GameObjects.Container {
   getChapter (i, x, y) {
     const chapter = chapters[i]
     const container = this.scene.add.container(x, y)
-    const prefix = this.scene.add.text(0, 0, chapter.name, { fontSize: 18, fontStyle: 'bold', fontFamily: config.FONT }).setOrigin(0, 0)
-    const title = this.scene.add.text(50, -3, chapter.title, { fontSize: 13, fontStyle: 'bold', fontFamily: config.FONT }).setOrigin(0, 0)
-    const en = this.scene.add.text(50, 15, chapter.en, { fill: config.COLORS.gray.toColorString, fontSize: 9, fontFamily: config.FONT }).setOrigin(0, 0)
+    const prefix = this.scene.add.text(0, 0, chapter.name, { fontSize: 18, fontStyle: 'bold', fontFamily: config.FONTS.UI }).setOrigin(0, 0)
+    const title = this.scene.add.text(50, -3, chapter.title, { fontSize: 13, fontStyle: 'bold', fontFamily: config.FONTS.UI }).setOrigin(0, 0)
+    const en = this.scene.add.text(50, 15, chapter.en, { fill: config.COLORS.gray.toColorString, fontSize: 9, fontFamily: config.FONTS.UI }).setOrigin(0, 0)
     container.add([prefix, title, en])
     return container
   }
@@ -75,7 +75,7 @@ export default class MenuMap extends Phaser.GameObjects.Container {
     const box = new Box(this.scene, 0, 0, 270, 32)
     if (state.started) container.setInteractive().on('pointerdown', () => this.setMissionDetail(mission))
     const fill = state.started ? config.COLORS.white.toColorString : config.COLORS.ghost.toColorString
-    const title = this.scene.add.text(-120, 0, state.started ? mission.title : '？？？', { fontSize: 14, fontStyle: 'bold', fontFamily: config.FONT }).setOrigin(0, 0.5)
+    const title = this.scene.add.text(-120, 0, state.started ? mission.title : '？？？', { fontSize: 14, fontStyle: 'bold', fontFamily: config.FONTS.UI }).setOrigin(0, 0.5)
     const check = this.scene.add.sprite(113, 0, 'check').setTint(config.COLORS[state.completed ? 'theme' : 'ghost']).setFrame(Number(state.completed))
     container.add([box, title, check])
     container.key = mission.key
@@ -96,9 +96,9 @@ export default class MenuMap extends Phaser.GameObjects.Container {
   }
   getMissionDetail (mission, x, y) {
     const container = this.scene.add.container(x, y)
-    const title = this.scene.add.text(0, 0, mission.title, { fontSize: 15, fontStyle: 'bold', fontFamily: config.FONT }).setOrigin(0, 0)
+    const title = this.scene.add.text(0, 0, mission.title, { fontSize: 15, fontStyle: 'bold', fontFamily: config.FONTS.UI }).setOrigin(0, 0)
     const dumy = 'クエストの詳細文がここにはいるぞ。クエストの詳細文がここにはいるぞ。\nクエストの詳細文がここにはいるぞ。'
-    const desc = this.scene.add.text(0, 30, dumy, { fill: config.COLORS.gray.toColorString, fontSize: 12, fontStyle: 'bold', fontFamily: config.FONT }).setOrigin(0, 0)
+    const desc = this.scene.add.text(0, 30, dumy, { fill: config.COLORS.gray.toColorString, fontSize: 12, fontStyle: 'bold', fontFamily: config.FONTS.UI }).setOrigin(0, 0)
     container.add([title, desc])
     return container
   }

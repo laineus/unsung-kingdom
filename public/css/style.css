@@ -6,7 +6,7 @@
   max-width: 100%;
 }
 .fontLoader {
-  font-family: Oswald;
+  font-family: 'Teko', 'M PLUS 1p', sans-serif;
   position: absolute;
   left: -1000px;
   visibility: hidden;
