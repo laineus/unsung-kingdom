@@ -21,7 +21,7 @@ const events = [
       { chara: jaquelyn, text: 'よろしくね、アン。' },
       { chara: francisca, text: 'アンが仕切るの？不安なんですけど。' },
       { chara: francisca, text: '私達がこの時代に来た目的、ちゃんと理解してる？' },
-      { chara: 'ann', text: '当たり前よ！' },
+      { chara: 'ann', text: '当たり前じゃん！' },
     ])
     const i = await scene.select(['王の暗殺を阻止すること', '観光'])
     await scene.talk([

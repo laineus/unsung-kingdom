@@ -1,7 +1,7 @@
 import { annabelle } from './townCommon'
-export default (scene, chara) => {
+export default (scene, charas) => {
   const eState = scene.storage.state.event.m0
-  chara.amber.on('tap', async chara => {
+  charas.amber.on('tap', async chara => {
     if (!eState.talked_amber) {
       scene.talk([
         { chara, text: 'はじめまして、旅人さん。' },
@@ -28,7 +28,7 @@ export default (scene, chara) => {
       ])
     }
   })
-  chara.matilda.on('tap', async chara => {
+  charas.matilda.on('tap', async chara => {
     if (!eState.talked_matilda) {
       scene.talk([
         { chara: 'ann', text: 'こんにちは。' },
@@ -59,7 +59,7 @@ export default (scene, chara) => {
       ])
     }
   })
-  chara.annabelle.on('tap', async chara => {
+  charas.annabelle.on('tap', async chara => {
     if (!eState.talked_matilda) return annabelle(scene, chara)
     if (!eState.talked_annabelle) {
       await scene.talk([
