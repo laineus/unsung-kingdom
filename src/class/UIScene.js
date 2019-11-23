@@ -15,8 +15,9 @@ import StoryTelling from './StoryTelling'
 const MESSAGES = [
   `王は死んだ。\n冷たく閉ざされた門扉の先に、かつての繁栄はもはや見る影もない。\n王国は偉大なる王の死とともに終わりを迎えたのだ。`,
   '― 『ベリオン王国史』',
-  `1000年ののち、王国はその名も失い、世界から忘れ去られたが、\nビリオンの民の末裔は、平和王エドガーの眠るその地を決して離れようとはしなかった。`,
-  `そしてある時、王と王国の死を嘆く研究者たちによって、時間を移動する術が発見された。\nそれはこの世の仕組みに逆らうことであったが、彼らは歴史を変えることを躊躇わなかった。`
+  '千年ののち、王国はその名も失い世界から忘れ去られた。\nしかしベリオンの民の末裔は〈平和王エドガー〉の眠るその地を決して離れようとはしなかった。',
+  'そしてある時、王と王国の死を嘆く研究者たちの手によって、時間を移動する術が発見された。',
+  'それはこの世の理に背くことであったが、彼らは歴史を変えることを厭わなかった。'
 ]
 export default class UIScene extends Phaser.Scene {
   constructor () {
@@ -174,8 +175,10 @@ export default class UIScene extends Phaser.Scene {
       const m1 = this.add.container(config.WIDTH.half, config.HEIGHT.half)
       m1.add(this.add.text(0, 0 - 35, MESSAGES[0], { align: 'left', fill: config.COLORS.white.toColorString, fontSize: 18, fontFamily: config.FONTS.TEXT }).setOrigin(0.5, 0.5).setLineSpacing(15))
       m1.add(this.add.text(185, 0 + 55, MESSAGES[1], { align: 'right', fill: config.COLORS.white.toColorString, fontSize: 18, fontFamily: config.FONTS.TEXT }).setOrigin(0.5, 0.5).setLineSpacing(15))
-      const m2 = this.add.text(config.WIDTH.half, config.HEIGHT.half - 5, `${MESSAGES[2]}\n\n${MESSAGES[3]}`, { align: 'left', fill: config.COLORS.white.toColorString, fontSize: 18, fontFamily: config.FONTS.TEXT }).setOrigin(0.5, 0.5).setLineSpacing(15)
-      new StoryTelling(this, [m1, m2], true).on('beforeEnd', () => {
+      const m2 = this.add.text(config.WIDTH.half, config.HEIGHT.half - 5, MESSAGES[2], { align: 'left', fill: config.COLORS.white.toColorString, fontSize: 18, fontFamily: config.FONTS.TEXT }).setOrigin(0.5, 0.5).setLineSpacing(15)
+      const m3 = this.add.text(config.WIDTH.half, config.HEIGHT.half - 5, MESSAGES[3], { align: 'left', fill: config.COLORS.white.toColorString, fontSize: 18, fontFamily: config.FONTS.TEXT }).setOrigin(0.5, 0.5).setLineSpacing(15)
+      const m4 = this.add.text(config.WIDTH.half, config.HEIGHT.half - 5, MESSAGES[4], { align: 'left', fill: config.COLORS.white.toColorString, fontSize: 18, fontFamily: config.FONTS.TEXT }).setOrigin(0.5, 0.5).setLineSpacing(15)
+      new StoryTelling(this, [m1, m2, m3, m4], true).on('beforeEnd', () => {
         resolve()
       })
     })
