@@ -62,7 +62,7 @@ export default (scene, chara) => {
   chara.annabelle.on('tap', async chara => {
     if (!eState.talked_matilda) return annabelle(scene, chara)
     if (!eState.talked_annabelle) {
-      scene.talk([
+      await scene.talk([
         { chara, text: '王城の裏庭？' },
         { chara, text: 'あるよ、行ったこと。' },
         { chara: 'ann', text: 'ほんと！？' },

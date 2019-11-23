@@ -12,6 +12,7 @@ export default class Talk extends Phaser.GameObjects.Container {
     npc.forEach(c => {
       c.setR(c.angleTo(this.scene.gameScene.player))
     })
+    if (npc.length) this.scene.gameScene.player.setR(this.scene.gameScene.player.angleTo(npc[0]))
     const averageX = Math.average(...npc.map(c => c.x), this.scene.gameScene.player.x)
     this.events.filter(v => v).reduce((prev, v) => {
       v.position = this.getChara(v).x < averageX ? -1 : 1
