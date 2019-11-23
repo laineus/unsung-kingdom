@@ -17,7 +17,6 @@ export default (scene, chara) => {
       eState.talked_sick = true
       scene.storage.state.allowed_map = Math.max(scene.storage.state.allowed_map, 2)
       scene.ui.announce('マップ「ワルコフォレンスの森」が解放された')
-      scene.map.getObjectById(1).setBlocked(false)
     } else {
       scene.talk([
         { chara, text: 'ワン！' }
