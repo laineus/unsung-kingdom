@@ -4,6 +4,10 @@ export default {
     x: 0, y: 0
   },
   create (scene) {
+    const amber = scene.map.getObjectById(2).setDisplayName('アンバー婦人')
+    const elliott = scene.map.getObjectById(7).setDisplayName('卑劣なエリオット')
+    const max = scene.map.getObjectById(8).setDisplayName('傭兵マックス')
+    const matilda = scene.map.getObjectById(9).setDisplayName('宿屋のマチルダ')
     const eState = scene.storage.state.event.m1
     scene.map.getObjectById(6).setTapEvent().on('tap', () => scene.mapChange('room1', (17).toPixel, (16).toPixelCenter))
     scene.map.getObjectById(2).setDisplayName('市民').setTapEvent().on('tap', async chara => {
