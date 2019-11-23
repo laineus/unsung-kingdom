@@ -13,7 +13,7 @@ export const annabelle = (scene, chara) => {
     { chara: 'ann', text: '高級な宿ってこと？' },
     { chara: 'ann', text: 'ちょっとそういう感じには見えないけどな…。' },
     { chara, text: 'そういうことじゃないよ。' },
-    { chara, text: '私は女の子にもサービスできるんだけど…、' },
+    { chara, text: '私のサービスは女の子専門なんだけど…、' },
     { chara, text: 'お姉さんには馴染みがなかったかな？' },
     { chara: 'ann', text: '？' },
     { chara: 'jaquelyn', text: 'ありがとう、宿屋さん。' },
