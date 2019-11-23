@@ -22,8 +22,19 @@ const events = [
       { chara: francisca, text: 'アンが仕切るの？不安なんですけど。' },
       { chara: francisca, text: '私達がこの時代に来た目的、ちゃんと理解してる？' },
       { chara: 'ann', text: '当たり前よ！' },
-      { chara: 'ann', text: '私達の目的はエドガー王が暗殺されるのを阻止すること。' },
-      { chara: jaquelyn, text: 'ちゃんと覚えていて偉いわ、アン。' },
+    ])
+    const i = await scene.select(['王の暗殺を阻止すること', '観光'])
+    await scene.talk([
+      ...(i === 0 ? [
+        { chara: 'ann', text: '私達の目的はエドガー王が暗殺されるのを阻止すること。' },
+        { chara: jaquelyn, text: 'ちゃんと覚えていて偉いわ、アン。' },
+      ] : [
+        { chara: francisca, text: 'はぁ…。' },
+        { chara: jaquelyn, text: 'そうじゃないでしょ、アン。' },
+        { chara: jaquelyn, text: '私達の目的はエドガー王が暗殺されるのを阻止することよ。' },
+        { chara: 'ann', text: 'じょ、冗談だよ！' },
+        { chara: 'ann', text: '忘れるわけないじゃん！' }
+      ]),
       { chara: 'ann', text: '全べリオン人がずっと悔やんできたことだもの。' },
       { chara: jaquelyn, text: 'そうね。' },
       { chara: francisca, text: 'べリオン王国史によると、王が暗殺されたのは明日の夕暮れ、王城の裏庭。' },
