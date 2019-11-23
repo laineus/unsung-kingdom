@@ -119,8 +119,8 @@
                  "type":"chara",
                  "visible":true,
                  "width":0,
-                 "x":796,
-                 "y":504
+                 "x":774,
+                 "y":540
                 }, 
                 {
                  "height":0,
@@ -131,8 +131,8 @@
                  "type":"chara",
                  "visible":true,
                  "width":0,
-                 "x":753,
-                 "y":343
+                 "x":775,
+                 "y":467
                 }, 
                 {
                  "height":0,
@@ -143,8 +143,32 @@
                  "type":"chara",
                  "visible":true,
                  "width":0,
-                 "x":288,
-                 "y":387
+                 "x":291,
+                 "y":389
+                }, 
+                {
+                 "height":0,
+                 "id":10,
+                 "name":"people",
+                 "point":true,
+                 "rotation":0,
+                 "type":"chara",
+                 "visible":true,
+                 "width":0,
+                 "x":409,
+                 "y":339
+                }, 
+                {
+                 "height":0,
+                 "id":11,
+                 "name":"people",
+                 "point":true,
+                 "rotation":0,
+                 "type":"chara",
+                 "visible":true,
+                 "width":0,
+                 "x":849,
+                 "y":210
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -153,7 +177,7 @@
          "y":0
         }],
  "nextlayerid":19,
- "nextobjectid":10,
+ "nextobjectid":12,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"2018.12.22",
