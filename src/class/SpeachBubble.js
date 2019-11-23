@@ -6,7 +6,7 @@ const points = {
   right: left.map(point => [360 - point[0], point[1]])
 }
 const paddingX = 180
-const paddingY = 80
+const paddingY = 90
 export default class SpeachBubble extends Phaser.GameObjects.Container {
   constructor (scene, x, y, name, imageKey, text, position = -1) {
     x = Math.fix(x, paddingX, config.WIDTH - paddingX)
