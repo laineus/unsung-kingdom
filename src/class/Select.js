@@ -15,7 +15,7 @@ export default class Select extends Phaser.GameObjects.Container {
     this.setPosition((20).byRight - WIDTH.half, (20).byBottom - this.yDiff)
   }
   option (text, i, x, y) {
-    return new Button(this.scene, x, y, text, WIDTH, HEIGHT, { align: 'left' }).on('click', () => {
+    return new Button(this.scene, x, y, text, WIDTH, HEIGHT, { align: 'left', fontSize: 16 }).on('click', () => {
       this.scene.scene.resume('Game')
       this.destroy()
       if (this.callback) this.callback(i)
