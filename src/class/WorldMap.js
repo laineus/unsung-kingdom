@@ -24,6 +24,7 @@ export default class WorldMap extends Phaser.GameObjects.Container {
     this.scene.transition(false).then(() => {
       this.init()
     })
+    this.scene.gameScene.player.stopWalk()
   }
   init () {
     this.map = this.scene.add.sprite(0, 0, 'map/world').setScale(SCALE.DEFAULT).setOrigin(0, 0).setInteractive().on('pointerdown', () => {
@@ -49,6 +50,7 @@ export default class WorldMap extends Phaser.GameObjects.Container {
     this.add(this.button)
   }
   onOk () {
+    if (this.scene.storage.state.map === this.selected.key) return this.onCancel()
     this.scene.gameScene.mapChange(this.selected.key, this.selected.mapX.toPixelCenter, this.selected.mapY.toPixelCenter).then(() => {
       this.destroy()
     })
