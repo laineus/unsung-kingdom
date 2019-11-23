@@ -1,38 +1,20 @@
+import townChapter0 from '../event/townChapter0'
+import townChapter1 from '../event/townChapter1'
+const events = [
+  townChapter0,
+  townChapter1
+]
 export default {
   area: {
     key: 'forest',
     x: 0, y: 0
   },
   create (scene) {
-    const amber = scene.map.getObjectById(2).setDisplayName('アンバー婦人')
-    const elliott = scene.map.getObjectById(7).setDisplayName('卑劣なエリオット')
-    const max = scene.map.getObjectById(8).setDisplayName('傭兵マックス')
-    const matilda = scene.map.getObjectById(9).setDisplayName('宿屋のマチルダ')
-    const eState = scene.storage.state.event.m1
     scene.map.getObjectById(6).setTapEvent().on('tap', () => scene.mapChange('room1', (17).toPixel, (16).toPixelCenter))
-    scene.map.getObjectById(2).setDisplayName('市民').setTapEvent().on('tap', async chara => {
-      if (!eState.talked_sick) {
-        await scene.talk([
-          { chara: 'ann', text: 'こんにちは、お兄さん。' },
-          { chara, text: 'やあ。何か用かい？お姉さんたち。' },
-          { chara: 'ann', text: '国王の病気について聞いてもいいですか？' },
-          { chara, text: '君たちよそから来たのかい？' },
-          { chara, text: '国王は知っての通り病気だ。ある日突然病を患ったんだ。' },
-          { chara, text: '混乱を避けるためか、あまり表沙汰にしていないみたいだけど、かなり状態が良くないらしい。' },
-          { chara: 'jaquelyn', text: '治らないんですか？' },
-          { chara, text: 'どんな病気かは知らないが、ドリスタンという森の賢人なら大抵の病を治せる。' },
-          { chara, text: '今回も彼を頼っているはずだが、何故だか難航しているようだ。' },
-          { chara: 'ann', text: 'そうなんですね。ありがとうございました。' }
-        ])
-        eState.talked_sick = true
-        scene.storage.state.allowed_map = Math.max(scene.storage.state.allowed_map, 2)
-        scene.ui.announce('マップ「ワルコフォレンスの森」が解放された')
-        scene.map.getObjectById(1).setBlocked(false)
-      } else {
-        scene.talk([
-          { chara, text: 'ワン！' }
-        ])
-      }
-    })
+    const amber = scene.map.getObjectById(2).setDisplayName('アンバー婦人').setTapEvent()
+    const elliott = scene.map.getObjectById(7).setDisplayName('卑劣なエリオット').setTapEvent()
+    const max = scene.map.getObjectById(8).setDisplayName('傭兵マックス').setTapEvent()
+    const matilda = scene.map.getObjectById(9).setDisplayName('宿屋のマチルダ').setTapEvent()
+    events[scene.storage.state.chapter](scene, { amber, elliott, max, matilda })
   }
 }
