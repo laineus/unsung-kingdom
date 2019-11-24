@@ -28,7 +28,7 @@ export default () => {
       m4_3: { started: false, completed: false },
       m4_4: { started: false, completed: false },
       m5_1: { started: false, completed: false },
-      m0: { talked_matilda: false, talked_annabelle: false, talked_amber: false },
+      m0: { talked_matilda: false, talked_annabelle: false, talked_amber: false, area: false },
       m1: { talked_sick: false }
     },
     battlers: battlers.filter((_, i) => i < 3).map((v, i) => Object.assign(v, { exp: 0, maxHp: v.hp, weapon: i + 1 })),

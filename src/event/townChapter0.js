@@ -1,9 +1,20 @@
 import { annabelle } from './townCommon'
 export default (scene, charas) => {
   const eState = scene.storage.state.event.m0
+  if (!eState.area) {
+    charas.area1.setEvent(async () => {
+      await scene.talk([
+        { chara: 'ann', text: 'そういえば、お城の裏庭にはどうやって行くの？' },
+        { chara: 'francisca', text: '街の人に聞いてみよう。' },
+        { chara: 'francisca', text: 'できるだけ怪しまれないようにね。' }
+      ])
+      eState.area = true
+      charas.area1.setEvent(null)
+    })
+  }
   charas.amber.on('tap', async chara => {
     if (!eState.talked_amber) {
-      scene.talk([
+      await scene.talk([
         { chara, text: 'はじめまして、旅人さん。' },
         { chara, text: 'こちらへは何をしにいらしたのかしら？' },
         { chara: 'ann', text: 'ええと、王城を見に来ました！' },
@@ -22,7 +33,7 @@ export default (scene, charas) => {
       ])
       eState.talked_amber = true
     } else {
-      scene.talk([
+      await scene.talk([
         { chara, text: '裏庭って言っても、外周は深い森だから道を知ってないと行けないわよ。' },
         { chara: 'ann', text: 'そうなんですね。' }
       ])
@@ -30,7 +41,7 @@ export default (scene, charas) => {
   })
   charas.matilda.on('tap', async chara => {
     if (!eState.talked_matilda) {
-      scene.talk([
+      await scene.talk([
         { chara: 'ann', text: 'こんにちは。' },
         { chara, text: 'あ、はい…。' },
         { chara: 'ann', text: '私たち、王城の裏庭を見てみたいんだけど、行き方知ってるかな？' },
@@ -54,7 +65,7 @@ export default (scene, charas) => {
       ])
       eState.talked_matilda = true
     } else {
-      scene.talk([
+      await scene.talk([
         { chara, text: 'アナベル、今日も綺麗でいいなぁ…。' }
       ])
     }
@@ -79,7 +90,7 @@ export default (scene, charas) => {
       scene.storage.state.allowed_map = Math.max(scene.storage.state.allowed_map, 1)
       scene.ui.announce('マップ「王城 - 裏庭」が解放された')
     } else {
-      scene.talk([
+      await scene.talk([
         { chara, text: '今度うちの宿に泊まりに来てね。' }
       ])
     }

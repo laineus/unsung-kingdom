@@ -17,6 +17,7 @@ export default {
     const annabelle = scene.map.getObjectById(9).setDisplayName('宿屋のアナベル').setTapEvent()
     const matilda = scene.map.getObjectById(10).setDisplayName('内気なマチルダ').setTapEvent().setRandomWalk(true)
     const maison = scene.map.getObjectById(11).setDisplayName('メイソン').setTapEvent()
-    events[scene.storage.state.chapter](scene, { amber, elliott, max, annabelle, matilda, maison })
+    const area1 = scene.map.getObjectById(12)
+    events[scene.storage.state.chapter](scene, { amber, elliott, max, annabelle, matilda, maison, area1 })
   }
 }
