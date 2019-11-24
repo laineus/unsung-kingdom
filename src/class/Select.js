@@ -15,7 +15,6 @@ export default class Select extends Phaser.GameObjects.Container {
       const y = (config.HEIGHT - this.sumHeight - 20) + ((HEIGHT + MERGIN) * i)
       return this.option(text, i, x, y)
     })
-    this.add(this.scene.add.rectangle(0, 0, config.WIDTH, config.HEIGHT).setOrigin(0, 0).setInteractive())
     this.add(this.options)
   }
   option (text, i, x, y) {
