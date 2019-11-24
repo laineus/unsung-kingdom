@@ -15,8 +15,7 @@ export const jack = (scene, area, chara) => {
     scene.player.setPosition((50).toPixel, (29).toPixel)
     scene.camera.updateFollow()
     await scene.ui.sleep(500)
-    scene.camera.followPlayer(false)
-    await scene.camera.move(0, -180, 1000)
+    await scene.camera.look(0, -180, 1000)
     await scene.talk([
       { chara: 'jaquelyn', text: '日が落ち始めたわね。' },
       { chara: 'ann', text: 'もうそろそろ現れるころかな？' },
@@ -30,7 +29,7 @@ export const jack = (scene, area, chara) => {
       { chara, text: 'おい、お前たち、こんなところで何をしている？' }
     ])
     chara.setVisible(true)
-    await scene.camera.move(0, 180, 300)
+    await scene.camera.look(0, 180, 300)
     scene.player.setR('down')
     await scene.talk([
       { chara: 'ann', text: 'え！？' },
@@ -80,7 +79,7 @@ export const jack = (scene, area, chara) => {
       { chara: 'francisca', text: 'きっと奴に盗られたんだわ。' },
       { chara: 'francisca', text: '早く追いかけよう。' }
     ])
-    scene.camera.followPlayer(true)
+    scene.camera.revert()
     scene.setEventMode(false)
     state.battled = true
     area.destroy()
@@ -102,8 +101,7 @@ export const king = (scene, area, chara) => {
     scene.player.setPosition((18).toPixelCenter, (24).toPixelCenter).setR('up')
     scene.camera.updateFollow()
     await scene.ui.sleep(500)
-    scene.camera.followPlayer(false)
-    scene.camera.move(-50, -180, 1000)
+    scene.camera.look(-50, -180, 1000)
     await chara.setTargetPosition((16).toPixel, (17).toPixelCenter)
     await scene.talk([
       { chara: 'ann', text: 'みて、あそこ！あれがエドガー王？' },
@@ -115,5 +113,6 @@ export const king = (scene, area, chara) => {
     state.completed = true
     scene.storage.state.chapter = 1
     await scene.mapChange('room1', (19).toPixelCenter, (11).toPixel)
+    scene.camera.revert()
   })
 }

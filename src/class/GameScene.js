@@ -26,7 +26,6 @@ export default class GameScene extends Phaser.Scene {
     this.map = new GameMap(this, payload.map)
     // camera
     this.camera = this.getCamera()
-    this.camera.followPlayer(true)
     // player controll
     const walk = pointer => {
       if (this.eventMode) return
@@ -74,22 +73,23 @@ export default class GameScene extends Phaser.Scene {
     camera.setBounds(0, 0, this.map.width, this.map.height)
     camera.roundPixels = true
     camera.setZoom(1)
-    camera.followPlayer = (bool = true) => {
-      bool ? camera.startFollow(this.player, true, 0.1, 0.1) : camera.stopFollow()
-    }
-    camera.updateFollow = () => {
-      camera.centerOn(camera._follow.x, camera._follow.y)
-    }
-    camera.move = (x, y, duration) => {
-      const newX = camera.scrollX + camera.centerX + x
-      const newY = camera.scrollY + camera.centerY + y
+    camera.startFollow(this.player, true, 0.1, 0.1)
+    camera.updateFollow = () => camera.centerOn(camera._follow.x, camera._follow.y)
+    camera.look = (x, y, duration, absolute = false) => {
+      const newX = absolute ? x : camera.scrollX + camera.centerX + x
+      const newY = absolute ? y : camera.scrollY + camera.centerY + y
+      const offsetX = newX - camera._follow.x
+      const offsetY = newY - camera._follow.y
       return new Promise(resolve => {
         camera.pan(newX, newY, duration, 'Power2', false, (_, progress) => {
-          if (progress === 1) resolve()
+          if (progress === 1) {
+            camera.setFollowOffset(-offsetX, -offsetY)
+            resolve()
+          }
         })
       })
     }
-    camera.followPlayer(true)
+    camera.revert = () => camera.setFollowOffset(0, 0)
     return camera
   }
   get stronger () {
