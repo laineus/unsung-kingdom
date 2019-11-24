@@ -21,7 +21,6 @@ export default class Talk extends Phaser.GameObjects.Container {
       }
       return v
     }, null)
-    this.scene.time.delayedCall(1, () => scene.scene.pause('Game'))
     this.tapArea = this.scene.add.rectangle(0, 0, config.WIDTH, config.HEIGHT).setOrigin(0, 0)
     this.tapArea.setInteractive().on('pointerdown', this.next.bind(this))
     this.add(this.tapArea)
@@ -68,7 +67,6 @@ export default class Talk extends Phaser.GameObjects.Container {
     if (this.current === null) {
       this.tapArea.destroy()
     } else {
-      this.scene.scene.resume('Game')
       this.destroy()
     }
     if (this.callback) this.callback(this)

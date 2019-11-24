@@ -110,10 +110,10 @@ export default class UIScene extends Phaser.Scene {
     return new Promise(resolve => new BattleResult(this, group, resolve))
   }
   sleep (time) {
-    this.scene.pause('Game')
+    const cover = this.add.rectangle(0, 0, config.WIDTH, config.HEIGHT).setOrigin(0, 0).setInteractive()
     return new Promise(resolve => {
       setTimeout(() => {
-        this.scene.resume('Game')
+        cover.destroy()
         resolve()
       }, time)
     })
