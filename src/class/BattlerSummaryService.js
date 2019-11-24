@@ -5,8 +5,8 @@ const Y = 34
 export default class BattlerSummaryService {
   constructor (scene) {
     this.scene = scene
-    this.summaries = storage.state.battlers.map((battler, i) => {
-      const s = new BattlerSummary(scene, 100 + (i * 140), Y.byBottom + 80, battler)
+    this.summaries = storage.state.battlers.map((_, i) => {
+      const s = new BattlerSummary(scene, 100 + (i * 140), Y.byBottom + 80, i)
       s.alpha = 0
       scene.add.existing(s)
       return s

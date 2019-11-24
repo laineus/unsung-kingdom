@@ -68,6 +68,8 @@ export const mercenary2 = (scene, flower, mercenary) => {
   flower.setTapEvent().on('tap', async () => {
     await scene.talk([{ chara: 'francisca', text: '何この花。へんなの。' }])
     if (!state.started) return
+    const i = await scene.select(['調べる', 'そっとしておく'])
+    if (i === 1) return
     await scene.ui.sleep(300)
     const result = await scene.ui.battle([generateBattler('flower', 6, { hp: 300 })], { boss: true })
     if (!result) return
