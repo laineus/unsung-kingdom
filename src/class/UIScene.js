@@ -101,8 +101,8 @@ export default class UIScene extends Phaser.Scene {
       this.gameScene.player.stopWalk()
       const cover = this.addCover()
       new Talk(this, talks, () => {
-        resolve()
         this.deleteCover(cover)
+        resolve()
       })
     })
   }
@@ -110,9 +110,9 @@ export default class UIScene extends Phaser.Scene {
     return new Promise(resolve => {
       this.gameScene.player.stopWalk()
       const cover = this.addCover()
-      new Select(this, options, () => {
-        resolve()
+      new Select(this, options, (i) => {
         this.deleteCover(cover)
+        resolve(i)
       })
     })
   }
