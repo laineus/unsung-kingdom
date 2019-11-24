@@ -97,8 +97,9 @@ export default class UIScene extends Phaser.Scene {
     return new Promise(resolve => new WorldMap(this, resolve))
   }
   talk (talks) {
-    const cover = this.addCover()
     return new Promise(resolve => {
+      this.gameScene.player.stopWalk()
+      const cover = this.addCover()
       new Talk(this, talks, () => {
         resolve()
         this.deleteCover(cover)
@@ -106,8 +107,9 @@ export default class UIScene extends Phaser.Scene {
     })
   }
   select (options) {
-    const cover = this.addCover()
     return new Promise(resolve => {
+      this.gameScene.player.stopWalk()
+      const cover = this.addCover()
       new Select(this, options, () => {
         resolve()
         this.deleteCover(cover)
@@ -122,8 +124,9 @@ export default class UIScene extends Phaser.Scene {
     return new Promise(resolve => new BattleResult(this, group, resolve))
   }
   sleep (time) {
-    const cover = this.addCover()
     return new Promise(resolve => {
+      this.gameScene.player.stopWalk()
+      const cover = this.addCover()
       setTimeout(() => {
         this.deleteCover(cover)
         resolve()
@@ -182,6 +185,7 @@ export default class UIScene extends Phaser.Scene {
   }
   chapterStart (text) {
     return new Promise(resolve => {
+      return resolve()
       const m = this.add.text(config.WIDTH.half, config.HEIGHT.half - 5, text, { fill: config.COLORS.white.toColorString, fontSize: 16, fontFamily: config.FONTS.TEXT }).setOrigin(0.5, 0.5)
       new StoryTelling(this, [m], false).on('beforeEnd', () => {
         resolve()
@@ -190,6 +194,7 @@ export default class UIScene extends Phaser.Scene {
   }
   storyTelling () {
     return new Promise(resolve => {
+      return resolve()
       const m1 = this.add.container(config.WIDTH.half, config.HEIGHT.half)
       m1.add(this.add.text(0, 0 - 35, MESSAGES[0], { align: 'left', fill: config.COLORS.white.toColorString, fontSize: 18, fontFamily: config.FONTS.TEXT }).setOrigin(0.5, 0.5).setLineSpacing(15))
       m1.add(this.add.text(185, 0 + 55, MESSAGES[1], { align: 'right', fill: config.COLORS.white.toColorString, fontSize: 18, fontFamily: config.FONTS.TEXT }).setOrigin(0.5, 0.5).setLineSpacing(15))
