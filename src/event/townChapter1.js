@@ -1,3 +1,4 @@
+import { annabelle, matilda, max } from './townCommon'
 export default (scene, charas) => {
   const eState = scene.storage.state.event.m1
   // 噂好きのアンバー婦人

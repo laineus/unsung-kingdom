@@ -1,4 +1,4 @@
-import { annabelle, elliott, max } from './townCommon'
+import { annabelle, matilda, elliott, max } from './townCommon'
 export default (scene, charas) => {
   const eState = scene.storage.state.event.m0
   if (!eState.area) {
