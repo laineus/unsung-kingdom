@@ -154,7 +154,7 @@ export default class UIScene extends Phaser.Scene {
     return this.add.rectangle(0, 0, config.WIDTH, config.HEIGHT).setInteractive().setOrigin(0, 0)
   }
   deleteCover (cover) {
-    this.time.delayedCall(1, cover.destroy)
+    this.time.delayedCall(1, () => cover.destroy())
   }
   getMenuButton (x, y) {
     const button = this.add.container(x, y).setSize(120, 50)
