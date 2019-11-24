@@ -94,7 +94,7 @@ export default (scene, charas) => {
       eState.talked_matilda = true
     } else {
       await scene.talk([
-        { chara, text: 'アナベル、今日も綺麗でいいなぁ…。' }
+        { chara, text: 'アナベル、今日も綺麗でいいな…。' }
       ])
     }
   })

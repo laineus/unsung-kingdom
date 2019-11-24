@@ -1,5 +1,21 @@
 // 噂好きのアンバー婦人
-export const amber = async (scene, chara) => {}
+export const amber = async (scene, chara) => {
+  if (chara.nextMessages) return await scene.talk(chara.nextMessages)
+  const state = scene.storage.state.event.town.amber
+  if (!state.includes(0)) {
+    await scene.talk([
+      { chara, text: 'TODO' }
+    ])
+    chara.nextMessages = [
+      { chara, text: 'TODO' }
+    ]
+    state.push(0)
+  } else {
+    await scene.talk([
+      { chara, text: 'TODO' }
+    ])
+  }
+}
 
 // 宿屋のアナベル
 export const annabelle = async (scene, chara) => {
@@ -37,7 +53,43 @@ export const annabelle = async (scene, chara) => {
   }
 }
 // 内気なマチルダ
-export const matilda = async (scene, chara) => {}
+export const matilda = async (scene, chara) => {
+  if (chara.nextMessages) return await scene.talk(chara.nextMessages)
+  const state = scene.storage.state.event.town.matilda
+  if (!state.includes(0)) {
+    await scene.talk([
+      { chara: 'ann', text: 'こんにちは。' },
+      { chara: 'ann', text: 'キミはこんな建物の影で何してるの？' },
+      { chara, text: 'あ、そ、そうだよね。怪しいよね…。' },
+      { chara, text: 'えっと、そこにいる宿屋のアナベルを見張っているの。' },
+      { chara, text: '悪いことしないように。' },
+      { chara: 'ann', text: '悪い子なの？' },
+      { chara, text: 'ううん。とっても良い子よ。' },
+      { chara, text: '昔よく遊んだから…。' },
+      { chara: 'ann', text: 'じゃあどうして？' },
+      { chara, text: 'なんか、最近怪しいお仕事してるみたいなの。' },
+      { chara, text: 'それで…、心配で…。' },
+      { chara: 'ann', text: 'じゃあ直接止めに行けばいいじゃん。' },
+      { chara: 'ann', text: '仲良かったんだよね？' },
+      { chara, text: 'そうなんだけど…、' },
+      { chara, text: 'なんか最近話しかけるのが恥ずかしくなっちゃって…、' },
+      { chara, text: 'なんでかな…。' },
+      { chara: 'ann', text: 'そうなんだぁ。' },
+      { chara: 'ann', text: 'まあそういうときもあるさ。' },
+      { chara: 'ann', text: 'きっとまたそのうち仲良くできると思うよ。' },
+      { chara, text: 'そうなのかな…。ありがとう。' }
+    ])
+    chara.nextMessages = [
+      { chara, text: 'アナベル、すごく良い子なの。' },
+      { chara, text: 'また昔みたいに仲良くしたいな…。' }
+    ]
+    state.push(0)
+  } else {
+    await scene.talk([
+      { chara, text: 'アナベル、今日も綺麗でいいな…。' }
+    ])
+  }
+}
 
 // 卑劣なエリオット
 export const elliott = async (scene, chara) => {
