@@ -6,6 +6,7 @@ import Box from './Box'
 import Pager from './Pager'
 import { slideIn } from '../util/animations'
 import storage from '../data/storage'
+import missionDescriptions from '../data/missionDescriptions'
 export default class MenuMap extends Phaser.GameObjects.Container {
   constructor (scene) {
     super(scene)
@@ -97,8 +98,9 @@ export default class MenuMap extends Phaser.GameObjects.Container {
   getMissionDetail (mission, x, y) {
     const container = this.scene.add.container(x, y)
     const title = this.scene.add.text(0, 0, mission.title, { fontSize: 15, fontStyle: 'bold', fontFamily: config.FONTS.UI }).setOrigin(0, 0)
-    const dumy = 'クエストの詳細文がここにはいるぞ。クエストの詳細文がここにはいるぞ。\nクエストの詳細文がここにはいるぞ。'
-    const desc = this.scene.add.text(0, 30, dumy, { fill: config.COLORS.gray.toColorString, fontSize: 12, fontStyle: 'bold', fontFamily: config.FONTS.UI }).setOrigin(0, 0)
+    const text = missionDescriptions[mission.key] ? missionDescriptions[mission.key](storage.state) : '-'
+    const desc = this.scene.add.text(0, 30, text, { fill: config.COLORS.gray.toColorString, fontSize: 12, fontStyle: 'bold', fontFamily: config.FONTS.UI }).setOrigin(0, 0)
+    desc.setLineSpacing(10)
     container.add([title, desc])
     return container
   }
