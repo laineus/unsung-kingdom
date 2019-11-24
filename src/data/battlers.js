@@ -46,7 +46,7 @@ export default [
   },
   {
     key: 'flower', name: 'サニズマスク', lv: 1,
-    hp: 35, atk: 4, def: 4, dex: 2, agi: 2,
+    hp: 35, atk: 8, def: 6, dex: 4, agi: 5,
     up: { hp: 100, atk: 90, def: 90, dex: 70, agi: 70 }
   },
   {

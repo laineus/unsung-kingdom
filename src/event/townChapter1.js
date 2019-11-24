@@ -72,7 +72,7 @@ export default (scene, charas) => {
             { chara: 'ann', text: 'でも、本当かもしれないよ？' },
             { chara: c2, text: 'やめておきなお嬢ちゃん。' }
           ] : [
-            { chara, text: '賢い判断だお嬢ちゃん。' },
+            { chara: c2, text: '賢い判断だお嬢ちゃん。' },
           ]
         ),
         { chara: c2, text: 'そんなろくでなしの売るモンは怪しさ満点だ。' },

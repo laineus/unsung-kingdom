@@ -69,7 +69,8 @@ export const mercenary2 = (scene, flower, mercenary) => {
     await scene.talk([{ chara: 'francisca', text: '何この花。へんなの。' }])
     if (!state.started) return
     await scene.ui.sleep(300)
-    await scene.ui.battle([generateBattler('flower', 6, { hp: 350 })], { boss: true })
+    const result = await scene.ui.battle([generateBattler('flower', 6, { hp: 300 })], { boss: true })
+    if (!result) return
     const chara = mercenary.setDisplayName('負傷した傭兵団員')
     flower.visible = false
     mercenary.visible = true
@@ -83,8 +84,8 @@ export const mercenary2 = (scene, flower, mercenary) => {
       { chara: 'francisca', text: '自分から？へんなの。' },
       { chara, text: '実は、レックスベアから逃げる途中、仲間とはぐれてしまったんだ。' },
       { chara, text: 'その後ここまで追い詰められてしまって…、' },
-      { chara, text: '目の前にはバグフラワーがいて、後ろにはレックスベア、' },
-      { chara, text: '意を決して、逃げるようにバグフラワーの胃に飛び込んだんだ。' },
+      { chara, text: '目の前にはサニズマスクがいて、後ろにはレックスベア、' },
+      { chara, text: '意を決して、逃げるようにサニズマスクの胃に飛び込んだんだ。' },
       { chara, text: 'その後自力で出られないことに気づいてから後悔したよ。' },
       { chara, text: '胃の中でゆっくり溶かされていくくらいなら、' },
       { chara, text: 'レックスベアにひと思いに殺されればよかったってね。' },

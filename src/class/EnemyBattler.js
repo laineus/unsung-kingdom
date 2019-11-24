@@ -4,6 +4,7 @@ import config from '../data/config'
 export default class EnemyBattler extends Battler {
   constructor (scene, status, boss) {
     super(scene, status)
+    this.boss = boss
     // image
     this.sprite = this.scene.add.sprite(0, 0, `battler/${status.key}`)
     this.sprite.setScale(1)

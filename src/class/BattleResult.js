@@ -87,7 +87,7 @@ export default class BattleResult extends Phaser.GameObjects.Container {
     const alives = storage.state.battlers.filter(v => v.hp > 0)
     const ownAvgLv = Math.round(alives.reduce((before, current) => (before + current.lv), 0) / alives.length)
     const sumExp = this.group.reduce((before, current) => {
-      const result = Math.round(current.lv * 3 * this.expAdjustment(current.lv, ownAvgLv))
+      const result = Math.round(current.lv * 3 * (current.boss ? 4 : 1) * this.expAdjustment(current.lv, ownAvgLv))
       return before + result
     }, 0)
     const eachExp = sumExp / alives.length
