@@ -25,25 +25,7 @@ export default class GameScene extends Phaser.Scene {
     // map
     this.map = new GameMap(this, payload.map)
     // camera
-    this.camera = this.cameras.main
-    this.camera.setBounds(0, 0, this.map.width, this.map.height)
-    this.camera.roundPixels = true
-    this.camera.setZoom(1)
-    this.camera.followPlayer = (bool = true) => {
-      bool ? this.camera.startFollow(this.player, true, 0.1, 0.1) : this.camera.stopFollow()
-    }
-    this.camera.updateFollow = () => {
-      this.camera.centerOn(this.camera._follow.x, this.camera._follow.y)
-    }
-    this.camera.move = (x, y, duration) => {
-      const newX = this.camera.scrollX + this.camera.centerX + x
-      const newY = this.camera.scrollY + this.camera.centerY + y
-      return new Promise(resolve => {this.camera.centerX
-        this.camera.pan(newX, newY, duration, 'Power2', false, (_, progress) => {
-          if (progress === 1) resolve()
-        })
-      })
-    }
+    this.camera = this.getCamera()
     this.camera.followPlayer(true)
     // player controll
     const walk = pointer => {
@@ -86,6 +68,29 @@ export default class GameScene extends Phaser.Scene {
     return this.ui.transition(true).then(() => {
       this.scene.start('Game', { map: mapKey, x, y, save })
     })
+  }
+  getCamera () {
+    const camera = this.cameras.main
+    camera.setBounds(0, 0, this.map.width, this.map.height)
+    camera.roundPixels = true
+    camera.setZoom(1)
+    camera.followPlayer = (bool = true) => {
+      bool ? camera.startFollow(this.player, true, 0.1, 0.1) : camera.stopFollow()
+    }
+    camera.updateFollow = () => {
+      camera.centerOn(camera._follow.x, camera._follow.y)
+    }
+    camera.move = (x, y, duration) => {
+      const newX = camera.scrollX + camera.centerX + x
+      const newY = camera.scrollY + camera.centerY + y
+      return new Promise(resolve => {
+        camera.pan(newX, newY, duration, 'Power2', false, (_, progress) => {
+          if (progress === 1) resolve()
+        })
+      })
+    }
+    camera.followPlayer(true)
+    return camera
   }
   get stronger () {
     return Math.round(storage.state.battlers.reduce((p, c) => p + c.lv, 0) / 3) > this.event.enemyLevel
