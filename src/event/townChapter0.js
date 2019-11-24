@@ -1,4 +1,4 @@
-import { annabelle } from './townCommon'
+import { annabelle, elliott } from './townCommon'
 export default (scene, charas) => {
   const eState = scene.storage.state.event.m0
   if (!eState.area) {
@@ -12,6 +12,7 @@ export default (scene, charas) => {
       charas.area1.setEvent(null)
     })
   }
+  // 噂好きのアンバー婦人
   charas.amber.on('tap', async chara => {
     if (!eState.talked_amber) {
       await scene.talk([
@@ -39,6 +40,7 @@ export default (scene, charas) => {
       ])
     }
   })
+  // 内気なマチルダ
   charas.matilda.on('tap', async chara => {
     if (!eState.talked_matilda) {
       await scene.talk([
@@ -70,6 +72,7 @@ export default (scene, charas) => {
       ])
     }
   })
+  // 宿屋のアナベル
   charas.annabelle.on('tap', async chara => {
     if (!eState.talked_matilda) return annabelle(scene, chara)
     if (!eState.talked_annabelle) {
@@ -94,5 +97,9 @@ export default (scene, charas) => {
         { chara, text: '今度うちの宿に泊まりに来てね。' }
       ])
     }
+  })
+  // 卑劣なエリオット
+  charas.elliott.on('tap', async chara => {
+    return elliott(scene, chara)
   })
 }
