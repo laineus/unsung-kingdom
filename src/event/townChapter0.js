@@ -1,4 +1,4 @@
-import { annabelle, elliott } from './townCommon'
+import { annabelle, elliott, max } from './townCommon'
 export default (scene, charas) => {
   const eState = scene.storage.state.event.m0
   if (!eState.area) {
@@ -40,6 +40,32 @@ export default (scene, charas) => {
       ])
     }
   })
+  // 宿屋のアナベル
+  charas.annabelle.on('tap', async chara => {
+    if (!eState.talked_matilda) return annabelle(scene, chara)
+    if (!eState.talked_annabelle) {
+      await scene.talk([
+        { chara, text: '王城の裏庭？' },
+        { chara, text: 'あるよ、行ったこと。' },
+        { chara: 'ann', text: 'ほんと！？' },
+        { chara, text: 'うん、たまにだけど食料品のやりとりをするからね。' },
+        { chara, text: '輸送中に襲われるのを防ぐために、人目につかないルートを通るの。' },
+        { chara: 'ann', text: 'あの、道のりを教えてもらうことってできたり？' },
+        { chara, text: 'いいよ。' },
+        { chara: 'ann', text: 'いいの！？' },
+        { chara, text: '別に問題なさそうだし。' },
+        { chara, text: 'その代わり、今度うちの宿に泊まりに来てね。' },
+        { chara: 'ann', text: 'ありがとうー！' }
+      ])
+      eState.talked_annabelle = true
+      scene.storage.state.allowed_map = Math.max(scene.storage.state.allowed_map, 1)
+      scene.ui.announce('マップ「王城 - 裏庭」が解放された')
+    } else {
+      await scene.talk([
+        { chara, text: '今度うちの宿に泊まりに来てね。' }
+      ])
+    }
+  })
   // 内気なマチルダ
   charas.matilda.on('tap', async chara => {
     if (!eState.talked_matilda) {
@@ -72,34 +98,8 @@ export default (scene, charas) => {
       ])
     }
   })
-  // 宿屋のアナベル
-  charas.annabelle.on('tap', async chara => {
-    if (!eState.talked_matilda) return annabelle(scene, chara)
-    if (!eState.talked_annabelle) {
-      await scene.talk([
-        { chara, text: '王城の裏庭？' },
-        { chara, text: 'あるよ、行ったこと。' },
-        { chara: 'ann', text: 'ほんと！？' },
-        { chara, text: 'うん、たまにだけど食料品のやりとりをするからね。' },
-        { chara, text: '輸送中に襲われるのを防ぐために、人目につかないルートを通るの。' },
-        { chara: 'ann', text: 'あの、道のりを教えてもらうことってできたり？' },
-        { chara, text: 'いいよ。' },
-        { chara: 'ann', text: 'いいの！？' },
-        { chara, text: '別に問題なさそうだし。' },
-        { chara, text: 'その代わり、今度うちの宿に泊まりに来てね。' },
-        { chara: 'ann', text: 'ありがとうー！' }
-      ])
-      eState.talked_annabelle = true
-      scene.storage.state.allowed_map = Math.max(scene.storage.state.allowed_map, 1)
-      scene.ui.announce('マップ「王城 - 裏庭」が解放された')
-    } else {
-      await scene.talk([
-        { chara, text: '今度うちの宿に泊まりに来てね。' }
-      ])
-    }
-  })
   // 卑劣なエリオット
-  charas.elliott.on('tap', async chara => {
-    return elliott(scene, chara)
-  })
+  charas.elliott.on('tap', async chara => elliott(scene, chara))
+  // 賞金稼ぎのマックス
+  charas.max.on('tap', async chara => max(scene, chara))
 }

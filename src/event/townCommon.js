@@ -1,3 +1,7 @@
+// 噂好きのアンバー婦人
+export const amber = async (scene, chara) => {}
+
+// 宿屋のアナベル
 export const annabelle = async (scene, chara) => {
   if (chara.nextMessages) return await scene.talk(chara.nextMessages)
   const state = scene.storage.state.event.town.annabelle
@@ -32,7 +36,10 @@ export const annabelle = async (scene, chara) => {
     ])
   }
 }
+// 内気なマチルダ
+export const matilda = async (scene, chara) => {}
 
+// 卑劣なエリオット
 export const elliott = async (scene, chara) => {
   if (chara.nextMessages) return await scene.talk(chara.nextMessages)
   const state = scene.storage.state.event.town.elliott
@@ -56,24 +63,35 @@ export const elliott = async (scene, chara) => {
     state.push(0)
   } else {
     await scene.talk([
-      { chara, text: 'よお、元気かい？' }
+      { chara, text: '調子はどうだ？' },
+      { chara, text: '何か良い儲け話があったら教えてくれ。' }
     ])
   }
 }
 
+// 賞金稼ぎのマックス
 export const max = async (scene, chara) => {
   if (chara.nextMessages) return await scene.talk(chara.nextMessages)
-  await scene.talk([
-    { chara: 'ann', text: 'エドガー王ってどんな人ですか？' },
-    { chara, text: 'どんな人かって、エドガー王はみんなの英雄だ。' },
-    { chara, text: '誰もが王を尊敬している。' },
-    { chara: 'francisca', text: '王国を襲った竜を倒したって聞きました。' },
-    { chara, text: 'その通り、この国の民ならみんな知っていることだ。' },
-    { chara, text: '十年近く昔の話だが、王は王国まで飛んできた竜と直接戦った。' },
-    { chara, text: '殺したわけではないが、追い払って、グリファルデ神殿に封じた。' },
-    { chara: 'ann', text: '強いんですね。' },
-    { chara, text: 'ああ。エドガー王が即位してからこの国はずっと平和だ。' },
-    { chara: 'jaquelyn', text: 'だから〈平和王〉なんですね。' },
-    { chara, text: 'そうだ。' }
-  ])
+  const state = scene.storage.state.event.town.max
+  if (!state.includes(0)) {
+    await scene.talk([
+      { chara: 'ann', text: 'エドガー王ってどんな人ですか？' },
+      { chara, text: 'どんな人かって、エドガー王はみんなの英雄だ。' },
+      { chara, text: '誰もが王を尊敬している。' },
+      { chara: 'francisca', text: '王国を襲った竜を倒したって聞きました。' },
+      { chara, text: 'その通り、この国の民ならみんな知っていることだ。' },
+      { chara, text: '十年近く昔の話だが、王は王国まで飛んできた竜と直接戦った。' },
+      { chara, text: '殺したわけではないが、追い払って、グリファルデ神殿に封じた。' },
+      { chara: 'ann', text: '強いんですね。' },
+      { chara, text: 'ああ。エドガー王が即位してからこの国はずっと平和だ。' },
+      { chara: 'jaquelyn', text: 'だから〈平和王〉なんですね。' },
+      { chara, text: 'そうだ。' }
+    ])
+    chara.nextMessages = [{ chara, text: 'エドガー王が即位してからこの国はずっと平和だ。' }]
+    state.push(0)
+  } else {
+    await scene.talk([
+      { chara, text: 'よお、元気かい？' }
+    ])
+  }
 }

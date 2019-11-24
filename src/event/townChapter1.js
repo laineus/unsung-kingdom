@@ -22,6 +22,7 @@ export default (scene, charas) => {
   })
   // 宿屋のアナベル
   charas.annabelle.on('tap', async chara => {
+    if (!eState.talked_amber) return annabelle(scene, chara)
     if (!eState.talked_annabelle) {
       await scene.talk([
         { chara, text: '薬？' },
@@ -46,6 +47,8 @@ export default (scene, charas) => {
       ])
     }
   })
+  // 内気なマチルダ
+  charas.matilda.on('tap', async chara => matilda(scene, chara))
   // 卑劣なエリオット
   charas.elliott.on('tap', async chara => {
     const c2 = charas.max
@@ -103,4 +106,6 @@ export default (scene, charas) => {
       ])
     }
   })
+  // 賞金稼ぎのマックス
+  charas.max.on('tap', async chara => max(scene, chara))
 }
