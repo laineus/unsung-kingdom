@@ -118,12 +118,11 @@ export default class UIScene extends Phaser.Scene {
       }, time)
     })
   }
-  transition (pause, speed) {
+  transition (speed) {
     const duration = speed === 'slow' ? 300 : 150
     const hold = speed === 'slow' ? 200 : 100
-    if (pause) this.scene.pause('Game')
     return new Promise(resolve => {
-      const rect = this.add.rectangle(0, 0, config.WIDTH, config.HEIGHT, 0x111111).setOrigin(0, 0).setAlpha(0)
+      const rect = this.add.rectangle(0, 0, config.WIDTH, config.HEIGHT, 0x111111).setInteractive().setOrigin(0, 0).setAlpha(0)
       this.add.tween({
         targets: rect,
         duration,
@@ -132,7 +131,6 @@ export default class UIScene extends Phaser.Scene {
         yoyo: true,
         onYoyo: resolve,
         onComplete: () => {
-          if (pause) this.scene.resume('Game')
           rect.destroy()
         }
       })

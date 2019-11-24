@@ -23,7 +23,9 @@ const events = [
       { chara: francisca, text: '私達がこの時代に来た目的、ちゃんと理解してる？' },
       { chara: 'ann', text: '当たり前じゃん！' },
     ])
+    await scene.ui.sleep(1000)
     const i = await scene.select(['王の暗殺を阻止すること', '観光'])
+    await scene.ui.sleep(1000)
     await scene.talk([
       ...(i === 0 ? [
         { chara: 'ann', text: '私達の目的はエドガー王が暗殺されるのを阻止すること。' },
@@ -59,7 +61,7 @@ const events = [
       { chara: jaquelyn, text: 'アンなら大丈夫よ。' },
       { chara: jaquelyn, text: 'さあ、行きましょう。' }
     ])
-    await scene.ui.transition(true, 'slow')
+    await scene.ui.transition('slow')
     francisca.setVisible(false)
     jaquelyn.setVisible(false)
   },

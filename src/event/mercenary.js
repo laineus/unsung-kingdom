@@ -101,7 +101,7 @@ export const mercenary2 = (scene, flower, mercenary) => {
     ])
     state.solved = true
     await scene.ui.sleep(300)
-    await scene.ui.transition(true)
+    await scene.ui.transition()
     mercenary.visible = false
   })
 }

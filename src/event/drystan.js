@@ -91,7 +91,7 @@ export const drystan = (scene, door, drystan) => {
         { chara, text: 'さあ、薬は確かに渡しておくから、さっさと帰ってくれ。' }
       ])
       state2.completed = true
-      await scene.ui.transition(true, 'slow')
+      await scene.ui.transition('slow')
       drystan.destroy()
     }
   })
@@ -134,7 +134,7 @@ export const rexBear = (scene, area, bear) => {
       { chara: 'francisca', text: 'なんとか倒したね。' }
     ])
     await scene.ui.sleep(500)
-    await scene.ui.transition(true, 'slow')
+    await scene.ui.transition('slow')
     await scene.ui.sleep(500)
     await scene.talk([
       { chara: 'ann', text: 'よし、血液も回収したし、賢人のところに戻りましょう。' }
