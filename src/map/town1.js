@@ -14,8 +14,8 @@ export default {
     const amber = scene.map.getObjectById(2).setDisplayName('噂好きなアンバー婦人').setTapEvent().setFaceKey('amber')
     const elliott = scene.map.getObjectById(7).setDisplayName('卑劣なエリオット').setTapEvent().setFaceKey('elliott')
     const max = scene.map.getObjectById(8).setDisplayName('賞金稼ぎのマックス').setTapEvent().setFaceKey('max')
-    const annabelle = scene.map.getObjectById(9).setDisplayName('宿屋のアナベル').setTapEvent().setFaceKey('annabelle')
-    const matilda = scene.map.getObjectById(10).setDisplayName('内気なマチルダ').setTapEvent().setFaceKey('matilda')
+    const annabelle = scene.map.getObjectById(9).setDisplayName('宿屋のアナベル').setTapEvent()
+    const matilda = scene.map.getObjectById(10).setDisplayName('内気なマチルダ').setTapEvent()
     const maison = scene.map.getObjectById(11).setDisplayName('メイソン').setTapEvent()
     events[scene.storage.state.chapter](scene, { amber, elliott, max, annabelle, matilda, maison })
   }

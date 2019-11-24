@@ -27,7 +27,7 @@ export default (scene, charas) => {
         { chara, text: '薬？' },
         { chara: 'ann', text: 'そう、病気によく効くやつ。ないかな？' },
         { chara, text: 'ないよ。' },
-        { chara, text: '飲むとムラムラするやつならあるけど。' },
+        { chara, text: 'あ、飲むとムラムラするやつならあるけど。' },
         { chara: 'ann', text: 'そんなのいらないよ！' },
         { chara, text: 'うちにはそれしかないかな。' },
         { chara: 'ann', text: 'そっか…。' },
