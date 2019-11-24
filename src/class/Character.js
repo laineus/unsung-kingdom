@@ -121,6 +121,7 @@ export default class Character extends Substance {
   }
   _updateAnimation () {
     if (!this.walking) {
+      if (this.frameLength === 3) this.image.anims.play(this._waitAnimName, true)
       if (this.frameLength === 12) this.image.setFrame(this.angleFrame)
     } else {
       this.image.anims.play(this._animName, true)
@@ -129,6 +130,9 @@ export default class Character extends Substance {
   }
   get frameLength () {
     return assets.spritesheet.find(v => v[0] === this.spriteKey)[2].endFrame
+  }
+  get _waitAnimName () {
+    return `${this.key}_waiting`
   }
   get _animName () {
     if (this.frameLength === 12) {

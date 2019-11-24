@@ -81,7 +81,7 @@ export default {
     ['field/injured_mercenary', '../img/field/injured_mercenary.png', { frameWidth: 27, frameHeight: 37, endFrame: 1 }],
     ['field/injured_mercenary2', '../img/field/injured_mercenary2.png', { frameWidth: 27, frameHeight: 37, endFrame: 1 }],
     ['field/drystan', '../img/field/drystan.png', { frameWidth: 28, frameHeight: 44, endFrame: 1 }],
-    ['field/bear', '../img/field/bear.png', { frameWidth: 54, frameHeight: 84, endFrame: 1 }],
+    ['field/bear', '../img/field/bear.png', { frameWidth: 56, frameHeight: 84, endFrame: 3 }],
     ['field/dog', '../img/field/dog.png', { frameWidth: 26, frameHeight: 26, endFrame: 12 }]
   ]
 }

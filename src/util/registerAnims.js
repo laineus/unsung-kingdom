@@ -10,6 +10,8 @@ export default scene => {
     } else if (args[2].endFrame === 6) {
       scene.anims.create({ key: `${key}_walk_front`, frames: scene.anims.generateFrameNumbers(args[0], { start: 0, end: 2 }), repeat: -1, frameRate: 5 })
       scene.anims.create({ key: `${key}_walk_back`, frames: scene.anims.generateFrameNumbers(args[0], { start: 3, end: 5 }), repeat: -1, frameRate: 5 })
+    }  else if (args[2].endFrame === 3) {
+      scene.anims.create({ key: `${key}_waiting`, frames: scene.anims.generateFrameNumbers(args[0], { start: 0, end: 2 }), repeat: -1, frameRate: 4 })
     }
   })
 }
