@@ -8,12 +8,13 @@ export default class Talk extends Phaser.GameObjects.Container {
     this.callback = callback
     this.index = 0
     scene.add.existing(this)
-    const npc = this.events.filter(v => v && typeof v.chara !== 'string').map(v => v.chara)
-    npc.forEach(c => {
+    this.npc = this.events.filter(v => v && typeof v.chara !== 'string').map(v => v.chara)
+    this.npc.forEach(c => {
+      c.setTalking(true)
       c.setR(c.angleTo(this.scene.gameScene.player))
     })
-    if (npc.length) this.scene.gameScene.player.setR(this.scene.gameScene.player.angleTo(npc[0]))
-    const averageX = Math.average(...npc.map(c => c.x), this.scene.gameScene.player.x)
+    if (this.npc.length) this.scene.gameScene.player.setR(this.scene.gameScene.player.angleTo(this.npc[0]))
+    const averageX = Math.average(...this.npc.map(c => c.x), this.scene.gameScene.player.x)
     this.events.filter(v => v).reduce((prev, v) => {
       v.position = this.getChara(v).x < averageX ? -1 : 1
       if (prev && prev.chara !== v.chara && prev.position === v.position) {
@@ -76,6 +77,7 @@ export default class Talk extends Phaser.GameObjects.Container {
     this.scene.add.tween({ targets: this.bubble, scaleX: 0, scaleY: 0, alpha: 0, duration: 150, ease: 'Power2', onComplete: this.bubble.destroy })
   }
   destroy () {
+    this.npc.forEach(c => c.setTalking(false))
     this.deleteBubble()
     super.destroy()
   }

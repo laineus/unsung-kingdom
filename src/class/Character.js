@@ -13,6 +13,7 @@ export default class Character extends Substance {
     this.setSpeed(40)
     this.setR('down')
     this.setFaceKey(this.key)
+    this.setTalking(false)
   }
   preUpdate () {
     super.preUpdate()
@@ -168,8 +169,12 @@ export default class Character extends Substance {
   setNextRandomWalkDelay () {
     this.randomWalkDelay = Math.randomInt(100, 200)
   }
+  setTalking (bool) {
+    this.talking = bool
+    return this
+  }
   _randomWalk () {
-    if (!this.randomWalk) return
+    if (!this.randomWalk || this.talking) return
     if (!this.walking) this.randomWalkDelay--
     if (this.randomWalkDelay <= 0) {
       this.setTargetPosition(this.x + Math.randomInt(-this.randomWalkRange, this.randomWalkRange), this.y + Math.randomInt(-this.randomWalkRange, this.randomWalkRange))
