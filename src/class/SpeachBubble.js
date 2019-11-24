@@ -22,7 +22,9 @@ export default class SpeachBubble extends Phaser.GameObjects.Container {
     this.name = scene.add.text(left ? -70 : -140, left ? -69 : -72, name, { fill: config.COLORS.white.toColorString, fontSize: 16, fontFamily: config.FONTS.TEXT, fontStyle: 'bold', stroke: config.COLORS.dark.toColorString, strokeThickness: 2 }).setPadding(0, 2, 0, 0)
     this.text = scene.add.text(left ? 44 : -44, -6, '', { fill: config.COLORS.white.toColorString, fontSize: 14, fontFamily: config.FONTS.TEXT, lineSpacing: 5 }).setOrigin(0.5, 0.5).setPadding(0, 2, 0, 0)
     this.setText(text)
-    this.add([this.bg, this.image, this.name, this.text])
+    this.tri = scene.add.triangle(...(left ? [147, 36] : [55, 30]), -4, -3, 4, -3, 0, 2, config.COLORS.white)
+    scene.add.tween({ targets: this.tri, duration: 400, loop: -1, yoyo: true, y: this.tri.y - 4 })
+    this.add([this.bg, this.image, this.name, this.text, this.tri])
     scene.add.existing(this)
   }
   setText(text) {
