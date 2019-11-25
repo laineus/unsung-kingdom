@@ -18,7 +18,7 @@ export default [
     chapter: 1,
     title: 'アイザムバード傭兵団の討伐遠征',
     en: 'Isambard mercenaries',
-    map: 'forest5'
+    map: 'forest6'
   },
   {
     key: 'm1_3',

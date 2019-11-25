@@ -1,4 +1,5 @@
 import { dogEventFound } from '../event/dogEvent'
+import { mercenary2 } from '../event/mercenary'
 export default {
   area: {
     key: 'forest',
@@ -13,5 +14,6 @@ export default {
   ],
   create (scene) {
     dogEventFound(scene, scene.map.getObjectById(4), 'd4')
+    mercenary2(scene, scene.map.getObjectById(5), scene.map.getObjectById(4))
   }
 }
