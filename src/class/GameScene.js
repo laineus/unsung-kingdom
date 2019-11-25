@@ -10,14 +10,13 @@ export default class GameScene extends Phaser.Scene {
   }
   create (payload) {
     this.frame = 0
-    this.setEventMode(false)
     this.storage = storage
     // substance group
     this.substances = this.add.group()
     // player
     this.player = new Player(this, payload.x, payload.y).setR(this.storage.state.r)
     this.player.on('walk', () => {
-      if (!this.event.enemyGroups || this.eventMode) return
+      if (!this.event.enemyGroups || this.ui.eventMode) return
       this.encountDelay--
       if (this.encountDelay <= (this.stronger ? 200 : 80)) this.ui.setEncounter(true, this.stronger)
       if (this.encountDelay <= 0) this.encounter(!this.stronger)
@@ -28,7 +27,7 @@ export default class GameScene extends Phaser.Scene {
     this.camera = this.getCamera()
     // player controll
     const walk = pointer => {
-      if (this.eventMode) return
+      if (this.ui.eventMode) return
       if (pointer.isDown) this.player.setTargetPosition(pointer.worldX, pointer.worldY)
     }
     this.input.on('pointerdown', walk)
@@ -49,9 +48,6 @@ export default class GameScene extends Phaser.Scene {
   }
   get ui () {
     return this.scene.get('UI')
-  }
-  setEventMode (bool) {
-    this.eventMode = bool
   }
   talk (talks) {
     return this.ui.talk(talks)

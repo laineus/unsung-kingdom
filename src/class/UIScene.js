@@ -30,6 +30,9 @@ export default class UIScene extends Phaser.Scene {
     this.add.existing(this.menuButton)
     this.loadEncounter()
     this.battlerSummary = new BattlerSummaryService(this)
+    this.blocker = this.add.rectangle(0, 0, config.WIDTH, config.HEIGHT).setInteractive().setOrigin(0, 0).setVisible(false)
+    this.add.existing(this.blocker)
+    this.eventMode = false
     // TOOD: map name
     // this.window = this.add.sprite(0, 0, 'dark').setOrigin(0, 0)
     // this.overlay = this.add.rectangle(0, 0, config.WIDTH, config.HEIGHT, 0x000000).setOrigin(0, 0).setAlpha(0.2)
@@ -97,24 +100,10 @@ export default class UIScene extends Phaser.Scene {
     return new Promise(resolve => new WorldMap(this, resolve))
   }
   talk (talks) {
-    return new Promise(resolve => {
-      this.gameScene.player.stopWalk()
-      const cover = this.addCover()
-      new Talk(this, talks, talk => {
-        this.deleteCover(cover)
-        resolve(talk)
-      })
-    })
+    return new Promise(resolve => new Talk(this, talks, resolve))
   }
   select (options) {
-    return new Promise(resolve => {
-      this.gameScene.player.stopWalk()
-      const cover = this.addCover()
-      new Select(this, options, (i) => {
-        this.deleteCover(cover)
-        resolve(i)
-      })
-    })
+    return new Promise(resolve => new Select(this, options, resolve))
   }
   battle (group, option) {
     this.gameScene.setEncountDelay()
@@ -124,20 +113,12 @@ export default class UIScene extends Phaser.Scene {
     return new Promise(resolve => new BattleResult(this, group, resolve))
   }
   sleep (time) {
-    return new Promise(resolve => {
-      this.gameScene.player.stopWalk()
-      const cover = this.addCover()
-      setTimeout(() => {
-        this.deleteCover(cover)
-        resolve()
-      }, time)
-    })
+    return new Promise(resolve => setTimeout(() => resolve(), time))
   }
   transition (speed) {
     const duration = speed === 'slow' ? 300 : 150
     const hold = speed === 'slow' ? 200 : 100
     return new Promise(resolve => {
-      const cover = this.addCover()
       const rect = this.add.rectangle(0, 0, config.WIDTH, config.HEIGHT, 0x111111).setOrigin(0, 0).setAlpha(0)
       this.add.tween({
         targets: rect,
@@ -146,18 +127,23 @@ export default class UIScene extends Phaser.Scene {
         alpha: 1,
         yoyo: true,
         onYoyo: resolve,
-        onComplete: () => {
-          rect.destroy()
-          this.deleteCover(cover)
-        }
+        onComplete: () => rect.destroy()
       })
     })
   }
-  addCover () {
-    return this.add.rectangle(0, 0, config.WIDTH, config.HEIGHT).setInteractive().setOrigin(0, 0)
-  }
-  deleteCover (cover) {
-    this.time.delayedCall(1, () => cover.destroy())
+  setEventMode (bool) {
+    this.eventMode = bool
+    if (bool) {
+      this.gameScene.player.stopWalk()
+      this.blocker.setVisible(true)
+      this.menuButton.setVisible(false)
+      this.battlerSummary.hide()
+    } else {
+      this.menuButton.setVisible(true)
+      this.time.delayedCall(1, () => {
+        this.blocker.setVisible(true)
+      })
+    }
   }
   getMenuButton (x, y) {
     const button = this.add.container(x, y).setSize(120, 50)

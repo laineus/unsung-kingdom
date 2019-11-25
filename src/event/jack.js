@@ -8,7 +8,6 @@ export const jack = (scene, area, chara) => {
   }
   chara.setVisible(false).setSpeed(180).setDisplayName('？？？')
   area.setEvent(async () => {
-    scene.setEventMode(true)
     scene.player.stopWalk()
     await scene.ui.sleep(500)
     await scene.ui.transition('slow')
@@ -80,7 +79,6 @@ export const jack = (scene, area, chara) => {
       { chara: 'francisca', text: '早く追いかけよう。' }
     ])
     scene.camera.revert()
-    scene.setEventMode(false)
     state.battled = true
     area.destroy()
   })
@@ -94,7 +92,6 @@ export const king = (scene, area, chara) => {
     return
   }
   area.setEvent(async () => {
-    scene.setEventMode(true)
     scene.player.stopWalk()
     await scene.ui.sleep(500)
     await scene.ui.transition('slow')

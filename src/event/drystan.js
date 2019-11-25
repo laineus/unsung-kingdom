@@ -111,7 +111,6 @@ export const rexBear = (scene, area, bear) => {
     state2.area = true
   }
   area.setEvent(async () => {
-    scene.setEventMode(true)
     await scene.talk([
       { chara: 'ann', text: 'いた！' }
     ])
@@ -140,6 +139,5 @@ export const rexBear = (scene, area, bear) => {
       { chara: 'ann', text: 'よし、血液も回収したし、賢人のところに戻りましょう。' }
     ])
     state2.solved = true
-    scene.setEventMode(false)
   })
 }
