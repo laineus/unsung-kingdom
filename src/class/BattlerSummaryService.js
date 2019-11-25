@@ -39,4 +39,7 @@ export default class BattlerSummaryService {
     this.resetPosition()
     slideOut(this.scene, this.summaries, { x: 0, y: 80, destroy: false })
   }
+  setVisible (bool) {
+    this.summaries.forEach(v => v.setVisible(bool))
+  }
 }
