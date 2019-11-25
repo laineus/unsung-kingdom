@@ -2,9 +2,9 @@ import increaseWeapon from '../util/increaseWeapon'
 
 export const dogEventHunter = (scene, hunter) => {
   const state = scene.storage.state.event.m1_1
-  hunter.setDisplayName('狩猟家マシュー').setTapEvent().on('tap', async chara => {
+  hunter.setDisplayName('狩猟家マシュー').setTapEvent(async chara => {
     if (state.completed) {
-      scene.talk([{ chara, text: '助かったよ。本当にありがとう。' }])
+      await scene.talk([{ chara, text: '助かったよ。本当にありがとう。' }])
     } else if (!state.started) {
       const last = '悪いんだけど、もしみかけたら連れてきてくれないかな？'
       const t = await scene.talk(!state.talked ? [
@@ -25,7 +25,7 @@ export const dogEventHunter = (scene, hunter) => {
       const i = await scene.select(['はい', 'いいえ'])
       state.talked = true
       t.destroy()
-      scene.talk([
+      await scene.talk([
         { chara, text: i === 0 ? '助かるよ。よろしく頼んだよ。' : 'そうか。' }
       ])
       if (i === 0) state.started = true
@@ -40,7 +40,7 @@ export const dogEventHunter = (scene, hunter) => {
       }, false)
       const count = keys.filter(key => state[key] === 0).length
       if (count === 0) {
-        scene.talk([
+        await scene.talk([
           { chara, text: 'ありがとう！これで全員だ。' },
           { chara, text: '正直全員無事で戻ってこられるとは思ってなかったよ。' },
           { chara, text: 'なんとお礼を言ったらいいか。' },
@@ -50,13 +50,13 @@ export const dogEventHunter = (scene, hunter) => {
         scene.ui.announce(`${weapon.name}を手に入れた`)
         state.completed = true
       } else if (found) {
-        scene.talk([
+        await scene.talk([
           { chara, text: 'ありがとう！' },
           { chara, text: `あと${count}匹いるはずなんだ。よろしく頼んだよ。` }
         ])
       } else {
         const countText = count < 5 ? `あと${count}匹いるはずなんだ。` : ''
-        scene.talk([
+        await scene.talk([
           { chara, text: `${countText}よろしく頼んだよ。` }
         ])
       }
@@ -69,9 +69,9 @@ export const dogEventFound = (scene, dog, key) => {
   if (state[key] >= 1) {
     dog.destroy()
   } else {
-    dog.setDisplayName('ワンさん').setTapEvent().on('tap', async wansan => {
+    dog.setDisplayName('ワンさん').setTapEvent(async wansan => {
       if (!state.started) {
-        scene.talk([{ chara: wansan, text: 'ワン！' }, { chara: 'ann', text: 'ワンちゃん、こんなところで何してるの？' }])
+        await scene.talk([{ chara: wansan, text: 'ワン！' }, { chara: 'ann', text: 'ワンちゃん、こんなところで何してるの？' }])
       } else {
         const messages = {
           d1: { chara: 'ann', text: 'ほら、こっちにおいで。' },

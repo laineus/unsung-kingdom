@@ -3,12 +3,12 @@ import increaseWeapon from '../util/increaseWeapon'
 export const mercenary1 = (scene, leader, member) => {
   const state = scene.storage.state.event.m1_2
   if (!state.solved) member.visible = false
-  member.setDisplayName('負傷した傭兵団員').setTapEvent().on('tap', async chara => {
-    scene.talk([{ chara, text: 'さっきは本当に助かったよ。ありがとな。' }])
+  member.setDisplayName('負傷した傭兵団員').setTapEvent(async chara => {
+    await scene.talk([{ chara, text: 'さっきは本当に助かったよ。ありがとな。' }])
   })
-  leader.setDisplayName('負傷した傭兵団長').setTapEvent().on('tap', async chara => {
+  leader.setDisplayName('負傷した傭兵団長').setTapEvent(async chara => {
     if (state.completed) {
-      scene.talk([{ chara, text: 'レックスベアは諦めて撤退することにするよ。' }])
+      await scene.talk([{ chara, text: 'レックスベアは諦めて撤退することにするよ。' }])
     } else if (state.solved) {
       await scene.talk([
         { chara, text: 'おお、あんた！' },
@@ -21,7 +21,7 @@ export const mercenary1 = (scene, leader, member) => {
       scene.ui.announce(`${weapon.name}を手に入れた`)
       state.completed = true
     } else if (state.started) {
-      scene.talk([{ chara, text: 'きっとそんなに遠くには行っていないはずだ。頼んだぜ。' }])
+      await scene.talk([{ chara, text: 'きっとそんなに遠くには行っていないはずだ。頼んだぜ。' }])
     } else {
       const messages = [
         [
@@ -51,7 +51,7 @@ export const mercenary1 = (scene, leader, member) => {
       const i = await scene.select(['はい', 'いいえ'])
       t.destroy()
       state.talked = true
-      scene.talk([{ chara, text: i === 0 ? '助かる。礼ははずませてもらうぞ。' : 'そうか。' }])
+      await scene.talk([{ chara, text: i === 0 ? '助かる。礼ははずませてもらうぞ。' : 'そうか。' }])
       if (i === 0) state.started = true
     }
   })
@@ -65,7 +65,7 @@ export const mercenary2 = (scene, flower, mercenary) => {
     return
   }
   mercenary.visible = false
-  flower.setTapEvent().on('tap', async () => {
+  flower.setTapEvent(async () => {
     await scene.talk([{ chara: 'francisca', text: '何この花。へんなの。' }])
     if (!state.started) return
     const i = await scene.select(['調べる', 'そっとしておく'])

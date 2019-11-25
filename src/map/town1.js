@@ -10,13 +10,13 @@ export default {
     x: 0, y: 0
   },
   create (scene) {
-    scene.map.getObjectById(6).setTapEvent().on('tap', () => scene.mapChange('room1', (17).toPixel, (16).toPixelCenter))
-    const amber = scene.map.getObjectById(2).setDisplayName('噂好きなアンバー婦人').setTapEvent().setFaceKey('amber').setRandomWalk(true)
-    const elliott = scene.map.getObjectById(7).setDisplayName('卑劣なエリオット').setTapEvent().setFaceKey('elliott')
-    const max = scene.map.getObjectById(8).setDisplayName('賞金稼ぎのマックス').setTapEvent().setFaceKey('max').setRandomWalk(true)
-    const annabelle = scene.map.getObjectById(9).setDisplayName('宿屋のアナベル').setTapEvent()
-    const matilda = scene.map.getObjectById(10).setDisplayName('内気なマチルダ').setTapEvent().setRandomWalk(true)
-    const maison = scene.map.getObjectById(11).setDisplayName('メイソン').setTapEvent().destroy()
+    scene.map.getObjectById(6).setTapEvent(async () => scene.mapChange('room1', (17).toPixel, (16).toPixelCenter))
+    const amber = scene.map.getObjectById(2).setDisplayName('噂好きなアンバー婦人').setFaceKey('amber').setRandomWalk(true)
+    const elliott = scene.map.getObjectById(7).setDisplayName('卑劣なエリオット').setFaceKey('elliott')
+    const max = scene.map.getObjectById(8).setDisplayName('賞金稼ぎのマックス').setFaceKey('max').setRandomWalk(true)
+    const annabelle = scene.map.getObjectById(9).setDisplayName('宿屋のアナベル')
+    const matilda = scene.map.getObjectById(10).setDisplayName('内気なマチルダ').setRandomWalk(true)
+    const maison = scene.map.getObjectById(11).setDisplayName('メイソン').destroy()
     const area1 = scene.map.getObjectById(12)
     events[scene.storage.state.chapter](scene, { amber, elliott, max, annabelle, matilda, maison, area1 })
   }

@@ -8,16 +8,16 @@ export const drystan = (scene, door, drystan) => {
   if (canStart) {
     door.destroy()
   } else {
-    door.setTapEvent().on('tap', async () => {
-      scene.talk([{ chara: 'ann', text: '留守みたい。' }])
+    door.setTapEvent(async () => {
+      await scene.talk([{ chara: 'ann', text: '留守みたい。' }])
     })
   }
   // Drystan
   if (state2.completed) return drystan.destroy()
-  drystan.setDisplayName('賢人ドリスタン').setTapEvent().on('tap', async chara => {
+  drystan.setDisplayName('賢人ドリスタン').setTapEvent(async chara => {
     const hasMandrake = state1.count >= MANDRAKE_COUNT
     if (!state1.started) {
-      scene.talk([
+      await scene.talk([
         { chara: 'ann', text: 'あなたがドリスタンですか？' },
         { chara, text: 'そうだが、何か用かね。' },
         { chara: 'ann', text: '王の病気を治すための薬を作れると聞きました。' },
@@ -35,12 +35,12 @@ export const drystan = (scene, door, drystan) => {
       ])
       state1.started = true
     } else if(!state1.completed && !hasMandrake) {
-      scene.talk([
+      await scene.talk([
         { chara, text: `マンドレイクの根を${MANDRAKE_COUNT}つだぞ。` },
         { chara, text: '早いところ持ってきなさい。' }
       ])
     } else if(!state1.completed && hasMandrake) {
-      scene.talk([
+      await scene.talk([
         { chara: 'ann', text: 'マンドレイクの根を集めてきました。' },
         { chara, text: '早かったな。' },
         { chara, text: 'うむ。確かに受け取った。' },
@@ -58,7 +58,7 @@ export const drystan = (scene, door, drystan) => {
       state1.completed = true
       state2.started = true
     } else if (!state2.solved) {
-      scene.talk([
+      await scene.talk([
         { chara, text: 'レックスベアだぞ。確実に仕留めて、瓶一杯に持ってこい。' }
       ])
     } else {
@@ -104,11 +104,13 @@ export const rexBear = (scene, area, bear) => {
     return
   }
   if (!state2.area) {
-    scene.talk([
-      { chara: 'ann', text: 'このエリア、モンスターが全然いない…？' },
-      { chara: 'francisca', text: '怪しいね。注意して調べよう。' }
-    ])
-    state2.area = true
+    scene.ui.autoEvent(async () => {
+      await scene.talk([
+        { chara: 'ann', text: 'このエリア、モンスターが全然いない…？' },
+        { chara: 'francisca', text: '怪しいね。注意して調べよう。' }
+      ])
+      state2.area = true
+    })
   }
   area.setEvent(async () => {
     await scene.talk([

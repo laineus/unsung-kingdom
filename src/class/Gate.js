@@ -2,7 +2,7 @@ import Area from './Area'
 export default class Gate extends Area {
   constructor (scene, key, x, y, zone_x, zone_y, zone_width, zone_height) {
     super(scene, zone_x, zone_y, zone_width, zone_height)
-    this.originalEvent = () => {
+    this.originalEvent = async () => {
       key === 'world' ? scene.ui.worldMap() : scene.mapChange(key, x.toPixelCenter, y.toPixelCenter)
     }
     this.setEvent(this.originalEvent)

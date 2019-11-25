@@ -141,9 +141,13 @@ export default class UIScene extends Phaser.Scene {
     } else {
       this.menuButton.setVisible(true)
       this.time.delayedCall(1, () => {
-        this.blocker.setVisible(true)
+        this.blocker.setVisible(false)
       })
     }
+  }
+  autoEvent(event) {
+    this.setEventMode(true)
+    event().then(() => this.setEventMode(false))
   }
   getMenuButton (x, y) {
     const button = this.add.container(x, y).setSize(120, 50)

@@ -33,27 +33,20 @@ export default class Substance extends Phaser.GameObjects.Container {
   getBalloon () {
     return this.scene.add.sprite(0, 0, 'bubble_action')
   }
-  setTapEvent (balloon = true) {
+  setTapEvent (event) {
     const distance = 150
     this.tapArea = this.scene.add.rectangle(0, -this.image.height, this.image.width + 20, this.image.height + 50).setInteractive()
     this.add(this.tapArea)
-    if (balloon) {
-      this.balloon = this.getBalloon().setPosition(0, -this.image.height.half - 32)
-      this.scene.add.tween({ targets: this.balloon, duration: 400, loop: -1, yoyo: true, y: this.balloon.y - 4 })
-      this.add(this.balloon)
-    }
+    this.balloon = this.getBalloon().setPosition(0, -this.image.height.half - 32)
+    this.scene.add.tween({ targets: this.balloon, duration: 400, loop: -1, yoyo: true, y: this.balloon.y - 4 })
+    this.add(this.balloon)
     this.tapArea.on('pointerdown', (_pointer, _x, _y, e) => {
-      if (balloon && this.distanceToPlayer >= distance) return
+      if (this.distanceToPlayer >= distance) return
       e.stopPropagation()
-      this.scene.player.unsetFollowing()
-      this.emit('tap', this)
+      this.scene.ui.setEventMode(true)
+      event(this).then(() => this.scene.ui.setEventMode(false))
     })
     return this
-  }
-  setTalk (data) {
-    this.setTapEvent().on('tap', () => {
-      this.scene.talk(data)
-    })
   }
   distanceTo (target) {
     return Phaser.Math.Distance.Between(this.x, this.y, target.x, target.y)

@@ -1,4 +1,4 @@
-import { annabelle, matilda, elliott, max } from './townCommon'
+import { annabelle, elliott, max } from './townCommon'
 export default (scene, charas) => {
   const eState = scene.storage.state.event.m0
   if (!eState.area) {
@@ -13,7 +13,7 @@ export default (scene, charas) => {
     })
   }
   // 噂好きのアンバー婦人
-  charas.amber.on('tap', async chara => {
+  charas.amber.setTapEvent(async chara => {
     if (!eState.talked_amber) {
       await scene.talk([
         { chara, text: 'はじめまして、旅人さん。' },
@@ -41,7 +41,7 @@ export default (scene, charas) => {
     }
   })
   // 宿屋のアナベル
-  charas.annabelle.on('tap', async chara => {
+  charas.annabelle.setTapEvent(async chara => {
     if (!eState.talked_matilda) return annabelle(scene, chara)
     if (!eState.talked_annabelle) {
       await scene.talk([
@@ -67,7 +67,7 @@ export default (scene, charas) => {
     }
   })
   // 内気なマチルダ
-  charas.matilda.on('tap', async chara => {
+  charas.matilda.setTapEvent(async chara => {
     if (!eState.talked_matilda) {
       await scene.talk([
         { chara: 'ann', text: 'こんにちは。' },
@@ -99,7 +99,7 @@ export default (scene, charas) => {
     }
   })
   // 卑劣なエリオット
-  charas.elliott.on('tap', async chara => elliott(scene, chara))
+  charas.elliott.setTapEvent(async chara => elliott(scene, chara))
   // 賞金稼ぎのマックス
-  charas.max.on('tap', async chara => max(scene, chara))
+  charas.max.setTapEvent(async chara => max(scene, chara))
 }

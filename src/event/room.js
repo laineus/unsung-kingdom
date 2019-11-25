@@ -11,7 +11,9 @@ export const execChapterBeginEvents = (scene) => {
     return
   }
   state[chapter] = true
-  events[chapter](scene, francisca, jaquelyn)
+  scene.ui.autoEvent(async () => {
+    await events[chapter](scene, francisca, jaquelyn)
+  })
 }
 
 const events = [

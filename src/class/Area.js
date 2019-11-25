@@ -8,7 +8,10 @@ export default class Area extends Phaser.GameObjects.Zone {
       const newEntered = this.lastEnteredFrame < (scene.frame - 2)
       this.lastEnteredFrame = scene.frame
       if (!newEntered) return
-      if (this.event) this.event()
+      if (this.event) {
+        scene.ui.setEventMode(true)
+        this.event().then(() => scene.ui.setEventMode(false))
+      }
     })
     this.setActive(true)
   }
