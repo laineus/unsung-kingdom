@@ -100,9 +100,9 @@ export default class UIScene extends Phaser.Scene {
     return new Promise(resolve => {
       this.gameScene.player.stopWalk()
       const cover = this.addCover()
-      new Talk(this, talks, () => {
+      new Talk(this, talks, talk => {
         this.deleteCover(cover)
-        resolve()
+        resolve(talk)
       })
     })
   }
