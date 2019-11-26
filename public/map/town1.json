@@ -67,7 +67,7 @@
                 {
                  "height":0,
                  "id":2,
-                 "name":"people",
+                 "name":"amber",
                  "point":true,
                  "rotation":0,
                  "type":"chara",
@@ -125,7 +125,7 @@
                 {
                  "height":0,
                  "id":8,
-                 "name":"people",
+                 "name":"max",
                  "point":true,
                  "rotation":0,
                  "type":"chara",
@@ -161,7 +161,7 @@
                 {
                  "height":0,
                  "id":11,
-                 "name":"people",
+                 "name":"hunter",
                  "point":true,
                  "rotation":0,
                  "type":"chara",
