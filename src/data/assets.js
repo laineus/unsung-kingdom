@@ -30,6 +30,7 @@ export default {
     ['face/francisca', '../img/face/francisca.png'],
     ['face/jaquelyn', '../img/face/jaquelyn.png'],
     ['face/king', '../img/face/king.png'],
+    ['face/jack', '../img/face/jack.png'],
     ['face/hunter', '../img/face/hunter.png'],
     ['face/mercenary', '../img/face/mercenary.png'],
     ['face/injured_mercenary', '../img/face/injured_mercenary.png'],
