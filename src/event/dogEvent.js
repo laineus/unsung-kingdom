@@ -6,17 +6,27 @@ export const dogEventHunter = (scene, hunter) => {
     if (state.completed) {
       await scene.talk([{ chara, text: '助かったよ。本当にありがとう。' }])
     } else if (!state.started) {
-      const last = '悪いんだけど、もしみかけたら連れてきてくれないかな？'
+      const last = '悪いんだけど、もしその辺でみかけたら連れてきてくれないかな？'
       const t = await scene.talk(!state.talked ? [
         { chara, text: 'この森は危ないから、特別な理由がないならあまり奥には進まないほうが良いよ。' },
         { chara: 'ann', text: 'どうしてですか？' },
-        { chara, text: '人食い熊のレックスベアだ。' },
+        { chara, text: '人食い熊のレックスベアが出るからだ。' },
+        { chara: 'ann', text: 'くま？' },
+        { chara, text: 'ただの熊じゃない。飛び抜けて凶暴な奴だ。' },
         { chara, text: '元々はさして脅威ではなかったんだけど、ある個体が一度人間を捕食して以来、' },
         { chara, text: 'その味を覚えたのか、人を積極的に襲うようになったんだ。' },
-        { chara: 'francisca', text: 'こわ。' },
-        { chara, text: 'ある傭兵団がレックスベア目当てに来ているらしいが、どうなったかな。' },
-        { chara: 'jaquelyn', text: 'お兄さんはハンター？獲物は何ですか？' },
-        { chara, text: 'そうだよ。でも今はただ逃げ出してしまった犬を探しているだけだよ。' },
+        { chara: 'ann', text: 'こわ！' },
+        { chara, text: '国の討伐隊や、名のある傭兵団がレックスベア討伐に来ているらしいが、どうなったかな。' },
+        { chara: 'ann', text: 'レックスベアを倒すと何か良い事があるんですか？' },
+        { chara: 'francisca', text: '人にとって危険だから賞金がかかっているのでは？' },
+        { chara, text: 'うーん。それにしてはやけに大袈裟な気がする。' },
+        { chara, text: '森に近づかなければいい話だし。' },
+        { chara, text: 'まあ、僕らハンターとしてもレックスベアはあまり遭遇したくない相手だから、' },
+        { chara, text: '誰かが倒してくれるならそれにこしたことはないんだけどね。' },
+        { chara: 'ann', text: 'お兄さんはハンターなんですね。' },
+        { chara: 'ann', text: '何を狩りに来ているんですか？' },
+        { chara, text: '僕はレックスベアとかじゃなく、食肉用の動物とかだよ。' },
+        { chara, text: 'でも今はただ逃げ出してしまった犬を探しているだけなんだ。' },
         { chara: 'ann', text: '犬が逃げちゃったんですか？' },
         { chara, text: 'ああ、相棒の狩猟犬が産んだ5匹の子犬たちだ。まだ1歳にもなっていない。' },
         { chara, text: `あ、${last}` },
@@ -44,10 +54,21 @@ export const dogEventHunter = (scene, hunter) => {
           { chara, text: 'ありがとう！これで全員だ。' },
           { chara, text: '正直全員無事で戻ってこられるとは思ってなかったよ。' },
           { chara, text: 'なんとお礼を言ったらいいか。' },
-          { chara, text: 'せめてものお礼にこれを受け取ってくれ。' }
+          { chara: 'ann', text: '気にしないでください！' },
+          { chara, text: 'あ、気に入るか分からないけど、僕の予備の弓矢をもらってくれ。' }
         ])
         const weapon = increaseWeapon(6)
         scene.ui.announce(`${weapon.name}を手に入れた`)
+        await scene.talk([
+          { chara: 'ann', text: 'ありがとう。お兄さんの武器は弓なんですね。' },
+          { chara, text: 'そうだよ。' },
+          { chara, text: 'トラップや毒を塗った矢を使って獲物を仕留める。' },
+          { chara, text: '時間はかかるけど、一番安全な狩り方だ。' },
+          { chara: 'ann', text: 'へー。' },
+          { chara, text: 'そういえばこの間、毒矢に使う毒液を分けてくれと訪ねてきた怪しい男が居たんだ。' },
+          { chara, text: '不審に思って断ったけど…、' },
+          { chara, text: '君たちもおかしな奴には気をつけるんだよ。' }
+        ])
         state.completed = true
       } else if (found) {
         await scene.talk([
