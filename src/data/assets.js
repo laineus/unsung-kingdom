@@ -78,6 +78,7 @@ export default {
     ['field/hunter', '../img/field/hunter.png', { frameWidth: 28, frameHeight: 39, endFrame: 12 }],
     ['field/annabelle', '../img/field/annabelle.png', { frameWidth: 28, frameHeight: 41, endFrame: 12 }],
     ['field/matilda', '../img/field/matilda.png', { frameWidth: 28, frameHeight: 42, endFrame: 12 }],
+    ['field/elliott', '../img/field/elliott.png', { frameWidth: 26, frameHeight: 39, endFrame: 12 }],
     ['field/people', '../img/field/people.png', { frameWidth: 28, frameHeight: 39, endFrame: 12 }],
     ['field/mercenary', '../img/field/mercenary.png', { frameWidth: 28, frameHeight: 39, endFrame: 12 }],
     ['field/injured_mercenary', '../img/field/injured_mercenary.png', { frameWidth: 27, frameHeight: 37, endFrame: 1 }],
