@@ -1,5 +1,10 @@
 import chapters from '../data/chapters'
 
+const setDefaultWeapon = state => {
+  state.weapons = [{ id: 1, weapon_id: 1 }, { id: 2, weapon_id: 1 }, { id: 3, weapon_id: 2 }]
+  state.battlers.forEach((v, i) => Object.assign(v, { exp: 0, maxHp: v.hp, weapon: i + 1 }))
+}
+
 export const execChapterBeginEvents = (scene) => {
   const chapter = scene.storage.state.chapter
   const state = scene.storage.state.event.chapter_begin
@@ -64,6 +69,7 @@ const events = [
     await scene.ui.transition('slow')
     francisca.setVisible(false)
     jaquelyn.setVisible(false)
+    setDefaultWeapon(scene.storage.state)
   },
   async (scene, francisca, jaquelyn) => {
     scene.player.setR('down')
@@ -109,5 +115,6 @@ const events = [
     await scene.ui.chapterStart(`${chapters[1].name} ${chapters[1].title}`)
     francisca.setVisible(false)
     jaquelyn.setVisible(false)
+    setDefaultWeapon(scene.storage.state)
   }
 ]

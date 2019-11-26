@@ -57,14 +57,18 @@ export const jack = (scene, area, chara) => {
       { chara: 'ann', text: '分かった。' },
       { chara: 'ann', text: 'アンタ、覚悟しなさい！' }
     ])
+    await scene.player.setTargetPosition((49).toPixelCenter, (31).toPixelCenter)
     await scene.ui.sleep(500)
     await scene.ui.battle([generateBattler('bear', 1, { hp: 30 })], { boss: true, defeatEvent: true })
     await scene.ui.sleep(500)
     await scene.talk([
       { chara: 'ann', text: 'うぅ…。' },
       { chara: 'francisca', text: '強い…。' },
-      { chara, text: '…。' }
+      { chara, text: '装備は没収させてもらうぞ。' }
     ])
+    scene.storage.state.weapons.length = 0
+    scene.storage.state.battlers.forEach(v => v.weapon = null)
+    await scene.ui.sleep(2000)
     await chara.setTargetPosition((41).toPixelCenter, (26).toPixelCenter)
     scene.player.setR('left')
     await chara.setTargetPosition((32).toPixelCenter, (26).toPixelCenter)
@@ -75,7 +79,7 @@ export const jack = (scene, area, chara) => {
       { chara: 'jaquelyn', text: '大丈夫？アン' },
       { chara: 'ann', text: 'う、うん。' },
       { chara: 'ann', text: 'あれ！？時間水晶がない！' },
-      { chara: 'francisca', text: 'きっと奴に盗られたんだわ。' },
+      { chara: 'francisca', text: 'きっと装備と一緒に奴に持って行かれたんだ。' },
       { chara: 'francisca', text: '早く追いかけよう。' }
     ])
     scene.camera.revert()

@@ -32,9 +32,8 @@ export default () => {
       m1: { talked_sick: false },
       town: { amber: [], annabelle: [], matilda: [], elliott: [], max: [] }
     },
-    battlers: battlers.filter((_, i) => i < 3).map((v, i) => Object.assign(v, { exp: 0, maxHp: v.hp, weapon: i + 1 })),
-    items: [{ item_id: 1, count: 5 }],
-    weapons: [{ id: 1, weapon_id: 1 }, { id: 2, weapon_id: 1 }, { id: 3, weapon_id: 2 }],
+    battlers: battlers.filter((_, i) => i < 3).map((v, i) => Object.assign(v, { exp: 0, maxHp: v.hp, weapon: null })),
+    weapons: [],
     saved: null
   }
 }
