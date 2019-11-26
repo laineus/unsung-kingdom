@@ -75,6 +75,7 @@ export default {
     ['check', '../img/check.png', { frameWidth: 14, frameHeight: 13, endFrame: 2 }],
     // Charachip
     ['field/player', '../img/field/player.png', { frameWidth: 25, frameHeight: 41, endFrame: 12 }],
+    ['field/jack', '../img/field/jack.png', { frameWidth: 26, frameHeight: 39, endFrame: 12 }],
     ['field/hunter', '../img/field/hunter.png', { frameWidth: 28, frameHeight: 39, endFrame: 12 }],
     ['field/annabelle', '../img/field/annabelle.png', { frameWidth: 28, frameHeight: 41, endFrame: 12 }],
     ['field/amber', '../img/field/amber.png', { frameWidth: 28, frameHeight: 39, endFrame: 12 }],
