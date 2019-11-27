@@ -106,6 +106,17 @@ export const drystan = (scene, door, drystan) => {
       state2.completed = true
       await scene.ui.transition('slow')
       drystan.destroy()
+      scene.player.setR('down')
+      await scene.ui.sleep(1000)
+      await scene.talk([
+        { chara: 'ann', text: 'よし、任務達成だね！' },
+        { chara: 'jaquelyn', text: 'そうね。頑張ったわ、アン。' },
+        { chara: 'francisca', text: 'さあ、さっさと戻ろう。' },
+        { chara: 'francisca', text: '王国史を確認したいし。' }
+      ])
+      await scene.ui.sleep(1000)
+      scene.storage.state.chapter = 2
+      await scene.mapChange('room1', (19).toPixelCenter, (11).toPixel)
     }
   })
 }
