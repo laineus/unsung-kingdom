@@ -25,19 +25,27 @@ export const mercenary1 = (scene, leader, member) => {
     } else {
       const messages = [
         [
-          { chara: 'ann', text: '大丈夫ですか？' },
+          { chara: 'ann', text: '大丈夫ですか！？' },
           { chara, text: 'ああ、大丈夫だ。' },
-          { chara: 'jaquelyn', text: '怪我をしているように見えますけど。' },
-          { chara, text: '人食い熊のレックスベアの討伐に来たんだが、圧倒的に力不足だったようだ。' },
-          { chara, text: '情けねえ。' },
-          { chara: 'ann', text: 'どうしてレックスベアを？' },
-          { chara, text: 'ただの報酬目当てさ。' },
-          { chara, text: '国王の病気が関係してるみたいでな、奴の討伐報酬はかなりのものなんだ。' },
-          { chara: 'jaquelyn', text: '国王の病気がどう関係してるんですか？' },
-          { chara, text: 'この森の奥に住むドリスタンという老人が、王の治療のための調薬を頼まれているんだが、' },
-          { chara, text: 'その材料にレックスベアの死体を要求しているらしい。' },
-          { chara, text: 'なんでかは知らん。' },
-          { chara: 'ann', text: 'そうなんですね。' },
+          { chara: 'jaquelyn', text: 'みんな怪我をしているように見えますけど…。' },
+          { chara, text: 'レックスベアという人食い熊の討伐に来たんだが、圧倒的に力不足だったようだ。' },
+          { chara, text: '返り討ちにされちまったよ。情けねえ。' },
+          { chara: 'ann', text: 'レックスベアを討伐するとお金になるんですか？' },
+          { chara, text: 'その通りだ。' },
+          { chara, text: 'レックスベアには国から高額な討伐報酬がかけられている。' },
+          { chara: 'jaquelyn', text: '国もレックスベアの脅威を排除したいんですね。' },
+          { chara, text: 'いいや、これはただの厄介払いじゃない。' },
+          { chara, text: '王族の病気が関係しているんだ。' },
+          { chara: 'jaquelyn', text: 'レックスベアに病気がどう関係してるんですか？' },
+          { chara, text: 'この森の奥に住むドリスタンという老人が目当ての薬を調薬できるというんだが、' },
+          { chara, text: 'その材料にレックスベアの血液を要求しているらしい。' },
+          { chara: 'francisca', text: '薬の材料にモンスターの血液を使うなんて聞いたことないけど。' },
+          { chara: 'francisca', text: 'ヤブ医者じゃないの？' },
+          { chara, text: 'そんなことは知らん。' },
+          { chara, text: '俺たちは報酬目当てできてるんだ。' },
+          { chara, text: '「王族」とだけ聞いているが、恐らくはエドガー王のことだろう。' },
+          { chara, text: '彼らの慌てぶりと、討伐報酬の額から察しがつく。' },
+          { chara: 'ann', text: 'なるほど…。' },
           { chara, text: 'ところであんたら、' }
         ],
         [
@@ -66,7 +74,7 @@ export const mercenary2 = (scene, flower, mercenary) => {
   }
   mercenary.visible = false
   flower.setTapEvent(async () => {
-    await scene.talk([{ chara: 'francisca', text: '何この花。へんなの。' }])
+    await scene.talk([{ chara: 'ann', text: '何この花。へんなの。' }])
     if (!state.started) return
     const i = await scene.select(['調べる', 'そっとしておく'])
     if (i === 1) return
@@ -77,24 +85,30 @@ export const mercenary2 = (scene, flower, mercenary) => {
     flower.visible = false
     mercenary.visible = true
     await scene.talk([
-      { chara: 'francisca', text: 'うわ、中から人が！' },
+      { chara: 'ann', text: 'びっくりした…。モンスターだったなんて。' },
+      { chara: 'francisca', text: 'ちょっとアン、中から人が出てきたんだけど…。' },
       { chara, text: 'うう…' },
-      { chara: 'ann', text: 'だ、大丈夫ですか？' },
+      { chara: 'ann', text: 'わ！ほんとだ！' },
+      { chara: 'jaquelyn', text: 'だ、大丈夫ですか？' },
       { chara, text: '助かった…。' },
       { chara: 'jaquelyn', text: '花のモンスターに食べられてしまったの？' },
       { chara, text: 'いや、自分から飛び込んだんだ…。' },
-      { chara: 'francisca', text: '自分から？へんなの。' },
-      { chara, text: '実は、レックスベアから逃げる途中、仲間とはぐれてしまったんだ。' },
-      { chara, text: 'その後ここまで追い詰められてしまって…、' },
-      { chara, text: '目の前にはサニズマスクがいて、後ろにはレックスベア、' },
+      { chara: 'francisca', text: '自分から？' },
+      { chara: 'francisca', text: '何でそんなアンみたいなことを。' },
+      { chara: 'ann', text: 'ちょっと！' },
+      { chara, text: '実は、レックスベアに負けて仲間と逃げ回っていたんだが、' },
+      { chara, text: '俺だけはぐれた挙句ここまで追い詰められてしまったんだ。' },
+      { chara, text: '目の前にはさっきのサニズマスクがいて、後ろにはレックスベア、' },
       { chara, text: '意を決して、逃げるようにサニズマスクの胃に飛び込んだんだ。' },
+      { chara: 'ann', text: 'な、なるほど…。' },
       { chara, text: 'その後自力で出られないことに気づいてから後悔したよ。' },
       { chara, text: '胃の中でゆっくり溶かされていくくらいなら、' },
       { chara, text: 'レックスベアにひと思いに殺されればよかったってね。' },
+      { chara: 'ann', text: 'うわー…。' },
       { chara, text: 'でもあんたたちのおかげで助かったよ。' },
-      { chara: 'ann', text: 'それは災難でしたね。' },
-      { chara: 'ann', text: 'ところで、仲間というのが傭兵団の人たちのことでしたら、' },
-      { chara: 'ann', text: '南のエリアで探していましたよ。' },
+      { chara: 'jaquelyn', text: 'それは災難でしたね。' },
+      { chara: 'jaquelyn', text: 'ところで、仲間というのが傭兵団の人たちのことでしたら、' },
+      { chara: 'jaquelyn', text: '南のエリアで探していましたよ。' },
       { chara, text: '本当か？何から何までありがとう。' },
       { chara, text: 'あとでそっちに寄ってくれないか？お礼をさせてほしい。' },
       { chara, text: 'じゃあ、あんたたちも気をつけてな。' }
