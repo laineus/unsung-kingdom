@@ -19,19 +19,20 @@ export const drystan = (scene, door, drystan) => {
     if (!state1.started) {
       await scene.talk([
         { chara: 'ann', text: 'あなたがドリスタンですか？' },
-        { chara, text: 'そうだが、何か用かね。' },
-        { chara: 'ann', text: '王の病気を治すための薬を作れると聞きました。' },
+        { chara, text: 'そうだが、何の用だ。' },
+        { chara: 'ann', text: '病気を治すための薬を作れると聞いて来ました。' },
         { chara, text: 'またか。' },
         { chara: 'ann', text: 'また？' },
         { chara, text: 'まずは王室からの遣いが来て、' },
         { chara, text: 'その後は薬を王室に売りつけようという考えのゴロツキが何人も来た。' },
         { chara, text: '今のところ、頼んだ材料は誰も持ち帰って来ないがな。' },
         { chara: 'ann', text: 'その材料を教えてもらえますか？' },
-        { chara, text: '構わんよ。私は誰が材料を持ってくるかに興味はない。' },
+        { chara, text: '構わんよ。' },
+        { chara, text: '私は誰が材料を持ってくるかに興味はない。' },
         { chara, text: `まずはマンドレイクの根が${MANDRAKE_COUNT}つだ。` },
         { chara: 'ann', text: 'はい、他には？' },
         { chara, text: 'まずはそれを持ってきなさい。他の材料はその後だ。' },
-        { chara, text: 'さあ、あまり時間はないぞ。' },
+        { chara, text: 'さあ、あまり時間はないぞ。' }
       ])
       state1.started = true
     } else if(!state1.completed && !hasMandrake) {
@@ -59,35 +60,47 @@ export const drystan = (scene, door, drystan) => {
       state2.started = true
     } else if (!state2.solved) {
       await scene.talk([
-        { chara, text: 'レックスベアだぞ。確実に仕留めて、瓶一杯に持ってこい。' }
+        { chara, text: 'レックスベアだぞ。確実に仕留めて、血液を瓶一杯に持ってこい。' }
       ])
     } else {
       await scene.talk([
         { chara: 'ann', text: '持ってきました。レックスベアの血液です。' },
+        { chara, text: '見せてみろ。' }
+      ])
+      await scene.ui.sleep(1000)
+      await scene.talk([
         { chara, text: 'ふむ。確かにレックスベアを倒したようだな。' },
-        { chara, text: 'よし、薬をやろう。これだ。' },
+        { chara, text: 'よし、薬をやろう。もう完成している。' },
         { chara: 'ann', text: 'え、薬を作るためにこの血液が必要なのでは？' },
-        { chara, text: 'そんなものはいらん。薬に血など混ぜるか。' },
+        { chara, text: 'そんなものはいらん。' },
+        { chara, text: '薬に血など混ぜるか。' },
         { chara: 'ann', text: 'ではどうしてレックスベアの血液を？' },
         { chara, text: 'ヤツが邪魔だったからに決まっているだろう。' },
         { chara, text: 'あんな人食い熊に森をうろつかれたのではろくに外出もできん。' },
         { chara: 'ann', text: '生命力がどうのとか、嘘だったの？' },
         { chara, text: 'だったらなんだ。' },
-        { chara, text: '国王の命も大事だろうだろうが、自分の命だって大事だ。' },
+        { chara, text: '国王の命も大事あだろうだろうが、自分の命だって大事だ。' },
         { chara, text: '薬をやると言っているんだから文句はないだろう。' },
+        { chara, text: '金もいらんぞ。' },
         { chara: 'ann', text: '…そうですか。' },
         { chara: 'ann', text: '薬、ありがとうございます。' },
         { chara, text: '自分で飲むなり王家に売りつけるなり好きにしろ。' },
+        { chara, text: 'どうせお前も知っているのだろうが、病気なのは王だ。高く売れるだろう。' },
         { chara: 'ann', text: 'いえ、これは王室の遣いが戻ったときに渡してください。' },
         { chara, text: '…ふむ。' },
         { chara, text: 'わかった。何を目当てにしているかは知らんが、言うとおりにしよう。' },
         { chara: 'ann', text: 'ところで、王はどうして突然病気になったのですか？' },
         { chara, text: '突然病気になることは不思議なことではないだろう。' },
-        { chara, text: 'あれが本当に病気なのかは怪しいがな。' },
+        { chara, text: '一度城まで呼び出されて王を診てきたが、' },
+        { chara, text: 'あれが本当に病気なのかは怪しいものだな。' },
         { chara: 'ann', text: 'どういうことですか？' },
-        { chara, text: '修道士ごときに病気か毒による衰弱かの区別などつかん。' },
-        { chara: 'ann', text: '毒？' },
-        { chara, text: 'そういうことだ。' },
+        { chara, text: '例えばお前は、病気と毒による衰弱の区別がつくか？' },
+        { chara: 'ann', text: '毒、ですか？' },
+        { chara, text: '王室の修道士たちには分からなかったようだ。' },
+        { chara: 'ann', text: '王は毒で苦しんでいるんですか？' },
+        { chara, text: '知らんな。' },
+        { chara, text: '私は厄介事には関わりたくない。' },
+        { chara, text: 'そのためにこうして森の深くに引きこもっているんだ。' },
         { chara, text: 'さあ、薬は確かに渡しておくから、さっさと帰ってくれ。' }
       ])
       state2.completed = true
