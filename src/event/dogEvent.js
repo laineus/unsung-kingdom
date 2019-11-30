@@ -90,7 +90,7 @@ export const dogEventFound = (scene, dog, key) => {
   if (state[key] >= 1) {
     dog.destroy()
   } else {
-    dog.setDisplayName('ワンさん').setTapEvent(async wansan => {
+    dog.setDisplayName('ワンさん').setTarget(scene.player).setTapEvent(async wansan => {
       if (!state.started) {
         await scene.talk([{ chara: wansan, text: 'ワン！' }, { chara: 'ann', text: 'ワンちゃん、こんなところで何してるの？' }])
       } else {
@@ -99,7 +99,7 @@ export const dogEventFound = (scene, dog, key) => {
           d2: { chara: 'jaquelyn', text: 'いい子ね、こっちよ。' },
           d3: { chara: 'francisca', text: 'おいで、ワンちゃん。' },
           d4: { chara: 'ann', text: 'おいでー、ほら。' },
-          d5: { chara: 'jaquelyn', text: 'おいで、ご主人がお待ちよ。' }
+          d5: { chara: 'jaquelyn', text: 'おいで、ご主人が待ってるよ。' }
         }
         await scene.talk([{ chara: wansan, text: 'ワンワン！' }, messages[key]])
         state[key] = 1

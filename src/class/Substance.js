@@ -22,7 +22,6 @@ export default class Substance extends Phaser.GameObjects.Container {
     this.setId(null)
   }
   preUpdate () {
-    if (this.target && !this.target.isAlive) this.unsetFollowing()
     this.setDepth(this.y)
     if (this.balloon) this.balloon.visible = this.distanceToPlayer < 150
   }

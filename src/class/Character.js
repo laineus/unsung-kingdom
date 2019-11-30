@@ -34,6 +34,7 @@ export default class Character extends Substance {
   setTarget (target = null) {
     this.unsetFollowing()
     this.target = target
+    return this
   }
   setTargetPosition (x = null, y = null) {
     if (x !== null && y !== null && this.scene.map.isCollides(x.toTile, y.toTile)) return
@@ -106,7 +107,6 @@ export default class Character extends Substance {
   }
   _walkToTargetPosition () {
     if (!this.followingTarget) return
-    this.attackDelay = this.attackDelayFirst
     const x = (!this.body.blocked.left && !this.body.blocked.right) ? this.diffToFollowingX : 0
     const y = (!this.body.blocked.top && !this.body.blocked.down) ? this.diffToFollowingY : 0
     this.body.setVelocity(x, y)
