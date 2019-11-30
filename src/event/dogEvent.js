@@ -90,7 +90,7 @@ export const dogEventFound = (scene, dog, key) => {
   if (state[key] >= 1) {
     dog.destroy()
   } else {
-    dog.setDisplayName('ワンさん').setTarget(scene.player).setTapEvent(async wansan => {
+    dog.setDisplayName('ワンさん').setTarget(scene.player).setSpeed(90).setTapEvent(async wansan => {
       if (!state.started) {
         await scene.talk([{ chara: wansan, text: 'ワン！' }, { chara: 'ann', text: 'ワンちゃん、こんなところで何してるの？' }])
       } else {
