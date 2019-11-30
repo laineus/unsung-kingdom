@@ -47,7 +47,7 @@ export default class Character extends Substance {
     })
   }
   unsetFollowing () {
-    this.target = null
+    // this.target = null
     this._targetPositionX = null
     this._targetPositionY = null
   }
@@ -107,8 +107,9 @@ export default class Character extends Substance {
   }
   _walkToTargetPosition () {
     if (!this.followingTarget) return
-    const x = (!this.body.blocked.left && !this.body.blocked.right) ? this.diffToFollowingX : 0
-    const y = (!this.body.blocked.top && !this.body.blocked.down) ? this.diffToFollowingY : 0
+    if (this.hasTarget && this.diffToFollowingDistance < 50) return
+    const x = (!this.body.blocked.left && !this.body.blocked.right) ? this.diffToFollowingX : this.diffToFollowingX * 0.1
+    const y = (!this.body.blocked.top && !this.body.blocked.down) ? this.diffToFollowingY : this.diffToFollowingY * 0.1
     this.body.setVelocity(x, y)
     const speed = Math.min(this.speed, (this.diffToFollowingDistance * 10))
     this.body.velocity.normalize().scale(speed)
@@ -175,11 +176,19 @@ export default class Character extends Substance {
   }
   _randomWalk () {
     if (!this.randomWalk || this.talking) return
-    if (!this.walking) this.randomWalkDelay--
+    if (!this.walking || !this.body.blocked.none) this.randomWalkDelay--
     if (this.randomWalkDelay <= 0) {
-      this.setTargetPosition(this.x + Math.randomInt(-this.randomWalkRange, this.randomWalkRange), this.y + Math.randomInt(-this.randomWalkRange, this.randomWalkRange))
+      const pos = this._tryToGetRandomPosition()
+      if (pos) this.setTargetPosition(pos.x, pos.y)
       this.setNextRandomWalkDelay()
     }
+  }
+  _tryToGetRandomPosition (count = 10) {
+    if (!count) return null
+    const x = this.x + Math.randomInt(-this.randomWalkRange, this.randomWalkRange)
+    const y = this.y + Math.randomInt(-this.randomWalkRange, this.randomWalkRange)
+    const collides = this.scene.map.isCollides(x.toTile, y.toTile)
+    return collides ? this._tryToGetRandomPosition(count - 1) : { x, y }
   }
   _collideWall () {
     if (this.walking) {
