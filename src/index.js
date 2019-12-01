@@ -8,7 +8,7 @@ import extendNativeClassFunctions from './util/extendNativeClassFunctions'
 
 extendNativeClassFunctions()
 
-location.query = location.search.substr(1).split('&').reduce((obj, v) => {
+location.query = location.search.substr(1).split('&').filter(Boolean).reduce((obj, v) => {
   const arr = v.split('=')
   obj[arr[0]] = arr[1]
   return obj
