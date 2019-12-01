@@ -74,6 +74,7 @@ export default {
   spritesheet: [
     // UI
     ['check', '../img/check.png', { frameWidth: 14, frameHeight: 13, endFrame: 2 }],
+    ['menu_icons', '../img/menu_icons.png', { frameWidth: 72, frameHeight: 72, endFrame: 4 }],
     // Charachip
     ['field/player', '../img/field/player.png', { frameWidth: 25, frameHeight: 41, endFrame: 12 }],
     ['field/jack', '../img/field/jack.png', { frameWidth: 26, frameHeight: 39, endFrame: 12 }],

@@ -5,9 +5,9 @@ import MenuSave from './MenuSave'
 import { slideIn, slideOut, fadeIn, fadeOut } from '../util/animations'
 import UICloseButton from './UICloseButton'
 const contents = [
-  { class: MenuMap, name: 'MAP & QUEST', min: 'マップ・クエスト' },
-  { class: MenuStatus, name: 'CHARACTER', min: 'キャラクター' },
-  { class: MenuSave, name: 'SAVE', min: 'セーブ' }
+  { class: MenuMap, name: 'MAP & QUEST', min: 'マップ・クエスト', frame: 0 },
+  { class: MenuStatus, name: 'CHARACTER', min: 'キャラクター', frame: 1 },
+  { class: MenuSave, name: 'SAVE', min: 'セーブ', frame: 2 }
 ]
 export default class Menu extends Phaser.GameObjects.Container {
   constructor (scene, callback) {
@@ -44,9 +44,10 @@ export default class Menu extends Phaser.GameObjects.Container {
   button (content, x, y) {
     const button = this.scene.add.container(x - 50, y + 50).setSize(100, 100)
     const bg = this.scene.add.circle(0, 0, 55, config.COLORS.black)
+    const icon = this.scene.add.sprite(0, -7, 'menu_icons').setOrigin(0.5, 0.5).setTint(config.COLORS.ghost).setFrame(content.frame)
     const tx = this.scene.add.text(0, 31, content.name, { align: 'center', fill: config.COLORS.theme.toColorString, fontSize: 20, fontStyle: 'bold', fontFamily: config.FONTS.UI }).setOrigin(0.5, 1).setPadding(0, 2, 0, 0)
     const min = this.scene.add.text(0, 27, content.min, { align: 'center', fill: config.COLORS.gray.toColorString, fontSize: 9, fontStyle: 'bold', fontFamily: config.FONTS.TEXT }).setOrigin(0.5, 0).setPadding(0, 2, 0, 0)
-    button.add([bg, tx, min])
+    button.add([bg, icon, tx, min])
     button.setInteractive().on('pointerdown', this.loadContent.bind(this, content))
     return button
   }
