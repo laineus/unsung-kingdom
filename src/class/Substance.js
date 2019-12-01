@@ -43,7 +43,8 @@ export default class Substance extends Phaser.GameObjects.Container {
       if (this.distanceToPlayer >= distance) return
       e.stopPropagation()
       this.scene.ui.setEventMode(true)
-      event(this).then(() => this.scene.ui.setEventMode(false))
+      const ui = this.scene.ui
+      event(this).then(() => ui.setEventMode(false))
     })
     return this
   }
