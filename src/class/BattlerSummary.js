@@ -12,7 +12,7 @@ export default class BattlerSummary extends Phaser.GameObjects.Container {
     sprite.setCrop(0, 0, sprite.width, 150)
     const text = scene.add.text(-23, 4, chara.name, { fontSize: 14, fontStyle: 'bold', fontFamily: config.FONTS.UI }).setOrigin(0, 1)
     this.lv = this.scene.add.text(-12 + chara.name.length * 5.4, -9, '', { fill: config.COLORS.theme.toColorString, fontSize: 12, fontStyle: 'bold', fontFamily: config.FONTS.UI })
-    this.gauge = new Gauge(this.scene, 78, 5, chara.maxHp, config.COLORS.theme).setPosition(14, 8)
+    this.gauge = new Gauge(this.scene, 78, 5, { valueMax: chara.maxHp, color: config.COLORS.theme }).setPosition(14, 8)
     this.add([box, sprite, text, this.lv, this.gauge])
     this.reload()
   }

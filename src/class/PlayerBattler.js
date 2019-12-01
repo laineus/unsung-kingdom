@@ -38,7 +38,7 @@ export default class PlayerBattler extends Battler {
     this.hpValueLabel = this.scene.add.text(this.hpMaxLabel.x - this.hpMaxLabel.width, -9, this.hp, { fill: config.COLORS.soy.toColorString, stroke: config.COLORS.dark.toColorString, strokeThickness: 2, fontSize: 24, fontStyle: 'bold', fontFamily: config.FONTS.UI }).setOrigin(1, 1)
     this.add(this.hpValueLabel)
     // gauge
-    this.gauge = new Gauge(this.scene, 160, 10, this.maxHp, config.COLORS.theme).setPosition(45, -3)
+    this.gauge = new Gauge(this.scene, 160, 10, { valueMax: this.maxHp, color: config.COLORS.theme, blood: true }).setPosition(45, -3)
     this.gauge.value = this.hp
     this.add(this.gauge)
     // weapon

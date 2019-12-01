@@ -19,7 +19,7 @@ export default class EnemyBattler extends Battler {
       this.hpValueLabel = this.scene.add.text(0, -133, this.hp, { fill: config.COLORS.soy.toColorString, stroke: config.COLORS.dark.toColorString, strokeThickness: 2, fontSize: 19, fontStyle: 'bold', fontFamily: config.FONTS.UI }).setOrigin(1, 1)
       this.add(this.hpValueLabel)
       // gauge
-      this.gauge = new Gauge(this.scene, 100, 7, this.hp, 0xEE8811).setPosition(0, -130)
+      this.gauge = new Gauge(this.scene, 100, 7, { valueMax: this.hp, color: 0xEE8811, blood: true }).setPosition(0, -130)
       this.add(this.gauge)
     }
   }

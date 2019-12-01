@@ -90,7 +90,7 @@ export default class MenuStatus extends Phaser.GameObjects.Container {
     const hpLabel = this.scene.add.text(0, 40, 'HP', { fill: config.COLORS.soy.toColorString, stroke: config.COLORS.dark.toColorString, strokeThickness: 2, fontSize: 11, fontStyle: 'bold', fontFamily: config.FONTS.UI })
     const hpMaxLabel = this.scene.add.text(162, 55, `/${chara.maxHp}`, { fill: config.COLORS.soy.toColorString, stroke: config.COLORS.dark.toColorString, strokeThickness: 2, fontSize: 18, fontStyle: 'bold', fontFamily: config.FONTS.UI }).setOrigin(1, 1)
     const hpValueLabel = this.scene.add.text(hpMaxLabel.x - hpMaxLabel.width, 56, chara.hp, { fill: config.COLORS.soy.toColorString, stroke: config.COLORS.dark.toColorString, strokeThickness: 2, fontSize: 24, fontStyle: 'bold', fontFamily: config.FONTS.UI }).setOrigin(1, 1)
-    const gauge = new Gauge(this.scene, 160, 10, chara.maxHp, config.COLORS.theme).setPosition(81, 62)
+    const gauge = new Gauge(this.scene, 160, 10, { valueMax: chara.maxHp, color: config.COLORS.theme }).setPosition(81, 62)
     const exp = new ExpGauge(this.scene, 81, 95, 160, chara.lv, chara.exp)
     const option = { fill: config.COLORS.soy.toColorString, stroke: config.COLORS.dark.toColorString, strokeThickness: 2, fontSize: 17, fontStyle: 'bold', fontFamily: config.FONTS.UI }
     const atk = this.scene.add.text(0, 110, 'ATK', option)
