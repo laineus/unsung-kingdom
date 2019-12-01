@@ -14,6 +14,12 @@ export default class TitleScene extends Phaser.Scene {
     this.ui.showController(false)
     this.content()
     // this.logo()
+    // DEBUG
+    if (location.query.load) {
+      const data = storage.getRow(Number(location.query.load))
+      this.storage.load(data.number)
+      this.continueGame(data.state.map, data.state.x, data.state.y)
+    }
   }
   get ui () {
     return this.scene.get('UI')

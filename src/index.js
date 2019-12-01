@@ -8,6 +8,12 @@ import extendNativeClassFunctions from './util/extendNativeClassFunctions'
 
 extendNativeClassFunctions()
 
+location.query = location.search.substr(1).split('&').reduce((obj, v) => {
+  const arr = v.split('=')
+  obj[arr[0]] = arr[1]
+  return obj
+}, {})
+
 const option = {
   type: Phaser.AUTO,
   width: config.WIDTH,
