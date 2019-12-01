@@ -8,6 +8,12 @@ export default {
     if (state.event.m0_1.completed) return base
     return state.allowed_map === 0 ? `${base}\n${first}` : `${base}\n${second}`
   },
+  m1_1 (state) {
+    const base = '狩猟家マシューが連れていた5匹の仔犬が逃げ出してしまった。'
+    const found = ['d1', 'd2', 'd3', 'd4', 'd5'].filter(key => state.event.m1_1[key]).length
+    const cnt = `見つけた狩猟犬の数（${found}/5）`
+    return `${base}\n${cnt}`
+  },
   m1_2 (state) {
     const base = '薬の材料となるマンドレイクの根を集めてドリスタンに届ける。'
     const cnt = `収集したマンドレイク（${state.event.m1_3.count}/${MANDRAKE_COUNT}）`
