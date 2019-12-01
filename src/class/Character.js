@@ -31,9 +31,10 @@ export default class Character extends Substance {
     this.faceKey = name
     return this
   }
-  setTarget (target = null) {
+  setTarget (target = null, leave = false) {
     this.unsetFollowing()
     this.target = target
+    this.leaveFromTarget = leave
     return this
   }
   setTargetPosition (x = null, y = null) {
@@ -108,8 +109,11 @@ export default class Character extends Substance {
   _walkToTargetPosition () {
     if (!this.followingTarget) return
     if (this.hasTarget && this.diffToFollowingDistance < 50) return
-    const x = (!this.body.blocked.left && !this.body.blocked.right) ? this.diffToFollowingX : this.diffToFollowingX * 0.1
-    const y = (!this.body.blocked.top && !this.body.blocked.down) ? this.diffToFollowingY : this.diffToFollowingY * 0.1
+    if (this.hasTarget && this.leaveFromTarget && this.diffToFollowingDistance > 200) return
+    const diffToFollowingX = (this.hasTarget && this.leaveFromTarget) ? -this.diffToFollowingX : this.diffToFollowingX
+    const diffToFollowingY = (this.hasTarget && this.leaveFromTarget) ? -this.diffToFollowingY : this.diffToFollowingY
+    const x = (!this.body.blocked.left && !this.body.blocked.right) ? diffToFollowingX : diffToFollowingX * 0.1
+    const y = (!this.body.blocked.top && !this.body.blocked.down) ? diffToFollowingY : diffToFollowingY * 0.1
     this.body.setVelocity(x, y)
     const speed = Math.min(this.speed, (this.diffToFollowingDistance * 10))
     this.body.velocity.normalize().scale(speed)
