@@ -14,7 +14,8 @@ export default class GameScene extends Phaser.Scene {
     // substance group
     this.substances = this.add.group()
     // player
-    this.player = new Player(this, payload.x, payload.y).setR(this.storage.state.r)
+    this.player = new Player(this, payload.x, payload.y)
+    if (['number', 'string'].includes(typeof payload.r)) this.player.setR(payload.r)
     this.player.on('walk', () => {
       if (!this.event.enemyGroups || this.ui.eventMode) return
       this.encountDelay--
@@ -59,10 +60,10 @@ export default class GameScene extends Phaser.Scene {
     if (bool) this.camera.setRenderToTexture('blur')
     if (!bool) this.camera.clearRenderToTexture()
   }
-  mapChange (mapKey, x, y, save = true) {
+  mapChange (mapKey, x, y, { r = null, save = true } = {}) {
     this.scene.pause('Game')
     return this.ui.transition().then(() => {
-      this.scene.start('Game', { map: mapKey, x, y, save })
+      this.scene.start('Game', { map: mapKey, x, y, r, save })
     })
   }
   getCamera () {
