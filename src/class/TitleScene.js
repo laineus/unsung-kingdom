@@ -44,7 +44,7 @@ export default class TitleScene extends Phaser.Scene {
   }
   content () {
     this.add.sprite(0, 0, 'title').setOrigin(0, 0)
-    this.title = this.add.text(config.WIDTH.half, config.HEIGHT.half -120, 'UNSUNG KINGDOM', { align: 'center', fontSize: 50, fontFamily: config.FONTS.UI, fill: 0xAAAAAA.toColorString }).setOrigin(0.5, 0.5)
+    // this.title = this.add.text(config.WIDTH.half, config.HEIGHT.half -120, 'UNSUNG KINGDOM', { align: 'center', fontSize: 50, fontFamily: config.FONTS.UI, fill: 0xAAAAAA.toColorString }).setOrigin(0.5, 0.5)
     this.list = [
       { text: 'New Game', callback: this.newGame },
       { text: 'Continue', callback: this.loadData }
