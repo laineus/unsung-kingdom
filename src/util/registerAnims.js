@@ -14,4 +14,5 @@ export default scene => {
       scene.anims.create({ key: `${key}_waiting`, frames: scene.anims.generateFrameNumbers(args[0], { start: 0, end: 2 }), repeat: -1, frameRate: 4 })
     }
   })
+  scene.anims.create({ key: 'treasure', frames: scene.anims.generateFrameNumbers('field/treasure_chest', { start: 0, end: 6 }), repeat: 0, frameRate: 20 })
 }
