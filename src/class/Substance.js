@@ -1,8 +1,7 @@
 import config from '../data/config'
 export default class Substance extends Phaser.GameObjects.Container {
-  constructor (scene, x, y, key = null, option = {}) {
+  constructor (scene, x, y, key = null, { width, height } = {}) {
     super(scene, x, y)
-    const { width, height } = option
     this.scene = scene
     this.key = key
     this.image = key ? scene.add.sprite(0, 0, this.spriteKey) : scene.add.rectangle(0, 0, config.TILE_SIZE, config.TILE_SIZE)
@@ -47,6 +46,12 @@ export default class Substance extends Phaser.GameObjects.Container {
       event(this).then(() => ui.setEventMode(false))
     })
     return this
+  }
+  removeTapEvent() {
+    this.tapArea.destroy()
+    this.balloon.destroy()
+    this.tapArea = null
+    this.balloon = null
   }
   distanceTo (target) {
     return Phaser.Math.Distance.Between(this.x, this.y, target.x, target.y)
