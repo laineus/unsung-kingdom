@@ -10,6 +10,7 @@ export default {
     ['dark', '../img/dark.png'],
     ['arrow', '../img/arrow.png'],
     ['damage', '../img/damage.png'],
+    ['critical', '../img/critical.png'],
     ['encounter1', '../img/encounter1.png'],
     ['encounter2', '../img/encounter2.png'],
     ['click', '../img/click.png'],

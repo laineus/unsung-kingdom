@@ -56,7 +56,7 @@ export default class Battler extends Phaser.GameObjects.Container {
     if (hit) {
       const damage = baseDamage * (cri ? 2 : 1) * weakness
       this.hp -= damage
-      this.damageEffect()
+      this.damageEffect(cri)
       this.damageText(damage)
       return this.hp <= 0 ? this.die() : null
     }
@@ -69,13 +69,14 @@ export default class Battler extends Phaser.GameObjects.Container {
     target.hp += addition
     target.damageText(addition, 'theme')
   }
-  damageEffect () {
-    const eff = this.scene.add.sprite(0, 0, 'damage').setScale(0.5, 0.5).setPosition(Math.randomInt(-30, 30), Math.randomInt(-30, 30))
-    const scale = Math.randomInt(12, 17) / 10
+  damageEffect (cri = false) {
+    const key = cri ? 'critical' : 'damage'
+    const eff = this.scene.add.sprite(0, 0, key).setScale(0.5, 0.5).setPosition(Math.randomInt(-30, 30), Math.randomInt(-30, 30))
+    const scale = cri ? 2 : Math.randomInt(12, 17) / 10
     this.add(eff)
     this.scene.add.tween({
-      targets: eff, duration: 120,
-      scaleX: scale, scaleY: scale, alpha: 0.2,
+      targets: eff, duration: 130,
+      scaleX: scale, scaleY: scale, alpha: 0.3,
       onComplete: () => eff.destroy()
     })
   }
