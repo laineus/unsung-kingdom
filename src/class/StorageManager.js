@@ -23,7 +23,9 @@ export default class StorageManager {
     if (!string) return null
     const json = decrypt(string, -SHIFT)
     try {
-      return JSON.parse(json)
+      const state = JSON.parse(json)
+      this.fixState(state)
+      return state
     } catch (e) {
       this.delete()
       alert('Save data is broken')
@@ -47,5 +49,20 @@ export default class StorageManager {
   delete (number) {
     localStorage.removeItem(`${STORAGE_KEY}_${number}`)
     return true
+  }
+  fixState (data) {
+    const row = (origin, data) => {
+      const originKeys = Object.keys(origin)
+      const dataKeys = Object.keys(data)
+      const shouldBeAdded = originKeys.filter(k => !dataKeys.includes(k))
+      const shouldBeDeleted = dataKeys.filter(k => !originKeys.includes(k))
+      const shouldContinueToFix = dataKeys.filter(k => originKeys.includes(k) && data[k] && Object.isObject(data[k]))
+      if (shouldBeAdded.length) console.log('add: ', shouldBeAdded.join(', '))
+      if (shouldBeDeleted.length) console.log('delete: ', shouldBeDeleted.join(', '))
+      shouldBeAdded.forEach(k => data[k] = JSON.parse(JSON.stringify(origin[k])))
+      shouldBeDeleted.forEach(k => delete data[k])
+      shouldContinueToFix.forEach(k => row(origin[k], data[k]))
+    }
+    row(defaultState(), data)
   }
 }

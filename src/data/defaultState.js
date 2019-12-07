@@ -5,7 +5,6 @@ export default () => {
     x: 500,
     y: 600,
     r: 90,
-    field: {},
     chapter: 0,
     allowed_map: 0,
     event: {
@@ -31,7 +30,7 @@ export default () => {
       m4_5: { started: false, completed: false },
       m5_1: { started: false, completed: false },
       m0: { talked_matilda: false, talked_annabelle: false, talked_amber: false, area: false },
-      m1: { talked_sick: false },
+      m1: { talked_amber: false, talked_annabelle: false, talked_elliott: false },
       town: { amber: [], annabelle: [], matilda: [], elliott: [], max: [] }
     },
     treasures: [],
