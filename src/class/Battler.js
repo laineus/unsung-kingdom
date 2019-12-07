@@ -1,4 +1,5 @@
 import config from '../data/config'
+import BattleEffect from './BattleEffect'
 export default class Battler extends Phaser.GameObjects.Container {
   constructor (scene, status) {
     super(scene)
@@ -50,14 +51,15 @@ export default class Battler extends Phaser.GameObjects.Container {
     const weakness = this.weaknessTo(target)
     const hit = Math.chance(this.accuracyTo(target))
     this.setActive(false)
-    return target.addDamage(baseDamage, cri, weakness, hit)
+    return target.addDamage(baseDamage, cri, weakness, hit, 'hit')
   }
-  async addDamage (baseDamage, cri, weakness, hit) {
+  async addDamage (baseDamage, cri, weakness, hit, effectKey) {
     if (hit) {
       const damage = baseDamage * (cri ? 2 : 1) * weakness
       this.hp -= damage
-      this.damageEffect(cri)
+      this.damageEffect(cri, effectKey)
       this.damageText(damage)
+      await this.scene.sleep(120)
       return this.hp <= 0 ? this.die() : null
     }
     return this.damageText('Miss')
@@ -69,16 +71,11 @@ export default class Battler extends Phaser.GameObjects.Container {
     target.hp += addition
     target.damageText(addition, 'theme')
   }
-  damageEffect (cri = false) {
-    const key = cri ? 'critical' : 'damage'
-    const eff = this.scene.add.sprite(0, 0, key).setScale(0.5, 0.5).setPosition(Math.randomInt(-30, 30), Math.randomInt(-30, 30))
-    const scale = cri ? 2 : Math.randomInt(12, 17) / 10
+  damageEffect (cri = false, effectKey) {
+    const eff = new BattleEffect(this.scene, cri, effectKey)
     this.add(eff)
-    this.scene.add.tween({
-      targets: eff, duration: 130,
-      scaleX: scale, scaleY: scale, alpha: 0.3,
-      onComplete: () => eff.destroy()
-    })
+    const eff2 = new BattleEffect(this.scene, cri, effectKey)
+    this.add(eff2)
   }
   damageText (damage, colorKey = 'soy') {
     const text = this.scene.add.text(0, 0, damage, { fill: config.COLORS[colorKey].toColorString, stroke: config.COLORS.dark.toColorString, strokeThickness: 5, fontSize: 36, fontStyle: 'bold', fontFamily: config.FONTS.UI }).setOrigin(0.5, 0.5)
