@@ -4,6 +4,7 @@ import Box from './Box'
 import Button from './Button'
 import chapters from '../data/chapters'
 import { slideIn } from '../util/animations'
+import missions from '../data/missions'
 export default class MenuSave extends Phaser.GameObjects.Container {
   constructor (scene, readOnly = false) {
     super(scene)
@@ -33,8 +34,8 @@ export default class MenuSave extends Phaser.GameObjects.Container {
     item.add(tx)
     item.setActive = bool => tx.setFill(config.COLORS[bool ? 'theme' :'white'].toColorString)
     if (data.exists) {
-      const timeString = moment(data.state.saved, 'X').format('YYYY-MM-DD HH:mm')
-      const time = this.scene.add.text(120, 0, timeString, { fontSize: 14, fontFamily: config.FONTS.UI, fill: config.COLORS.gray.toColorString }).setOrigin(1, 0.5)
+      const progress = this.getProgress(data.state).toFixed(1)
+      const time = this.scene.add.text(120, 0, `Chapter-${data.state.chapter}    ${progress}%`, { fontSize: 16, fontFamily: config.FONTS.UI, fill: config.COLORS.gray.toColorString }).setOrigin(1, 0.5)
       item.add(time)
     }
     return item
@@ -70,8 +71,9 @@ export default class MenuSave extends Phaser.GameObjects.Container {
     if (data.exists) {
       const chapter = chapters[data.state.chapter]
       const detail = this.scene.add.text(100, 220, `${chapter.name} ${chapter.title}`, { fontSize: 16, fontStyle: 'bold', fontFamily: config.FONTS.TEXT })
-      const timeString = moment(data.state.saved, 'X').format('YYYY-MM-DD HH:mm')
-      const date = this.scene.add.text(100, 243, timeString, { fontSize: 15, fontFamily: config.FONTS.UI, fill: config.COLORS.gray.toColorString })
+      const timeString = moment(data.state.saved, 'X').format('YYYY/MM/DD  HH:mm')
+      const progress = this.getProgress(data.state).toFixed(1)
+      const date = this.scene.add.text(100, 243, `${timeString}     Progress  ${progress}%`, { fontSize: 16, fontFamily: config.FONTS.UI, fill: config.COLORS.gray.toColorString })
       container.add([detail, date])
       const load = new Button(this.scene, buttonWidth.half + buttonWidth + 10, 331, 'Load', buttonWidth, 40).on('click', () => {
         this.emit('loadData', data)
@@ -79,5 +81,15 @@ export default class MenuSave extends Phaser.GameObjects.Container {
       container.add(load)
     }
     return container
+  }
+  get maxProgress () {
+    return missions.length * 4
+  }
+  getProgress (state) {
+    return Math.round(missions.reduce((sum, v) => {
+      if (state.event[v.key].started) sum += 1
+      if (state.event[v.key].complted) sum += 3
+      return sum
+    }, 0) * 1000 / this.maxProgress) / 10
   }
 }
