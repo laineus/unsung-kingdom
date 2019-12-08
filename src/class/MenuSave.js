@@ -88,7 +88,7 @@ export default class MenuSave extends Phaser.GameObjects.Container {
   getProgress (state) {
     return Math.round(missions.reduce((sum, v) => {
       if (state.event[v.key].started) sum += 1
-      if (state.event[v.key].complted) sum += 3
+      if (state.event[v.key].completed) sum += 3
       return sum
     }, 0) * 1000 / this.maxProgress) / 10
   }
