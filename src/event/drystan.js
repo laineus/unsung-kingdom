@@ -79,7 +79,7 @@ export const drystan = (scene, door, drystan) => {
         { chara, text: 'あんな人食い熊に森をうろつかれたのではろくに外出もできん。' },
         { chara: 'ann', text: '生命力がどうのとか、嘘だったの？' },
         { chara, text: 'だったらなんだ。' },
-        { chara, text: '国王の命も大事あだろうだろうが、自分の命だって大事だ。' },
+        { chara, text: '王族の命も大事だろうだろうが、自分の命だって大事だ。' },
         { chara, text: '薬をやると言っているんだから文句はないだろう。' },
         { chara, text: '金もいらんぞ。' },
         { chara: 'ann', text: '…そうですか。' },
@@ -147,7 +147,7 @@ export const rexBear = (scene, area, bear) => {
     scene.player.stopWalk()
     await scene.ui.sleep(500)
     await scene.talk([
-      { chara: 'ann', text: '！' }
+      { chara: 'ann', text: 'みんな、行くよ！' }
     ])
     await scene.ui.sleep(500)
     const result = await scene.ui.battle([generateBattler('bear', 15, { hp: 300 })], { boss: true })
