@@ -66,7 +66,7 @@ export default class Character extends Substance {
     this.body.velocity.normalize().scale(this.speed)
   }
   getBalloon () {
-    return this.scene.add.sprite(0, 0, 'bubble_talk')
+    return super.getBalloon('bubble_talk')
   }
   get hasTarget () {
     return this.target !== null
