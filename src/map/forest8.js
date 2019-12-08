@@ -9,7 +9,7 @@ export default {
     ['wolf'],
     ['wolf', 'wolf'],
     ['slime', 'slime', 'slime', 'slime'],
-    ['bee', 'bee2', 'bee', 'bee2'],
+    ['mandrake'],
     ['mandrake', 'mandrake'],
     ['mandrake', 'mandrake', 'mandrake']
   ],
