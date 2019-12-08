@@ -26,7 +26,7 @@ export default class BattleEffect extends Phaser.GameObjects.Container {
   }
   shot (cri = false) {
     this.setFrame(0)
-    const scale = cri ? 1.5 : 1
+    const scale = cri ? 1.7 : 1.2
     this.setScale(scale, scale)
     this.scene.add.tween({
       targets: this, duration: 120,

@@ -19,6 +19,7 @@ export default class Battler extends Phaser.GameObjects.Container {
     this.def = option.def
     this.dex = option.dex
     this.agi = option.agi
+    this.effect = option.effect
   }
   get alive () {
     return this.hp > 0
@@ -45,24 +46,21 @@ export default class Battler extends Phaser.GameObjects.Container {
   criticalTo (target) {
     return Math.fix((this.dex - target.agi) * 4, 1, 25)
   }
-  attackTo (target, { multi = false } = {}) {
+  async attackTo (target, { multi = false } = {}) {
     const baseDamage = multi ? Math.round(this.baseDamageTo(target) * 0.66) : this.baseDamageTo(target)
     const cri = Math.chance(this.criticalTo(target))
     const weakness = this.weaknessTo(target)
     const hit = Math.chance(this.accuracyTo(target))
     this.setActive(false)
-    return target.addDamage(baseDamage, cri, weakness, hit, 'hit')
+    return hit ? target.addDamage(this, baseDamage, cri, weakness) : target.damageText('Miss')
   }
-  async addDamage (baseDamage, cri, weakness, hit, effectKey) {
-    if (hit) {
-      const damage = baseDamage * (cri ? 2 : 1) * weakness
-      this.hp -= damage
-      this.add(new BattleEffect(this.scene, cri, effectKey))
-      this.damageText(damage)
-      await this.scene.sleep(120)
-      return this.hp <= 0 ? this.die() : null
-    }
-    return this.damageText('Miss')
+  async addDamage (attacker, baseDamage, cri, weakness) {
+    const damage = baseDamage * (cri ? 2 : 1) * weakness
+    this.hp -= damage
+    this.add(new BattleEffect(this.scene, cri, attacker.effect))
+    this.damageText(damage)
+    await this.scene.sleep(120)
+    return this.hp <= 0 ? this.die() : null
   }
   heal (target, percent) {
     this.setActive(false)
