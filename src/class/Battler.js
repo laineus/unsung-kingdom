@@ -57,7 +57,7 @@ export default class Battler extends Phaser.GameObjects.Container {
     if (hit) {
       const damage = baseDamage * (cri ? 2 : 1) * weakness
       this.hp -= damage
-      this.damageEffect(cri, effectKey)
+      this.add(new BattleEffect(this.scene, cri, effectKey))
       this.damageText(damage)
       await this.scene.sleep(120)
       return this.hp <= 0 ? this.die() : null
@@ -70,12 +70,6 @@ export default class Battler extends Phaser.GameObjects.Container {
     const addition = Math.min(Math.round(target.maxHp * percent * 0.01), limit)
     target.hp += addition
     target.damageText(addition, 'theme')
-  }
-  damageEffect (cri = false, effectKey) {
-    const eff = new BattleEffect(this.scene, cri, effectKey)
-    this.add(eff)
-    const eff2 = new BattleEffect(this.scene, cri, effectKey)
-    this.add(eff2)
   }
   damageText (damage, colorKey = 'soy') {
     const text = this.scene.add.text(0, 0, damage, { fill: config.COLORS[colorKey].toColorString, stroke: config.COLORS.dark.toColorString, strokeThickness: 5, fontSize: 36, fontStyle: 'bold', fontFamily: config.FONTS.UI }).setOrigin(0.5, 0.5)

@@ -1,9 +1,18 @@
-export default class BattleEffect extends Phaser.GameObjects.Sprite {
+export default class BattleEffect extends Phaser.GameObjects.Container {
   constructor (scene, cri, type) {
-    super(scene, 0, 0, 'battle_effects')
+    super(scene, 0, 0)
     this.scene = scene
-    this.blendMode = 1
+    this.sprites = (2).toArray.map(i => {
+      const sprite = scene.add.sprite(0, 0, 'battle_effects')
+      sprite.blendMode = 1
+      return sprite
+    })
+    this.add(this.sprites)
     this[type](cri)
+  }
+  setFrame (i) {
+    this.sprites.forEach(v => v.setFrame(i))
+    return this
   }
   hit (cri = false) {
     this.setFrame(1)
