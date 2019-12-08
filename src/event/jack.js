@@ -6,7 +6,7 @@ export const jack = (scene, area, chara) => {
     area.destroy()
     return
   }
-  chara.setVisible(false).setSpeed(180).setDisplayName('？？？')
+  chara.setVisible(false).setR('up').setSpeed(180).setDisplayName('？？？')
   area.setEvent(async () => {
     scene.player.stopWalk()
     await scene.ui.sleep(500)
@@ -24,12 +24,11 @@ export const jack = (scene, area, chara) => {
       { chara: 'francisca', text: '捕まえたら分かるかもね。' },
       { chara: 'ann', text: 'どうして暗殺なんてしたんだろう。' },
       { chara: 'jaquelyn', text: 'どこの国の王も命を狙われる理由ならたくさんあるんじゃないかしら。' },
-      { chara: 'ann', text: '『平和王エドガー』、平和を願った優しい王さまを殺すなんて…、' },
-      { chara, text: 'おい、お前たち、こんなところで何をしている？' }
+      { chara: 'ann', text: '『平和王エドガー』、平和を願った優しい王さまを殺すなんて…、' }
     ])
+    await scene.talk([{ chara, text: 'おい、お前たち、こんなところで何をしている？' }])
     chara.setVisible(true)
     await scene.camera.look(0, 180, 300)
-    scene.player.setR('down')
     await scene.talk([
       { chara: 'ann', text: 'え！？' },
       { chara: 'ann', text: 'あ、いえ…その…、' },
