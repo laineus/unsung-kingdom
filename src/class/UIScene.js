@@ -19,6 +19,11 @@ const MESSAGES = [
   'そしてある時、王と王国の死を嘆く研究者たちの手によって、時間を移動する術が発見された。',
   'それはこの世の理に背くことであったが、彼らは歴史を変えることを厭わなかった。'
 ]
+const SPEED = {
+  fast: 200,
+  normal: 500,
+  slow: 1000
+}
 export default class UIScene extends Phaser.Scene {
   constructor () {
     super({ key: 'UI', active: false })
@@ -116,14 +121,13 @@ export default class UIScene extends Phaser.Scene {
     return new Promise(resolve => setTimeout(() => resolve(), time))
   }
   transition (speed) {
-    const duration = speed === 'slow' ? 300 : 150
-    const hold = speed === 'slow' ? 200 : 100
+    const duration = SPEED[speed]
     return new Promise(resolve => {
       const rect = this.add.rectangle(0, 0, config.WIDTH, config.HEIGHT, 0x111111).setOrigin(0, 0).setAlpha(0)
       this.add.tween({
         targets: rect,
         duration,
-        hold,
+        hold: duration.half,
         alpha: 1,
         yoyo: true,
         onYoyo: resolve,

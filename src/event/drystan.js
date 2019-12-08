@@ -116,7 +116,7 @@ export const drystan = (scene, door, drystan) => {
       ])
       await scene.ui.sleep(1000)
       scene.storage.state.chapter = 2
-      await scene.mapChange('room1', (19).toPixelCenter, (11).toPixel)
+      await scene.mapChange('room1', (19).toPixelCenter, (11).toPixel, { speed: 'slow' })
     }
   })
 }

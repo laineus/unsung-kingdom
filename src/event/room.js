@@ -66,7 +66,7 @@ const events = [
       { chara: jaquelyn, text: 'アンなら大丈夫よ。' },
       { chara: jaquelyn, text: 'さあ、行きましょう。' }
     ])
-    await scene.ui.transition('slow')
+    await scene.ui.transition('normal')
     francisca.setVisible(false)
     jaquelyn.setVisible(false)
     setDefaultWeapon(scene.storage.state)

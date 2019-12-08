@@ -10,7 +10,7 @@ export const jack = (scene, area, chara) => {
   area.setEvent(async () => {
     scene.player.stopWalk()
     await scene.ui.sleep(500)
-    await scene.ui.transition('slow')
+    await scene.ui.transition('normal')
     scene.player.setPosition((50).toPixel, (29).toPixel)
     scene.camera.updateFollow()
     await scene.ui.sleep(500)
@@ -98,7 +98,7 @@ export const king = (scene, area, chara) => {
   area.setEvent(async () => {
     scene.player.stopWalk()
     await scene.ui.sleep(500)
-    await scene.ui.transition('slow')
+    await scene.ui.transition('normal')
     scene.player.setPosition((18).toPixelCenter, (24).toPixelCenter).setR('up')
     scene.camera.updateFollow()
     await scene.ui.sleep(500)
@@ -113,7 +113,7 @@ export const king = (scene, area, chara) => {
     ])
     state.completed = true
     scene.storage.state.chapter = 1
-    await scene.mapChange('room1', (19).toPixelCenter, (11).toPixel)
+    await scene.mapChange('room1', (19).toPixelCenter, (11).toPixel, { speed: 'slow' })
     scene.camera.revert()
   })
 }
