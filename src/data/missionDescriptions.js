@@ -23,7 +23,7 @@ export default {
     return `${base}\n${cnt}`
   },
   m1_4 (state) {
-    const base = '凶暴なレックスベアを倒し、薬の材料となるレックスベアの血液をドリスタンに届ける。'
+    const base = '凶暴なレックスベアを倒し、薬の材料となるレックスベアの血液をドリスタンに\n届ける。'
     const bear = '森の深くに棲むレックスベアを探し出して倒そう。'
     const solved = 'レックスベアの血液を手に入れた。ドリスタンの元へ届けよう。'
     if (state.event.m1_4.completed) return base
