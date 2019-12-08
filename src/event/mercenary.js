@@ -1,10 +1,24 @@
 import generateBattler from '../util/generateBattler'
 import increaseWeapon from '../util/increaseWeapon'
-export const mercenary1 = (scene, leader, member) => {
+export const mercenary1 = (scene, leader, member, member2) => {
   const state = scene.storage.state.event.m1_2
-  if (!state.solved) member.visible = false
+  if (!state.solved) member2.visible = false
+  member2.setDisplayName('負傷した傭兵団員').setTapEvent(async chara => {
+    await scene.talk([
+      { chara, text: 'さっきは本当に助かったよ。ありがとな。' },
+      ...(state.completed ? [] : [
+        { chara, text: '団長からお礼を受け取ってくれるか？' }
+      ])
+    ])
+  })
   member.setDisplayName('負傷した傭兵団員').setTapEvent(async chara => {
-    await scene.talk([{ chara, text: 'さっきは本当に助かったよ。ありがとな。' }])
+    await scene.talk(state.solved ? [
+      { chara, text: '仲間を助けてくれて本当にありがとう。' },
+      { chara, text: 'まさかあいつ、サニズマスクの胃の中に隠れていたなんてな。' }
+    ] : [
+      { chara, text: 'これだけ探して見つからないなんて…、' },
+      { chara, text: 'あいつはきっと…。' }
+    ])
   })
   leader.setDisplayName('負傷した傭兵団長').setTapEvent(async chara => {
     if (state.completed) {
