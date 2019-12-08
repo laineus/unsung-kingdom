@@ -32,8 +32,9 @@ export const mercenary1 = (scene, leader, member, member2) => {
         { chara, text: '彼を助けてくれてありがとう。これはお礼だ。' }
       ])
       const weapon = increaseWeapon(3)
-      scene.ui.announce(`${weapon.name}を手に入れた`)
-      state.completed = true
+      scene.ui.missionUpdate('m1_2', true).then(() => {
+        scene.ui.announce(`${weapon.name}を手に入れた`)
+      })
     } else if (state.started) {
       await scene.talk([{ chara, text: 'きっとそんなに遠くには行っていないはずだ。頼んだぜ。' }])
     } else {
@@ -74,7 +75,7 @@ export const mercenary1 = (scene, leader, member, member2) => {
       t.destroy()
       state.talked = true
       await scene.talk([{ chara, text: i === 0 ? '助かる。礼ははずませてもらうぞ。' : 'そうか。' }])
-      if (i === 0) state.started = true
+      if (i === 0) scene.ui.missionUpdate('m1_2')
     }
   })
 }

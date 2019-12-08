@@ -38,7 +38,7 @@ export const dogEventHunter = (scene, hunter) => {
       await scene.talk([
         { chara, text: i === 0 ? '助かるよ。よろしく頼んだよ。' : 'そうか。' }
       ])
-      if (i === 0) state.started = true
+      if (i === 0) scene.ui.missionUpdate('m1_1')
     } else {
       const keys = ['d1', 'd2', 'd3', 'd4', 'd5']
       const found = keys.reduce((result, key) => {
@@ -69,7 +69,7 @@ export const dogEventHunter = (scene, hunter) => {
           { chara, text: '不審に思って断ったけど…、' },
           { chara, text: '君たちもおかしな奴には気をつけるんだよ。' }
         ])
-        state.completed = true
+        scene.ui.missionUpdate('m1_1', true)
       } else if (found) {
         await scene.talk([
           { chara, text: 'ありがとう！' },

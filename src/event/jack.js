@@ -110,7 +110,7 @@ export const king = (scene, area, chara) => {
       { chara: 'jaquelyn', text: '暗殺は諦めたのかもしれないね。とにかく、一回ここを離れましょう。' },
       { chara: 'ann', text: 'うん。' }
     ])
-    state.completed = true
+    await scene.ui.missionUpdate('m0_1', true)
     scene.storage.state.chapter = 1
     await scene.mapChange('room1', (19).toPixelCenter, (11).toPixel, { speed: 'slow' })
     scene.camera.revert()

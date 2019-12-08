@@ -1,6 +1,7 @@
 import moment from 'moment'
 import config from '../data/config'
 import storage from '../data/storage'
+import missions from '../data/missions'
 import { slideIn, slideOut } from '../util/animations'
 import downloadImageBySource from '../util/downloadImageBySource'
 import Talk from './Talk'
@@ -198,6 +199,12 @@ export default class UIScene extends Phaser.Scene {
         resolve()
       })
     })
+  }
+  missionUpdate (key, completed) {
+    this.storage.state.event[key][completed ? 'completed' : 'started'] = true
+    const mission = missions.find(v => v.key === key)
+    const text = `『${mission.title}』を${completed ? '完了' : '開始'}`
+    return this.announce(text)
   }
   snapShot () {
     const filename = `ScreenShot_${moment().format('YYYYMMDD_HHmmss')}.png`
