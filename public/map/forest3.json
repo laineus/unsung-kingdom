@@ -158,15 +158,15 @@
                 }, 
                 {
                  "height":0,
-                 "id":4,
-                 "name":"dog",
+                 "id":5,
+                 "name":"3",
                  "point":true,
-                 "rotation":0,
-                 "type":"chara",
+                 "rotation":90,
+                 "type":"treasure",
                  "visible":true,
                  "width":0,
-                 "x":848,
-                 "y":302
+                 "x":866,
+                 "y":258
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -175,7 +175,7 @@
          "y":0
         }],
  "nextlayerid":12,
- "nextobjectid":5,
+ "nextobjectid":6,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"2018.12.22",

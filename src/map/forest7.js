@@ -13,7 +13,7 @@ export default {
     ['mandrake', 'mandrake', 'mandrake']
   ],
   create (scene) {
-    dogEventFound(scene, scene.map.getObjectById(4), 'd4')
+    dogEventFound(scene, scene.map.getObjectById(4), 'd5')
     mercenary2(scene, scene.map.getObjectById(5), scene.map.getObjectById(6))
   }
 }

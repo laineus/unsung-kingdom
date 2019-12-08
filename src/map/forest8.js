@@ -1,4 +1,3 @@
-import { dogEventFound } from '../event/dogEvent'
 export default {
   area: {
     key: 'forest',
@@ -14,6 +13,5 @@ export default {
     ['mandrake', 'mandrake', 'mandrake']
   ],
   create (scene) {
-    dogEventFound(scene, scene.map.getObjectById(3), 'd5')
   }
 }

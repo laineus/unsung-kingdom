@@ -125,10 +125,10 @@
                 {
                  "height":0,
                  "id":7,
-                 "name":"3",
+                 "name":"dog",
                  "point":true,
                  "rotation":90,
-                 "type":"treasure",
+                 "type":"chara",
                  "visible":true,
                  "width":0,
                  "x":1345,

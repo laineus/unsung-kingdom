@@ -124,18 +124,6 @@
                 }, 
                 {
                  "height":0,
-                 "id":3,
-                 "name":"dog",
-                 "point":true,
-                 "rotation":0,
-                 "type":"chara",
-                 "visible":true,
-                 "width":0,
-                 "x":264,
-                 "y":1324
-                }, 
-                {
-                 "height":0,
                  "id":4,
                  "name":"4",
                  "point":true,
@@ -143,7 +131,7 @@
                  "type":"treasure",
                  "visible":true,
                  "width":0,
-                 "x":695,
+                 "x":727,
                  "y":1284
                 }],
          "opacity":1,

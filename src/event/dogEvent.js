@@ -91,9 +91,9 @@ export const dogEventFound = (scene, dog, key) => {
     dog.destroy()
   } else {
     const dogs = {
-      d1: { leave: false, speed: 110 },
-      d2: { leave: false, speed: 90 },
-      d3: { leave: true, speed: 90 },
+      d1: { leave: false, speed: 80 },
+      d2: { leave: true, speed: 90 },
+      d3: { leave: false, speed: 90 },
       d4: { leave: true, speed: 110 },
       d5: { leave: true, speed: 130 }
     }

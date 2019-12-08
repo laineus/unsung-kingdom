@@ -12,6 +12,7 @@ export default {
     ['bee', 'bee2']
   ],
   create (scene) {
-    dogEventFound(scene, scene.map.getObjectById(3), 'd2')
+    dogEventFound(scene, scene.map.getObjectById(7), 'd2')
+    dogEventFound(scene, scene.map.getObjectById(3), 'd3')
   }
 }
