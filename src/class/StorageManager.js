@@ -2,7 +2,8 @@ import moment from 'moment'
 import defaultState from '../data/defaultState'
 import { encrypt, decrypt } from '../util/encryption'
 const STORAGE_KEY = 'data'
-const SHIFT = 11
+// const SHIFT = 11
+const SHIFT = 0
 export default class StorageManager {
   constructor () {
     this.lastNumber = null
@@ -27,7 +28,7 @@ export default class StorageManager {
       this.fixState(state)
       return state
     } catch (e) {
-      this.delete()
+      this.delete(number)
       alert('Save data is broken')
       return false
     }
