@@ -108,7 +108,7 @@ export default class Character extends Substance {
   }
   _walkToTargetPosition () {
     if (!this.followingTarget) return
-    if (this.hasTarget && this.diffToFollowingDistance < 50) return
+    if (this.hasTarget && !this.leaveFromTarget && (this.diffToFollowingDistance < 50 || this.diffToFollowingDistance > 400)) return
     if (this.hasTarget && this.leaveFromTarget && this.diffToFollowingDistance > 200) return
     const diffToFollowingX = (this.hasTarget && this.leaveFromTarget) ? -this.diffToFollowingX : this.diffToFollowingX
     const diffToFollowingY = (this.hasTarget && this.leaveFromTarget) ? -this.diffToFollowingY : this.diffToFollowingY
