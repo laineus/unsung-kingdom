@@ -1,5 +1,3 @@
-import increaseWeapon from '../util/increaseWeapon'
-
 export const dogEventHunter = (scene, hunter) => {
   const state = scene.storage.state.event.m1_1
   hunter.setDisplayName('狩猟家マシュー').setTapEvent(async chara => {
@@ -57,8 +55,7 @@ export const dogEventHunter = (scene, hunter) => {
           { chara: 'ann', text: '気にしないでください！' },
           { chara, text: 'あ、気に入るか分からないけど、僕の予備の弓矢をもらってくれ。' }
         ])
-        const weapon = increaseWeapon(6)
-        scene.ui.announce(`${weapon.name}を手に入れた`)
+        scene.ui.increaseWeapon(6)
         await scene.talk([
           { chara: 'ann', text: 'ありがとう。お兄さんの武器は弓なんですね。' },
           { chara, text: 'そうだよ。' },

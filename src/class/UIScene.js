@@ -13,6 +13,7 @@ import WorldMap from './WorldMap'
 import Box from './Box'
 import BattlerSummaryService from './BattlerSummaryService'
 import StoryTelling from './StoryTelling'
+import weapons from '../data/weapons'
 const MESSAGES = [
   `王は死んだ。\n冷たく閉ざされた門扉の先に、かつての繁栄はもはや見る影もない。\n王国は偉大なる王の死とともに終わりを迎えたのだ。`,
   '― 『ベリオン王国史』',
@@ -199,6 +200,14 @@ export default class UIScene extends Phaser.Scene {
         resolve()
       })
     })
+  }
+  increaseWeapon (weaponId, announce = true) {
+    const weapon = weapons.find(v => v.id === weaponId)
+    if (!weapon) return false
+    const id = Math.max(...storage.state.weapons.map(v => v.id), 0) + 1
+    this.storage.state.weapons.push({ id, weapon_id: weapon.id })
+    if (announce) this.announce(`${weapon.name}を手に入れた`)
+    return weapon
   }
   missionUpdate (key, completed) {
     this.storage.state.event[key][completed ? 'completed' : 'started'] = true

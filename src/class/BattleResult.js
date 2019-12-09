@@ -5,7 +5,6 @@ import BattleQuestService from './BattleQuestService'
 import storage from '../data/storage'
 import expTable from '../data/expTable'
 import { slideIn, slideOut } from '../util/animations'
-import increaseWeapon from '../util/increaseWeapon'
 export default class BattleResult extends Phaser.GameObjects.Container {
   constructor (scene, group, callback) {
     super(scene)
@@ -121,7 +120,7 @@ export default class BattleResult extends Phaser.GameObjects.Container {
     return this.group.map(enemy => {
       if (!enemy.dropWeapon) return false
       if (!Math.chance(enemy.dropWeapon.chance)) return false
-      return increaseWeapon(enemy.dropWeapon.id)
+      return this.scene.increaseWeapon(enemy.dropWeapon.id, false)
     }).filter(v => v)
   }
   getRow (x, y, text) {

@@ -1,5 +1,4 @@
 import generateBattler from '../util/generateBattler'
-import increaseWeapon from '../util/increaseWeapon'
 export const mercenary1 = (scene, leader, member, member2) => {
   const state = scene.storage.state.event.m1_2
   if (!state.solved) member2.visible = false
@@ -31,9 +30,8 @@ export const mercenary1 = (scene, leader, member, member2) => {
         { chara, text: 'どうりで見つからなかったわけだ。' },
         { chara, text: '彼を助けてくれてありがとう。これはお礼だ。' }
       ])
-      const weapon = increaseWeapon(3)
       scene.ui.missionUpdate('m1_2', true).then(() => {
-        scene.ui.announce(`${weapon.name}を手に入れた`)
+        scene.ui.increaseWeapon(3)
       })
     } else if (state.started) {
       await scene.talk([{ chara, text: 'きっとそんなに遠くには行っていないはずだ。頼んだぜ。' }])
