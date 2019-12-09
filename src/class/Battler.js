@@ -13,7 +13,7 @@ export default class Battler extends Phaser.GameObjects.Container {
     this.key = option.key
     this.name = option.name
     this.lv = option.lv
-    this.maxHp = option.maxHp || option.hp
+    this.maxHp = option.max_hp || option.hp
     this.hp = option.hp
     this.atk = option.atk
     this.def = option.def

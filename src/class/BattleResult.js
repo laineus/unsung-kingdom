@@ -111,7 +111,7 @@ export default class BattleResult extends Phaser.GameObjects.Container {
         Object.keys(battler.up).filter(key => Math.chance(battler.up[key])).forEach(key => {
           if (key === 'hp') {
             battler.hp += 5
-            battler.maxHp += 5
+            battler.max_hp += 5
           } else {
             battler[key] += 1
           }

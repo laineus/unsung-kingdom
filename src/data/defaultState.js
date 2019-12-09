@@ -34,7 +34,7 @@ export default () => {
       town: { amber: [], annabelle: [], matilda: [], elliott: [], max: [] }
     },
     treasures: [],
-    battlers: battlers.filter((_, i) => i < 3).map((v, i) => Object.assign(v, { exp: 0, maxHp: v.hp, weapon: null })),
+    battlers: battlers.filter((_, i) => i < 3).map((v, i) => Object.assign(v, { exp: 0, max_hp: v.hp, weapon: null })),
     weapons: [],
     saved: null
   }
