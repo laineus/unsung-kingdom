@@ -65,5 +65,10 @@ export default class StorageManager {
       shouldContinueToFix.forEach(k => row(origin[k], data[k]))
     }
     row(defaultState(), data)
+    // TODO: delete
+    data.battlers.filter(v => ('maxHp' in v)).forEach(v => {
+      v.max_hp = v.maxHp
+      delete v.maxHp
+    })
   }
 }
