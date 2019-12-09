@@ -109,7 +109,12 @@ export default class BattleResult extends Phaser.GameObjects.Container {
       if (next && battler.exp >= next) {
         battler.lv++
         Object.keys(battler.up).filter(key => Math.chance(battler.up[key])).forEach(key => {
-          battler[key] += key === 'hp' ? 10 : 1
+          if (key === 'hp') {
+            battler.hp += 5
+            battler.maxHp += 5
+          } else {
+            battler[key] += 1
+          }
         })
         levelUp(battler)
       }
