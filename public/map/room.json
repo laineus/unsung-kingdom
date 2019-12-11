@@ -58,6 +58,14 @@
          "type":"collides"
         }, 
         {
+         "id":18,
+         "type":"top"
+        }, 
+        {
+         "id":19,
+         "type":"top"
+        }, 
+        {
          "id":20,
          "type":"collides"
         }, 
@@ -83,6 +91,14 @@
         }, 
         {
          "id":26,
+         "type":"collides"
+        }, 
+        {
+         "id":28,
+         "type":"collides"
+        }, 
+        {
+         "id":29,
          "type":"collides"
         }, 
         {
