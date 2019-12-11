@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "moment": "^2.24.0",
-    "phaser": "^3.20.1"
+    "phaser": "^3.21.0"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
