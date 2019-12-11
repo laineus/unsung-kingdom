@@ -66,7 +66,7 @@ export default class Character extends Substance {
     this.body.velocity.normalize().scale(this.speed)
   }
   getBalloon () {
-    return this.scene.add.sprite(0, 0, 'bubble_talk')
+    return super.getBalloon('bubble_talk')
   }
   get hasTarget () {
     return this.target !== null
@@ -108,7 +108,7 @@ export default class Character extends Substance {
   }
   _walkToTargetPosition () {
     if (!this.followingTarget) return
-    if (this.hasTarget && this.diffToFollowingDistance < 50) return
+    if (this.hasTarget && !this.leaveFromTarget && (this.diffToFollowingDistance < 50 || this.diffToFollowingDistance > 400)) return
     if (this.hasTarget && this.leaveFromTarget && this.diffToFollowingDistance > 200) return
     const diffToFollowingX = (this.hasTarget && this.leaveFromTarget) ? -this.diffToFollowingX : this.diffToFollowingX
     const diffToFollowingY = (this.hasTarget && this.leaveFromTarget) ? -this.diffToFollowingY : this.diffToFollowingY

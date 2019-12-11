@@ -4,7 +4,7 @@ export const drystan = (scene, door, drystan) => {
   const state1 = scene.storage.state.event.m1_3
   const state2 = scene.storage.state.event.m1_4
   // Door
-  const canStart = scene.storage.state.event.m1_1.completed || scene.storage.state.event.m1_2.completed
+  const canStart = scene.storage.state.event.m1_2.completed
   if (canStart) {
     door.destroy()
   } else {
@@ -34,7 +34,7 @@ export const drystan = (scene, door, drystan) => {
         { chara, text: 'まずはそれを持ってきなさい。他の材料はその後だ。' },
         { chara, text: 'さあ、あまり時間はないぞ。' }
       ])
-      state1.started = true
+      scene.ui.missionUpdate('m1_3')
     } else if(!state1.completed && !hasMandrake) {
       await scene.talk([
         { chara, text: `マンドレイクの根を${MANDRAKE_COUNT}つだぞ。` },
@@ -44,7 +44,10 @@ export const drystan = (scene, door, drystan) => {
       await scene.talk([
         { chara: 'ann', text: 'マンドレイクの根を集めてきました。' },
         { chara, text: '早かったな。' },
-        { chara, text: 'うむ。確かに受け取った。' },
+        { chara, text: 'うむ。確かに受け取った。' }
+      ])
+      scene.ui.missionUpdate('m1_3', true)
+      await scene.talk([
         { chara: 'ann', text: '次の材料はなんですか？' },
         { chara, text: '魔物の血液だ。' },
         { chara, text: 'それも、たくさんの人間を殺めた魔物の血液を持ってきなさい。' },
@@ -56,8 +59,7 @@ export const drystan = (scene, door, drystan) => {
         { chara: 'ann', text: 'レックスベアを倒す必要があるんですね。' },
         { chara: 'ann', text: 'わかりました。持ってきます。' }
       ])
-      state1.completed = true
-      state2.started = true
+      scene.ui.missionUpdate('m1_4')
     } else if (!state2.solved) {
       await scene.talk([
         { chara, text: 'レックスベアだぞ。確実に仕留めて、血液を瓶一杯に持ってこい。' }
@@ -79,7 +81,7 @@ export const drystan = (scene, door, drystan) => {
         { chara, text: 'あんな人食い熊に森をうろつかれたのではろくに外出もできん。' },
         { chara: 'ann', text: '生命力がどうのとか、嘘だったの？' },
         { chara, text: 'だったらなんだ。' },
-        { chara, text: '国王の命も大事あだろうだろうが、自分の命だって大事だ。' },
+        { chara, text: '王族の命も大事だろうだろうが、自分の命だって大事だ。' },
         { chara, text: '薬をやると言っているんだから文句はないだろう。' },
         { chara, text: '金もいらんぞ。' },
         { chara: 'ann', text: '…そうですか。' },
@@ -103,11 +105,11 @@ export const drystan = (scene, door, drystan) => {
         { chara, text: 'そのためにこうして森の深くに引きこもっているんだ。' },
         { chara, text: 'さあ、薬は確かに渡しておくから、さっさと帰ってくれ。' }
       ])
-      state2.completed = true
       await scene.ui.transition('slow')
       drystan.destroy()
       scene.player.setR('down')
       await scene.ui.sleep(1000)
+      scene.ui.missionUpdate('m1_4', true)
       await scene.talk([
         { chara: 'ann', text: 'よし、任務達成だね！' },
         { chara: 'jaquelyn', text: 'そうね。頑張ったわ、アン。' },
@@ -116,7 +118,7 @@ export const drystan = (scene, door, drystan) => {
       ])
       await scene.ui.sleep(1000)
       scene.storage.state.chapter = 2
-      await scene.mapChange('room1', (19).toPixelCenter, (11).toPixel)
+      await scene.mapChange('room1', (19).toPixelCenter, (11).toPixel, { speed: 'slow' })
     }
   })
 }
@@ -147,7 +149,7 @@ export const rexBear = (scene, area, bear) => {
     scene.player.stopWalk()
     await scene.ui.sleep(500)
     await scene.talk([
-      { chara: 'ann', text: '！' }
+      { chara: 'ann', text: 'みんな、行くよ！' }
     ])
     await scene.ui.sleep(500)
     const result = await scene.ui.battle([generateBattler('bear', 15, { hp: 300 })], { boss: true })

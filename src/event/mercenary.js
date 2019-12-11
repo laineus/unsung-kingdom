@@ -1,10 +1,23 @@
 import generateBattler from '../util/generateBattler'
-import increaseWeapon from '../util/increaseWeapon'
-export const mercenary1 = (scene, leader, member) => {
+export const mercenary1 = (scene, leader, member, member2) => {
   const state = scene.storage.state.event.m1_2
-  if (!state.solved) member.visible = false
+  if (!state.solved) member2.visible = false
+  member2.setDisplayName('負傷した傭兵団員').setTapEvent(async chara => {
+    await scene.talk([
+      { chara, text: 'さっきは本当に助かったよ。ありがとな。' },
+      ...(state.completed ? [] : [
+        { chara, text: '団長からお礼を受け取ってくれるか？' }
+      ])
+    ])
+  })
   member.setDisplayName('負傷した傭兵団員').setTapEvent(async chara => {
-    await scene.talk([{ chara, text: 'さっきは本当に助かったよ。ありがとな。' }])
+    await scene.talk(state.solved ? [
+      { chara, text: '仲間を助けてくれて本当にありがとう。' },
+      { chara, text: 'まさかあいつ、サニズマスクの胃の中に隠れていたなんてな。' }
+    ] : [
+      { chara, text: 'これだけ探して見つからないなんて…、' },
+      { chara, text: 'あいつはきっと…。' }
+    ])
   })
   leader.setDisplayName('負傷した傭兵団長').setTapEvent(async chara => {
     if (state.completed) {
@@ -17,9 +30,9 @@ export const mercenary1 = (scene, leader, member) => {
         { chara, text: 'どうりで見つからなかったわけだ。' },
         { chara, text: '彼を助けてくれてありがとう。これはお礼だ。' }
       ])
-      const weapon = increaseWeapon(3)
-      scene.ui.announce(`${weapon.name}を手に入れた`)
-      state.completed = true
+      scene.ui.missionUpdate('m1_2', true).then(() => {
+        scene.ui.increaseWeapon(3)
+      })
     } else if (state.started) {
       await scene.talk([{ chara, text: 'きっとそんなに遠くには行っていないはずだ。頼んだぜ。' }])
     } else {
@@ -60,7 +73,7 @@ export const mercenary1 = (scene, leader, member) => {
       t.destroy()
       state.talked = true
       await scene.talk([{ chara, text: i === 0 ? '助かる。礼ははずませてもらうぞ。' : 'そうか。' }])
-      if (i === 0) state.started = true
+      if (i === 0) scene.ui.missionUpdate('m1_2')
     }
   })
 }
@@ -115,7 +128,7 @@ export const mercenary2 = (scene, flower, mercenary) => {
     ])
     state.solved = true
     await scene.ui.sleep(300)
-    await scene.ui.transition()
+    await scene.ui.transition('normal')
     mercenary.visible = false
   })
 }

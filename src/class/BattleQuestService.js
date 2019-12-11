@@ -17,7 +17,7 @@ export default class BattleQuestService {
   }
   m1_3 (event) {
     if (event.m1_3.completed || !event.m1_3.started) return
-    const result = this.collection('mandrake', 66)
+    const result = this.collection('mandrake', 75)
     if (!result) return
     event.m1_3.count += result
     return `マンドレイクの根を${result}個獲得！（${event.m1_3.count}/${MANDRAKE_COUNT}）`

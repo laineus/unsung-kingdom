@@ -12,15 +12,22 @@ export default {
     const base = '狩猟家マシューが連れていた5匹の仔犬が逃げ出してしまった。'
     const found = ['d1', 'd2', 'd3', 'd4', 'd5'].filter(key => state.event.m1_1[key]).length
     const cnt = `見つけた狩猟犬の数（${found}/5）`
-    return `${base}\n${cnt}`
+    return state.event.m1_1.completed ? base : `${base}\n${cnt}`
   },
   m1_2 (state) {
-    const base = '薬の材料となるマンドレイクの根を集めてドリスタンに届ける。'
-    const cnt = `収集したマンドレイク（${state.event.m1_3.count}/${MANDRAKE_COUNT}）`
-    return `${base}\n${cnt}`
+    const base = 'アイザムバード傭兵団の負傷兵が行方不明になっている。'
+    if (state.event.m1_2.completed) return base
+    const started = '付近を捜索しよう。'
+    const solved = '負傷兵を助けた。傭兵団のキャンプへ寄ろう'
+    return state.event.m1_2.solved ? `${base}\n${solved}` : `${base}\n${started}`
   },
   m1_3 (state) {
-    const base = '凶暴なレックスベアを倒し、薬の材料となるレックスベアの血液をドリスタンに届ける。'
+    const base = '薬の材料となるマンドレイクの根を集めてドリスタンに届ける。'
+    const cnt = `収集したマンドレイク（${state.event.m1_3.count}/${MANDRAKE_COUNT}）`
+    return state.event.m1_3.completed ? base : `${base}\n${cnt}`
+  },
+  m1_4 (state) {
+    const base = '凶暴なレックスベアを倒し、薬の材料となるレックスベアの血液をドリスタンに\n届ける。'
     const bear = '森の深くに棲むレックスベアを探し出して倒そう。'
     const solved = 'レックスベアの血液を手に入れた。ドリスタンの元へ届けよう。'
     if (state.event.m1_4.completed) return base

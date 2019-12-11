@@ -1,6 +1,7 @@
 import moment from 'moment'
 import config from '../data/config'
 import storage from '../data/storage'
+import missions from '../data/missions'
 import { slideIn, slideOut } from '../util/animations'
 import downloadImageBySource from '../util/downloadImageBySource'
 import Talk from './Talk'
@@ -12,6 +13,7 @@ import WorldMap from './WorldMap'
 import Box from './Box'
 import BattlerSummaryService from './BattlerSummaryService'
 import StoryTelling from './StoryTelling'
+import weapons from '../data/weapons'
 const MESSAGES = [
   `王は死んだ。\n冷たく閉ざされた門扉の先に、かつての繁栄はもはや見る影もない。\n王国は偉大なる王の死とともに終わりを迎えたのだ。`,
   '― 『ベリオン王国史』',
@@ -19,6 +21,11 @@ const MESSAGES = [
   'そしてある時、王と王国の死を嘆く研究者たちの手によって、時間を移動する術が発見された。',
   'それはこの世の理に背くことであったが、彼らは歴史を変えることを厭わなかった。'
 ]
+const SPEED = {
+  fast: 200,
+  normal: 500,
+  slow: 1000
+}
 export default class UIScene extends Phaser.Scene {
   constructor () {
     super({ key: 'UI', active: false })
@@ -116,14 +123,13 @@ export default class UIScene extends Phaser.Scene {
     return new Promise(resolve => setTimeout(() => resolve(), time))
   }
   transition (speed) {
-    const duration = speed === 'slow' ? 300 : 150
-    const hold = speed === 'slow' ? 200 : 100
+    const duration = SPEED[speed]
     return new Promise(resolve => {
       const rect = this.add.rectangle(0, 0, config.WIDTH, config.HEIGHT, 0x111111).setOrigin(0, 0).setAlpha(0)
       this.add.tween({
         targets: rect,
         duration,
-        hold,
+        hold: duration.half,
         alpha: 1,
         yoyo: true,
         onYoyo: resolve,
@@ -194,6 +200,20 @@ export default class UIScene extends Phaser.Scene {
         resolve()
       })
     })
+  }
+  increaseWeapon (weaponId, announce = true) {
+    const weapon = weapons.find(v => v.id === weaponId)
+    if (!weapon) return false
+    const id = Math.max(...storage.state.weapons.map(v => v.id), 0) + 1
+    this.storage.state.weapons.push({ id, weapon_id: weapon.id })
+    if (announce) this.announce(`${weapon.name}を手に入れた`)
+    return weapon
+  }
+  missionUpdate (key, completed) {
+    this.storage.state.event[key][completed ? 'completed' : 'started'] = true
+    const mission = missions.find(v => v.key === key)
+    const text = `『${mission.title}』を${completed ? '完了' : '開始'}`
+    return this.announce(text)
   }
   snapShot () {
     const filename = `ScreenShot_${moment().format('YYYYMMDD_HHmmss')}.png`

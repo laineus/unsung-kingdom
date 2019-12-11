@@ -63,6 +63,7 @@ export default class PlayerBattler extends Battler {
     ['atk', 'def', 'dex', 'agi'].filter(key => this.weapon[key]).forEach(key => {
       this[key] += this.weapon[key]
     })
+    this.effect = this.weapon.effect
   }
   die () {
     return new Promise(resolve => {

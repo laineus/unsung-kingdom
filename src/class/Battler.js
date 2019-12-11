@@ -1,4 +1,5 @@
 import config from '../data/config'
+import BattleEffect from './BattleEffect'
 export default class Battler extends Phaser.GameObjects.Container {
   constructor (scene, status) {
     super(scene)
@@ -12,12 +13,13 @@ export default class Battler extends Phaser.GameObjects.Container {
     this.key = option.key
     this.name = option.name
     this.lv = option.lv
-    this.maxHp = option.maxHp || option.hp
+    this.maxHp = option.max_hp || option.hp
     this.hp = option.hp
     this.atk = option.atk
     this.def = option.def
     this.dex = option.dex
     this.agi = option.agi
+    this.effect = option.effect
   }
   get alive () {
     return this.hp > 0
@@ -42,25 +44,23 @@ export default class Battler extends Phaser.GameObjects.Container {
     return this.dex * 80 / target.agi
   }
   criticalTo (target) {
-    return Math.fix(this.dex * 1.5 - target.agi, 0, 25)
+    return Math.fix((this.dex - target.agi) * 4, 1, 25)
   }
-  attackTo (target, { multi = false } = {}) {
+  async attackTo (target, { multi = false } = {}) {
     const baseDamage = multi ? Math.round(this.baseDamageTo(target) * 0.66) : this.baseDamageTo(target)
     const cri = Math.chance(this.criticalTo(target))
     const weakness = this.weaknessTo(target)
     const hit = Math.chance(this.accuracyTo(target))
     this.setActive(false)
-    return target.addDamage(baseDamage, cri, weakness, hit)
+    return hit ? target.addDamage(this, baseDamage, cri, weakness) : target.damageText('Miss')
   }
-  async addDamage (baseDamage, cri, weakness, hit) {
-    if (hit) {
-      const damage = baseDamage * (cri ? 2 : 1) * weakness
-      this.hp -= damage
-      this.damageEffect()
-      this.damageText(damage)
-      return this.hp <= 0 ? this.die() : null
-    }
-    return this.damageText('Miss')
+  async addDamage (attacker, baseDamage, cri, weakness) {
+    const damage = baseDamage * (cri ? 2 : 1) * weakness
+    this.hp -= damage
+    this.add(new BattleEffect(this.scene, cri, attacker.effect))
+    this.damageText(damage)
+    await this.scene.sleep(120)
+    return this.hp <= 0 ? this.die() : null
   }
   heal (target, percent) {
     this.setActive(false)
@@ -68,16 +68,6 @@ export default class Battler extends Phaser.GameObjects.Container {
     const addition = Math.min(Math.round(target.maxHp * percent * 0.01), limit)
     target.hp += addition
     target.damageText(addition, 'theme')
-  }
-  damageEffect () {
-    const eff = this.scene.add.sprite(0, 0, 'damage').setScale(0.5, 0.5).setPosition(Math.randomInt(-30, 30), Math.randomInt(-30, 30))
-    const scale = Math.randomInt(12, 17) / 10
-    this.add(eff)
-    this.scene.add.tween({
-      targets: eff, duration: 120,
-      scaleX: scale, scaleY: scale, alpha: 0.2,
-      onComplete: () => eff.destroy()
-    })
   }
   damageText (damage, colorKey = 'soy') {
     const text = this.scene.add.text(0, 0, damage, { fill: config.COLORS[colorKey].toColorString, stroke: config.COLORS.dark.toColorString, strokeThickness: 5, fontSize: 36, fontStyle: 'bold', fontFamily: config.FONTS.UI }).setOrigin(0.5, 0.5)

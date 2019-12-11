@@ -1,5 +1,3 @@
-import increaseWeapon from '../util/increaseWeapon'
-
 export const dogEventHunter = (scene, hunter) => {
   const state = scene.storage.state.event.m1_1
   hunter.setDisplayName('狩猟家マシュー').setTapEvent(async chara => {
@@ -38,7 +36,7 @@ export const dogEventHunter = (scene, hunter) => {
       await scene.talk([
         { chara, text: i === 0 ? '助かるよ。よろしく頼んだよ。' : 'そうか。' }
       ])
-      if (i === 0) state.started = true
+      if (i === 0) scene.ui.missionUpdate('m1_1')
     } else {
       const keys = ['d1', 'd2', 'd3', 'd4', 'd5']
       const found = keys.reduce((result, key) => {
@@ -57,8 +55,7 @@ export const dogEventHunter = (scene, hunter) => {
           { chara: 'ann', text: '気にしないでください！' },
           { chara, text: 'あ、気に入るか分からないけど、僕の予備の弓矢をもらってくれ。' }
         ])
-        const weapon = increaseWeapon(6)
-        scene.ui.announce(`${weapon.name}を手に入れた`)
+        scene.ui.increaseWeapon(6)
         await scene.talk([
           { chara: 'ann', text: 'ありがとう。お兄さんの武器は弓なんですね。' },
           { chara, text: 'そうだよ。' },
@@ -69,7 +66,7 @@ export const dogEventHunter = (scene, hunter) => {
           { chara, text: '不審に思って断ったけど…、' },
           { chara, text: '君たちもおかしな奴には気をつけるんだよ。' }
         ])
-        state.completed = true
+        scene.ui.missionUpdate('m1_1', true)
       } else if (found) {
         await scene.talk([
           { chara, text: 'ありがとう！' },
@@ -91,9 +88,9 @@ export const dogEventFound = (scene, dog, key) => {
     dog.destroy()
   } else {
     const dogs = {
-      d1: { leave: false, speed: 110 },
-      d2: { leave: false, speed: 90 },
-      d3: { leave: true, speed: 90 },
+      d1: { leave: false, speed: 80 },
+      d2: { leave: true, speed: 90 },
+      d3: { leave: false, speed: 90 },
       d4: { leave: true, speed: 110 },
       d5: { leave: true, speed: 130 }
     }

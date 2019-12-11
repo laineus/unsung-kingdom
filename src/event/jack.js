@@ -6,11 +6,11 @@ export const jack = (scene, area, chara) => {
     area.destroy()
     return
   }
-  chara.setVisible(false).setSpeed(180).setDisplayName('？？？')
+  chara.setVisible(false).setR('up').setSpeed(180).setDisplayName('？？？')
   area.setEvent(async () => {
     scene.player.stopWalk()
     await scene.ui.sleep(500)
-    await scene.ui.transition('slow')
+    await scene.ui.transition('normal')
     scene.player.setPosition((50).toPixel, (29).toPixel)
     scene.camera.updateFollow()
     await scene.ui.sleep(500)
@@ -24,12 +24,11 @@ export const jack = (scene, area, chara) => {
       { chara: 'francisca', text: '捕まえたら分かるかもね。' },
       { chara: 'ann', text: 'どうして暗殺なんてしたんだろう。' },
       { chara: 'jaquelyn', text: 'どこの国の王も命を狙われる理由ならたくさんあるんじゃないかしら。' },
-      { chara: 'ann', text: '『平和王エドガー』、平和を願った優しい王さまを殺すなんて…、' },
-      { chara, text: 'おい、お前たち、こんなところで何をしている？' }
+      { chara: 'ann', text: '『平和王エドガー』、平和を願った優しい王さまを殺すなんて…、' }
     ])
+    await scene.talk([{ chara, text: 'おい、お前たち、こんなところで何をしている？' }])
     chara.setVisible(true)
     await scene.camera.look(0, 180, 300)
-    scene.player.setR('down')
     await scene.talk([
       { chara: 'ann', text: 'え！？' },
       { chara: 'ann', text: 'あ、いえ…その…、' },
@@ -98,7 +97,7 @@ export const king = (scene, area, chara) => {
   area.setEvent(async () => {
     scene.player.stopWalk()
     await scene.ui.sleep(500)
-    await scene.ui.transition('slow')
+    await scene.ui.transition('normal')
     scene.player.setPosition((18).toPixelCenter, (24).toPixelCenter).setR('up')
     scene.camera.updateFollow()
     await scene.ui.sleep(500)
@@ -111,9 +110,9 @@ export const king = (scene, area, chara) => {
       { chara: 'jaquelyn', text: '暗殺は諦めたのかもしれないね。とにかく、一回ここを離れましょう。' },
       { chara: 'ann', text: 'うん。' }
     ])
-    state.completed = true
+    await scene.ui.missionUpdate('m0_1', true)
     scene.storage.state.chapter = 1
-    await scene.mapChange('room1', (19).toPixelCenter, (11).toPixel)
+    await scene.mapChange('room1', (19).toPixelCenter, (11).toPixel, { speed: 'slow' })
     scene.camera.revert()
   })
 }

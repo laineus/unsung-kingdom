@@ -21,7 +21,7 @@ export default class WorldMap extends Phaser.GameObjects.Container {
     this.callback = callback
     this.scene.scene.pause('Game')
     this.scene.add.existing(this)
-    this.scene.transition().then(() => {
+    this.scene.transition('normal').then(() => {
       this.init()
     })
     this.scene.gameScene.player.stopWalk()
@@ -56,7 +56,7 @@ export default class WorldMap extends Phaser.GameObjects.Container {
     })
   }
   onCancel () {
-    this.scene.transition().then(() => {
+    this.scene.transition('normal').then(() => {
       this.destroy()
     })
   }

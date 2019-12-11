@@ -10,6 +10,7 @@ export default {
     ['dark', '../img/dark.png'],
     ['arrow', '../img/arrow.png'],
     ['damage', '../img/damage.png'],
+    ['critical', '../img/critical.png'],
     ['encounter1', '../img/encounter1.png'],
     ['encounter2', '../img/encounter2.png'],
     ['click', '../img/click.png'],
@@ -75,6 +76,7 @@ export default {
     // UI
     ['check', '../img/check.png', { frameWidth: 14, frameHeight: 13, endFrame: 2 }],
     ['menu_icons', '../img/menu_icons.png', { frameWidth: 72, frameHeight: 72, endFrame: 4 }],
+    ['battle_effects', '../img/battle_effects.png', { frameWidth: 320, frameHeight: 320, endFrame: 6 }],
     // Charachip
     ['field/treasure_chest', '../img/field/treasure_chest.png', { frameWidth: 45, frameHeight: 39, endFrame: 7 }],
     ['field/player', '../img/field/player.png', { frameWidth: 25, frameHeight: 41, endFrame: 12 }],

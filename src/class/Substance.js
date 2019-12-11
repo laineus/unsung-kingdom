@@ -22,22 +22,27 @@ export default class Substance extends Phaser.GameObjects.Container {
   }
   preUpdate () {
     this.setDepth(this.y)
-    if (this.balloon) this.balloon.visible = this.distanceToPlayer < 150
+    if (this.balloon) {
+      this.balloon.visible = this.distanceToPlayer < 150
+      this.balloon.setPosition(this.x, this.y - this.image.height.half - 32)
+    }
   }
   setId (id) {
     this.id = id
     return this
   }
-  getBalloon () {
-    return this.scene.add.sprite(0, 0, 'bubble_action')
+  getBalloon (key = 'bubble_action') {
+    const balloon = this.scene.add.container(0, 0).setDepth(200000)
+    const img = this.scene.add.sprite(0, 0, key)
+    this.scene.add.tween({ targets: img, duration: 400, loop: -1, yoyo: true, y: -4 })
+    balloon.add(img)
+    return balloon
   }
   setTapEvent (event) {
     const distance = 150
     this.tapArea = this.scene.add.rectangle(0, -this.image.height, this.image.width + 20, this.image.height + 50).setInteractive()
     this.add(this.tapArea)
-    this.balloon = this.getBalloon().setPosition(0, -this.image.height.half - 32)
-    this.scene.add.tween({ targets: this.balloon, duration: 400, loop: -1, yoyo: true, y: this.balloon.y - 4 })
-    this.add(this.balloon)
+    this.balloon = this.getBalloon()
     this.tapArea.on('pointerdown', (_pointer, _x, _y, e) => {
       if (this.distanceToPlayer >= distance) return
       e.stopPropagation()
@@ -64,5 +69,9 @@ export default class Substance extends Phaser.GameObjects.Container {
   }
   get spriteKey () {
     return `field/${this.key}`
+  }
+  destroy () {
+    if (this.balloon) this.balloon.destroy()
+    super.destroy()
   }
 }

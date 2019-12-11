@@ -1,5 +1,4 @@
 import Substance from './Substance'
-import increaseWeapon from '../util/increaseWeapon'
 export default class TreasureChest extends Substance {
   constructor (scene, x, y, weaponId, stateKey, left) {
     super(scene, x, y, 'treasure_chest')
@@ -10,8 +9,7 @@ export default class TreasureChest extends Substance {
       return
     }
     this.setTapEvent(async () => {
-      const weapon = increaseWeapon(weaponId)
-      scene.ui.announce(`${weapon.name}を手に入れた`)
+      scene.ui.increaseWeapon(weaponId)
       treasures.push(stateKey)
       this.image.anims.play('treasure', true)
       this.removeTapEvent()
