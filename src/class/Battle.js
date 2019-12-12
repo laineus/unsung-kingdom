@@ -186,19 +186,19 @@ export default class Battle extends Phaser.GameObjects.Container {
   }
   end (result) {
     if (this.defeatEvent) {
-      this.destroy()
-      storage.state.battlers.forEach(v => v.hp = v.maxHp)
+      this.destroy(result)
+      storage.state.battlers.forEach(v => v.hp = v.max_hp)
       return
     }
     if (result) {
       this.destroyUI()
       if (this.boss) {
         this.scene.battleResult(this.group).then(() => {
-          this.destroy()
+          this.destroy(result)
         })
       } else {
         this.scene.battleResult(this.group)
-        this.destroy()
+        this.destroy(result)
       }
     } else {
       const blood = this.scene.add.rectangle(0, 0, config.WIDTH, config.HEIGHT, 0xFF0000).setOrigin(0, 0)
@@ -206,18 +206,18 @@ export default class Battle extends Phaser.GameObjects.Container {
       this.add([blood, gameover])
       fadeIn(this.scene, blood, { alpha: 0.6, duration: 1800 })
       fadeIn(this.scene, gameover, { duration: 800 })
-      storage.state.battlers.forEach(v => v.hp = v.maxHp)
+      storage.state.battlers.forEach(v => v.hp = v.max_hp)
       setTimeout(() => {
-        this.scene.gameScene.mapChange('room1', 480, 480).then(() => {
-          this.destroy()
+        this.scene.gameScene.mapChange('room1', (8).toPixel, (12).toPixelCenter, { r: 'down' }).then(() => {
+          this.destroy(result)
         })
       }, 5000)
     }
   }
-  destroy () {
+  destroy (result) {
     this.scene.scene.resume('Game')
     this.scene.gameScene.blur(false)
     super.destroy()
-    this.callback(this)
+    this.callback(result)
   }
 }
