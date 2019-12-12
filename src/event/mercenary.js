@@ -1,7 +1,7 @@
 import generateBattler from '../util/generateBattler'
 export const mercenary1 = (scene, leader, member, member2) => {
   const state = scene.storage.state.event.m1_2
-  if (!state.solved) member2.visible = false
+  if (!state.solved) member2.setVisible(false)
   member2.setDisplayName('負傷した傭兵団員').setTapEvent(async chara => {
     await scene.talk([
       { chara, text: 'さっきは本当に助かったよ。ありがとな。' },
@@ -85,7 +85,7 @@ export const mercenary2 = (scene, flower, mercenary) => {
     flower.destroy()
     return
   }
-  mercenary.visible = false
+  mercenary.setVisible(false)
   flower.setTapEvent(async () => {
     await scene.talk([{ chara: 'ann', text: '何この花。へんなの。' }])
     if (!state.started) return
@@ -95,8 +95,8 @@ export const mercenary2 = (scene, flower, mercenary) => {
     const result = await scene.ui.battle([generateBattler('flower', 6, { hp: 300 })], { boss: true })
     if (!result) return
     const chara = mercenary.setDisplayName('負傷した傭兵団員')
-    flower.visible = false
-    mercenary.visible = true
+    flower.setVisible(false)
+    mercenary.setVisible(true)
     await scene.talk([
       { chara: 'ann', text: 'びっくりした…。モンスターだったなんて。' },
       { chara: 'francisca', text: 'ちょっとアン、中から人が出てきたんだけど…。' },
@@ -129,6 +129,6 @@ export const mercenary2 = (scene, flower, mercenary) => {
     state.solved = true
     await scene.ui.sleep(300)
     await scene.ui.transition('normal')
-    mercenary.visible = false
+    mercenary.setVisible(false)
   })
 }
