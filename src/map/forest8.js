@@ -3,7 +3,7 @@ export default {
     key: 'forest',
     x: 176, y: 448
   },
-  enemyLevel: 5,
+  enemyLevel: 6,
   enemyGroups: [
     ['wolf'],
     ['wolf', 'wolf'],
