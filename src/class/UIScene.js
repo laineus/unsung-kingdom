@@ -50,13 +50,6 @@ export default class UIScene extends Phaser.Scene {
   }
   update (time, delta) {
     this.battlerSummary.update()
-    if (!this.gameScene) return
-    if (!this.minimap) return
-    const x = this.gameScene.player.x
-    const y = this.gameScene.player.y
-    const size = config.TILE_SIZE / this.minimap.size
-    this.minimap.field.setPosition((this.minimap.width / 2) - (x / size), (this.minimap.height / 2) - (y / size))
-    this.minimap.player.setRotation(this.gameScene.player.r)
   }
   showController (bool) {
     this.menuButton.visible = bool
