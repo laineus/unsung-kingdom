@@ -3,7 +3,7 @@ import Gate from './Gate'
 import Character from './Character'
 import Substance from './Substance'
 import TreasureChest from './TreasureChest'
-export default class GameMap {
+export default class Field {
   constructor (scene, mapKey, preview = false) {
     this.scene = scene
     this.name = mapKey

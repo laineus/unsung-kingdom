@@ -1,5 +1,5 @@
 import Player from './Player'
-import GameMap from './GameMap'
+import Field from './Field'
 import maps from '../data/maps'
 import assets from '../data/assets'
 import storage from '../data/storage'
@@ -23,7 +23,7 @@ export default class GameScene extends Phaser.Scene {
       if (this.encountDelay <= 0) this.encounter(!this.stronger)
     })
     // map
-    this.map = new GameMap(this, payload.map)
+    this.map = new Field(this, payload.map)
     // camera
     this.camera = this.getCamera()
     // player controll
