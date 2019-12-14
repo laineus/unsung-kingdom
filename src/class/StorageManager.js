@@ -18,7 +18,14 @@ export default class StorageManager {
   }
   getRow (number) {
     const state = this.getSavedState(number)
-    return { number, name: number === 0 ? 'Auto Save' : `Data ${number}`, state, exists: Boolean(state) }
+    const snapshot = this.getSnapshot(number)
+    return {
+      number,
+      name: number === 0 ? 'Auto Save' : `Data ${number}`,
+      state,
+      snapshot,
+      exists: Boolean(state)
+    }
   }
   getSavedState (number) {
     const string = localStorage.getItem(`${STORAGE_KEY}_${number}`)
@@ -33,6 +40,9 @@ export default class StorageManager {
       alert('Save data is broken')
       return false
     }
+  }
+  getSnapshot (number) {
+    return localStorage.getItem(`${STORAGE_KEY}_${number}_ss`)
   }
   save (number) {
     this.state.saved = moment().unix()
@@ -51,6 +61,7 @@ export default class StorageManager {
   }
   delete (number) {
     localStorage.removeItem(`${STORAGE_KEY}_${number}`)
+    localStorage.removeItem(`${STORAGE_KEY}_${number}_ss`)
     return true
   }
   fixState (data) {

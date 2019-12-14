@@ -181,7 +181,7 @@ export default class UIScene extends Phaser.Scene {
           slideIn(this, button, { x: 100, delay: 100 })
           this.battlerSummary.show()
         })
-      }, 'image/jpeg', 0.2)
+      }, 'image/jpeg', 0.25)
     })
     return button
   }
