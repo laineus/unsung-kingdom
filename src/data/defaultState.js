@@ -1,4 +1,9 @@
 import battlers from './battlers'
+const getPlayerBattlers = () => {
+  const players = JSON.parse(JSON.stringify(battlers.slice(0, 3)))
+  players.forEach(v => Object.assign(v, { exp: 0, max_hp: v.hp, weapon: null }))
+  return players
+}
 export default () => {
   return {
     map: 'room1',
@@ -34,7 +39,7 @@ export default () => {
       town: { amber: [], annabelle: [], matilda: [], elliott: [], max: [] }
     },
     treasures: [],
-    battlers: battlers.filter((_, i) => i < 3).map((v, i) => Object.assign(v, { exp: 0, max_hp: v.hp, weapon: null })),
+    battlers: getPlayerBattlers(),
     weapons: [],
     saved: null
   }
