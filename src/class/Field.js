@@ -3,12 +3,12 @@ import Gate from './Gate'
 import Character from './Character'
 import Substance from './Substance'
 import TreasureChest from './TreasureChest'
-export default class Field {
+export default class Field extends Phaser.GameObjects.Container {
   constructor (scene, mapKey, preview = false) {
+    super(scene, 0, 0)
+    scene.add.existing(this)
     this.scene = scene
     this.name = mapKey
-    this.x = 0
-    this.y = 0
     const tilemap = new Phaser.Tilemaps.ParseToTilemap(scene, mapKey)
     this.width = tilemap.widthInPixels
     this.height = tilemap.heightInPixels
@@ -16,13 +16,10 @@ export default class Field {
     tilemap.layers.push(this._generateTopLayer(tilemap))
     this.staticLayers = tilemap.layers.map((layer, i) => {
       return layer.visible ? tilemap.createStaticLayer(i, tilesets, 0, 0) : null
-    }).filter(v => v)
-    this.images = tilemap.images.map(data => {
-      const img = scene.add.sprite(data.x, data.y, `tileset/${data.name}`).setOrigin(0, 0)
-      img.originalX = data.x
-      img.originalY = data.y
-      return img
-    })
+    }).filter(Boolean)
+    this.add(this.staticLayers)
+    this.images = tilemap.images.map(data => scene.add.sprite(data.x, data.y, `tileset/${data.name}`).setOrigin(0, 0))
+    this.add(this.images)
     if (!preview) {
       const collides = this._getTileIdsByType(tilemap, 'collides')
       this.staticLayers.forEach(layer => layer.setCollision(collides))
@@ -37,15 +34,13 @@ export default class Field {
     }
   }
   setPosition (x, y) {
-    this.x = x
-    this.y = y
-    this.staticLayers.forEach(v => v.setPosition(x, y))
-    this.images.forEach(v => v.setPosition((v.originalX * v.scaleX) + x, (v.originalY * v.scaleY) + y))
+    super.setPosition(x, y)
+    if (this.staticLayers) this.staticLayers.forEach(v => v.setPosition(x, y))
     return this
   }
   setScale (w, h) {
-    this.staticLayers.forEach(v => v.setScale(w, h))
-    this.images.forEach(v => v.setScale(w, h).setPosition((v.originalX * v.scaleX) + this.x, (v.originalY * v.scaleY) + this.y))
+    super.setScale(w, h)
+    if (this.staticLayers) this.staticLayers.forEach(v => v.setScale(w, h))
     return this
   }
   getObjectById (id) {
