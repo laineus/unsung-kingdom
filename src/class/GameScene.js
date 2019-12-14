@@ -36,10 +36,11 @@ export default class GameScene extends Phaser.Scene {
     this.event = maps[payload.map] || {}
     if (this.event.create) this.event.create(this)
     this.setEncountDelay()
-    // auto save
-    if (payload.save) setTimeout(() => this.storage.save(0), 1)
-    // UI callback
-    this.ui.onMapChanged()
+    setTimeout(() => {
+      // auto save
+      if (payload.save) this.ui.snapshopForSaveData().then(() => this.storage.save(0))
+      this.ui.battlerSummary.show()
+    }, 150)
     // debug
     this.setDebugAction()
   }
@@ -61,6 +62,7 @@ export default class GameScene extends Phaser.Scene {
     if (!bool) this.camera.clearRenderToTexture()
   }
   mapChange (mapKey, x, y, { r = null, save = true, speed = 'fast' } = {}) {
+    this.ui.battlerSummary.hide()
     this.scene.pause('Game')
     return this.ui.transition(speed).then(() => {
       this.scene.start('Game', { map: mapKey, x, y, r, save })

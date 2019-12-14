@@ -36,6 +36,7 @@ export default class BattlerSummaryService {
     slideIn(this.scene, this.summaries, { x: 0, y: 80 })
   }
   hide () {
+    this.delay = 0
     this.resetPosition()
     slideOut(this.scene, this.summaries, { x: 0, y: 80, destroy: false })
   }

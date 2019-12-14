@@ -58,9 +58,6 @@ export default class UIScene extends Phaser.Scene {
     this.minimap.field.setPosition((this.minimap.width / 2) - (x / size), (this.minimap.height / 2) - (y / size))
     this.minimap.player.setRotation(this.gameScene.player.r)
   }
-  onMapChanged () {
-    this.battlerSummary.show()
-  }
   showController (bool) {
     this.menuButton.visible = bool
   }
@@ -156,6 +153,16 @@ export default class UIScene extends Phaser.Scene {
     this.setEventMode(true)
     event().then(() => this.setEventMode(false))
   }
+  snapshopForSaveData () {
+    return new Promise(resolve => {
+      this.scene.sleep('UI')
+      this.game.renderer.snapshot(img => {
+        this.storage.lastSnapshot = img.src
+        this.scene.wake('UI')
+        resolve()
+      }, 'image/jpeg', 0.25)
+    })
+  }
   getMenuButton (x, y) {
     const button = this.add.container(x, y).setSize(120, 50)
     button.add(this.add.rectangle(0, 0, 120, 50, config.COLORS.black).setAlpha(0))
@@ -168,10 +175,7 @@ export default class UIScene extends Phaser.Scene {
       slideOut(this, this.encounter1, { destroy: false, x: 100 })
       slideOut(this, this.encounter2, { destroy: false, x: 100 })
       slideOut(this, button, { destroy: false, x: 100 })
-      this.scene.sleep('UI')
-      this.game.renderer.snapshot(img => {
-        this.storage.lastSnapshot = img.src
-        this.scene.wake('UI')
+      this.snapshopForSaveData().then(() => {
         this.menu().then(() => {
           button.x = x
           this.encounter1.x = (70).byRight
@@ -181,7 +185,7 @@ export default class UIScene extends Phaser.Scene {
           slideIn(this, button, { x: 100, delay: 100 })
           this.battlerSummary.show()
         })
-      }, 'image/jpeg', 0.25)
+      })
     })
     return button
   }
