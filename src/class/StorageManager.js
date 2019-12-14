@@ -7,6 +7,7 @@ const SHIFT = 0
 export default class StorageManager {
   constructor () {
     this.lastNumber = null
+    this.lastSnapshot = null
     this.setState(defaultState())
   }
   setState (state) {
@@ -37,6 +38,7 @@ export default class StorageManager {
     this.state.saved = moment().unix()
     const str = encrypt(JSON.stringify(this.state), SHIFT)
     localStorage.setItem(`${STORAGE_KEY}_${number}`, str)
+    if (this.lastSnapshot) localStorage.setItem(`${STORAGE_KEY}_${number}_ss`, this.lastSnapshot)
     if (number > 0) this.lastNumber = number
     return true
   }

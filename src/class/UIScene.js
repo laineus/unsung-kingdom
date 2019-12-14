@@ -168,15 +168,20 @@ export default class UIScene extends Phaser.Scene {
       slideOut(this, this.encounter1, { destroy: false, x: 100 })
       slideOut(this, this.encounter2, { destroy: false, x: 100 })
       slideOut(this, button, { destroy: false, x: 100 })
-      this.menu().then(() => {
-        button.x = x
-        this.encounter1.x = (70).byRight
-        this.encounter2.x = (70).byRight
-        slideIn(this, this.encounter1, { x: 100, delay: 100 })
-        slideIn(this, this.encounter2, { x: 100, delay: 100 })
-        slideIn(this, button, { x: 100, delay: 100 })
-        this.battlerSummary.show()
-      })
+      this.scene.sleep('UI')
+      this.game.renderer.snapshot(img => {
+        this.storage.lastSnapshot = img.src
+        this.scene.wake('UI')
+        this.menu().then(() => {
+          button.x = x
+          this.encounter1.x = (70).byRight
+          this.encounter2.x = (70).byRight
+          slideIn(this, this.encounter1, { x: 100, delay: 100 })
+          slideIn(this, this.encounter2, { x: 100, delay: 100 })
+          slideIn(this, button, { x: 100, delay: 100 })
+          this.battlerSummary.show()
+        })
+      }, 'image/jpeg', 0.2)
     })
     return button
   }
