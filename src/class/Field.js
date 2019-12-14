@@ -3,9 +3,8 @@ import Gate from './Gate'
 import Character from './Character'
 import Substance from './Substance'
 import TreasureChest from './TreasureChest'
-export default class Field extends Phaser.GameObjects.Container {
-  constructor (scene, mapKey, preview = false) {
-    super(scene, 0, 0)
+export default class Field {
+  constructor (scene, mapKey) {
     scene.add.existing(this)
     this.scene = scene
     this.name = mapKey
@@ -17,31 +16,16 @@ export default class Field extends Phaser.GameObjects.Container {
     this.staticLayers = tilemap.layers.map((layer, i) => {
       return layer.visible ? tilemap.createStaticLayer(i, tilesets, 0, 0) : null
     }).filter(Boolean)
-    this.add(this.staticLayers)
-    this.images = tilemap.images.map(data => scene.add.sprite(data.x, data.y, `tileset/${data.name}`).setOrigin(0, 0))
-    this.add(this.images)
-    if (!preview) {
-      const collides = this._getTileIdsByType(tilemap, 'collides')
-      this.staticLayers.forEach(layer => layer.setCollision(collides))
-      this.staticLayers[this.staticLayers.length - 1].setDepth(100000)
-      scene.physics.add.collider(this.staticLayers, scene.substances)
-      this.gates = this._getObjects(tilemap, 'gate').map(this._toAreaData).map(gate => new Gate(scene, gate.key, gate.x, gate.y, gate.zone_x, gate.zone_y, gate.zone_width, gate.zone_height).setId(gate.id))
-      this.areas = this._getObjects(tilemap, 'area').map(this._toAreaData).map(area => new Area(scene, area.zone_x, area.zone_y, area.zone_width, area.zone_height).setId(area.id))
-      this.charas = this._getObjects(tilemap, 'chara').map(data => new Character(scene, data.x, data.y, data.name).setR((data.rotation + 90) * (Math.PI / 180)).setId(data.id))
-      this.objects = this._getObjects(tilemap, 'object').map(data => new Substance(scene, data.x, data.y, data.name).setId(data.id))
-      this.treasures = this._getObjects(tilemap, 'treasure').map(data => new TreasureChest(scene, data.x, data.y, Number(data.name), `${mapKey}_${data.id}`, data.rotation === 90).setId(data.id))
-      // this.scene.ui.renderMiniMap(tilemap)
-    }
-  }
-  setPosition (x, y) {
-    super.setPosition(x, y)
-    if (this.staticLayers) this.staticLayers.forEach(v => v.setPosition(x, y))
-    return this
-  }
-  setScale (w, h) {
-    super.setScale(w, h)
-    if (this.staticLayers) this.staticLayers.forEach(v => v.setScale(w, h))
-    return this
+    const collides = this._getTileIdsByType(tilemap, 'collides')
+    this.staticLayers.forEach(layer => layer.setCollision(collides))
+    this.staticLayers[this.staticLayers.length - 1].setDepth(100000)
+    scene.physics.add.collider(this.staticLayers, scene.substances)
+    this.gates = this._getObjects(tilemap, 'gate').map(this._toAreaData).map(gate => new Gate(scene, gate.key, gate.x, gate.y, gate.zone_x, gate.zone_y, gate.zone_width, gate.zone_height).setId(gate.id))
+    this.areas = this._getObjects(tilemap, 'area').map(this._toAreaData).map(area => new Area(scene, area.zone_x, area.zone_y, area.zone_width, area.zone_height).setId(area.id))
+    this.charas = this._getObjects(tilemap, 'chara').map(data => new Character(scene, data.x, data.y, data.name).setR((data.rotation + 90) * (Math.PI / 180)).setId(data.id))
+    this.objects = this._getObjects(tilemap, 'object').map(data => new Substance(scene, data.x, data.y, data.name).setId(data.id))
+    this.treasures = this._getObjects(tilemap, 'treasure').map(data => new TreasureChest(scene, data.x, data.y, Number(data.name), `${mapKey}_${data.id}`, data.rotation === 90).setId(data.id))
+    // this.scene.ui.renderMiniMap(tilemap)
   }
   getObjectById (id) {
     return ['charas', 'gates', 'areas', 'objects', 'treasures'].reduce((found, key) => {
