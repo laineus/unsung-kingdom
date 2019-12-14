@@ -16,6 +16,7 @@ export default class Field {
     this.staticLayers = tilemap.layers.map((layer, i) => {
       return layer.visible ? tilemap.createStaticLayer(i, tilesets, 0, 0) : null
     }).filter(Boolean)
+    this.images = tilemap.images.map(data => scene.add.sprite(data.x, data.y, `tileset/${data.name}`).setOrigin(0, 0))
     const collides = this._getTileIdsByType(tilemap, 'collides')
     this.staticLayers.forEach(layer => layer.setCollision(collides))
     this.staticLayers[this.staticLayers.length - 1].setDepth(100000)
