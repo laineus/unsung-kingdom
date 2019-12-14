@@ -8,6 +8,7 @@ export default class EnemyBattler extends Battler {
     // image
     this.sprite = this.scene.add.sprite(0, 0, `battler/${status.key}`)
     this.sprite.setScale(1)
+    if (status.y) this.sprite.y = status.y
     this.add(this.sprite)
     // name
     this.nameLabel = this.scene.add.text(0, -157, boss ? status.name : `${status.name} Lv ${this.lv}`, { fill: config.COLORS.gray.toColorString, stroke: config.COLORS.dark.toColorString, strokeThickness: 2, fontSize: 12, fontStyle: 'bold', fontFamily: config.FONTS.TEXT }).setOrigin(0.5, 1)

@@ -15,6 +15,11 @@ export default [
     up: { hp: 90, atk: 75, def: 80, dex: 85, agi: 100 }
   },
   {
+    key: 'jack', name: '王殺しのジャック', lv: 1, effect: 'slash', y: 70,
+    hp: 50, atk: 4, def: 2, dex: 3, agi: 4,
+    up: { hp: 90, atk: 100, def: 70, dex: 70, agi: 90 }
+  },
+  {
     key: 'bee', name: 'ビーストビー', lv: 1, effect: 'shot',
     hp: 16, atk: 4, def: 1, dex: 3, agi: 4,
     up: { hp: 70, atk: 90, def: 50, dex: 70, agi: 80 },

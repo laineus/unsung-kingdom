@@ -58,7 +58,7 @@ export const jack = (scene, area, chara) => {
     ])
     await scene.player.setTargetPosition((49).toPixelCenter, (31).toPixelCenter)
     await scene.ui.sleep(500)
-    await scene.ui.battle([generateBattler('bear', 1, { hp: 30 })], { boss: true, defeatEvent: true })
+    await scene.ui.battle([generateBattler('jack', 5, { hp: 1000 })], { boss: true, defeatEvent: true })
     await scene.ui.sleep(500)
     await scene.talk([
       { chara: 'ann', text: 'うぅ…。' },
