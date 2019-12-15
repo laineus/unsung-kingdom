@@ -1,5 +1,5 @@
 import generateBattler from '../util/generateBattler'
-export const MANDRAKE_COUNT = 7
+export const MANDRAKE_COUNT = 5
 export const drystan = (scene, door, drystan) => {
   const state1 = scene.storage.state.event.m1_3
   const state2 = scene.storage.state.event.m1_4
@@ -8,9 +8,11 @@ export const drystan = (scene, door, drystan) => {
   if (canStart) {
     door.destroy()
   } else {
+    drystan.destroy()
     door.setTapEvent(async () => {
       await scene.talk([{ chara: 'ann', text: '留守みたい。' }])
     })
+    return
   }
   // Drystan
   if (state2.completed) return drystan.destroy()
@@ -152,7 +154,7 @@ export const rexBear = (scene, area, bear) => {
       { chara: 'ann', text: 'みんな、行くよ！' }
     ])
     await scene.ui.sleep(500)
-    const result = await scene.ui.battle([generateBattler('bear', 9, { hp: 430 })], { boss: true })
+    const result = await scene.ui.battle([generateBattler('bear', 9, { hp: 550 })], { boss: true })
     if (!result) return
     area.destroy()
     bear.destroy()

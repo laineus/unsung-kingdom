@@ -7,7 +7,7 @@ export default {
   enemyGroups: [
     ['wolf'],
     ['wolf', 'wolf'],
-    ['slime', 'slime', 'slime', 'slime'],
+    ['slime', 'slime', 'slime'],
     ['mandrake'],
     ['mandrake', 'mandrake'],
     ['mandrake', 'mandrake', 'mandrake']
