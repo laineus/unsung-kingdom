@@ -37,29 +37,36 @@ export default [
   {
     key: 'm2_1',
     chapter: 2,
-    title: 'メアリー王女と公爵令嬢ロレッタ',
-    en: 'Princess Mary and Loretta',
-    map: 'forest1'
-  },
-  {
-    key: 'm2_2',
-    chapter: 2,
-    title: '泣くには名誉が足りぬ',
-    en: 'Honor for tears',
-    map: 'forest1'
-  },
-  {
-    key: 'm2_3',
-    chapter: 2,
     title: '幽閉されしカサンドラ',
     en: 'Incarcerated Cassandra',
     map: 'forest1'
   },
   {
+    key: 'm2_2',
+    chapter: 2,
+    title: 'メアリー王女と公爵令嬢ロレッタ',
+    en: 'Princess Mary and Loretta',
+    map: 'forest1'
+  },
+  {
+    key: 'm2_3',
+    chapter: 2,
+    title: 'イーカリオスの密造酒',
+    en: 'Ikarios\' Moonshine',
+    map: 'forest1'
+  },
+  {
     key: 'm2_4',
     chapter: 2,
-    title: 'コルネリウス騎士団長の企て',
-    en: 'The Dirty Knight',
+    title: 'ヘクター元騎士団長の企て',
+    en: 'Hector ex-night',
+    map: 'forest1'
+  },
+  {
+    key: 'm2_5',
+    chapter: 2,
+    title: 'アラグニエのねぐら',
+    en: 'Dirty Knight',
     map: 'forest1'
   },
   {
