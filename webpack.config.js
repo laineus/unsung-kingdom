@@ -3,6 +3,7 @@
 const webpack = require('webpack')
 const path = require('path')
 const WriteFilePlugin = require('write-file-webpack-plugin')
+const TileSetPlugin = require('./TileSetPlugin')
 
 module.exports = {
   entry: {
@@ -37,7 +38,8 @@ module.exports = {
     new webpack.DefinePlugin({
       'typeof CANVAS_RENDERER': JSON.stringify(true),
       'typeof WEBGL_RENDERER': JSON.stringify(true)
-    })
+    }),
+    new TileSetPlugin()
   ],
   optimization: {
     splitChunks: {
