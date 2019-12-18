@@ -126,7 +126,7 @@
         {
          "columns":20,
          "firstgid":1,
-         "image":"..\/img\/tileset\/town.png",
+         "image":"..\/img\/tileset\/original\/town.png",
          "imageheight":416,
          "imagewidth":640,
          "margin":0,
@@ -139,7 +139,7 @@
         {
          "columns":10,
          "firstgid":261,
-         "image":"..\/img\/tileset\/forest.png",
+         "image":"..\/img\/tileset\/original\/forest.png",
          "imageheight":384,
          "imagewidth":320,
          "margin":0,

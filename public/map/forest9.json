@@ -75,7 +75,7 @@
         }, 
         {
          "id":14,
-         "image":"..\/img\/tileset\/tree_house.png",
+         "image":"..\/img\/tileset\/original\/tree_house.png",
          "name":"tree_house",
          "offsetx":423,
          "offsety":0,
@@ -152,7 +152,7 @@
         {
          "columns":10,
          "firstgid":1,
-         "image":"..\/img\/tileset\/forest.png",
+         "image":"..\/img\/tileset\/original\/forest.png",
          "imageheight":384,
          "imagewidth":320,
          "margin":0,
