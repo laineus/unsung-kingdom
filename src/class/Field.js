@@ -62,7 +62,7 @@ export default class Field {
     return top
   }
   _getTilesets (tilemap) {
-    return tilemap.tilesets.map(tileset => tilemap.addTilesetImage(tileset.name, `tileset/${tileset.name}`))
+    return tilemap.tilesets.map(tileset => tilemap.addTilesetImage(tileset.name, `tileset/${tileset.name}`, 32, 32, 1, 2))
   }
   _getTileIdsByType (tilemap, type) {
     return tilemap.tilesets.map(set => {

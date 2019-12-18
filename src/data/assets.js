@@ -15,10 +15,10 @@ export default {
     ['encounter2', '../img/encounter2.png'],
     ['click', '../img/click.png'],
     // Tileset
-    ['tileset/room', '../img/tileset/room.png'],
-    ['tileset/town', '../img/tileset/town.png'],
-    ['tileset/forest', '../img/tileset/forest.png'],
-    ['tileset/tree_house', '../img/tileset/tree_house.png'],
+    ['tileset/room', '../img/tileset/extruded/room.png'],
+    ['tileset/town', '../img/tileset/extruded/town.png'],
+    ['tileset/forest', '../img/tileset/extruded/forest.png'],
+    ['tileset/tree_house', '../img/tileset/image/tree_house.png'],
     // Map
     ['map/world', '../img/map/world.png'],
     ['map/forest', '../img/map/forest.png'],
