@@ -80,7 +80,7 @@ export default {
     ['battle_effects', '../img/battle_effects.png', { frameWidth: 320, frameHeight: 320, endFrame: 6 }],
     // Charachip
     ['field/treasure_chest', '../img/field/treasure_chest.png', { frameWidth: 45, frameHeight: 39, endFrame: 7 }],
-    ['field/player', '../img/field/player.png', { frameWidth: 25, frameHeight: 41, endFrame: 12 }],
+    ['field/player', '../img/field/player.png', { frameWidth: 26, frameHeight: 44, endFrame: 12 }],
     ['field/jack', '../img/field/jack.png', { frameWidth: 26, frameHeight: 39, endFrame: 12 }],
     ['field/hunter', '../img/field/hunter.png', { frameWidth: 28, frameHeight: 39, endFrame: 12 }],
     ['field/annabelle', '../img/field/annabelle.png', { frameWidth: 28, frameHeight: 41, endFrame: 12 }],
