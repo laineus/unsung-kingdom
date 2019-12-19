@@ -58,15 +58,8 @@ export default [
   {
     key: 'm2_4',
     chapter: 2,
-    title: 'ヘクター元騎士団長の企て',
-    en: 'Hector ex-night',
-    map: 'forest1'
-  },
-  {
-    key: 'm2_5',
-    chapter: 2,
     title: 'アラグニエのねぐら',
-    en: 'Dirty Knight',
+    en: 'Aragnie\'s lair',
     map: 'forest1'
   },
   {
