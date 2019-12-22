@@ -14,6 +14,7 @@ export default {
     ['encounter1', '../img/encounter1.png'],
     ['encounter2', '../img/encounter2.png'],
     ['click', '../img/click.png'],
+    ['fadeout', '../img/fadeout.png'],
     // Tileset
     ['tileset/room', '../img/tileset/extruded/room.png'],
     ['tileset/town', '../img/tileset/extruded/town.png'],
