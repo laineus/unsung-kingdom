@@ -19,6 +19,7 @@ export default {
     ['tileset/room', '../img/tileset/extruded/room.png'],
     ['tileset/town', '../img/tileset/extruded/town.png'],
     ['tileset/forest', '../img/tileset/extruded/forest.png'],
+    ['tileset/underpass', '../img/tileset/extruded/underpass.png'],
     ['tileset/tree_house', '../img/tileset/image/tree_house.png'],
     // Map
     ['map/world', '../img/map/world.png'],
@@ -58,7 +59,8 @@ export default {
   json: [
     ['room', '../map/room.json'],
     ['town', '../map/town.json'],
-    ['forest', '../map/forest.json']
+    ['forest', '../map/forest.json'],
+    ['underpass', '../map/underpass.json']
   ],
   tilemapTiledJSON: [
     ['room1', '../map/room1.json'],
@@ -72,7 +74,8 @@ export default {
     ['forest6', '../map/forest6.json'],
     ['forest7', '../map/forest7.json'],
     ['forest8', '../map/forest8.json'],
-    ['forest9', '../map/forest9.json']
+    ['forest9', '../map/forest9.json'],
+    ['underpass1', '../map/underpass1.json']
   ],
   spritesheet: [
     // UI

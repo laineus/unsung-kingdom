@@ -10,6 +10,7 @@ import forest6 from '../map/forest6'
 import forest7 from '../map/forest7'
 import forest8 from '../map/forest8'
 import forest9 from '../map/forest9'
+import underpass1 from '../map/underpass1'
 export default {
   room1,
   town1,
@@ -22,5 +23,6 @@ export default {
   forest6,
   forest7,
   forest8,
-  forest9
+  forest9,
+  underpass1
 }
