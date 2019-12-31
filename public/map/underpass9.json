@@ -61,7 +61,29 @@
          "draworder":"topdown",
          "id":10,
          "name":"event",
-         "objects":[],
+         "objects":[
+                {
+                 "height":64,
+                 "id":1,
+                 "name":"underpass8",
+                 "properties":[
+                        {
+                         "name":"x",
+                         "type":"int",
+                         "value":27
+                        }, 
+                        {
+                         "name":"y",
+                         "type":"int",
+                         "value":3
+                        }],
+                 "rotation":0,
+                 "type":"gate",
+                 "visible":true,
+                 "width":96,
+                 "x":480,
+                 "y":800
+                }],
          "opacity":1,
          "type":"objectgroup",
          "visible":true,
@@ -69,7 +91,7 @@
          "y":0
         }],
  "nextlayerid":16,
- "nextobjectid":4,
+ "nextobjectid":2,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"2019.12.11",
