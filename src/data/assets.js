@@ -75,7 +75,15 @@ export default {
     ['forest7', '../map/forest7.json'],
     ['forest8', '../map/forest8.json'],
     ['forest9', '../map/forest9.json'],
-    ['underpass1', '../map/underpass1.json']
+    ['underpass1', '../map/underpass1.json'],
+    ['underpass2', '../map/underpass2.json'],
+    ['underpass3', '../map/underpass3.json'],
+    ['underpass4', '../map/underpass4.json'],
+    ['underpass5', '../map/underpass5.json'],
+    ['underpass6', '../map/underpass6.json'],
+    ['underpass7', '../map/underpass7.json'],
+    ['underpass8', '../map/underpass8.json'],
+    ['underpass9', '../map/underpass9.json']
   ],
   spritesheet: [
     // UI
