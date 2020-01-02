@@ -94,6 +94,42 @@
                  "width":64,
                  "x":912,
                  "y":96
+                }, 
+                {
+                 "height":0,
+                 "id":3,
+                 "name":"matilda",
+                 "point":true,
+                 "rotation":0,
+                 "type":"chara",
+                 "visible":true,
+                 "width":0,
+                 "x":1516,
+                 "y":396
+                }, 
+                {
+                 "height":0,
+                 "id":4,
+                 "name":"",
+                 "point":true,
+                 "rotation":0,
+                 "type":"object",
+                 "visible":true,
+                 "width":0,
+                 "x":942.666666666667,
+                 "y":150.666666666667
+                }, 
+                {
+                 "height":0,
+                 "id":5,
+                 "name":"",
+                 "point":true,
+                 "rotation":0,
+                 "type":"object",
+                 "visible":true,
+                 "width":0,
+                 "x":866.666666666667,
+                 "y":104
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -102,7 +138,7 @@
          "y":0
         }],
  "nextlayerid":16,
- "nextobjectid":3,
+ "nextobjectid":6,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"2019.12.11",
