@@ -32,5 +32,12 @@ export default {
     const solved = 'レックスベアの血液を手に入れた。ドリスタンの元へ届けよう。'
     if (state.event.m1_4.completed) return base
     return `${base}\n${state.event.m1_4.solved ? solved : bear}`
+  },
+  m2_1 (state) {
+    const base = 'アラグニエの糸の牢獄に幽閉されたカサンドラはワインを求めている。'
+    const wip = '地下通路のどこかにあるワインを見つけよう。'
+    const solved = 'ワインを手に入れた。カサンドラの元へ届けよう。'
+    if (state.event.m2_1.completed) return base
+    return `${base}\n${state.event.m2_1.solved ? solved : wip}`
   }
 }
