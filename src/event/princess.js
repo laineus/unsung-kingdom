@@ -1,8 +1,9 @@
+export const MAGIC_STONES = 5
 export const princess = (scene, mary, loretta) => {
   const state = scene.storage.state.event.m2_2
   const event = async () => {
     if (state.completed) {
-    } else if (state.count >= 5) {
+    } else if (state.count >= MAGIC_STONES) {
       state.completed = true
     } else if (state.started) {
       await scene.talk([

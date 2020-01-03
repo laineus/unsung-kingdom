@@ -1,4 +1,5 @@
 import { MANDRAKE_COUNT } from '../event/drystan'
+import { MAGIC_STONES } from '../event/princess'
 
 export default {
   m0_1 (state) {
@@ -39,5 +40,10 @@ export default {
     const solved = 'ワインを手に入れた。カサンドラの元へ届けよう。'
     if (state.event.m2_1.completed) return base
     return `${base}\n${state.event.m2_1.solved ? solved : wip}`
+  },
+  m2_2 (state) {
+    const base = 'メアリー王女は、カサンドラへの贈り物に使う魔石を集めている。'
+    const cnt = `収集したカーバンクルの魔石（${state.event.m2_2.count}/${MAGIC_STONES}）`
+    return state.event.m2_2.completed ? base : `${base}\n${cnt}`
   }
 }
