@@ -83,6 +83,30 @@
                  "width":64,
                  "x":480,
                  "y":544
+                }, 
+                {
+                 "height":0,
+                 "id":2,
+                 "name":"annabelle",
+                 "point":true,
+                 "rotation":0,
+                 "type":"chara",
+                 "visible":true,
+                 "width":0,
+                 "x":385.382323733863,
+                 "y":283.138033763654
+                }, 
+                {
+                 "height":0,
+                 "id":3,
+                 "name":"matilda",
+                 "point":true,
+                 "rotation":0,
+                 "type":"chara",
+                 "visible":true,
+                 "width":0,
+                 "x":419.463753723932,
+                 "y":262.164846077458
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -91,7 +115,7 @@
          "y":0
         }],
  "nextlayerid":16,
- "nextobjectid":2,
+ "nextobjectid":4,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"2019.12.11",
