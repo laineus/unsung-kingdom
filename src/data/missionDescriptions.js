@@ -42,8 +42,15 @@ export default {
     return `${base}\n${state.event.m2_1.solved ? solved : wip}`
   },
   m2_2 (state) {
-    const base = 'メアリー王女は、カサンドラへの贈り物に使う魔石を集めている。'
+    const base = 'メアリー王女と公爵令嬢ロレッタは、カサンドラへの贈り物に使うための素材と\nなる魔石を集めている。'
     const cnt = `収集したカーバンクルの魔石（${state.event.m2_2.count}/${MAGIC_STONES}）`
     return state.event.m2_2.completed ? base : `${base}\n${cnt}`
+  },
+  m2_3 (state) {
+    const base = '密造酒の密売人ディオニューソスは、番犬オルトロスが眠るのを待っている。'
+    const wip = 'ディオニューソスがオルトロスを泥酔させた。オルトロスを倒そう。'
+    const solved = 'オルトロスを倒した。ディオニューソスの元へ戻ろう。'
+    if (state.event.m2_3.completed) return base
+    return `${base}\n${state.event.m2_3.solved ? solved : wip}`
   }
 }
