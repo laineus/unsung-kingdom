@@ -105,6 +105,29 @@
                  "width":96,
                  "x":256,
                  "y":0
+                }, 
+                {
+                 "height":0,
+                 "id":3,
+                 "name":"elliott",
+                 "point":true,
+                 "rotation":0,
+                 "type":"chara",
+                 "visible":true,
+                 "width":0,
+                 "x":273,
+                 "y":184
+                }, 
+                {
+                 "height":96,
+                 "id":4,
+                 "name":"",
+                 "rotation":0,
+                 "type":"area",
+                 "visible":true,
+                 "width":96,
+                 "x":256,
+                 "y":32
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -113,7 +136,7 @@
          "y":0
         }],
  "nextlayerid":16,
- "nextobjectid":3,
+ "nextobjectid":5,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"2019.12.11",
