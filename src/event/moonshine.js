@@ -11,7 +11,7 @@ export const dionysus = (scene, dionysus, area, gate) => {
       { chara, text: '協力しようじゃないか。' },
       { chara: 'ann', text: '案？' },
       { chara, text: 'ああ。' },
-      { chara, text: '俺がオルトロスを「倒しやすく」してやる。' },
+      { chara, text: '俺がオルトロスの野郎を「倒しやすく」してやる。' },
       { chara: 'ann', text: 'どうやって？' },
       { chara, text: 'まあそれは任せとけ。' },
       { chara, text: 'だが必ず倒せよ。俺も身を削るんだ。' },
