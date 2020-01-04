@@ -121,6 +121,7 @@ export const hector = (scene, hector, mary, loretta) => {
       await scene.ui.transition('normal')
       charas.forEach(c => c.destroy())
       state.started = true
+      scene.ui.missionUpdate('m2_4')
     }
   })
 }
