@@ -52,5 +52,14 @@ export default {
     const solved = 'オルトロスを倒した。ディオニューソスの元へ戻ろう。'
     if (state.event.m2_3.completed) return base
     return `${base}\n${state.event.m2_3.solved ? solved : wip}`
+  },
+  m2_4 (state) {
+    const base = 'ヘクター元騎士は、カサンドラを投獄した王への復讐を考えている。\nメアリーとロレッタと協力し、カサンドラを解放しよう。'
+    const search = '魔石のランタンを使ってアラグニエのねぐらを探そう。'
+    const solved = 'アラグニエを倒した。カサンドラの元へ戻ろう。'
+    if (state.event.m2_4.completed) return base
+    if (state.event.m2_4.solved) return `${base}\n${solved}`
+    if (state.event.m2_4.search) return `${base}\n${search}`
+    return base
   }
 }
