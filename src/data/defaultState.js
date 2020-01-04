@@ -22,7 +22,7 @@ export default () => {
       m2_1: { started: false, completed: false, solved: false, talked: false, key: false, opened: false },
       m2_2: { started: false, completed: false, count: 0 },
       m2_3: { started: false, completed: false, solved: false, talked: false },
-      m2_4: { started: false, completed: false, solved: false, talk: false, search: false },
+      m2_4: { started: false, completed: false, solved: false, jack: false, talk: false, search: false },
       m3_1: { started: false, completed: false },
       m3_2: { started: false, completed: false },
       m3_3: { started: false, completed: false },

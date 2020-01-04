@@ -105,6 +105,29 @@
                  "width":96,
                  "x":832,
                  "y":0
+                }, 
+                {
+                 "height":0,
+                 "id":3,
+                 "name":"jack",
+                 "point":true,
+                 "rotation":0,
+                 "type":"chara",
+                 "visible":true,
+                 "width":0,
+                 "x":880,
+                 "y":27
+                }, 
+                {
+                 "height":256,
+                 "id":4,
+                 "name":"",
+                 "rotation":0,
+                 "type":"area",
+                 "visible":true,
+                 "width":224,
+                 "x":768,
+                 "y":128
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -113,7 +136,7 @@
          "y":0
         }],
  "nextlayerid":16,
- "nextobjectid":3,
+ "nextobjectid":5,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"2019.12.11",

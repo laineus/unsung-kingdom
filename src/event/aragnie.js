@@ -1,3 +1,21 @@
+export const jack = (scene, jack, area) => {
+  const state = scene.storage.state.event.m2_4
+  if (!scene.storage.state.event.m2_1.completed || state.jack) {
+    jack.destroy()
+    return
+  }
+  const chara = jack
+  area.setEvent(async () => {
+    await jack.setSpeed(140).setTargetPosition(jack.x, jack.y + (9).toPixel)
+    await scene.talk([
+      { chara, text: 'やあ' }
+    ])
+    state.jack = true
+    await scene.ui.transition('normal')
+    jack.destroy()
+  })
+}
+
 export const hector = (scene, hector, mary, loretta) => {
   mary.setVisible(false)
   loretta.setVisible(false)
