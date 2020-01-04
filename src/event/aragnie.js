@@ -99,6 +99,7 @@ export const hector = (scene, hector, mary, loretta) => {
         { chara: loretta, text: 'この落ちぶれたナイトだけでは不安だわ。' },
         { chara: 'ann', text: 'アラグニエを倒すんだね、任せて！' }
       ])
+      charas.forEach(c => c.setSpeed(100).setTargetPosition(scene.player.x, scene.player.y))
       await scene.ui.transition('normal')
       charas.forEach(c => c.destroy())
       state.started = true
