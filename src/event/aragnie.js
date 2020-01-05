@@ -125,3 +125,26 @@ export const hector = (scene, hector, mary, loretta) => {
     }
   })
 }
+
+export const aragnie = (scene, cassandra) => {
+  const state = scene.storage.state.event.m2_4
+  if (!state.started || state.completed) return
+  cassandra.setTapEvent(async chara => {
+    if (state.solved) {
+      await scene.talk([
+        { chara, text: 'solved' }
+      ])
+      state.completed = true
+      scene.ui.missionUpdate('m2_4', true)
+    } else if (state.search) {
+      await scene.talk([
+        { chara, text: '…。' }
+      ])
+    } else {
+      await scene.talk([
+        { chara, text: 'ヘクター、誰を連れてきたの？' }
+      ])
+      state.search = true
+    }
+  })
+}
