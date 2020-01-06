@@ -1,4 +1,5 @@
 export const cassandra = (scene, gate, cassandra, door, candle) => {
+  if (scene.storage.state.event.m2_4.started) return
   const state = scene.storage.state.event.m2_1
   gate.setActive(state.started)
   candle.setTapEvent(async () => {

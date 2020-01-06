@@ -126,7 +126,11 @@ export const hector = (scene, hector, mary, loretta) => {
   })
 }
 
-export const aragnie = (scene, cassandra) => {
+export const aragnie = (scene, cassandra, hector, mary, loretta, wall, yarn) => {
+  hector.setVisible(false)
+  mary.setVisible(false)
+  loretta.setVisible(false)
+  yarn.setVisible(false)
   const state = scene.storage.state.event.m2_4
   if (!state.started || state.completed) return
   cassandra.setTapEvent(async chara => {
@@ -145,6 +149,12 @@ export const aragnie = (scene, cassandra) => {
         { chara, text: 'ヘクター、誰を連れてきたの？' }
       ])
       state.search = true
+      wall.setVisible(true)
     }
   })
+  wall.setTapEvent(async () => {
+    await scene.talk([
+      { chara: 'ann', text: 'アラグニエ' }
+    ])
+  }).setVisible(state.search)
 }
