@@ -58,6 +58,18 @@
          "y":0
         }, 
         {
+         "id":16,
+         "image":"..\/img\/tileset\/image\/aragnie_yarn.png",
+         "name":"aragnie_yarn",
+         "offsetx":542,
+         "offsety":418,
+         "opacity":1,
+         "type":"imagelayer",
+         "visible":true,
+         "x":0,
+         "y":0
+        }, 
+        {
          "draworder":"topdown",
          "id":10,
          "name":"event",
@@ -130,6 +142,54 @@
                  "width":0,
                  "x":866.666666666667,
                  "y":104
+                }, 
+                {
+                 "height":0,
+                 "id":6,
+                 "name":"max",
+                 "point":true,
+                 "rotation":-180,
+                 "type":"chara",
+                 "visible":true,
+                 "width":0,
+                 "x":1496,
+                 "y":486
+                }, 
+                {
+                 "height":0,
+                 "id":7,
+                 "name":"annabelle",
+                 "point":true,
+                 "rotation":-180,
+                 "type":"chara",
+                 "visible":true,
+                 "width":0,
+                 "x":1557,
+                 "y":486
+                }, 
+                {
+                 "height":0,
+                 "id":8,
+                 "name":"matilda",
+                 "point":true,
+                 "rotation":-180,
+                 "type":"chara",
+                 "visible":true,
+                 "width":0,
+                 "x":1600,
+                 "y":492
+                }, 
+                {
+                 "height":0,
+                 "id":9,
+                 "name":"",
+                 "point":true,
+                 "rotation":0,
+                 "type":"object",
+                 "visible":true,
+                 "width":0,
+                 "x":561,
+                 "y":538
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -137,8 +197,8 @@
          "x":0,
          "y":0
         }],
- "nextlayerid":16,
- "nextobjectid":6,
+ "nextlayerid":17,
+ "nextobjectid":10,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"2019.12.11",

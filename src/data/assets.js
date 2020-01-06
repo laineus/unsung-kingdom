@@ -21,6 +21,7 @@ export default {
     ['tileset/forest', '../img/tileset/extruded/forest.png'],
     ['tileset/underpass', '../img/tileset/extruded/underpass.png'],
     ['tileset/tree_house', '../img/tileset/image/tree_house.png'],
+    ['tileset/aragnie_yarn', '../img/tileset/image/aragnie_yarn.png'],
     // Map
     ['map/world', '../img/map/world.png'],
     ['map/forest', '../img/map/forest.png'],
