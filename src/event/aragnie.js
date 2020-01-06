@@ -127,11 +127,11 @@ export const hector = (scene, hector, mary, loretta) => {
 }
 
 export const aragnie = (scene, cassandra, hector, mary, loretta, wall, yarn) => {
-  hector.setVisible(false)
-  mary.setVisible(false)
-  loretta.setVisible(false)
-  yarn.setVisible(false)
   const state = scene.storage.state.event.m2_4
+  const setCharaVisible = bool => [hector, mary, loretta].forEach(v => v.setVisible(bool))
+  setCharaVisible(false)
+  yarn.setVisible(!state.solved && state.search).setAlpha(0.1)
+  scene.add.tween({ targets: yarn, duration: 1000, alpha: 0.6, yoyo: true, loop: -1 })
   if (!state.started || state.completed) return
   cassandra.setTapEvent(async chara => {
     if (state.solved) {
@@ -145,16 +145,23 @@ export const aragnie = (scene, cassandra, hector, mary, loretta, wall, yarn) => 
         { chara, text: '…。' }
       ])
     } else {
+      await scene.ui.transition('normal')
+      scene.player.setPosition((45).toPixelCenter, (15).toPixelCenter).setR('up')
+      setCharaVisible(true)
       await scene.talk([
         { chara, text: 'ヘクター、誰を連れてきたの？' }
       ])
+      await scene.ui.transition('normal')
+      setCharaVisible(false)
       state.search = true
       wall.setVisible(true)
+      yarn.setVisible(true)
     }
   })
   wall.setTapEvent(async () => {
     await scene.talk([
       { chara: 'ann', text: 'アラグニエ' }
     ])
+    state.solved = true
   }).setVisible(state.search)
 }
