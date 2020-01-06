@@ -16,7 +16,7 @@ export default class Field {
     this.staticLayers = tilemap.layers.map((layer, i) => {
       return layer.visible ? tilemap.createStaticLayer(i, tilesets, 0, 0) : null
     }).filter(Boolean)
-    this.images = tilemap.images.map(data => scene.add.sprite(data.x, data.y, `tileset/${data.name}`).setOrigin(0, 0))
+    this.images = tilemap.images.map(data => this._getImage(data))
     const collides = this._getTileIdsByType(tilemap, 'collides')
     this.staticLayers.forEach(layer => layer.setCollision(collides))
     this.staticLayers[this.staticLayers.length - 1].setDepth(100000)
@@ -31,6 +31,9 @@ export default class Field {
     return ['charas', 'gates', 'areas', 'objects', 'treasures'].reduce((found, key) => {
       return found || this[key].find(v => v.id === id)
     }, null)
+  }
+  getImageByName (name) {
+    return this.images.find(v => v.name === name)
   }
   isCollides (tileX, tileY) {
     return this.staticLayers.some(layer => {
@@ -72,6 +75,12 @@ export default class Field {
   }
   _getObjects (tilemap, type) {
     return tilemap.objects.map(v => v.objects).flat().filter(v => v.type === type)
+  }
+  _getImage (data) {
+    const image = data.image.split('/').slice(-1)[0].split('.')[0]
+    const sprite = this.scene.add.sprite(data.x, data.y, `tileset/${image}`).setOrigin(0, 0)
+    sprite.name = data.name
+    return sprite
   }
   _toAreaData (v) {
     return {
