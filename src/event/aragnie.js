@@ -156,7 +156,8 @@ export const aragnie = (scene, cassandra, hector, mary, loretta, wall, yarn) => 
       state.search = true
       wall.setVisible(true)
       yarn.setVisible(true)
-      scene.player.setLamp(true, yarn)
+      setLamp(scene, scene.player, yarn)
+      // clearLamp(scene.player, yarn)
     }
   })
   wall.setTapEvent(async () => {
@@ -165,4 +166,31 @@ export const aragnie = (scene, cassandra, hector, mary, loretta, wall, yarn) => 
     ])
     state.solved = true
   }).setVisible(state.search)
+}
+
+const setLamp = (scene, player, yarn) => {
+  const mask = scene.make.graphics().fillCircle(0, 0, 100).createGeometryMask()
+  yarn.setMask(mask)
+  const lamp = scene.add.sprite(0, 0, 'field/magic_lamp').setScale(1.1).setAlpha(0.7).setRotation(-Math.PI).setTint('#ff0000'.toColorInt)
+  lamp.setMask(mask)
+  lamp.blendMode = 1
+  lamp.color = 70
+  lamp.colorBool = true
+  lamp.preUpdate = () => {
+    mask.geometryMask.x = player.x
+    mask.geometryMask.y = player.y
+    // color anim
+    lamp.color += lamp.colorBool ? 1 : -1
+    if (lamp.color <= 70 || lamp.color >= 185) lamp.colorBool = !lamp.colorBool
+    const g = lamp.color.toString(16).padStart(2, 0)
+    const b = (255 - lamp.color).toString(16).padStart(2, 0)
+    lamp.setTint(`#FF${g}${b}`.toColorInt)
+  }
+  player.add(lamp)
+  player.lamp = lamp
+}
+
+const clearLamp = (player, yarn) => {
+  player.lamp.destroy()
+  yarn.clearMask(true)
 }
