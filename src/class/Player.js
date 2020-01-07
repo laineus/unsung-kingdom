@@ -27,4 +27,40 @@ export default class Player extends Character {
     this.scene.storage.state.r = this.r
     if (this.walking) this.emit('walk')
   }
+  setLamp (bool, object) {
+    if (this.lamp) {
+      if (bool) return
+      this.lamp.destroy()
+      object.clearMask(true)
+      return
+    }
+    const mask = this.scene.make.graphics().fillCircle(0, 0, 100).createGeometryMask()
+    this.lamp = this.getLamp()
+    this.lamp.preUpdate = () => {
+      mask.geometryMask.x = this.x
+      mask.geometryMask.y = this.y
+    }
+    this.add(this.lamp)
+    object.setMask(mask)
+  }
+  getLamp () {
+    const lamp = this.scene.add.sprite(0, 0, 'field/magic_lamp').setScale(1.1).setAlpha(0.7).setRotation(-Math.PI).setTint('#ff0000'.toColorInt)
+    lamp.blendMode = 1
+    lamp.color = 0
+    lamp.colorBool = true
+    this.scene.add.tween({
+      targets: lamp,
+      duration: 5000,
+      loop: -1,
+      rotation: Math.PI,
+      onUpdate () {
+        lamp.color += lamp.colorBool ? 1 : -1
+        if (lamp.color <= 0 || lamp.color >= 255) lamp.colorBool = !lamp.colorBool
+        const g = lamp.color.toString(16).padStart(2, 0)
+        const b = (255 - lamp.color).toString(16).padStart(2, 0)
+        lamp.setTint(`#FF${g}${b}`.toColorInt)
+      }
+    })
+    return lamp
+  }
 }

@@ -156,6 +156,7 @@ export const aragnie = (scene, cassandra, hector, mary, loretta, wall, yarn) => 
       state.search = true
       wall.setVisible(true)
       yarn.setVisible(true)
+      scene.player.setLamp(true, yarn)
     }
   })
   wall.setTapEvent(async () => {

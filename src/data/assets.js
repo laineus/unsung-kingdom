@@ -47,6 +47,7 @@ export default {
     ['face/matilda', '../img/face/matilda.png'],
     // Object
     ['field/flower', '../img/field/flower.png'],
+    ['field/magic_lamp', '../img/magic_lamp.png'],
     // Enemy
     ['battler/jack', '../img/battler/jack.png'],
     ['battler/bee', '../img/battler/bee.png'],
