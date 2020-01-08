@@ -136,49 +136,71 @@ export const aragnie = (scene, cassandra, hector, mary, loretta, wall, yarn) => 
   cassandra.setTapEvent(async chara => {
     if (state.solved) {
       await scene.talk([
-        { chara, text: 'solved' }
+        { chara: cassandra, text: 'solved' }
       ])
       state.completed = true
       scene.ui.missionUpdate('m2_4', true)
     } else if (state.search) {
       await scene.talk([
-        { chara, text: '…。' }
+        { chara: cassandra, text: '…。' }
       ])
     } else {
       await scene.ui.transition('normal')
       scene.player.setPosition((45).toPixelCenter, (15).toPixelCenter).setR('up')
       setCharaVisible(true)
       await scene.talk([
-        { chara, text: 'ヘクター、誰を連れてきたの？' }
-      ])
+        { chara: hector, text: 'カサンドラ。' },
+        { chara: cassandra, text: 'ヘクター、誰を連れてきたの？' },
+        { chara: mary, text: 'カサンドラ…、久しぶり。' },
+        { chara: cassandra, text: 'あ…！' },
+        { chara: cassandra, text: 'なんで…、…ここに？' },
+        { chara: mary, text: 'あなたにお詫びがしたくて、' },
+        { chara: mary, text: 'あなたを、ここから出します。' },
+        { chara: cassandra, text: '出るだなんて、叶いません。' },
+        { chara: cassandra, text: 'それに詫びなどと、' },
+        { chara: cassandra, text: '詫びねばならぬのは私のほうです。' },
+        { chara: hector, text: '聞け、カサンドラ。' },
+        { chara: hector, text: '王女はアラグニエを探すための道具を作ってくれた。' },
+        { chara: hector, text: 'お前のためにだ。' },
+        { chara: hector, text: '王女のお気持ちに背く理由はない。' },
+        { chara: cassandra, text: '…。' },
+        { chara: loretta, text: 'さあ、魔石に光を灯しましょう。' }
+      ], { angle: false })
       await scene.ui.transition('normal')
       setCharaVisible(false)
       state.search = true
       wall.setVisible(true)
       yarn.setVisible(true)
       setLamp(scene, scene.player, yarn)
-      // clearLamp(scene.player, yarn)
+      scene.player.setR('right')
+      await scene.talk([
+        { chara: 'ann', text: 'すごい！' },
+        { chara: 'ann', text: 'アラグニエの糸が見える！' },
+        { chara: 'ann', text: 'これでアラグニエの居場所を探せばいいのね。' }
+      ])
     }
   })
   wall.setTapEvent(async () => {
     await scene.talk([
       { chara: 'ann', text: 'アラグニエ' }
     ])
+    wall.destroy()
+    clearLamp(scene.player, yarn)
     state.solved = true
-  }).setVisible(state.search)
+  }).setVisible(state.search && !state.solved)
 }
 
 const setLamp = (scene, player, yarn) => {
   const mask = scene.make.graphics().fillCircle(0, 0, 100).createGeometryMask()
   yarn.setMask(mask)
-  const lamp = scene.add.sprite(0, 0, 'field/magic_lamp').setScale(1.1).setAlpha(0.7).setRotation(-Math.PI).setTint('#ff0000'.toColorInt)
+  const lamp = scene.add.sprite(0, -15, 'field/magic_lamp').setScale(1.1).setAlpha(0.7).setRotation(-Math.PI).setTint('#ff0000'.toColorInt)
   lamp.setMask(mask)
   lamp.blendMode = 1
   lamp.color = 70
   lamp.colorBool = true
   lamp.preUpdate = () => {
     mask.geometryMask.x = player.x
-    mask.geometryMask.y = player.y
+    mask.geometryMask.y = player.y - 15
     // color anim
     lamp.color += lamp.colorBool ? 1 : -1
     if (lamp.color <= 70 || lamp.color >= 185) lamp.colorBool = !lamp.colorBool
