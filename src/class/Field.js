@@ -70,7 +70,7 @@ export default class Field {
   _getTileIdsByType (tilemap, type) {
     return tilemap.tilesets.map(set => {
       const data = this.scene.cache.json.get(set.name)
-      return data.tiles.filter(tile => tile.type === type).map(tile => tile.id + set.firstgid)
+      return data.tiles.filter(tile => tile.type.split(',').includes(type)).map(tile => tile.id + set.firstgid)
     }).flat()
   }
   _getObjects (tilemap, type) {
