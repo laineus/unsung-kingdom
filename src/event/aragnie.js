@@ -1,3 +1,4 @@
+import Talker from '../class/Talker'
 export const jack = (scene, jack, area) => {
   const state = scene.storage.state.event.m2_4
   if (!scene.storage.state.event.m2_1.completed || state.jack) {
@@ -128,11 +129,11 @@ export const hector = (scene, hector, mary, loretta) => {
 
 export const aragnie = (scene, cassandra, hector, mary, loretta, wall, yarn) => {
   const state = scene.storage.state.event.m2_4
+  yarn.setVisible(false)
   const setCharaVisible = bool => [hector, mary, loretta].forEach(v => v.setVisible(bool))
   setCharaVisible(false)
-  yarn.setVisible(!state.solved && state.search).setAlpha(0.1)
-  scene.add.tween({ targets: yarn, duration: 1000, alpha: 0.6, yoyo: true, loop: -1 })
   if (!state.started || state.completed) return
+  if (state.search && !state.solved) setLamp(scene, scene.player, yarn)
   cassandra.setTapEvent(async chara => {
     if (state.solved) {
       await scene.talk([
@@ -155,6 +156,7 @@ export const aragnie = (scene, cassandra, hector, mary, loretta, wall, yarn) => 
         { chara: cassandra, text: 'あ…！' },
         { chara: cassandra, text: 'なんで…、…ここに？' },
         { chara: mary, text: 'あなたにお詫びがしたくて、' },
+        { chara: cassandra, text: 'え…？' },
         { chara: mary, text: 'あなたを、ここから出します。' },
         { chara: cassandra, text: '出るだなんて、叶いません。' },
         { chara: cassandra, text: 'それに詫びなどと、' },
@@ -170,7 +172,6 @@ export const aragnie = (scene, cassandra, hector, mary, loretta, wall, yarn) => 
       setCharaVisible(false)
       state.search = true
       wall.setVisible(true)
-      yarn.setVisible(true)
       setLamp(scene, scene.player, yarn)
       scene.player.setR('right')
       await scene.talk([
@@ -180,9 +181,19 @@ export const aragnie = (scene, cassandra, hector, mary, loretta, wall, yarn) => 
       ])
     }
   })
+  const talkerLoretta = new Talker('matilda', 'ロレッタ', scene.player)
+  const talkerMary = new Talker('annabelle', 'メアリー', scene.player)
   wall.setTapEvent(async () => {
     await scene.talk([
-      { chara: 'ann', text: 'アラグニエ' }
+      { chara: talkerLoretta, text: 'ここだ！' },
+      { chara: talkerLoretta, text: 'この壁画の中に隠れているのね。' },
+      { chara: talkerMary, text: 'さあアラグニエ、姿を現しなさい！' },
+      { chara: 'ann', text: 'え、ちょっと！まだ心の準備が！' }
+    ])
+    await scene.talk([
+      { chara: 'ann', text: 'た、倒せた…。' },
+      { chara: talkerLoretta, text: 'よくやったわ！' },
+      { chara: talkerMary, text: 'カサンドラの元に戻ろう！' }
     ])
     wall.destroy()
     clearLamp(scene.player, yarn)
@@ -192,7 +203,8 @@ export const aragnie = (scene, cassandra, hector, mary, loretta, wall, yarn) => 
 
 const setLamp = (scene, player, yarn) => {
   const mask = scene.make.graphics().fillCircle(0, 0, 100).createGeometryMask()
-  yarn.setMask(mask)
+  yarn.setVisible(true).setMask(mask)
+  scene.add.tween({ targets: yarn, duration: 1000, alpha: 0.6, yoyo: true, loop: -1 })
   const lamp = scene.add.sprite(0, -15, 'field/magic_lamp').setScale(1.1).setAlpha(0.7).setRotation(-Math.PI).setTint('#ff0000'.toColorInt)
   lamp.setMask(mask)
   lamp.blendMode = 1
@@ -214,5 +226,5 @@ const setLamp = (scene, player, yarn) => {
 
 const clearLamp = (player, yarn) => {
   player.lamp.destroy()
-  yarn.clearMask(true)
+  yarn.destroy()
 }
