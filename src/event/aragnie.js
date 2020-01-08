@@ -134,11 +134,49 @@ export const aragnie = (scene, cassandra, hector, mary, loretta, wall, yarn) => 
   setCharaVisible(false)
   if (!state.started || state.completed) return
   if (state.search && !state.solved) setLamp(scene, scene.player, yarn)
-  cassandra.setTapEvent(async chara => {
+  cassandra.setTapEvent(async () => {
     if (state.solved) {
+      await scene.ui.transition('normal')
+      scene.player.setPosition((45).toPixelCenter, (15).toPixelCenter).setR('up')
+      setCharaVisible(true)
       await scene.talk([
-        { chara: cassandra, text: 'solved' }
-      ])
+        { chara: loretta, text: '本当に、開いたね。' },
+        { chara: mary, text: 'よかった…！' },
+        { chara: mary, text: 'カサンドラ、今から貴女は自由です。' },
+        { chara: cassandra, text: '…。' },
+        { chara: cassandra, text: 'やはり…、私はここからは出られません。' },
+        { chara: mary, text: 'どうして？' },
+        { chara: cassandra, text: 'その目、' },
+        { chara: cassandra, text: 'その目を見るたび、私は私自身の心を斬り刻むのです。' },
+        { chara: cassandra, text: 'こうして牢の内から、罰を受けながらでなければ、どのようにしてそのお顔を見ることができましょう。' },
+        { chara: mary, text: 'カサンドラ、私の目を憐れむのは辞めて。' },
+        { chara: loretta, text: 'そうよ、うじうじ言ってないで早く出てきなさい。' },
+        { chara: loretta, text: '分からない？メアリーが牢に封じられているあなたを見る気持ちだってそれと同じなのよ。' },
+        { chara: cassandra, text: 'レディロレッタ…。' },
+        { chara: hector, text: 'カサンドラ、出てきてくれ。' },
+        { chara: hector, text: '遠い地に移り住み、お前の人生をやり直そう。' },
+        { chara: cassandra, text: '…分かりました。' },
+        { chara: cassandra, text: 'なんと感謝を述べてよいのやら。' },
+        { chara: mary, text: 'カサンドラ、あなたは私の過ちによって7年ものときをこの牢獄で過ごしたわ。' },
+        { chara: mary, text: 'これは私のただの罪滅ぼしであり、礼に及ぶところではありません。' },
+        { chara: mary, text: 'さあ、振り返らず、出て行ってちょうだい。' },
+        { chara: cassandra, text: 'はい。' }
+      ], { angle: false })
+      await scene.ui.transition('slow')
+      cassandra.setVisible(false)
+      hector.setVisible(false)
+      mary.setR('right')
+      loretta.setR('left')
+      scene.player.setR('right')
+      await scene.talk([
+        { chara: loretta, text: '行っちゃったね。' },
+        { chara: mary, text: 'うん…。' },
+        { chara: mary, text: 'カサンドラ…、' },
+        { chara: mary, text: '私の尊敬する、お姉様。' },
+        { chara: loretta, text: '元気出して、メアリー。' }
+      ], { angle: false })
+      await scene.ui.transition('slow')
+      setCharaVisible(false)
       state.completed = true
       scene.ui.missionUpdate('m2_4', true)
     } else if (state.search) {
