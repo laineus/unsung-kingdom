@@ -1,7 +1,7 @@
 import config from '../data/config'
 import SpeachBubble from './SpeachBubble'
 export default class Talk extends Phaser.GameObjects.Container {
-  constructor (scene, events, callback) {
+  constructor (scene, events, { angle = true } = {}, callback) {
     super(scene)
     this.scene = scene
     this.events = events
@@ -11,9 +11,9 @@ export default class Talk extends Phaser.GameObjects.Container {
     this.npc = this.events.filter(v => v && typeof v.chara !== 'string').map(v => v.chara)
     this.npc.forEach(c => {
       c.setTalking(true)
-      c.setR(c.angleTo(this.scene.gameScene.player))
+      if (angle) c.setR(c.angleTo(this.scene.gameScene.player))
     })
-    if (this.npc.length) this.scene.gameScene.player.setR(this.scene.gameScene.player.angleTo(this.npc[0]))
+    if (angle && this.npc.length) this.scene.gameScene.player.setR(this.scene.gameScene.player.angleTo(this.npc[0]))
     const averageX = Math.average(...this.npc.map(c => c.x), this.scene.gameScene.player.x)
     this.events.filter(v => v).reduce((prev, v) => {
       v.position = this.getChara(v).x < averageX ? -1 : 1

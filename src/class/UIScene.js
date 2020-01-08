@@ -96,8 +96,8 @@ export default class UIScene extends Phaser.Scene {
   worldMap () {
     return new Promise(resolve => new WorldMap(this, resolve))
   }
-  talk (talks) {
-    return new Promise(resolve => new Talk(this, talks, resolve))
+  talk (talks, option) {
+    return new Promise(resolve => new Talk(this, talks, option, resolve))
   }
   select (options) {
     return new Promise(resolve => new Select(this, options, resolve))
