@@ -148,7 +148,8 @@ export const aragnie = (scene, cassandra, hector, mary, loretta, wall, yarn) => 
         { chara: mary, text: 'どうして？' },
         { chara: cassandra, text: 'その目、' },
         { chara: cassandra, text: 'その目を見るたび、私は私自身の心を斬り刻むのです。' },
-        { chara: cassandra, text: 'こうして牢の内から、罰を受けながらでなければ、どのようにしてそのお顔を見ることができましょう。' },
+        { chara: cassandra, text: 'こうして牢の内から、罰を受けながらでなければ、' },
+        { chara: cassandra, text: 'どのようにしてそのお顔を見ることができましょう。' },
         { chara: mary, text: 'カサンドラ、私の目を憐れむのは辞めて。' },
         { chara: loretta, text: 'そうよ、うじうじ言ってないで早く出てきなさい。' },
         { chara: loretta, text: '分からない？メアリーが牢に封じられているあなたを見る気持ちだってそれと同じなのよ。' },
@@ -179,6 +180,14 @@ export const aragnie = (scene, cassandra, hector, mary, loretta, wall, yarn) => 
       setCharaVisible(false)
       state.completed = true
       scene.ui.missionUpdate('m2_4', true)
+      await scene.talk([
+        { chara: 'ann', text: 'これでヘクターは王への復讐を辞めるよね。' },
+        { chara: 'jaquelyn', text: 'そうね。頑張ったわ、アン。' },
+        { chara: 'francisca', text: 'さあ、さっさと戻って王国史を確認しよう。' }
+      ])
+      await scene.ui.sleep(1000)
+      scene.storage.state.chapter = 3
+      await scene.mapChange('room1', (19).toPixelCenter, (11).toPixel, { speed: 'slow' })
     } else if (state.search) {
       await scene.talk([
         { chara: cassandra, text: '…。' }
