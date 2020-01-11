@@ -34,17 +34,17 @@ export default (scene, charas) => {
         scene.ui.announce('マップ「トロイア公爵邸の地下通路」が解放された')
       }
     } else {
-      const i = await scene.select(['地下通路について', 'トロイア公爵邸について', 'なんでもない'])
+      const i = await scene.select(['王城の隠し通路について', 'トロイア公爵邸について', 'なんでもない'])
       if (i === 2) return
       await scene.talk(i === 0 ? [
-        { chara, text: '王城の地下通路ね。' },
+        { chara, text: '王城の隠し通路ね。' },
         { chara, text: '戦争のときなんかに王族が城外に逃げるために使うのね。' },
         { chara: 'ann', text: 'どこにあるか知っていますか？' },
         { chara, text: 'さすがに知らないわ。' },
         { chara, text: '出口が敵国にバレたら意味がないもの。極秘なのよね。' },
         { chara: 'ann', text: 'なるほど。' }
       ] : [
-        { chara, text: '街を出て南東のほうにあるわ。' },
+        { chara, text: 'トロイア公爵邸なら街を出て南東のほうにあるわ。' },
         { chara, text: 'あなた、行きたいの？' },
         { chara, text: '近くまでは行けるでしょうけど、敷地内には入れないわよ。' },
         { chara: 'ann', text: 'アンバーさんは入れるんですか？' },
