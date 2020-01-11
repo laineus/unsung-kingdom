@@ -4,34 +4,39 @@ export default (scene, charas) => {
   // 噂好きのアンバー婦人
   charas.amber.setTapEvent(async chara => {
     if (eState.talked_annabelle) {
-      await scene.talk(eState.talked_amber2 ? [
-        { chara, text: '公爵によろしくね。' }
-      ] : [
-        { chara: 'ann', text: '公爵への贈り物、決まりましたか？' },
-        { chara, text: 'いいえ、困っているのよ。' },
-        { chara: 'ann', text: 'チューリップなんてどうですか？' },
-        { chara, text: 'そうね、流行っているしいいかもしれないわね。' },
-        { chara, text: 'でも珍しい模様のものはさすがに私にも高すぎるわ…。' },
-        { chara: 'ann', text: '球根でよければおすそ分けしますよ！' },
-        { chara, text: 'あら、いいの？' },
-        { chara, text: '確かに咲く前のものなら、楽しみもありそうね。' },
-        { chara: 'ann', text: 'どうぞ！' },
-        { chara, text: 'ありがとう。' },
-        { chara, text: 'さっそく遣いに届けさせるわ。' },
-        { chara: 'ann', text: 'あ、私たちちょうど近くに用があるので届けますよ！' },
-        { chara, text: 'あら、ほんとに？' },
-        { chara, text: '何から何まで申し訳ないわ。' },
-        { chara: 'ann', text: 'いいんです！' },
-        { chara, text: 'そう？じゃあお願いするわ。' },
-        { chara, text: '公爵への手紙と地図を書くわね。' },
-        { chara, text: 'これで邸宅の入り口までは通してもらえるはずよ。' }
-      ])
-      eState.talked_amber2 = true
-      scene.storage.state.allowed_map = Math.max(scene.storage.state.allowed_map, 3)
-      scene.ui.announce('マップ「トロイア公爵邸の地下通路」が解放された')
+      if (eState.talked_amber2) {
+        await scene.talk([
+          { chara, text: '公爵によろしくね。' }
+        ])
+      } else {
+        await scene.talk([
+          { chara: 'ann', text: '公爵への贈り物、決まりましたか？' },
+          { chara, text: 'いいえ、困っているのよ。' },
+          { chara: 'ann', text: 'チューリップなんてどうですか？' },
+          { chara, text: 'そうね、流行っているしいいかもしれないわね。' },
+          { chara, text: 'でも珍しい模様のものはさすがに私にも高すぎるわ…。' },
+          { chara: 'ann', text: '球根でよければおすそ分けしますよ！' },
+          { chara, text: 'あら、いいの？' },
+          { chara, text: '確かに咲く前のものなら、楽しみもあって素敵ね。' },
+          { chara: 'ann', text: 'どうぞ！' },
+          { chara, text: 'ありがとう。' },
+          { chara, text: 'さっそく遣いに届けさせるわ。' },
+          { chara: 'ann', text: 'あ、私たちちょうど近くに用があるので届けますよ！' },
+          { chara, text: 'あら、ほんとに？' },
+          { chara, text: '何から何まで申し訳ないわ。' },
+          { chara: 'ann', text: 'いいんです！' },
+          { chara, text: 'そう？じゃあお願いするわ。' },
+          { chara, text: '公爵への手紙と地図を書くわね。' },
+          { chara, text: 'これで邸宅の入り口までは通してもらえるはずよ。' }
+        ])
+        eState.talked_amber2 = true
+        scene.storage.state.allowed_map = Math.max(scene.storage.state.allowed_map, 3)
+        scene.ui.announce('マップ「トロイア公爵邸の地下通路」が解放された')
+      }
     } else {
-      const i = await scene.select(['地下通路について', 'トロイア公爵邸について'])
-      await scene.talk(i ? [
+      const i = await scene.select(['地下通路について', 'トロイア公爵邸について', 'なんでもない'])
+      if (i === 2) return
+      await scene.talk(i === 0 ? [
         { chara, text: '王城の地下通路ね。' },
         { chara, text: '戦争のときなんかに王族が城外に逃げるために使うのね。' },
         { chara: 'ann', text: 'どこにあるか知っていますか？' },
@@ -53,7 +58,7 @@ export default (scene, charas) => {
         { chara, text: 'だから今度は何を送ろうか悩んでいるのよ。' },
         { chara, text: '何か良いアイディアがあったら教えてちょうだいね。' }
       ])
-      if (i) eState.talked_amber1 = true
+      if (i === 1) eState.talked_amber1 = true
     }
   })
   // 宿屋のアナベル
@@ -77,7 +82,7 @@ export default (scene, charas) => {
       ])
       eState.talked_annabelle = true
     } else {
-      annabelle(scene, chara)
+      return annabelle(scene, chara)
     }
   })
   // 内気なマチルダ
@@ -101,7 +106,7 @@ export default (scene, charas) => {
       ])
       eState.talked_elliott = true
     } else {
-      elliott(scene, chara)
+      return elliott(scene, chara)
     }
   })
   // 賞金稼ぎのマックス
@@ -112,7 +117,7 @@ export default (scene, charas) => {
         { chara, text: 'そういうのはエリオットが詳しいぜ。' }
       ])
     } else {
-      max(scene, chara)
+      return max(scene, chara)
     }
   })
 }
