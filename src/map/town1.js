@@ -1,8 +1,10 @@
 import townChapter0 from '../event/townChapter0'
 import townChapter1 from '../event/townChapter1'
+import townChapter2 from '../event/townChapter2'
 const events = [
   townChapter0,
-  townChapter1
+  townChapter1,
+  townChapter2
 ]
 export default {
   area: {

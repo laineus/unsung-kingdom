@@ -116,5 +116,54 @@ const events = [
     francisca.setVisible(false)
     jaquelyn.setVisible(false)
     setDefaultWeapon(scene.storage.state)
+  },
+  async (scene, francisca, jaquelyn) => {
+    scene.player.setR('down')
+    await scene.ui.sleep(1000)
+    await scene.talk([
+      { chara: 'ann', text: 'さあ、べリオン王国史を確認するよ！' },
+      { chara: jaquelyn, text: '前は、「王は急な病に伏して死ぬ」だったわね。' },
+      { chara: 'ann', text: 'えーと、' },
+      { chara: 'ann', text: 'ここだ' },
+      { chara: 'ann', text: '「退役した王国騎士の団長に裏切られ、殺される」…。' },
+      { chara: 'ann', text: 'また死んじゃう未来だよ！' },
+      { chara: francisca, text: 'まあ、そんな気はしたけど。' },
+      { chara: 'ann', text: 'もしかして、歴史を変えることって不可能なのかな？' },
+      { chara: 'ann', text: 'この前もそうだけど、死因が変わっただけであって、王が死ぬという歴史は変わってないよね？' },
+      { chara: jaquelyn, text: 'うーん…。' },
+      { chara: jaquelyn, text: '王には死ぬ可能性が複数あったんじゃないかしら？' },
+      { chara: jaquelyn, text: 'その一つを解決したら、次の死因に移る。' },
+      { chara: 'ann', text: 'じゃあ全てを解決できたとき、王は死なない歴史に変わる？' },
+      { chara: francisca, text: 'それにしてはこの短期間に死因が集中しすぎていない？' },
+      { chara: jaquelyn, text: 'うーん、たしかに…、そうね。' },
+      { chara: 'ann', text: '何か、王が死ななければいけない理由があるんじゃないかな。' },
+      { chara: 'ann', text: 'それが運命的なものなのか、もっと具体的なものなのかは分からないけど…。' },
+      { chara: 'ann', text: 'とにかくそれを突き止めなきゃいけない気がする。' },
+      { chara: francisca, text: 'どうやって？' },
+      { chara: 'ann', text: '次の死因も調査して、王を助けよう！' },
+      { chara: 'ann', text: '私は、今やっていることは無駄じゃないと思うの。' },
+      { chara: 'ann', text: 'ここ数日で分かってきたことも多いし…、' },
+      { chara: francisca, text: '確かに、もっと情報は欲しいね。' },
+      { chara: jaquelyn, text: 'どちらにしても助けないわけにはいかないしね。' },
+      { chara: 'ann', text: 'じゃあ決まり！' },
+      { chara: 'ann', text: '王を助けつつ、王が死んでしまう謎を追いかける。' },
+      { chara: jaquelyn, text: '今回の王の死について、王国史にもっと詳しい情報はあるかしら？' },
+      { chara: 'ann', text: 'うん、' },
+      { chara: 'ann', text: '「現場は王城、深夜に外部から侵入した元騎士団長ヘクターによって殺害される」' },
+      { chara: 'ann', text: '「ヘクターは王城の地下に作られた隠し通路から侵入した説が濃厚」' },
+      { chara: 'ann', text: 'だって。' },
+      { chara: jaquelyn, text: 'この元騎士団長のヘクターって、王殺しのジャックと同一人物かしら？' },
+      { chara: francisca, text: 'どうかな、もしそうだとすると厄介だね。' },
+      { chara: jaquelyn, text: 'まずはどうしよっか？' },
+      { chara: 'ann', text: 'この隠し通路ってところに行ってみよう。' },
+      { chara: francisca, text: '隠し通路か。きっと籠城時とかに使うためのものかな。' },
+      { chara: jaquelyn, text: '場所を知っている人は限られそうね。' },
+      { chara: 'ann', text: 'じゃあまた街の人に聞き込みからだね！' },
+      { chara: 'ann', text: '行こう！' }
+    ])
+    await scene.ui.chapterStart(`${chapters[2].name} ${chapters[2].title}`)
+    francisca.setVisible(false)
+    jaquelyn.setVisible(false)
+    setDefaultWeapon(scene.storage.state)
   }
 ]

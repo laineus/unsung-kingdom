@@ -36,6 +36,7 @@ export default () => {
       m5_1: { started: false, completed: false },
       m0: { talked_matilda: false, talked_annabelle: false, talked_amber: false, area: false },
       m1: { talked_amber: false, talked_annabelle: false, talked_elliott: false },
+      m2: { talked_amber1: false, talked_elliott: false, talked_annabelle: false, talked_amber2: false },
       town: { amber: [], annabelle: [], matilda: [], elliott: [], max: [] }
     },
     treasures: [],
