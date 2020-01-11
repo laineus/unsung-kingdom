@@ -84,7 +84,7 @@ export const cassandra = (scene, gate, cassandra, door, candle) => {
         { chara, text: '二度と出ることはできない。' },
         { chara: 'ann', text: 'えっ、そんな…。' },
         { chara, text: 'これはアラグニエの糸でできた鍵のない牢獄。' },
-        { chara, text: 'やつが張った糸は、やつを倒さない限り切ることはできない。' },
+        { chara, text: 'ヤツが張った糸は、ヤツを倒さない限り切ることはできない。' },
         { chara: 'ann', text: 'アラグニエ？' },
         { chara, text: 'アラグニエは巨大な蜘蛛のモンスター。' },
         { chara, text: 'この牢屋を作ったあと、どこかへ行ってしまったわ。' },

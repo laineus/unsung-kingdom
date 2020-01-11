@@ -1,4 +1,8 @@
 export const dionysus = (scene, dionysus, area, gate) => {
+  if (!scene.storage.state.event.m2_1.completed) {
+    dionysus.destroy()
+    return
+  }
   const state = scene.storage.state.event.m2_3
   const chara = dionysus
   dionysus.setSpeed(180)
