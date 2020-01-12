@@ -128,6 +128,18 @@
                  "width":96,
                  "x":256,
                  "y":64
+                }, 
+                {
+                 "height":0,
+                 "id":5,
+                 "name":"",
+                 "point":true,
+                 "rotation":0,
+                 "type":"tresure",
+                 "visible":true,
+                 "width":0,
+                 "x":1580,
+                 "y":246
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -136,7 +148,7 @@
          "y":0
         }],
  "nextlayerid":16,
- "nextobjectid":5,
+ "nextobjectid":6,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"2019.12.11",
