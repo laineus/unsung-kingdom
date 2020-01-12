@@ -19,14 +19,26 @@ export const cassandra = (scene, gate, cassandra, door, candle) => {
       await scene.talk([{ chara: 'ann', text: '鍵がかかってる。' }])
     }
   }).setVisible(!state.opened)
+  if (scene.storage.state.event.m2_4.started) return
   cassandra.setDisplayName('カサンドラ').setTapEvent(async chara => {
     if (state.completed) {
       await scene.talk([
-        { chara, text: 'ありがとう' }
+        { chara, text: 'ワイン、ありがとうね。' }
       ])
     } else if (state.solved) {
       await scene.talk([
-        { chara, text: 'これこれ' }
+        { chara, text: 'ワインは見つかった？' },
+        { chara: 'ann', text: 'はい、ほんとにありました。' },
+        { chara, text: 'よくやったわ！' },
+        { chara, text: 'ありがとう、最高よ。' },
+        { chara, text: 'こんなところに閉じ込められているから、あげられるお礼なんて無いんだけれど…。' },
+        { chara: 'ann', text: 'いいんです。鍵を貸してもらっただけで十分です。' },
+        { chara: 'ann', text: 'でもどうしてここにお酒があるんですか？' },
+        { chara, text: 'それは、密造酒の密売人が、酒の搬入にこの地下通路を使っているからよ。' },
+        { chara, text: '城内の連中が密造酒を買ってるっていうんだから、禁酒令なんてクソだわ。' },
+        { chara: 'ann', text: 'そうなんですか。' },
+        { chara, text: 'ちょうどさっき、あなたと入れ違いでその密売人が入っていったところ。' },
+        { chara, text: '会ったらよろしく言っておいて。' }
       ])
       state.completed = true
       scene.ui.missionUpdate('m2_1', true)

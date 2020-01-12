@@ -111,10 +111,14 @@ export const dionysus = (scene, dionysus, area, gate) => {
 
 export const orthrus = (scene, boss, area) => {
   area.setEvent(async () => {
-    await scene.talk([
-      { chara: 'ann', text: '無理！' }
-    ])
-    await scene.ui.transition('fast')
-    scene.player.setPosition(scene.player.x, (22).toPixelCenter).setR('down')
+    const state = scene.storage.state.event.m2_3
+    if (state.started) {
+    } else {
+      await scene.talk([
+        { chara: 'ann', text: '無理！' }
+      ])
+      await scene.ui.transition('fast')
+      scene.player.setPosition(scene.player.x, (22).toPixelCenter).setR('down')
+    }
   })
 }

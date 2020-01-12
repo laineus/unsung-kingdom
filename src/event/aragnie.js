@@ -132,7 +132,11 @@ export const aragnie = (scene, cassandra, hector, mary, loretta, wall, yarn) => 
   yarn.setVisible(false)
   const setCharaVisible = bool => [hector, mary, loretta].forEach(v => v.setVisible(bool))
   setCharaVisible(false)
-  if (!state.started || state.completed) return
+  if (!state.started) return
+  if (state.completed) {
+    cassandra.destroy()
+    return
+  }
   if (state.search && !state.solved) setLamp(scene, scene.player, yarn)
   cassandra.setTapEvent(async () => {
     if (state.solved) {
