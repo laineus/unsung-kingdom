@@ -1,3 +1,4 @@
+import generateBattler from '../util/generateBattler'
 export const dionysus = (scene, dionysus, area, gate) => {
   if (!scene.storage.state.event.m2_1.completed) {
     dionysus.destroy()
@@ -113,9 +114,26 @@ export const orthrus = (scene, boss, area) => {
   area.setEvent(async () => {
     const state = scene.storage.state.event.m2_3
     if (state.started) {
+      await scene.talk([
+        { chara: 'ann', text: 'こいつがオルトロスね。' },
+        { chara: 'ann', text: 'さあみんな、行くよ！' }
+      ])
+      await scene.ui.sleep(500)
+      const result = await scene.ui.battle([generateBattler('bear', 1, { hp: 1 })], { boss: true })
+      if (!result) return
+      area.destroy()
+      boss.destroy()
+      await scene.ui.sleep(500)
+      await scene.talk([
+        { chara: 'ann', text: 'なんとか倒したね。' },
+        { chara: 'jaquelyn', text: '密売人に報告しに行きましょう。' }
+      ])
+      state.solved = true
     } else {
       await scene.talk([
-        { chara: 'ann', text: '無理！' }
+        { chara: 'ann', text: 'わ、このモンスター、凄く強そう！' },
+        { chara: 'jaquelyn', text: 'そうね、とても敵わなそう…。' },
+        { chara: 'francisca', text: '一旦出直して倒す方法を検討しよう。' }
       ])
       await scene.ui.transition('fast')
       scene.player.setPosition(scene.player.x, (22).toPixelCenter).setR('down')
