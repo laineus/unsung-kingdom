@@ -108,8 +108,8 @@ export const cassandra = (scene, gate, cassandra, door, candle) => {
   })
 }
 
-export const tresure = (scene, tresureChest) => {
-  tresureChest.setTapEvent(async e => {
+export const treasure = (scene, treasureChest) => {
+  treasureChest.setTapEvent(async e => {
     scene.storage.state.event.m2_1.solved = true
     e.open()
     scene.ui.announce('『ワイン』を手に入れた')

@@ -1,5 +1,5 @@
 import { dionysus } from '../event/moonshine'
-import { tresure } from '../event/cassandra'
+import { treasure } from '../event/cassandra'
 export default {
   area: {
     key: 'forest',
@@ -7,6 +7,6 @@ export default {
   },
   create (scene) {
     dionysus(scene, scene.map.getObjectById(3), scene.map.getObjectById(4), scene.map.getObjectById(2))
-    tresure(scene, scene.map.getObjectById(5))
+    treasure(scene, scene.map.getObjectById(5))
   }
 }
