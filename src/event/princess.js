@@ -4,10 +4,28 @@ export const princess = (scene, mary, loretta) => {
   const state = scene.storage.state.event.m2_2
   const event = async () => {
     if (state.completed) {
+      await scene.talk([
+        { chara: mary, text: 'ありがとうね、助かったわ。' },
+        { chara: loretta, text: 'さあ、用が済んだのだから出ていってちょうだい。' }
+      ])
     } else if (state.count >= MAGIC_STONES) {
+      await scene.talk([
+        { chara: mary, text: '魔石が集まったのね！' },
+        { chara: loretta, text: 'やるじゃない！' },
+        { chara: mary, text: 'ありがとう！' },
+        { chara: 'ann', text: 'どういたしまして。' },
+        { chara: 'ann', text: 'カサンドラへのプレゼントに使うんだったよね。' },
+        { chara: 'ann', text: '何を作るの？' },
+        { chara: mary, text: 'それは秘密よ。' },
+        { chara: mary, text: 'さあ、お礼を受け取ってちょうだい。' }
+      ])
       state.completed = true
+      scene.ui.missionUpdate('m2_2', true).then(() => {
+        scene.ui.increaseWeapon(8)
+      })
     } else if (state.started) {
       await scene.talk([
+        { chara: mary, text: `カーバンクルの魔石を${MAGIC_STONES}つよ。` },
         { chara: mary, text: '早く持ってきなさい。' }
       ])
     } else {
