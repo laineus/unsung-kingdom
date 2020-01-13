@@ -58,5 +58,11 @@ export default [
     key: 'bear', name: 'レックスベア', lv: 1, effect: 'scratch',
     hp: 40, atk: 4, def: 4, dex: 2, agi: 2,
     up: { hp: 100, atk: 100, def: 85, dex: 75, agi: 75 }
+  },
+  {
+    key: 'carbuncle', name: 'カーバンクル', lv: 1, effect: 'shot',
+    hp: 24, atk: 3, def: 4, dex: 2, agi: 2,
+    up: { hp: 100, atk: 80, def: 95, dex: 50, agi: 50 },
+    dropWeapon: { id: 1, chance: 5 },
   }
 ]

@@ -130,19 +130,19 @@ export const princess = (scene, mary, loretta) => {
 export const doorEvent = (scene, door) => {
   const state = scene.storage.state.event
   const loretta = new Talker('matilda', 'ロレッタ', door)
-  if (state.m2_2.started && state.count < MAGIC_STONES) {
-    door.setTapEvent(async () => {
+  door.setTapEvent(async () => {
+    if (state.m2_2.started && state.m2_2.count < MAGIC_STONES) {
       await scene.talk([
         { chara: loretta, text: '今はナイショの実験中よ。' },
         { chara: loretta, text: '邪魔しちゃダメ。' }
       ])
-    })
-  } else if (state.m2_2.completed && !state.m2_4.started) {
-    door.setTapEvent(async () => {
+    } else if (state.m2_2.completed && !state.m2_4.started) {
       await scene.talk([
         { chara: loretta, text: 'あ、ちょっと入らないで！' },
         { chara: loretta, text: '今イイところなんだから…。' }
       ])
-    })
-  }
+    } else {
+      scene.mapChange('underpass4', (16).toPixel, (16).toPixelCenter, { r: 'up' })
+    }
+  })
 }
