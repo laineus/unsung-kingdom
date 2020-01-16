@@ -4,6 +4,7 @@ const webpack = require('webpack')
 const path = require('path')
 const WriteFilePlugin = require('write-file-webpack-plugin')
 const TileSetPlugin = require('./TileSetPlugin')
+const AssetPlugin = require('./AssetPlugin')
 
 module.exports = {
   entry: {
@@ -39,8 +40,10 @@ module.exports = {
       'typeof CANVAS_RENDERER': JSON.stringify(true),
       'typeof WEBGL_RENDERER': JSON.stringify(true)
     }),
-    new TileSetPlugin()
+    new TileSetPlugin(),
+    new AssetPlugin()
   ],
+  externals: {},
   optimization: {
     splitChunks: {
       name: 'vendor',
