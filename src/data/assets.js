@@ -1,3 +1,4 @@
+import assetData from 'assetData'
 export default {
   image: [
     ['logo_laineus', '../img/logo_laineus.png'],
@@ -20,8 +21,7 @@ export default {
     ['tileset/town', '../img/tileset/extruded/town.png'],
     ['tileset/forest', '../img/tileset/extruded/forest.png'],
     ['tileset/underpass', '../img/tileset/extruded/underpass.png'],
-    ['tileset/tree_house', '../img/tileset/image/tree_house.png'],
-    ['tileset/aragnie_yarn', '../img/tileset/image/aragnie_yarn.png'],
+    ...assetData.tileset_images,
     // Map
     ['map/world', '../img/map/world.png'],
     ['map/forest', '../img/map/forest.png'],
@@ -30,62 +30,18 @@ export default {
     ['francisca', '../img/francisca.png'],
     ['jaquelyn', '../img/jaquelyn.png'],
     // Face
-    ['face/ann', '../img/face/ann.png'],
-    ['face/francisca', '../img/face/francisca.png'],
-    ['face/jaquelyn', '../img/face/jaquelyn.png'],
-    ['face/king', '../img/face/king.png'],
-    ['face/jack', '../img/face/jack.png'],
-    ['face/hunter', '../img/face/hunter.png'],
-    ['face/mercenary', '../img/face/mercenary.png'],
-    ['face/injured_mercenary', '../img/face/injured_mercenary.png'],
-    ['face/injured_mercenary2', '../img/face/injured_mercenary2.png'],
-    ['face/drystan', '../img/face/drystan.png'],
-    ['face/amber', '../img/face/amber.png'],
-    ['face/elliott', '../img/face/elliott.png'],
-    ['face/max', '../img/face/max.png'],
-    ['face/annabelle', '../img/face/annabelle.png'],
-    ['face/matilda', '../img/face/matilda.png'],
+    ...assetData.faces,
     // Object
     ['field/flower', '../img/field/flower.png'],
     ['field/magic_lamp', '../img/magic_lamp.png'],
     // Enemy
-    ['battler/jack', '../img/battler/jack.png'],
-    ['battler/bee', '../img/battler/bee.png'],
-    ['battler/bee2', '../img/battler/bee2.png'],
-    ['battler/slime', '../img/battler/slime.png'],
-    ['battler/mandrake', '../img/battler/mandrake.png'],
-    ['battler/wolf', '../img/battler/wolf.png'],
-    ['battler/flower', '../img/battler/flower.png'],
-    ['battler/bear', '../img/battler/bear.png']
+    ...assetData.battlers,
   ],
   json: [
-    ['room', '../map/room.json'],
-    ['town', '../map/town.json'],
-    ['forest', '../map/forest.json'],
-    ['underpass', '../map/underpass.json']
+    ...assetData.tileset_tiles
   ],
   tilemapTiledJSON: [
-    ['room1', '../map/room1.json'],
-    ['town1', '../map/town1.json'],
-    ['castle1', '../map/castle1.json'],
-    ['forest1', '../map/forest1.json'],
-    ['forest2', '../map/forest2.json'],
-    ['forest3', '../map/forest3.json'],
-    ['forest4', '../map/forest4.json'],
-    ['forest5', '../map/forest5.json'],
-    ['forest6', '../map/forest6.json'],
-    ['forest7', '../map/forest7.json'],
-    ['forest8', '../map/forest8.json'],
-    ['forest9', '../map/forest9.json'],
-    ['underpass1', '../map/underpass1.json'],
-    ['underpass2', '../map/underpass2.json'],
-    ['underpass3', '../map/underpass3.json'],
-    ['underpass4', '../map/underpass4.json'],
-    ['underpass5', '../map/underpass5.json'],
-    ['underpass6', '../map/underpass6.json'],
-    ['underpass7', '../map/underpass7.json'],
-    ['underpass8', '../map/underpass8.json'],
-    ['underpass9', '../map/underpass9.json']
+    ...assetData.tileset_maps
   ],
   spritesheet: [
     // UI
