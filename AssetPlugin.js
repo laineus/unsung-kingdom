@@ -9,15 +9,15 @@ module.exports = class {
         return new Promise(resolve => {
           fs.readdir(`./public/${setting.dir}`, (_, files) => {
             const list = files.filter(file => setting.rule.test(file)).map(file => {
-              return [`${setting.prefix}/${file.split('.')[0]}`, `..${setting.dir}/${file}`]
+              return [`${setting.prefix}${file.split('.')[0]}`, `..${setting.dir}/${file}`]
             })
-            resolve({ prefix: setting.prefix, list })
+            resolve({ key: setting.key, list })
           })
         })
       })
       Promise.all(promises).then(results => {
         const object = results.reduce((obj, v) => {
-          obj[v.prefix] = v.list
+          obj[v.key] = v.list
           return obj
         }, {})
         compiler.options.externals.assetData = JSON.stringify(object)
