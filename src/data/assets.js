@@ -9,8 +9,6 @@ export default {
     ...assetData.faces,
     // battler/*
     ...assetData.battlers,
-    // field/*
-    ['field/flower', '../img/field/flower.png'],
     // tileset/*
     ['tileset/room', '../img/tileset/extruded/room.png'],
     ['tileset/town', '../img/tileset/extruded/town.png'],
@@ -42,6 +40,7 @@ export default {
     ['field/mercenary', '../img/field/mercenary.png', { frameWidth: 28, frameHeight: 39, endFrame: 12 }],
     ['field/injured_mercenary', '../img/field/injured_mercenary.png', { frameWidth: 27, frameHeight: 37, endFrame: 1 }],
     ['field/injured_mercenary2', '../img/field/injured_mercenary2.png', { frameWidth: 27, frameHeight: 37, endFrame: 1 }],
+    ['field/flower', '../img/field/flower.png', { frameWidth: 43, frameHeight: 49, endFrame: 1 }],
     ['field/drystan', '../img/field/drystan.png', { frameWidth: 28, frameHeight: 44, endFrame: 1 }],
     ['field/bear', '../img/field/bear.png', { frameWidth: 56, frameHeight: 84, endFrame: 3 }],
     ['field/dog', '../img/field/dog.png', { frameWidth: 26, frameHeight: 26, endFrame: 12 }]
