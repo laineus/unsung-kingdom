@@ -87,7 +87,7 @@ export const jack = (scene, area, chara) => {
   })
 }
 
-export const king = (scene, area, chara) => {
+export const king = (scene, area, chara, soldier1, soldier2) => {
   const state = scene.storage.state.event.m0_1
   if (state.completed) {
     chara.destroy()

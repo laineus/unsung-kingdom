@@ -3,6 +3,7 @@ module.exports = [
   ['player', 3, 4],
   ['jack', 3, 4],
   ['king', 3, 1],
+  ['soldier', 3, 4],
   ['hunter', 3, 4],
   ['annabelle', 3, 4],
   ['amber', 3, 4],
