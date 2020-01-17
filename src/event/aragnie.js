@@ -256,7 +256,7 @@ const setLamp = (scene, player, yarn) => {
   const mask = scene.make.graphics().fillCircle(0, 0, 100).createGeometryMask()
   yarn.setVisible(true).setMask(mask)
   scene.add.tween({ targets: yarn, duration: 1000, alpha: 0.6, yoyo: true, loop: -1 })
-  const lamp = scene.add.sprite(0, -15, 'field/magic_lamp').setScale(1.1).setAlpha(0.7).setRotation(-Math.PI).setTint('#ff0000'.toColorInt)
+  const lamp = scene.add.sprite(0, -15, 'magic_lamp').setScale(1.1).setAlpha(0.7).setRotation(-Math.PI).setTint('#ff0000'.toColorInt)
   lamp.setMask(mask)
   lamp.blendMode = 1
   lamp.color = 70
