@@ -3,9 +3,9 @@
 const webpack = require('webpack')
 const path = require('path')
 const WriteFilePlugin = require('write-file-webpack-plugin')
-const TileSetPlugin = require('./TileSetPlugin')
-const AssetPlugin = require('./AssetPlugin')
-const CharachipPlugin = require('./CharachipPlugin')
+const TileSetPlugin = require('./build/TileSetPlugin')
+const AssetPlugin = require('./build/AssetPlugin')
+const CharachipPlugin = require('./build/CharachipPlugin')
 
 module.exports = {
   entry: {
