@@ -5,6 +5,7 @@ const path = require('path')
 const WriteFilePlugin = require('write-file-webpack-plugin')
 const TileSetPlugin = require('./TileSetPlugin')
 const AssetPlugin = require('./AssetPlugin')
+const CharachipPlugin = require('./CharachipPlugin')
 
 module.exports = {
   entry: {
@@ -41,7 +42,8 @@ module.exports = {
       'typeof WEBGL_RENDERER': JSON.stringify(true)
     }),
     new TileSetPlugin(),
-    new AssetPlugin()
+    new AssetPlugin(),
+    new CharachipPlugin()
   ],
   externals: {},
   optimization: {
