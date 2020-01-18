@@ -4,6 +4,7 @@ import missions from '../data/missions'
 import maps from '../data/maps'
 import Box from './Box'
 import Pager from './Pager'
+import FieldMap from './FieldMap'
 import { slideIn } from '../util/animations'
 import storage from '../data/storage'
 import missionDescriptions from '../data/missionDescriptions'
@@ -109,7 +110,7 @@ export default class MenuMap extends Phaser.GameObjects.Container {
     const x = maps[map].area.x
     const y = maps[map].area.y
     const firstTime = !this.map
-    if (firstTime || this.map.texture.key !== imageKey) {
+    if (firstTime || this.map.key !== imageKey) {
       if (this.map) this.map.destroy()
       this.map = this.getMapImage(imageKey)
       this.add(this.map)
@@ -121,8 +122,9 @@ export default class MenuMap extends Phaser.GameObjects.Container {
     this.scene.add.tween({ targets: this.map, duration: 200, ease: 'Power2', x: positionX, y: positionY })
   }
   getMapImage (imageKey) {
-    const scale = 1
     if (!this.mask) this.mask = this.scene.make.graphics().fillRect(0, -180, 895, 720).setRotation(0.18).createGeometryMask()
-    return this.scene.add.sprite(0, -0, imageKey).setOrigin(0, 0).setScale(scale, scale).setAlpha(0.5).setMask(this.mask)
+    const image = new FieldMap(this.scene, 'forest').setAlpha(0.4).setMask(this.mask)
+    image.key = imageKey
+    return image
   }
 }
