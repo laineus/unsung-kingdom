@@ -1,4 +1,12 @@
-{ "height":32,
+{ "compressionlevel":0,
+ "editorsettings":
+    {
+     "export":
+        {
+         "target":"."
+        }
+    },
+ "height":32,
  "infinite":false,
  "layers":[
         {
@@ -74,7 +82,7 @@
                         {
                          "name":"x",
                          "type":"int",
-                         "value":22
+                         "value":21
                         }, 
                         {
                          "name":"y",
@@ -144,7 +152,7 @@
  "nextobjectid":8,
  "orientation":"orthogonal",
  "renderorder":"right-down",
- "tiledversion":"2018.12.22",
+ "tiledversion":"2019.12.11",
  "tileheight":32,
  "tilesets":[
         {
