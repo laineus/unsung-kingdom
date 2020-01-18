@@ -1,13 +1,15 @@
 import config from '../data/config'
 import chapters from '../data/chapters'
 import missions from '../data/missions'
-import maps from '../data/maps'
+import areas from '../data/areas'
 import Box from './Box'
 import Pager from './Pager'
 import FieldMap from './FieldMap'
 import { slideIn } from '../util/animations'
 import storage from '../data/storage'
 import missionDescriptions from '../data/missionDescriptions'
+const MAG = 0.25
+const TILE_SIZE = config.TILE_SIZE * MAG
 export default class MenuMap extends Phaser.GameObjects.Container {
   constructor (scene) {
     super(scene)
@@ -87,7 +89,7 @@ export default class MenuMap extends Phaser.GameObjects.Container {
   setMissionDetail (mission) {
     if (this.detail) this.detail.destroy()
     if (!mission) {
-      this.setMap(this.scene.storage.state.map)
+      this.setMap(this.scene.storage.state.map, this.scene.storage.state.x, this.scene.storage.state.y)
       this.missionLabels.forEach(v => v.setActive(false))
       return
     }
@@ -105,26 +107,25 @@ export default class MenuMap extends Phaser.GameObjects.Container {
     container.add([title, desc])
     return container
   }
-  setMap (map) {
-    const imageKey = `map/${maps[map].area.key}`
-    const x = maps[map].area.x
-    const y = maps[map].area.y
+  setMap (key, x = 0, y = 0) {
+    const fieldFinder = v => v.key === key
+    const area = areas.find(area => area.list.some(fieldFinder))
+    const field = area.list.find(fieldFinder)
     const firstTime = !this.map
-    if (firstTime || this.map.key !== imageKey) {
+    if (firstTime || this.map.key !== area.key) {
       if (this.map) this.map.destroy()
-      this.map = this.getMapImage(imageKey)
+      this.map = this.getMapImage()
+      this.map.key = area.key
       this.add(this.map)
       this.sendToBack(this.map)
     }
-    const positionX = config.WIDTH.half - x * this.map.scale
-    const positionY = config.HEIGHT.half - y * this.map.scale
+    const positionX = config.WIDTH.half - (field.x * this.map.scale * TILE_SIZE) - (x * MAG)
+    const positionY = config.HEIGHT.half - (field.y * this.map.scale * TILE_SIZE) - (y * MAG)
     if (firstTime) this.map.setPosition(positionX, positionY)
     this.scene.add.tween({ targets: this.map, duration: 200, ease: 'Power2', x: positionX, y: positionY })
   }
-  getMapImage (imageKey) {
+  getMapImage () {
     if (!this.mask) this.mask = this.scene.make.graphics().fillRect(0, -180, 895, 720).setRotation(0.18).createGeometryMask()
-    const image = new FieldMap(this.scene, 'forest').setAlpha(0.4).setMask(this.mask)
-    image.key = imageKey
-    return image
+    return new FieldMap(this.scene, 'forest').setAlpha(0.4).setMask(this.mask)
   }
 }
