@@ -1,10 +1,6 @@
 import { cassandra } from '../event/cassandra'
 import { aragnie } from '../event/aragnie'
 export default {
-  area: {
-    key: 'forest',
-    x: 0, y: 0
-  },
   create (scene) {
     const cas = scene.map.getObjectById(3)
     const hector = scene.map.getObjectById(6)

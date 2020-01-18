@@ -1,10 +1,6 @@
 import { dogEventFound } from '../event/dogEvent'
 import { mercenary2 } from '../event/mercenary'
 export default {
-  area: {
-    key: 'forest',
-    x: 448, y: 446
-  },
   enemyLevel: 4,
   enemyGroups: [
     ['wolf'],
