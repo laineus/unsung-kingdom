@@ -110,11 +110,12 @@ export default class MenuMap extends Phaser.GameObjects.Container {
   setMap (key, x = 0, y = 0) {
     const fieldFinder = v => v.key === key
     const area = areas.find(area => area.list.some(fieldFinder))
+    if (!area) return
     const field = area.list.find(fieldFinder)
     const firstTime = !this.map
     if (firstTime || this.map.key !== area.key) {
       if (this.map) this.map.destroy()
-      this.map = this.getMapImage()
+      this.map = this.getMapImage(area.key)
       this.map.key = area.key
       this.add(this.map)
       this.sendToBack(this.map)
@@ -124,8 +125,8 @@ export default class MenuMap extends Phaser.GameObjects.Container {
     if (firstTime) this.map.setPosition(positionX, positionY)
     this.scene.add.tween({ targets: this.map, duration: 200, ease: 'Power2', x: positionX, y: positionY })
   }
-  getMapImage () {
+  getMapImage (key) {
     if (!this.mask) this.mask = this.scene.make.graphics().fillRect(0, -180, 895, 720).setRotation(0.18).createGeometryMask()
-    return new FieldMap(this.scene, 'forest').setAlpha(0.4).setMask(this.mask)
+    return new FieldMap(this.scene, key).setAlpha(0.4).setMask(this.mask)
   }
 }

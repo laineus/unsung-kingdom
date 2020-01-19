@@ -1,5 +1,23 @@
 export default [
   {
+    key: 'town',
+    list: [
+      { key: 'town1', x: 0, y: 0 }
+    ]
+  },
+  {
+    key: 'room',
+    list: [
+      { key: 'room1', x: 0, y: 0 }
+    ]
+  },
+  {
+    key: 'castle',
+    list: [
+      { key: 'castle1', x: 0, y: 0 }
+    ]
+  },
+  {
     key: 'forest',
     list: [
       { key: 'forest1', x: 103, y: 51 },
