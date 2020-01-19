@@ -125,6 +125,6 @@ export default class MenuMap extends Phaser.GameObjects.Container {
   }
   getMapImage (key) {
     if (!this.mask) this.mask = this.scene.make.graphics().fillRect(0, -180, 895, 720).setRotation(0.18).createGeometryMask()
-    return new FieldMap(this.scene, key).setAlpha(0.4).setMask(this.mask)
+    return new FieldMap(this.scene, key).setMask(this.mask)
   }
 }
