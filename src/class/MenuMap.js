@@ -116,9 +116,7 @@ export default class MenuMap extends Phaser.GameObjects.Container {
     if (firstTime || this.map.key !== area.key) {
       if (this.map) this.map.destroy()
       this.map = this.getMapImage(area.key)
-      this.map.key = area.key
-      this.add(this.map)
-      this.sendToBack(this.map)
+      this.addAt(this.map, 0)
     }
     const positionX = config.WIDTH.half - (field.x * this.map.scale * TILE_SIZE) - (x * MAG)
     const positionY = config.HEIGHT.half - (field.y * this.map.scale * TILE_SIZE) - (y * MAG)

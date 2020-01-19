@@ -3,6 +3,7 @@ const TILE = 8
 export default class FieldMap extends Phaser.GameObjects.Container {
   constructor (scene, key) {
     super(scene)
+    this.key = key
     const area = areas.find(v => v.key === key)
     const sprites = area.list.map(v => {
       const x = v.x * TILE
