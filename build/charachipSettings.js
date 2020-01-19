@@ -16,5 +16,10 @@ module.exports = [
   ['flower', 1, 1],
   ['drystan', 2, 1],
   ['bear', 3, 1],
-  ['dog', 3, 4]
+  ['dog', 3, 4],
+  ['cassandra', 1, 1],
+  ['mary', 3, 4],
+  ['loretta', 3, 4],
+  ['dionysus', 3, 4],
+  ['hector', 3, 4]
 ]
