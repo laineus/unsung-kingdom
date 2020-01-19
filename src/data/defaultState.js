@@ -12,6 +12,7 @@ export default () => {
     r: 90,
     chapter: 0,
     allowed_area: 0,
+    visited: [],
     event: {
       chapter_begin: [false, false, false, false, false, false],
       m0_1: { started: true, completed: false, battled: false },

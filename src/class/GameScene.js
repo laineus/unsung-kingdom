@@ -26,6 +26,7 @@ export default class GameScene extends Phaser.Scene {
     this.fadeout = this.add.sprite(0, 0, 'fadeout').setAlpha(0.7).setDepth(110000)
     // map
     this.map = new Field(this, payload.map)
+    if (!this.storage.state.visited.includes(payload.map)) this.storage.state.visited.push(payload.map)
     // camera
     this.camera = this.getCamera()
     // player controll
