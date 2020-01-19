@@ -110,7 +110,7 @@
                 {
                  "height":0,
                  "id":3,
-                 "name":"matilda",
+                 "name":"cassandra",
                  "point":true,
                  "rotation":0,
                  "type":"chara",
@@ -146,7 +146,7 @@
                 {
                  "height":0,
                  "id":6,
-                 "name":"max",
+                 "name":"hector",
                  "point":true,
                  "rotation":-180,
                  "type":"chara",
@@ -158,7 +158,7 @@
                 {
                  "height":0,
                  "id":7,
-                 "name":"annabelle",
+                 "name":"mary",
                  "point":true,
                  "rotation":-180,
                  "type":"chara",
@@ -170,7 +170,7 @@
                 {
                  "height":0,
                  "id":8,
-                 "name":"matilda",
+                 "name":"loretta",
                  "point":true,
                  "rotation":-180,
                  "type":"chara",

@@ -87,7 +87,7 @@
                 {
                  "height":0,
                  "id":2,
-                 "name":"max",
+                 "name":"hector",
                  "point":true,
                  "rotation":0,
                  "type":"chara",
@@ -99,7 +99,7 @@
                 {
                  "height":0,
                  "id":3,
-                 "name":"annabelle",
+                 "name":"mary",
                  "point":true,
                  "rotation":0,
                  "type":"chara",
@@ -111,7 +111,7 @@
                 {
                  "height":0,
                  "id":4,
-                 "name":"matilda",
+                 "name":"loretta",
                  "point":true,
                  "rotation":0,
                  "type":"chara",

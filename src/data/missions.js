@@ -51,7 +51,7 @@ export default [
   {
     key: 'm2_3',
     chapter: 2,
-    title: 'イーカリオスの密造酒',
+    title: 'ディオニューソスの密造酒',
     en: 'Ikarios\' Moonshine',
     map: 'forest1'
   },

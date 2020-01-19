@@ -26,7 +26,7 @@ export const princess = (scene, mary, loretta) => {
     } else if (state.started) {
       await scene.talk([
         { chara: mary, text: `カーバンクルの魔石を${MAGIC_STONES}つよ。` },
-        { chara: mary, text: '早く持ってきなさい。' }
+        { chara: loretta, text: '早く持ってきなさい。' }
       ])
     } else {
       await scene.talk([
