@@ -30,7 +30,7 @@ export default (scene, charas) => {
           { chara, text: 'これで邸宅の入り口までは通してもらえるはずよ。' }
         ])
         eState.talked_amber2 = true
-        scene.storage.state.allowed_map = Math.max(scene.storage.state.allowed_map, 3)
+        scene.storage.state.allowed_area = Math.max(scene.storage.state.allowed_area, 3)
         scene.ui.announce('マップ「トロイア公爵邸の地下通路」が解放された')
       }
     } else {

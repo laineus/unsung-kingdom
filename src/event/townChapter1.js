@@ -98,7 +98,7 @@ export default (scene, charas) => {
         { chara: 'ann', text: 'うーん、結構です…。' }
       ])
       eState.talked_elliott = true
-      scene.storage.state.allowed_map = Math.max(scene.storage.state.allowed_map, 2)
+      scene.storage.state.allowed_area = Math.max(scene.storage.state.allowed_area, 2)
       scene.ui.announce('マップ「ワルコフォレンスの森」が解放された')
     } else {
       await scene.talk([

@@ -58,7 +58,7 @@ export default (scene, charas) => {
         { chara: 'ann', text: 'ありがとうー！' }
       ])
       eState.talked_annabelle = true
-      scene.storage.state.allowed_map = Math.max(scene.storage.state.allowed_map, 1)
+      scene.storage.state.allowed_area = Math.max(scene.storage.state.allowed_area, 1)
       scene.ui.announce('マップ「王城 - 裏庭」が解放された')
     } else {
       await scene.talk([

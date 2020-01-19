@@ -11,7 +11,7 @@ export default () => {
     y: 600,
     r: 90,
     chapter: 0,
-    allowed_map: 0,
+    allowed_area: 0,
     event: {
       chapter_begin: [false, false, false, false, false, false],
       m0_1: { started: true, completed: false, battled: false },

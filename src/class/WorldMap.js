@@ -32,7 +32,7 @@ export default class WorldMap extends Phaser.GameObjects.Container {
     })
     this.add(this.map)
     this.rows = AERA_LIST.filter((_, i) => {
-      return this.scene.storage.state.allowed_map >= i
+      return this.scene.storage.state.allowed_area >= i
     }).map((area, i, arr) => {
       const height = 40
       const y = (50).byBottom - (arr.length - 1) * height

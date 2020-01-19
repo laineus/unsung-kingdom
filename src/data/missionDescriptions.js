@@ -7,7 +7,7 @@ export default {
     const first = '王城の裏庭への行き方を街の人に訪ねよう。'
     const second = '街の外へ出て王城の裏庭へ向かおう。'
     if (state.event.m0_1.completed) return base
-    return state.allowed_map === 0 ? `${base}\n${first}` : `${base}\n${second}`
+    return state.allowed_area === 0 ? `${base}\n${first}` : `${base}\n${second}`
   },
   m1_1 (state) {
     const base = '狩猟家マシューが連れていた5匹の仔犬が逃げ出してしまった。'
