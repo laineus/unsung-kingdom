@@ -1,6 +1,10 @@
 import { cassandra } from '../event/cassandra'
 import { aragnie } from '../event/aragnie'
 export default {
+  enemyLevel: 7,
+  enemyGroups: [
+    ['goblin']
+  ],
   create (scene) {
     const cas = scene.map.getObjectById(3)
     const hector = scene.map.getObjectById(6)

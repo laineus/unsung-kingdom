@@ -60,9 +60,18 @@ export default [
     up: { hp: 100, atk: 100, def: 85, dex: 75, agi: 75 }
   },
   {
-    key: 'carbuncle', name: 'カーバンクル', lv: 1, effect: 'shot',
+    key: 'goblin', name: 'ゴブリン', lv: 1, effect: 'crash',
     hp: 24, atk: 3, def: 4, dex: 2, agi: 2,
-    up: { hp: 100, atk: 80, def: 95, dex: 50, agi: 50 },
-    dropWeapon: { id: 1, chance: 5 },
+    up: { hp: 100, atk: 80, def: 95, dex: 50, agi: 50 }
+  },
+  {
+    key: 'carbuncle', name: 'カーバンクル', lv: 1, effect: 'shot',
+    hp: 28, atk: 3, def: 2, dex: 4, agi: 5,
+    up: { hp: 100, atk: 80, def: 60, dex: 80, agi: 100 }
+  },
+  {
+    key: 'orthrus', name: 'オルトロス', lv: 1, effect: 'scratch',
+    hp: 28, atk: 3, def: 2, dex: 4, agi: 5,
+    up: { hp: 100, atk: 80, def: 60, dex: 80, agi: 100 }
   }
 ]
