@@ -9,7 +9,15 @@ export const jack = (scene, jack, area) => {
   area.setEvent(async () => {
     await jack.setSpeed(140).setTargetPosition(jack.x, jack.y + (9).toPixel)
     await scene.talk([
-      { chara, text: 'やあ' }
+      { chara: 'ann', text: 'あ、お前は！' },
+      { chara, text: 'お前たち、あの時の…。' },
+      { chara, text: '何故ここにいる？' },
+      { chara: 'ann', text: 'こっちの台詞なんだけど！' },
+      { chara: 'ann', text: '今度は何をしているの？' },
+      { chara, text: '答える筋合いはない。' },
+      { chara, text: '今お前たちの相手をしている暇はないんだ。' },
+      { chara, text: 'どけ。' },
+      { chara: 'ann', text: 'あ、待て！' }
     ])
     state.jack = true
     await scene.ui.transition('normal')
