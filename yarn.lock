@@ -3374,9 +3374,10 @@ pbkdf2@^3.0.3:
     safe-buffer "^5.0.1"
     sha.js "^2.4.8"
 
-"phaser@git+https://github.com/laineus/phaser.git#fix-alpha-for-children-of-container":
+phaser@^3.22:
   version "3.22.0"
-  resolved "git+https://github.com/laineus/phaser.git#c8eb11325e85262de2d9fc516cc9ce1e7e829641"
+  resolved "https://registry.yarnpkg.com/phaser/-/phaser-3.22.0.tgz#0007e09116e02f93d46f32dabde7a0c864cedf4d"
+  integrity sha512-tTmLlnsz+NU9nnVq7jwy1pprpNo1+oFTWlMoSk76VJIdvQ0UIxNXToSijq/Ku2K4PqEuUY4QSYYHxmKv0Mbzhw==
   dependencies:
     eventemitter3 "^3.1.0"
     exports-loader "^0.7.0"

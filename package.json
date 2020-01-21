@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "moment": "^2.24.0",
-    "phaser": "git+https://github.com/laineus/phaser.git#fix-alpha-for-children-of-container"
+    "phaser": "^3.22"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
