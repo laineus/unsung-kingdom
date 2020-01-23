@@ -5,7 +5,7 @@ export const jack = (scene, jack, area) => {
     jack.destroy()
     return
   }
-  const chara = jack
+  const chara = jack.setDisplayName('ジャック')
   area.setEvent(async () => {
     await jack.setSpeed(140).setTargetPosition(jack.x, jack.y + (9).toPixel)
     await scene.talk([
@@ -26,15 +26,15 @@ export const jack = (scene, jack, area) => {
 }
 
 export const hector = (scene, hector, mary, loretta) => {
-  mary.setVisible(false)
-  loretta.setVisible(false)
+  mary.setDisplayName('メアリー').setVisible(false)
+  loretta.setDisplayName('ロレッタ').setVisible(false)
   const charas = [hector, mary, loretta]
   const state = scene.storage.state.event.m2_4
   if (!scene.storage.state.event.m2_1.completed || state.started) {
     charas.forEach(c => c.destroy())
     return
   }
-  hector.setTapEvent(async chara => {
+  hector.setDisplayName('ヘクター').setTapEvent(async chara => {
     if (!state.talked) {
       await scene.talk([
         { chara, text: '何者だ！' },
@@ -136,6 +136,10 @@ export const hector = (scene, hector, mary, loretta) => {
 }
 
 export const aragnie = (scene, cassandra, hector, mary, loretta, wall, yarn) => {
+  cassandra.setDisplayName('カサンドラ')
+  hector.setDisplayName('ヘクター')
+  mary.setDisplayName('メアリー')
+  loretta.setDisplayName('ロレッタ')
   const state = scene.storage.state.event.m2_4
   yarn.setVisible(false)
   const setCharaVisible = bool => [hector, mary, loretta].forEach(v => v.setVisible(bool))

@@ -128,8 +128,8 @@ export const princess = (scene, mary, loretta) => {
       scene.ui.missionUpdate('m2_2')
     }
   }
-  mary.setTapEvent(event)
-  loretta.setTapEvent(event)
+  mary.setDisplayName('メアリー').setTapEvent(event)
+  loretta.setDisplayName('ロレッタ').setTapEvent(event)
 }
 
 export const doorEvent = (scene, door) => {
