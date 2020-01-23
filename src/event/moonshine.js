@@ -111,13 +111,13 @@ export const dionysus = (scene, dionysus, area, gate) => {
 }
 
 export const orthrus = (scene, boss, area) => {
+  const state = scene.storage.state.event.m2_3
+  if (state.solved) {
+    area.destroy()
+    boss.destroy()
+    return
+  }
   area.setEvent(async () => {
-    const state = scene.storage.state.event.m2_3
-    if (state.solved) {
-      area.destroy()
-      boss.destroy()
-      return
-    }
     if (state.started) {
       await scene.talk([
         { chara: 'ann', text: 'こいつがオルトロスね。' },

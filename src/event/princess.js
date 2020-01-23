@@ -2,6 +2,11 @@ import Talker from '../class/Talker'
 export const MAGIC_STONES = 5
 export const princess = (scene, mary, loretta) => {
   const state = scene.storage.state.event.m2_2
+  if (scene.storage.state.event.m2_4.started) {
+    mary.destroy()
+    loretta.destroy()
+    return
+  }
   const event = async () => {
     if (state.completed) {
       await scene.talk([
