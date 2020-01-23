@@ -165,6 +165,5 @@ const events = [
     await scene.ui.chapterStart(`${chapters[2].name} ${chapters[2].title}`)
     francisca.setVisible(false)
     jaquelyn.setVisible(false)
-    setDefaultWeapon(scene.storage.state)
   }
 ]

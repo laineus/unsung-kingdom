@@ -55,7 +55,7 @@ export default (scene, charas) => {
         { chara: 'francisca', text: 'それは高級品ですね。' },
         { chara: 'ann', text: 'そうなの…？' },
         { chara, text: 'ええ、そうよ。' },
-        { chara, text: 'だから今度は何を送ろうか悩んでいるのよ。' },
+        { chara, text: 'だから今度は何を贈ろうか悩んでいるのよ。' },
         { chara, text: '何か良いアイディアがあったら教えてちょうだいね。' }
       ])
       if (i === 1) eState.talked_amber1 = true

@@ -129,7 +129,7 @@ export const princess = (scene, mary, loretta) => {
 
 export const doorEvent = (scene, door) => {
   const state = scene.storage.state.event
-  const loretta = new Talker('matilda', 'ロレッタ', door)
+  const loretta = new Talker('loretta', 'ロレッタ', door)
   door.setTapEvent(async () => {
     if (state.m2_2.started && state.m2_2.count < MAGIC_STONES) {
       await scene.talk([
