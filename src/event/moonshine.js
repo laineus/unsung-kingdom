@@ -1,6 +1,6 @@
 import generateBattler from '../util/generateBattler'
 export const dionysus = (scene, dionysus, area, gate) => {
-  if (!scene.storage.state.event.m2_1.completed) {
+  if (!scene.storage.state.event.m2_1.completed || scene.storage.state.event.m2_4.jack) {
     dionysus.destroy()
     return
   }
