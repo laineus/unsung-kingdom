@@ -247,19 +247,24 @@ export const aragnie = (scene, cassandra, hector, mary, loretta, wall, yarn) => 
   const talkerLoretta = new Talker('matilda', 'ロレッタ', scene.player)
   const talkerMary = new Talker('annabelle', 'メアリー', scene.player)
   wall.setTapEvent(async () => {
+    const i = await scene.select(['調べる', 'やめておく'])
+    if (i === 1) return
     await scene.talk([
       { chara: talkerLoretta, text: 'ここだ！' },
       { chara: talkerLoretta, text: 'この壁画の中に隠れているのね。' },
       { chara: talkerMary, text: 'さあアラグニエ、姿を現しなさい！' },
       { chara: 'ann', text: 'え、ちょっと！まだ心の準備が！' }
     ])
+    await scene.ui.sleep(500)
+    const result = await scene.ui.battle([generateBattler('aragnie', 15, { hp: 1200 })], { boss: true })
+    if (!result) return
+    clearLamp(scene.player, yarn)
     await scene.talk([
       { chara: 'ann', text: 'た、倒せた…。' },
       { chara: talkerLoretta, text: 'よくやったわ！' },
       { chara: talkerMary, text: 'カサンドラの元に戻ろう！' }
     ])
     wall.destroy()
-    clearLamp(scene.player, yarn)
     state.solved = true
   }).setVisible(state.search && !state.solved)
 }
