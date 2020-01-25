@@ -10,6 +10,7 @@ const CharachipPlugin = require('./build/CharachipPlugin')
 module.exports = {
   entry: {
     app: './src/index.js',
+    // guide: './src/guide.js',
     vendor: ['phaser']
   },
   output: {
