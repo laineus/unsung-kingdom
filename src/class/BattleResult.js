@@ -41,8 +41,7 @@ export default class BattleResult extends Phaser.GameObjects.Container {
       slideIn(this.scene, rows)
     }
     slideIn(this.scene, this, { x: -100 }).then(() => {
-      const promises = this.increaceExp()
-      Promise.all(promises).then(() => {
+      this.increaceExp().then(() => {
         setTimeout(() => {
           slideOut(this.scene, this, { x: -100, destroy: false }).then(() => {
             this.scene.battlerSummary.show()
@@ -78,48 +77,46 @@ export default class BattleResult extends Phaser.GameObjects.Container {
     return container
   }
   expAdjustment (targetLv, ownLv) {
-    if (targetLv > ownLv) return 1
-    if (targetLv === ownLv) return 0.75
-    return Math.max(6 - (ownLv - targetLv), 1) * 0.1
+    const diff = targetLv - ownLv
+    if (diff > 0) return 1
+    const negative = (Math.abs(diff) + 1) * 0.25
+    return Math.max(0.1, 1 - negative)
   }
   increaceExp () {
     const alives = storage.state.battlers.filter(v => v.hp > 0)
-    const ownAvgLv = Math.round(alives.reduce((before, current) => (before + current.lv), 0) / alives.length)
-    const sumExp = this.group.reduce((before, current) => {
-      const result = Math.round(current.lv * 3 * (current.boss ? 4 : 1) * this.expAdjustment(current.lv, ownAvgLv))
-      return before + result
-    }, 0)
+    const enemyLevel = Math.average(...this.group.map(v => v.lv))
+    const sumExp = Math.sum(...this.group.map(enemy => {
+      const bossAdjust = enemy.boss ? 4 : 1
+      return Math.round(enemy.lv * 3 * bossAdjust)
+    }))
     const eachExp = sumExp / alives.length
-    const promises = this.charas.filter(v => v.source.hp > 0).map(v => {
+    const promises = alives.map(v => {
+      const exp = eachExp * this.expAdjustment(enemyLevel, v.lv)
+      v.exp += exp
+      this.levelUp(v)
       return new Promise((resolve) => {
-        v.gauge.addExp(eachExp)
-        v.gauge.on('lvUp', v.lvUp)
-        v.gauge.on('completed', resolve)
+        const chara = this.charas.find(c => c.source === v)
+        chara.gauge.addExp(exp)
+        chara.gauge.on('lvUp', chara.lvUp)
+        chara.gauge.on('completed', resolve)
       })
     })
-    alives.forEach(v => {
-      v.exp += eachExp
-    })
-    this.levelUpPlayers()
-    return promises
+    return Promise.all(promises)
   }
-  levelUpPlayers () {
-    const levelUp = battler => {
-      const next = expTable[battler.lv]
-      if (next && battler.exp >= next) {
-        battler.lv++
-        Object.keys(battler.up).filter(key => Math.chance(battler.up[key])).forEach(key => {
-          if (key === 'hp') {
-            battler.hp += 5
-            battler.max_hp += 5
-          } else {
-            battler[key] += 1
-          }
-        })
-        levelUp(battler)
-      }
+  levelUp (battler) {
+    const next = expTable[battler.lv]
+    if (next && battler.exp >= next) {
+      battler.lv++
+      Object.keys(battler.up).filter(key => Math.chance(battler.up[key])).forEach(key => {
+        if (key === 'hp') {
+          battler.hp += 5
+          battler.max_hp += 5
+        } else {
+          battler[key] += 1
+        }
+      })
+      this.levelUp(battler)
     }
-    storage.state.battlers.filter(v => v.hp > 0).forEach(v => levelUp(v))
   }
   dropWeapons () {
     return this.group.map(enemy => {
