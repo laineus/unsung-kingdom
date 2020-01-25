@@ -87,11 +87,11 @@ export default class BattleResult extends Phaser.GameObjects.Container {
     const enemyLevel = Math.average(...this.group.map(v => v.lv))
     const sumExp = Math.sum(...this.group.map(enemy => {
       const bossAdjust = enemy.boss ? 4 : 1
-      return Math.round(enemy.lv * 3 * bossAdjust)
+      return enemy.lv * 3 * bossAdjust
     }))
     const eachExp = sumExp / alives.length
     const promises = alives.map(v => {
-      const exp = eachExp * this.expAdjustment(enemyLevel, v.lv)
+      const exp = Math.ceil(eachExp * this.expAdjustment(enemyLevel, v.lv))
       v.exp += exp
       this.levelUp(v)
       return new Promise((resolve) => {
