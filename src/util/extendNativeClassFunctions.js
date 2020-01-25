@@ -13,7 +13,7 @@ Object.defineProperty(Number.prototype, 'toPixelCenter', {
   get () { return (this * config.TILE_SIZE) + (config.TILE_SIZE.half) }
 })
 Object.defineProperty(Number.prototype, 'toArray', {
-  get () { return [...Array(this).keys()] }
+  value () { return [...Array(this).keys()] }
 })
 Object.defineProperty(Number.prototype, 'toColorString', {
   get () { return `#${this.toString(16)}` }

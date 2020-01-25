@@ -56,8 +56,8 @@ export default class Field {
     const visibleLayers = tilemap.layers.filter(v => v.visible).reverse()
     const topTileIds = this._getTileIdsByType(tilemap, 'top')
     const top = new Phaser.Tilemaps.LayerData({ name: 'topLayer', width: tilemap.width, height: tilemap.height })
-    top.data = tilemap.height.toArray.map(y => {
-      return tilemap.width.toArray.map(x => {
+    top.data = tilemap.height.toArray().map(y => {
+      return tilemap.width.toArray().map(x => {
         const found = visibleLayers.find(v => topTileIds.includes(v.data[y][x].index))
         return new Phaser.Tilemaps.Tile(top, (found ? found.data[y][x].index : -1), x, y, 32, 32, 32, 32)
       })

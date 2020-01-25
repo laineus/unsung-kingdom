@@ -39,7 +39,7 @@ export default class Battle extends Phaser.GameObjects.Container {
       const x = config.WIDTH.half + ((i - 1) * 310)
       return new PlayerBattler(this.scene, player).setPosition(x, (70).byBottom)
     }).forEach(e => this.players.add(e))
-    Number(this.enemies.length).toArray.forEach(i => {
+    Number(this.enemies.length).toArray().forEach(i => {
       const box = new Button(this.scene, 80, 0, 'Attack', 120, 40)
       box.line = this.scene.add.line(-56, 0, 0, 0, 0, 0, config.COLORS.white).setOrigin(0, 0).setLineWidth(0.5).setAlpha(0.5)
       box.circle = this.scene.add.circle(0, 1, 2, config.COLORS.white).setOrigin(0.5, 0.5)
