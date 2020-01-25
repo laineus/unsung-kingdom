@@ -23,31 +23,31 @@ export default [
     key: 'bee', name: 'ビーストビー', lv: 1, effect: 'shot',
     hp: 16, atk: 4, def: 1, dex: 3, agi: 4,
     up: { hp: 70, atk: 90, def: 50, dex: 70, agi: 80 },
-    dropWeapon: { id: 4, chance: 3 },
+    dropWeapon: { id: 4, chance: 3 }
   },
   {
     key: 'bee2', name: 'ビーストビー', lv: 1, effect: 'shot',
     hp: 18, atk: 3, def: 1, dex: 4, agi: 5,
     up: { hp: 80, atk: 80, def: 50, dex: 80, agi: 90 },
-    dropWeapon: { id: 4, chance: 3 },
+    dropWeapon: { id: 4, chance: 3 }
   },
   {
     key: 'slime', name: 'ベニクス', lv: 1, effect: 'hit',
     hp: 24, atk: 3, def: 4, dex: 2, agi: 2,
     up: { hp: 100, atk: 80, def: 95, dex: 50, agi: 50 },
-    dropWeapon: { id: 1, chance: 5 },
+    dropWeapon: { id: 1, chance: 5 }
   },
   {
     key: 'mandrake', name: 'マンドレイク', lv: 1, effect: 'crash',
     hp: 21, atk: 3, def: 4, dex: 4, agi: 2,
     up: { hp: 90, atk: 70, def: 90, dex: 80, agi: 60 },
-    dropWeapon: { id: 2, chance: 5 },
+    dropWeapon: { id: 2, chance: 5 }
   },
   {
     key: 'wolf', name: 'ヴォルフェス', lv: 1, effect: 'scratch',
     hp: 28, atk: 3, def: 2, dex: 4, agi: 5,
     up: { hp: 100, atk: 80, def: 60, dex: 80, agi: 100 },
-    dropWeapon: { id: 3, chance: 4 },
+    dropWeapon: { id: 3, chance: 4 }
   },
   {
     key: 'flower', name: 'サニズマスク', lv: 1, effect: 'hit',
@@ -62,12 +62,14 @@ export default [
   {
     key: 'goblin', name: 'ゴブリン', lv: 1, effect: 'crash',
     hp: 24, atk: 3, def: 4, dex: 2, agi: 2,
-    up: { hp: 100, atk: 80, def: 95, dex: 50, agi: 50 }
+    up: { hp: 100, atk: 80, def: 95, dex: 50, agi: 50 },
+    dropWeapon: { id: 5, chance: 3 }
   },
   {
     key: 'carbuncle', name: 'カーバンクル', lv: 1, effect: 'shot',
     hp: 21, atk: 3, def: 2, dex: 4, agi: 7,
-    up: { hp: 80, atk: 80, def: 60, dex: 80, agi: 100 }
+    up: { hp: 80, atk: 80, def: 60, dex: 80, agi: 100 },
+    dropWeapon: { id: 6, chance: 3 }
   },
   {
     key: 'orthrus', name: 'オルトロス', lv: 1, effect: 'scratch',
@@ -77,16 +79,19 @@ export default [
   {
     key: 'gargoyle', name: 'ガーゴイル', lv: 1, effect: 'hit',
     hp: 28, atk: 3, def: 7, dex: 3, agi: 3,
-    up: { hp: 100, atk: 75, def: 90, dex: 70, agi: 70 }
+    up: { hp: 100, atk: 75, def: 90, dex: 70, agi: 70 },
+    dropWeapon: { id: 7, chance: 3 }
   },
   {
     key: 'succubus', name: 'サキュバス', lv: 1, effect: 'stab',
     hp: 25, atk: 4, def: 6, dex: 3, agi: 4,
-    up: { hp: 100, atk: 75, def: 80, dex: 70, agi: 75 }
+    up: { hp: 100, atk: 75, def: 80, dex: 70, agi: 75 },
+    dropWeapon: { id: 8, chance: 3 }
   },
   {
     key: 'aragnie', name: 'アラグニエ', lv: 1, effect: 'shot',
     hp: 28, atk: 4, def: 6, dex: 4, agi: 3,
-    up: { hp: 100, atk: 80, def: 90, dex: 70, agi: 60 }
+    up: { hp: 100, atk: 80, def: 90, dex: 70, agi: 60 },
+    dropWeapon: { id: 9, chance: 100 }
   }
 ]
