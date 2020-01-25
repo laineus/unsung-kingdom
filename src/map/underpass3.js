@@ -1,8 +1,12 @@
 import { doorEvent } from '../event/princess'
 export default {
-  enemyLevel: 1,
+  enemyLevel: 9,
   enemyGroups: [
-    ['carbuncle', 'carbuncle', 'carbuncle', 'carbuncle']
+    ['goblin', 'goblin', 'goblin'],
+    ['goblin', 'goblin', 'goblin', 'goblin'],
+    ['carbuncle'],
+    ['carbuncle', 'carbuncle'],
+    ['carbuncle', 'carbuncle', 'carbuncle']
   ],
   create (scene) {
     const door = scene.map.getObjectById(4)

@@ -66,12 +66,27 @@ export default [
   },
   {
     key: 'carbuncle', name: 'カーバンクル', lv: 1, effect: 'shot',
-    hp: 28, atk: 3, def: 2, dex: 4, agi: 5,
-    up: { hp: 100, atk: 80, def: 60, dex: 80, agi: 100 }
+    hp: 21, atk: 3, def: 2, dex: 4, agi: 7,
+    up: { hp: 80, atk: 80, def: 60, dex: 80, agi: 100 }
   },
   {
     key: 'orthrus', name: 'オルトロス', lv: 1, effect: 'scratch',
-    hp: 28, atk: 3, def: 2, dex: 4, agi: 5,
-    up: { hp: 100, atk: 80, def: 60, dex: 80, agi: 100 }
+    hp: 28, atk: 4, def: 3, dex: 3, agi: 4,
+    up: { hp: 100, atk: 95, def: 70, dex: 70, agi: 80 }
+  },
+  {
+    key: 'gargoyle', name: 'ガーゴイル', lv: 1, effect: 'hit',
+    hp: 28, atk: 3, def: 7, dex: 3, agi: 3,
+    up: { hp: 100, atk: 75, def: 90, dex: 70, agi: 70 }
+  },
+  {
+    key: 'succubus', name: 'サキュバス', lv: 1, effect: 'stab',
+    hp: 25, atk: 4, def: 6, dex: 3, agi: 4,
+    up: { hp: 100, atk: 75, def: 80, dex: 70, agi: 75 }
+  },
+  {
+    key: 'aragnie', name: 'アラグニエ', lv: 1, effect: 'shot',
+    hp: 28, atk: 4, def: 6, dex: 4, agi: 3,
+    up: { hp: 100, atk: 80, def: 90, dex: 70, agi: 60 }
   }
 ]

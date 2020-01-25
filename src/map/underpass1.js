@@ -3,7 +3,9 @@ import { aragnie } from '../event/aragnie'
 export default {
   enemyLevel: 7,
   enemyGroups: [
-    ['goblin']
+    ['goblin'],
+    ['goblin', 'goblin'],
+    ['goblin', 'goblin', 'goblin']
   ],
   create (scene) {
     const cas = scene.map.getObjectById(3)
