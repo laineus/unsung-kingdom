@@ -3,6 +3,7 @@ import Gate from './Gate'
 import Character from './Character'
 import Substance from './Substance'
 import TreasureChest from './TreasureChest'
+import config from '../data/config'
 export default class Field {
   constructor (scene, mapKey) {
     scene.add.existing(this)
@@ -16,6 +17,7 @@ export default class Field {
     this.staticLayers = tilemap.layers.map((layer, i) => {
       return layer.visible ? tilemap.createStaticLayer(i, tilesets, 0, 0) : null
     }).filter(Boolean)
+    this._generateLights(tilemap)
     this.images = tilemap.images.map(data => this._getImage(data))
     const collides = this._getTileIdsByType(tilemap, 'collides')
     this.staticLayers.forEach(layer => layer.setCollision(collides))
@@ -63,6 +65,23 @@ export default class Field {
       })
     })
     return top
+  }
+  _generateLights (tilemap) {
+    const lights = this._getTileIdsByType(tilemap, 'light')
+    const lightTiles = this.staticLayers.map(layer => {
+      return layer.layer.data.map(row => {
+        return row.filter(tile => lights.includes(tile.index))
+      }).filter(arr => arr.length).flatMap(v => v)
+    }).filter(arr => arr.length).flatMap(v => v)
+    lightTiles.forEach(v => {
+      const sprite = this.scene.add.sprite(v.x.toPixelCenter, v.y.toPixelCenter, 'lamp').setScale(0.5).setBlendMode(Phaser.BlendModes.OVERLAY).setDepth(100000)
+      const sprite2 = this.scene.add.sprite(v.x.toPixelCenter, v.y.toPixelCenter + 55, 'lamp').setScale(0.6).setBlendMode(Phaser.BlendModes.OVERLAY).setDepth(100000)
+      this.scene.add.tween({
+        targets: [sprite, sprite2], duration: Math.randomInt(300, 400),
+        scale: 0.6, alpha: 0.8,
+        yoyo: true, loop: -1
+      })
+    })
   }
   _getTilesets (tilemap) {
     return tilemap.tilesets.map(tileset => tilemap.addTilesetImage(tileset.name, `tileset/${tileset.name}`, 32, 32, 1, 2))
