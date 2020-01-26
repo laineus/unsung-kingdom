@@ -136,7 +136,7 @@ export const hector = (scene, hector, mary, loretta) => {
   })
 }
 
-export const aragnie = (scene, cassandra, hector, mary, loretta, wall, yarn) => {
+export const aragnie = (scene, cassandra, hector, mary, loretta, jail, wall, yarn) => {
   cassandra.setDisplayName('カサンドラ')
   hector.setDisplayName('ヘクター')
   mary.setDisplayName('メアリー')
@@ -146,6 +146,9 @@ export const aragnie = (scene, cassandra, hector, mary, loretta, wall, yarn) => 
   const setCharaVisible = bool => [hector, mary, loretta].forEach(v => v.setVisible(bool))
   setCharaVisible(false)
   if (!state.started) return
+  if (state.solved) {
+    jail.destroy()
+  }
   if (state.completed) {
     cassandra.destroy()
     return
@@ -154,7 +157,7 @@ export const aragnie = (scene, cassandra, hector, mary, loretta, wall, yarn) => 
   cassandra.setTapEvent(async () => {
     if (state.solved) {
       await scene.ui.transition('normal')
-      scene.player.setPosition((45).toPixelCenter, (15).toPixelCenter).setR('up')
+      scene.player.setPosition((45).toPixelCenter, (16).toPixel).setR('up')
       setCharaVisible(true)
       await scene.talk([
         { chara: loretta, text: '本当に、開いたね。' },
@@ -211,7 +214,7 @@ export const aragnie = (scene, cassandra, hector, mary, loretta, wall, yarn) => 
       ])
     } else {
       await scene.ui.transition('normal')
-      scene.player.setPosition((45).toPixelCenter, (15).toPixelCenter).setR('up')
+      scene.player.setPosition((45).toPixelCenter, (16).toPixel).setR('up')
       setCharaVisible(true)
       await scene.talk([
         { chara: hector, text: 'カサンドラ。' },
@@ -245,8 +248,8 @@ export const aragnie = (scene, cassandra, hector, mary, loretta, wall, yarn) => 
       ])
     }
   })
-  const talkerLoretta = new Talker('matilda', 'ロレッタ', scene.player)
-  const talkerMary = new Talker('annabelle', 'メアリー', scene.player)
+  const talkerLoretta = new Talker('loretta', 'ロレッタ', scene.player)
+  const talkerMary = new Talker('mary', 'メアリー', scene.player)
   wall.setTapEvent(async () => {
     const i = await scene.select(['調べる', 'やめておく'])
     if (i === 1) return
