@@ -136,12 +136,17 @@ export const hector = (scene, hector, mary, loretta) => {
   })
 }
 
-export const aragnie = (scene, cassandra, hector, mary, loretta, jail, wall, yarn) => {
+export const lamp = (scene, cassandra, hector, mary, loretta, jail, wall, yarn) => {
   cassandra.setDisplayName('カサンドラ')
   hector.setDisplayName('ヘクター')
   mary.setDisplayName('メアリー')
   loretta.setDisplayName('ロレッタ')
   const state = scene.storage.state.event.m2_4
+  wall.setTapEvent(async () => {
+    const i = await scene.select(['調べる', 'やめておく'])
+    if (i === 1) return
+    scene.mapChange('underpass10', (15).toPixelCenter, (52).toPixelCenter)
+  }).setVisible(state.search)
   yarn.setVisible(false)
   const setCharaVisible = bool => [hector, mary, loretta].forEach(v => v.setVisible(bool))
   setCharaVisible(false)
@@ -248,27 +253,37 @@ export const aragnie = (scene, cassandra, hector, mary, loretta, jail, wall, yar
       ])
     }
   })
+}
+
+export const aragnie = (scene, area, boss) => {
+  const state = scene.storage.state.event.m2_4
+  // yarn.setVisible(false)
+  if (!state.search || state.solved) {
+    area.destroy()
+    boss.destroy()
+    return
+  }
+  // if (state.search && !state.solved) setLamp(scene, scene.player, yarn)
   const talkerLoretta = new Talker('loretta', 'ロレッタ', scene.player)
   const talkerMary = new Talker('mary', 'メアリー', scene.player)
-  wall.setTapEvent(async () => {
-    const i = await scene.select(['調べる', 'やめておく'])
-    if (i === 1) return
+  area.setEvent(async () => {
     await scene.talk([
-      { chara: talkerLoretta, text: 'ここだ！' },
-      { chara: talkerLoretta, text: 'この壁画の中に隠れているのね。' },
-      { chara: talkerMary, text: 'さあアラグニエ、姿を現しなさい！' },
+      { chara: talkerMary, text: '居た！アラグニエよ！' },
+      { chara: talkerMary, text: '凄く強うそうだわ…。' },
+      { chara: talkerLoretta, text: 'さあ、早く倒すのよ！' },
       { chara: 'ann', text: 'え、ちょっと！まだ心の準備が！' }
     ])
     await scene.ui.sleep(500)
-    const result = await scene.ui.battle([generateBattler('aragnie', 17, { hp: 1200 })], { boss: true })
+    const result = await scene.ui.battle([generateBattler('aragnie', 17, { hp: 12 })], { boss: true })
     if (!result) return
-    clearLamp(scene.player, yarn)
+    boss.destroy()
+    // clearLamp(scene.player, yarn)
     await scene.talk([
       { chara: 'ann', text: 'た、倒せた…。' },
       { chara: talkerLoretta, text: 'よくやったわ！' },
       { chara: talkerMary, text: 'カサンドラの元に戻ろう！' }
     ])
-    wall.destroy()
+    area.destroy()
     state.solved = true
   }).setVisible(state.search && !state.solved)
 }

@@ -70,12 +70,12 @@
                         {
                          "name":"x",
                          "type":"int",
-                         "value":53
+                         "value":17
                         }, 
                         {
                          "name":"y",
                          "type":"int",
-                         "value":3
+                         "value":18
                         }],
                  "rotation":0,
                  "type":"gate",
@@ -95,6 +95,17 @@
                  "width":0,
                  "x":486,
                  "y":340
+                }, 
+                {
+                 "height":320,
+                 "id":5,
+                 "name":"",
+                 "rotation":0,
+                 "type":"area",
+                 "visible":true,
+                 "width":544,
+                 "x":224,
+                 "y":96
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -103,7 +114,7 @@
          "y":0
         }],
  "nextlayerid":17,
- "nextobjectid":5,
+ "nextobjectid":6,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"2019.12.11",
@@ -113,12 +124,12 @@
          "columns":10,
          "firstgid":1,
          "image":"..\/img\/tileset\/original\/underpass.png",
-         "imageheight":640,
+         "imageheight":352,
          "imagewidth":320,
          "margin":0,
          "name":"underpass",
          "spacing":0,
-         "tilecount":200,
+         "tilecount":110,
          "tileheight":32,
          "tilewidth":32
         }],

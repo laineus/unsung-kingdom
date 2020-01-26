@@ -1,5 +1,5 @@
 import { cassandra } from '../event/cassandra'
-import { aragnie } from '../event/aragnie'
+import { lamp } from '../event/aragnie'
 export default {
   enemyLevel: 8,
   enemyGroups: [
@@ -14,7 +14,7 @@ export default {
     const mary = scene.map.getObjectById(7)
     const loretta = scene.map.getObjectById(8)
     cassandra(scene, scene.map.getObjectById(2), cas, scene.map.getObjectById(4), scene.map.getObjectById(5))
-    aragnie(scene, cas, hector, mary, loretta, jail, scene.map.getObjectById(9), scene.map.getImageByName('aragnie_yarn'))
+    lamp(scene, cas, hector, mary, loretta, jail, scene.map.getObjectById(9), scene.map.getImageByName('aragnie_yarn'))
   },
   getJail (scene) {
     const jail = scene.map.getImageByName('jail')
