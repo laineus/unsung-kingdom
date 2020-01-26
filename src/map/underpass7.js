@@ -1,5 +1,5 @@
 export default {
-  enemyLevel: 11,
+  enemyLevel: 12,
   enemyGroups: [
     ['gargoyle', 'gargoyle'],
     ['gargoyle', 'gargoyle', 'gargoyle'],

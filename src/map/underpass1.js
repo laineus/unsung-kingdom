@@ -1,7 +1,7 @@
 import { cassandra } from '../event/cassandra'
 import { aragnie } from '../event/aragnie'
 export default {
-  enemyLevel: 7,
+  enemyLevel: 8,
   enemyGroups: [
     ['goblin'],
     ['goblin', 'goblin'],

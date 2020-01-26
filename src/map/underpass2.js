@@ -1,5 +1,5 @@
 export default {
-  enemyLevel: 8,
+  enemyLevel: 9,
   enemyGroups: [
     ['goblin', 'goblin'],
     ['goblin', 'goblin', 'goblin'],

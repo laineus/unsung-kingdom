@@ -1,3 +1,4 @@
+import generateBattler from '../util/generateBattler'
 import Talker from '../class/Talker'
 export const jack = (scene, jack, area) => {
   const state = scene.storage.state.event.m2_4
@@ -256,7 +257,7 @@ export const aragnie = (scene, cassandra, hector, mary, loretta, wall, yarn) => 
       { chara: 'ann', text: 'え、ちょっと！まだ心の準備が！' }
     ])
     await scene.ui.sleep(500)
-    const result = await scene.ui.battle([generateBattler('aragnie', 15, { hp: 1200 })], { boss: true })
+    const result = await scene.ui.battle([generateBattler('aragnie', 17, { hp: 1200 })], { boss: true })
     if (!result) return
     clearLamp(scene.player, yarn)
     await scene.talk([

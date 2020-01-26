@@ -1,6 +1,6 @@
 import { doorEvent } from '../event/princess'
 export default {
-  enemyLevel: 9,
+  enemyLevel: 10,
   enemyGroups: [
     ['goblin', 'goblin', 'goblin'],
     ['goblin', 'goblin', 'goblin', 'goblin'],

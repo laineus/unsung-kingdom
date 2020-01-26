@@ -1,7 +1,7 @@
 import { dionysus } from '../event/moonshine'
 import { treasure } from '../event/cassandra'
 export default {
-  enemyLevel: 10,
+  enemyLevel: 11,
   enemyGroups: [
     ['goblin', 'goblin'],
     ['carbuncle', 'carbuncle'],

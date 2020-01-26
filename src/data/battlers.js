@@ -83,7 +83,7 @@ export default [
     dropWeapon: { id: 7, chance: 3 }
   },
   {
-    key: 'succubus', name: 'サキュバス', lv: 1, effect: 'stab',
+    key: 'succubus', name: 'サキュバス', lv: 1, effect: 'stab', y: 100,
     hp: 25, atk: 4, def: 6, dex: 3, agi: 4,
     up: { hp: 100, atk: 75, def: 80, dex: 70, agi: 75 },
     dropWeapon: { id: 8, chance: 3 }

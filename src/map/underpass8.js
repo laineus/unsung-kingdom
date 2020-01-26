@@ -1,6 +1,6 @@
 import { jack } from '../event/aragnie'
 export default {
-  enemyLevel: 12,
+  enemyLevel: 13,
   enemyGroups: [
     ['gargoyle', 'gargoyle'],
     ['gargoyle', 'gargoyle', 'gargoyle'],
