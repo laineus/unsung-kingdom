@@ -19,6 +19,7 @@ import underpass6 from '../map/underpass6'
 import underpass7 from '../map/underpass7'
 import underpass8 from '../map/underpass8'
 import underpass9 from '../map/underpass9'
+import underpass10 from '../map/underpass10'
 export default {
   room1,
   town1,
@@ -40,5 +41,6 @@ export default {
   underpass6,
   underpass7,
   underpass8,
-  underpass9
+  underpass9,
+  underpass10
 }

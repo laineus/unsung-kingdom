@@ -22,5 +22,6 @@ module.exports = [
   ['loretta', 3, 4],
   ['dionysus', 3, 4],
   ['orthrus', 1, 1],
-  ['hector', 3, 4]
+  ['hector', 3, 4],
+  ['aragnie', 1, 1]
 ]

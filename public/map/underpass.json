@@ -8,12 +8,12 @@
         }
     },
  "image":"..\/img\/tileset\/original\/underpass.png",
- "imageheight":320,
+ "imageheight":640,
  "imagewidth":320,
  "margin":0,
  "name":"underpass",
  "spacing":0,
- "tilecount":100,
+ "tilecount":200,
  "tiledversion":"2019.12.11",
  "tileheight":32,
  "tiles":[
@@ -142,12 +142,48 @@
          "type":"collides,top"
         }, 
         {
+         "id":72,
+         "type":"top"
+        }, 
+        {
+         "id":73,
+         "type":"top"
+        }, 
+        {
+         "id":74,
+         "type":"top"
+        }, 
+        {
          "id":80,
          "type":"collides,top"
         }, 
         {
          "id":81,
          "type":"collides,top"
+        }, 
+        {
+         "id":82,
+         "type":"top"
+        }, 
+        {
+         "id":83,
+         "type":"top"
+        }, 
+        {
+         "id":84,
+         "type":"top"
+        }, 
+        {
+         "id":92,
+         "type":"top"
+        }, 
+        {
+         "id":93,
+         "type":"top"
+        }, 
+        {
+         "id":94,
+         "type":"top"
         }],
  "tilewidth":32,
  "type":"tileset",
