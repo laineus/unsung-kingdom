@@ -23,7 +23,7 @@ export default class GameScene extends Phaser.Scene {
       if (this.encountDelay <= (this.stronger ? 200 : 80)) this.ui.setEncounter(true, this.stronger)
       if (this.encountDelay <= 0) this.encounter(!this.stronger)
     })
-    this.fadeout = this.add.sprite(0, 0, 'fadeout').setAlpha(0.7).setDepth(110000)
+    // this.fadeout = this.add.sprite(0, 0, 'fadeout').setAlpha(0.7).setDepth(110000)
     // map
     this.map = new Field(this, payload.map)
     if (!this.storage.state.visited.includes(payload.map)) this.storage.state.visited.push(payload.map)
@@ -50,7 +50,7 @@ export default class GameScene extends Phaser.Scene {
   update (time, delta) {
     this.frame++
     if (this.event.update) this.event.update(this)
-    this.fadeout.setPosition(this.camera.scrollX + config.WIDTH.half, this.camera.scrollY + config.HEIGHT.half)
+    // this.fadeout.setPosition(this.camera.scrollX + config.WIDTH.half, this.camera.scrollY + config.HEIGHT.half)
   }
   get ui () {
     return this.scene.get('UI')
