@@ -172,18 +172,6 @@
         {
          "id":84,
          "type":"top"
-        }, 
-        {
-         "id":92,
-         "type":"top"
-        }, 
-        {
-         "id":93,
-         "type":"top"
-        }, 
-        {
-         "id":94,
-         "type":"top"
         }],
  "tilewidth":32,
  "type":"tileset",
