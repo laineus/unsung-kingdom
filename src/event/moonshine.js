@@ -135,6 +135,8 @@ export const orthrus = (scene, boss, area) => {
   }
   area.setEvent(async () => {
     if (state.started) {
+      await scene.camera.look(0, -180, 1000)
+      await scene.ui.sleep(1200)
       await scene.talk([
         { chara: 'ann', text: 'こいつがオルトロスね。' },
         { chara: 'ann', text: 'さあみんな、行くよ！' }
