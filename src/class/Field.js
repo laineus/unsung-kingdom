@@ -17,7 +17,8 @@ export default class Field {
     this.staticLayers = tilemap.layers.map((layer, i) => {
       return layer.visible ? tilemap.createStaticLayer(i, tilesets, 0, 0) : null
     }).filter(Boolean)
-    this._generateLights(tilemap)
+    const lights = this._generateLights(tilemap)
+    this._renderDarkness(lights)
     this.images = tilemap.images.map(data => this._getImage(data))
     const collides = this._getTileIdsByType(tilemap, 'collides')
     this.staticLayers.forEach(layer => layer.setCollision(collides))
@@ -73,7 +74,7 @@ export default class Field {
         return row.filter(tile => lights.includes(tile.index))
       }).filter(arr => arr.length).flatMap(v => v)
     }).filter(arr => arr.length).flatMap(v => v)
-    lightTiles.forEach(v => {
+    return lightTiles.map(v => {
       const sprite = this.scene.add.sprite(v.x.toPixelCenter, v.y.toPixelCenter, 'lamp').setScale(0.5).setBlendMode(Phaser.BlendModes.OVERLAY).setDepth(100000)
       const sprite2 = this.scene.add.sprite(v.x.toPixelCenter, v.y.toPixelCenter + 55, 'lamp').setScale(0.6).setBlendMode(Phaser.BlendModes.OVERLAY).setDepth(100000)
       this.scene.add.tween({
@@ -81,7 +82,16 @@ export default class Field {
         scale: 0.6, alpha: 0.8,
         yoyo: true, loop: -1
       })
+      return sprite
     })
+  }
+  _renderDarkness (lights) {
+    if (lights.length === 0) return
+    const posAndSize = [0, 0, this.width, this.height]
+    const dark = this.scene.add.renderTexture(...posAndSize).fill(0x000000, 0.8, ...posAndSize).setOrigin(0.0).setDepth(110000)
+    const brush = this.scene.add.image(0, 0, 'lamp').setScale(3, 3)
+    lights.forEach(light => dark.erase(brush, light.x, light.y, 1))
+    return dark
   }
   _getTilesets (tilemap) {
     return tilemap.tilesets.map(tileset => tilemap.addTilesetImage(tileset.name, `tileset/${tileset.name}`, 32, 32, 1, 2))
