@@ -68,17 +68,18 @@ export default class Field {
     return top
   }
   _generateLights (tilemap) {
-    const lights = this._getTileIdsByType(tilemap, 'light')
+    const lights = this._getTileSettingsByType(tilemap, 'light')
     const lightTiles = this.staticLayers.map(layer => {
       return layer.layer.data.map(row => {
-        return row.filter(tile => lights.includes(tile.index))
+        return row.filter(tile => lights.map(v => v.id).includes(tile.index))
       }).filter(arr => arr.length).flatMap(v => v)
     }).filter(arr => arr.length).flatMap(v => v)
+    const dropLight = id => lights.find(l => l.id === id).properties.direction === 'bottom'
     return lightTiles.map(v => {
       const sprite = this.scene.add.sprite(v.x.toPixelCenter, v.y.toPixelCenter, 'lamp').setScale(0.5).setBlendMode(Phaser.BlendModes.OVERLAY).setDepth(100000)
-      const sprite2 = this.scene.add.sprite(v.x.toPixelCenter, v.y.toPixelCenter + 55, 'lamp').setScale(0.6).setBlendMode(Phaser.BlendModes.OVERLAY).setDepth(100000)
+      if (dropLight(v.index)) this.scene.add.sprite(v.x.toPixelCenter, v.y.toPixelCenter + 55, 'lamp').setScale(0.6).setBlendMode(Phaser.BlendModes.OVERLAY).setDepth(100000)
       this.scene.add.tween({
-        targets: [sprite, sprite2], duration: Math.randomInt(300, 400),
+        targets: sprite, duration: Math.randomInt(300, 400),
         scale: 0.6, alpha: 0.8,
         yoyo: true, loop: -1
       })
@@ -96,11 +97,20 @@ export default class Field {
   _getTilesets (tilemap) {
     return tilemap.tilesets.map(tileset => tilemap.addTilesetImage(tileset.name, `tileset/${tileset.name}`, 32, 32, 1, 2))
   }
-  _getTileIdsByType (tilemap, type) {
+  _getTileSettingsByType (tilemap, type) {
     return tilemap.tilesets.map(set => {
       const data = this.scene.cache.json.get(set.name)
-      return data.tiles.filter(tile => tile.type.split(',').includes(type)).map(tile => tile.id + set.firstgid)
+      return data.tiles.filter(tile => tile.type.split(',').includes(type)).map(tile => {
+        const properties = tile.properties ? tile.properties.reduce((obj, v) => {
+          obj[v.name] = v.value
+          return obj
+        }, {}) : null
+        return { id: tile.id + set.firstgid, properties }
+      })
     }).flat()
+  }
+  _getTileIdsByType (tilemap, type) {
+    return this._getTileSettingsByType(tilemap, type).map(v => v.id)
   }
   _getObjects (tilemap, type) {
     return tilemap.objects.map(v => v.objects).flat().filter(v => v.type === type)
