@@ -1,6 +1,8 @@
 module.exports = [
   ['treasure_chest', 7, 1],
   ['player', 3, 4],
+  ['francisca', 3, 4],
+  ['jaquelyn', 3, 4],
   ['jack', 3, 4],
   ['king', 3, 4],
   ['soldier', 3, 4],
@@ -23,5 +25,6 @@ module.exports = [
   ['dionysus', 3, 4],
   ['orthrus', 1, 1],
   ['hector', 3, 4],
+  ['hector_injured', 1, 1],
   ['aragnie', 1, 1]
 ]
