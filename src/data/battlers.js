@@ -57,6 +57,7 @@ export default [
   {
     key: 'bear', name: 'レックスベア', lv: 1, effect: 'scratch',
     hp: 40, atk: 4, def: 4, dex: 2, agi: 2,
+    abillities: [{ type: 'multi', chance: 60 }],
     up: { hp: 100, atk: 100, def: 85, dex: 75, agi: 75 }
   },
   {
@@ -74,6 +75,7 @@ export default [
   {
     key: 'orthrus', name: 'オルトロス', lv: 1, effect: 'scratch',
     hp: 28, atk: 4, def: 3, dex: 3, agi: 4,
+    abillities: [{ type: 'double', chance: 25 }],
     up: { hp: 100, atk: 95, def: 70, dex: 70, agi: 80 }
   },
   {
@@ -91,6 +93,7 @@ export default [
   {
     key: 'aragnie', name: 'アラグニエ', lv: 1, effect: 'shot',
     hp: 28, atk: 4, def: 6, dex: 4, agi: 3,
+    abillities: [{ type: 'double', chance: 70 }, { type: 'multi', chance: 30 }],
     up: { hp: 100, atk: 80, def: 90, dex: 70, agi: 60 },
     dropWeapon: { id: 9, chance: 100 }
   }

@@ -115,13 +115,27 @@ export default class Battle extends Phaser.GameObjects.Container {
     if (!this.playerTurn) this.execEnemyTurn()
     this.updateButtons()
   }
-  execEnemyTurn () {
-    setTimeout(() => {
-      this.currentBattler.attackAnim().then(() => {
-        this.currentBattler.attackTo(this.players.list.filter(v => v.alive).random())
-        setTimeout(() => this.increaseTurn(), 400)
-      })
-    }, 400)
+  async execEnemyTurn () {
+    await this.scene.sleep(220)
+    const setting = this.currentBattler.getAttackMode()
+    const count = { normal: 1, double: 2, triple: 3 }
+    if (setting.type in count) {
+      await this.attackToOnePlayer(count[setting.type], setting.mag)
+    } else {
+      await this.currentBattler.attackAnim()
+      await this.multiAttack(setting.mag)
+    }
+    await this.scene.sleep(400)
+    this.increaseTurn()
+  }
+  async attackToOnePlayer (loop = 1, mag = 1) {
+    await this.scene.sleep(180)
+    const tgt = this.players.list.filter(v => v.alive).random()
+    if (!tgt) return
+    await this.currentBattler.attackAnim()
+    await this.currentBattler.attackTo(tgt, { mag })
+    if (loop <= 1) return
+    return this.attackToOnePlayer(loop - 1, mag)
   }
   addOptionButton (name, x, y, onClick) {
     const button = new Button(this.scene, x, y, name, 120, 40).setInteractive().on('pointerdown', onClick.bind(this))
@@ -153,7 +167,9 @@ export default class Battle extends Phaser.GameObjects.Container {
         })
         break
       case 'Multi-Attack':
-        this.addOptionButton('Multi Attack', 80, 220, this.multiAttack)
+        this.addOptionButton('Multi Attack', 80, 220, () => {
+          this.multiAttack().then(this.increaseTurn.bind(this))
+        })
         break
     }
     slideIn(this.scene, this.ablButtons)
@@ -166,11 +182,11 @@ export default class Battle extends Phaser.GameObjects.Container {
       this.increaseTurn()
     })
   }
-  multiAttack () {
+  multiAttack (mag = 0.66) {
     const targets = this.playerTurn ? this.enemies.list : this.players.list.filter(v => v.alive)
-    Promise.all(targets.map(enemy => {
-      return this.currentBattler.attackTo(enemy, { multi: this.enemies.list.length })
-    })).then(this.increaseTurn.bind(this))
+    return Promise.all(targets.map(enemy => {
+      return this.currentBattler.attackTo(enemy, { mag })
+    }))
   }
   get defeat () {
     return this.players.list.filter(v => v.alive).length === 0

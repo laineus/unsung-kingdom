@@ -3,16 +3,19 @@ import config from '../data/config'
 const left = [[32, 10], [335, 0], [360, 65], [335, 105], [190, 102], [189, 110], [196, 122], [178, 110], [176, 101], [18, 94], [0, 40]]
 const points = {
   left,
-  right: left.map(point => [360 - point[0], point[1]])
+  right: left.map(point => [360 - point[0], point[1]]),
+  top: left.map(point => [360 - point[0], 107 - point[1]])
 }
 const paddingX = 180
 const paddingY = 90
 export default class SpeachBubble extends Phaser.GameObjects.Container {
   constructor (scene, x, y, name, imageKey, text, position = -1) {
-    x = Math.fix(x, paddingX, config.WIDTH - paddingX)
-    y = Math.fix(y, paddingY, config.HEIGHT - paddingY)
-    super(scene, x, y)
-    this.bg = scene.add.polygon(0, 0, points[position === -1 ? 'left' : 'right'], config.COLORS.black).setAlpha(0.7)
+    const fixedX = Math.fix(x, paddingX, config.WIDTH - paddingX)
+    const fixedY = Math.fix(y, paddingY, config.HEIGHT - paddingY)
+    super(scene, fixedX, fixedY)
+    const overOfTop = y < -100
+    const leftRight = position === -1 ? 'left' : 'right'
+    this.bg = scene.add.polygon(0, 0, points[overOfTop ? 'top' : leftRight], config.COLORS.black).setAlpha(0.7)
     this.bg.isStroked = true
     this.bg.lineWidth = 1.5
     this.bg.strokeColor = config.COLORS.white
