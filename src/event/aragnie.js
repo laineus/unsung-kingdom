@@ -258,15 +258,48 @@ export const lamp = (scene, cassandra, hector, mary, loretta, jail, wall, yarn) 
   })
 }
 
-export const aragnie = (scene, area, boss) => {
+export const aragnie = (scene, area, boss, hector, hectorInjured, scream) => {
   const state = scene.storage.state.event.m2_4
   // yarn.setVisible(false)
   if (!state.search || state.solved) {
     area.destroy()
     boss.destroy()
+    hectorInjured.destroy()
     return
   }
-  // if (state.search && !state.solved) setLamp(scene, scene.player, yarn)
+  if (state.boss) {
+    hector.destroy()
+    scream.destroy()
+  }
+  hector.setDisplayName('ヘクター')
+  if (!state.boss) {
+    (async () => {
+      scene.ui.setEventMode(true)
+      scene.player.setR('up')
+      await scene.ui.sleep(1000)
+      await scene.talk([
+        { chara: hector, text: 'こんな場所があったなんて…！' },
+        { chara: hector, text: 'アラグニエめ、ここに隠れていたんだな！' }
+      ], { angle: false })
+      await hector.setSpeed(300).setTargetPosition((10).toPixel, (33).toPixel)
+      hector.destroy()
+      scene.ui.setEventMode(false)
+    })()
+    hectorInjured.setFaceKey('hector').setDisplayName('ヘクター')
+    scream.setEvent(async () => {
+      await scene.talk([
+        { chara: hectorInjured, text: 'ぐわーー！！' }
+      ])
+      state.boss = true
+      scream.destroy()
+    })
+  }
+  hectorInjured.setTapEvent(async () => {
+    await scene.talk([
+      { chara: hectorInjured, text: 'っく、くるしい…。' },
+      { chara: 'francisca', text: '弱くない…？' }
+    ])
+  })
   const talkerLoretta = new Talker('loretta', 'ロレッタ', scene.player)
   const talkerMary = new Talker('mary', 'メアリー', scene.player)
   area.setEvent(async () => {
