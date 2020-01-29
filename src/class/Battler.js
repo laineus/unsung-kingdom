@@ -20,6 +20,7 @@ export default class Battler extends Phaser.GameObjects.Container {
     this.dex = option.dex
     this.agi = option.agi
     this.effect = option.effect
+    this.abillities = option.abillities || []
   }
   get alive () {
     return this.hp > 0
@@ -48,8 +49,11 @@ export default class Battler extends Phaser.GameObjects.Container {
   criticalTo (target) {
     return Math.fix((this.dex - target.agi) * 4, 1, 25)
   }
-  async attackTo (target, { multi = false } = {}) {
-    const baseDamage = multi ? Math.round(this.baseDamageTo(target) * 0.66) : this.baseDamageTo(target)
+  getAttackMode () {
+    return this.abillities.find(v => Math.chance(v.chance)) || { type: 'normal', mag: 1 }
+  }
+  async attackTo (target, { mag = 1 } = {}) {
+    const baseDamage = Math.round(this.baseDamageTo(target) * mag)
     const cri = Math.chance(this.criticalTo(target))
     const weakness = this.weaknessTo(target)
     const hit = Math.chance(this.accuracyTo(target))
