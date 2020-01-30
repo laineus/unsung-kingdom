@@ -1,4 +1,12 @@
 { "columns":10,
+ "editorsettings":
+    {
+     "export":
+        {
+         "format":"",
+         "target":"."
+        }
+    },
  "image":"..\/img\/tileset\/original\/underpass.png",
  "imageheight":512,
  "imagewidth":320,
@@ -6,7 +14,7 @@
  "name":"underpass",
  "spacing":0,
  "tilecount":160,
- "tiledversion":"1.2.1",
+ "tiledversion":"2019.12.11",
  "tileheight":32,
  "tiles":[
         {
@@ -154,10 +162,6 @@
          "type":"collides"
         }, 
         {
-         "id":66,
-         "type":"collides"
-        }, 
-        {
          "id":67,
          "type":"collides"
         }, 
@@ -200,6 +204,82 @@
         {
          "id":84,
          "type":"top"
+        }, 
+        {
+         "id":100,
+         "type":"top"
+        }, 
+        {
+         "id":101,
+         "type":"top"
+        }, 
+        {
+         "id":102,
+         "type":"top"
+        }, 
+        {
+         "id":103,
+         "type":"collides,top"
+        }, 
+        {
+         "id":104,
+         "type":"collides,top"
+        }, 
+        {
+         "id":110,
+         "type":"collides,top"
+        }, 
+        {
+         "id":111,
+         "type":"collides,top"
+        }, 
+        {
+         "id":112,
+         "type":"collides,top"
+        }, 
+        {
+         "id":113,
+         "type":"collides,top"
+        }, 
+        {
+         "id":114,
+         "type":"collides,top"
+        }, 
+        {
+         "id":120,
+         "type":"collides,top"
+        }, 
+        {
+         "id":121,
+         "type":"collides,top"
+        }, 
+        {
+         "id":122,
+         "type":"collides,top"
+        }, 
+        {
+         "id":130,
+         "type":"collides"
+        }, 
+        {
+         "id":131,
+         "type":"collides"
+        }, 
+        {
+         "id":132,
+         "type":"collides"
+        }, 
+        {
+         "id":140,
+         "type":"collides"
+        }, 
+        {
+         "id":141,
+         "type":"collides"
+        }, 
+        {
+         "id":142,
+         "type":"collides"
         }],
  "tilewidth":32,
  "type":"tileset",

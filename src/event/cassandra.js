@@ -1,7 +1,8 @@
-export const cassandra = (scene, gate, cassandra, door, candle) => {
-  if (scene.storage.state.event.m2_4.started) return
+export const cassandra = (scene, gate, cassandra, door, doorEvent, candle) => {
   const state = scene.storage.state.event.m2_1
-  gate.setActive(state.started)
+  door.setVisible(!state.opened)
+  gate.setActive(state.opened)
+  if (scene.storage.state.event.m2_4.started) return
   candle.setTapEvent(async () => {
     const i = await scene.select(['調べる', '何もしない'])
     if (i === 1) return
@@ -9,11 +10,12 @@ export const cassandra = (scene, gate, cassandra, door, candle) => {
     candle.setVisible(false)
     scene.ui.announce('地下通路の鍵を手に入れた')
   }).setVisible(state.started && !state.key)
-  door.setTapEvent(async () => {
+  doorEvent.setTapEvent(async () => {
     if (state.key) {
-      await scene.talk([{ chara: 'ann', text: '鍵を開けた。' }])
+      scene.ui.announce('鉄格子の鍵を開けた')
       state.opened = true
       door.setVisible(false)
+      doorEvent.setVisible(false)
       gate.setActive(true)
     } else {
       await scene.talk([{ chara: 'ann', text: '鍵がかかってる。' }])
