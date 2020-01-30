@@ -4,6 +4,7 @@ export const jack = (scene, jack, area) => {
   const state = scene.storage.state.event.m2_4
   if (!scene.storage.state.event.m2_1.completed || state.jack) {
     jack.destroy()
+    area.destroy()
     return
   }
   const chara = jack.setDisplayName('ジャック')
@@ -23,6 +24,7 @@ export const jack = (scene, jack, area) => {
     state.jack = true
     await scene.ui.transition('normal')
     jack.destroy()
+    area.destroy()
   })
 }
 
