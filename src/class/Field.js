@@ -29,6 +29,7 @@ export default class Field {
     this.charas = this._getObjects(tilemap, 'chara').map(data => new Character(scene, data.x, data.y, data.name).setR((data.rotation + 90) * (Math.PI / 180)).setId(data.id))
     this.objects = this._getObjects(tilemap, 'object').map(data => new Substance(scene, data.x, data.y, data.name).setId(data.id))
     this.treasures = this._getObjects(tilemap, 'treasure').map(data => new TreasureChest(scene, data.x, data.y, Number(data.name), `${mapKey}_${data.id}`, data.rotation === 90).setId(data.id))
+    this._generateSunLight()
   }
   getObjectById (id) {
     return ['charas', 'gates', 'areas', 'objects', 'treasures'].reduce((found, key) => {
@@ -70,6 +71,18 @@ export default class Field {
     })
     return top
   }
+  _generateSunLight () {
+    const sun1 = scene.add.sprite(30, -70, 'sun_light').setDepth(170000).setBlendMode(Phaser.BlendModes.OVERLAY).setOrigin(0.5, 0).setScale(1.4, 10).setRotation(-1.1).setAlpha(0.6)
+    const sun2 = scene.add.sprite(-70, -70, 'sun_light').setDepth(170000).setBlendMode(Phaser.BlendModes.OVERLAY).setOrigin(0.5, 0).setScale(0.8, 10).setRotation(-0.8).setAlpha(0.6)
+    const sun3 = scene.add.sprite(-70, 30, 'sun_light').setDepth(170000).setBlendMode(Phaser.BlendModes.OVERLAY).setOrigin(0.5, 0).setScale(0.4, 10).setRotation(-0.5).setAlpha(0.6)
+    Array(sun1, sun2, sun3).forEach(sun => {
+      this.scene.add.tween({
+        targets: sun, duration: Math.randomInt(400, 700),
+        scaleX: sun.scaleX + 0.02, alpha: 0.8,
+        yoyo: true, loop: -1
+      })
+    })
+  }
   _generateLights (tilemap) {
     const lights = this._getTileSettingsByType(tilemap, 'light')
     const lightTiles = this.staticLayers.map(layer => {
@@ -91,7 +104,7 @@ export default class Field {
   }
   _renderDarkness (opacity, lights, exposures) {
     const posAndSize = [0, 0, this.width, this.height]
-    const dark = this.scene.add.renderTexture(...posAndSize).fill(0x000000, opacity, ...posAndSize).setOrigin(0.0).setDepth(110000)
+    const dark = this.scene.add.renderTexture(...posAndSize).fill(0x003366, opacity, ...posAndSize).setOrigin(0.0).setDepth(110000)
     const brush = this.scene.add.image(0, 0, 'lamp').setScale(3, 3)
     lights.forEach(light => dark.erase(brush, light.x, light.y, 1))
     exposures.forEach(exp => dark.erase(brush, exp.x, exp.y, 1))
