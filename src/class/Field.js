@@ -3,7 +3,6 @@ import Gate from './Gate'
 import Character from './Character'
 import Substance from './Substance'
 import TreasureChest from './TreasureChest'
-import config from '../data/config'
 export default class Field {
   constructor (scene, mapKey) {
     scene.add.existing(this)
@@ -18,7 +17,8 @@ export default class Field {
       return layer.visible ? tilemap.createStaticLayer(i, tilesets, 0, 0) : null
     }).filter(Boolean)
     const lights = this._generateLights(tilemap)
-    this._renderDarkness(lights, this._getExposures(tilemap))
+    const darkness = this._getProperty(tilemap, 'darkness')
+    if (darkness) this._renderDarkness(darkness.value, lights, this._getExposures(tilemap))
     this.images = tilemap.images.map(data => this._getImage(data))
     const collides = this._getTileIdsByType(tilemap, 'collides')
     this.staticLayers.forEach(layer => layer.setCollision(collides))
@@ -55,6 +55,9 @@ export default class Field {
     })
   }
   // private
+  _getProperty (tilemap, name) {
+    return Array.isArray(tilemap.properties) && tilemap.properties.find(p => p.name === name)
+  }
   _generateTopLayer (tilemap) {
     const visibleLayers = tilemap.layers.filter(v => v.visible).reverse()
     const topTileIds = this._getTileIdsByType(tilemap, 'top')
@@ -86,10 +89,10 @@ export default class Field {
       return sprite
     })
   }
-  _renderDarkness (lights, exposures) {
+  _renderDarkness (opacity, lights, exposures) {
     if (lights.length === 0) return
     const posAndSize = [0, 0, this.width, this.height]
-    const dark = this.scene.add.renderTexture(...posAndSize).fill(0x000000, 0.8, ...posAndSize).setOrigin(0.0).setDepth(110000)
+    const dark = this.scene.add.renderTexture(...posAndSize).fill(0x000000, opacity, ...posAndSize).setOrigin(0.0).setDepth(110000)
     const brush = this.scene.add.image(0, 0, 'lamp').setScale(3, 3)
     lights.forEach(light => dark.erase(brush, light.x, light.y, 1))
     exposures.forEach(exp => dark.erase(brush, exp.x, exp.y, 1))
