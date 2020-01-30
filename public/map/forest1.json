@@ -1,4 +1,12 @@
-{ "height":32,
+{ "compressionlevel":0,
+ "editorsettings":
+    {
+     "export":
+        {
+         "target":"."
+        }
+    },
+ "height":32,
  "infinite":false,
  "layers":[
         {
@@ -151,12 +159,101 @@
          "visible":true,
          "x":0,
          "y":0
+        }, 
+        {
+         "draworder":"topdown",
+         "id":11,
+         "name":"exposure",
+         "objects":[
+                {
+                 "height":0,
+                 "id":5,
+                 "name":"",
+                 "point":true,
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":1249.57298907646,
+                 "y":513.843098311817
+                }, 
+                {
+                 "height":0,
+                 "id":6,
+                 "name":"",
+                 "point":true,
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":969.294935451837,
+                 "y":490.486593843098
+                }, 
+                {
+                 "height":0,
+                 "id":7,
+                 "name":"",
+                 "point":true,
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":665.660377358491,
+                 "y":486.593843098312
+                }, 
+                {
+                 "height":0,
+                 "id":8,
+                 "name":"",
+                 "point":true,
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":338.669314796425,
+                 "y":268.599801390268
+                }, 
+                {
+                 "height":0,
+                 "id":9,
+                 "name":"",
+                 "point":true,
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":513.843098311817,
+                 "y":611.16186693148
+                }, 
+                {
+                 "height":0,
+                 "id":10,
+                 "name":"",
+                 "point":true,
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":416.524329692155,
+                 "y":786.335650446872
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":false,
+         "x":0,
+         "y":0
         }],
- "nextlayerid":11,
- "nextobjectid":5,
+ "nextlayerid":13,
+ "nextobjectid":11,
  "orientation":"orthogonal",
+ "properties":[
+        {
+         "name":"darkness",
+         "type":"float",
+         "value":0.6
+        }],
  "renderorder":"right-down",
- "tiledversion":"2018.12.22",
+ "tiledversion":"2019.12.11",
  "tileheight":32,
  "tilesets":[
         {
