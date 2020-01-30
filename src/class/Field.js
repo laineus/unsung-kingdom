@@ -90,12 +90,12 @@ export default class Field {
     })
   }
   _renderDarkness (opacity, lights, exposures) {
-    if (lights.length === 0) return
     const posAndSize = [0, 0, this.width, this.height]
     const dark = this.scene.add.renderTexture(...posAndSize).fill(0x000000, opacity, ...posAndSize).setOrigin(0.0).setDepth(110000)
     const brush = this.scene.add.image(0, 0, 'lamp').setScale(3, 3)
     lights.forEach(light => dark.erase(brush, light.x, light.y, 1))
     exposures.forEach(exp => dark.erase(brush, exp.x, exp.y, 1))
+    brush.destroy()
     return dark
   }
   _getTilesets (tilemap) {
