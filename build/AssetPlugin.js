@@ -4,7 +4,8 @@ const ASSET_SETTINGS = require('./assetSettings')
 
 module.exports = class {
   apply (compiler) {
-    compiler.hooks.beforeCompile.tapAsync('Asset', (_, callback) => {
+    compiler.hooks.afterEnvironment.tap('Asset', () => {
+      console.log('Begin: Asset')
       const promises = ASSET_SETTINGS.map(setting => {
         return new Promise(resolve => {
           fs.readdir(`./public/${setting.dir}`, (_, files) => {
@@ -21,7 +22,7 @@ module.exports = class {
           return obj
         }, {})
         compiler.options.externals.assetData = JSON.stringify(object)
-        callback()
+        console.log('End: Asset')
       })
     })
   }

@@ -7,13 +7,14 @@ const EXTRUDED = `${DIR}/extruded`
 
 module.exports = class {
   apply (compiler) {
-    compiler.hooks.beforeCompile.tapAsync('TileSet', (_, callback) => {
+    compiler.hooks.afterEnvironment.tap('TileSet', () => {
+      console.log('Begin: TileSet')
       fs.readdir(ORIGINAL, (_, files) => {
         const promises = files.map(file => {
           extrudeTilesetToImage(32, 32, `${ORIGINAL}/${file}`, `${EXTRUDED}/${file}`)
         })
         Promise.all(promises).then(() => {
-          callback()
+          console.log('End: TileSet')
         })
       })
     })
