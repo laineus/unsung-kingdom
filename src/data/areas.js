@@ -34,6 +34,16 @@ export default [
   {
     key: 'underpass',
     list: [
+      { key: 'underpass1', x: 0, y: 42 },
+      { key: 'underpass2', x: 21, y: 0 },
+      { key: 'underpass3', x: 59, y: 21 },
+      { key: 'underpass4', x: 82, y: 18 },
+      { key: 'underpass5', x: 106, y: 0 },
+      { key: 'underpass6', x: 95, y: -37 },
+      { key: 'underpass7', x: 104, y: -71 },
+      { key: 'underpass8', x: 130, y: -128 },
+      { key: 'underpass9', x: 141, y: -157 },
+      { key: 'underpass10', x: 3, y: 1 }
     ]
   }
 ]
