@@ -15,6 +15,8 @@ export default class Player extends Character {
     this.targetMarker.blendMode = 1
     this.addAt(this.targetMarker, 0)
     this.setSpeed(240)
+    const pos = [x, y]
+    this.positionHistory = (100).toArray().fill(pos)
   }
   preUpdate () {
     super.preUpdate()
@@ -25,6 +27,10 @@ export default class Player extends Character {
     this.scene.storage.state.x = this.x
     this.scene.storage.state.y = this.y
     this.scene.storage.state.r = this.r
-    if (this.walking) this.emit('walk')
+    if (this.walking) {
+      this.emit('walk')
+      this.positionHistory.unshift([this.x, this.y])
+      if (this.positionHistory.length > 100) this.positionHistory.pop()
+    }
   }
 }
