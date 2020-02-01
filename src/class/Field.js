@@ -72,9 +72,9 @@ export default class Field {
     return top
   }
   _generateSunLight () {
-    const sun1 = scene.add.sprite(30, -70, 'sun_light').setDepth(170000).setBlendMode(Phaser.BlendModes.OVERLAY).setOrigin(0.5, 0).setScale(1.4, 10).setRotation(-1.1).setAlpha(0.6)
-    const sun2 = scene.add.sprite(-70, -70, 'sun_light').setDepth(170000).setBlendMode(Phaser.BlendModes.OVERLAY).setOrigin(0.5, 0).setScale(0.8, 10).setRotation(-0.8).setAlpha(0.6)
-    const sun3 = scene.add.sprite(-70, 30, 'sun_light').setDepth(170000).setBlendMode(Phaser.BlendModes.OVERLAY).setOrigin(0.5, 0).setScale(0.4, 10).setRotation(-0.5).setAlpha(0.6)
+    const sun1 = this.scene.add.sprite(30, -70, 'sun_light').setDepth(170000).setBlendMode(Phaser.BlendModes.OVERLAY).setOrigin(0.5, 0).setScale(1.4, 10).setRotation(-1.1).setAlpha(0.6)
+    const sun2 = this.scene.add.sprite(-70, -70, 'sun_light').setDepth(170000).setBlendMode(Phaser.BlendModes.OVERLAY).setOrigin(0.5, 0).setScale(0.8, 10).setRotation(-0.8).setAlpha(0.6)
+    const sun3 = this.scene.add.sprite(-70, 30, 'sun_light').setDepth(170000).setBlendMode(Phaser.BlendModes.OVERLAY).setOrigin(0.5, 0).setScale(0.4, 10).setRotation(-0.5).setAlpha(0.6)
     Array(sun1, sun2, sun3).forEach(sun => {
       this.scene.add.tween({
         targets: sun, duration: Math.randomInt(400, 700),
