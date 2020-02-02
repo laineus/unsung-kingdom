@@ -117,7 +117,7 @@ export default class Field {
   _getTileSettingsByType (tilemap, type) {
     return tilemap.tilesets.map(set => {
       const data = this.scene.cache.json.get(set.name)
-      return data.tiles.filter(tile => tile.type.split(',').includes(type)).map(tile => {
+      return data.tiles.filter(tile => tile.type && tile.type.split(',').includes(type)).map(tile => {
         const properties = tile.properties ? tile.properties.reduce((obj, v) => {
           obj[v.name] = v.value
           return obj
