@@ -45,5 +45,21 @@ export default [
       { key: 'underpass9', x: 141, y: -157 },
       { key: 'underpass10', x: 3, y: 1 }
     ]
+  },
+  {
+    key: 'catacomb',
+    list: [
+      { key: 'catacomb1', x: 186, y: 39 },
+      { key: 'catacomb2', x: 226, y: 51 },
+      { key: 'catacomb3', x: 152, y: 109 },
+      { key: 'catacomb4', x: 82, y: 109 },
+      { key: 'catacomb5', x: 107, y: 159 },
+      { key: 'catacomb6', x: 50, y: 81 },
+      { key: 'catacomb7', x: 0, y: 97 },
+      { key: 'catacomb8', x: 82, y: 49 },
+      { key: 'catacomb9', x: 114, y: 36 },
+      { key: 'catacomb10', x: 114, y: 0 },
+      { key: 'catacomb11', x: 146, y: 36 }
+    ]
   }
 ]
