@@ -3,7 +3,6 @@ import Gate from './Gate'
 import Character from './Character'
 import Substance from './Substance'
 import TreasureChest from './TreasureChest'
-import config from '../data/config'
 export default class Field {
   constructor (scene, mapKey) {
     scene.add.existing(this)
@@ -18,7 +17,8 @@ export default class Field {
       return layer.visible ? tilemap.createStaticLayer(i, tilesets, 0, 0) : null
     }).filter(Boolean)
     const lights = this._generateLights(tilemap)
-    this._renderDarkness(lights, this._getExposures(tilemap))
+    const darkness = this._getProperty(tilemap, 'darkness')
+    if (darkness) this._renderDarkness(darkness.value, lights, this._getExposures(tilemap))
     this.images = tilemap.images.map(data => this._getImage(data))
     const collides = this._getTileIdsByType(tilemap, 'collides')
     this.staticLayers.forEach(layer => layer.setCollision(collides))
@@ -29,6 +29,7 @@ export default class Field {
     this.charas = this._getObjects(tilemap, 'chara').map(data => new Character(scene, data.x, data.y, data.name).setR((data.rotation + 90) * (Math.PI / 180)).setId(data.id))
     this.objects = this._getObjects(tilemap, 'object').map(data => new Substance(scene, data.x, data.y, data.name).setId(data.id))
     this.treasures = this._getObjects(tilemap, 'treasure').map(data => new TreasureChest(scene, data.x, data.y, Number(data.name), `${mapKey}_${data.id}`, data.rotation === 90).setId(data.id))
+    this._generateSunLight()
   }
   getObjectById (id) {
     return ['charas', 'gates', 'areas', 'objects', 'treasures'].reduce((found, key) => {
@@ -55,6 +56,9 @@ export default class Field {
     })
   }
   // private
+  _getProperty (tilemap, name) {
+    return Array.isArray(tilemap.properties) && tilemap.properties.find(p => p.name === name)
+  }
   _generateTopLayer (tilemap) {
     const visibleLayers = tilemap.layers.filter(v => v.visible).reverse()
     const topTileIds = this._getTileIdsByType(tilemap, 'top')
@@ -66,6 +70,18 @@ export default class Field {
       })
     })
     return top
+  }
+  _generateSunLight () {
+    const sun1 = this.scene.add.sprite(30, -70, 'sun_light').setDepth(170000).setBlendMode(Phaser.BlendModes.OVERLAY).setOrigin(0.5, 0).setScale(1.4, 10).setRotation(-1.1).setAlpha(0.6)
+    const sun2 = this.scene.add.sprite(-70, -70, 'sun_light').setDepth(170000).setBlendMode(Phaser.BlendModes.OVERLAY).setOrigin(0.5, 0).setScale(0.8, 10).setRotation(-0.8).setAlpha(0.6)
+    const sun3 = this.scene.add.sprite(-70, 30, 'sun_light').setDepth(170000).setBlendMode(Phaser.BlendModes.OVERLAY).setOrigin(0.5, 0).setScale(0.4, 10).setRotation(-0.5).setAlpha(0.6)
+    Array(sun1, sun2, sun3).forEach(sun => {
+      this.scene.add.tween({
+        targets: sun, duration: Math.randomInt(400, 700),
+        scaleX: sun.scaleX + 0.02, alpha: 0.8,
+        yoyo: true, loop: -1
+      })
+    })
   }
   _generateLights (tilemap) {
     const lights = this._getTileSettingsByType(tilemap, 'light')
@@ -86,13 +102,13 @@ export default class Field {
       return sprite
     })
   }
-  _renderDarkness (lights, exposures) {
-    if (lights.length === 0) return
+  _renderDarkness (opacity, lights, exposures) {
     const posAndSize = [0, 0, this.width, this.height]
-    const dark = this.scene.add.renderTexture(...posAndSize).fill(0x000000, 0.8, ...posAndSize).setOrigin(0.0).setDepth(110000)
+    const dark = this.scene.add.renderTexture(...posAndSize).fill(0x003366, opacity, ...posAndSize).setOrigin(0.0).setDepth(110000)
     const brush = this.scene.add.image(0, 0, 'lamp').setScale(3, 3)
     lights.forEach(light => dark.erase(brush, light.x, light.y, 1))
     exposures.forEach(exp => dark.erase(brush, exp.x, exp.y, 1))
+    brush.destroy()
     return dark
   }
   _getTilesets (tilemap) {

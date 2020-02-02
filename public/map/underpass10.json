@@ -139,6 +139,12 @@
  "nextlayerid":17,
  "nextobjectid":10,
  "orientation":"orthogonal",
+ "properties":[
+        {
+         "name":"darkness",
+         "type":"float",
+         "value":0.8
+        }],
  "renderorder":"right-down",
  "tiledversion":"2019.12.11",
  "tileheight":32,

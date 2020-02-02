@@ -1,4 +1,12 @@
-{ "height":24,
+{ "compressionlevel":0,
+ "editorsettings":
+    {
+     "export":
+        {
+         "target":"."
+        }
+    },
+ "height":24,
  "infinite":false,
  "layers":[
         {
@@ -121,8 +129,14 @@
  "nextlayerid":17,
  "nextobjectid":4,
  "orientation":"orthogonal",
+ "properties":[
+        {
+         "name":"darkness",
+         "type":"float",
+         "value":0.8
+        }],
  "renderorder":"right-down",
- "tiledversion":"1.2.1",
+ "tiledversion":"2019.12.11",
  "tileheight":32,
  "tilesets":[
         {

@@ -4,7 +4,7 @@ import maps from '../data/maps'
 import assets from '../data/assets'
 import storage from '../data/storage'
 import generateBattler from '../util/generateBattler'
-import config from '../data/config'
+import Friend from './Friend'
 export default class GameScene extends Phaser.Scene {
   constructor () {
     super({ key: 'Game', active: false })
@@ -16,6 +16,8 @@ export default class GameScene extends Phaser.Scene {
     this.substances = this.add.group()
     // player
     this.player = new Player(this, payload.x, payload.y).setR(this.storage.state.r)
+    this.francisca = new Friend(this, payload.x, payload.y - 1, 'francisca').setR(this.storage.state.r).setFollowDiff(8).setSpeed(230)
+    this.jaquelyn = new Friend(this, payload.x, payload.y - 2, 'jaquelyn').setR(this.storage.state.r).setFollowDiff(20).setSpeed(220)
     if (['number', 'string'].includes(typeof payload.r)) this.player.setR(payload.r)
     this.player.on('walk', () => {
       if (!this.event.enemyGroups || this.ui.eventMode) return

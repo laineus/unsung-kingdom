@@ -39,28 +39,28 @@ export default [
     chapter: 2,
     title: '幽閉されしカサンドラ',
     en: 'Incarcerated Cassandra',
-    map: 'forest1'
+    map: 'underpass1'
   },
   {
     key: 'm2_2',
     chapter: 2,
     title: 'メアリー王女と公爵令嬢ロレッタ',
     en: 'Princess Mary and Loretta',
-    map: 'forest1'
+    map: 'underpass4'
   },
   {
     key: 'm2_3',
     chapter: 2,
     title: 'ディオニューソスの密造酒',
     en: 'Ikarios\' Moonshine',
-    map: 'forest1'
+    map: 'underpass6'
   },
   {
     key: 'm2_4',
     chapter: 2,
     title: 'アラグニエのねぐら',
     en: 'Aragnie\'s lair',
-    map: 'forest1'
+      map: 'underpass1'
   },
   {
     key: 'm3_1',

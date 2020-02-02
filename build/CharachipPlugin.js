@@ -4,7 +4,8 @@ const CHARACHIP_SETTINGS = require('./charachipSettings')
 
 module.exports = class {
   apply (compiler) {
-    compiler.hooks.beforeCompile.tapAsync('Asset', (_, callback) => {
+    compiler.hooks.afterEnvironment.tap('Charachip', () => {
+      console.log('Begin: Charachip')
       const list = CHARACHIP_SETTINGS.map(setting => {
         const [name, x, y] = setting
         const { width, height } = sizeOf(`./public/img/field/${name}.png`)
@@ -14,7 +15,7 @@ module.exports = class {
         return [`field/${name}`, `../img/field/${name}.png`, { frameWidth, frameHeight, endFrame }]
       })
       compiler.options.externals.charachipData = JSON.stringify(list)
-      callback()
+      console.log('End: Charachip')
     })
   }
 }
