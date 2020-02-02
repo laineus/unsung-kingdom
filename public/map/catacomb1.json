@@ -1,4 +1,4 @@
-{ "compressionlevel":-1,
+{ "compressionlevel":0,
  "editorsettings":
     {
      "export":
@@ -59,8 +59,17 @@
  "tileheight":32,
  "tilesets":[
         {
+         "columns":10,
          "firstgid":1,
-         "source":"catacomb.json"
+         "image":"..\/img\/tileset\/original\/catacomb.png",
+         "imageheight":512,
+         "imagewidth":320,
+         "margin":0,
+         "name":"catacomb",
+         "spacing":0,
+         "tilecount":160,
+         "tileheight":32,
+         "tilewidth":32
         }],
  "tilewidth":32,
  "type":"map",

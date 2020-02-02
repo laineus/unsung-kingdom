@@ -54,15 +54,6 @@
          "type":"collides,top"
         }, 
         {
-         "id":27,
-         "properties":[
-                {
-                 "name":"direction",
-                 "type":"string",
-                 "value":"bottom"
-                }]
-        }, 
-        {
          "id":30,
          "type":"collides,top"
         }, 
