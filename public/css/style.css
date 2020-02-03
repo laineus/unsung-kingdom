@@ -33,6 +33,7 @@ body {
   margin: auto;
 }
 .fullscreen canvas {
+  display: block;
   width: 100vw;
   height: 100vh;
   max-width: calc(100vh * (16 / 9));
