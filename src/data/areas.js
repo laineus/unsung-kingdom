@@ -49,17 +49,17 @@ export default [
   {
     key: 'catacomb',
     list: [
-      { key: 'catacomb1', x: 186, y: 39 },
-      { key: 'catacomb2', x: 226, y: 51 },
-      { key: 'catacomb3', x: 152, y: 109 },
-      { key: 'catacomb4', x: 82, y: 109 },
-      { key: 'catacomb5', x: 107, y: 159 },
-      { key: 'catacomb6', x: 50, y: 81 },
-      { key: 'catacomb7', x: 0, y: 97 },
-      { key: 'catacomb8', x: 82, y: 49 },
-      { key: 'catacomb9', x: 114, y: 36 },
-      { key: 'catacomb10', x: 114, y: 0 },
-      { key: 'catacomb11', x: 146, y: 36 }
+      { key: 'catacomb1', x: 170, y: 33 },
+      { key: 'catacomb2', x: 202, y: 41 },
+      { key: 'catacomb3', x: 134, y: 87 },
+      { key: 'catacomb4', x: 74, y: 87 },
+      { key: 'catacomb5', x: 98, y: 123 },
+      { key: 'catacomb6', x: 42, y: 62 },
+      { key: 'catacomb7', x: 0, y: 71 },
+      { key: 'catacomb8', x: 74, y: 41 },
+      { key: 'catacomb9', x: 106, y: 36 },
+      { key: 'catacomb10', x: 106, y: 0 },
+      { key: 'catacomb11', x: 138, y: 33 }
     ]
   }
 ]
