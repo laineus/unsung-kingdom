@@ -80,12 +80,12 @@
                         {
                          "name":"x",
                          "type":"int",
-                         "value":0
+                         "value":2
                         }, 
                         {
                          "name":"y",
                          "type":"int",
-                         "value":0
+                         "value":15
                         }],
                  "rotation":0,
                  "type":"gate",
@@ -102,12 +102,12 @@
                         {
                          "name":"x",
                          "type":"int",
-                         "value":0
+                         "value":52
                         }, 
                         {
                          "name":"y",
                          "type":"int",
-                         "value":0
+                         "value":2
                         }],
                  "rotation":0,
                  "type":"gate",
@@ -119,17 +119,17 @@
                 {
                  "height":96,
                  "id":4,
-                 "name":"catacomb12",
+                 "name":"catacomb11",
                  "properties":[
                         {
                          "name":"x",
                          "type":"int",
-                         "value":0
+                         "value":29
                         }, 
                         {
                          "name":"y",
                          "type":"int",
-                         "value":0
+                         "value":34
                         }],
                  "rotation":0,
                  "type":"gate",

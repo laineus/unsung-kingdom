@@ -44,9 +44,42 @@
          "width":32,
          "x":0,
          "y":0
+        }, 
+        {
+         "draworder":"topdown",
+         "id":7,
+         "name":"event",
+         "objects":[
+                {
+                 "height":64,
+                 "id":1,
+                 "name":"catacomb9",
+                 "properties":[
+                        {
+                         "name":"x",
+                         "type":"int",
+                         "value":15
+                        }, 
+                        {
+                         "name":"y",
+                         "type":"int",
+                         "value":2
+                        }],
+                 "rotation":0,
+                 "type":"gate",
+                 "visible":true,
+                 "width":96,
+                 "x":448,
+                 "y":1088
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "x":0,
+         "y":0
         }],
- "nextlayerid":7,
- "nextobjectid":1,
+ "nextlayerid":8,
+ "nextobjectid":2,
  "orientation":"orthogonal",
  "properties":[
         {
@@ -58,19 +91,19 @@
  "tiledversion":"2019.12.11",
  "tileheight":32,
  "tilesets":[
-       {
-        "columns":10,
-        "firstgid":1,
-        "image":"..\/img\/tileset\/original\/catacomb.png",
-        "imageheight":512,
-        "imagewidth":320,
-        "margin":0,
-        "name":"catacomb",
-        "spacing":0,
-        "tilecount":160,
-        "tileheight":32,
-        "tilewidth":32
-       }],
+        {
+         "columns":10,
+         "firstgid":1,
+         "image":"..\/img\/tileset\/original\/catacomb.png",
+         "imageheight":512,
+         "imagewidth":320,
+         "margin":0,
+         "name":"catacomb",
+         "spacing":0,
+         "tilecount":160,
+         "tileheight":32,
+         "tilewidth":32
+        }],
  "tilewidth":32,
  "type":"map",
  "version":1.2,

@@ -44,9 +44,64 @@
          "width":32,
          "x":0,
          "y":0
+        }, 
+        {
+         "draworder":"topdown",
+         "id":9,
+         "name":"event",
+         "objects":[
+                {
+                 "height":96,
+                 "id":1,
+                 "name":"catacomb9",
+                 "properties":[
+                        {
+                         "name":"x",
+                         "type":"int",
+                         "value":29
+                        }, 
+                        {
+                         "name":"y",
+                         "type":"int",
+                         "value":28
+                        }],
+                 "rotation":0,
+                 "type":"gate",
+                 "visible":true,
+                 "width":64,
+                 "x":0,
+                 "y":960
+                }, 
+                {
+                 "height":96,
+                 "id":2,
+                 "name":"catacomb1",
+                 "properties":[
+                        {
+                         "name":"x",
+                         "type":"int",
+                         "value":2
+                        }, 
+                        {
+                         "name":"y",
+                         "type":"int",
+                         "value":34
+                        }],
+                 "rotation":0,
+                 "type":"gate",
+                 "visible":true,
+                 "width":64,
+                 "x":960,
+                 "y":1056
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "x":0,
+         "y":0
         }],
- "nextlayerid":9,
- "nextobjectid":1,
+ "nextlayerid":10,
+ "nextobjectid":3,
  "orientation":"orthogonal",
  "properties":[
         {
