@@ -65,6 +65,8 @@ export const dionysus = (scene, dionysus, area, gate) => {
         { chara, text: '倒したんだな？' },
         { chara, text: 'やるじゃないか！' },
         { chara, text: 'これでもうアイツに怯えなくて済むんだな。' },
+        { chara: 'ann', text: 'お酒を飲ませておいてくれたおかげかな。' },
+        { chara, text: 'へへ、グリファルデ宮殿に眠るドラゴンも、酒を飲ませりゃ倒せるかもしれねえな。' },
         { chara, text: 'よっしゃ、あんたらにこれをやるよ。' }
       ])
       scene.ui.increaseWeapon(7)
