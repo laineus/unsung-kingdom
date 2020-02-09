@@ -1,10 +1,12 @@
 import townChapter0 from '../event/townChapter0'
 import townChapter1 from '../event/townChapter1'
 import townChapter2 from '../event/townChapter2'
+import townChapter3 from '../event/townChapter3'
 const events = [
   townChapter0,
   townChapter1,
-  townChapter2
+  townChapter2,
+  townChapter3
 ]
 export default {
   create (scene) {
