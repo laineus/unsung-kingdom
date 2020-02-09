@@ -165,5 +165,44 @@ const events = [
     await scene.ui.chapterStart(`${chapters[2].name} ${chapters[2].title}`)
     francisca.setVisible(false)
     jaquelyn.setVisible(false)
+  },
+  async (scene, francisca, jaquelyn) => {
+    scene.player.setR('down')
+    await scene.ui.sleep(1000)
+    await scene.talk([
+      { chara: 'francisca', text: 'さあアン、王国史はどうなった？' },
+      { chara: 'francisca', text: '次はなにで死ぬことになった？' },
+      { chara: 'ann', text: 'ちょっと！まだそうと決まったわけじゃないでしょ！' },
+      { chara: 'jaquelyn', text: '助かっているといいわね。' },
+      { chara: 'ann', text: 'ええっと、' },
+      { chara: 'ann', text: '「王は王妃の亡霊に呪い殺されたと語られている」' },
+      { chara: 'ann', text: '何それ！怖い！' },
+      { chara: 'ann', text: 'というかやっぱりまた死んじゃうの？' },
+      { chara: 'francisca', text: 'しかも亡霊に呪い殺されるって…、' },
+      { chara: 'jaquelyn', text: 'そんなことあるかしら。' },
+      { chara: 'jaquelyn', text: 'もし噂が語り継がれただけだとしたら、今回は情報がないようなものね。' },
+      { chara: 'ann', text: 'ねえ、今回の件もジャックが絡んでいるんじゃないかな？' },
+      { chara: 'francisca', text: 'うん、そうだろうね。' },
+      { chara: 'jaquelyn', text: '地下通路でも怪しかったわ。' },
+      { chara: 'ann', text: 'きっとどの死因もジャックが黒幕だったのかも。' },
+      { chara: 'ann', text: 'ジャックは王を殺そうとしたけど、それを私たちが妨害した。' },
+      { chara: 'ann', text: 'するとジャックは別の方法でまた王を殺そうとする。' },
+      { chara: 'ann', text: 'だから何度も王が死ぬ歴史になっちゃうんだ。' },
+      { chara: 'jaquelyn', text: 'うんうん、それなら納得がいくわ。' },
+      { chara: 'francisca', text: 'つまりジャックを殺せばいいわけね。' },
+      { chara: 'ann', text: 'そ、そうなるのか…。' },
+      { chara: 'ann', text: '何か別の方法はないかな？' },
+      { chara: 'jaquelyn', text: 'ジャックに会って説得するのはどうかしら？' },
+      { chara: 'jaquelyn', text: '説得できないとしても、何故王を殺そうとしているのか理由を聞きたいわ。' },
+      { chara: 'ann', text: 'それがよさそうだね。' },
+      { chara: 'ann', text: 'どうやってジャックを見つけようか？' },
+      { chara: 'francisca', text: 'また今回の死因を追いかければ、ジャックのところに行き着くんじゃないかな。' },
+      { chara: 'ann', text: 'たしかに。' },
+      { chara: 'ann', text: 'よし、それじゃあ決まり！' },
+      { chara: 'ann', text: 'また街に出て聞き込みに行くよ！' }
+    ])
+    await scene.ui.chapterStart(`${chapters[3].name} ${chapters[3].title}`)
+    francisca.setVisible(false)
+    jaquelyn.setVisible(false)
   }
 ]
