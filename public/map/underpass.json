@@ -61,9 +61,14 @@
          "id":27,
          "properties":[
                 {
-                 "name":"direction",
-                 "type":"string",
-                 "value":"bottom"
+                 "name":"color",
+                 "type":"color",
+                 "value":"#ffff8800"
+                }, 
+                {
+                 "name":"drop",
+                 "type":"bool",
+                 "value":true
                 }],
          "type":"light"
         }, 
@@ -103,9 +108,9 @@
          "id":45,
          "properties":[
                 {
-                 "name":"direction",
-                 "type":"string",
-                 "value":"left"
+                 "name":"color",
+                 "type":"color",
+                 "value":"#ffff8800"
                 }],
          "type":"light"
         }, 
@@ -113,9 +118,9 @@
          "id":46,
          "properties":[
                 {
-                 "name":"direction",
-                 "type":"string",
-                 "value":"right"
+                 "name":"color",
+                 "type":"color",
+                 "value":"#ffff8800"
                 }],
          "type":"light"
         }, 
@@ -151,9 +156,9 @@
          "id":58,
          "properties":[
                 {
-                 "name":"direction",
-                 "type":"string",
-                 "value":"bottom"
+                 "name":"color",
+                 "type":"color",
+                 "value":"#ffff8800"
                 }],
          "type":"light"
         }, 

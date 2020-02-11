@@ -40,7 +40,6 @@ export default class Field {
     this.charas = this._getObjects(tilemap, 'chara').map(data => new Character(scene, data.x, data.y, data.name).setR((data.rotation + 90) * (Math.PI / 180)).setId(data.id))
     this.objects = this._getObjects(tilemap, 'object').map(data => new Substance(scene, data.x, data.y, data.name).setId(data.id))
     this.treasures = this._getObjects(tilemap, 'treasure').map(data => new TreasureChest(scene, data.x, data.y, Number(data.name), `${mapKey}_${data.id}`, data.rotation === 90).setId(data.id))
-    this._generateSunLight()
   }
   getObjectById (id) {
     return ['charas', 'gates', 'areas', 'objects', 'treasures'].reduce((found, key) => {
@@ -101,12 +100,14 @@ export default class Field {
         return row.filter(tile => lights.map(v => v.id).includes(tile.index))
       }).filter(arr => arr.length).flatMap(v => v)
     }).filter(arr => arr.length).flatMap(v => v)
-    const dropLight = id => lights.find(l => l.id === id).properties.direction === 'bottom'
+    const getProperties = id => lights.find(l => l.id === id).properties
     return lightTiles.map(v => {
-      const sprite = this.scene.add.sprite(v.x.toPixelCenter, v.y.toPixelCenter, 'lamp').setScale(0.5).setBlendMode(Phaser.BlendModes.OVERLAY).setDepth(100000)
-      if (dropLight(v.index)) this.scene.add.sprite(v.x.toPixelCenter, v.y.toPixelCenter + 55, 'lamp').setScale(0.6).setBlendMode(Phaser.BlendModes.OVERLAY).setDepth(100000)
+      const properties = getProperties(v.index)
+      const { color } = parseArgb(properties.color)
+      const sprite = this.scene.add.sprite(v.x.toPixelCenter, v.y.toPixelCenter, 'lamp').setTint(color).setScale(0.5).setBlendMode(Phaser.BlendModes.OVERLAY).setDepth(100000)
+      const sprite2 = properties.drop ? this.scene.add.sprite(v.x.toPixelCenter, v.y.toPixelCenter + 55, 'lamp').setTint(color).setScale(0.6).setBlendMode(Phaser.BlendModes.OVERLAY).setDepth(100000) : null
       this.scene.add.tween({
-        targets: sprite, duration: Math.randomInt(300, 400),
+        targets: [sprite, ...(sprite2 ? [sprite2] : [])], duration: Math.randomInt(300, 400),
         scale: 0.6, alpha: 0.8,
         yoyo: true, loop: -1
       })
@@ -132,7 +133,7 @@ export default class Field {
         const properties = tile.properties ? tile.properties.reduce((obj, v) => {
           obj[v.name] = v.value
           return obj
-        }, {}) : null
+        }, {}) : {}
         return { id: tile.id + set.firstgid, properties }
       })
     }).flat()
