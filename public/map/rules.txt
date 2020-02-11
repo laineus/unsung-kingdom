@@ -4,3 +4,4 @@ rule_forest_crif.tmx
 rule_forest_wall.tmx
 rule_underpass_wall.tmx
 rule_catacomb_wall.tmx
+rule_catacomb_road.tmx
