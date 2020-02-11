@@ -120,8 +120,8 @@ export default class Field {
     const particles = this.scene.add.particles('lamp')
     particles.setDepth(90000)
     particles.createEmitter({
-      x: { min: 0, max: this.width },
-      y: { min: 0, max: this.height },
+      x: { min: 0, max: Math.max(this.width, (40).toPixel) },
+      y: { min: 0, max: Math.max(this.height, (40).toPixel) },
       scale: { start: 0.02, end: 0.04 },
       alpha: { start: 1, end: 0.2 },
       tint: color,
@@ -130,7 +130,7 @@ export default class Field {
       speed: { min: -20, max: 20 },
       accelerationX: 0,
       accelerationY: -25,
-      frequency: 10000000 / (this.width * this.height)
+      frequency: 20
     })
   }
   _renderDarkness (alpha, color, lights, exposures) {
