@@ -151,7 +151,12 @@
         {
          "name":"darkness",
          "type":"color",
-         "value":"#c8000000"
+         "value":"#c8440033"
+        }, 
+        {
+         "name":"particles",
+         "type":"color",
+         "value":"#ffbb00ff"
         }],
  "renderorder":"right-down",
  "tiledversion":"2019.12.11",
