@@ -1,20 +1,12 @@
 { "columns":10,
- "editorsettings":
-    {
-     "export":
-        {
-         "format":"",
-         "target":"."
-        }
-    },
  "image":"..\/img\/tileset\/original\/catacomb.png",
- "imageheight":512,
+ "imageheight":832,
  "imagewidth":320,
  "margin":0,
  "name":"catacomb",
  "spacing":0,
- "tilecount":160,
- "tiledversion":"2019.12.11",
+ "tilecount":260,
+ "tiledversion":"1.2.1",
  "tileheight":32,
  "tiles":[
         {
@@ -35,6 +27,31 @@
         }, 
         {
          "id":6,
+         "properties":[
+                {
+                 "name":"color",
+                 "type":"color",
+                 "value":"#ffbb00ff"
+                }, 
+                {
+                 "name":"drop",
+                 "type":"bool",
+                 "value":true
+                }],
+         "type":"light"
+        }, 
+        {
+         "id":7,
+         "properties":[
+                {
+                 "name":"color",
+                 "type":"color",
+                 "value":"#ffbb00ff"
+                }],
+         "type":"light"
+        }, 
+        {
+         "id":9,
          "properties":[
                 {
                  "name":"color",
