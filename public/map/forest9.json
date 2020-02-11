@@ -204,7 +204,12 @@
         {
          "name":"darkness",
          "type":"color",
-         "value":"#96000000"
+         "value":"#96003366"
+        }, 
+        {
+         "name":"particles",
+         "type":"color",
+         "value":"#ffc8ff00"
         }, 
         {
          "name":"sun",

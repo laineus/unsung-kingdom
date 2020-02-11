@@ -187,6 +187,16 @@
  "orientation":"orthogonal",
  "properties":[
         {
+         "name":"darkness",
+         "type":"color",
+         "value":"#96003366"
+        }, 
+        {
+         "name":"particles",
+         "type":"color",
+         "value":"#ffc8ff00"
+        }, 
+        {
          "name":"sun",
          "type":"bool",
          "value":true
