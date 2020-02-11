@@ -106,8 +106,9 @@ export default class Field {
     return lightTiles.map(v => {
       const properties = getProperties(v.index)
       const { color } = parseArgb(properties.color)
-      const sprite = this.scene.add.sprite(v.x.toPixelCenter, v.y.toPixelCenter, 'lamp').setTint(color).setScale(0.5).setBlendMode(Phaser.BlendModes.OVERLAY).setDepth(100000)
-      const sprite2 = properties.drop ? this.scene.add.sprite(v.x.toPixelCenter, v.y.toPixelCenter + 55, 'lamp').setTint(color).setScale(0.6).setBlendMode(Phaser.BlendModes.OVERLAY).setDepth(100000) : null
+      this.scene.add.sprite(v.x.toPixelCenter, v.y.toPixelCenter, 'light').setTint(color).setAlpha(0.2).setScale(0.8).setBlendMode(1).setDepth(100000)
+      const sprite = this.scene.add.sprite(v.x.toPixelCenter, v.y.toPixelCenter, 'light').setTint(color).setScale(0.5).setBlendMode(Phaser.BlendModes.OVERLAY).setDepth(100000)
+      const sprite2 = properties.drop ? this.scene.add.sprite(v.x.toPixelCenter, v.y.toPixelCenter + 55, 'light').setTint(color).setScale(0.6).setBlendMode(Phaser.BlendModes.OVERLAY).setDepth(100000) : null
       this.scene.add.tween({
         targets: [sprite, ...(sprite2 ? [sprite2] : [])], duration: Math.randomInt(300, 400),
         scale: 0.6, alpha: 0.8,
@@ -117,7 +118,7 @@ export default class Field {
     })
   }
   _generateParticles (color) {
-    const particles = this.scene.add.particles('lamp')
+    const particles = this.scene.add.particles('light')
     particles.setDepth(90000)
     particles.createEmitter({
       x: { min: 0, max: Math.max(this.width, (40).toPixel) },
@@ -136,7 +137,7 @@ export default class Field {
   _renderDarkness (alpha, color, lights, exposures) {
     const posAndSize = [0, 0, this.width, this.height]
     const dark = this.scene.add.renderTexture(...posAndSize).fill(color, alpha, ...posAndSize).setOrigin(0.0).setDepth(110000)
-    const brush = this.scene.add.image(0, 0, 'lamp').setScale(3, 3)
+    const brush = this.scene.add.image(0, 0, 'light').setScale(3, 3)
     lights.forEach(light => dark.erase(brush, light.x, light.y, 1))
     exposures.forEach(exp => dark.erase(brush, exp.x, exp.y, 1))
     brush.destroy()
