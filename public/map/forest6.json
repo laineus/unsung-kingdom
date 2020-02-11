@@ -199,6 +199,12 @@
  "nextlayerid":9,
  "nextobjectid":11,
  "orientation":"orthogonal",
+ "properties":[
+        {
+         "name":"sun",
+         "type":"bool",
+         "value":true
+        }],
  "renderorder":"right-down",
  "tiledversion":"2019.12.11",
  "tileheight":32,

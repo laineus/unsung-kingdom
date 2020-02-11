@@ -203,8 +203,13 @@
  "properties":[
         {
          "name":"darkness",
-         "type":"float",
-         "value":0.5
+         "type":"color",
+         "value":"#96000000"
+        }, 
+        {
+         "name":"sun",
+         "type":"bool",
+         "value":true
         }],
  "renderorder":"right-down",
  "tiledversion":"2019.12.11",
