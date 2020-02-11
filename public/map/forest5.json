@@ -147,15 +147,134 @@
          "visible":true,
          "x":0,
          "y":0
+        }, 
+        {
+         "draworder":"topdown",
+         "id":11,
+         "name":"exposure",
+         "objects":[
+                {
+                 "height":0,
+                 "id":8,
+                 "name":"",
+                 "point":true,
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":1238,
+                 "y":682
+                }, 
+                {
+                 "height":0,
+                 "id":9,
+                 "name":"",
+                 "point":true,
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":1294,
+                 "y":154
+                }, 
+                {
+                 "height":0,
+                 "id":10,
+                 "name":"",
+                 "point":true,
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":1174,
+                 "y":336
+                }, 
+                {
+                 "height":0,
+                 "id":11,
+                 "name":"",
+                 "point":true,
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":854,
+                 "y":690
+                }, 
+                {
+                 "height":0,
+                 "id":12,
+                 "name":"",
+                 "point":true,
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":490,
+                 "y":604
+                }, 
+                {
+                 "height":0,
+                 "id":13,
+                 "name":"",
+                 "point":true,
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":252,
+                 "y":714
+                }, 
+                {
+                 "height":0,
+                 "id":14,
+                 "name":"",
+                 "point":true,
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":308,
+                 "y":400
+                }, 
+                {
+                 "height":0,
+                 "id":15,
+                 "name":"",
+                 "point":true,
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":678,
+                 "y":280
+                }, 
+                {
+                 "height":0,
+                 "id":16,
+                 "name":"",
+                 "point":true,
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":300,
+                 "y":82
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":false,
+         "x":0,
+         "y":0
         }],
- "nextlayerid":11,
- "nextobjectid":8,
+ "nextlayerid":12,
+ "nextobjectid":17,
  "orientation":"orthogonal",
  "properties":[
         {
          "name":"darkness",
          "type":"color",
-         "value":"#96003366"
+         "value":"#c8003366"
         }, 
         {
          "name":"particles",
