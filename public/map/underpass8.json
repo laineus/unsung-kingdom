@@ -153,8 +153,8 @@
  "properties":[
         {
          "name":"darkness",
-         "type":"float",
-         "value":0.8
+         "type":"color",
+         "value":"#c8000000"
         }],
  "renderorder":"right-down",
  "tiledversion":"2019.12.11",

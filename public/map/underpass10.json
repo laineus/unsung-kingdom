@@ -135,15 +135,74 @@
          "visible":true,
          "x":0,
          "y":0
+        }, 
+        {
+         "draworder":"topdown",
+         "id":17,
+         "name":"exposure",
+         "objects":[
+                {
+                 "height":0,
+                 "id":10,
+                 "name":"",
+                 "point":true,
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":403.860863230741,
+                 "y":1352.61336732836
+                }, 
+                {
+                 "height":0,
+                 "id":11,
+                 "name":"",
+                 "point":true,
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":358.987433982881,
+                 "y":964.778728828993
+                }, 
+                {
+                 "height":0,
+                 "id":12,
+                 "name":"",
+                 "point":true,
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":564.123110544527,
+                 "y":637.843744308869
+                }, 
+                {
+                 "height":0,
+                 "id":13,
+                 "name":"",
+                 "point":true,
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":467.965762156256,
+                 "y":330.140229466399
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":false,
+         "x":0,
+         "y":0
         }],
- "nextlayerid":17,
- "nextobjectid":10,
+ "nextlayerid":18,
+ "nextobjectid":14,
  "orientation":"orthogonal",
  "properties":[
         {
          "name":"darkness",
-         "type":"float",
-         "value":0.8
+         "type":"color",
+         "value":"#c8000000"
         }],
  "renderorder":"right-down",
  "tiledversion":"2019.12.11",
