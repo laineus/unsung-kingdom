@@ -296,7 +296,7 @@ export const aragnie = (scene, area, boss, hector, hectorInjured, scream) => {
       scream.destroy()
     })
   }
-  hectorInjured.setTapEvent(async () => {
+  hectorInjured.setFaceKey('hector').setDisplayName('ヘクター').setTapEvent(async () => {
     await scene.talk([
       { chara: hectorInjured, text: 'っく、くるしい…。' },
       { chara: 'francisca', text: '弱くない…？' }
