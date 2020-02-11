@@ -3,6 +3,12 @@ import Gate from './Gate'
 import Character from './Character'
 import Substance from './Substance'
 import TreasureChest from './TreasureChest'
+const parseArgb = str => {
+  return {
+    alpha: parseInt(str.slice(1, 3), 16) / 255,
+    color: parseInt(str.slice(3), 16)
+  }
+}
 export default class Field {
   constructor (scene, mapKey) {
     scene.add.existing(this)
@@ -18,7 +24,12 @@ export default class Field {
     }).filter(Boolean)
     const lights = this._generateLights(tilemap)
     const darkness = this._getProperty(tilemap, 'darkness')
-    if (darkness) this._renderDarkness(darkness.value, lights, this._getExposures(tilemap))
+    if (darkness) {
+      const { alpha, color } = parseArgb(darkness.value)
+      this._renderDarkness(alpha, color, lights, this._getExposures(tilemap))
+    }
+    const sun = this._getProperty(tilemap, 'sun')
+    if (sun) this._generateSunLight()
     this.images = tilemap.images.map(data => this._getImage(data))
     const collides = this._getTileIdsByType(tilemap, 'collides')
     this.staticLayers.forEach(layer => layer.setCollision(collides))
@@ -102,9 +113,9 @@ export default class Field {
       return sprite
     })
   }
-  _renderDarkness (opacity, lights, exposures) {
+  _renderDarkness (alpha, color, lights, exposures) {
     const posAndSize = [0, 0, this.width, this.height]
-    const dark = this.scene.add.renderTexture(...posAndSize).fill(0x003366, opacity, ...posAndSize).setOrigin(0.0).setDepth(110000)
+    const dark = this.scene.add.renderTexture(...posAndSize).fill(color, alpha, ...posAndSize).setOrigin(0.0).setDepth(110000)
     const brush = this.scene.add.image(0, 0, 'lamp').setScale(3, 3)
     lights.forEach(light => dark.erase(brush, light.x, light.y, 1))
     exposures.forEach(exp => dark.erase(brush, exp.x, exp.y, 1))
