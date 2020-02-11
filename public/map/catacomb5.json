@@ -71,6 +71,18 @@
                  "width":96,
                  "x":480,
                  "y":0
+                }, 
+                {
+                 "height":0,
+                 "id":2,
+                 "name":"matilda",
+                 "point":true,
+                 "rotation":180,
+                 "type":"chara",
+                 "visible":true,
+                 "width":0,
+                 "x":280.826234099662,
+                 "y":298.75131287198
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -79,7 +91,7 @@
          "y":0
         }],
  "nextlayerid":9,
- "nextobjectid":2,
+ "nextobjectid":3,
  "orientation":"orthogonal",
  "properties":[
         {

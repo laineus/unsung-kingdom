@@ -71,6 +71,18 @@
                  "width":64,
                  "x":1280,
                  "y":448
+                }, 
+                {
+                 "height":0,
+                 "id":2,
+                 "name":"jack",
+                 "point":true,
+                 "rotation":0,
+                 "type":"chara",
+                 "visible":true,
+                 "width":0,
+                 "x":256.607738155369,
+                 "y":632.694211536519
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -79,7 +91,7 @@
          "y":0
         }],
  "nextlayerid":9,
- "nextobjectid":2,
+ "nextobjectid":3,
  "orientation":"orthogonal",
  "properties":[
         {

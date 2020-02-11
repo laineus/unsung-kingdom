@@ -93,6 +93,18 @@
                  "width":64,
                  "x":960,
                  "y":1056
+                }, 
+                {
+                 "height":0,
+                 "id":3,
+                 "name":"amber",
+                 "point":true,
+                 "rotation":0,
+                 "type":"chara",
+                 "visible":true,
+                 "width":0,
+                 "x":490.699031392228,
+                 "y":339.456179250788
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -101,7 +113,7 @@
          "y":0
         }],
  "nextlayerid":10,
- "nextobjectid":3,
+ "nextobjectid":4,
  "orientation":"orthogonal",
  "properties":[
         {

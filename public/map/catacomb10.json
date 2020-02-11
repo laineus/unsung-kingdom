@@ -71,6 +71,18 @@
                  "width":96,
                  "x":448,
                  "y":1088
+                }, 
+                {
+                 "height":0,
+                 "id":2,
+                 "name":"hunter",
+                 "point":true,
+                 "rotation":0,
+                 "type":"chara",
+                 "visible":true,
+                 "width":0,
+                 "x":496.076555023923,
+                 "y":859.05940016338
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -79,7 +91,7 @@
          "y":0
         }],
  "nextlayerid":8,
- "nextobjectid":2,
+ "nextobjectid":3,
  "orientation":"orthogonal",
  "properties":[
         {

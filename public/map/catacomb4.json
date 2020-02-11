@@ -137,6 +137,18 @@
                  "width":96,
                  "x":512,
                  "y":0
+                }, 
+                {
+                 "height":0,
+                 "id":5,
+                 "name":"hector",
+                 "point":true,
+                 "rotation":0,
+                 "type":"chara",
+                 "visible":true,
+                 "width":0,
+                 "x":384.038791797151,
+                 "y":834.023638751389
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -145,7 +157,7 @@
          "y":0
         }],
  "nextlayerid":11,
- "nextobjectid":5,
+ "nextobjectid":6,
  "orientation":"orthogonal",
  "properties":[
         {
