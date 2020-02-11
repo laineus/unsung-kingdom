@@ -1,5 +1,6 @@
 export const ferdinand = (scene, fdn) => {
   fdn.setFaceKey('ferdinand') // Will be deleted
+  fdn.setDisplayName('フェルディナンド卿')
   fdn.setTapEvent(async chara => {
     await scene.talk([
       { chara: 'ann', text: '大丈夫 ですか？顔色が悪いみたいだけど。' },
