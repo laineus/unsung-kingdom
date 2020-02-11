@@ -20,6 +20,13 @@ import underpass7 from '../map/underpass7'
 import underpass8 from '../map/underpass8'
 import underpass9 from '../map/underpass9'
 import underpass10 from '../map/underpass10'
+import catacomb1 from '../map/catacomb1'
+import catacomb3 from '../map/catacomb3'
+import catacomb4 from '../map/catacomb4'
+import catacomb5 from '../map/catacomb5'
+import catacomb7 from '../map/catacomb7'
+import catacomb10 from '../map/catacomb10'
+import catacomb11 from '../map/catacomb11'
 export default {
   room1,
   town1,
@@ -42,5 +49,12 @@ export default {
   underpass7,
   underpass8,
   underpass9,
-  underpass10
+  underpass10,
+  catacomb1,
+  catacomb3,
+  catacomb4,
+  catacomb5,
+  catacomb7,
+  catacomb10,
+  catacomb11
 }
