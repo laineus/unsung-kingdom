@@ -30,6 +30,8 @@ export default class Field {
     }
     const sun = this._getProperty(tilemap, 'sun')
     if (sun) this._generateSunLight()
+    const particles = this._getProperty(tilemap, 'particles')
+    if (particles) this._generateParticles(parseArgb(particles.value).color)
     this.images = tilemap.images.map(data => this._getImage(data))
     const collides = this._getTileIdsByType(tilemap, 'collides')
     this.staticLayers.forEach(layer => layer.setCollision(collides))
@@ -112,6 +114,23 @@ export default class Field {
         yoyo: true, loop: -1
       })
       return sprite
+    })
+  }
+  _generateParticles (color) {
+    const particles = this.scene.add.particles('lamp')
+    particles.setDepth(90000)
+    particles.createEmitter({
+      x: { min: 0, max: this.width },
+      y: { min: 0, max: this.height },
+      scale: { start: 0.02, end: 0.04 },
+      alpha: { start: 1, end: 0.2 },
+      tint: color,
+      blendMode: Phaser.BlendModes.OVERLAY,
+      lifespan: 2000,
+      speed: { min: -20, max: 20 },
+      accelerationX: 0,
+      accelerationY: -25,
+      frequency: 10000000 / (this.width * this.height)
     })
   }
   _renderDarkness (alpha, color, lights, exposures) {
