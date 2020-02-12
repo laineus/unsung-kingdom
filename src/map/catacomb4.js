@@ -1,5 +1,7 @@
+import { dario } from '../event/dario'
 export default {
   create (scene) {
-    const dario = scene.map.getObjectById(5)
+    const dr = scene.map.getObjectById(5)
+    dario(scene, dr)
   }
 }
