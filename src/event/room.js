@@ -155,8 +155,6 @@ const events = [
       { chara: 'ann', text: '行こう！' }
     ])
     await scene.ui.chapterStart(`${chapters[2].name} ${chapters[2].title}`)
-    francisca.setVisible(false)
-    jaquelyn.setVisible(false)
   },
   async (scene, francisca, jaquelyn) => {
     scene.player.setR('down')
