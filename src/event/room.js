@@ -8,13 +8,9 @@ const setDefaultWeapon = state => {
 export const execChapterBeginEvents = (scene) => {
   const chapter = scene.storage.state.chapter
   const state = scene.storage.state.event.chapter_begin
-  const francisca = scene.map.getObjectById(7).setDisplayName('Francisca')
-  const jaquelyn = scene.map.getObjectById(6).setDisplayName('Jaquelyn')
-  if (state[chapter]) {
-    francisca.setVisible(false)
-    jaquelyn.setVisible(false)
-    return
-  }
+  if (state[chapter]) return
+  const francisca = scene.francisca.setPosition(655, 440).setR('up')
+  const jaquelyn = scene.jaquelyn.setPosition(591, 440).setR('up')
   state[chapter] = true
   scene.ui.autoEvent(async () => {
     await events[chapter](scene, francisca, jaquelyn)
@@ -67,8 +63,6 @@ const events = [
       { chara: jaquelyn, text: 'さあ、行きましょう。' }
     ])
     await scene.ui.transition('normal')
-    francisca.setVisible(false)
-    jaquelyn.setVisible(false)
     setDefaultWeapon(scene.storage.state)
   },
   async (scene, francisca, jaquelyn) => {
@@ -113,8 +107,6 @@ const events = [
       { chara: jaquelyn, text: 'そうね。' }
     ])
     await scene.ui.chapterStart(`${chapters[1].name} ${chapters[1].title}`)
-    francisca.setVisible(false)
-    jaquelyn.setVisible(false)
     setDefaultWeapon(scene.storage.state)
   },
   async (scene, francisca, jaquelyn) => {
@@ -202,7 +194,5 @@ const events = [
       { chara: 'ann', text: 'また街に出て聞き込みに行くよ！' }
     ])
     await scene.ui.chapterStart(`${chapters[3].name} ${chapters[3].title}`)
-    francisca.setVisible(false)
-    jaquelyn.setVisible(false)
   }
 ]

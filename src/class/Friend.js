@@ -7,6 +7,10 @@ export default class Friend extends Character {
     this.player = scene.player
     this.body.setDrag(700)
   }
+  _walkToTargetPosition () {
+    if (this.scene.ui.eventMode) return
+    super._walkToTargetPosition()
+  }
   setFollowDiff (v) {
     this.followDiff = v
     return this
