@@ -8,8 +8,8 @@ const setDefaultWeapon = state => {
 export const execChapterBeginEvents = (scene) => {
   const chapter = scene.storage.state.chapter
   const state = scene.storage.state.event.chapter_begin
-  const francisca = scene.map.getObjectById(6).setDisplayName('Francisca').setFaceKey('francisca')
-  const jaquelyn = scene.map.getObjectById(7).setDisplayName('Jaquelyn').setFaceKey('jaquelyn')
+  const francisca = scene.map.getObjectById(7).setDisplayName('Francisca')
+  const jaquelyn = scene.map.getObjectById(6).setDisplayName('Jaquelyn')
   if (state[chapter]) {
     francisca.setVisible(false)
     jaquelyn.setVisible(false)
