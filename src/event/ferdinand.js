@@ -2,7 +2,9 @@ export const ferdinand = (scene, fdn) => {
   const state = scene.storage.state.event.m3_1
   fdn.setFaceKey('ferdinand') // Will be deleted
   fdn.setDisplayName('フェルディナンド卿')
-  if (state.completed) return
+  if (state.completed) {
+    return fdn.destroy()
+  }
   fdn.setTapEvent(async chara => {
     if (state.solved) {
       await scene.talk([
