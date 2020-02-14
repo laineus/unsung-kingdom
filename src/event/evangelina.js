@@ -1,5 +1,10 @@
 export const evangelina = (scene, queen) => {
+  const state = scene.storage.state.event.m3_5
   queen.setDisplayName('エヴェンジェリナ妃')
+  if (!state.started || state.completed) {
+    queen.destroy()
+    return
+  }
   queen.setTapEvent(async chara => {
     await scene.talk([
       { chara: 'ann', text: '…あ、あの。' },
@@ -12,6 +17,9 @@ export const evangelina = (scene, queen) => {
       { chara: 'ann', text: 'えっと、私たちは違います。' },
       { chara, text: '…殺す' }
     ])
+    await scene.ui.sleep(500)
+    const result = await scene.ui.battle([generateBattler('orthrus', 15, { hp: 800 })], { boss: true })
+    if (!result) return
     await scene.talk([
       { chara: 'ann', text: '…倒した？' },
       { chara: 'jaquelyn', text: 'みたいね。' },
@@ -62,11 +70,16 @@ export const evangelina = (scene, queen) => {
       { chara, text: 'もしもあなた達がこの国の平和を望むのなら、' },
       { chara, text: 'どうか彼に、力を貸してあげてください。' }
     ])
+    state.completed = true
+    scene.ui.missionUpdate('m3_5', true)
     await scene.talk([
       { chara: 'ann', text: 'あ！待って！' },
       { chara: 'ann', text: '…消えちゃった。' },
       { chara: 'ann', text: '詳しく話を聞きたかったんだけど…、' },
       { chara: 'francisca', text: '仕方ない、一旦帰ろう。' }
     ])
+    await scene.ui.sleep(1000)
+    scene.storage.state.chapter = 4
+    await scene.mapChange('room1', (19).toPixelCenter, (11).toPixel, { speed: 'slow' })
   })
 }
