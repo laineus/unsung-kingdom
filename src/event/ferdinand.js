@@ -13,6 +13,8 @@ export const ferdinand = (scene, fdn) => {
       scene.ui.missionUpdate('m3_1', true)
     } else if (state.started) {
       await scene.talk([
+        { chara, text: 'とにかく頼む。' },
+        { chara, text: 'なんとかしてくれ。' }
       ])
     } else {
       await scene.talk([
@@ -64,8 +66,10 @@ export const ferdinand = (scene, fdn) => {
         { chara, text: 'おい！好き勝手言うな。' },
         { chara, text: 'くそ、呪いだかなんだか知らんが、' },
         { chara, text: 'おかげでフェルディナンド家は無茶苦茶だ。' },
-        { chara, text: 'おい、あんたら、ここにいるエクトプラズムを退治してくれないか？' },
-        { chara, text: 'このまま国に帰ったんじゃ何も解決しない。' }
+        { chara, text: 'おい、あんたら、なんとかしてくれないか？' },
+        { chara: 'ann', text: 'なんとかってどういうこと？' },
+        { chara, text: 'そんなもん分からん！' },
+        { chara, text: 'とにかく頼む！' }
       ])
       state.started = true
       scene.ui.missionUpdate('m3_1')
