@@ -5,6 +5,7 @@ export const marianne = (scene, sister) => {
   sister.setTapEvent(async chara => {
     if (state.completed) {
       await scene.talk([
+        { chara, text: 'マリアンヌ…。' }
       ])
     } else if (state.solved) {
       await scene.talk([
@@ -38,6 +39,10 @@ export const marianne = (scene, sister) => {
       scene.ui.missionUpdate('m3_2', true)
     } else if (state.started) {
       await scene.talk([
+        { chara: 'ann', text: 'ちょっと待っていてね。' },
+        { chara: 'ann', text: '飲み物か何かを探してくるよ。' },
+        { chara, text: 'え、いえ、いいんです。' },
+        { chara: 'ann', text: 'いいから。' }
       ])
     } else {
       await scene.talk([

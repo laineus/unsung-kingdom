@@ -263,18 +263,21 @@ export const lamp = (scene, cassandra, hector, mary, loretta, jail, wall, yarn) 
 export const aragnie = (scene, area, boss, hector, hectorInjured, scream) => {
   const state = scene.storage.state.event.m2_4
   // yarn.setVisible(false)
+  if (state.found) {
+    hector.destroy()
+  }
+  if (state.boss) {
+    scream.destroy()
+  }
   if (!state.search || state.solved) {
     area.destroy()
     boss.destroy()
     hectorInjured.destroy()
     return
   }
-  if (state.boss) {
-    hector.destroy()
-    scream.destroy()
-  }
   hector.setDisplayName('ヘクター')
-  if (!state.boss) {
+  hectorInjured.setFaceKey('hector').setDisplayName('ヘクター')
+  if (!state.found) {
     (async () => {
       scene.ui.setEventMode(true)
       scene.player.setR('up')
@@ -286,8 +289,10 @@ export const aragnie = (scene, area, boss, hector, hectorInjured, scream) => {
       await hector.setSpeed(300).setTargetPosition((10).toPixel, (33).toPixel)
       hector.destroy()
       scene.ui.setEventMode(false)
+      state.found = true
     })()
-    hectorInjured.setFaceKey('hector').setDisplayName('ヘクター')
+  }
+  if (!state.boss) {
     scream.setEvent(async () => {
       await scene.talk([
         { chara: hectorInjured, text: 'ぐわーー！！' }

@@ -36,7 +36,7 @@ export default class Battler extends Phaser.GameObjects.Container {
     return result
   }
   baseDamageTo (target) {
-    const base = (this.atk - target.def) + 10
+    const base = (this.atk - target.def) + 10 + this.lv
     const lvCorrection = Math.max((this.lv - target.lv) * 0.6, 1)
     return Math.round(base * lvCorrection)
   }

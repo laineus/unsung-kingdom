@@ -65,37 +65,37 @@ export default [
   {
     key: 'm3_1',
     chapter: 3,
-    title: 'レンフィールド家の大罪',
-    en: 'Sins of the Renfield family',
-    map: 'forest1'
+    title: '呪われしフェルディナンド卿',
+    en: 'Cursed Lord Ferdinand',
+    map: 'catacomb3'
   },
   {
     key: 'm3_2',
     chapter: 3,
-    title: 'ダリオの哀しみ',
-    en: 'The Sorrow of Dario',
-    map: 'forest1'
+    title: 'マリアンヌの歌を聞いてから死ね',
+    en: 'Listen Marianne\'s song before die',
+    map: 'catacomb5'
   },
   {
     key: 'm3_3',
     chapter: 3,
-    title: 'マリアンヌの歌を聞いてから死ね',
-    en: 'Listen Marianne\'s song before die',
-    map: 'forest1'
+    title: 'ダリオの哀しみ',
+    en: 'Dario\'s Sorrow',
+    map: 'catacomb6'
   },
   {
     key: 'm3_4',
     chapter: 3,
-    title: '呪われしフェルディナンド卿',
-    en: 'Cursed Lord Ferdinand',
-    map: 'forest1'
+    title: 'レンフィールド家の大罪',
+    en: 'Sins of the Renfield family',
+    map: 'catacomb10'
   },
   {
     key: 'm3_5',
     chapter: 3,
     title: 'エヴァンジェリナ妃の亡霊',
-    en: 'The Ghost of Princess Evangelina',
-    map: 'forest1'
+    en: 'Ghost of Princess Evangelina',
+    map: 'catacomb11'
   },
   {
     key: 'm4_1',

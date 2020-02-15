@@ -1,0 +1,239 @@
+{
+  "map": "castle1",
+  "x": 1552,
+  "y": 1200,
+  "r": -1.5707963267948966,
+  "chapter": 0,
+  "event": {
+    "chapter_begin": [
+      true,
+      false,
+      false,
+      false,
+      false,
+      false
+    ],
+    "m0_1": {
+      "started": true,
+      "completed": false,
+      "battled": false
+    },
+    "m1_1": {
+      "started": false,
+      "completed": false,
+      "talked": false,
+      "d1": 0,
+      "d2": 0,
+      "d3": 0,
+      "d4": 0,
+      "d5": 0
+    },
+    "m1_2": {
+      "started": false,
+      "completed": false,
+      "talked": false,
+      "solved": false
+    },
+    "m1_3": {
+      "started": false,
+      "completed": false,
+      "count": 0
+    },
+    "m1_4": {
+      "started": false,
+      "completed": false,
+      "solved": false,
+      "area": false
+    },
+    "m2_1": {
+      "started": false,
+      "completed": false,
+      "solved": false,
+      "talked": false,
+      "key": false,
+      "opened": false
+    },
+    "m2_2": {
+      "started": false,
+      "completed": false,
+      "count": 0
+    },
+    "m2_3": {
+      "started": false,
+      "completed": false,
+      "solved": false,
+      "talked": false
+    },
+    "m2_4": {
+      "started": false,
+      "completed": false,
+      "solved": false,
+      "jack": false,
+      "search": false,
+      "talked": false,
+      "boss": false
+    },
+    "m3_1": {
+      "started": false,
+      "completed": false,
+      "solved": false
+    },
+    "m3_2": {
+      "started": false,
+      "completed": false,
+      "solved": false
+    },
+    "m3_3": {
+      "started": false,
+      "completed": false,
+      "solved": false
+    },
+    "m3_4": {
+      "started": false,
+      "completed": false,
+      "ghosts": []
+    },
+    "m3_5": {
+      "started": false,
+      "completed": false
+    },
+    "m4_1": {
+      "started": false,
+      "completed": false
+    },
+    "m4_2": {
+      "started": false,
+      "completed": false
+    },
+    "m4_3": {
+      "started": false,
+      "completed": false
+    },
+    "m4_4": {
+      "started": false,
+      "completed": false
+    },
+    "m4_5": {
+      "started": false,
+      "completed": false
+    },
+    "m5_1": {
+      "started": false,
+      "completed": false
+    },
+    "m0": {
+      "talked_matilda": true,
+      "talked_annabelle": true,
+      "talked_amber": false,
+      "area": true
+    },
+    "m1": {
+      "talked_amber": false,
+      "talked_annabelle": false,
+      "talked_elliott": false
+    },
+    "town": {
+      "amber": [],
+      "annabelle": [],
+      "matilda": [],
+      "elliott": [],
+      "max": []
+    },
+    "m2": {
+      "talked_amber1": false,
+      "talked_elliott": false,
+      "talked_annabelle": false,
+      "talked_amber2": false
+    },
+    "m3": {
+      "talked_amber": false,
+      "talked_max": false,
+      "talked_matilda": false
+    }
+  },
+  "treasures": [],
+  "battlers": [
+    {
+      "key": "ann",
+      "name": "Ann",
+      "lv": 1,
+      "effect": "hit",
+      "hp": 40,
+      "atk": 4,
+      "def": 3,
+      "dex": 3,
+      "agi": 2,
+      "up": {
+        "hp": 100,
+        "atk": 100,
+        "def": 90,
+        "dex": 70,
+        "agi": 70
+      },
+      "exp": 0,
+      "max_hp": 40,
+      "weapon": 1
+    },
+    {
+      "key": "francisca",
+      "name": "Francisca",
+      "lv": 1,
+      "effect": "hit",
+      "hp": 30,
+      "atk": 3,
+      "def": 2,
+      "dex": 3,
+      "agi": 4,
+      "up": {
+        "hp": 85,
+        "atk": 85,
+        "def": 75,
+        "dex": 100,
+        "agi": 85
+      },
+      "exp": 0,
+      "max_hp": 30,
+      "weapon": 2
+    },
+    {
+      "key": "jaquelyn",
+      "name": "Jaquelyn",
+      "lv": 1,
+      "effect": "hit",
+      "hp": 35,
+      "atk": 2,
+      "def": 2,
+      "dex": 4,
+      "agi": 4,
+      "up": {
+        "hp": 90,
+        "atk": 75,
+        "def": 80,
+        "dex": 85,
+        "agi": 100
+      },
+      "exp": 0,
+      "max_hp": 35,
+      "weapon": 3
+    }
+  ],
+  "weapons": [
+    {
+      "id": 1,
+      "weapon_id": 1
+    },
+    {
+      "id": 2,
+      "weapon_id": 1
+    },
+    {
+      "id": 3,
+      "weapon_id": 2
+    }
+  ],
+  "saved": 1580024604,
+  "allowed_area": 0,
+  "visited": [
+    "castle1"
+  ]
+}
