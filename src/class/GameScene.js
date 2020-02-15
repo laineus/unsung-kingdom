@@ -5,6 +5,7 @@ import assets from '../data/assets'
 import storage from '../data/storage'
 import generateBattler from '../util/generateBattler'
 import Friend from './Friend'
+import downloadBySource from '../util/downloadBySource'
 export default class GameScene extends Phaser.Scene {
   constructor () {
     super({ key: 'Game', active: false })
@@ -121,6 +122,7 @@ export default class GameScene extends Phaser.Scene {
       const debugBox = document.createElement('div')
       debugBox.setAttribute('class', 'debugBox')
       document.getElementById('game').appendChild(debugBox)
+      // Map selecter
       const select = document.createElement('select')
       select.id = 'select'
       debugBox.appendChild(select)
@@ -131,6 +133,30 @@ export default class GameScene extends Phaser.Scene {
         select.appendChild(option)
       })
       select.onchange = () => this.mapChange(select.value, (20).toPixelCenter, (20).toPixelCenter)
+      // Data import
+      const dataImport = document.createElement('input')
+      dataImport.type = 'file'
+      dataImport.innerText = 'Data Import'
+      dataImport.onchange = e => {
+        const file = e.target.files[0]
+        const reader = new FileReader()
+        reader.readAsText(file)
+        reader.onload = e =>  {
+          const json = e.target.result
+          this.storage.state = JSON.parse(json)
+          this.mapChange(this.storage.state.map, this.storage.state.x, this.storage.state.y, { save: false })
+        }
+      }
+      debugBox.appendChild(dataImport)
+      // Data export
+      const dataExport = document.createElement('button')
+      dataExport.innerText = 'Data Export'
+      dataExport.onclick = () => {
+        const blob = new Blob([JSON.stringify(this.storage.state, null, '  ')], { type: 'text/json' })
+        downloadBySource(URL.createObjectURL(blob), 'savedata.json')
+      }
+      debugBox.appendChild(dataExport)
+      // FPS
       const info = document.createElement('span')
       debugBox.appendChild(info)
       setInterval(() => {
