@@ -3,7 +3,7 @@ import config from '../data/config'
 import storage from '../data/storage'
 import missions from '../data/missions'
 import { slideIn, slideOut } from '../util/animations'
-import downloadImageBySource from '../util/downloadImageBySource'
+import downloadBySource from '../util/downloadBySource'
 import Talk from './Talk'
 import Select from './Select'
 import Battle from './Battle'
@@ -219,6 +219,6 @@ export default class UIScene extends Phaser.Scene {
   }
   snapShot () {
     const filename = `ScreenShot_${moment().format('YYYYMMDD_HHmmss')}.png`
-    this.game.renderer.snapshot(img => downloadImageBySource(img.src, filename))
+    this.game.renderer.snapshot(img => downloadBySource(img.src, filename))
   }
 }
