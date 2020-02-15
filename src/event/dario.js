@@ -1,3 +1,4 @@
+import generateBattler from '../util/generateBattler'
 export const dario = (scene, dario) => {
   const state = scene.storage.state.event.m3_3
   dario.setDisplayName('ダリオ')
@@ -38,6 +39,11 @@ export const dario = (scene, dario) => {
       scene.ui.missionUpdate('m3_5')
       scene.storage.state.event.m3_5.started = true
     } else if (state.started) {
+      await scene.talk([
+        { chara, text: 'あいつは、私が王妃の亡霊を作り出すときに使った短剣を持っている。' },
+        { chara, text: 'もしも取り返すことができたら、それを私のところに持ってきてくれ。' },
+        { chara: 'ann', text: '短剣ね。覚えておくよ。' }
+      ])
     } else {
       await scene.talk([
         { chara, text: '君たち、用が済んだらできるだけ早くこの墓地を出ていくことだ。' },
@@ -111,15 +117,23 @@ export const dario = (scene, dario) => {
   })
 }
 
-export const jack = (scene, area, jk) => {
+export const jack = (scene, jk, area1, area2) => {
   const state = scene.storage.state.event.m3_3
   if (!state.started || state.solved) {
-    area.destroy()
+    area1.destroy()
+    area2.destroy()
     jk.destroy()
     return
   }
-  area.setEvent(async () => {
+  area1.setActive(false)
+  jk.setVisible(false)
+  area2.setEvent(async () => {
+    area1.setActive(true)
+    area2.destroy()
+  })
+  area1.setEvent(async () => {
     const chara = jk
+    jk.setVisible(true)
     await scene.talk([
       { chara, text: 'ここで何をしている？' },
       { chara: 'ann', text: '！！' },
@@ -175,6 +189,6 @@ export const jack = (scene, area, jk) => {
       { chara: 'ann', text: 'そうだね、そうしよう。' }
     ])
     state.solved = true
-    area.destroy()
+    area1.destroy()
   })
 }

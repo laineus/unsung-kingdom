@@ -81,8 +81,30 @@
                  "type":"chara",
                  "visible":true,
                  "width":0,
-                 "x":256.607738155369,
-                 "y":632.694211536519
+                 "x":951,
+                 "y":559
+                }, 
+                {
+                 "height":160,
+                 "id":3,
+                 "name":"",
+                 "rotation":0,
+                 "type":"area",
+                 "visible":true,
+                 "width":128,
+                 "x":544,
+                 "y":480
+                }, 
+                {
+                 "height":160,
+                 "id":4,
+                 "name":"",
+                 "rotation":0,
+                 "type":"area",
+                 "visible":true,
+                 "width":32,
+                 "x":512,
+                 "y":480
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -91,7 +113,7 @@
          "y":0
         }],
  "nextlayerid":9,
- "nextobjectid":3,
+ "nextobjectid":5,
  "orientation":"orthogonal",
  "properties":[
         {
@@ -105,19 +127,19 @@
          "value":"#ffbb00ff"
         }],
  "renderorder":"right-down",
- "tiledversion":"2019.12.11",
+ "tiledversion":"2020.01.22",
  "tileheight":32,
  "tilesets":[
         {
          "columns":10,
          "firstgid":1,
          "image":"..\/img\/tileset\/original\/catacomb.png",
-         "imageheight":512,
+         "imageheight":832,
          "imagewidth":320,
          "margin":0,
          "name":"catacomb",
          "spacing":0,
-         "tilecount":160,
+         "tilecount":260,
          "tileheight":32,
          "tilewidth":32
         }],
