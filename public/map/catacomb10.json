@@ -1,4 +1,12 @@
-{ "height":36,
+{ "compressionlevel":0,
+ "editorsettings":
+    {
+     "export":
+        {
+         "target":"."
+        }
+    },
+ "height":36,
  "infinite":false,
  "layers":[
         {
@@ -75,6 +83,66 @@
                  "width":0,
                  "x":496.076555023923,
                  "y":859.05940016338
+                }, 
+                {
+                 "height":0,
+                 "id":3,
+                 "name":"flower",
+                 "point":true,
+                 "rotation":0,
+                 "type":"chara",
+                 "visible":true,
+                 "width":0,
+                 "x":236.425024826217,
+                 "y":869.433962264151
+                }, 
+                {
+                 "height":0,
+                 "id":4,
+                 "name":"flower",
+                 "point":true,
+                 "rotation":0,
+                 "type":"chara",
+                 "visible":true,
+                 "width":0,
+                 "x":236.425024826217,
+                 "y":587.249255213506
+                }, 
+                {
+                 "height":0,
+                 "id":5,
+                 "name":"flower",
+                 "point":true,
+                 "rotation":0,
+                 "type":"chara",
+                 "visible":true,
+                 "width":0,
+                 "x":493.187686196624,
+                 "y":302.522343594836
+                }, 
+                {
+                 "height":0,
+                 "id":6,
+                 "name":"flower",
+                 "point":true,
+                 "rotation":0,
+                 "type":"chara",
+                 "visible":true,
+                 "width":0,
+                 "x":749.950347567031,
+                 "y":592.333664349553
+                }, 
+                {
+                 "height":0,
+                 "id":7,
+                 "name":"flower",
+                 "point":true,
+                 "rotation":0,
+                 "type":"chara",
+                 "visible":true,
+                 "width":0,
+                 "x":752.492552135055,
+                 "y":877.060575968223
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -83,7 +151,7 @@
          "y":0
         }],
  "nextlayerid":8,
- "nextobjectid":3,
+ "nextobjectid":8,
  "orientation":"orthogonal",
  "properties":[
         {
@@ -97,7 +165,7 @@
          "value":"#ffbb00ff"
         }],
  "renderorder":"right-down",
- "tiledversion":"1.2.1",
+ "tiledversion":"2020.01.22",
  "tileheight":32,
  "tilesets":[
         {
