@@ -263,19 +263,20 @@ export const lamp = (scene, cassandra, hector, mary, loretta, jail, wall, yarn) 
 export const aragnie = (scene, area, boss, hector, hectorInjured, scream) => {
   const state = scene.storage.state.event.m2_4
   // yarn.setVisible(false)
-  if (!state.search || state.solved) {
-    area.destroy()
-    boss.destroy()
-    hectorInjured.destroy()
-    return
-  }
   if (state.found) {
     hector.destroy()
   }
   if (state.boss) {
     scream.destroy()
   }
+  if (!state.search || state.solved) {
+    area.destroy()
+    boss.destroy()
+    hectorInjured.destroy()
+    return
+  }
   hector.setDisplayName('ヘクター')
+  hectorInjured.setFaceKey('hector').setDisplayName('ヘクター')
   if (!state.found) {
     (async () => {
       scene.ui.setEventMode(true)
@@ -292,7 +293,6 @@ export const aragnie = (scene, area, boss, hector, hectorInjured, scream) => {
     })()
   }
   if (!state.boss) {
-    hectorInjured.setFaceKey('hector').setDisplayName('ヘクター')
     scream.setEvent(async () => {
       await scene.talk([
         { chara: hectorInjured, text: 'ぐわーー！！' }
