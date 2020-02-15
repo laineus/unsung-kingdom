@@ -1,8 +1,11 @@
-export const evangelina = (scene, queen) => {
+import generateBattler from '../util/generateBattler'
+export const evangelina = (scene, queen, queen2) => {
   const state = scene.storage.state.event.m3_5
   queen.setDisplayName('エヴェンジェリナ妃')
+  queen2.setDisplayName('エヴェンジェリナ妃').setVisible(false)
   if (!state.started || state.completed) {
     queen.destroy()
+    queen2.destroy()
     return
   }
   queen.setTapEvent(async chara => {
@@ -18,8 +21,9 @@ export const evangelina = (scene, queen) => {
       { chara, text: '…殺す' }
     ])
     await scene.ui.sleep(500)
-    const result = await scene.ui.battle([generateBattler('orthrus', 15, { hp: 800 })], { boss: true })
+    const result = await scene.ui.battle([generateBattler('orthrus', 1, { hp: 1 })], { boss: true })
     if (!result) return
+    chara.destroy()
     await scene.talk([
       { chara: 'ann', text: '…倒した？' },
       { chara: 'jaquelyn', text: 'みたいね。' },
@@ -32,9 +36,15 @@ export const evangelina = (scene, queen) => {
       { chara: 'jaquelyn', text: '帰って王国史を確認するば分かんるじゃないかしら？' },
       { chara: 'ann', text: 'そうだね、帰ろっか。' }
     ])
+    queen2.setVisible(true)
+    await scene.player.setSpeed(200).setTargetPosition((15).toPixelCenter, (20).toPixelCenter)
+    chara = queen2
     await scene.talk([
       { chara, text: 'お待ちなさい。' },
-      { chara: 'ann', text: 'え！？' },
+      { chara: 'ann', text: 'え！？' }
+    ])
+    await scene.camera.look(0, 80, 600)
+    await scene.talk([
       { chara, text: 'あなたたち、' },
       { chara, text: 'ありがとう。' },
       { chara: 'ann', text: 'ええと…。' },
@@ -72,6 +82,7 @@ export const evangelina = (scene, queen) => {
     ])
     state.completed = true
     scene.ui.missionUpdate('m3_5', true)
+    queen2.destroy()
     await scene.talk([
       { chara: 'ann', text: 'あ！待って！' },
       { chara: 'ann', text: '…消えちゃった。' },

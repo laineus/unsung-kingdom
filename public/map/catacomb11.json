@@ -105,6 +105,18 @@
                  "width":0,
                  "x":490.699031392228,
                  "y":339.456179250788
+                }, 
+                {
+                 "height":0,
+                 "id":4,
+                 "name":"amber",
+                 "point":true,
+                 "rotation":180,
+                 "type":"chara",
+                 "visible":true,
+                 "width":0,
+                 "x":498.269896193772,
+                 "y":826.079038426516
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -113,7 +125,7 @@
          "y":0
         }],
  "nextlayerid":10,
- "nextobjectid":4,
+ "nextobjectid":5,
  "orientation":"orthogonal",
  "properties":[
         {
@@ -127,19 +139,19 @@
          "value":"#ffbb00ff"
         }],
  "renderorder":"right-down",
- "tiledversion":"2019.12.11",
+ "tiledversion":"2020.01.22",
  "tileheight":32,
  "tilesets":[
         {
          "columns":10,
          "firstgid":1,
          "image":"..\/img\/tileset\/original\/catacomb.png",
-         "imageheight":512,
+         "imageheight":832,
          "imagewidth":320,
          "margin":0,
          "name":"catacomb",
          "spacing":0,
-         "tilecount":160,
+         "tilecount":260,
          "tileheight":32,
          "tilewidth":32
         }],

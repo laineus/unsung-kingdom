@@ -1,9 +1,11 @@
-export const renfield = (scene, ray) => {
+import generateBattler from '../util/generateBattler'
+export const renfield = (scene, ray, spectres) => {
   const state = scene.storage.state.event.m3_4
   ray.setFaceKey('ray') // Will be deleted
   ray.setDisplayName('レイ')
   if (state.completed) {
     ray.destroy()
+    spectres.forEach(s => s.destroy())
     return
   }
   ray.setTapEvent(async chara => {
@@ -18,14 +20,23 @@ export const renfield = (scene, ray) => {
         { chara, text: '屋敷に火をつけて…、皆殺しにしてやった。' },
         { chara: 'ann', text: 'え、' },
         { chara, text: 'レンフィールド家の生き残りは、遠くに住む兄弟と、俺だけだ。' },
-        { chara, text: '責めるな…。' },
+        { chara, text: '責めるなよ…。' },
         { chara, text: 'そうでもしないと、犠牲になっていた人間はもっと多かったんだ…。' },
+        { chara: 'ann', text: 'そんな…。' },
         { chara, text: '…。' },
         { chara, text: 'じゃあな。' }
       ])
       state.completed = true
       scene.ui.missionUpdate('m3_4', true)
+      await chara.setSpeed(140).setTargetPosition(chara.x, chara.y + (9).toPixel)
+      chara.destroy()
     } else if (state.started) {
+      await scene.talk([
+        { chara, text: 'おい、怖いわけじゃないからな！' },
+        { chara: 'ann', text: 'じゃあなんのさ？' },
+        { chara, text: 'っ…。' },
+        { chara, text: 'うるせえ、とにかく頼む！' }
+      ])
     } else {
       await scene.talk([
         { chara: 'ann', text: '墓荒らし！？' },
@@ -47,8 +58,6 @@ export const renfield = (scene, ray) => {
         { chara, text: 'そして俺はレイ・レンフィールド。' },
         { chara, text: '汚れた血筋の男であり、レンフィールド家の裏切り者だ。' },
         { chara: 'ann', text: 'あなたのご先祖の墓なら、なおさらなんでこんな事するのよ。' },
-        { chara, text: 'ふざけるな！' },
-        { chara, text: '子供扱いしているな。' },
         { chara, text: 'レンフィールド家は汚れた家系だ。' },
         { chara, text: 'フェルディナンド家に奴隷や少女を売って貴族になった。' },
         { chara, text: '自分の地の民を外に売るなんて、薄汚いクズどもめ。' },
@@ -56,6 +65,8 @@ export const renfield = (scene, ray) => {
         { chara, text: '掘り起こして、燃やして、野道にでも捨ててやる。' },
         { chara: 'ann', text: 'そんな…。' }
       ])
+      await scene.camera.look(0, -150, 300)
+      spectres.forEach(s => s.setVisible(true))
       await scene.talk([
         { chara: 'ann', text: 'うわ！！' },
         { chara: 'ann', text: '出た！！' },
@@ -74,6 +85,20 @@ export const renfield = (scene, ray) => {
       ])
       state.started = true
       scene.ui.missionUpdate('m3_4')
+      await scene.camera.look(0, 150, 300)
     }
+  })
+  const spectreEvent = async (spectre, i) => {
+    await scene.talk([
+      { chara: 'ann', text: '怖い！' }
+    ])
+    const result = await scene.ui.battle([generateBattler('orthrus', 1, { hp: 10 })])
+    if (!result) return
+    if (!state.ghosts.includes(i)) state.ghosts.push(i)
+    spectre.destroy()
+  }
+  spectres.forEach((spectre, i) => {
+    spectre.setTapEvent(spectre => spectreEvent(spectre, i))
+    spectre.setVisible(state.started && !state.ghosts.includes(i))
   })
 }
