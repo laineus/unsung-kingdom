@@ -20,7 +20,9 @@ export const ferdinand = (scene, fdn) => {
         { chara, text: '…………。' },
         { chara: 'jaquelyn', text: 'こんな崖のそばにいたら危ないですよ。' },
         { chara, text: '…………。' },
-        { chara: 'ann', text: 'ねえ！' },
+        { chara: 'ann', text: 'ねえ！' }
+      ], { angle: false })
+      await scene.talk([
         { chara, text: '………、な、なんだ………？' },
         { chara, text: '誰だお前たちは…？' },
         { chara, text: '………、' },
