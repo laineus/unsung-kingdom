@@ -269,12 +269,14 @@ export const aragnie = (scene, area, boss, hector, hectorInjured, scream) => {
     hectorInjured.destroy()
     return
   }
-  if (state.boss) {
+  if (state.found) {
     hector.destroy()
+  }
+  if (state.boss) {
     scream.destroy()
   }
   hector.setDisplayName('ヘクター')
-  if (!state.boss) {
+  if (!state.found) {
     (async () => {
       scene.ui.setEventMode(true)
       scene.player.setR('up')
@@ -286,7 +288,10 @@ export const aragnie = (scene, area, boss, hector, hectorInjured, scream) => {
       await hector.setSpeed(300).setTargetPosition((10).toPixel, (33).toPixel)
       hector.destroy()
       scene.ui.setEventMode(false)
+      state.found = true
     })()
+  }
+  if (!state.boss) {
     hectorInjured.setFaceKey('hector').setDisplayName('ヘクター')
     scream.setEvent(async () => {
       await scene.talk([
