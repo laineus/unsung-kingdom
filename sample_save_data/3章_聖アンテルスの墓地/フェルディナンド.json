@@ -1,0 +1,316 @@
+{
+  "map": "catacomb3",
+  "x": 1389.494195304688,
+  "y": 244.20113747852469,
+  "r": 0.5331436356364008,
+  "chapter": 3,
+  "event": {
+    "chapter_begin": [
+      true,
+      true,
+      true,
+      true,
+      false,
+      false
+    ],
+    "m0_1": {
+      "started": true,
+      "completed": true,
+      "battled": true
+    },
+    "m1_1": {
+      "started": true,
+      "completed": true,
+      "talked": true,
+      "d1": 2,
+      "d2": 2,
+      "d3": 2,
+      "d4": 2,
+      "d5": 2
+    },
+    "m1_2": {
+      "started": true,
+      "completed": true,
+      "talked": true,
+      "solved": true
+    },
+    "m1_3": {
+      "started": true,
+      "completed": true,
+      "count": 6
+    },
+    "m1_4": {
+      "started": true,
+      "completed": true,
+      "solved": true,
+      "area": true
+    },
+    "m2_1": {
+      "started": true,
+      "completed": true,
+      "solved": true,
+      "talked": true,
+      "key": true,
+      "opened": true
+    },
+    "m2_2": {
+      "started": true,
+      "completed": true,
+      "count": 5
+    },
+    "m2_3": {
+      "started": true,
+      "completed": true,
+      "solved": true,
+      "talked": true
+    },
+    "m2_4": {
+      "started": true,
+      "completed": true,
+      "solved": true,
+      "jack": true,
+      "search": true,
+      "talked": true,
+      "boss": true,
+      "found": true
+    },
+    "m3_1": {
+      "started": false,
+      "completed": false,
+      "solved": false
+    },
+    "m3_2": {
+      "started": false,
+      "completed": false,
+      "solved": false
+    },
+    "m3_3": {
+      "started": false,
+      "completed": false,
+      "solved": false
+    },
+    "m3_4": {
+      "started": false,
+      "completed": false,
+      "ghosts": []
+    },
+    "m3_5": {
+      "started": false,
+      "completed": false
+    },
+    "m4_1": {
+      "started": false,
+      "completed": false
+    },
+    "m4_2": {
+      "started": false,
+      "completed": false
+    },
+    "m4_3": {
+      "started": false,
+      "completed": false
+    },
+    "m4_4": {
+      "started": false,
+      "completed": false
+    },
+    "m4_5": {
+      "started": false,
+      "completed": false
+    },
+    "m5_1": {
+      "started": false,
+      "completed": false
+    },
+    "m0": {
+      "talked_matilda": true,
+      "talked_annabelle": true,
+      "talked_amber": false,
+      "area": true
+    },
+    "m1": {
+      "talked_amber": true,
+      "talked_annabelle": true,
+      "talked_elliott": true
+    },
+    "town": {
+      "amber": [],
+      "annabelle": [
+        0
+      ],
+      "matilda": [
+        0
+      ],
+      "elliott": [
+        0
+      ],
+      "max": []
+    },
+    "m2": {
+      "talked_amber1": true,
+      "talked_elliott": true,
+      "talked_annabelle": true,
+      "talked_amber2": true
+    },
+    "m3": {
+      "talked_amber": true,
+      "talked_max": true,
+      "talked_matilda": true
+    }
+  },
+  "treasures": [
+    "forest8_4",
+    "forest3_5",
+    "underpass5_5"
+  ],
+  "battlers": [
+    {
+      "key": "ann",
+      "name": "Ann",
+      "lv": 14,
+      "effect": "hit",
+      "hp": 83,
+      "atk": 17,
+      "def": 16,
+      "dex": 13,
+      "agi": 12,
+      "up": {
+        "hp": 100,
+        "atk": 100,
+        "def": 90,
+        "dex": 70,
+        "agi": 70
+      },
+      "exp": 296.66666666666663,
+      "max_hp": 105,
+      "weapon": 13
+    },
+    {
+      "key": "francisca",
+      "name": "Francisca",
+      "lv": 14,
+      "effect": "hit",
+      "hp": 61,
+      "atk": 13,
+      "def": 11,
+      "dex": 16,
+      "agi": 15,
+      "up": {
+        "hp": 85,
+        "atk": 85,
+        "def": 75,
+        "dex": 100,
+        "agi": 85
+      },
+      "exp": 293.66666666666663,
+      "max_hp": 85,
+      "weapon": 14
+    },
+    {
+      "key": "jaquelyn",
+      "name": "Jaquelyn",
+      "lv": 14,
+      "effect": "hit",
+      "hp": 90,
+      "atk": 11,
+      "def": 12,
+      "dex": 15,
+      "agi": 17,
+      "up": {
+        "hp": 90,
+        "atk": 75,
+        "def": 80,
+        "dex": 85,
+        "agi": 100
+      },
+      "exp": 296.66666666666663,
+      "max_hp": 95,
+      "weapon": 7
+    }
+  ],
+  "weapons": [
+    {
+      "id": 1,
+      "weapon_id": 1
+    },
+    {
+      "id": 2,
+      "weapon_id": 1
+    },
+    {
+      "id": 3,
+      "weapon_id": 2
+    },
+    {
+      "id": 4,
+      "weapon_id": 2
+    },
+    {
+      "id": 5,
+      "weapon_id": 4
+    },
+    {
+      "id": 6,
+      "weapon_id": 3
+    },
+    {
+      "id": 7,
+      "weapon_id": 6
+    },
+    {
+      "id": 8,
+      "weapon_id": 1
+    },
+    {
+      "id": 9,
+      "weapon_id": 2
+    },
+    {
+      "id": 10,
+      "weapon_id": 3
+    },
+    {
+      "id": 11,
+      "weapon_id": 5
+    },
+    {
+      "id": 12,
+      "weapon_id": 6
+    },
+    {
+      "id": 13,
+      "weapon_id": 8
+    },
+    {
+      "id": 14,
+      "weapon_id": 7
+    }
+  ],
+  "saved": 1581750013,
+  "allowed_area": 4,
+  "visited": [
+    "forest1",
+    "forest2",
+    "forest5",
+    "forest6",
+    "forest7",
+    "forest8",
+    "forest9",
+    "forest3",
+    "forest4",
+    "room1",
+    "town1",
+    "underpass1",
+    "underpass2",
+    "underpass3",
+    "underpass4",
+    "underpass5",
+    "underpass6",
+    "underpass7",
+    "underpass8",
+    "underpass9",
+    "underpass10",
+    "catacomb1",
+    "catacomb3"
+  ]
+}
