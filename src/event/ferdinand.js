@@ -1,6 +1,5 @@
 export const ferdinand = (scene, fdn) => {
   const state = scene.storage.state.event.m3_1
-  fdn.setFaceKey('ferdinand') // Will be deleted
   fdn.setDisplayName('フェルディナンド卿')
   if (state.completed) {
     return fdn.destroy()
@@ -8,7 +7,15 @@ export const ferdinand = (scene, fdn) => {
   fdn.setTapEvent(async chara => {
     if (state.solved) {
       await scene.talk([
+        { chara, text: 'うわ！！' }
       ])
+      fdn.initImage('ferdinand_dragged')
+      await fdn.setSpeed(20).setTargetPosition(fdn.x - 20, fdn.y)
+      await scene.talk([
+        { chara, text: 'あああああ！！！！' }
+      ])
+      await fdn.setSpeed(50).setTargetPosition(fdn.x - (2.3).toPixel, fdn.y)
+      scene.add.tween({ targets: fdn, duration: 200, alpha: 0, x: fdn.x - 15, y: fdn.y + 30, rotation: fdn.rotation - 1, onComplete: () => fdn.destroy() })
       state.completed = true
       scene.ui.missionUpdate('m3_1', true)
     } else if (state.started) {
@@ -16,6 +23,7 @@ export const ferdinand = (scene, fdn) => {
         { chara, text: 'とにかく頼む。' },
         { chara, text: 'なんとかしてくれ。' }
       ])
+      state.solved = true // TODO
     } else {
       await scene.talk([
         { chara: 'ann', text: '大丈夫ですか？顔色が悪いみたいだけど。' },

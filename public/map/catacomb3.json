@@ -1,4 +1,12 @@
-{ "height":36,
+{ "compressionlevel":0,
+ "editorsettings":
+    {
+     "export":
+        {
+         "target":"."
+        }
+    },
+ "height":36,
  "infinite":false,
  "layers":[
         {
@@ -113,7 +121,7 @@
                 {
                  "height":0,
                  "id":3,
-                 "name":"hector",
+                 "name":"ferdinand",
                  "point":true,
                  "rotation":90,
                  "type":"chara",
@@ -127,9 +135,32 @@
          "visible":true,
          "x":0,
          "y":0
+        }, 
+        {
+         "draworder":"topdown",
+         "id":23,
+         "name":"exposure",
+         "objects":[
+                {
+                 "height":0,
+                 "id":4,
+                 "name":"",
+                 "point":true,
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":1138.82820258193,
+                 "y":295.610724925521
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":false,
+         "x":0,
+         "y":0
         }],
- "nextlayerid":23,
- "nextobjectid":4,
+ "nextlayerid":24,
+ "nextobjectid":5,
  "orientation":"orthogonal",
  "properties":[
         {
@@ -143,7 +174,7 @@
          "value":"#ffbb00ff"
         }],
  "renderorder":"right-down",
- "tiledversion":"1.2.1",
+ "tiledversion":"2020.01.22",
  "tileheight":32,
  "tilesets":[
         {
