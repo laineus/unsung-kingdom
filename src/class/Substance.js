@@ -23,7 +23,7 @@ export default class Substance extends Phaser.GameObjects.Container {
   preUpdate () {
     this.setDepth(this.y)
     if (this.balloon) {
-      this.balloon.visible = this.visible && this.distanceToPlayer < 150
+      this.balloon.setVisible(this.visible && !this.scene.ui.eventMode && this.distanceToPlayer < 150)
       this.balloon.setPosition(this.x, this.y - this.image.height.half - 32)
     }
   }
