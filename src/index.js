@@ -23,7 +23,8 @@ const option = {
     arcade: {
       gravity: { y: 0 }
     }
-  }
+  },
+  // fps: { target: 30, forceSetTimeOut: true }
 }
 
 new Phaser.Game(option)
