@@ -28,7 +28,12 @@ export default class Talk extends Phaser.GameObjects.Container {
     this.next()
   }
   getChara (event) {
-    return typeof event.chara === 'string' ? this.scene.gameScene.player : event.chara
+    switch (event.chara) {
+      case 'ann': return this.scene.gameScene.player
+      case 'francisca': return this.scene.gameScene.francisca
+      case 'jaquelyn': return this.scene.gameScene.jaquelyn
+      default: return event.chara
+    }
   }
   get current () {
     return this.events[this.index]
@@ -50,7 +55,7 @@ export default class Talk extends Phaser.GameObjects.Container {
     } else {
       this.deleteBubble()
       const isPlayer = (typeof this.current.chara === 'string')
-      const chara = isPlayer ? this.scene.gameScene.player : this.current.chara
+      const chara = this.getChara(this.current)
       const displayName = isPlayer ? this.current.chara.upperCase : chara.displayName || 'No name'
       const imageKey = isPlayer ? this.current.chara : chara.faceKey
       const camera = this.scene.gameScene.camera
