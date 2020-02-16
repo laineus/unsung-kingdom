@@ -26,6 +26,8 @@ module.exports = [
   ['orthrus', 3, 1],
   ['hector', 3, 4],
   ['hector_injured', 1, 1],
+  ['ferdinand', 3, 4],
+  ['ferdinand_dragged', 3, 1],
   ['spectre', 3, 1],
   ['aragnie', 3, 1]
 ]
