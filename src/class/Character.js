@@ -146,6 +146,7 @@ export default class Character extends Substance {
     } else if (this.frameLength === 6) {
       return this.body.velocity.y < 0 ? `${this.key}_walk_back` : `${this.key}_walk_front`
     }
+    return this._waitAnimName
   }
   get angleKey () {
     const x = Math.cos(this.r)
