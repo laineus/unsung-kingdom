@@ -98,7 +98,8 @@ export const renfield = (scene, ray, spectres) => {
     spectre.destroy()
   }
   spectres.forEach((spectre, i) => {
-    spectre.setTapEvent(spectre => spectreEvent(spectre, i))
+    spectre.setTapEvent(spectre => spectreEvent(spectre, i)).setBlendMode(Phaser.BlendModes.ADD).setAlpha(0.8)
     spectre.setVisible(state.started && !state.ghosts.includes(i))
   })
+  scene.add.tween({ targets: spectres, duration: 800, loop: -1, yoyo: true, alpha: 0.4 })
 }
