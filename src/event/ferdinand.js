@@ -10,12 +10,29 @@ export const ferdinand = (scene, fdn) => {
         { chara, text: 'うわ！！' }
       ])
       fdn.initImage('ferdinand_dragged')
+      await scene.talk([
+        { chara, text: '誰だ！？私の足を掴むな！' },
+        { chara: 'ann', text: 'え！？' }
+      ])
       await fdn.setSpeed(20).setTargetPosition(fdn.x - 20, fdn.y)
       await scene.talk([
-        { chara, text: 'あああああ！！！！' }
+        { chara, text: 'お、おい！！やめろ！！' },
+        { chara, text: 'うわあああああ！！！！' }
       ])
       await fdn.setSpeed(50).setTargetPosition(fdn.x - (2.3).toPixel, fdn.y)
       scene.add.tween({ targets: fdn, duration: 200, alpha: 0, x: fdn.x - 15, y: fdn.y + 30, rotation: fdn.rotation - 1, onComplete: () => fdn.destroy() })
+      await scene.ui.sleep(300)
+      await scene.talk([
+        { chara: 'ann', text: 'え…！？' },
+        { chara: 'ann', text: 'なに今の……、' },
+        { chara: 'ann', text: '悪霊の手…？' }
+      ])
+      await scene.ui.sleep(500)
+      await scene.talk([
+        { chara: 'ann', text: '死んじゃったの…？' },
+        { chara: 'jaquelyn', text: 'この崖の深さなら、…きっとそうね。' },
+        { chara: 'francisca', text: 'こわ。' }
+      ])
       state.completed = true
       scene.ui.missionUpdate('m3_1', true)
     } else if (state.started) {
