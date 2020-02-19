@@ -1,3 +1,5 @@
+export const WATER_COUNT = 3
+
 export const marianne = (scene, sister) => {
   const state = scene.storage.state.event.m3_2
   sister.setFaceKey('sister') // Will be deleted
@@ -7,15 +9,26 @@ export const marianne = (scene, sister) => {
       await scene.talk([
         { chara, text: 'マリアンヌ…。' }
       ])
-    } else if (state.solved) {
+    } else if (state.count >= WATER_COUNT) {
       await scene.talk([
         { chara: 'ann', text: 'はいシスター、' },
         { chara: 'ann', text: '余計なお世話かもしれないけど…、お水を持ってきたよ。' },
         { chara, text: '…。' },
         { chara, text: 'ありがとう…。' },
         { chara, text: 'いただきますね。' },
-        { chara: 'ann', text: 'うん。' },
-        { chara: 'ann', text: 'ねえ、マリアンヌは王妃と仲がよかったって言っていたよね？' },
+        { chara: 'ann', text: 'うん。' }
+      ])
+      await scene.ui.sleep(500)
+      await scene.talk([
+        { chara, text: 'おいしい…。' },
+        { chara: 'ann', text: 'よかった。' },
+        { chara, text: 'あの、' },
+        { chara, text: '親切にしていただいたお礼に、このお守りを受け取ってください。' }
+      ])
+      this.announce('十字のお守りを手に入れた')
+      await scene.talk([
+        { chara: 'ann', text: 'お礼なんていいのに。' },
+        { chara: 'ann', text: 'あ、そういえばマリアンヌは王妃と仲がよかったって言っていたよね？' },
         { chara: 'ann', text: '王妃のこと、少しだけ聞いてもいいかな？' },
         { chara, text: 'ええ、マリアンヌがたまに話してくれたので、知っていることでしたら。' },
         { chara: 'ann', text: 'えっと、' },
@@ -25,6 +38,7 @@ export const marianne = (scene, sister) => {
         { chara: 'ann', text: 'そ、そうだよね。' },
         { chara: 'ann', text: '変なこと聞いてごめん。' }
       ])
+      await scene.ui.sleep(500)
       await scene.talk([
         { chara: 'ann', text: 'さあ、立ち上がれる？' },
         { chara: 'ann', text: '辛かったら街まで送るよ。' },

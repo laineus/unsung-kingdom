@@ -1,6 +1,7 @@
 import storage from '../data/storage'
 import { MANDRAKE_COUNT } from '../event/drystan'
 import { MAGIC_STONES } from '../event/princess'
+import { WATER_COUNT } from '../event/marianne'
 export default class BattleQuestService {
   constructor (group) {
     this.group = group
@@ -8,7 +9,8 @@ export default class BattleQuestService {
   getResult () {
     const list = [
       this.m1_3,
-      this.m2_2
+      this.m2_2,
+      this.m3_2
     ]
     return list.map(v => v.call(this, storage.state.event)).filter(Boolean)
   }
@@ -30,5 +32,12 @@ export default class BattleQuestService {
     if (!result) return
     event.m2_2.count += result
     return `カーバンクルの魔石を${result}個獲得！（${event.m2_2.count}/${MAGIC_STONES}）`
+  }
+  m3_2 (event) {
+    if (event.m3_2.completed || !event.m3_2.started) return
+    const result = this.collection('phantom', 75)
+    if (!result) return
+    event.m3_2.count += result
+    return `水の小瓶を${result}個獲得！（${event.m3_2.count}/${WATER_COUNT}）`
   }
 }
