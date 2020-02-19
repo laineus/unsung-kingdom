@@ -96,5 +96,40 @@ export default [
     abillities: [{ type: 'double', chance: 70 }, { type: 'multi', chance: 30 }],
     up: { hp: 100, atk: 80, def: 90, dex: 70, agi: 60 },
     dropWeapon: { id: 9, chance: 100 }
+  },
+  {
+    key: 'phantom', name: 'ファントム', lv: 1, effect: 'stab', y: 100,
+    hp: 25, atk: 4, def: 6, dex: 3, agi: 4,
+    up: { hp: 100, atk: 75, def: 80, dex: 70, agi: 75 }
+  },
+  {
+    key: 'skull', name: 'スカルヘッド', lv: 1, effect: 'stab', y: 100,
+    hp: 25, atk: 4, def: 6, dex: 3, agi: 4,
+    up: { hp: 100, atk: 75, def: 80, dex: 70, agi: 75 }
+  },
+  {
+    key: 'ghost', name: 'ゴースト', lv: 1, effect: 'stab', y: 100,
+    hp: 25, atk: 4, def: 6, dex: 3, agi: 4,
+    up: { hp: 100, atk: 75, def: 80, dex: 70, agi: 75 }
+  },
+  {
+    key: 'spectre', name: 'スペクター', lv: 1, effect: 'stab', y: 100,
+    hp: 25, atk: 4, def: 6, dex: 3, agi: 4,
+    up: { hp: 100, atk: 75, def: 80, dex: 70, agi: 75 }
+  },
+  {
+    key: 'wraith', name: 'レイス', lv: 1, effect: 'stab', y: 100,
+    hp: 25, atk: 4, def: 6, dex: 3, agi: 4,
+    up: { hp: 100, atk: 75, def: 80, dex: 70, agi: 75 }
+  },
+  {
+    key: 'dullahan', name: 'デュラハン', lv: 1, effect: 'stab', y: 100,
+    hp: 25, atk: 4, def: 6, dex: 3, agi: 4,
+    up: { hp: 100, atk: 75, def: 80, dex: 70, agi: 75 }
+  },
+  {
+    key: 'queen', name: 'エヴァンジェリナ妃の亡霊', lv: 1, effect: 'stab', y: 100,
+    hp: 25, atk: 4, def: 6, dex: 3, agi: 4,
+    up: { hp: 100, atk: 75, def: 80, dex: 70, agi: 75 }
   }
 ]
