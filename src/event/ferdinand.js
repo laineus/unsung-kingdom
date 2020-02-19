@@ -5,14 +5,27 @@ export const ferdinand = (scene, fdn) => {
     return fdn.destroy()
   }
   fdn.setTapEvent(async chara => {
-    if (state.solved) {
+    if (scene.storage.state.event.m3_2.completed) {
+      await scene.talk([
+        { chara, text: 'おい、何とかできそうか？' },
+        { chara: 'ann', text: 'うーん…、' },
+        { chara: 'ann', text: 'このお守りなんてどうかな？' },
+        { chara: 'ann', text: 'さっきシスターさんにもらったんだけど。' },
+        { chara, text: 'そんなもので助かるはずがないだろう！' },
+        { chara: 'ann', text: 'じゃあいらないの？' },
+        { chara, text: '…。' },
+        { chara, text: '一応もらっておこうか…。' },
+        { chara: 'ann', text: 'やっぱ要るんじゃない。' },
+        { chara, text: 'うるさい！ほら、早くよこせ。' }
+      ])
+      await scene.ui.sleep(300)
       await scene.talk([
         { chara, text: 'うわ！！' }
       ])
       fdn.initImage('ferdinand_dragged')
       await scene.talk([
         { chara, text: '誰だ！？私の足を掴むな！' },
-        { chara: 'ann', text: 'え！？' }
+        { chara: 'ann', text: 'え！なに！？' }
       ])
       await fdn.setSpeed(20).setTargetPosition(fdn.x - 20, fdn.y)
       await scene.talk([
@@ -25,7 +38,7 @@ export const ferdinand = (scene, fdn) => {
       await scene.talk([
         { chara: 'ann', text: 'え…！？' },
         { chara: 'ann', text: 'なに今の……、' },
-        { chara: 'ann', text: '悪霊の手…？' }
+        { chara: 'ann', text: 'なにか手みたいなものに引っ張られて…、' }
       ])
       await scene.ui.sleep(500)
       await scene.talk([
@@ -40,7 +53,6 @@ export const ferdinand = (scene, fdn) => {
         { chara, text: 'とにかく頼む。' },
         { chara, text: 'なんとかしてくれ。' }
       ])
-      state.solved = true // TODO
     } else {
       await scene.talk([
         { chara: 'ann', text: '大丈夫ですか？顔色が悪いみたいだけど。' },
