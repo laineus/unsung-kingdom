@@ -1,4 +1,12 @@
-{ "height":36,
+{ "compressionlevel":0,
+ "editorsettings":
+    {
+     "export":
+        {
+         "target":"."
+        }
+    },
+ "height":36,
  "infinite":false,
  "layers":[
         {
@@ -145,7 +153,7 @@
                 {
                  "height":0,
                  "id":5,
-                 "name":"hector",
+                 "name":"dario",
                  "point":true,
                  "rotation":0,
                  "type":"chara",
@@ -175,7 +183,7 @@
          "value":"#ffbb00ff"
         }],
  "renderorder":"right-down",
- "tiledversion":"1.2.1",
+ "tiledversion":"2020.01.22",
  "tileheight":32,
  "tilesets":[
         {
