@@ -6,7 +6,7 @@ export default class BootScene extends Phaser.Scene {
     super({ key: 'Boot', active: true })
   }
   create () {
-    Phaser.BlendModes.OVERLAY = this.sys.game.renderer.addBlendMode([WebGLRenderingContext.DST_COLOR, WebGLRenderingContext.ONE], WebGLRenderingContext.FUNC_ADD)
+    Phaser.BlendModes.OVERLAY = this.sys.game.renderer.addBlendMode([WebGLRenderingContext.SRC_ALPHA, WebGLRenderingContext.ONE], WebGLRenderingContext.FUNC_ADD)
     registerAnims(this)
     registerShaders(this)
     this.scene.start('UI')

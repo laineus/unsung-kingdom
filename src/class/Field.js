@@ -106,9 +106,8 @@ export default class Field {
     return lightTiles.map(v => {
       const properties = getProperties(v.index)
       const { color } = parseArgb(properties.color)
-      this.scene.add.sprite(v.x.toPixelCenter, v.y.toPixelCenter, 'light').setTint(color).setAlpha(0.2).setScale(0.8).setBlendMode(1).setDepth(100000)
       const sprite = this.scene.add.sprite(v.x.toPixelCenter, v.y.toPixelCenter, 'light').setTint(color).setScale(0.5).setBlendMode(Phaser.BlendModes.OVERLAY).setDepth(100000)
-      const sprite2 = properties.drop ? this.scene.add.sprite(v.x.toPixelCenter, v.y.toPixelCenter + 55, 'light').setTint(color).setScale(0.6).setBlendMode(Phaser.BlendModes.OVERLAY).setDepth(100000) : null
+      const sprite2 = properties.drop ? this.scene.add.sprite(v.x.toPixelCenter, v.y.toPixelCenter + 55, 'light').setAlpha(0.8).setTint(color).setScale(0.6).setBlendMode(Phaser.BlendModes.OVERLAY).setDepth(100000) : null
       this.scene.add.tween({
         targets: [sprite, ...(sprite2 ? [sprite2] : [])], duration: Math.randomInt(300, 400),
         scale: 0.6, alpha: 0.8,
@@ -123,7 +122,7 @@ export default class Field {
     particles.createEmitter({
       x: { min: 0, max: Math.max(this.width, (40).toPixel) },
       y: { min: 0, max: Math.max(this.height, (40).toPixel) },
-      scale: { start: 0.02, end: 0.04 },
+      scale: { start: 0.03, end: 0.07 },
       alpha: { start: 1, end: 0.2 },
       tint: color,
       blendMode: Phaser.BlendModes.OVERLAY,

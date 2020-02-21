@@ -14,7 +14,7 @@
  "name":"underpass",
  "spacing":0,
  "tilecount":160,
- "tiledversion":"2019.12.11",
+ "tiledversion":"2020.01.22",
  "tileheight":32,
  "tiles":[
         {
@@ -63,7 +63,7 @@
                 {
                  "name":"color",
                  "type":"color",
-                 "value":"#ffff8800"
+                 "value":"#ffff6600"
                 }, 
                 {
                  "name":"drop",
@@ -110,7 +110,7 @@
                 {
                  "name":"color",
                  "type":"color",
-                 "value":"#ffff8800"
+                 "value":"#ffff6600"
                 }],
          "type":"light"
         }, 
@@ -120,7 +120,7 @@
                 {
                  "name":"color",
                  "type":"color",
-                 "value":"#ffff8800"
+                 "value":"#ffff6600"
                 }],
          "type":"light"
         }, 
@@ -158,7 +158,7 @@
                 {
                  "name":"color",
                  "type":"color",
-                 "value":"#ffff8800"
+                 "value":"#ffff6600"
                 }],
          "type":"light"
         }, 
