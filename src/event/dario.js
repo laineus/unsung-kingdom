@@ -8,6 +8,7 @@ export const dario = (scene, dario) => {
   dario.setTapEvent(async chara => {
     if (state.completed) {
       await scene.talk([
+        { chara, text: '…どうか、負けないでくれ。' }
       ])
     } else if (state.solved) {
       state.completed = true
@@ -162,7 +163,7 @@ export const jack = (scene, jk, area1, area2) => {
       { chara: 'ann', text: 'あんたこそ、残念だけど前のようにはいかないよ。覚悟しなさい。' }
     ])
     await scene.ui.sleep(500)
-    const result = await scene.ui.battle([generateBattler('orthrus', 15, { hp: 800 })], { boss: true })
+    const result = await scene.ui.battle([generateBattler('jack', 15, { hp: 1 })], { boss: true })
     if (!result) return
     await scene.talk([
       { chara, text: '負けた…、だと？' },
