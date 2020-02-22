@@ -6,12 +6,40 @@
  "name":"forest",
  "spacing":0,
  "tilecount":120,
- "tiledversion":"2018.12.22",
+ "tiledversion":"1.2.1",
  "tileheight":32,
  "tiles":[
         {
          "id":2,
          "type":"collides"
+        }, 
+        {
+         "animation":[
+                {
+                 "duration":200,
+                 "tileid":6
+                }, 
+                {
+                 "duration":200,
+                 "tileid":5
+                }, 
+                {
+                 "duration":200,
+                 "tileid":7
+                }, 
+                {
+                 "duration":200,
+                 "tileid":5
+                }],
+         "id":6
+        }, 
+        {
+         "animation":[
+                {
+                 "duration":100,
+                 "tileid":17
+                }],
+         "id":9
         }, 
         {
          "id":10,
