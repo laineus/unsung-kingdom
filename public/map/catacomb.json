@@ -1,4 +1,12 @@
 { "columns":10,
+ "editorsettings":
+    {
+     "export":
+        {
+         "format":"",
+         "target":"."
+        }
+    },
  "image":"..\/img\/tileset\/original\/catacomb.png",
  "imageheight":832,
  "imagewidth":320,
@@ -6,7 +14,7 @@
  "name":"catacomb",
  "spacing":0,
  "tilecount":260,
- "tiledversion":"1.2.1",
+ "tiledversion":"2020.01.22",
  "tileheight":32,
  "tiles":[
         {
@@ -72,6 +80,10 @@
         {
          "id":11,
          "type":"collides,top"
+        }, 
+        {
+         "id":12,
+         "type":"collides"
         }, 
         {
          "id":13,

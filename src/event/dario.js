@@ -139,7 +139,7 @@ export const jack = (scene, jk, area1, area2) => {
       { chara, text: 'ここで何をしている？' },
       { chara: 'ann', text: '！！' }
     ])
-    await jk.setSpeed(140).setTargetPosition(jk.x + (-11).toPixel, jk.y)
+    await jk.setSpeed(140).setTargetPosition(jk.x + (-10).toPixel, jk.y)
     await scene.talk([
       { chara: 'ann', text: 'どこに隠れていたの！？' },
       { chara, text: 'お前たち、地下通路でも私の邪魔をしてくれたようだな。' },
