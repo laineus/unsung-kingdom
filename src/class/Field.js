@@ -20,8 +20,13 @@ export default class Field {
     const tilesets = this._getTilesets(tilemap)
     tilemap.layers.push(this._generateTopLayer(tilemap))
     this.staticLayers = tilemap.layers.map((layer, i) => {
-      return layer.visible ? tilemap.createStaticLayer(i, tilesets, 0, 0) : null
+      return layer.visible ? tilemap.createDynamicLayer(i, tilesets, 0, 0) : null
     }).filter(Boolean)
+    this.animationTiles = this._getAllTileSettings(tilemap).filter(v => 'animation' in v).map(v => {
+      const targets = this.staticLayers[1].layer.data.flat().filter(tile => tile.index === v.id + 1)
+      const max = Math.sum(...v.animation.map(v => v.duration))
+      return { targets, animations: v.animation, max }
+    })
     const lights = this._generateLights(tilemap)
     const darkness = this._getProperty(tilemap, 'darkness')
     if (darkness) {
@@ -42,6 +47,17 @@ export default class Field {
     this.charas = this._getObjects(tilemap, 'chara').map(data => new Character(scene, data.x, data.y, data.name).setR((data.rotation + 90) * (Math.PI / 180)).setId(data.id))
     this.objects = this._getObjects(tilemap, 'object').map(data => new Substance(scene, data.x, data.y, data.name).setId(data.id))
     this.treasures = this._getObjects(tilemap, 'treasure').map(data => new TreasureChest(scene, data.x, data.y, Number(data.name), `${mapKey}_${data.id}`, data.rotation === 90).setId(data.id))
+  }
+  update (time) {
+    this.animationTiles.forEach(setting => {
+      const current = time % setting.max
+      const anim = setting.animations.find((_, i, arr) => {
+        return current < Math.sum(...arr.slice(0, i + 1).map(v => v.duration))
+      })
+      setting.targets.forEach(v => {
+        v.index = anim.tileid + 1
+      })
+    })
   }
   getObjectById (id) {
     return ['charas', 'gates', 'areas', 'objects', 'treasures'].reduce((found, key) => {

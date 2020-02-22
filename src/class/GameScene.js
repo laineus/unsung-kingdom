@@ -53,6 +53,7 @@ export default class GameScene extends Phaser.Scene {
   update (time, delta) {
     this.frame++
     if (this.event.update) this.event.update(this)
+    this.map.update(time)
     // this.fadeout.setPosition(this.camera.scrollX + config.WIDTH.half, this.camera.scrollY + config.HEIGHT.half)
   }
   get ui () {
