@@ -68,6 +68,9 @@ export default class Field {
     })
   }
   // private
+  _getAllTileSettings (tilemap) {
+    return tilemap.tilesets.map(set => this.scene.cache.json.get(set.name).tiles).flat()
+  }
   _getProperty (tilemap, name) {
     return Array.isArray(tilemap.properties) && tilemap.properties.find(p => p.name === name)
   }
@@ -147,15 +150,14 @@ export default class Field {
   }
   _getTileSettingsByType (tilemap, type) {
     return tilemap.tilesets.map(set => {
-      const data = this.scene.cache.json.get(set.name)
-      return data.tiles.filter(tile => tile.type && tile.type.split(',').includes(type)).map(tile => {
+      return this._getAllTileSettings(tilemap).filter(tile => tile.type && tile.type.split(',').includes(type)).map(tile => {
         const properties = tile.properties ? tile.properties.reduce((obj, v) => {
           obj[v.name] = v.value
           return obj
         }, {}) : {}
         return { id: tile.id + set.firstgid, properties }
       })
-    }).flat()
+    })
   }
   _getTileIdsByType (tilemap, type) {
     return this._getTileSettingsByType(tilemap, type).map(v => v.id)
