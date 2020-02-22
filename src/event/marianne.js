@@ -2,7 +2,6 @@ export const WATER_COUNT = 3
 
 export const marianne = (scene, sister) => {
   const state = scene.storage.state.event.m3_2
-  sister.setFaceKey('sister') // Will be deleted
   sister.setDisplayName('シスター')
   sister.setTapEvent(async chara => {
     if (state.completed) {

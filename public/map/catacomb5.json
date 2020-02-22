@@ -75,14 +75,14 @@
                 {
                  "height":0,
                  "id":2,
-                 "name":"matilda",
+                 "name":"sister",
                  "point":true,
                  "rotation":180,
                  "type":"chara",
                  "visible":true,
                  "width":0,
-                 "x":280.826234099662,
-                 "y":298.75131287198
+                 "x":435.900712749116,
+                 "y":453.825791521434
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -105,19 +105,19 @@
          "value":"#ffbb00ff"
         }],
  "renderorder":"right-down",
- "tiledversion":"2019.12.11",
+ "tiledversion":"2020.01.22",
  "tileheight":32,
  "tilesets":[
         {
          "columns":10,
          "firstgid":1,
          "image":"..\/img\/tileset\/original\/catacomb.png",
-         "imageheight":512,
+         "imageheight":832,
          "imagewidth":320,
          "margin":0,
          "name":"catacomb",
          "spacing":0,
-         "tilecount":160,
+         "tilecount":260,
          "tileheight":32,
          "tilewidth":32
         }],

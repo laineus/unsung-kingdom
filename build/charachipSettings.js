@@ -29,6 +29,8 @@ module.exports = [
   ['dario', 3, 4],
   ['ferdinand', 3, 4],
   ['ferdinand_dragged', 3, 1],
+  ['sister', 1, 1],
+  ['ray', 3, 4],
   ['spectre', 3, 1],
   ['aragnie', 3, 1]
 ]

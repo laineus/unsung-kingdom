@@ -1,7 +1,6 @@
 import generateBattler from '../util/generateBattler'
 export const renfield = (scene, ray, spectres) => {
   const state = scene.storage.state.event.m3_4
-  ray.setFaceKey('ray') // Will be deleted
   ray.setDisplayName('レイ')
   if (state.completed) {
     ray.destroy()
