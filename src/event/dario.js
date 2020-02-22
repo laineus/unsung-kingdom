@@ -163,8 +163,9 @@ export const jack = (scene, jk, area1, area2) => {
       { chara: 'ann', text: 'あんたこそ、残念だけど前のようにはいかないよ。覚悟しなさい。' }
     ])
     await scene.ui.sleep(500)
-    const result = await scene.ui.battle([generateBattler('jack', 15, { hp: 1 })], { boss: true })
+    const result = await scene.ui.battle([generateBattler('jack', 1, { hp: 1 })], { boss: true })
     if (!result) return
+    await scene.ui.sleep(500)
     await scene.talk([
       { chara, text: '負けた…、だと？' },
       { chara: 'ann', text: 'そう、あなたの負けよ。' },
@@ -174,22 +175,33 @@ export const jack = (scene, jk, area1, area2) => {
       { chara: 'ann', text: 'なんて？' },
       { chara, text: 'ここで終わるわけにはいかない…。' }
     ])
-    jk.destroy()
+    await scene.ui.sleep(700)
+    jk.setR('up')
+    await scene.ui.sleep(500)
+    scene.add.tween({ targets: jk, duration: 200, y: jk.y - 70, ease: 'Power2', onComplete: () => {
+      scene.add.tween({ targets: jk, duration: 200, alpha: 0, y: jk.y + 55, ease: 'Cubic.easeIn', onComplete: () => jk.destroy() })
+    } })
+    await scene.ui.sleep(200)
+    scene.player.setTargetPosition(scene.player.x + 50, scene.player.y)
+    await scene.ui.sleep(1000)
     await scene.talk([
       { chara: 'ann', text: '！！' },
       { chara: 'jaquelyn', text: '飛び降りるなんて…。' },
       { chara: 'francisca', text: 'まずいね…。' },
       { chara: 'ann', text: 'どうしよう…。' },
       { chara: 'ann', text: '追いかける…？' },
-      { chara: 'jaquelyn', text: 'え、この穴に？' },
+      { chara: 'jaquelyn', text: 'え、この崖の底に？' },
       { chara: 'francisca', text: '無理でしょ。' },
       { chara: 'ann', text: 'そうだよね。' },
-      { chara: 'ann', text: 'この穴、底が見えないけど、どうなってるんだろう…？' },
+      { chara: 'ann', text: 'この崖、底が見えないけど、どうなってるんだろう…？' },
       { chara: 'francisca', text: '死んだかもね。' },
       { chara: 'ann', text: 'うう…。' },
-      { chara: 'jaquelyn', text: '追いかけるのは無理そうだし、' },
+      { chara: 'ann', text: 'もし今のでジャックが死んだとしたら、歴史はどうなるの？' },
+      { chara: 'francisca', text: '分からないけど、多分まだ王の死は防げていないはず。' },
+      { chara: 'francisca', text: '王妃の亡霊の件が解決していないでしょ。' },
+      { chara: 'ann', text: 'たしかに。' },
+      { chara: 'jaquelyn', text: '追いかけるのも無理そうだし、' },
       { chara: 'jaquelyn', text: 'ひとまず今は先を急ぎましょう。' },
-      { chara: 'jaquelyn', text: '王妃の亡霊の件をなんとかしないと…。' },
       { chara: 'ann', text: 'そうだね、そうしよう。' }
     ])
     state.solved = true
