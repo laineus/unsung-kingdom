@@ -19,14 +19,17 @@ export default class Field {
     this.height = tilemap.heightInPixels
     const tilesets = this._getTilesets(tilemap)
     tilemap.layers.push(this._generateTopLayer(tilemap))
-    this.layers = tilemap.layers.map((layer, i) => {
-      return layer.visible ? tilemap.createDynamicLayer(i, tilesets, 0, 0) : null
-    }).filter(Boolean)
     this.animationTiles = this._getAllTileSettings(tilemap).filter(v => 'animation' in v).map(v => {
-      const targets = this.layers[1].layer.data.flat().filter(tile => tile.index === v.id + 1)
+      const targets = tilemap.layers.filter(v => v.visible).map(l => l.data.flat()).flat().filter(tile => tile.index === v.id + 1)
       const max = Math.sum(...v.animation.map(v => v.duration))
       return { targets, animations: v.animation, max }
     })
+    this.layers = tilemap.layers.map((layer, i) => {
+      const allAnimTiles = this.animationTiles.map(v => v.targets).flat()
+      const hasAnimTile = layer.data.flat().some(v => allAnimTiles.includes(v))
+      const typeName = hasAnimTile ? 'createDynamicLayer' : 'createStaticLayer'
+      return layer.visible ? tilemap[typeName](i, tilesets, 0, 0) : null
+    }).filter(Boolean)
     const lights = this._generateLights(tilemap)
     const darkness = this._getProperty(tilemap, 'darkness')
     if (darkness) {
