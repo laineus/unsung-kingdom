@@ -157,7 +157,7 @@ export default class Field {
         }, {}) : {}
         return { id: tile.id + set.firstgid, properties }
       })
-    })
+    }).flat()
   }
   _getTileIdsByType (tilemap, type) {
     return this._getTileSettingsByType(tilemap, type).map(v => v.id)
