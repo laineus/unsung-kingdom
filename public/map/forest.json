@@ -1,4 +1,12 @@
 { "columns":10,
+ "editorsettings":
+    {
+     "export":
+        {
+         "format":"",
+         "target":"."
+        }
+    },
  "image":"..\/img\/tileset\/original\/forest.png",
  "imageheight":384,
  "imagewidth":320,
@@ -6,7 +14,7 @@
  "name":"forest",
  "spacing":0,
  "tilecount":120,
- "tiledversion":"1.2.1",
+ "tiledversion":"2020.01.22",
  "tileheight":32,
  "tiles":[
         {
@@ -32,14 +40,6 @@
                  "tileid":5
                 }],
          "id":6
-        }, 
-        {
-         "animation":[
-                {
-                 "duration":100,
-                 "tileid":17
-                }],
-         "id":9
         }, 
         {
          "id":10,
