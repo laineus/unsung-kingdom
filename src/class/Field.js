@@ -19,11 +19,11 @@ export default class Field {
     this.height = tilemap.heightInPixels
     const tilesets = this._getTilesets(tilemap)
     tilemap.layers.push(this._generateTopLayer(tilemap))
-    this.staticLayers = tilemap.layers.map((layer, i) => {
+    this.layers = tilemap.layers.map((layer, i) => {
       return layer.visible ? tilemap.createDynamicLayer(i, tilesets, 0, 0) : null
     }).filter(Boolean)
     this.animationTiles = this._getAllTileSettings(tilemap).filter(v => 'animation' in v).map(v => {
-      const targets = this.staticLayers[1].layer.data.flat().filter(tile => tile.index === v.id + 1)
+      const targets = this.layers[1].layer.data.flat().filter(tile => tile.index === v.id + 1)
       const max = Math.sum(...v.animation.map(v => v.duration))
       return { targets, animations: v.animation, max }
     })
@@ -39,9 +39,9 @@ export default class Field {
     if (particles) this._generateParticles(parseArgb(particles.value).color)
     this.images = tilemap.images.map(data => this._getImage(data))
     const collides = this._getTileIdsByType(tilemap, 'collides')
-    this.staticLayers.forEach(layer => layer.setCollision(collides))
-    this.staticLayers[this.staticLayers.length - 1].setDepth(100000)
-    scene.physics.add.collider(this.staticLayers, scene.substances)
+    this.layers.forEach(layer => layer.setCollision(collides))
+    this.layers[this.layers.length - 1].setDepth(100000)
+    scene.physics.add.collider(this.layers, scene.substances)
     this.gates = this._getObjects(tilemap, 'gate').map(this._toAreaData).map(gate => new Gate(scene, gate.key, gate.x, gate.y, gate.zone_x, gate.zone_y, gate.zone_width, gate.zone_height).setId(gate.id))
     this.areas = this._getObjects(tilemap, 'area').map(this._toAreaData).map(area => new Area(scene, area.zone_x, area.zone_y, area.zone_width, area.zone_height).setId(area.id))
     this.charas = this._getObjects(tilemap, 'chara').map(data => new Character(scene, data.x, data.y, data.name).setR((data.rotation + 90) * (Math.PI / 180)).setId(data.id))
@@ -68,14 +68,14 @@ export default class Field {
     return this.images.find(v => v.name === name)
   }
   isCollides (tileX, tileY) {
-    return this.staticLayers.some(layer => {
+    return this.layers.some(layer => {
       const tile = layer.getTileAt(tileX, tileY)
       return tile && tile.collides
     })
   }
   displayDebug () {
     const debugGraphics = this.scene.add.graphics().setAlpha(0.75)
-    this.staticLayers.forEach(layer => {
+    this.layers.forEach(layer => {
       layer.renderDebug(debugGraphics, {
         tileColor: null,
         collidingTileColor: new Phaser.Display.Color(243, 134, 48, 255),
@@ -116,7 +116,7 @@ export default class Field {
   }
   _generateLights (tilemap) {
     const lights = this._getTileSettingsByType(tilemap, 'light')
-    const lightTiles = this.staticLayers.map(layer => {
+    const lightTiles = this.layers.map(layer => {
       return layer.layer.data.map(row => {
         return row.filter(tile => lights.map(v => v.id).includes(tile.index))
       }).filter(arr => arr.length).flatMap(v => v)
