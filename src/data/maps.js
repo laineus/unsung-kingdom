@@ -21,10 +21,14 @@ import underpass8 from '../map/underpass8'
 import underpass9 from '../map/underpass9'
 import underpass10 from '../map/underpass10'
 import catacomb1 from '../map/catacomb1'
+import catacomb2 from '../map/catacomb2'
 import catacomb3 from '../map/catacomb3'
 import catacomb4 from '../map/catacomb4'
 import catacomb5 from '../map/catacomb5'
+import catacomb6 from '../map/catacomb6'
 import catacomb7 from '../map/catacomb7'
+import catacomb8 from '../map/catacomb8'
+import catacomb9 from '../map/catacomb9'
 import catacomb10 from '../map/catacomb10'
 import catacomb11 from '../map/catacomb11'
 export default {
@@ -51,10 +55,14 @@ export default {
   underpass9,
   underpass10,
   catacomb1,
+  catacomb2,
   catacomb3,
   catacomb4,
   catacomb5,
+  catacomb6,
   catacomb7,
+  catacomb8,
+  catacomb9,
   catacomb10,
   catacomb11
 }
