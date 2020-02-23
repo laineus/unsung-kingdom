@@ -1,4 +1,12 @@
-{ "height":36,
+{ "compressionlevel":0,
+ "editorsettings":
+    {
+     "export":
+        {
+         "target":"."
+        }
+    },
+ "height":36,
  "infinite":false,
  "layers":[
         {
@@ -116,12 +124,12 @@
                  "id":2,
                  "name":"ray",
                  "point":true,
-                 "rotation":0,
+                 "rotation":90,
                  "type":"chara",
                  "visible":true,
                  "width":0,
-                 "x":496.076555023923,
-                 "y":859.05940016338
+                 "x":305.076555023923,
+                 "y":875.05940016338
                 }, 
                 {
                  "height":0,
@@ -132,8 +140,8 @@
                  "type":"chara",
                  "visible":true,
                  "width":0,
-                 "x":236.425024826217,
-                 "y":869.433962264151
+                 "x":229.425024826217,
+                 "y":874.433962264151
                 }, 
                 {
                  "height":0,
@@ -144,8 +152,8 @@
                  "type":"chara",
                  "visible":true,
                  "width":0,
-                 "x":236.425024826217,
-                 "y":587.249255213506
+                 "x":231.425024826217,
+                 "y":589.249255213506
                 }, 
                 {
                  "height":0,
@@ -168,8 +176,8 @@
                  "type":"chara",
                  "visible":true,
                  "width":0,
-                 "x":749.950347567031,
-                 "y":592.333664349553
+                 "x":757.950347567031,
+                 "y":591.333664349553
                 }, 
                 {
                  "height":0,
@@ -180,8 +188,8 @@
                  "type":"chara",
                  "visible":true,
                  "width":0,
-                 "x":752.492552135055,
-                 "y":877.060575968223
+                 "x":760.492552135055,
+                 "y":878.060575968223
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -204,7 +212,7 @@
          "value":"#ffbb00ff"
         }],
  "renderorder":"right-down",
- "tiledversion":"1.2.1",
+ "tiledversion":"2020.01.22",
  "tileheight":32,
  "tilesets":[
         {

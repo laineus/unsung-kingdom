@@ -229,6 +229,14 @@
          "type":"top"
         }, 
         {
+         "id":103,
+         "type":"collides"
+        }, 
+        {
+         "id":104,
+         "type":"collides"
+        }, 
+        {
          "id":107,
          "type":"collides"
         }, 
@@ -370,7 +378,7 @@
         }, 
         {
          "id":203,
-         "type":"collides"
+         "type":"top"
         }, 
         {
          "id":205,
