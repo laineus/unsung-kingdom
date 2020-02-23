@@ -19,7 +19,7 @@ export const dario = (scene, dario) => {
         { chara, text: '本当か？' },
         { chara, text: '一体どうやって…？' },
         { chara: 'ann', text: '私たちこう見えて強いの。' },
-        { chara: 'ann', text: 'ねえ、王妃の亡霊、私たちに任せてみない？' },
+        { chara: 'ann', text: 'だからさ、王妃の亡霊、私たちに任せてみない？' },
         { chara: 'ann', text: 'きっと何とかするよ。' },
         { chara, text: '…。' },
         { chara, text: 'アレを止めようと言うのか…。' },

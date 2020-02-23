@@ -21,7 +21,7 @@ export const evangelina = (scene, queen, queen2) => {
       { chara, text: '…殺す' }
     ])
     await scene.ui.sleep(500)
-    const result = await scene.ui.battle([generateBattler('orthrus', 1, { hp: 1 })], { boss: true })
+    const result = await scene.ui.battle([generateBattler('queen', 25, { hp: 1700 })], { boss: true })
     if (!result) return
     chara.destroy()
     await scene.talk([
