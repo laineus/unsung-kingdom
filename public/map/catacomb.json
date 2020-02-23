@@ -98,6 +98,21 @@
          "type":"collides,top"
         }, 
         {
+         "id":24,
+         "properties":[
+                {
+                 "name":"color",
+                 "type":"color",
+                 "value":"#ffbb00ff"
+                }, 
+                {
+                 "name":"drop",
+                 "type":"bool",
+                 "value":true
+                }],
+         "type":"light,collides"
+        }, 
+        {
          "id":28,
          "type":"collides"
         }, 
@@ -222,6 +237,10 @@
          "type":"collides"
         }, 
         {
+         "id":123,
+         "type":"collides"
+        }, 
+        {
          "id":142,
          "type":"top"
         }, 
@@ -236,6 +255,10 @@
         {
          "id":145,
          "type":"top"
+        }, 
+        {
+         "id":146,
+         "type":"collides"
         }, 
         {
          "id":152,
@@ -256,6 +279,10 @@
         {
          "id":165,
          "type":"collides,top"
+        }, 
+        {
+         "id":166,
+         "type":"collides"
         }, 
         {
          "id":172,
@@ -327,6 +354,74 @@
         }, 
         {
          "id":195,
+         "type":"collides"
+        }, 
+        {
+         "id":197,
+         "type":"top"
+        }, 
+        {
+         "id":198,
+         "type":"top"
+        }, 
+        {
+         "id":199,
+         "type":"top"
+        }, 
+        {
+         "id":203,
+         "type":"collides"
+        }, 
+        {
+         "id":205,
+         "type":"collides"
+        }, 
+        {
+         "id":207,
+         "type":"top"
+        }, 
+        {
+         "id":208,
+         "type":"top"
+        }, 
+        {
+         "id":209,
+         "type":"top"
+        }, 
+        {
+         "id":213,
+         "type":"collides"
+        }, 
+        {
+         "id":215,
+         "type":"collides"
+        }, 
+        {
+         "id":216,
+         "type":"collides"
+        }, 
+        {
+         "id":217,
+         "type":"collides"
+        }, 
+        {
+         "id":218,
+         "type":"collides"
+        }, 
+        {
+         "id":219,
+         "type":"collides"
+        }, 
+        {
+         "id":227,
+         "type":"collides"
+        }, 
+        {
+         "id":228,
+         "type":"collides"
+        }, 
+        {
+         "id":229,
          "type":"collides"
         }],
  "tilewidth":32,

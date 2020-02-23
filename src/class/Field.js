@@ -30,6 +30,7 @@ export default class Field {
       const typeName = hasAnimTile ? 'createDynamicLayer' : 'createStaticLayer'
       return layer.visible ? tilemap[typeName](i, tilesets, 0, 0) : null
     }).filter(Boolean)
+    console.log(this)
     const lights = this._generateLights(tilemap)
     const darkness = this._getProperty(tilemap, 'darkness')
     if (darkness) {
