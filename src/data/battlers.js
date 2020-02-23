@@ -80,14 +80,14 @@ export default [
   },
   {
     key: 'gargoyle', name: 'ガーゴイル', lv: 1, effect: 'hit',
-    hp: 28, atk: 3, def: 7, dex: 3, agi: 3,
+    hp: 28, atk: 3, def: 6, dex: 3, agi: 3,
     up: { hp: 100, atk: 75, def: 90, dex: 70, agi: 70 },
     dropWeapon: { id: 7, chance: 3 }
   },
   {
     key: 'succubus', name: 'サキュバス', lv: 1, effect: 'stab', y: 100,
-    hp: 25, atk: 4, def: 6, dex: 3, agi: 4,
-    up: { hp: 100, atk: 75, def: 80, dex: 70, agi: 75 },
+    hp: 25, atk: 4, def: 4, dex: 3, agi: 4,
+    up: { hp: 85, atk: 75, def: 80, dex: 70, agi: 75 },
     dropWeapon: { id: 8, chance: 3 }
   },
   {
@@ -98,38 +98,39 @@ export default [
     dropWeapon: { id: 9, chance: 100 }
   },
   {
-    key: 'phantom', name: 'ファントム', lv: 1, effect: 'stab', y: 100,
-    hp: 25, atk: 4, def: 6, dex: 3, agi: 4,
-    up: { hp: 100, atk: 75, def: 80, dex: 70, agi: 75 }
+    key: 'phantom', name: 'ファントム', lv: 1, effect: 'stab',
+    hp: 20, atk: 3, def: 3, dex: 3, agi: 5,
+    up: { hp: 90, atk: 75, def: 75, dex: 70, agi: 95 }
   },
   {
-    key: 'skull', name: 'スカルヘッド', lv: 1, effect: 'stab', y: 100,
-    hp: 25, atk: 4, def: 6, dex: 3, agi: 4,
-    up: { hp: 100, atk: 75, def: 80, dex: 70, agi: 75 }
+    key: 'skull', name: 'スカルヘッド', lv: 1, effect: 'stab',
+    hp: 18, atk: 4, def: 4, dex: 2, agi: 2,
+    up: { hp: 85, atk: 80, def: 80, dex: 70, agi: 70 }
   },
   {
-    key: 'ghost', name: 'ゴースト', lv: 1, effect: 'stab', y: 100,
-    hp: 25, atk: 4, def: 6, dex: 3, agi: 4,
-    up: { hp: 100, atk: 75, def: 80, dex: 70, agi: 75 }
+    key: 'ghost', name: 'ゴースト', lv: 1, effect: 'stab', y: 70,
+    hp: 20, atk: 4, def: 4, dex: 3, agi: 4,
+    up: { hp: 100, atk: 85, def: 80, dex: 70, agi: 80 }
   },
   {
-    key: 'spectre', name: 'スペクター', lv: 1, effect: 'stab', y: 100,
-    hp: 25, atk: 4, def: 6, dex: 3, agi: 4,
-    up: { hp: 100, atk: 75, def: 80, dex: 70, agi: 75 }
+    key: 'spectre', name: 'スペクター', lv: 1, effect: 'stab',
+    hp: 20, atk: 3, def: 3, dex: 4, agi: 7,
+    up: { hp: 80, atk: 75, def: 75, dex: 90, agi: 100 }
   },
   {
-    key: 'wraith', name: 'レイス', lv: 1, effect: 'stab', y: 100,
-    hp: 25, atk: 4, def: 6, dex: 3, agi: 4,
-    up: { hp: 100, atk: 75, def: 80, dex: 70, agi: 75 }
+    key: 'wraith', name: 'レイス', lv: 1, effect: 'stab',
+    hp: 25, atk: 6, def: 4, dex: 3, agi: 4,
+    up: { hp: 85, atk: 85, def: 80, dex: 70, agi: 80 }
   },
   {
-    key: 'dullahan', name: 'デュラハン', lv: 1, effect: 'stab', y: 100,
-    hp: 25, atk: 4, def: 6, dex: 3, agi: 4,
-    up: { hp: 100, atk: 75, def: 80, dex: 70, agi: 75 }
+    key: 'dullahan', name: 'デュラハン', lv: 1, effect: 'stab',
+    hp: 25, atk: 6, def: 6, dex: 3, agi: 3,
+    up: { hp: 100, atk: 90, def: 90, dex: 70, agi: 70 }
   },
   {
-    key: 'queen', name: 'エヴァンジェリナ妃の亡霊', lv: 1, effect: 'stab', y: 100,
-    hp: 25, atk: 4, def: 6, dex: 3, agi: 4,
-    up: { hp: 100, atk: 75, def: 80, dex: 70, agi: 75 }
+    key: 'queen', name: 'エヴァンジェリナ妃の亡霊', lv: 1, effect: 'stab',
+    hp: 25, atk: 7, def: 4, dex: 3, agi: 4,
+    up: { hp: 100, atk: 95, def: 80, dex: 75, agi: 80 },
+    abillities: [{ type: 'multi', chance: 70 }]
   }
 ]
