@@ -113,7 +113,7 @@ export default [
     up: { hp: 100, atk: 85, def: 80, dex: 70, agi: 80 }
   },
   {
-    key: 'spectre', name: 'スペクター', lv: 1, effect: 'stab',
+    key: 'spectre', name: 'スペクター', lv: 1, effect: 'stab', y: 60,
     hp: 30, atk: 3, def: 3, dex: 4, agi: 7,
     up: { hp: 80, atk: 75, def: 75, dex: 90, agi: 100 }
   },
@@ -125,7 +125,8 @@ export default [
   {
     key: 'dullahan', name: 'デュラハン', lv: 1, effect: 'stab',
     hp: 55, atk: 6, def: 6, dex: 3, agi: 3,
-    up: { hp: 100, atk: 90, def: 90, dex: 70, agi: 70 }
+    up: { hp: 100, atk: 90, def: 90, dex: 70, agi: 70 },
+    abillities: [{ type: 'multi', chance: 20 }],
   },
   {
     key: 'queen', name: 'エヴァンジェリナ妃の亡霊', lv: 1, effect: 'stab',

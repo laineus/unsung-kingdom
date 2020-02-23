@@ -86,8 +86,8 @@ export default class BattleResult extends Phaser.GameObjects.Container {
     const alives = storage.state.battlers.filter(v => v.hp > 0)
     const enemyLevel = Math.average(...this.group.map(v => v.lv))
     const sumExp = Math.sum(...this.group.map(enemy => {
-      const bossAdjust = enemy.boss ? 7 : 1
-      return enemy.lv * 3 * bossAdjust
+      if (enemy.boss) return enemy.lv * 20
+      return enemy.lv * Math.max(4 - Math.max(this.group.length, 4) * 0.6, 1)
     }))
     const eachExp = sumExp / alives.length
     const promises = alives.map(v => {
