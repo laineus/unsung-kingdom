@@ -10,7 +10,8 @@ export default class BattleQuestService {
     const list = [
       this.m1_3,
       this.m2_2,
-      this.m3_2
+      this.m3_2,
+      this.m3_3
     ]
     return list.map(v => v.call(this, storage.state.event)).filter(Boolean)
   }
@@ -39,5 +40,11 @@ export default class BattleQuestService {
     if (!result) return
     event.m3_2.count += result
     return `水の小瓶を${result}個獲得！（${event.m3_2.count}/${WATER_COUNT}）`
+  }
+  m3_3 (event) {
+    if (event.m3_3.completed || !event.m3_3.started) return
+    const result = this.collection('jack', 100)
+    if (!result) return
+    return `ダリオの短剣を獲得！`
   }
 }

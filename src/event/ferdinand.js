@@ -95,7 +95,7 @@ export const ferdinand = (scene, fdn) => {
         { chara: 'ann', text: '家に帰ったほうがいいんじゃない？' },
         { chara, text: 'ちくしょう。' },
         { chara, text: '私がこうなったのは全てレンフィールド家のせいだ。' },
-        { chara, text: 'きっとレンフィールド家に売りつけられた奴隷や女が俺を恨んでいるんだ。' },
+        { chara, text: 'きっとやつらに売りつけられた奴隷や女の霊が俺を恨んでいるんだ。' },
         { chara: 'ann', text: '人を買っていたの？' },
         { chara: 'francisca', text: 'そりゃあ怨みも買うね。' },
         { chara: 'jaquelyn', text: '怨みや呪いだなんて…、' },
