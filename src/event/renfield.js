@@ -78,7 +78,9 @@ export const renfield = (scene, ray, spectres) => {
         { chara: 'ann', text: 'どうするのよ！' },
         { chara, text: 'ふふ…、こいつらには二度死んでもらうのさ。' },
         { chara, text: 'よ、ようし、見てろよあんたたち、' },
-        { chara, text: '…。' },
+        { chara, text: '…。' }
+      ], { angle: false })
+      await scene.talk([
         { chara, text: '…なあ、やっぱりあんたらに任せるよ。' },
         { chara: 'ann', text: 'ええ！？' },
         { chara: 'ann', text: 'やっぱり怖いんじゃない！' },
@@ -92,7 +94,7 @@ export const renfield = (scene, ray, spectres) => {
     }
   })
   const spectreEvent = async (spectre, i) => {
-    const result = await scene.ui.battle([generateBattler('spectre', 23, { hp: 200 })])
+    const result = await scene.ui.battle([generateBattler('spectre', 23, { hp: 160 })])
     if (!result) return
     if (!state.ghosts.includes(i)) state.ghosts.push(i)
     spectre.destroy()
