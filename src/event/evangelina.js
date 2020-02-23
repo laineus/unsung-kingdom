@@ -1,8 +1,17 @@
 import generateBattler from '../util/generateBattler'
-export const evangelina = (scene, queen, queen2) => {
+export const evangelina = (scene, queen, queen2, grave) => {
   const state = scene.storage.state.event.m3_5
   queen.setDisplayName('エヴェンジェリナ妃')
   queen2.setDisplayName('エヴェンジェリナ妃').setVisible(false)
+  if (!state.started) {
+    grave.setTapEvent(async () => {
+      await scene.talk([
+        { chara: 'jaquelyn', text: 'ここが王家の墓みたいね。' },
+        { chara: 'francisca', text: 'ね、ねえ、なんだか嫌な気配がしない…？' },
+        { chara: 'ann', text: 'え、怖いこと言わないでよ。' }
+      ])
+    })
+  }
   if (!state.started || state.completed) {
     queen.destroy()
     queen2.destroy()
