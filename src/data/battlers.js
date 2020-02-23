@@ -74,25 +74,25 @@ export default [
   },
   {
     key: 'orthrus', name: 'オルトロス', lv: 1, effect: 'scratch',
-    hp: 28, atk: 4, def: 3, dex: 3, agi: 4,
+    hp: 50, atk: 4, def: 3, dex: 3, agi: 4,
     abillities: [{ type: 'double', chance: 25 }],
     up: { hp: 100, atk: 95, def: 70, dex: 70, agi: 80 }
   },
   {
     key: 'gargoyle', name: 'ガーゴイル', lv: 1, effect: 'hit',
-    hp: 28, atk: 3, def: 6, dex: 3, agi: 3,
-    up: { hp: 100, atk: 75, def: 90, dex: 70, agi: 70 },
+    hp: 40, atk: 3, def: 6, dex: 3, agi: 3,
+    up: { hp: 90, atk: 75, def: 90, dex: 70, agi: 70 },
     dropWeapon: { id: 7, chance: 3 }
   },
   {
     key: 'succubus', name: 'サキュバス', lv: 1, effect: 'stab', y: 100,
-    hp: 25, atk: 4, def: 4, dex: 3, agi: 4,
-    up: { hp: 85, atk: 75, def: 80, dex: 70, agi: 75 },
+    hp: 35, atk: 4, def: 4, dex: 3, agi: 4,
+    up: { hp: 80, atk: 75, def: 80, dex: 70, agi: 75 },
     dropWeapon: { id: 8, chance: 3 }
   },
   {
     key: 'aragnie', name: 'アラグニエ', lv: 1, effect: 'shot',
-    hp: 28, atk: 4, def: 6, dex: 4, agi: 3,
+    hp: 60, atk: 4, def: 6, dex: 4, agi: 3,
     abillities: [{ type: 'double', chance: 70 }, { type: 'multi', chance: 30 }],
     up: { hp: 100, atk: 80, def: 90, dex: 70, agi: 60 },
     dropWeapon: { id: 9, chance: 100 }
@@ -114,22 +114,22 @@ export default [
   },
   {
     key: 'spectre', name: 'スペクター', lv: 1, effect: 'stab',
-    hp: 20, atk: 3, def: 3, dex: 4, agi: 7,
+    hp: 30, atk: 3, def: 3, dex: 4, agi: 7,
     up: { hp: 80, atk: 75, def: 75, dex: 90, agi: 100 }
   },
   {
     key: 'wraith', name: 'レイス', lv: 1, effect: 'stab',
-    hp: 25, atk: 6, def: 4, dex: 3, agi: 4,
+    hp: 45, atk: 6, def: 4, dex: 3, agi: 4,
     up: { hp: 85, atk: 85, def: 80, dex: 70, agi: 80 }
   },
   {
     key: 'dullahan', name: 'デュラハン', lv: 1, effect: 'stab',
-    hp: 25, atk: 6, def: 6, dex: 3, agi: 3,
+    hp: 55, atk: 6, def: 6, dex: 3, agi: 3,
     up: { hp: 100, atk: 90, def: 90, dex: 70, agi: 70 }
   },
   {
     key: 'queen', name: 'エヴァンジェリナ妃の亡霊', lv: 1, effect: 'stab',
-    hp: 25, atk: 7, def: 4, dex: 3, agi: 4,
+    hp: 60, atk: 7, def: 4, dex: 3, agi: 4,
     up: { hp: 100, atk: 95, def: 80, dex: 75, agi: 80 },
     abillities: [{ type: 'multi', chance: 70 }]
   }
