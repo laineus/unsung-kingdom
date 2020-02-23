@@ -1,4 +1,11 @@
 export default {
+  enemyLevel: 14,
+  enemyGroups: [
+    ['phantom'],
+    ['phantom', 'phantom'],
+    ['skull'],
+    ['skull', 'skull']
+  ],
   create (scene) {
     const soldier = scene.map.getObjectById(11)
     soldier.setDisplayName('衛兵').setTapEvent(async chara => {

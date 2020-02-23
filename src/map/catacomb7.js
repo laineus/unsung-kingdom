@@ -1,5 +1,12 @@
 import { jack } from '../event/dario'
 export default {
+  enemyLevel: 19,
+  enemyGroups: [
+    ['ghost', 'ghost'],
+    ['skull', 'ghost', 'skull'],
+    ['spectre'],
+    ['spectre', 'spectre']
+  ],
   create (scene) {
     const jk = scene.map.getObjectById(2)
     const area1 = scene.map.getObjectById(3)
