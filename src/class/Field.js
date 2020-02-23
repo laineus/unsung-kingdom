@@ -19,10 +19,10 @@ export default class Field {
     this.height = tilemap.heightInPixels
     const tilesets = this._getTilesets(tilemap)
     tilemap.layers.push(this._generateTopLayer(tilemap))
-    this.animationTiles = this._getAllTileSettings(tilemap).filter(v => 'animation' in v).map(v => {
-      const targets = tilemap.layers.filter(v => v.visible).map(l => l.data.flat()).flat().filter(tile => tile.index === v.id + 1)
-      const max = Math.sum(...v.animation.map(v => v.duration))
-      return { targets, animations: v.animation, max }
+    this.animationTiles = this._getAllTileSettings(tilemap).filter(v => 'animation' in v.setting).map(v => {
+      const targets = tilemap.layers.filter(v => v.visible).map(l => l.data.flat()).flat().filter(tile => tile.index === v.id)
+      const max = Math.sum(...v.setting.animation.map(v => v.duration))
+      return { targets, animations: v.setting.animation, max }
     })
     this.layers = tilemap.layers.map((layer, i) => {
       const allAnimTiles = this.animationTiles.map(v => v.targets).flat()
@@ -88,7 +88,11 @@ export default class Field {
   }
   // private
   _getAllTileSettings (tilemap) {
-    return tilemap.tilesets.map(set => this.scene.cache.json.get(set.name).tiles).flat()
+    return tilemap.tilesets.map(set => {
+      return this.scene.cache.json.get(set.name).tiles.map(v => {
+        return { id: v.id + set.firstgid, setting: v }
+      })
+    }).flat()
   }
   _getProperty (tilemap, name) {
     return Array.isArray(tilemap.properties) && tilemap.properties.find(p => p.name === name)
@@ -169,12 +173,12 @@ export default class Field {
   }
   _getTileSettingsByType (tilemap, type) {
     return tilemap.tilesets.map(set => {
-      return this._getAllTileSettings(tilemap).filter(tile => tile.type && tile.type.split(',').includes(type)).map(tile => {
-        const properties = tile.properties ? tile.properties.reduce((obj, v) => {
+      return this._getAllTileSettings(tilemap).filter(tile => tile.setting.type && tile.setting.type.split(',').includes(type)).map(tile => {
+        const properties = tile.setting.properties ? tile.setting.properties.reduce((obj, v) => {
           obj[v.name] = v.value
           return obj
         }, {}) : {}
-        return { id: tile.id + set.firstgid, properties }
+        return { id: tile.id, properties }
       })
     }).flat()
   }
