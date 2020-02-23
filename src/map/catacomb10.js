@@ -5,7 +5,9 @@ export default {
     ['skull', 'spectre', 'skull'],
     ['spectre', 'spectre'],
     ['wraith', 'spectre'],
-    ['wraith', 'wraith']
+    ['wraith', 'wraith'],
+    ['dullahan'],
+    ['dullahan', 'dullahan']
   ],
   create (scene) {
     const ray = scene.map.getObjectById(2)

@@ -4,7 +4,8 @@ export default {
     ['skull', 'spectre', 'skull'],
     ['spectre', 'spectre'],
     ['wraith', 'spectre'],
-    ['wraith', 'wraith']
+    ['wraith', 'wraith'],
+    ['dullahan']
   ],
   create (scene) {
   }
