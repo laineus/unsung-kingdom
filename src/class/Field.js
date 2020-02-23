@@ -28,9 +28,8 @@ export default class Field {
       const allAnimTiles = this.animationTiles.map(v => v.targets).flat()
       const hasAnimTile = layer.data.flat().some(v => allAnimTiles.includes(v))
       const typeName = hasAnimTile ? 'createDynamicLayer' : 'createStaticLayer'
-      return layer.visible ? tilemap[typeName](i, tilesets, 0, 0) : null
+      return layer.visible ? tilemap[typeName](i, tilesets, 0, 0).setDepth(this._getLayerIndexByName(layer.name)) : null
     }).filter(Boolean)
-    console.log(this)
     const lights = this._generateLights(tilemap)
     const darkness = this._getProperty(tilemap, 'darkness')
     if (darkness) {
@@ -186,6 +185,9 @@ export default class Field {
   _getTileIdsByType (tilemap, type) {
     return this._getTileSettingsByType(tilemap, type).map(v => v.id)
   }
+  _getLayerIndexByName (name) {
+    return this.scene.cache.tilemap.get(this.name).data.layers.findIndex(v => v.name === name)
+  }
   _getObjects (tilemap, type) {
     return tilemap.objects.map(v => v.objects).flat().filter(v => v.type === type)
   }
@@ -195,7 +197,7 @@ export default class Field {
   }
   _getImage (data) {
     const image = data.image.split('/').slice(-1)[0].split('.')[0]
-    const sprite = this.scene.add.sprite(data.x, data.y, `tileset/${image}`).setOrigin(0, 0)
+    const sprite = this.scene.add.sprite(data.x, data.y, `tileset/${image}`).setOrigin(0, 0).setDepth(this._getLayerIndexByName(data.name))
     sprite.name = data.name
     return sprite
   }
