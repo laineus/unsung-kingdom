@@ -17,7 +17,8 @@ export default [
   {
     key: 'jack', name: '王殺しのジャック', lv: 1, effect: 'slash', y: 70,
     hp: 50, atk: 4, def: 2, dex: 3, agi: 4,
-    up: { hp: 90, atk: 100, def: 70, dex: 70, agi: 90 }
+    up: { hp: 90, atk: 100, def: 70, dex: 70, agi: 90 },
+    abillities: [{ type: 'double', chance: 60 }]
   },
   {
     key: 'bee', name: 'ビーストビー', lv: 1, effect: 'shot',
@@ -120,13 +121,14 @@ export default [
   {
     key: 'wraith', name: 'レイス', lv: 1, effect: 'stab',
     hp: 45, atk: 6, def: 4, dex: 3, agi: 4,
-    up: { hp: 85, atk: 85, def: 80, dex: 70, agi: 80 }
+    up: { hp: 85, atk: 85, def: 80, dex: 70, agi: 80 },
+    abillities: [{ type: 'double', chance: 10 }]
   },
   {
     key: 'dullahan', name: 'デュラハン', lv: 1, effect: 'stab',
     hp: 55, atk: 6, def: 6, dex: 3, agi: 3,
     up: { hp: 100, atk: 90, def: 90, dex: 70, agi: 70 },
-    abillities: [{ type: 'multi', chance: 20 }],
+    abillities: [{ type: 'multi', chance: 20 }]
   },
   {
     key: 'queen', name: 'エヴァンジェリナ妃の亡霊', lv: 1, effect: 'stab',
