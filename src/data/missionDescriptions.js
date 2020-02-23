@@ -1,5 +1,6 @@
 import { MANDRAKE_COUNT } from '../event/drystan'
 import { MAGIC_STONES } from '../event/princess'
+import { WATER_COUNT } from '../event/marianne'
 
 export default {
   m0_1 (state) {
@@ -61,5 +62,41 @@ export default {
     if (state.event.m2_4.solved) return `${base}\n${solved}`
     if (state.event.m2_4.search) return `${base}\n${search}`
     return base
+  },
+  m3_1 (state) {
+    const base = '異国の貴族フェルディンドは正気を失っている。'
+    const started = '霊に呪われていると言う彼に、何か役立ちそうなものを持っていこう。'
+    const solved = '霊に呪われていると言う彼に、マリアンヌがくれたお守りを持っていこう。'
+    const completed = '彼は彼を恨む亡霊たちによって崖の底へ引きずり込まれていった。'
+    if (state.event.m3_1.completed) return `${base}\n${completed}`
+    if (state.event.m3_2.completed) return `${base}\n${solved}`
+    return `${base}\n${started}`
+  },
+  m3_2 (state) {
+    const base = 'シスターはマリアンヌの墓に寄り添っている。'
+    const started = '衰弱するシスターに飲み水を持っていこう。'
+    const cnt = `収集した水の小瓶（${state.event.m3_2.count}/${WATER_COUNT}）`
+    if (state.event.m3_2.completed) return base
+    return `${base}\n${started}\n${cnt}`
+  },
+  m3_3 (state) {
+    const base = 'ネクロマンサーのダリオは、ジャックに脅され王妃の悪霊を生み出してしまった。'
+    const started = '近くにジャックがまだ潜んで居るらしい。探し出そう。'
+    const solved = 'ジャックを倒した。ジャックが落とした短剣をダリオに届けよう。'
+    if (state.event.m3_3.completed) return base
+    if (state.event.m3_3.solved) return `${base}\n${solved}`
+    return `${base}\n${started}`
+  },
+  m3_4 (state) {
+    const base = 'レイはレンフィールド家への復讐のために墓を荒らしている。'
+    const started = 'レンフィールド家の亡霊が姿を現した！'
+    const cnt = `倒したレンフィールド家の亡霊（${state.event.m3_4.ghosts}/5）`
+    if (state.event.m3_4.completed) return base
+    return `${base}\n${started}\n${cnt}`
+  },
+  m3_5 (state) {
+    const base = 'ダリオが生み出した偽物のエヴァンジェリナ妃の亡霊は王を恨んでいる。'
+    const started = '王妃の亡霊を探し出して倒そう。'
+    return state.event.m3_5.completed ? base : `${base}\n${started}`
   }
 }
