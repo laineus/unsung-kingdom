@@ -1,4 +1,12 @@
-{ "height":38,
+{ "compressionlevel":0,
+ "editorsettings":
+    {
+     "export":
+        {
+         "target":"."
+        }
+    },
+ "height":38,
  "infinite":false,
  "layers":[
         {
@@ -181,7 +189,7 @@
                 }],
          "opacity":1,
          "type":"objectgroup",
-         "visible":true,
+         "visible":false,
          "x":0,
          "y":0
         }],
@@ -200,7 +208,7 @@
          "value":"#ffbb00ff"
         }],
  "renderorder":"right-down",
- "tiledversion":"1.2.1",
+ "tiledversion":"2020.01.22",
  "tileheight":32,
  "tilesets":[
         {
