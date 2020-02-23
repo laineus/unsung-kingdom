@@ -134,7 +134,7 @@ export const jack = (scene, jk, area1, area2) => {
   })
   area1.setEvent(async () => {
     const chara = jk
-    jk.setVisible(true)
+    jk.setDisplayName('ジャック').setVisible(true)
     await scene.talk([
       { chara, text: 'ここで何をしている？' },
       { chara: 'ann', text: '！！' }

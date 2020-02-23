@@ -27,7 +27,8 @@ export const renfield = (scene, ray, spectres) => {
       ])
       state.completed = true
       scene.ui.missionUpdate('m3_4', true)
-      await chara.setSpeed(140).setTargetPosition(chara.x, chara.y + (9).toPixel)
+      await chara.setSpeed(140).setTargetPosition(chara.x + (7).toPixel, chara.y + (5).toPixel)
+      await chara.setSpeed(140).setTargetPosition(chara.x, chara.y + (4).toPixel)
       chara.destroy()
     } else if (state.started) {
       await scene.talk([
@@ -68,7 +69,10 @@ export const renfield = (scene, ray, spectres) => {
       spectres.forEach(s => s.setVisible(true))
       await scene.talk([
         { chara: 'ann', text: 'うわ！！' },
-        { chara: 'ann', text: '出た！！' },
+        { chara: 'ann', text: '出た！！' }
+      ])
+      chara.setR('left')
+      await scene.talk([
         { chara, text: '！！' },
         { chara, text: '姿を現しやがったな…、' },
         { chara: 'ann', text: 'どうするのよ！' },
@@ -88,10 +92,7 @@ export const renfield = (scene, ray, spectres) => {
     }
   })
   const spectreEvent = async (spectre, i) => {
-    await scene.talk([
-      { chara: 'ann', text: '怖い！' }
-    ])
-    const result = await scene.ui.battle([generateBattler('orthrus', 1, { hp: 10 })])
+    const result = await scene.ui.battle([generateBattler('spectre', 23, { hp: 200 })])
     if (!result) return
     if (!state.ghosts.includes(i)) state.ghosts.push(i)
     spectre.destroy()
