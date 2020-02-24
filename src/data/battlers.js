@@ -18,7 +18,8 @@ export default [
     key: 'jack', name: '王殺しのジャック', lv: 1, effect: 'slash', y: 70,
     hp: 50, atk: 4, def: 2, dex: 3, agi: 4,
     up: { hp: 90, atk: 100, def: 70, dex: 70, agi: 90 },
-    abillities: [{ type: 'double', chance: 60 }]
+    abillities: [{ type: 'double', chance: 60 }],
+    dropWeapon: { id: 15, chance: 100 }
   },
   {
     key: 'bee', name: 'ビーストビー', lv: 1, effect: 'shot',
@@ -111,29 +112,34 @@ export default [
   {
     key: 'ghost', name: 'ゴースト', lv: 1, effect: 'stab', y: 70,
     hp: 20, atk: 4, def: 4, dex: 3, agi: 4,
-    up: { hp: 100, atk: 85, def: 80, dex: 70, agi: 80 }
+    up: { hp: 100, atk: 85, def: 80, dex: 70, agi: 80 },
+    dropWeapon: { id: 9, chance: 2 }
   },
   {
     key: 'spectre', name: 'スペクター', lv: 1, effect: 'stab', y: 60,
     hp: 30, atk: 3, def: 3, dex: 4, agi: 7,
-    up: { hp: 80, atk: 75, def: 75, dex: 90, agi: 100 }
+    up: { hp: 80, atk: 75, def: 75, dex: 90, agi: 100 },
+    dropWeapon: { id: 10, chance: 3 }
   },
   {
     key: 'wraith', name: 'レイス', lv: 1, effect: 'stab',
     hp: 65, atk: 6, def: 4, dex: 3, agi: 4,
     up: { hp: 85, atk: 85, def: 80, dex: 70, agi: 80 },
-    abillities: [{ type: 'double', chance: 10 }]
+    abillities: [{ type: 'double', chance: 10 }],
+    dropWeapon: { id: 11, chance: 4 }
   },
   {
     key: 'dullahan', name: 'デュラハン', lv: 1, effect: 'stab',
     hp: 75, atk: 6, def: 6, dex: 3, agi: 3,
     up: { hp: 100, atk: 90, def: 90, dex: 70, agi: 70 },
-    abillities: [{ type: 'multi', chance: 20 }]
+    abillities: [{ type: 'multi', chance: 20 }],
+    dropWeapon: { id: 12, chance: 5 }
   },
   {
     key: 'queen', name: 'エヴァンジェリナ妃の亡霊', lv: 1, effect: 'stab',
     hp: 60, atk: 7, def: 4, dex: 3, agi: 4,
     up: { hp: 100, atk: 95, def: 80, dex: 75, agi: 80 },
-    abillities: [{ type: 'multi', chance: 70 }]
+    abillities: [{ type: 'multi', chance: 70 }],
+    dropWeapon: { id: 13, chance: 100 }
   }
 ]

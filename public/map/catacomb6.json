@@ -39,6 +39,12 @@
          "id":3,
          "name":"layer3",
          "opacity":1,
+         "properties":[
+                {
+                 "name":"dynamic",
+                 "type":"bool",
+                 "value":true
+                }],
          "type":"tilelayer",
          "visible":true,
          "width":32,
@@ -127,6 +133,18 @@
                  "width":64,
                  "x":960,
                  "y":352
+                }, 
+                {
+                 "height":0,
+                 "id":9,
+                 "name":"12",
+                 "point":true,
+                 "rotation":0,
+                 "type":"treasure",
+                 "visible":true,
+                 "width":0,
+                 "x":495,
+                 "y":144
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -206,7 +224,7 @@
          "y":0
         }],
  "nextlayerid":21,
- "nextobjectid":9,
+ "nextobjectid":10,
  "orientation":"orthogonal",
  "properties":[
         {

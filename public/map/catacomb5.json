@@ -107,6 +107,18 @@
                  "width":0,
                  "x":435.900712749116,
                  "y":453.825791521434
+                }, 
+                {
+                 "height":0,
+                 "id":8,
+                 "name":"10",
+                 "point":true,
+                 "rotation":90,
+                 "type":"treasure",
+                 "visible":true,
+                 "width":0,
+                 "x":624.04432132964,
+                 "y":778.905442838961
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -186,7 +198,7 @@
          "y":0
         }],
  "nextlayerid":18,
- "nextobjectid":8,
+ "nextobjectid":9,
  "orientation":"orthogonal",
  "properties":[
         {
