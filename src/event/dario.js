@@ -121,19 +121,28 @@ export const dario = (scene, dario) => {
   })
 }
 
-export const jack = (scene, jk, area1, area2) => {
+export const jack = (scene, jk, area1, area2, area3) => {
   const state = scene.storage.state.event.m3_3
   if (!state.started || state.solved) {
     area1.destroy()
     area2.destroy()
+    area3.destroy()
     jk.destroy()
     return
   }
+  area3.setEvent(async () => {
+    await scene.talk([
+      { chara: 'jaquelyn', text: 'ねえアン、何か、誰かに見られている感じがしない？' },
+      { chara: 'ann', text: '分からないけど…、注意して進もう。' }
+    ])
+    area3.destroy()
+  })
   area1.setActive(false)
   jk.setVisible(false)
   area2.setEvent(async () => {
     area1.setActive(true)
     area2.destroy()
+    area3.destroy()
   })
   area1.setEvent(async () => {
     const chara = jk

@@ -1,4 +1,12 @@
-{ "height":32,
+{ "compressionlevel":0,
+ "editorsettings":
+    {
+     "export":
+        {
+         "target":"."
+        }
+    },
+ "height":32,
  "infinite":false,
  "layers":[
         {
@@ -109,6 +117,17 @@
                  "width":64,
                  "x":480,
                  "y":480
+                }, 
+                {
+                 "height":160,
+                 "id":7,
+                 "name":"",
+                 "rotation":0,
+                 "type":"area",
+                 "visible":true,
+                 "width":160,
+                 "x":864,
+                 "y":448
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -152,7 +171,7 @@
          "y":0
         }],
  "nextlayerid":12,
- "nextobjectid":7,
+ "nextobjectid":8,
  "orientation":"orthogonal",
  "properties":[
         {
@@ -166,7 +185,7 @@
          "value":"#ffbb00ff"
         }],
  "renderorder":"right-down",
- "tiledversion":"1.2.1",
+ "tiledversion":"2020.01.22",
  "tileheight":32,
  "tilesets":[
         {
