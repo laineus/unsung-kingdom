@@ -139,13 +139,13 @@
                  "type":"chara",
                  "visible":true,
                  "width":0,
-                 "x":490.699031392228,
-                 "y":339.456179250788
+                 "x":495.699031392228,
+                 "y":287.456179250788
                 }, 
                 {
                  "height":0,
                  "id":4,
-                 "name":"amber",
+                 "name":"queen",
                  "point":true,
                  "rotation":180,
                  "type":"chara",

@@ -1,6 +1,5 @@
 import generateBattler from '../util/generateBattler'
 export const evangelina = (scene, queen, queen2, grave) => {
-  queen.setScale(1.5)
   const state = scene.storage.state.event.m3_5
   queen.setDisplayName('エヴェンジェリナ妃')
   queen2.setDisplayName('エヴェンジェリナ妃').setVisible(false)
