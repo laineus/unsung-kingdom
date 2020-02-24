@@ -4,18 +4,24 @@ export default class TreasureChest extends Substance {
     super(scene, x, y, 'treasure_chest')
     this.scene = scene
     this.stateKey = stateKey
+    this.weaponId = weaponId
     if (left) this.image.setScale(-1, 1)
-    if (this.state.includes(stateKey)) {
+    if (this.alreadyEarned) {
       this.image.setFrame(6)
-      this.removeTapEvent()
       return
     }
-    if (weaponId) {
-      this.setTapEvent(async () => {
-        scene.ui.increaseWeapon(weaponId)
-        this.open()
-      })
-    }
+    this.setEvent()
+  }
+  get alreadyEarned () {
+    return this.state.includes(this.stateKey)
+  }
+  async event () {
+    this.scene.ui.increaseWeapon(this.weaponId)
+    this.open()
+  }
+  setEvent () {
+    if (!this.weaponId || this.alreadyEarned) return
+    this.setTapEvent(this.event.bind(this))
   }
   preUpdate () {
     super.preUpdate()
