@@ -11,15 +11,17 @@ export default class BattlerSummary extends Phaser.GameObjects.Container {
     const sprite = scene.add.sprite(-48, -23, chara.key).setScale(0.25).setOrigin(0.5, 0)
     sprite.setCrop(0, 0, sprite.width, 150)
     const text = scene.add.text(-23, 4, chara.name, { fontSize: 14, fontStyle: 'bold', fontFamily: config.FONTS.UI }).setOrigin(0, 1)
-    this.lv = this.scene.add.text(-12 + chara.name.length * 5.4, -9, '', { fill: config.COLORS.theme.toColorString, fontSize: 12, fontStyle: 'bold', fontFamily: config.FONTS.UI })
+    this.lv = null
     this.gauge = new Gauge(this.scene, 78, 5, { valueMax: chara.max_hp, color: config.COLORS.theme }).setPosition(14, 8)
-    this.add([box, sprite, text, this.lv, this.gauge])
+    this.add([box, sprite, text, this.gauge])
     this.reload()
   }
   reload () {
     const chara = this.scene.storage.state.battlers[this.battlerIndex]
     this.gauge.valueMax = chara.max_hp
     this.gauge.value = chara.hp
-    this.lv.text = `Lv ${chara.lv}`
+    if (this.lv) this.lv.destroy()
+    this.lv = this.scene.add.text(-12 + chara.name.length * 5.4, -9, `Lv ${chara.lv}`, { fill: config.COLORS.theme.toColorString, fontSize: 12, fontStyle: 'bold', fontFamily: config.FONTS.UI })
+    this.add([this.lv])
   }
 }
