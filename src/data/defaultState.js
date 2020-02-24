@@ -41,6 +41,7 @@ export default () => {
       m3: { talked_amber: false, talked_max: false, talked_matilda: false },
       town: { amber: [], annabelle: [], matilda: [], elliott: [], max: [] }
     },
+    gimmicks: [],
     treasures: [],
     battlers: getPlayerBattlers(),
     weapons: [],
