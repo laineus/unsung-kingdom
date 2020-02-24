@@ -101,7 +101,7 @@ export const renfield = (scene, ray, spectres) => {
     }
   })
   const spectreEvent = async (spectre, i) => {
-    const result = await scene.ui.battle([generateBattler('spectre', 23, { hp: 160 })])
+    const result = await scene.ui.battle([generateBattler('spectre', 22, { hp: 100 })])
     if (!result) return
     if (!state.ghosts.includes(i)) state.ghosts.push(i)
     spectre.destroy()
