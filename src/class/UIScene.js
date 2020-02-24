@@ -106,8 +106,8 @@ export default class UIScene extends Phaser.Scene {
     this.gameScene.setEncountDelay()
     return new Promise(resolve => new Battle(this, group, option, resolve))
   }
-  battleResult (group) {
-    return new Promise(resolve => new BattleResult(this, group, resolve))
+  battleResult (group, option) {
+    return new Promise(resolve => new BattleResult(this, group, option, resolve))
   }
   sleep (time) {
     return new Promise(resolve => setTimeout(() => resolve(), time))

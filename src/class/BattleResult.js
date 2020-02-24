@@ -6,11 +6,12 @@ import storage from '../data/storage'
 import expTable from '../data/expTable'
 import { slideIn, slideOut } from '../util/animations'
 export default class BattleResult extends Phaser.GameObjects.Container {
-  constructor (scene, group, callback) {
+  constructor (scene, group, { boss = false } = {}, callback) {
     super(scene)
     scene.add.existing(this)
     this.scene = scene
     this.group = group
+    this.boss = boss
     this.callback = callback
     const bg = new Box(this.scene, -110, 0, 480, config.HEIGHT).setOrigin(0, 0)
     this.add(bg)
@@ -85,8 +86,7 @@ export default class BattleResult extends Phaser.GameObjects.Container {
   increaceExp () {
     const alives = storage.state.battlers.filter(v => v.hp > 0)
     const enemyLevel = Math.average(...this.group.map(v => v.lv))
-    const sumExp = Math.sum(...this.group.map(enemy => {
-      if (enemy.boss) return enemy.lv * 20
+    const sumExp = this.boss ? (enemyLevel * 14) : Math.sum(...this.group.map(enemy => {
       return enemy.lv * Math.max(4 - Math.max(this.group.length, 4) * 0.6, 1)
     }))
     const eachExp = sumExp / alives.length

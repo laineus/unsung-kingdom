@@ -209,7 +209,7 @@ export default class Battle extends Phaser.GameObjects.Container {
     if (result) {
       this.destroyUI()
       if (this.boss) {
-        this.scene.battleResult(this.group).then(() => {
+        this.scene.battleResult(this.group, { boss: true }).then(() => {
           this.destroy(result)
         })
       } else {
