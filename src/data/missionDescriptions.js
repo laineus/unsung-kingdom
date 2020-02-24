@@ -38,9 +38,9 @@ export default {
   m2_1 (state) {
     const base = 'アラグニエの糸の牢獄に幽閉されたカサンドラはワインを求めている。'
     const wip = '地下通路のどこかにあるワインを見つけよう。'
-    const solved = 'ワインを手に入れた。カサンドラの元へ届けよう。'
+    const cnt = `見つけたワイン（${state.event.m2_1.wine.length}/3）`
     if (state.event.m2_1.completed) return base
-    return `${base}\n${state.event.m2_1.solved ? solved : wip}`
+    return `${base}\n${wip}\n${cnt}`
   },
   m2_2 (state) {
     const base = 'メアリー王女と公爵令嬢ロレッタは、カサンドラへの贈り物に使うための素材と\nなる魔石を集めている。'

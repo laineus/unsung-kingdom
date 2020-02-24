@@ -1,8 +1,8 @@
 {
-  "map": "underpass1",
-  "x": 464,
-  "y": 1264,
-  "r": -1.5707963267948966,
+  "map": "underpass4",
+  "x": 516.715038210603,
+  "y": 341.3567538511275,
+  "r": -1.6666141042204479,
   "chapter": 2,
   "event": {
     "chapter_begin": [
@@ -46,11 +46,11 @@
       "area": true
     },
     "m2_1": {
-      "started": false,
+      "started": true,
       "completed": false,
-      "talked": false,
-      "key": false,
-      "opened": false,
+      "talked": true,
+      "key": true,
+      "opened": true,
       "wine": []
     },
     "m2_2": {
@@ -161,13 +161,13 @@
     {
       "key": "ann",
       "name": "Ann",
-      "lv": 8,
+      "lv": 9,
       "effect": "hit",
-      "hp": 44,
-      "atk": 11,
-      "def": 10,
+      "hp": 80,
+      "atk": 12,
+      "def": 11,
       "dex": 7,
-      "agi": 8,
+      "agi": 9,
       "up": {
         "hp": 100,
         "atk": 100,
@@ -175,20 +175,20 @@
         "dex": 70,
         "agi": 70
       },
-      "exp": 101.66666666666666,
-      "max_hp": 75,
+      "exp": 128.66666666666666,
+      "max_hp": 80,
       "weapon": 6
     },
     {
       "key": "francisca",
       "name": "Francisca",
-      "lv": 8,
+      "lv": 9,
       "effect": "hit",
-      "hp": 24,
-      "atk": 8,
-      "def": 7,
-      "dex": 10,
-      "agi": 10,
+      "hp": 38,
+      "atk": 9,
+      "def": 8,
+      "dex": 11,
+      "agi": 11,
       "up": {
         "hp": 85,
         "atk": 85,
@@ -196,20 +196,20 @@
         "dex": 100,
         "agi": 85
       },
-      "exp": 98.66666666666666,
-      "max_hp": 55,
+      "exp": 128.66666666666666,
+      "max_hp": 60,
       "weapon": 5
     },
     {
       "key": "jaquelyn",
       "name": "Jaquelyn",
-      "lv": 8,
+      "lv": 9,
       "effect": "hit",
-      "hp": 70,
-      "atk": 7,
-      "def": 7,
-      "dex": 10,
-      "agi": 11,
+      "hp": 25,
+      "atk": 8,
+      "def": 8,
+      "dex": 11,
+      "agi": 12,
       "up": {
         "hp": 90,
         "atk": 75,
@@ -217,8 +217,8 @@
         "dex": 85,
         "agi": 100
       },
-      "exp": 101.66666666666666,
-      "max_hp": 70,
+      "exp": 128.66666666666666,
+      "max_hp": 75,
       "weapon": 7
     }
   ],
@@ -264,7 +264,7 @@
       "weapon_id": 3
     }
   ],
-  "saved": 1582551477,
+  "saved": 1582551616,
   "allowed_area": 3,
   "visited": [
     "forest1",
@@ -278,6 +278,9 @@
     "forest4",
     "room1",
     "town1",
-    "underpass1"
+    "underpass1",
+    "underpass2",
+    "underpass3",
+    "underpass4"
   ]
 }

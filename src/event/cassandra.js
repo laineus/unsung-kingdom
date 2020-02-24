@@ -27,7 +27,7 @@ export const cassandra = (scene, gate, cassandra, door, doorEvent, candle) => {
       await scene.talk([
         { chara, text: 'ワイン、ありがとうね。' }
       ])
-    } else if (state.solved) {
+    } else if (state.wine.length >= 3) {
       await scene.talk([
         { chara, text: 'ワインは見つかった？' },
         { chara: 'ann', text: 'はい、ほんとにありました。' },
@@ -110,12 +110,15 @@ export const cassandra = (scene, gate, cassandra, door, doorEvent, candle) => {
   })
 }
 
-export const treasure = (scene, treasureChest) => {
+export const wine = (scene, barrel, number) => {
   const state = scene.storage.state.event.m2_1
-  if (state.solved) return
-  treasureChest.setTapEvent(async e => {
-    state.solved = true
-    e.open()
+  if (state.wine.includes(number)) {
+    barrel.destroy()
+    return
+  }
+  barrel.setTapEvent(async () => {
+    state.wine.push(number)
     scene.ui.announce('『ワイン』を手に入れた')
+    barrel.destroy()
   })
 }

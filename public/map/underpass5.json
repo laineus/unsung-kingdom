@@ -164,11 +164,34 @@
                  "name":"",
                  "point":true,
                  "rotation":0,
-                 "type":"treasure",
+                 "type":"object",
                  "visible":true,
                  "width":0,
-                 "x":1580,
-                 "y":246
+                 "x":1615,
+                 "y":257
+                }, 
+                {
+                 "height":0,
+                 "id":8,
+                 "name":"",
+                 "point":true,
+                 "rotation":0,
+                 "type":"object",
+                 "visible":true,
+                 "width":0,
+                 "x":623,
+                 "y":866
+                }, 
+                {
+                 "height":32,
+                 "id":9,
+                 "name":"",
+                 "rotation":0,
+                 "type":"area",
+                 "visible":true,
+                 "width":32,
+                 "x":1312,
+                 "y":305
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -177,7 +200,7 @@
          "y":0
         }],
  "nextlayerid":18,
- "nextobjectid":8,
+ "nextobjectid":10,
  "orientation":"orthogonal",
  "properties":[
         {
