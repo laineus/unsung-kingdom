@@ -19,7 +19,7 @@ export default {
     } else {
       btn.setEvent(async () => {
         scene.storage.state.gimmicks.push('unserpass4_9')
-        this.openNeedle(scene, true)
+        await this.openNeedle(scene, true)
         btn.destroy()
       })
     }
@@ -27,6 +27,7 @@ export default {
   async openNeedle (scene, event) {
     const layer4 = scene.map.getLayerByName('layer4')
     layer4.layer.data[9][41].index = 20
+    if (event) await scene.ui.sleep(500)
     if (event) await scene.camera.look(0, 320, 1000)
     if (event) await scene.ui.sleep(100)
     Array(40, 41, 42).forEach(x => {
