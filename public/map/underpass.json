@@ -1,12 +1,4 @@
 { "columns":10,
- "editorsettings":
-    {
-     "export":
-        {
-         "format":"",
-         "target":"."
-        }
-    },
  "image":"..\/img\/tileset\/original\/underpass.png",
  "imageheight":512,
  "imagewidth":320,
@@ -14,7 +6,7 @@
  "name":"underpass",
  "spacing":0,
  "tilecount":160,
- "tiledversion":"2020.01.22",
+ "tiledversion":"1.2.1",
  "tileheight":32,
  "tiles":[
         {
@@ -105,6 +97,26 @@
          "type":"collides"
         }, 
         {
+         "animation":[
+                {
+                 "duration":100,
+                 "tileid":44
+                }, 
+                {
+                 "duration":100,
+                 "tileid":54
+                }, 
+                {
+                 "duration":100,
+                 "tileid":64
+                }, 
+                {
+                 "duration":100,
+                 "tileid":54
+                }],
+         "id":44
+        }, 
+        {
          "id":45,
          "properties":[
                 {
@@ -169,6 +181,22 @@
         {
          "id":67,
          "type":"collides"
+        }, 
+        {
+         "animation":[
+                {
+                 "duration":100,
+                 "tileid":44
+                }, 
+                {
+                 "duration":100,
+                 "tileid":69
+                }, 
+                {
+                 "duration":100,
+                 "tileid":79
+                }],
+         "id":69
         }, 
         {
          "id":70,
