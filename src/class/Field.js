@@ -25,9 +25,11 @@ export default class Field {
       return { targets, animations: v.setting.animation, max }
     })
     this.layers = tilemap.layers.map((layer, i) => {
+      const dynamicOpt = Array.isArray(layer.properties) && layer.properties.find(v => v.name === 'dynamic')
+      const dynamicFlag = dynamicOpt && dynamicOpt.value
       const allAnimTiles = this.animationTiles.map(v => v.targets).flat()
       const hasAnimTile = layer.data.flat().some(v => allAnimTiles.includes(v))
-      const typeName = hasAnimTile ? 'createDynamicLayer' : 'createStaticLayer'
+      const typeName = dynamicFlag || hasAnimTile ? 'createDynamicLayer' : 'createStaticLayer'
       return layer.visible ? tilemap[typeName](i, tilesets, 0, 0).setDepth(this._getLayerIndexByName(layer.name)) : null
     }).filter(Boolean)
     const lights = this._generateLights(tilemap)
@@ -61,6 +63,9 @@ export default class Field {
         v.index = anim.tileid + 1
       })
     })
+  }
+  getLayerByName (name) {
+    return this.layers.find(v => v.layer.name === name)
   }
   getObjectById (id) {
     return ['charas', 'gates', 'areas', 'objects', 'treasures'].reduce((found, key) => {
