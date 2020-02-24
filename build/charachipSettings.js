@@ -33,5 +33,6 @@ module.exports = [
   ['ray', 3, 4],
   ['spectre', 3, 1],
   ['queen', 3, 1],
+  ['queen_back', 3, 1],
   ['aragnie', 3, 1]
 ]

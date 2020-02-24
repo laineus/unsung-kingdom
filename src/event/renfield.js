@@ -12,6 +12,13 @@ export const renfield = (scene, ray, spectres) => {
       await scene.talk([
         { chara, text: '強いんだな。' },
         { chara, text: '…ありがとな。' },
+        { chara, text: '大したものは無いけど、' },
+        { chara, text: 'これ、さっき拾った鍵をやるよ。' },
+        { chara, text: 'どっかに使えんだろ。' },
+        { chara: 'ann', text: 'ああ、うん、ありがとう。' },
+      ])
+      scene.ui.announce('『錆びた鍵』を手に入れた')
+      await scene.talk([
         { chara: 'ann', text: 'それはいいけど…、' },
         { chara: 'ann', text: 'この後どうするの？' },
         { chara: 'ann', text: '元に戻さないと、家族に見つかったら怒られるよ？' },

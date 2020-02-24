@@ -2,7 +2,7 @@ import generateBattler from '../util/generateBattler'
 export const evangelina = (scene, queen, queen2, grave) => {
   const state = scene.storage.state.event.m3_5
   queen.setDisplayName('エヴェンジェリナ妃')
-  queen2.setDisplayName('エヴェンジェリナ妃').setVisible(false)
+  queen2.setDisplayName('エヴェンジェリナ妃').setFaceKey('queen').setVisible(false)
   if (!state.started) {
     grave.setTapEvent(async () => {
       await scene.talk([
@@ -18,6 +18,7 @@ export const evangelina = (scene, queen, queen2, grave) => {
     return
   }
   queen.setTapEvent(async chara => {
+    await scene.camera.look(0, -80, 600)
     await scene.talk([
       { chara: 'ann', text: '…あ、あの。' },
       { chara: 'ann', text: '王妃殿下…？' },
@@ -33,11 +34,12 @@ export const evangelina = (scene, queen, queen2, grave) => {
     const result = await scene.ui.battle([generateBattler('queen', 25, { hp: 1700 })], { boss: true })
     if (!result) return
     chara.destroy()
+    await scene.camera.look(0, 80, 600)
     await scene.talk([
       { chara: 'ann', text: '…倒した？' },
       { chara: 'jaquelyn', text: 'みたいね。' },
       { chara: 'ann', text: 'じゃあこれで王は助かるのかな？' },
-      { chara: 'francisca', text: '王国史に書かれていた亡霊ってのが、さっきのやつのことだったらね。' },
+      { chara: 'francisca', text: '王国史に書かれていた亡霊ってのが、さっきの偽物のほうのことだったらね。' },
       { chara: 'ann', text: 'え！？' },
       { chara: 'ann', text: '考えていなかったけど、' },
       { chara: 'ann', text: '本物の王妃は、違うよね…？' },
@@ -46,7 +48,9 @@ export const evangelina = (scene, queen, queen2, grave) => {
       { chara: 'ann', text: 'そうだね、帰ろっか。' }
     ])
     queen2.setVisible(true)
-    await scene.player.setSpeed(200).setTargetPosition((15).toPixelCenter, (20).toPixelCenter)
+    scene.francisca.setAllowWalkingWhileEvent(true)
+    scene.jaquelyn.setAllowWalkingWhileEvent(true)
+    await scene.player.setSpeed(200).setTargetPosition((15).toPixelCenter, (21).toPixelCenter)
     chara = queen2
     await scene.talk([
       { chara, text: 'お待ちなさい。' },
@@ -65,6 +69,7 @@ export const evangelina = (scene, queen, queen2, grave) => {
       { chara: 'ann', text: 'あの、' },
       { chara: 'ann', text: '王妃は、エドガー王を恨んでいますか？' },
       { chara, text: 'いいえ。' },
+      { chara, text: 'あなた達が気にしていることなら分かっています。' },
       { chara, text: '恨むことなど一つもありませんでした。' },
       { chara, text: '私が病弱で、' },
       { chara, text: '民の前に中々姿を見せらないばかりに、' },
@@ -91,7 +96,11 @@ export const evangelina = (scene, queen, queen2, grave) => {
     ])
     state.completed = true
     scene.ui.missionUpdate('m3_5', true)
-    queen2.destroy()
+    scene.add.tween({
+      targets: queen2, duration: 500, alpha: 0,
+      onComplete: () => queen2.destroy()
+    })
+    scene.ui.sleep(1000)
     await scene.talk([
       { chara: 'ann', text: 'あ！待って！' },
       { chara: 'ann', text: '…消えちゃった。' },

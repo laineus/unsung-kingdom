@@ -145,7 +145,7 @@
                 {
                  "height":0,
                  "id":4,
-                 "name":"queen",
+                 "name":"queen_back",
                  "point":true,
                  "rotation":180,
                  "type":"chara",

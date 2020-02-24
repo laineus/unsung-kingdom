@@ -33,7 +33,10 @@ export const dario = (scene, dario) => {
         { chara, text: 'だが、あの亡霊は本当に危険だ。' },
         { chara, text: 'それでも行くのか…？' },
         { chara: 'ann', text: '行くよ。' },
-        { chara, text: 'そうか…、' },
+        { chara, text: 'そうか…。' },
+        { chara, text: '短剣なら構わない。' },
+        { chara, text: '持っていってくれ。' },
+        { chara: 'ann', text: 'ありがとう。' },
         { chara, text: '本当にすまない…。' },
         { chara, text: '…どうか、負けないでくれ。' }
       ])
