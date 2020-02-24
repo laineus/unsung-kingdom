@@ -60,7 +60,7 @@ export default class Talk extends Phaser.GameObjects.Container {
       const imageKey = isPlayer ? this.current.chara : chara.faceKey
       const camera = this.scene.gameScene.camera
       const x = chara.x - camera.scrollX + this.currentPosition * 30
-      const y = chara.y - camera.scrollY - 100
+      const y = chara.y - camera.scrollY - 84 - (chara.height || 32).half
       this.bubble = new SpeachBubble(this.scene, x, y, displayName, `face/${imageKey}`, this.current.text, this.currentPosition)
       const resultX = this.bubble.x
       const resultY = this.bubble.y
