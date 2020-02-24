@@ -1,12 +1,12 @@
 import config from '../data/config'
 import Box from './Box'
 import Gauge from './Gauge'
-import storage from '../data/storage'
 export default class BattlerSummary extends Phaser.GameObjects.Container {
   constructor (scene, x, y, i) {
     super(scene, x, y)
+    this.scene = scene
     this.battlerIndex = i
-    const chara = storage.state.battlers[this.battlerIndex]
+    const chara = scene.storage.state.battlers[this.battlerIndex]
     const box = new Box(scene, 0, 0, 140, 30)
     const sprite = scene.add.sprite(-48, -23, chara.key).setScale(0.25).setOrigin(0.5, 0)
     sprite.setCrop(0, 0, sprite.width, 150)
@@ -17,7 +17,8 @@ export default class BattlerSummary extends Phaser.GameObjects.Container {
     this.reload()
   }
   reload () {
-    const chara = storage.state.battlers[this.battlerIndex]
+    const chara = this.scene.storage.state.battlers[this.battlerIndex]
+    this.gauge.valueMax = chara.max_hp
     this.gauge.value = chara.hp
     this.lv.text = `Lv ${chara.lv}`
   }
