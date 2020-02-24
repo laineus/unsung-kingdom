@@ -44,6 +44,7 @@ export default class Substance extends Phaser.GameObjects.Container {
     return balloon
   }
   setTapEvent (event) {
+    this.removeTapEvent()
     const distance = 150
     this.tapArea = this.scene.add.rectangle(0, -this.image.height, this.image.width + 20, this.image.height + 50).setInteractive()
     this.add(this.tapArea)
