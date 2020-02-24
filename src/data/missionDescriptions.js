@@ -90,7 +90,7 @@ export default {
   m3_4 (state) {
     const base = 'レイはレンフィールド家への復讐のために墓を荒らしている。'
     const started = 'レンフィールド家の亡霊が姿を現した！'
-    const cnt = `倒したレンフィールド家の亡霊（${state.event.m3_4.ghosts}/5）`
+    const cnt = `倒したレンフィールド家の亡霊（${state.event.m3_4.ghosts.length}/5）`
     if (state.event.m3_4.completed) return base
     return `${base}\n${started}\n${cnt}`
   },
