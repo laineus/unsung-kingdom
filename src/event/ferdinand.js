@@ -5,6 +5,7 @@ export const ferdinand = (scene, fdn) => {
     return fdn.destroy()
   }
   fdn.setTapEvent(async chara => {
+    await fdn.setSpeed(220).setTargetPosition(fdn.x - 320, fdn.y)
     if (scene.storage.state.event.m3_2.completed) {
       await scene.talk([
         { chara, text: 'おい、何とかできそうか？' },
@@ -23,6 +24,7 @@ export const ferdinand = (scene, fdn) => {
         { chara, text: 'うわ！！' }
       ])
       fdn.initImage('ferdinand_dragged')
+      scene.substances.remove(fdn)
       await scene.talk([
         { chara, text: '誰だ！？私の足を掴むな！' },
         { chara: 'ann', text: 'え！なに！？' }
