@@ -9,7 +9,7 @@ export default {
     ['ghost', 'ghost']
   ],
   create (scene) {
-    const dr = scene.map.getObjectById(5)
+    const dr = scene.map.getObjectById(5).setRandomWalk(true)
     dario(scene, dr)
   }
 }

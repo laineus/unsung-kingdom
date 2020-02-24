@@ -101,7 +101,7 @@ export const ferdinand = (scene, fdn) => {
         { chara: 'ann', text: '人を買っていたの？' },
         { chara: 'francisca', text: 'そりゃあ怨みも買うね。' },
         { chara: 'jaquelyn', text: '怨みや呪いだなんて…、' },
-        { chara: 'jaquelyn', text: 'きっと自らの罪悪感が生み出した幻覚じゃないかしら。' },
+        { chara: 'jaquelyn', text: 'きっと自らの罪悪感が生み出した幻聴じゃないかしら。' },
         { chara, text: 'おい！好き勝手言うな。' },
         { chara, text: 'くそ、呪いだかなんだか知らんが、' },
         { chara, text: 'おかげでフェルディナンド家は無茶苦茶だ。' },

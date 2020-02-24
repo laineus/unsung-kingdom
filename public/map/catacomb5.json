@@ -101,12 +101,12 @@
                  "id":2,
                  "name":"sister",
                  "point":true,
-                 "rotation":180,
+                 "rotation":0,
                  "type":"chara",
                  "visible":true,
                  "width":0,
-                 "x":435.900712749116,
-                 "y":453.825791521434
+                 "x":425.9,
+                 "y":458.83
                 }, 
                 {
                  "height":0,
