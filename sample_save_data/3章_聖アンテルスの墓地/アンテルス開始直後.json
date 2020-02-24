@@ -76,13 +76,12 @@
     },
     "m3_1": {
       "started": false,
-      "completed": false,
-      "solved": false
+      "completed": false
     },
     "m3_2": {
       "started": false,
       "completed": false,
-      "solved": false
+      "count": 0
     },
     "m3_3": {
       "started": false,
@@ -286,7 +285,7 @@
       "weapon_id": 7
     }
   ],
-  "saved": 1581748014,
+  "saved": 1582531197,
   "allowed_area": 4,
   "visited": [
     "forest1",
