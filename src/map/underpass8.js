@@ -34,6 +34,7 @@ export default {
   async openNeedle (scene, event) {
     const layer4 = scene.map.getLayerByName('layer4')
     layer4.layer.data[40][25].index = 59
+    scene.map.getLight((25).toPixelCenter, (40).toPixelCenter, 0xff6600)
     if (event) await scene.ui.sleep(500)
     if (event) await scene.camera.look(-400, -450, 1000)
     if (event) await scene.ui.sleep(100)

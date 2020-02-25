@@ -160,7 +160,11 @@
                  "type":"color",
                  "value":"#ffff6600"
                 }],
-         "type":"light"
+         "type":"collides,light"
+        }, 
+        {
+         "id":59,
+         "type":"collides"
         }, 
         {
          "id":65,
@@ -168,6 +172,10 @@
         }, 
         {
          "id":67,
+         "type":"collides"
+        }, 
+        {
+         "id":68,
          "type":"collides"
         }, 
         {
@@ -225,6 +233,22 @@
         {
          "id":84,
          "type":"top"
+        }, 
+        {
+         "id":88,
+         "type":"collides"
+        }, 
+        {
+         "id":89,
+         "type":"collides"
+        }, 
+        {
+         "id":98,
+         "type":"collides"
+        }, 
+        {
+         "id":99,
+         "type":"collides"
         }, 
         {
          "id":100,

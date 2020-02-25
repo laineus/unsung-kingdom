@@ -137,15 +137,17 @@ export default class Field {
     return lightTiles.map(v => {
       const properties = getProperties(v.index)
       const { color } = parseArgb(properties.color)
-      const sprite = this.scene.add.sprite(v.x.toPixelCenter, v.y.toPixelCenter, 'light').setTint(color).setScale(0.5).setBlendMode(Phaser.BlendModes.OVERLAY).setDepth(100000)
-      const sprite2 = properties.drop ? this.scene.add.sprite(v.x.toPixelCenter, v.y.toPixelCenter + 55, 'light').setAlpha(0.8).setTint(color).setScale(0.6).setBlendMode(Phaser.BlendModes.OVERLAY).setDepth(100000) : null
-      this.scene.add.tween({
-        targets: [sprite, ...(sprite2 ? [sprite2] : [])], duration: Math.randomInt(300, 400),
-        scale: 0.6, alpha: 0.8,
-        yoyo: true, loop: -1
-      })
-      return sprite
+      return this.getLight(v.x.toPixelCenter, v.y.toPixelCenter, color, properties.drop)
     })
+  }
+  getLight (x, y, color, drop = false) {
+    const sprite = this.scene.add.sprite(x, y, 'light').setTint(color).setScale(0.5).setBlendMode(Phaser.BlendModes.OVERLAY).setDepth(100000)
+    const sprite2 = drop ? this.scene.add.sprite(x, y + 55, 'light').setAlpha(0.8).setTint(color).setScale(0.6).setBlendMode(Phaser.BlendModes.OVERLAY).setDepth(100000) : null
+    this.scene.add.tween({
+      targets: [sprite, ...(sprite2 ? [sprite2] : [])], duration: Math.randomInt(300, 400),
+      scale: 0.6, alpha: 0.8, yoyo: true, loop: -1
+    })
+    return sprite
   }
   _generateParticles (color) {
     const particles = this.scene.add.particles('light')
