@@ -124,14 +124,14 @@ export default [
   {
     key: 'wraith', name: 'レイス', lv: 1, effect: 'stab',
     hp: 65, atk: 6, def: 4, dex: 3, agi: 4,
-    up: { hp: 85, atk: 85, def: 80, dex: 70, agi: 80 },
+    up: { hp: 100, atk: 85, def: 80, dex: 70, agi: 80 },
     abillities: [{ type: 'double', chance: 10 }],
     dropWeapon: { id: 11, chance: 4 }
   },
   {
     key: 'dullahan', name: 'デュラハン', lv: 1, effect: 'stab',
     hp: 75, atk: 6, def: 6, dex: 3, agi: 3,
-    up: { hp: 100, atk: 90, def: 90, dex: 70, agi: 70 },
+    up: { hp: 150, atk: 90, def: 90, dex: 70, agi: 70 },
     abillities: [{ type: 'multi', chance: 20 }],
     dropWeapon: { id: 12, chance: 5 }
   },

@@ -1,4 +1,4 @@
-export const WATER_COUNT = 3
+export const WATER_COUNT = 5
 
 export const marianne = (scene, sister) => {
   const state = scene.storage.state.event.m3_2

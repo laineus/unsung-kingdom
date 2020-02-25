@@ -20,7 +20,7 @@ export default () => {
       m1_2: { started: false, completed: false, talked: false, solved: false },
       m1_3: { started: false, completed: false, count: 0 },
       m1_4: { started: false, completed: false, solved: false, area: false },
-      m2_1: { started: false, completed: false, solved: false, talked: false, key: false, opened: false },
+      m2_1: { started: false, completed: false, wine: [], talked: false, key: false, opened: false },
       m2_2: { started: false, completed: false, count: 0 },
       m2_3: { started: false, completed: false, solved: false, talked: false },
       m2_4: { started: false, completed: false, solved: false, jack: false, talked: false, search: false, found: false, boss: false },
@@ -41,6 +41,7 @@ export default () => {
       m3: { talked_amber: false, talked_max: false, talked_matilda: false },
       town: { amber: [], annabelle: [], matilda: [], elliott: [], max: [] }
     },
+    gimmicks: [],
     treasures: [],
     battlers: getPlayerBattlers(),
     weapons: [],

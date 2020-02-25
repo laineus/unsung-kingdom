@@ -1,8 +1,8 @@
 {
-  "map": "catacomb7",
-  "x": 1116.2380899065092,
-  "y": 524.8171429219735,
-  "r": 2.845908878749595,
+  "map": "catacomb6",
+  "x": 80,
+  "y": 784,
+  "r": -0.0448183421991763,
   "chapter": 3,
   "event": {
     "chapter_begin": [
@@ -76,13 +76,12 @@
     },
     "m3_1": {
       "started": true,
-      "completed": true,
-      "solved": true
+      "completed": true
     },
     "m3_2": {
       "started": true,
       "completed": true,
-      "solved": true
+      "count": 3
     },
     "m3_3": {
       "started": true,
@@ -161,19 +160,21 @@
   "treasures": [
     "forest8_4",
     "forest3_5",
-    "underpass5_5"
+    "underpass5_5",
+    "catacomb2_5",
+    "catacomb5_8"
   ],
   "battlers": [
     {
       "key": "ann",
       "name": "Ann",
-      "lv": 14,
+      "lv": 20,
       "effect": "hit",
-      "hp": 83,
-      "atk": 17,
-      "def": 16,
-      "dex": 13,
-      "agi": 12,
+      "hp": 135,
+      "atk": 23,
+      "def": 22,
+      "dex": 18,
+      "agi": 16,
       "up": {
         "hp": 100,
         "atk": 100,
@@ -181,20 +182,20 @@
         "dex": 70,
         "agi": 70
       },
-      "exp": 296.66666666666663,
-      "max_hp": 105,
-      "weapon": 13
+      "exp": 584.6666666666666,
+      "max_hp": 135,
+      "weapon": 16
     },
     {
       "key": "francisca",
       "name": "Francisca",
-      "lv": 14,
+      "lv": 20,
       "effect": "hit",
-      "hp": 61,
-      "atk": 13,
-      "def": 11,
-      "dex": 16,
-      "agi": 15,
+      "hp": 115,
+      "atk": 18,
+      "def": 16,
+      "dex": 22,
+      "agi": 21,
       "up": {
         "hp": 85,
         "atk": 85,
@@ -202,20 +203,20 @@
         "dex": 100,
         "agi": 85
       },
-      "exp": 293.66666666666663,
-      "max_hp": 85,
-      "weapon": 14
+      "exp": 585.6666666666666,
+      "max_hp": 115,
+      "weapon": 15
     },
     {
       "key": "jaquelyn",
       "name": "Jaquelyn",
-      "lv": 14,
+      "lv": 20,
       "effect": "hit",
-      "hp": 90,
-      "atk": 11,
-      "def": 12,
-      "dex": 15,
-      "agi": 17,
+      "hp": 69,
+      "atk": 17,
+      "def": 17,
+      "dex": 20,
+      "agi": 23,
       "up": {
         "hp": 90,
         "atk": 75,
@@ -223,9 +224,9 @@
         "dex": 85,
         "agi": 100
       },
-      "exp": 296.66666666666663,
-      "max_hp": 95,
-      "weapon": 7
+      "exp": 589.6666666666666,
+      "max_hp": 120,
+      "weapon": 13
     }
   ],
   "weapons": [
@@ -284,9 +285,17 @@
     {
       "id": 14,
       "weapon_id": 7
+    },
+    {
+      "id": 15,
+      "weapon_id": 9
+    },
+    {
+      "id": 16,
+      "weapon_id": 10
     }
   ],
-  "saved": 1581826600,
+  "saved": 1582535454,
   "allowed_area": 4,
   "visited": [
     "forest1",
@@ -311,6 +320,7 @@
     "underpass9",
     "underpass10",
     "catacomb1",
+    "catacomb2",
     "catacomb3",
     "catacomb4",
     "catacomb5",
