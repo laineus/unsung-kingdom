@@ -97,26 +97,6 @@
          "type":"collides"
         }, 
         {
-         "animation":[
-                {
-                 "duration":100,
-                 "tileid":44
-                }, 
-                {
-                 "duration":100,
-                 "tileid":54
-                }, 
-                {
-                 "duration":100,
-                 "tileid":64
-                }, 
-                {
-                 "duration":100,
-                 "tileid":54
-                }],
-         "id":44
-        }, 
-        {
          "id":45,
          "properties":[
                 {
@@ -184,10 +164,6 @@
         }, 
         {
          "animation":[
-                {
-                 "duration":100,
-                 "tileid":44
-                }, 
                 {
                  "duration":100,
                  "tileid":69
@@ -259,6 +235,26 @@
          "type":"collides,top"
         }, 
         {
+         "animation":[
+                {
+                 "duration":200,
+                 "tileid":107
+                }, 
+                {
+                 "duration":200,
+                 "tileid":108
+                }, 
+                {
+                 "duration":200,
+                 "tileid":109
+                }, 
+                {
+                 "duration":200,
+                 "tileid":108
+                }],
+         "id":107
+        }, 
+        {
          "id":110,
          "type":"collides,top"
         }, 
@@ -285,6 +281,26 @@
         {
          "id":116,
          "type":"collides"
+        }, 
+        {
+         "animation":[
+                {
+                 "duration":200,
+                 "tileid":117
+                }, 
+                {
+                 "duration":200,
+                 "tileid":118
+                }, 
+                {
+                 "duration":200,
+                 "tileid":119
+                }, 
+                {
+                 "duration":200,
+                 "tileid":118
+                }],
+         "id":117
         }, 
         {
          "id":120,
