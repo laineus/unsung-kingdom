@@ -41,12 +41,14 @@ export default class UIScene extends Phaser.Scene {
     this.add.existing(this.blocker)
     this.eventMode = false
     // TOOD: map name
-    // this.window = this.add.sprite(0, 0, 'dark').setOrigin(0, 0)
-    // this.overlay = this.add.rectangle(0, 0, config.WIDTH, config.HEIGHT, 0x000000).setOrigin(0, 0).setAlpha(0.2)
-    // this.add.text(15, -8, 'ワルコフォレンスの森', { align: 'center', fontSize: 16, fontStyle: 'bold', fontFamily: config.FONTS.TEXT }).setOrigin(0.5, 0.5).setPosition(config.WIDTH.half, config.HEIGHT.half)
     // setTimeout(() => {
-    //   this.gameScene.blur(true)
-    // }, 100)
+    //   this.window = this.add.sprite(0, 0, 'dark').setOrigin(0, 0)
+    //   this.overlay = this.add.rectangle(0, 0, config.WIDTH, config.HEIGHT, 0x000000).setOrigin(0, 0).setAlpha(0.2)
+    //   this.add.text(15, -8, 'WARCOFORENCE', { align: 'center', fontSize: 66, fontFamily: config.FONTS.UI }).setOrigin(0.5, 0.5).setPosition(config.WIDTH.half, config.HEIGHT.half)
+    //   setTimeout(() => {
+    //     this.gameScene.blur(true)
+    //   }, 100)
+    // }, 2000)
   }
   update (time, delta) {
     this.battlerSummary.update()
