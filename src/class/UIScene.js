@@ -231,29 +231,30 @@ export default class UIScene extends Phaser.Scene {
     if (this.mapInfo) this.mapInfo.destroy()
     await this.sleep(200)
     const diff = e.enemyLevel ? e.enemyLevel - Math.average(...this.storage.state.battlers.map(b => b.lv)) : 0
-    const color = (diff => {
-      if (diff >= 4) return 0xEE0000
-      if (diff >= 2) return 0xEE9900
+    const warning = diff >= 2
+    const alert = diff >= 4
+    const color = (() => {
+      if (alert) return 0xEE0000
+      if (warning) return 0xEE9900
       return config.COLORS.theme
-    })(diff)
-    const alert = diff >= 2
+    })()
     const container = this.add.container(0, 0)
-    if (alert) {
+    if (warning) {
       const bg = new Box(this, 223, 0, config.WIDTH, 30, { color, alpha: 0.4 }).setOrigin(0, 0)
-      this.add.tween({ targets: bg, duration: 300, yoyo: true, loop: -1, alpha: 0.6 })
+      this.add.tween({ targets: bg, duration: alert ? 300 : 600, yoyo: true, loop: -1, alpha: 0.6 })
       const bgText = this.add.text(245, 6, 'WARNING', { align: 'left', fill: config.COLORS.white.toColorString, fontSize: 18, fontFamily: config.FONTS.UI }).setAlpha(0.5).setOrigin(0, 0)
       const dashedLine = this.add.tileSprite(309, 12, config.WIDTH, 6, 'dashedline').setAlpha(0.5).setOrigin(0, 0)
       container.add([bg, bgText, dashedLine])
     }
     const box = new Box(this, -10, 0, 240, 44).setOrigin(0, 0)
-    const icon = (alert => {
+    const icon = (() => {
       if (alert) return this.add.sprite(22, 21, 'alert').setTint(color)
       const circle = this.add.circle(22, 21, 5)
       circle.isStroked = true
       circle.lineWidth = 1.5
       circle.strokeColor = color
       return circle
-    })(alert)
+    })()
     const mapName = 'ワルコフォレンスの森 - 中央'
     const map = this.add.text(42, 6, mapName, { align: 'left', fill: config.COLORS.white.toColorString, fontSize: 12, fontFamily: config.FONTS.TEXT }).setOrigin(0, 0)
     const lvInfo = e.enemyLevel ? `推奨レベル ${e.enemyLevel}〜` : '推奨レベル -'
