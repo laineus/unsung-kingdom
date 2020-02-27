@@ -41,6 +41,7 @@ export default class GameScene extends Phaser.Scene {
     this.input.on('pointermove', walk)
     this.event = maps[payload.map] || {}
     if (this.event.create) this.event.create(this)
+    this.ui.showMapInfo(this.event)
     this.setEncountDelay()
     setTimeout(() => {
       // auto save

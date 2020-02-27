@@ -49,7 +49,6 @@ export default class UIScene extends Phaser.Scene {
     //     this.gameScene.blur(true)
     //   }, 100)
     // }, 2000)
-    this.mapInfo()
   }
   update (time, delta) {
     this.battlerSummary.update()
@@ -228,19 +227,40 @@ export default class UIScene extends Phaser.Scene {
     const filename = `ScreenShot_${moment().format('YYYYMMDD_HHmmss')}.png`
     this.game.renderer.snapshot(img => downloadBySource(img.src, filename))
   }
-  mapInfo () {
+  async showMapInfo (e) {
+    if (this.mapInfo) this.mapInfo.destroy()
+    await this.sleep(200)
+    const diff = e.enemyLevel ? e.enemyLevel - Math.average(...this.storage.state.battlers.map(b => b.lv)) : 0
+    const color = (diff => {
+      if (diff >= 4) return 0xEE0000
+      if (diff >= 2) return 0xEE9900
+      return config.COLORS.theme
+    })(diff)
+    const alert = diff >= 2
     const container = this.add.container(0, 0)
-    // const bg = this.add.rectangle(0, 0, config.WIDTH, 32, 0xFF0000, 0.4).setOrigin(0, 0)
-    const bg = new Box(this, 223, 0, config.WIDTH, 30, { color: 0xEE9900, alpha: 0.4 }).setOrigin(0, 0)
-    const bgText = this.add.text(245, 6, 'WARNING', { align: 'left', fill: config.COLORS.white.toColorString, fontSize: 18, fontFamily: config.FONTS.UI }).setAlpha(0.5).setOrigin(0, 0)
-    const dashedLine = this.add.tileSprite(309, 12, config.WIDTH, 6, 'dashedline').setAlpha(0.5).setOrigin(0, 0)
+    if (alert) {
+      const bg = new Box(this, 223, 0, config.WIDTH, 30, { color, alpha: 0.4 }).setOrigin(0, 0)
+      this.add.tween({ targets: bg, duration: 300, yoyo: true, loop: -1, alpha: 0.6 })
+      const bgText = this.add.text(245, 6, 'WARNING', { align: 'left', fill: config.COLORS.white.toColorString, fontSize: 18, fontFamily: config.FONTS.UI }).setAlpha(0.5).setOrigin(0, 0)
+      const dashedLine = this.add.tileSprite(309, 12, config.WIDTH, 6, 'dashedline').setAlpha(0.5).setOrigin(0, 0)
+      container.add([bg, bgText, dashedLine])
+    }
     const box = new Box(this, -10, 0, 240, 44).setOrigin(0, 0)
-    const icon = this.add.sprite(22, 21, 'alert').setTint(0xEE9900)
+    const icon = (alert => {
+      if (alert) return this.add.sprite(22, 21, 'alert').setTint(color)
+      const circle = this.add.circle(22, 21, 5)
+      circle.isStroked = true
+      circle.lineWidth = 1.5
+      circle.strokeColor = color
+      return circle
+    })(alert)
     const mapName = 'ワルコフォレンスの森 - 中央'
     const map = this.add.text(42, 6, mapName, { align: 'left', fill: config.COLORS.white.toColorString, fontSize: 12, fontFamily: config.FONTS.TEXT }).setOrigin(0, 0)
-    const lvInfo = '推奨レベル 21〜'
-    const lv = this.add.text(42, 21, lvInfo, { align: 'left', fill: 0xEE9900.toColorString, fontSize: 12, fontFamily: config.FONTS.TEXT }).setOrigin(0, 0)
-    container.add([bg, bgText, dashedLine, box, icon, map, lv])
+    const lvInfo = e.enemyLevel ? `推奨レベル ${e.enemyLevel}〜` : '推奨レベル -'
+    const lv = this.add.text(42, 21, lvInfo, { align: 'left', fill: color.toColorString, fontSize: 12, fontFamily: config.FONTS.TEXT }).setOrigin(0, 0)
+    container.add([box, icon, map, lv])
+    slideIn(this, container)
     this.add.existing(container)
+    this.mapInfo = container
   }
 }
