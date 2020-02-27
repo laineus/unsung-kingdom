@@ -232,14 +232,15 @@ export default class UIScene extends Phaser.Scene {
     const container = this.add.container(0, 0)
     // const bg = this.add.rectangle(0, 0, config.WIDTH, 32, 0xFF0000, 0.4).setOrigin(0, 0)
     const bg = new Box(this, 223, 0, config.WIDTH, 30, { color: 0xEE9900, alpha: 0.4 }).setOrigin(0, 0)
-    const bgText = this.add.text(245, 6, 'WARNING', { align: 'left', fill: config.COLORS.white.toColorString, fontSize: 18, fontFamily: config.FONTS.UI }).setAlpha(0.6).setOrigin(0, 0)
+    const bgText = this.add.text(245, 6, 'WARNING', { align: 'left', fill: config.COLORS.white.toColorString, fontSize: 18, fontFamily: config.FONTS.UI }).setAlpha(0.5).setOrigin(0, 0)
+    const dashedLine = this.add.tileSprite(309, 12, config.WIDTH, 6, 'dashedline').setAlpha(0.5).setOrigin(0, 0)
     const box = new Box(this, -10, 0, 240, 44).setOrigin(0, 0)
     const icon = this.add.sprite(22, 21, 'alert').setTint(0xEE9900)
     const mapName = 'ワルコフォレンスの森 - 中央'
     const map = this.add.text(42, 6, mapName, { align: 'left', fill: config.COLORS.white.toColorString, fontSize: 12, fontFamily: config.FONTS.TEXT }).setOrigin(0, 0)
     const lvInfo = '推奨レベル 21〜'
     const lv = this.add.text(42, 21, lvInfo, { align: 'left', fill: 0xEE9900.toColorString, fontSize: 12, fontFamily: config.FONTS.TEXT }).setOrigin(0, 0)
-    container.add([bg, bgText, box, icon, map, lv])
+    container.add([bg, bgText, dashedLine, box, icon, map, lv])
     this.add.existing(container)
   }
 }
