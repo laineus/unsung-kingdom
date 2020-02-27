@@ -229,7 +229,6 @@ export default class UIScene extends Phaser.Scene {
   }
   async showMapInfo (e) {
     if (this.mapInfo) this.mapInfo.destroy()
-    await this.sleep(200)
     const diff = e.enemyLevel ? e.enemyLevel - Math.average(...this.storage.state.battlers.map(b => b.lv)) : 0
     const warning = diff >= 2
     const alert = diff >= 4
@@ -240,7 +239,7 @@ export default class UIScene extends Phaser.Scene {
     })()
     const container = this.add.container(0, 0)
     if (warning) {
-      const bg = new Box(this, 223, 0, config.WIDTH, 30, { color, alpha: 0.4 }).setOrigin(0, 0)
+      const bg = new Box(this, 223, 0, config.WIDTH + 50, 30, { color, alpha: 0.4 }).setOrigin(0, 0)
       this.add.tween({ targets: bg, duration: alert ? 300 : 600, yoyo: true, loop: -1, alpha: 0.6 })
       const bgText = this.add.text(245, 6, 'WARNING', { align: 'left', fill: config.COLORS.white.toColorString, fontSize: 18, fontFamily: config.FONTS.UI }).setAlpha(0.5).setOrigin(0, 0)
       const dashedLine = this.add.tileSprite(309, 12, config.WIDTH, 6, 'dashedline').setAlpha(0.5).setOrigin(0, 0)
@@ -260,7 +259,14 @@ export default class UIScene extends Phaser.Scene {
     const lvInfo = e.enemyLevel ? `推奨レベル ${e.enemyLevel}〜` : '推奨レベル -'
     const lv = this.add.text(42, 21, lvInfo, { align: 'left', fill: color.toColorString, fontSize: 12, fontFamily: config.FONTS.TEXT }).setOrigin(0, 0)
     container.add([box, icon, map, lv])
-    slideIn(this, container)
+    slideIn(this, container, { delay: 250 })
+    this.add.tween({
+      targets: container,
+      duration: 400,
+      ease: 'Power2',
+      delay: 3100,
+      x: -230
+    })
     this.add.existing(container)
     this.mapInfo = container
   }
