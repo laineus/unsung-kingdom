@@ -3,7 +3,7 @@ export default {
   enemyGroups: [
     ['ghost', 'ghost', 'ghost'],
     ['skull', 'spectre', 'skull'],
-    ['spectre', 'spectre']
+    ['spectre', 'spectre'],
     ['wraith'],
     ['dullahan']
   ],
