@@ -6,7 +6,8 @@ const STORAGE_KEY = 'data'
 const SHIFT = 0
 export default class StorageManager {
   constructor () {
-    this.lastNumber = null
+    const savedNumber = localStorage.getItem(`${STORAGE_KEY}_last_saved_number`)
+    this.lastNumber = savedNumber ? Number(savedNumber) : null
     this.lastSnapshot = null
     this.setState(defaultState())
   }
@@ -50,6 +51,7 @@ export default class StorageManager {
     localStorage.setItem(`${STORAGE_KEY}_${number}`, str)
     if (this.lastSnapshot) localStorage.setItem(`${STORAGE_KEY}_${number}_ss`, this.lastSnapshot)
     if (number > 0) this.lastNumber = number
+    localStorage.setItem(`${STORAGE_KEY}_last_saved_number`, number)
     return true
   }
   load (number) {
