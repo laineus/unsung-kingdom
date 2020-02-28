@@ -73,6 +73,7 @@ export default class UIScene extends Phaser.Scene {
     // 2
     this.encounter2 = this.add.sprite((70).byRight, 70, 'encounter2').setOrigin(0.5, 0.5).setScale(0.9, 0.9)
     this.add.tween({ targets: this.encounter2, duration: 400, ease: 'Power2', loop: -1, scaleX: 1.1, scaleY: 1.1 })
+    this.encounter2.setInteractive().on('pointerdown', () => this.gameScene.encounter(true))
     this.setEncounter(false)
   }
   setEncounter (bool, stronger) {
