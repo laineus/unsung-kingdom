@@ -107,22 +107,22 @@ export default [
   {
     key: 'm4_2',
     chapter: 4,
-    title: '女神さまに捧ぐリュート',
-    en: 'Lute for goddess',
-    map: 'forest1'
-  },
-  {
-    key: 'm4_3',
-    chapter: 4,
     title: 'すべて世は事もなし',
     en: 'All\'s right with the world',
     map: 'forest1'
   },
   {
-    key: 'm4_4',
+    key: 'm4_3',
     chapter: 4,
     title: '聖剣カリブルヌス',
     en: 'Caliburnus',
+    map: 'forest1'
+  },
+  {
+    key: 'm4_4',
+    chapter: 4,
+    title: '女神さまに捧ぐリュート',
+    en: 'Lute for goddess',
     map: 'forest1'
   },
   {
