@@ -6,10 +6,10 @@ import MenuSetting from './MenuSetting'
 import { slideIn, slideOut, fadeIn, fadeOut } from '../util/animations'
 import UICloseButton from './UICloseButton'
 const contents = [
-  { class: MenuMap, name: 'MAP & QUEST', min: 'マップ・クエスト', size: 52, frame: 0 },
-  { class: MenuStatus, name: 'CHARACTER', min: 'キャラクター', size: 52, frame: 1 },
+  { class: MenuMap, name: 'MAP & QUESTS', min: 'マップ・クエスト', size: 52, frame: 0 },
+  { class: MenuStatus, name: 'CHARACTERS', min: 'キャラクター', size: 52, frame: 1 },
   { class: MenuSave, name: 'SAVE', min: 'セーブ', size: 52, frame: 2 },
-  { class: MenuSetting, name: 'SETTING', min: '設定', size: 42, frame: 3 }
+  { class: MenuSetting, name: 'SETTINGS', min: '設定', size: 42, frame: 3 }
 ]
 export default class Menu extends Phaser.GameObjects.Container {
   constructor (scene, callback) {
