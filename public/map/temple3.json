@@ -6,48 +6,48 @@
          "target":"."
         }
     },
- "height":32,
+ "height":36,
  "infinite":false,
  "layers":[
         {
          "compression":"zlib",
-         "data":"eAHt0AENAAAAwqD3T20PBxEoDBgwYMCAAQMGDBgwYMCAAQMGDBgwYMCAAQMGngYGGgAAAQ==",
+         "data":"eAHt0IEAAAAAw6D5U1\/gCIVQYcCAAQMGDBgwYMCAAQMGDBgwYMCAgT8wFEAAAQ==",
          "encoding":"base64",
-         "height":32,
+         "height":36,
          "id":1,
          "name":"layer1",
          "opacity":1,
          "type":"tilelayer",
          "visible":true,
-         "width":52,
+         "width":36,
          "x":0,
          "y":0
         }, 
         {
          "compression":"zlib",
-         "data":"eAHt0AENAAAAwqD3T20PBxEoDBgwYMCAAQMGDBgwYMCAAQMGDBgwYMCAAQMGngYGGgAAAQ==",
+         "data":"eAHt0IEAAAAAw6D5U1\/gCIVQYcCAAQMGDBgwYMCAAQMGDBgwYMCAgT8wFEAAAQ==",
          "encoding":"base64",
-         "height":32,
+         "height":36,
          "id":2,
          "name":"layer3",
          "opacity":1,
          "type":"tilelayer",
          "visible":true,
-         "width":52,
+         "width":36,
          "x":0,
          "y":0
         }, 
         {
          "compression":"zlib",
-         "data":"eAHt0AENAAAAwqD3T20PBxEoDBgwYMCAAQMGDBgwYMCAAQMGDBgwYMCAAQMGngYGGgAAAQ==",
+         "data":"eAHt0IEAAAAAw6D5U1\/gCIVQYcCAAQMGDBgwYMCAAQMGDBgwYMCAgT8wFEAAAQ==",
          "encoding":"base64",
-         "height":32,
+         "height":36,
          "id":3,
          "name":"layer4",
          "opacity":1,
          "type":"tilelayer",
          "visible":true,
-         "width":52,
+         "width":36,
          "x":0,
          "y":0
         }, 
@@ -57,37 +57,37 @@
          "name":"event",
          "objects":[
                 {
-                 "height":64,
+                 "height":96,
                  "id":1,
                  "name":"temple2",
                  "rotation":0,
                  "type":"gate",
                  "visible":true,
-                 "width":96,
-                 "x":1184,
-                 "y":960
+                 "width":64,
+                 "x":0,
+                 "y":480
                 }, 
                 {
                  "height":96,
                  "id":2,
+                 "name":"temple8",
+                 "rotation":0,
+                 "type":"gate",
+                 "visible":true,
+                 "width":64,
+                 "x":1088,
+                 "y":480
+                }, 
+                {
+                 "height":64,
+                 "id":3,
                  "name":"temple4",
                  "rotation":0,
                  "type":"gate",
                  "visible":true,
-                 "width":64,
-                 "x":0,
-                 "y":416
-                }, 
-                {
-                 "height":96,
-                 "id":3,
-                 "name":"temple5",
-                 "rotation":0,
-                 "type":"gate",
-                 "visible":true,
-                 "width":64,
-                 "x":1600,
-                 "y":256
+                 "width":96,
+                 "x":512,
+                 "y":1088
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -129,5 +129,5 @@
  "tilewidth":32,
  "type":"map",
  "version":1.2,
- "width":52
+ "width":36
 }

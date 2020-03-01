@@ -6,48 +6,48 @@
          "target":"."
         }
     },
- "height":36,
+ "height":32,
  "infinite":false,
  "layers":[
         {
          "compression":"zlib",
-         "data":"eAHt0IEAAAAAw6D5U1\/gCIVQYcCAAQMGDBgwYMCAAQMGDBgwYMCAgT8wFEAAAQ==",
+         "data":"eAHt0AENAAAAwqD3T20PBxEoDBgwYMCAAQMGDBgwYMCAgfeBARAAAAE=",
          "encoding":"base64",
-         "height":36,
+         "height":32,
          "id":1,
          "name":"layer1",
          "opacity":1,
          "type":"tilelayer",
          "visible":true,
-         "width":36,
+         "width":32,
          "x":0,
          "y":0
         }, 
         {
          "compression":"zlib",
-         "data":"eAHt0IEAAAAAw6D5U1\/gCIVQYcCAAQMGDBgwYMCAAQMGDBgwYMCAgT8wFEAAAQ==",
+         "data":"eAHt0AENAAAAwqD3T20PBxEoDBgwYMCAAQMGDBgwYMCAgfeBARAAAAE=",
          "encoding":"base64",
-         "height":36,
+         "height":32,
          "id":2,
          "name":"layer3",
          "opacity":1,
          "type":"tilelayer",
          "visible":true,
-         "width":36,
+         "width":32,
          "x":0,
          "y":0
         }, 
         {
          "compression":"zlib",
-         "data":"eAHt0IEAAAAAw6D5U1\/gCIVQYcCAAQMGDBgwYMCAAQMGDBgwYMCAgT8wFEAAAQ==",
+         "data":"eAHt0AENAAAAwqD3T20PBxEoDBgwYMCAAQMGDBgwYMCAgfeBARAAAAE=",
          "encoding":"base64",
-         "height":36,
+         "height":32,
          "id":3,
          "name":"layer4",
          "opacity":1,
          "type":"tilelayer",
          "visible":true,
-         "width":36,
+         "width":32,
          "x":0,
          "y":0
         }, 
@@ -59,35 +59,13 @@
                 {
                  "height":96,
                  "id":1,
-                 "name":"temple2",
+                 "name":"temple5",
                  "rotation":0,
                  "type":"gate",
                  "visible":true,
                  "width":64,
                  "x":0,
-                 "y":480
-                }, 
-                {
-                 "height":96,
-                 "id":2,
-                 "name":"temple8",
-                 "rotation":0,
-                 "type":"gate",
-                 "visible":true,
-                 "width":64,
-                 "x":1088,
-                 "y":480
-                }, 
-                {
-                 "height":64,
-                 "id":3,
-                 "name":"temple7",
-                 "rotation":0,
-                 "type":"gate",
-                 "visible":true,
-                 "width":96,
-                 "x":512,
-                 "y":1088
+                 "y":448
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -107,7 +85,7 @@
          "y":0
         }],
  "nextlayerid":6,
- "nextobjectid":4,
+ "nextobjectid":2,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"2020.01.22",
@@ -129,5 +107,5 @@
  "tilewidth":32,
  "type":"map",
  "version":1.2,
- "width":36
+ "width":32
 }

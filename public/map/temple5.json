@@ -11,7 +11,7 @@
  "layers":[
         {
          "compression":"zlib",
-         "data":"eAHt0AENAAAAwqD3T20PBxEoDBgwYMCAAQMGDBgwYMCAgfeBARAAAAE=",
+         "data":"eAHt0AENAAAAwqD3T20PBxEoDBgwYMCAAQMGDBgwYMCAAQMGDBgwYMCAAQMGngYGGgAAAQ==",
          "encoding":"base64",
          "height":32,
          "id":1,
@@ -19,13 +19,13 @@
          "opacity":1,
          "type":"tilelayer",
          "visible":true,
-         "width":32,
+         "width":52,
          "x":0,
          "y":0
         }, 
         {
          "compression":"zlib",
-         "data":"eAHt0AENAAAAwqD3T20PBxEoDBgwYMCAAQMGDBgwYMCAgfeBARAAAAE=",
+         "data":"eAHt0AENAAAAwqD3T20PBxEoDBgwYMCAAQMGDBgwYMCAAQMGDBgwYMCAAQMGngYGGgAAAQ==",
          "encoding":"base64",
          "height":32,
          "id":2,
@@ -33,13 +33,13 @@
          "opacity":1,
          "type":"tilelayer",
          "visible":true,
-         "width":32,
+         "width":52,
          "x":0,
          "y":0
         }, 
         {
          "compression":"zlib",
-         "data":"eAHt0AENAAAAwqD3T20PBxEoDBgwYMCAAQMGDBgwYMCAgfeBARAAAAE=",
+         "data":"eAHt0AENAAAAwqD3T20PBxEoDBgwYMCAAQMGDBgwYMCAAQMGDBgwYMCAAQMGngYGGgAAAQ==",
          "encoding":"base64",
          "height":32,
          "id":3,
@@ -47,7 +47,7 @@
          "opacity":1,
          "type":"tilelayer",
          "visible":true,
-         "width":32,
+         "width":52,
          "x":0,
          "y":0
         }, 
@@ -57,15 +57,37 @@
          "name":"event",
          "objects":[
                 {
-                 "height":96,
+                 "height":64,
                  "id":1,
-                 "name":"temple3",
+                 "name":"temple2",
+                 "rotation":0,
+                 "type":"gate",
+                 "visible":true,
+                 "width":96,
+                 "x":1184,
+                 "y":960
+                }, 
+                {
+                 "height":96,
+                 "id":2,
+                 "name":"temple7",
                  "rotation":0,
                  "type":"gate",
                  "visible":true,
                  "width":64,
                  "x":0,
-                 "y":448
+                 "y":416
+                }, 
+                {
+                 "height":96,
+                 "id":3,
+                 "name":"temple6",
+                 "rotation":0,
+                 "type":"gate",
+                 "visible":true,
+                 "width":64,
+                 "x":1600,
+                 "y":256
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -85,7 +107,7 @@
          "y":0
         }],
  "nextlayerid":6,
- "nextobjectid":2,
+ "nextobjectid":4,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"2020.01.22",
@@ -107,5 +129,5 @@
  "tilewidth":32,
  "type":"map",
  "version":1.2,
- "width":32
+ "width":52
 }
