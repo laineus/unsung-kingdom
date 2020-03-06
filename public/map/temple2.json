@@ -1,17 +1,9 @@
-{ "compressionlevel":0,
- "editorsettings":
-    {
-     "export":
-        {
-         "target":"."
-        }
-    },
- "height":52,
+{ "height":52,
  "infinite":false,
  "layers":[
         {
          "compression":"zlib",
-         "data":"eAHt0DEBAAAAwqD1T20ND4hAYcCAAQMGDBgwYMCAAQMGDBgwYMCAAQMGDBgwYMCAAQMG\/gcGHuAAAQ==",
+         "data":"eJyV1sGO2zAQA1B3D3tp\/\/+j7GOsv+mhWSAGiBeOd3sQHCuSZsThkF7bth3PsT\/Hev1er\/f8fb5Gzp\/lvz3mrqfr83xjZB5n7Ds4K+eNt8f8znvGPJnfI477Vjzd1\/DK\/BdnmuuUS4ubTzHJe7Wa5J3ynJ21q5y5M3dE\/KxPnpdYtnpl\/g27hlU+E9ufnnfN5V1PznB\/7jm2Xo+sSWJ08i4XduYyvjVr\/ZM52ivysN3R86xN7nWNOe\/b+x0WZ6kZ5n\/Xa43T8s5YB+ev7f2eB\/N3NV+syTo3PVv8p7Ykj61568dc3\/ir5qbmqK\/W096wv61t09\/GXTFwfJej92q93jTP3mse1fTdvfZP65HWcy3\/xdo1xMl87EX1p\/l0q6f3bbVvHJ\/4LC8yn78\/GFk\/8TFu0zvvqNeqQ5+\/fjbUcfEyF3t0wq3l+PX8+I+hfiRWepO4yrXmkXneXR6\/nzj9eY0PMBB\/66i2Zm72gNphXpnH12i+qa4372q92fac5bzr\/cop88j4fgM0HUw8Wg+3b4zm\/7nnysvvBs9p92+18Izkjf50bu+1v\/678mo62fRVjCaNbzm7zpxy\/sEa+16ON41uOd6t8ztLz7jyEiO53HAXB3svsU6OqB\/Gud4f28wV7zhp5VSfxXzeQ32Rd1de+t\/i3XPbt4i+qD\/ojdYy7\/wYzm38njzc\/nBN6+\/2\/ZIxkl\/GX8RRp9p30E7czMt6yAkxtS6NK5l769vmQXqP2idfWx651m+XVYaYiJ3fVM3H9ARzlEtNR1uNzCEx0yfaXOvrvIe5iNukt+qTPdzwl0+TbnofdW4N8bN\/1MjmgZnLXX7Na+zjppuZ992e9mweoJdPnMh15uJ5DVv7s+WrTqu1kxZPmmB\/qMXNw3Kor02r1enGdfk01c7\/kmv29F1\/WQvraAz7XK0Qy+YBk+e0msp9\/WDSIWOoh80zWjz7td3fOfnbvk\/Eo+mH85MONN\/dt3ds22\/vN3HQfj1Z32pq\/7XaWMM2Gsenfpy82DWpu82b1JOp17OHGr+tg73U8hTn5t\/2mDXcWd90fuKuntj0X\/42fW66l3sOzm6+2HhinOYB32lu8ybv1ep0lt9tT9M2c9LLrG\/DVF+1Lompc2It5611YjdpQ\/PWppupf+p407v83XpdfOXVxD31ZuJNq\/edJumtjdsZu2FiT7feULeMLa7WVm2+00s1KznZsGhapU+oxU3TE\/+WX8PTNXn\/nPsHKSkeOw==",
          "encoding":"base64",
          "height":52,
          "id":1,
@@ -25,7 +17,7 @@
         }, 
         {
          "compression":"zlib",
-         "data":"eAHt0DEBAAAAwqD1T20ND4hAYcCAAQMGDBgwYMCAAQMGDBgwYMCAAQMGDBgwYMCAAQMG\/gcGHuAAAQ==",
+         "data":"eJztyKENACEQAEFOIND0XykCCoDw4hMQzLjdlAAA\/muL1z\/6hBzzK7HvW2rsGwAAAADgdQN8DwM8",
          "encoding":"base64",
          "height":52,
          "id":2,
@@ -39,7 +31,7 @@
         }, 
         {
          "compression":"zlib",
-         "data":"eAHt0DEBAAAAwqD1T20ND4hAYcCAAQMGDBgwYMCAAQMGDBgwYMCAAQMGDBgwYMCAAQMG\/gcGHuAAAQ==",
+         "data":"eJztwzENAAAIA7D514sALOyFtEkTAOCaKQIAAAAAwDcL\/6sIlQ==",
          "encoding":"base64",
          "height":52,
          "id":3,
@@ -121,19 +113,19 @@
  "nextobjectid":6,
  "orientation":"orthogonal",
  "renderorder":"right-down",
- "tiledversion":"2020.01.22",
+ "tiledversion":"1.2.1",
  "tileheight":32,
  "tilesets":[
         {
          "columns":10,
          "firstgid":1,
          "image":"..\/img\/tileset\/original\/temple.png",
-         "imageheight":512,
+         "imageheight":1024,
          "imagewidth":320,
          "margin":0,
          "name":"temple",
          "spacing":0,
-         "tilecount":160,
+         "tilecount":320,
          "tileheight":32,
          "tilewidth":32
         }],
