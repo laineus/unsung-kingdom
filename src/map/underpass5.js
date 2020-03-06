@@ -1,6 +1,7 @@
 import { dionysus } from '../event/moonshine'
 import { wine } from '../event/cassandra'
 export default {
+  name: 'トロイア公爵邸の地下通路 - 貯蔵庫',
   enemyLevel: 11,
   enemyGroups: [
     ['goblin', 'goblin'],

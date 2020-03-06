@@ -1,4 +1,5 @@
 export default {
+  name: '聖アンテルスの墓地 - 入口',
   enemyLevel: 14,
   enemyGroups: [
     ['phantom'],

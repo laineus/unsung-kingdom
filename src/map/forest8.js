@@ -1,4 +1,5 @@
 export default {
+  name: 'ワルコフォレンスの森 - 北西部',
   enemyLevel: 6,
   enemyGroups: [
     ['wolf'],

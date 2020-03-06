@@ -1,6 +1,7 @@
 import { dogEventFound } from '../event/dogEvent'
 import { mercenary2 } from '../event/mercenary'
 export default {
+  name: 'ワルコフォレンスの森 - 高台北西',
   enemyLevel: 4,
   enemyGroups: [
     ['wolf'],

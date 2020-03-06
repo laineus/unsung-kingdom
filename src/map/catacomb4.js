@@ -1,5 +1,6 @@
 import { dario } from '../event/dario'
 export default {
+  name: '聖アンテルスの墓地 - 共同墓地',
   enemyLevel: 16,
   enemyGroups: [
     ['phantom', 'phantom'],

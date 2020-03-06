@@ -1,4 +1,5 @@
 export default {
+  name: '聖アンテルスの墓地 - 西区画',
   enemyLevel: 18,
   enemyGroups: [
     ['ghost', 'ghost'],

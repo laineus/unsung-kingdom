@@ -1,5 +1,6 @@
 import { aragnie } from '../event/aragnie'
 export default {
+  name: 'アラグニエのねぐら',
   create (scene) {
     const boss = scene.map.getObjectById(3)
     const area = scene.map.getObjectById(5)
