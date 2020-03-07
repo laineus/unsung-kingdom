@@ -7,3 +7,4 @@ rule_catacomb_wall.tmx
 rule_catacomb_crif.tmx
 rule_catacomb_road.tmx
 rule_temple_wall.tmx
+rule_temple_road.tmx
