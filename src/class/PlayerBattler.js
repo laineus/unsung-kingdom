@@ -43,8 +43,11 @@ export default class PlayerBattler extends Battler {
     this.add(this.gauge)
     // weapon
     this.setWeapon()
-    this.lvLabel = this.scene.add.text(122, 38, this.weapon ? this.weapon.name : '-', { fill: config.COLORS.gray.toColorString, stroke: config.COLORS.dark.toColorString, strokeThickness: 2, fontSize: 14, fontFamily: config.FONTS.TEXT }).setOrigin(1, 1)
-    this.add(this.lvLabel)
+    this.weaponLabel = this.scene.add.container(122, 38).setSize(360, 45)
+    const weaponName = this.scene.add.text(0, 0, this.weapon ? this.weapon.name : '-', { fill: config.COLORS.gray.toColorString, stroke: config.COLORS.dark.toColorString, strokeThickness: 2, fontSize: 11, fontFamily: config.FONTS.TEXT }).setOrigin(1, 1)
+    const icon = this.scene.add.sprite(-weaponName.width, 2, `icon/${this.weapon.icon}`).setScale(0.18).setOrigin(1, 1).setTint(config.COLORS.gray)
+    this.weaponLabel.add([icon, weaponName])
+    this.add(this.weaponLabel)
   }
   get hp () {
     return this.source.hp
