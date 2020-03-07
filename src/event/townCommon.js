@@ -4,10 +4,31 @@ export const amber = async (scene, chara) => {
   const state = scene.storage.state.event.town.amber
   if (!state.includes(0)) {
     await scene.talk([
-      { chara, text: 'TODO' }
+      { chara, text: 'この間グリファルデ神殿に行ってきたの。' },
+      { chara: 'ann', text: '神殿、ですか？' },
+      { chara, text: 'あなたよそから来たなら知らないかしら。' },
+      { chara, text: '今は使われていない神殿なんだけど、' },
+      { chara, text: '十年ほど前にこの国を襲ったドラゴンがそこで眠っているの。' },
+      { chara, text: 'そのドラゴンと戦って神殿には封じたのは他でもないエドガー王よ。' },
+      { chara, text: 'この話はベリオンの民にとって誇りなの。' }
     ])
     chara.nextMessages = [
-      { chara, text: 'TODO' }
+      { chara, text: 'この話はベリオンの民にとって誇りなの。' }
+    ]
+    state.push(0)
+  } else if (!state.includes(0)) {
+    await scene.talk([
+      { chara, text: 'グリファルデ神殿のドラゴンが目覚めたんじゃないかって噂を聞いたわ。' },
+      { chara, text: 'ドラゴンが封じられている神殿の地下へは普通は入れないから、' },
+      { chara, text: '直接見た人が居るわけじゃないけれど、' },
+      { chara, text: '最近王弟が頻繁に神殿を訪れているらしいの。' },
+      { chara, text: 'だから神殿で何か起きているんじゃないかって皆心配しているわ。' },
+      { chara, text: 'いつかは目覚めるって昔から言われていたけれど、' },
+      { chara, text: '怖いわ。' }
+    ])
+    chara.nextMessages = [
+      { chara, text: 'いつかは目覚めるって昔から言われていたけれど、' },
+      { chara, text: '怖いわ。' }
     ]
     state.push(0)
   } else {
@@ -141,6 +162,24 @@ export const max = async (scene, chara) => {
     ])
     chara.nextMessages = [{ chara, text: 'エドガー王が即位してからこの国はずっと平和だ。' }]
     state.push(0)
+  } else if (!state.includes(1)) {
+    await scene.talk([
+      { chara, text: '最近、グリファルデ神殿のドラゴンが目覚めたんじゃないかって噂があるらしい。' },
+      { chara, text: 'もし本当だとしたら王国にとって一大事だ。' },
+      { chara, text: 'あのドラゴンは王を恨んでいるはずだからな。' },
+      { chara, text: 'いつここまで飛んできてもおかしくない。' }
+    ])
+    chara.nextMessages = [{ chara, text: 'もし本当だとしたら王国にとって一大事だ。' }]
+    state.push(1)
+  } else if (!state.includes(2)) {
+    await scene.talk([
+      { chara, text: '王にはエゼルバルドという弟が居てな、' },
+      { chara, text: '彼も相当剣の腕が立つらしい。' },
+      { chara, text: 'エドガー王はさすがに歳も歳だが、' },
+      { chara, text: 'もしこの国に危険が訪れたら、今度は王弟がなんとしてくれると思うぜ。' }
+    ])
+    chara.nextMessages = [{ chara, text: 'もしこの国に危険が訪れたら、今度は王弟がなんとしてくれると思うぜ。' }]
+    state.push(2)
   } else {
     await scene.talk([
       { chara, text: 'よお、元気かい？' }
