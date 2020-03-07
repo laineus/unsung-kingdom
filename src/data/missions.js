@@ -100,7 +100,7 @@ export default [
   {
     key: 'm4_1',
     chapter: 4,
-    title: '不浄のロレイン像',
+    title: '清浄なるロレイン像',
     en: 'Sinning Lorraine\'s statue',
     map: 'forest1'
   },
