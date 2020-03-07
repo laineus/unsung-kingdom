@@ -1,6 +1,7 @@
 module.exports = [
   { key: 'images', prefix: '', dir: '/img', rule: /^\w+\.png$/ },
   { key: 'faces', prefix: 'face/', dir: '/img/face', rule: /^\w+\.png$/ },
+  { key: 'icons', prefix: 'icon/', dir: '/img/icons', rule: /^\w+\.png$/ },
   { key: 'battlers', prefix: 'battler/', dir: '/img/battler', rule: /^\w+\.png$/ },
   { key: 'maps', prefix: 'map/', dir: '/img/map', rule: /^\w+\.png$/ },
   { key: 'tileset_images', prefix: 'tileset/', dir: '/img/tileset/image', rule: /^\w+\.png$/ },
