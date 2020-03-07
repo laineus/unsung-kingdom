@@ -10,6 +10,8 @@ export default {
     ...assetData.faces,
     // battler/*
     ...assetData.battlers,
+    // icon/*
+    ...assetData.icons,
     // tileset/*
     ['tileset/room', '../img/tileset/extruded/room.png'],
     ['tileset/town', '../img/tileset/extruded/town.png'],
