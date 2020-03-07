@@ -96,11 +96,11 @@ export default class MenuStatus extends Phaser.GameObjects.Container {
     const atk = this.scene.add.text(0, 110, 'ATK', option)
     const atkVal = this.scene.add.text(70, 110, chara.atk, option).setOrigin(1, 0)
     const def = this.scene.add.text(0, 132, 'DEF', option)
-    const defVal = this.scene.add.text(70, 132, chara.atk, option).setOrigin(1, 0)
+    const defVal = this.scene.add.text(70, 132, chara.def, option).setOrigin(1, 0)
     const dex = this.scene.add.text(92, 110, 'DEX', option)
     const dexVal = this.scene.add.text(162, 110, chara.dex, option).setOrigin(1, 0)
     const agi = this.scene.add.text(92, 132, 'AGI', option)
-    const agiVal = this.scene.add.text(162, 132, chara.dex, option).setOrigin(1, 0)
+    const agiVal = this.scene.add.text(162, 132, chara.agi, option).setOrigin(1, 0)
     const statuses = [atk, atkVal, def, defVal, dex, dexVal, agi, agiVal]
     gauge.value = chara.hp
     charaInformation.add([name, lv, hpLabel, hpMaxLabel, hpValueLabel, gauge, exp, ...statuses])
