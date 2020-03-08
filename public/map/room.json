@@ -14,7 +14,7 @@
  "name":"room",
  "spacing":0,
  "tilecount":100,
- "tiledversion":"2020.01.22",
+ "tiledversion":"2020.02.26",
  "tileheight":32,
  "tiles":[
         {
@@ -134,7 +134,7 @@
          "type":"collides"
         }, 
         {
-         "id":36,
+         "id":37,
          "type":"top"
         }, 
         {
