@@ -1,4 +1,12 @@
-{ "height":52,
+{ "compressionlevel":0,
+ "editorsettings":
+    {
+     "export":
+        {
+         "target":"."
+        }
+    },
+ "height":52,
  "infinite":false,
  "layers":[
         {
@@ -132,6 +140,17 @@
          "image":"..\/img\/tileset\/image\/temple_img2.png",
          "name":"img2",
          "opacity":1,
+         "properties":[
+                {
+                 "name":"blend",
+                 "type":"string",
+                 "value":"OVERLAY"
+                }, 
+                {
+                 "name":"top",
+                 "type":"bool",
+                 "value":true
+                }],
          "type":"imagelayer",
          "visible":true,
          "x":0,
@@ -142,16 +161,22 @@
          "image":"..\/img\/tileset\/image\/temple_img1.png",
          "name":"img",
          "opacity":1,
+         "properties":[
+                {
+                 "name":"top",
+                 "type":"bool",
+                 "value":true
+                }],
          "type":"imagelayer",
          "visible":true,
          "x":0,
          "y":0
         }],
- "nextlayerid":31,
+ "nextlayerid":32,
  "nextobjectid":6,
  "orientation":"orthogonal",
  "renderorder":"right-down",
- "tiledversion":"1.2.1",
+ "tiledversion":"2020.01.22",
  "tileheight":32,
  "tilesets":[
         {
