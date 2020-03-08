@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="2020.01.22" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="15" height="12" tilewidth="32" tileheight="32" infinite="0" nextlayerid="9" nextobjectid="1">
+<map version="1.2" tiledversion="1.2.1" orientation="orthogonal" renderorder="right-down" width="15" height="12" tilewidth="32" tileheight="32" infinite="0" nextlayerid="9" nextobjectid="1">
  <properties>
   <property name="MatchOutsideMap" type="bool" value="false"/>
  </properties>
- <tileset firstgid="1" name="mapchip" tilewidth="32" tileheight="32" tilecount="320" columns="10">
-  <image source="../img/tileset/original/temple.png" width="320" height="1024"/>
+ <tileset firstgid="1" name="mapchip" tilewidth="32" tileheight="32" tilecount="340" columns="10">
+  <image source="../img/tileset/original/temple.png" width="320" height="1088"/>
  </tileset>
  <layer id="5" name="regions" width="15" height="12" visible="0">
   <data encoding="csv">
@@ -56,8 +56,8 @@
  </layer>
  <layer id="8" name="output_layer1" width="15" height="12">
   <data encoding="csv">
-0,0,278,0,0,0,0,0,0,0,0,278,0,278,0,
-0,0,0,0,0,278,0,278,0,0,0,0,0,0,0,
+0,0,278,0,0,0,0,0,0,0,0,274,0,273,0,
+0,0,0,0,0,284,0,283,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
