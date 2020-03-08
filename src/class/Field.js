@@ -205,6 +205,14 @@ export default class Field {
   _getImage (data) {
     const image = data.image.split('/').slice(-1)[0].split('.')[0]
     const sprite = this.scene.add.sprite(data.x, data.y, `tileset/${image}`).setOrigin(0, 0).setDepth(this._getLayerIndexByName(data.name))
+    const blend = Array.isArray(data.properties) && data.properties.find(v => v.name === 'blend')
+    if (blend) {
+      sprite.setBlendMode(Phaser.BlendModes[blend.value])
+    }
+    const top = Array.isArray(data.properties) && data.properties.find(v => v.name === 'top')
+    if (top) {
+      sprite.setDepth(110000)
+    }
     sprite.name = data.name
     return sprite
   }
