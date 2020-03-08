@@ -48,10 +48,14 @@
     "m2_1": {
       "started": true,
       "completed": true,
-      "solved": true,
       "talked": true,
       "key": true,
-      "opened": true
+      "opened": true,
+      "wine": [
+        1,
+        2,
+        3
+      ]
     },
     "m2_2": {
       "started": true,

@@ -1,16 +1,16 @@
 {
-  "map": "catacomb1",
-  "x": 80,
-  "y": 464,
-  "r": 0,
-  "chapter": 3,
+  "map": "room1",
+  "x": 624,
+  "y": 352,
+  "r": 1.5707963267948966,
+  "chapter": 4,
   "event": {
     "chapter_begin": [
       true,
       true,
       true,
       true,
-      false,
+      true,
       false
     ],
     "m0_1": {
@@ -51,11 +51,7 @@
       "talked": true,
       "key": true,
       "opened": true,
-      "wine": [
-        1,
-        2,
-        3
-      ]
+      "wine": []
     },
     "m2_2": {
       "started": true,
@@ -79,27 +75,33 @@
       "found": true
     },
     "m3_1": {
-      "started": false,
-      "completed": false
+      "started": true,
+      "completed": true
     },
     "m3_2": {
-      "started": false,
-      "completed": false,
-      "count": 0
+      "started": true,
+      "completed": true,
+      "count": 3
     },
     "m3_3": {
-      "started": false,
-      "completed": false,
-      "solved": false
+      "started": true,
+      "completed": true,
+      "solved": true
     },
     "m3_4": {
-      "started": false,
-      "completed": false,
-      "ghosts": []
+      "started": true,
+      "completed": true,
+      "ghosts": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ]
     },
     "m3_5": {
-      "started": false,
-      "completed": false
+      "started": true,
+      "completed": true
     },
     "m4_1": {
       "started": false,
@@ -164,19 +166,23 @@
   "treasures": [
     "forest8_4",
     "forest3_5",
-    "underpass5_5"
+    "underpass5_5",
+    "catacomb2_5",
+    "catacomb5_8",
+    "catacomb8_9",
+    "catacomb6_9"
   ],
   "battlers": [
     {
       "key": "ann",
       "name": "Ann",
-      "lv": 14,
+      "lv": 25,
       "effect": "hit",
-      "hp": 83,
-      "atk": 17,
-      "def": 16,
-      "dex": 13,
-      "agi": 12,
+      "hp": 119,
+      "atk": 28,
+      "def": 27,
+      "dex": 20,
+      "agi": 19,
       "up": {
         "hp": 100,
         "atk": 100,
@@ -184,20 +190,20 @@
         "dex": 70,
         "agi": 70
       },
-      "exp": 296.66666666666663,
-      "max_hp": 105,
-      "weapon": 13
+      "exp": 954.6666666666666,
+      "max_hp": 160,
+      "weapon": 17
     },
     {
       "key": "francisca",
       "name": "Francisca",
-      "lv": 14,
+      "lv": 25,
       "effect": "hit",
       "hp": 61,
-      "atk": 13,
-      "def": 11,
-      "dex": 16,
-      "agi": 15,
+      "atk": 22,
+      "def": 19,
+      "dex": 27,
+      "agi": 26,
       "up": {
         "hp": 85,
         "atk": 85,
@@ -205,20 +211,20 @@
         "dex": 100,
         "agi": 85
       },
-      "exp": 293.66666666666663,
-      "max_hp": 85,
-      "weapon": 14
+      "exp": 955.6666666666666,
+      "max_hp": 140,
+      "weapon": 18
     },
     {
       "key": "jaquelyn",
       "name": "Jaquelyn",
-      "lv": 14,
+      "lv": 25,
       "effect": "hit",
-      "hp": 90,
-      "atk": 11,
-      "def": 12,
-      "dex": 15,
-      "agi": 17,
+      "hp": 133,
+      "atk": 20,
+      "def": 21,
+      "dex": 25,
+      "agi": 28,
       "up": {
         "hp": 90,
         "atk": 75,
@@ -226,9 +232,9 @@
         "dex": 85,
         "agi": 100
       },
-      "exp": 296.66666666666663,
-      "max_hp": 95,
-      "weapon": 7
+      "exp": 948.6666666666666,
+      "max_hp": 145,
+      "weapon": 20
     }
   ],
   "weapons": [
@@ -287,9 +293,37 @@
     {
       "id": 14,
       "weapon_id": 7
+    },
+    {
+      "id": 15,
+      "weapon_id": 9
+    },
+    {
+      "id": 16,
+      "weapon_id": 10
+    },
+    {
+      "id": 17,
+      "weapon_id": 15
+    },
+    {
+      "id": 18,
+      "weapon_id": 11
+    },
+    {
+      "id": 19,
+      "weapon_id": 10
+    },
+    {
+      "id": 20,
+      "weapon_id": 12
+    },
+    {
+      "id": 21,
+      "weapon_id": 13
     }
   ],
-  "saved": 1582531197,
+  "saved": 1583679282,
   "allowed_area": 4,
   "visited": [
     "forest1",
@@ -313,6 +347,17 @@
     "underpass8",
     "underpass9",
     "underpass10",
-    "catacomb1"
-  ]
+    "catacomb1",
+    "catacomb2",
+    "catacomb3",
+    "catacomb4",
+    "catacomb5",
+    "catacomb6",
+    "catacomb7",
+    "catacomb8",
+    "catacomb9",
+    "catacomb10",
+    "catacomb11"
+  ],
+  "gimmicks": []
 }

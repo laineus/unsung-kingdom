@@ -52,10 +52,10 @@
     "m2_1": {
       "started": false,
       "completed": false,
-      "solved": false,
       "talked": false,
       "key": false,
-      "opened": false
+      "opened": false,
+      "wine": []
     },
     "m2_2": {
       "started": false,

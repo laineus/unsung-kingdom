@@ -48,10 +48,10 @@
     "m2_1": {
       "started": false,
       "completed": false,
-      "solved": false,
       "talked": false,
       "key": false,
-      "opened": false
+      "opened": false,
+      "wine": []
     },
     "m2_2": {
       "started": false,
@@ -71,17 +71,17 @@
       "jack": false,
       "search": false,
       "talked": false,
-      "boss": false
+      "boss": false,
+      "found": false
     },
     "m3_1": {
       "started": false,
-      "completed": false,
-      "solved": false
+      "completed": false
     },
     "m3_2": {
       "started": false,
       "completed": false,
-      "solved": false
+      "count": 0
     },
     "m3_3": {
       "started": false,
@@ -233,9 +233,10 @@
       "weapon_id": 2
     }
   ],
-  "saved": 1581079207,
+  "saved": 1583679194,
   "allowed_area": 0,
   "visited": [
     "forest1"
-  ]
+  ],
+  "gimmicks": []
 }
