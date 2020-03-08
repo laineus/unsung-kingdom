@@ -118,7 +118,8 @@ export default class Field {
     top.data = tilemap.height.toArray().map(y => {
       return tilemap.width.toArray().map(x => {
         const found = visibleLayers.find(v => topTileIds.includes(v.data[y][x].index))
-        return new Phaser.Tilemaps.Tile(top, (found ? found.data[y][x].index : -1), x, y, 32, 32, 32, 32)
+        if (found) console.log(found.data[y][x])
+        return new Phaser.Tilemaps.Tile(top, (found ? found.data[y][x].index : -1), x, y, 32, 32, 32, 32).setFlip(found && found.data[y][x].flipX, found && found.data[y][x].flipY)
       })
     })
     return top
