@@ -13,12 +13,12 @@ export const execChapterBeginEvents = (scene) => {
   const jaquelyn = scene.jaquelyn.setPosition(591, 440).setR('up')
   state[chapter] = true
   scene.ui.autoEvent(async () => {
-    await events[chapter](scene, francisca, jaquelyn)
+    await events[chapter](scene)
   })
 }
 
 const events = [
-  async (scene, francisca, jaquelyn) => {
+  async (scene) => {
     await scene.talk([
       { chara: 'ann', text: 'じゃ、みんな、あらためてよろしく！' },
       { chara: 'jaquelyn', text: 'よろしくね、アン。' },
@@ -65,7 +65,7 @@ const events = [
     await scene.ui.transition('normal')
     setDefaultWeapon(scene.storage.state)
   },
-  async (scene, francisca, jaquelyn) => {
+  async (scene) => {
     scene.player.setR('down')
     await scene.ui.sleep(1000)
     await scene.talk([
@@ -109,7 +109,7 @@ const events = [
     await scene.ui.chapterStart(`${chapters[1].name} ${chapters[1].title}`)
     setDefaultWeapon(scene.storage.state)
   },
-  async (scene, francisca, jaquelyn) => {
+  async (scene) => {
     scene.player.setR('down')
     await scene.ui.sleep(1000)
     await scene.talk([
@@ -156,7 +156,7 @@ const events = [
     ])
     await scene.ui.chapterStart(`${chapters[2].name} ${chapters[2].title}`)
   },
-  async (scene, francisca, jaquelyn) => {
+  async (scene) => {
     scene.player.setR('down')
     await scene.ui.sleep(1000)
     await scene.talk([
@@ -192,5 +192,35 @@ const events = [
       { chara: 'ann', text: 'また街に出て聞き込みに行くよ！' }
     ])
     await scene.ui.chapterStart(`${chapters[3].name} ${chapters[3].title}`)
+  },
+  async (scene) => {
+    scene.player.setR('down')
+    await scene.ui.sleep(1000)
+    await scene.talk([
+      { chara: 'jaquelyn', text: '最後に王妃の亡霊が言っていたこと、気になるわね。' },
+      { chara: 'ann', text: 'ドラゴンのことだね。' },
+      { chara: 'francisca', text: 'あとジャックのことも、どうなったかな。' },
+      { chara: 'francisca', text: 'あそこで死なれていたとしたら厄介だ。' },
+      { chara: 'ann', text: 'そうなの？' },
+      { chara: 'francisca', text: 'まだ時間水晶を取り返していない。' },
+      { chara: 'ann', text: 'たしかに。' },
+      { chara: 'jaquelyn', text: 'とにかく、まずは王国史を確認してみましょう。' },
+      { chara: 'ann', text: 'オーケー。' },
+      { chara: 'ann', text: 'ええと、' },
+      { chara: 'ann', text: '「王はドラゴンとの戦いに破れて死ぬ」' },
+      { chara: 'ann', text: '王妃の言っていた件だね。' },
+      { chara: 'jaquelyn', text: 'ドラゴン…、' },
+      { chara: 'jaquelyn', text: '私たちの手に負えるかしら。' },
+      { chara: 'ann', text: 'でもやることシンプルだね！' },
+      { chara: 'ann', text: '倒せばいいんでしょ？' },
+      { chara: 'francisca', text: 'いや、倒すことにこだわらなくても…、' },
+      { chara: 'ann', text: 'そうか。' },
+      { chara: 'francisca', text: 'ところでさ、' },
+      { chara: 'francisca', text: 'なんか外が騒がしくない？' },
+      { chara: 'ann', text: 'たしかに、' },
+      { chara: 'ann', text: '今日は街の様子がいつもと違うね。' },
+      { chara: 'ann', text: '見に行ってみよう。' }
+    ])
+    await scene.ui.chapterStart(`${chapters[4].name} ${chapters[4].title}`)
   }
 ]
