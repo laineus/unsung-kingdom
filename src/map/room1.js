@@ -6,6 +6,6 @@ export default {
     scene.map.getObjectById(11).setEvent(async () => {
       scene.francisca.setTarget(scene.player)
       scene.jaquelyn.setTarget(scene.player)
-    })
+    }, false)
   }
 }

@@ -9,14 +9,15 @@ export default class Area extends Phaser.GameObjects.Zone {
       this.lastEnteredFrame = scene.frame
       if (!newEntered) return
       if (this.event && this.active) {
-        scene.ui.setEventMode(true)
+        scene.ui.setEventMode(this.eventMode)
         this.event().then(() => scene.ui.setEventMode(false))
       }
     })
     this.setActive(true)
   }
-  setEvent (callback) {
+  setEvent (callback, eventMode = true) {
     this.event = callback
+    this.eventMode = eventMode
     return this
   }
   setId (id) {
