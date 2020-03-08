@@ -75,11 +75,11 @@
         }, 
         {
          "id":18,
-         "type":"collides"
+         "type":"collides,top"
         }, 
         {
          "id":19,
-         "type":"collides"
+         "type":"collides,top"
         }, 
         {
          "id":20,
@@ -99,23 +99,23 @@
         }, 
         {
          "id":25,
-         "type":"collides"
+         "type":"collides,top"
         }, 
         {
          "id":26,
-         "type":"collides"
+         "type":"collides,top"
         }, 
         {
          "id":27,
-         "type":"collides"
+         "type":"collides,top"
         }, 
         {
          "id":28,
-         "type":"collides"
+         "type":"collides,top"
         }, 
         {
          "id":29,
-         "type":"collides"
+         "type":"collides,top"
         }, 
         {
          "id":30,
@@ -131,15 +131,15 @@
         }, 
         {
          "id":35,
-         "type":"collides"
+         "type":"collides,top"
         }, 
         {
          "id":36,
-         "type":"collides"
+         "type":"collides,top"
         }, 
         {
          "id":37,
-         "type":"collides"
+         "type":"collides,top"
         }, 
         {
          "id":38,

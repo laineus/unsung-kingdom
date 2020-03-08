@@ -147,9 +147,9 @@
                  "value":"OVERLAY"
                 }, 
                 {
-                 "name":"top",
-                 "type":"bool",
-                 "value":true
+                 "name":"depth",
+                 "type":"string",
+                 "value":"LIGHT"
                 }],
          "type":"imagelayer",
          "visible":true,
@@ -163,9 +163,9 @@
          "opacity":1,
          "properties":[
                 {
-                 "name":"top",
-                 "type":"bool",
-                 "value":true
+                 "name":"depth",
+                 "type":"string",
+                 "value":"DARKNESS"
                 }],
          "type":"imagelayer",
          "visible":true,
