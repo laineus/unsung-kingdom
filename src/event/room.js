@@ -9,8 +9,8 @@ export const execChapterBeginEvents = (scene) => {
   const chapter = scene.storage.state.chapter
   const state = scene.storage.state.event.chapter_begin
   if (state[chapter]) return
-  const francisca = scene.francisca.setPosition(655, 440).setR('up')
-  const jaquelyn = scene.jaquelyn.setPosition(591, 440).setR('up')
+  const francisca = scene.francisca.setPosition(655, 440).setR('up').setTarget(null)
+  const jaquelyn = scene.jaquelyn.setPosition(591, 440).setR('up').setTarget(null)
   state[chapter] = true
   scene.ui.autoEvent(async () => {
     await events[chapter](scene)
