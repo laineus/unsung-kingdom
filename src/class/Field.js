@@ -3,6 +3,14 @@ import Gate from './Gate'
 import Character from './Character'
 import Substance from './Substance'
 import TreasureChest from './TreasureChest'
+const DEPTH = {
+  GROUND: 0,
+  PARTICLES: 100000,
+  TOP: 110000,
+  LIGHT: 120000,
+  SUN_LIGHT: 140000,
+  DARKNESS: 130000
+}
 const getValueByProperties = (properties, key) => {
   if (!Array.isArray(properties)) return null
   const property = properties.find(v => v.name === key)
@@ -34,7 +42,7 @@ export default class Field {
       const allAnimTiles = this.animationTiles.map(v => v.targets).flat()
       const hasAnimTile = layer.data.flat().some(v => allAnimTiles.includes(v))
       const typeName = dynamicFlag || hasAnimTile ? 'createDynamicLayer' : 'createStaticLayer'
-      return layer.visible ? tilemap[typeName](i, tilesets, 0, 0).setDepth(this._getLayerIndexByName(layer.name)) : null
+      return layer.visible ? tilemap[typeName](i, tilesets, 0, 0).setDepth(DEPTH.GROUND + this._getLayerIndexByName(layer.name)) : null
     }).filter(Boolean)
     const lights = this._generateLights(tilemap)
     const darkness = getValueByProperties(tilemap.properties, 'darkness')
@@ -49,7 +57,7 @@ export default class Field {
     this.images = tilemap.images.map(data => this._getImage(data))
     const collides = this._getTileIdsByType(tilemap, 'collides')
     this.layers.forEach(layer => layer.setCollision(collides))
-    this.layers[this.layers.length - 1].setDepth(100000)
+    this.layers[this.layers.length - 1].setDepth(DEPTH.TOP)
     scene.physics.add.collider(this.layers, scene.substances)
     this.gates = this._getObjects(tilemap, 'gate').map(this._toAreaData).map(gate => new Gate(scene, gate.key, gate.x, gate.y, gate.zone_x, gate.zone_y, gate.zone_width, gate.zone_height).setId(gate.id))
     this.areas = this._getObjects(tilemap, 'area').map(this._toAreaData).map(area => new Area(scene, area.zone_x, area.zone_y, area.zone_width, area.zone_height).setId(area.id))
@@ -116,9 +124,9 @@ export default class Field {
     return top
   }
   _generateSunLight () {
-    const sun1 = this.scene.add.sprite(30, -70, 'sun_light').setDepth(170000).setBlendMode(Phaser.BlendModes.OVERLAY).setOrigin(0.5, 0).setScale(1.4, 10).setRotation(-1.1).setAlpha(0.6)
-    const sun2 = this.scene.add.sprite(-70, -70, 'sun_light').setDepth(170000).setBlendMode(Phaser.BlendModes.OVERLAY).setOrigin(0.5, 0).setScale(0.8, 10).setRotation(-0.8).setAlpha(0.6)
-    const sun3 = this.scene.add.sprite(-70, 30, 'sun_light').setDepth(170000).setBlendMode(Phaser.BlendModes.OVERLAY).setOrigin(0.5, 0).setScale(0.4, 10).setRotation(-0.5).setAlpha(0.6)
+    const sun1 = this.scene.add.sprite(30, -70, 'sun_light').setDepth(DEPTH.SUN_LIGHT).setBlendMode(Phaser.BlendModes.OVERLAY).setOrigin(0.5, 0).setScale(1.4, 10).setRotation(-1.1).setAlpha(0.6)
+    const sun2 = this.scene.add.sprite(-70, -70, 'sun_light').setDepth(DEPTH.SUN_LIGHT).setBlendMode(Phaser.BlendModes.OVERLAY).setOrigin(0.5, 0).setScale(0.8, 10).setRotation(-0.8).setAlpha(0.6)
+    const sun3 = this.scene.add.sprite(-70, 30, 'sun_light').setDepth(DEPTH.SUN_LIGHT).setBlendMode(Phaser.BlendModes.OVERLAY).setOrigin(0.5, 0).setScale(0.4, 10).setRotation(-0.5).setAlpha(0.6)
     Array(sun1, sun2, sun3).forEach(sun => {
       this.scene.add.tween({
         targets: sun, duration: Math.randomInt(400, 700),
@@ -142,8 +150,8 @@ export default class Field {
     })
   }
   getLight (x, y, color, drop = false) {
-    const sprite = this.scene.add.sprite(x, y, 'light').setTint(color).setScale(0.5).setBlendMode(Phaser.BlendModes.OVERLAY).setDepth(100000)
-    const sprite2 = drop ? this.scene.add.sprite(x, y + 55, 'light').setAlpha(0.8).setTint(color).setScale(0.6).setBlendMode(Phaser.BlendModes.OVERLAY).setDepth(100000) : null
+    const sprite = this.scene.add.sprite(x, y, 'light').setTint(color).setScale(0.5).setBlendMode(Phaser.BlendModes.OVERLAY).setDepth(DEPTH.LIGHT)
+    const sprite2 = drop ? this.scene.add.sprite(x, y + 55, 'light').setAlpha(0.8).setTint(color).setScale(0.6).setBlendMode(Phaser.BlendModes.OVERLAY).setDepth(DEPTH.LIGHT) : null
     this.scene.add.tween({
       targets: [sprite, ...(sprite2 ? [sprite2] : [])], duration: Math.randomInt(300, 400),
       scale: 0.6, alpha: 0.8, yoyo: true, loop: -1
@@ -152,7 +160,7 @@ export default class Field {
   }
   _generateParticles (color) {
     const particles = this.scene.add.particles('light')
-    particles.setDepth(90000)
+    particles.setDepth(DEPTH.PARTICLES)
     particles.createEmitter({
       x: { min: 0, max: Math.max(this.width, (40).toPixel) },
       y: { min: 0, max: Math.max(this.height, (40).toPixel) },
@@ -169,7 +177,7 @@ export default class Field {
   }
   _renderDarkness (alpha, color, lights, exposures) {
     const posAndSize = [0, 0, this.width, this.height]
-    const dark = this.scene.add.renderTexture(...posAndSize).fill(color, alpha, ...posAndSize).setOrigin(0.0).setDepth(110000)
+    const dark = this.scene.add.renderTexture(...posAndSize).fill(color, alpha, ...posAndSize).setOrigin(0.0).setDepth(DEPTH.DARKNESS)
     const brush = this.scene.add.image(0, 0, 'light').setScale(3, 3)
     lights.forEach(light => dark.erase(brush, light.x, light.y, 1))
     exposures.forEach(exp => dark.erase(brush, exp.x, exp.y, 1))
@@ -203,15 +211,11 @@ export default class Field {
   }
   _getImage (data) {
     const image = data.image.split('/').slice(-1)[0].split('.')[0]
-    const sprite = this.scene.add.sprite(data.x, data.y, `tileset/${image}`).setOrigin(0, 0).setDepth(this._getLayerIndexByName(data.name))
-    const blend = Array.isArray(data.properties) && data.properties.find(v => v.name === 'blend')
-    if (blend) {
-      sprite.setBlendMode(Phaser.BlendModes[blend.value])
-    }
-    const top = Array.isArray(data.properties) && data.properties.find(v => v.name === 'top')
-    if (top) {
-      sprite.setDepth(110000)
-    }
+    const sprite = this.scene.add.sprite(data.x, data.y, `tileset/${image}`).setOrigin(0, 0).setDepth(DEPTH.GROUND + this._getLayerIndexByName(data.name))
+    const blend = getValueByProperties(data.properties, 'blend')
+    if (blend) sprite.setBlendMode(Phaser.BlendModes[blend])
+    const depth = getValueByProperties(data.properties, 'depth')
+    if (depth) sprite.setDepth(DEPTH[depth])
     sprite.name = data.name
     return sprite
   }
