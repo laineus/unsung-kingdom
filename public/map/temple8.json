@@ -1,4 +1,12 @@
-{ "height":36,
+{ "compressionlevel":0,
+ "editorsettings":
+    {
+     "export":
+        {
+         "target":"."
+        }
+    },
+ "height":36,
  "infinite":false,
  "layers":[
         {
@@ -45,7 +53,18 @@
                 {
                  "height":96,
                  "id":1,
-                 "name":"temple6",
+                 "name":"temple3",
+                 "properties":[
+                        {
+                         "name":"x",
+                         "type":"int",
+                         "value":33
+                        }, 
+                        {
+                         "name":"y",
+                         "type":"int",
+                         "value":16
+                        }],
                  "rotation":0,
                  "type":"gate",
                  "visible":true,
@@ -57,6 +76,17 @@
                  "height":64,
                  "id":2,
                  "name":"temple9",
+                 "properties":[
+                        {
+                         "name":"x",
+                         "type":"int",
+                         "value":15
+                        }, 
+                        {
+                         "name":"y",
+                         "type":"int",
+                         "value":33
+                        }],
                  "rotation":0,
                  "type":"gate",
                  "visible":true,
@@ -68,6 +98,17 @@
                  "height":64,
                  "id":3,
                  "name":"temple10",
+                 "properties":[
+                        {
+                         "name":"x",
+                         "type":"int",
+                         "value":14
+                        }, 
+                        {
+                         "name":"y",
+                         "type":"int",
+                         "value":2
+                        }],
                  "rotation":0,
                  "type":"gate",
                  "visible":true,
@@ -96,19 +137,19 @@
  "nextobjectid":4,
  "orientation":"orthogonal",
  "renderorder":"right-down",
- "tiledversion":"1.2.1",
+ "tiledversion":"2020.01.22",
  "tileheight":32,
  "tilesets":[
         {
          "columns":10,
          "firstgid":1,
          "image":"..\/img\/tileset\/original\/temple.png",
-         "imageheight":1024,
+         "imageheight":1088,
          "imagewidth":320,
          "margin":0,
          "name":"temple",
          "spacing":0,
-         "tilecount":320,
+         "tilecount":340,
          "tileheight":32,
          "tilewidth":32
         }],

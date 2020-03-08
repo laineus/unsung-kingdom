@@ -60,6 +60,17 @@
                  "height":64,
                  "id":1,
                  "name":"temple11",
+                 "properties":[
+                        {
+                         "name":"x",
+                         "type":"int",
+                         "value":9
+                        }, 
+                        {
+                         "name":"y",
+                         "type":"int",
+                         "value":25
+                        }],
                  "rotation":0,
                  "type":"gate",
                  "visible":true,
@@ -71,6 +82,17 @@
                  "height":64,
                  "id":2,
                  "name":"temple13",
+                 "properties":[
+                        {
+                         "name":"x",
+                         "type":"int",
+                         "value":49
+                        }, 
+                        {
+                         "name":"y",
+                         "type":"int",
+                         "value":2
+                        }],
                  "rotation":0,
                  "type":"gate",
                  "visible":true,
@@ -106,12 +128,12 @@
          "columns":10,
          "firstgid":1,
          "image":"..\/img\/tileset\/original\/temple.png",
-         "imageheight":512,
+         "imageheight":1088,
          "imagewidth":320,
          "margin":0,
          "name":"temple",
          "spacing":0,
-         "tilecount":160,
+         "tilecount":340,
          "tileheight":32,
          "tilewidth":32
         }],
