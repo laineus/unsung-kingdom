@@ -3,6 +3,11 @@ import Gate from './Gate'
 import Character from './Character'
 import Substance from './Substance'
 import TreasureChest from './TreasureChest'
+const getValueByProperties = (properties, key) => {
+  if (!Array.isArray(properties)) return null
+  const property = properties.find(v => v.name === key)
+  return property ? property.value : null
+}
 const parseArgb = str => {
   return {
     alpha: parseInt(str.slice(1, 3), 16) / 255,
@@ -25,23 +30,22 @@ export default class Field {
       return { targets, animations: v.setting.animation, max }
     })
     this.layers = tilemap.layers.map((layer, i) => {
-      const dynamicOpt = Array.isArray(layer.properties) && layer.properties.find(v => v.name === 'dynamic')
-      const dynamicFlag = dynamicOpt && dynamicOpt.value
+      const dynamicFlag = getValueByProperties(layer.properties, 'dynamic')
       const allAnimTiles = this.animationTiles.map(v => v.targets).flat()
       const hasAnimTile = layer.data.flat().some(v => allAnimTiles.includes(v))
       const typeName = dynamicFlag || hasAnimTile ? 'createDynamicLayer' : 'createStaticLayer'
       return layer.visible ? tilemap[typeName](i, tilesets, 0, 0).setDepth(this._getLayerIndexByName(layer.name)) : null
     }).filter(Boolean)
     const lights = this._generateLights(tilemap)
-    const darkness = this._getProperty(tilemap, 'darkness')
+    const darkness = getValueByProperties(tilemap.properties, 'darkness')
     if (darkness) {
-      const { alpha, color } = parseArgb(darkness.value)
+      const { alpha, color } = parseArgb(darkness)
       this._renderDarkness(alpha, color, lights, this._getExposures(tilemap))
     }
-    const sun = this._getProperty(tilemap, 'sun')
+    const sun = getValueByProperties(tilemap.properties, 'sun')
     if (sun) this._generateSunLight()
-    const particles = this._getProperty(tilemap, 'particles')
-    if (particles) this._generateParticles(parseArgb(particles.value).color)
+    const particles = getValueByProperties(tilemap.properties, 'particles')
+    if (particles) this._generateParticles(parseArgb(particles).color)
     this.images = tilemap.images.map(data => this._getImage(data))
     const collides = this._getTileIdsByType(tilemap, 'collides')
     this.layers.forEach(layer => layer.setCollision(collides))
@@ -98,9 +102,6 @@ export default class Field {
         return { id: v.id + set.firstgid, setting: v }
       })
     }).flat()
-  }
-  _getProperty (tilemap, name) {
-    return Array.isArray(tilemap.properties) && tilemap.properties.find(p => p.name === name)
   }
   _generateTopLayer (tilemap) {
     const visibleLayers = tilemap.layers.filter(v => v.visible).reverse()
@@ -220,8 +221,8 @@ export default class Field {
     return {
       id: v.id,
       key: v.name,
-      x: v.properties && v.properties.find(v => v.name === 'x').value,
-      y: v.properties && v.properties.find(v => v.name === 'y').value,
+      x: getValueByProperties(v.properties, 'x'),
+      y: getValueByProperties(v.properties, 'y'),
       zone_x: v.x,
       zone_y: v.y,
       zone_width: v.width,
