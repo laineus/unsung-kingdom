@@ -180,15 +180,13 @@ export default class Field {
     return tilemap.tilesets.map(tileset => tilemap.addTilesetImage(tileset.name, `tileset/${tileset.name}`, 32, 32, 1, 2))
   }
   _getTileSettingsByType (tilemap, type) {
-    return tilemap.tilesets.map(set => {
-      return this._getAllTileSettings(tilemap).filter(tile => tile.setting.type && tile.setting.type.split(',').includes(type)).map(tile => {
-        const properties = tile.setting.properties ? tile.setting.properties.reduce((obj, v) => {
-          obj[v.name] = v.value
-          return obj
-        }, {}) : {}
-        return { id: tile.id, properties }
-      })
-    }).flat()
+    return this._getAllTileSettings(tilemap).filter(tile => tile.setting.type && tile.setting.type.split(',').includes(type)).map(tile => {
+      const properties = tile.setting.properties ? tile.setting.properties.reduce((obj, v) => {
+        obj[v.name] = v.value
+        return obj
+      }, {}) : {}
+      return { id: tile.id, properties }
+    })
   }
   _getTileIdsByType (tilemap, type) {
     return this._getTileSettingsByType(tilemap, type).map(v => v.id)
