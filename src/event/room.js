@@ -11,9 +11,9 @@ export const execChapterBeginEvents = (scene) => {
   if (state[chapter]) return
   const francisca = scene.francisca.setPosition(655, 440).setR('up').setTarget(null)
   const jaquelyn = scene.jaquelyn.setPosition(591, 440).setR('up').setTarget(null)
-  state[chapter] = true
   scene.ui.autoEvent(async () => {
     await events[chapter](scene)
+    state[chapter] = true
   })
 }
 
@@ -203,7 +203,7 @@ const events = [
       { chara: 'francisca', text: 'あそこで死なれていたとしたら厄介だ。' },
       { chara: 'ann', text: 'そうなの？' },
       { chara: 'francisca', text: 'まだ時間水晶を取り返していない。' },
-      { chara: 'ann', text: 'たしかに。' },
+      { chara: 'ann', text: 'たしかに！' },
       { chara: 'jaquelyn', text: 'とにかく、まずは王国史を確認してみましょう。' },
       { chara: 'ann', text: 'オーケー。' },
       { chara: 'ann', text: 'ええと、' },
@@ -213,13 +213,12 @@ const events = [
       { chara: 'jaquelyn', text: '私たちの手に負えるかしら。' },
       { chara: 'ann', text: 'でもやることシンプルだね！' },
       { chara: 'ann', text: '倒せばいいんでしょ？' },
-      { chara: 'francisca', text: 'いや、倒すことにこだわらなくても…、' },
-      { chara: 'ann', text: 'そうか。' },
+      { chara: 'francisca', text: 'たしかに、今までみたいに回りくどいことはないね。' },
       { chara: 'francisca', text: 'ところでさ、' },
       { chara: 'francisca', text: 'なんか外が騒がしくない？' },
-      { chara: 'ann', text: 'たしかに、' },
+      { chara: 'ann', text: 'そう言われてみれば、' },
       { chara: 'ann', text: '今日は街の様子がいつもと違うね。' },
-      { chara: 'ann', text: '見に行ってみよう。' }
+      { chara: 'ann', text: '見に行ってみよう！' }
     ])
     await scene.ui.chapterStart(`${chapters[4].name} ${chapters[4].title}`)
   }
