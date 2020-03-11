@@ -145,7 +145,7 @@ export default class GameScene extends Phaser.Scene {
         reader.readAsText(file)
         reader.onload = e =>  {
           const json = e.target.result
-          this.storage.state = JSON.parse(json)
+          this.storage.state = this.storage.fixState(JSON.parse(json))
           this.mapChange(this.storage.state.map, this.storage.state.x, this.storage.state.y, { save: false })
         }
       }

@@ -85,5 +85,6 @@ export default class StorageManager {
       v.max_hp = v.maxHp
       delete v.maxHp
     })
+    return data
   }
 }
