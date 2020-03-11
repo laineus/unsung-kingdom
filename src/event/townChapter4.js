@@ -12,6 +12,10 @@ export default (scene, charas) => {
     scene.storage.state.allowed_area = 5
     scene.ui.announce('マップ「グリファルデ神殿」が解放された')
   }
+  const charaKeys = ['annabelle', 'elliott', 'max', 'amber', 'matilda']
+  Array.range(13, 17).map(id => scene.map.getObjectById(id)).forEach((pos, i) => {
+    charas[charaKeys[i]].setPosition(pos.x, pos.y).setR('left').setRandomWalk(false)
+  })
   // 噂好きのアンバー婦人
   charas.amber.setTapEvent(async chara => {
     await scene.talk([
