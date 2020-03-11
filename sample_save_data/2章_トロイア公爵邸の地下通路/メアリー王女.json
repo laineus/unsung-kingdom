@@ -151,6 +151,13 @@
       "talked_amber": false,
       "talked_max": false,
       "talked_matilda": false
+    },
+    "m4": {
+      "talked_amber": false,
+      "talked_elliott": false,
+      "talked_max": false,
+      "talked_matilda": false,
+      "talked_annabelle": false
     }
   },
   "treasures": [
@@ -282,5 +289,6 @@
     "underpass2",
     "underpass3",
     "underpass4"
-  ]
+  ],
+  "gimmicks": []
 }

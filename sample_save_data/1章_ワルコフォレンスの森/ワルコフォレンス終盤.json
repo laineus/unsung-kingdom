@@ -71,17 +71,17 @@
       "jack": false,
       "search": false,
       "talked": false,
-      "boss": false
+      "boss": false,
+      "found": false
     },
     "m3_1": {
       "started": false,
-      "completed": false,
-      "solved": false
+      "completed": false
     },
     "m3_2": {
       "started": false,
       "completed": false,
-      "solved": false
+      "count": 0
     },
     "m3_3": {
       "started": false,
@@ -151,6 +151,13 @@
       "talked_amber": false,
       "talked_max": false,
       "talked_matilda": false
+    },
+    "m4": {
+      "talked_amber": false,
+      "talked_elliott": false,
+      "talked_max": false,
+      "talked_matilda": false,
+      "talked_annabelle": false
     }
   },
   "treasures": [
@@ -264,7 +271,7 @@
       "weapon_id": 3
     }
   ],
-  "saved": 1580024616,
+  "saved": 1583939409,
   "allowed_area": 0,
   "visited": [
     "forest1",
@@ -275,5 +282,6 @@
     "forest8",
     "forest9",
     "forest3"
-  ]
+  ],
+  "gimmicks": []
 }

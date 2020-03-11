@@ -75,17 +75,17 @@
       "jack": false,
       "talked": false,
       "search": false,
-      "boss": false
+      "boss": false,
+      "found": false
     },
     "m3_1": {
       "started": false,
-      "completed": false,
-      "solved": false
+      "completed": false
     },
     "m3_2": {
       "started": false,
       "completed": false,
-      "solved": false
+      "count": 0
     },
     "m3_3": {
       "started": false,
@@ -153,6 +153,13 @@
       "matilda": [],
       "elliott": [],
       "max": []
+    },
+    "m4": {
+      "talked_amber": false,
+      "talked_elliott": false,
+      "talked_max": false,
+      "talked_matilda": false,
+      "talked_annabelle": false
     }
   },
   "treasures": [],
@@ -235,5 +242,6 @@
       "weapon_id": 2
     }
   ],
-  "saved": 1581737629
+  "saved": 1583939291,
+  "gimmicks": []
 }

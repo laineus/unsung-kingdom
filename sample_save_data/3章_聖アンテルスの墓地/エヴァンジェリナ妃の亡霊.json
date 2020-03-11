@@ -165,6 +165,13 @@
       "talked_amber": true,
       "talked_max": true,
       "talked_matilda": true
+    },
+    "m4": {
+      "talked_amber": false,
+      "talked_elliott": false,
+      "talked_max": false,
+      "talked_matilda": false,
+      "talked_annabelle": false
     }
   },
   "treasures": [
