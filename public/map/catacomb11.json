@@ -47,7 +47,7 @@
         }, 
         {
          "id":11,
-         "image":"..\/img\/tileset\/image\/catacombe_tile.png",
+         "image":"..\/img\/tilesets\/image\/catacombe_tile.png",
          "name":"circle",
          "offsetx":288,
          "offsety":736,
@@ -59,7 +59,7 @@
         }, 
         {
          "id":12,
-         "image":"..\/img\/tileset\/image\/catacombe_img.png",
+         "image":"..\/img\/tilesets\/image\/catacombe_img.png",
          "name":"wall",
          "offsetx":269,
          "offsety":48,
@@ -216,7 +216,7 @@
         {
          "columns":10,
          "firstgid":1,
-         "image":"..\/img\/tileset\/original\/catacomb.png",
+         "image":"..\/img\/tilesets\/original\/catacomb.png",
          "imageheight":832,
          "imagewidth":320,
          "margin":0,

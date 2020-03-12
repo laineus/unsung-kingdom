@@ -181,7 +181,7 @@
         }, 
         {
          "id":30,
-         "image":"..\/img\/tileset\/image\/temple_img2.png",
+         "image":"..\/img\/tilesets\/image\/temple_img2.png",
          "name":"img2",
          "opacity":1,
          "properties":[
@@ -202,7 +202,7 @@
         }, 
         {
          "id":29,
-         "image":"..\/img\/tileset\/image\/temple_img1.png",
+         "image":"..\/img\/tilesets\/image\/temple_img1.png",
          "name":"img",
          "opacity":1,
          "properties":[
@@ -226,7 +226,7 @@
         {
          "columns":10,
          "firstgid":1,
-         "image":"..\/img\/tileset\/original\/temple.png",
+         "image":"..\/img\/tilesets\/original\/temple.png",
          "imageheight":1088,
          "imagewidth":320,
          "margin":0,

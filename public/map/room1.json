@@ -140,7 +140,7 @@
         {
          "columns":10,
          "firstgid":1,
-         "image":"..\/img\/tileset\/original\/room.png",
+         "image":"..\/img\/tilesets\/original\/room.png",
          "imageheight":320,
          "imagewidth":320,
          "margin":0,

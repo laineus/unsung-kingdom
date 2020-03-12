@@ -1,4 +1,4 @@
 node_modules
 ignore
 /public/js/*.bundle.js
-/public/img/tileset/extruded/*.png
+/public/img/tilesets/extruded/*.png

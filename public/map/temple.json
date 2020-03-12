@@ -7,7 +7,7 @@
          "target":"."
         }
     },
- "image":"..\/img\/tileset\/original\/temple.png",
+ "image":"..\/img\/tilesets\/original\/temple.png",
  "imageheight":1024,
  "imagewidth":320,
  "margin":0,

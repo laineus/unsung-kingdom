@@ -59,7 +59,7 @@
         }, 
         {
          "id":22,
-         "image":"..\/img\/tileset\/image\/aragnie_jail.png",
+         "image":"..\/img\/tilesets\/image\/aragnie_jail.png",
          "name":"jail",
          "offsetx":1312,
          "offsety":320,
@@ -71,7 +71,7 @@
         }, 
         {
          "id":23,
-         "image":"..\/img\/tileset\/image\/underpass_door.png",
+         "image":"..\/img\/tilesets\/image\/underpass_door.png",
          "name":"door",
          "offsetx":912,
          "offsety":96,
@@ -83,7 +83,7 @@
         }, 
         {
          "id":20,
-         "image":"..\/img\/tileset\/image\/underpass_img2.png",
+         "image":"..\/img\/tilesets\/image\/underpass_img2.png",
          "name":"stones",
          "offsetx":411,
          "offsety":862,
@@ -95,7 +95,7 @@
         }, 
         {
          "id":21,
-         "image":"..\/img\/tileset\/image\/underpass_img2.png",
+         "image":"..\/img\/tilesets\/image\/underpass_img2.png",
          "name":"stones",
          "offsetx":911,
          "offsety":167,
@@ -107,7 +107,7 @@
         }, 
         {
          "id":16,
-         "image":"..\/img\/tileset\/image\/aragnie_yarn.png",
+         "image":"..\/img\/tilesets\/image\/aragnie_yarn.png",
          "name":"aragnie_yarn",
          "offsetx":542,
          "offsety":418,
@@ -301,7 +301,7 @@
         {
          "columns":10,
          "firstgid":1,
-         "image":"..\/img\/tileset\/original\/underpass.png",
+         "image":"..\/img\/tilesets\/original\/underpass.png",
          "imageheight":512,
          "imagewidth":320,
          "margin":0,

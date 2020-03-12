@@ -1,7 +1,7 @@
 const { extrudeTilesetToImage } = require('tile-extruder')
 const fs = require('fs')
 
-const DIR = './public/img/tileset'
+const DIR = './public/img/tilesets'
 const ORIGINAL = `${DIR}/original`
 const EXTRUDED = `${DIR}/extruded`
 

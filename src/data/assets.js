@@ -13,12 +13,12 @@ export default {
     // icon/*
     ...assetData.icons,
     // tileset/*
-    ['tileset/room', '../img/tileset/extruded/room.png'],
-    ['tileset/town', '../img/tileset/extruded/town.png'],
-    ['tileset/forest', '../img/tileset/extruded/forest.png'],
-    ['tileset/underpass', '../img/tileset/extruded/underpass.png'],
-    ['tileset/catacomb', '../img/tileset/extruded/catacomb.png'],
-    ['tileset/temple', '../img/tileset/extruded/temple.png'],
+    ['tileset/room', '../img/tilesets/extruded/room.png'],
+    ['tileset/town', '../img/tilesets/extruded/town.png'],
+    ['tileset/forest', '../img/tilesets/extruded/forest.png'],
+    ['tileset/underpass', '../img/tilesets/extruded/underpass.png'],
+    ['tileset/catacomb', '../img/tilesets/extruded/catacomb.png'],
+    ['tileset/temple', '../img/tilesets/extruded/temple.png'],
     ...assetData.tilesetImages,
   ],
   json: [

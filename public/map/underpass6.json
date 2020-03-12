@@ -59,7 +59,7 @@
         }, 
         {
          "id":17,
-         "image":"..\/img\/tileset\/image\/underpass_img1.png",
+         "image":"..\/img\/tilesets\/image\/underpass_img1.png",
          "name":"img",
          "offsetx":491,
          "offsety":252,
@@ -191,7 +191,7 @@
         {
          "columns":10,
          "firstgid":1,
-         "image":"..\/img\/tileset\/original\/underpass.png",
+         "image":"..\/img\/tilesets\/original\/underpass.png",
          "imageheight":512,
          "imagewidth":320,
          "margin":0,

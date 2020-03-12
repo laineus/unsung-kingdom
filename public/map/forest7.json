@@ -331,7 +331,7 @@
         {
          "columns":10,
          "firstgid":1,
-         "image":"..\/img\/tileset\/original\/forest.png",
+         "image":"..\/img\/tilesets\/original\/forest.png",
          "imageheight":384,
          "imagewidth":320,
          "margin":0,
