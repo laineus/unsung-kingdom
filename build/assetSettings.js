@@ -1,6 +1,6 @@
 module.exports = [
   { key: 'images', prefix: '', dir: '/img', rule: /^\w+\.png$/ },
-  { key: 'faces', prefix: 'face/', dir: '/img/face', rule: /^\w+\.png$/ },
+  { key: 'faces', prefix: 'face/', dir: '/img/faces', rule: /^\w+\.png$/ },
   { key: 'icons', prefix: 'icon/', dir: '/img/icons', rule: /^\w+\.png$/ },
   { key: 'enemies', prefix: 'enemy/', dir: '/img/enemies', rule: /^\w+\.png$/ },
   { key: 'maps', prefix: 'map/', dir: '/img/map', rule: /^\w+\.png$/ },
