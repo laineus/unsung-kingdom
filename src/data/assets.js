@@ -4,8 +4,8 @@ export default {
   image: [
     // *
     ...assetData.images,
-    // map/*
-    ...assetData.maps,
+    // map_image/*
+    ...assetData.map_images,
     // face/*
     ...assetData.faces,
     // enemy/*

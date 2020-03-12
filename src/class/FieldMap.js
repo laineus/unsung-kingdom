@@ -11,7 +11,7 @@ export default class FieldMap extends Phaser.GameObjects.Container {
     const sprites = area.list.filter(v => state.visited.includes(v.key)).map(v => {
       const x = v.x * TILE_SIZE
       const y = v.y * TILE_SIZE
-      return scene.add.sprite(x, y, `map/${v.key}`).setOrigin(0, 0).setAlpha(0.4)
+      return scene.add.sprite(x, y, `map_image/${v.key}`).setOrigin(0, 0).setAlpha(0.4)
     })
     this.add(sprites)
     const currentField = area.list.find(v => v.key === state.map)
