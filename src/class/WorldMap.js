@@ -8,7 +8,7 @@ const AERA_LIST = [
   { name: 'ワルコフォレンスの森', x: 350, y: 220, key: 'forest1', mapX: 45, mapY: 17, r: 'left' },
   { name: 'トロイア公爵邸の地下通路', x: 1184, y: 736, key: 'underpass1', mapX: 14, mapY: 39, r: 'up' },
   { name: '聖アンテルスの墓地', x: 960, y: 928, key: 'catacomb1', mapX: 2, mapY: 14, r: 'right' },
-  { name: 'グリファルデ神殿', x: 1728, y: 485, key: 'forest1', mapX: 10, mapY: 10, r: 'up' }
+  { name: 'グリファルデ神殿', x: 1728, y: 485, key: 'temple1', mapX: 2, mapY: 13, r: 'right' }
 ]
 const SCALE = {
   DEFAULT: 0.5,

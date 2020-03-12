@@ -71,6 +71,17 @@
                  "width":64,
                  "x":1280,
                  "y":448
+                }, 
+                {
+                 "height":192,
+                 "id":2,
+                 "name":"world",
+                 "rotation":0,
+                 "type":"gate",
+                 "visible":true,
+                 "width":64,
+                 "x":0,
+                 "y":352
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -90,10 +101,10 @@
          "y":0
         }],
  "nextlayerid":7,
- "nextobjectid":2,
+ "nextobjectid":3,
  "orientation":"orthogonal",
  "renderorder":"right-down",
- "tiledversion":"2020.01.22",
+ "tiledversion":"2020.02.26",
  "tileheight":32,
  "tilesets":[
         {
