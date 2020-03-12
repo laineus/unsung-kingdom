@@ -32,7 +32,7 @@ export default {
     ['check', '../img/check.ss.png', { frameWidth: 14, frameHeight: 13, endFrame: 2 }],
     ['menu_icons', '../img/menu_icons.ss.png', { frameWidth: 72, frameHeight: 72, endFrame: 4 }],
     ['battle_effects', '../img/battle_effects.ss.png', { frameWidth: 320, frameHeight: 320, endFrame: 6 }],
-    // field/*
+    // chara_sprite/*
     ...charachipData
   ]
 }

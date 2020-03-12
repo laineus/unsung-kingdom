@@ -74,7 +74,7 @@ export default class Substance extends Phaser.GameObjects.Container {
     return this.distanceTo(this.scene.player)
   }
   get spriteKey () {
-    return `field/${this.key}`
+    return `chara_sprite/${this.key}`
   }
   destroy () {
     if (this.balloon) this.balloon.destroy()
