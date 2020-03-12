@@ -5,7 +5,7 @@ export default {
     // *
     ...assetData.images,
     // map_image/*
-    ...assetData.map_images,
+    ...assetData.mapImages,
     // face/*
     ...assetData.faces,
     // enemy/*
@@ -19,13 +19,13 @@ export default {
     ['tileset/underpass', '../img/tileset/extruded/underpass.png'],
     ['tileset/catacomb', '../img/tileset/extruded/catacomb.png'],
     ['tileset/temple', '../img/tileset/extruded/temple.png'],
-    ...assetData.tileset_images,
+    ...assetData.tilesetImages,
   ],
   json: [
-    ...assetData.tileset_tiles
+    ...assetData.tilesetTiles
   ],
   tilemapTiledJSON: [
-    ...assetData.tileset_maps
+    ...assetData.tilesetMaps
   ],
   spritesheet: [
     // *
