@@ -27,7 +27,7 @@ export default class WorldMap extends Phaser.GameObjects.Container {
     this.scene.gameScene.player.stopWalk()
   }
   init () {
-    this.map = this.scene.add.sprite(0, 0, 'map/world').setScale(SCALE.DEFAULT).setOrigin(0, 0).setInteractive().on('pointerdown', () => {
+    this.map = this.scene.add.sprite(0, 0, 'map_image/world').setScale(SCALE.DEFAULT).setOrigin(0, 0).setInteractive().on('pointerdown', () => {
       this.setArea(null)
     })
     this.add(this.map)
