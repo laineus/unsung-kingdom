@@ -6,7 +6,7 @@ export default class EnemyBattler extends Battler {
     super(scene, status)
     this.boss = boss
     // image
-    this.sprite = this.scene.add.sprite(0, 0, `battler/${status.key}`)
+    this.sprite = this.scene.add.sprite(0, 0, `enemy/${status.key}`)
     this.sprite.setScale(1)
     if (status.y) this.sprite.y = status.y
     this.add(this.sprite)

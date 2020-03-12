@@ -8,8 +8,8 @@ export default {
     ...assetData.maps,
     // face/*
     ...assetData.faces,
-    // battler/*
-    ...assetData.battlers,
+    // enemy/*
+    ...assetData.enemies,
     // icon/*
     ...assetData.icons,
     // tileset/*
