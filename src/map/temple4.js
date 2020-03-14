@@ -1,5 +1,7 @@
+import { architect } from '../event/lorraine'
 export default {
   create (scene) {
-    const architect = scene.map.getObjectById(3).setRandomWalk(true)
+    const arct = scene.map.getObjectById(3).setRandomWalk(true)
+    architect(scene, arct)
   }
 }
