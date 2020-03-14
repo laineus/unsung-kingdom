@@ -14,6 +14,6 @@ export default scene => {
       scene.anims.create({ key: `${key}_waiting`, frames: scene.anims.generateFrameNumbers(args[0], { start: 0, end: 2 }), repeat: -1, frameRate: 4 })
     }
   })
-  scene.anims.create({ key: 'poets_lute', frames: scene.anims.generateFrameNumbers('chara_sprite/poets', { start: 0, end: 5 }), repeat: -1, frameRate: 3 })
+  scene.anims.create({ key: 'poets_lute', frames: scene.anims.generateFrameNumbers('chara_sprite/poets', { start: 0, end: 5 }), repeat: -1, frameRate: 2 })
   scene.anims.create({ key: 'treasure', frames: scene.anims.generateFrameNumbers('chara_sprite/treasure_chest', { start: 0, end: 6 }), repeat: 0, frameRate: 20 })
 }
