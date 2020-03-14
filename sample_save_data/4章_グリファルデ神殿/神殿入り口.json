@@ -1,8 +1,8 @@
 {
-  "map": "room1",
-  "x": 624,
-  "y": 352,
-  "r": 1.5707963267948966,
+  "map": "temple1",
+  "x": 80,
+  "y": 432,
+  "r": 0,
   "chapter": 4,
   "event": {
     "chapter_begin": [
@@ -10,7 +10,7 @@
       true,
       true,
       true,
-      false,
+      true,
       false
     ],
     "m0_1": {
@@ -163,11 +163,11 @@
       "talked_matilda": true
     },
     "m4": {
-      "talked_amber": false,
-      "talked_elliott": false,
-      "talked_max": false,
-      "talked_matilda": false,
-      "talked_annabelle": false
+      "talked_amber": true,
+      "talked_elliott": true,
+      "talked_max": true,
+      "talked_matilda": true,
+      "talked_annabelle": true
     }
   },
   "treasures": [
@@ -330,8 +330,8 @@
       "weapon_id": 13
     }
   ],
-  "saved": 1583938854,
-  "allowed_area": 4,
+  "saved": 1584161236,
+  "allowed_area": 5,
   "visited": [
     "forest1",
     "forest2",
@@ -364,7 +364,8 @@
     "catacomb8",
     "catacomb9",
     "catacomb10",
-    "catacomb11"
+    "catacomb11",
+    "temple1"
   ],
   "gimmicks": []
 }
