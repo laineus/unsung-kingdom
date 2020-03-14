@@ -127,7 +127,7 @@ export default class MenuStatus extends Phaser.GameObjects.Container {
   getCurrentWeapon (id, x, y) {
     const container = this.scene.add.container(x, y).setSize(360, 45)
     const box = new Box(this.scene, 0, 0, 360, 40).setOrigin(0.5, 0.5)
-    const icon = this.scene.add.sprite(-168, 0).setScale(0.22).setOrigin(0, 0.5).setTint(config.COLORS.theme)
+    const icon = this.scene.add.sprite(-168, 0).setScale(0.22).setOrigin(0, 0.5).setTint(config.COLORS.ghost)
     const text = this.scene.add.text(-138, 0, null, { fontSize: 15, fontStyle: 'bold', fontFamily: config.FONTS.TEXT }).setOrigin(0, 0.5)
     const status = this.scene.add.text(165, 0, null, { fontSize: 14, fontStyle: 'bold', fontFamily: config.FONTS.UI, fill: config.COLORS.gray.toColorString }).setOrigin(1, 0.5)
     const line1 = this.scene.add.line(-177, 0, 0, 0, 40, 0, config.COLORS.white).setOrigin(1, 0).setLineWidth(0.5).setAlpha(0.5)
@@ -153,7 +153,7 @@ export default class MenuStatus extends Phaser.GameObjects.Container {
   getWeapon (weapon, x, y) {
     const container = this.scene.add.container(x, y).setSize(360, 45)
     const box = new Box(this.scene, 0, 0, 360, 32).setOrigin(0.5, 0.5)
-    const icon = this.scene.add.sprite(-168, 0, `icon/${weapon.icon}`).setScale(0.2).setOrigin(0, 0.5).setTint(config.COLORS.theme)
+    const icon = this.scene.add.sprite(-168, 0, `icon/${weapon.icon}`).setScale(0.2).setOrigin(0, 0.5).setTint(config.COLORS.ghost)
     const text = this.scene.add.text(-138, 0, weapon.name, { fontSize: 14, fontStyle: 'bold', fontFamily: config.FONTS.TEXT }).setOrigin(0, 0.5)
     const status = this.scene.add.text(165, 0, this.getStatusText(weapon), { fontSize: 12, fontFamily: config.FONTS.UI, fill: config.COLORS.gray.toColorString }).setOrigin(1, 0.5)
     container.add([box, icon, text, status])
