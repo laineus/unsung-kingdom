@@ -16,7 +16,7 @@
          "name":"temple_wall",
          "opacity":1,
          "type":"tilelayer",
-         "visible":true,
+         "visible":false,
          "width":36,
          "x":0,
          "y":0
@@ -94,6 +94,18 @@
                  "width":0,
                  "x":224,
                  "y":-320
+                }, 
+                {
+                 "height":0,
+                 "id":3,
+                 "name":"architect",
+                 "point":true,
+                 "rotation":0,
+                 "type":"chara",
+                 "visible":true,
+                 "width":0,
+                 "x":852.27408142999,
+                 "y":740.734856007944
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -113,10 +125,10 @@
          "y":0
         }],
  "nextlayerid":8,
- "nextobjectid":3,
+ "nextobjectid":4,
  "orientation":"orthogonal",
  "renderorder":"right-down",
- "tiledversion":"2020.01.22",
+ "tiledversion":"2020.02.26",
  "tileheight":32,
  "tilesets":[
         {

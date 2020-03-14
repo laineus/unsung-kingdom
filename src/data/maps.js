@@ -31,6 +31,7 @@ import catacomb8 from '../map/catacomb8'
 import catacomb9 from '../map/catacomb9'
 import catacomb10 from '../map/catacomb10'
 import catacomb11 from '../map/catacomb11'
+import temple4 from '../map/temple4'
 export default {
   room1,
   town1,
@@ -64,5 +65,6 @@ export default {
   catacomb8,
   catacomb9,
   catacomb10,
-  catacomb11
+  catacomb11,
+  temple4
 }
