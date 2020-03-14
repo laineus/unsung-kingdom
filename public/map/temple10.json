@@ -83,6 +83,18 @@
                  "width":96,
                  "x":416,
                  "y":0
+                }, 
+                {
+                 "height":0,
+                 "id":2,
+                 "name":"poets",
+                 "point":true,
+                 "rotation":0,
+                 "type":"chara",
+                 "visible":true,
+                 "width":0,
+                 "x":291.599014868193,
+                 "y":1000.89391589893
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -102,10 +114,10 @@
          "y":0
         }],
  "nextlayerid":7,
- "nextobjectid":2,
+ "nextobjectid":3,
  "orientation":"orthogonal",
  "renderorder":"right-down",
- "tiledversion":"2020.01.22",
+ "tiledversion":"2020.02.26",
  "tileheight":32,
  "tilesets":[
         {

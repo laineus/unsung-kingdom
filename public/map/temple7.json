@@ -71,6 +71,18 @@
                  "width":64,
                  "x":960,
                  "y":576
+                }, 
+                {
+                 "height":0,
+                 "id":3,
+                 "name":"zi",
+                 "point":true,
+                 "rotation":0,
+                 "type":"chara",
+                 "visible":true,
+                 "width":0,
+                 "x":595.114200595829,
+                 "y":474.518371400199
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -90,10 +102,10 @@
          "y":0
         }],
  "nextlayerid":6,
- "nextobjectid":3,
+ "nextobjectid":4,
  "orientation":"orthogonal",
  "renderorder":"right-down",
- "tiledversion":"2020.01.22",
+ "tiledversion":"2020.02.26",
  "tileheight":32,
  "tilesets":[
         {

@@ -83,6 +83,18 @@
                  "width":96,
                  "x":448,
                  "y":1088
+                }, 
+                {
+                 "height":0,
+                 "id":2,
+                 "name":"nikke",
+                 "point":true,
+                 "rotation":0,
+                 "type":"chara",
+                 "visible":true,
+                 "width":0,
+                 "x":510.983118172791,
+                 "y":124.568023833168
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -102,10 +114,10 @@
          "y":0
         }],
  "nextlayerid":7,
- "nextobjectid":2,
+ "nextobjectid":3,
  "orientation":"orthogonal",
  "renderorder":"right-down",
- "tiledversion":"2020.01.22",
+ "tiledversion":"2020.02.26",
  "tileheight":32,
  "tilesets":[
         {

@@ -36,4 +36,7 @@ module.exports = [
   ['queen_back', 3, 1],
   ['aragnie', 3, 1],
   ['architect', 3, 4],
+  ['zi', 3, 4],
+  ['nikke', 3, 1],
+  ['poets', 3, 2]
 ]
