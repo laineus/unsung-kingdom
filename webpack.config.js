@@ -5,7 +5,7 @@ const path = require('path')
 const WriteFilePlugin = require('write-file-webpack-plugin')
 const TileSetPlugin = require('./build/TileSetPlugin')
 const AssetPlugin = require('./build/AssetPlugin')
-const CharachipPlugin = require('./build/CharachipPlugin')
+const CharaSpritePlugin = require('./build/CharaSpritePlugin')
 
 module.exports = {
   entry: {
@@ -44,7 +44,7 @@ module.exports = {
     }),
     new TileSetPlugin(),
     new AssetPlugin(),
-    new CharachipPlugin()
+    new CharaSpritePlugin()
   ],
   externals: {},
   optimization: {

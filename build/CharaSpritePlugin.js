@@ -1,12 +1,12 @@
 const sizeOf = require('image-size')
 
-const CHARACHIP_SETTINGS = require('./charachipSettings')
+const CHARASPRITE_SETTINGS = require('./charaSpriteSettings')
 
 module.exports = class {
   apply (compiler) {
-    compiler.hooks.afterEnvironment.tap('Charachip', () => {
-      console.log('Begin: Charachip')
-      const list = CHARACHIP_SETTINGS.map(setting => {
+    compiler.hooks.afterEnvironment.tap('CharaSprite', () => {
+      console.log('Begin: CharaSprite')
+      const list = CHARASPRITE_SETTINGS.map(setting => {
         const [name, x, y] = setting
         const { width, height } = sizeOf(`./public/img/chara_sprites/${name}.png`)
         const frameWidth = Math.round(width / x)
@@ -14,8 +14,8 @@ module.exports = class {
         const endFrame = x * y
         return [`chara_sprite/${name}`, `../img/chara_sprites/${name}.png`, { frameWidth, frameHeight, endFrame }]
       })
-      compiler.options.externals.charachipData = JSON.stringify(list)
-      console.log('End: Charachip')
+      compiler.options.externals.charaSpriteData = JSON.stringify(list)
+      console.log('End: CharaSprite')
     })
   }
 }

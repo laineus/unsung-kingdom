@@ -1,5 +1,5 @@
 import assetData from 'assetData'
-import charachipData from 'charachipData'
+import charaSpriteData from 'charaSpriteData'
 export default {
   image: [
     // *
@@ -33,6 +33,6 @@ export default {
     ['menu_icons', '../img/menu_icons.ss.png', { frameWidth: 72, frameHeight: 72, endFrame: 4 }],
     ['battle_effects', '../img/battle_effects.ss.png', { frameWidth: 320, frameHeight: 320, endFrame: 6 }],
     // chara_sprite/*
-    ...charachipData
+    ...charaSpriteData
   ]
 }
