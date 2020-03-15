@@ -30,7 +30,10 @@ export const allsRight = (scene, zi) => {
         { chara: 'ann', text: '分かった、ありがとう！' }
       ])
       state.completed = true
-      scene.ui.missionUpdate('m4_2', true)
+      scene.storage.state.event.m4_3.started = true
+      scene.ui.missionUpdate('m4_2', true).then(() => {
+        scene.ui.missionUpdate('m4_3')
+      })
     } else if (state.started) {
       await scene.talk([
         { chara, text: `ケルーネの羽根を${KELUNNE_COUNT}枚、集めてきてくれ。` },
