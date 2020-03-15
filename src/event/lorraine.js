@@ -54,7 +54,7 @@ export const architect = (scene, chara) => {
         { chara, text: '代わりにはならないかもしれないけど、' },
         { chara, text: 'これを。' }
       ])
-      await scene.ui.announce('『簡素な鍵』を手に入れた')
+      scene.ui.announce('『簡素な鍵』を手に入れた')
       await scene.talk([
         { chara: 'ann', text: 'これは？' },
         { chara, text: 'これで仕掛けを動かせば、屋上への扉なら開けられる。' },
@@ -85,14 +85,15 @@ class LorraineGimmick {
   }
 }
 
-export const gimmick = (scene, buttons, pictures) => {
+export const gimmick = (scene, buttons, doors, lights) => {
   const state = scene.storage.state.event.m4_1
   if (!state.started) return
   if (state.completed) {
     return
   }
   const lorraineGimmick = new LorraineGimmick()
-  const applyToPicutres = () => pictures.forEach((pic, i) => pic.setVisible(lorraineGimmick.keys[i]))
+  const applyToPicutres = () => lights.forEach((pic, i) => pic.setVisible(lorraineGimmick.keys[i]))
+  applyToPicutres()
   buttons.forEach((button, i) => {
     button.setTapEvent(async () => {
       lorraineGimmick.push(i)
