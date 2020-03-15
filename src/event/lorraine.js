@@ -101,6 +101,14 @@ export const gimmick = (scene, buttons, doors, lights) => {
       if (lorraineGimmick.unlocked) {
         state.completed = true
         buttons.forEach(b => b.removeTapEvent())
+        const left = [doors[0], lights[0], lights[1]]
+        const right = [doors[1], lights[2], lights[3]]
+        left.forEach(v => {
+          scene.add.tween({ targets: v, duration: 2000, x: v.x - 48, ease: 'Power2' })
+        })
+        right.forEach(v => {
+          scene.add.tween({ targets: v, duration: 2000, x: v.x + 48, ease: 'Power2' })
+        })
       }
     })
   })

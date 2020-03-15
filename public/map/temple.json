@@ -8,13 +8,13 @@
         }
     },
  "image":"..\/img\/tilesets\/original\/temple.png",
- "imageheight":1024,
+ "imageheight":1088,
  "imagewidth":320,
  "margin":0,
  "name":"underpass",
  "spacing":0,
- "tilecount":320,
- "tiledversion":"2020.01.22",
+ "tilecount":340,
+ "tiledversion":"2020.02.26",
  "tileheight":32,
  "tiles":[
         {
@@ -411,15 +411,15 @@
         }, 
         {
          "id":220,
-         "type":"collides"
+         "type":"collides,top"
         }, 
         {
          "id":221,
-         "type":"collides"
+         "type":"collides,top"
         }, 
         {
          "id":222,
-         "type":"collides"
+         "type":"collides,top"
         }, 
         {
          "id":223,
@@ -451,15 +451,15 @@
         }, 
         {
          "id":230,
-         "type":"collides"
+         "type":"collides,top"
         }, 
         {
          "id":231,
-         "type":"collides"
+         "type":"collides,top"
         }, 
         {
          "id":232,
-         "type":"collides"
+         "type":"collides,top"
         }, 
         {
          "id":233,
@@ -491,15 +491,15 @@
         }, 
         {
          "id":240,
-         "type":"collides"
+         "type":"collides,top"
         }, 
         {
          "id":241,
-         "type":"collides"
+         "type":"collides,top"
         }, 
         {
          "id":242,
-         "type":"collides"
+         "type":"collides,top"
         }, 
         {
          "id":243,
