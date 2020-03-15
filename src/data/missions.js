@@ -107,7 +107,7 @@ export default [
   {
     key: 'm4_2',
     chapter: 4,
-    title: 'すべて世は事もなし',
+    title: 'すべて世はこともなし',
     en: 'All\'s right with the world',
     map: 'forest1'
   },

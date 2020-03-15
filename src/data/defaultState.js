@@ -30,7 +30,7 @@ export default () => {
       m3_4: { started: false, completed: false, ghosts: [] },
       m3_5: { started: false, completed: false },
       m4_1: { started: false, completed: false },
-      m4_2: { started: false, completed: false },
+      m4_2: { started: false, completed: false, count: 0 },
       m4_3: { started: false, completed: false },
       m4_4: { started: false, completed: false },
       m4_5: { started: false, completed: false },

@@ -2,6 +2,7 @@ import storage from '../data/storage'
 import { MANDRAKE_COUNT } from '../event/drystan'
 import { MAGIC_STONES } from '../event/princess'
 import { WATER_COUNT } from '../event/marianne'
+import { KELUNNE_COUNT } from '../event/allsRight'
 export default class BattleQuestService {
   constructor (group) {
     this.group = group
@@ -11,7 +12,8 @@ export default class BattleQuestService {
       this.m1_3,
       this.m2_2,
       this.m3_2,
-      this.m3_3
+      this.m3_3,
+      this.m4_2
     ]
     return list.map(v => v.call(this, storage.state.event)).filter(Boolean)
   }
@@ -46,5 +48,12 @@ export default class BattleQuestService {
     const result = this.collection('jack', 100)
     if (!result) return
     return `ダリオの短剣を獲得！`
+  }
+  m4_2 (event) {
+    if (event.m4_2.completed || !event.m4_2.started) return
+    const result = this.collection('kelunne', 75)
+    if (!result) return
+    event.m4_2.count += result
+    return `ケルーネの羽を${result}個獲得！（${event.m4_2.count}/${KELUNNE_COUNT}）`
   }
 }
