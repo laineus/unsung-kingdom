@@ -2,6 +2,7 @@ export const KELUNNE_COUNT = 5
 
 export const allsRight = (scene, zi) => {
   const state = scene.storage.state.event.m4_2
+  zi.setDisplayName('ズィ')
   zi.setTapEvent(async chara => {
     if (scene.storage.state.event.m4_3.completed) {
       await scene.talk([

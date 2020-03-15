@@ -5,11 +5,20 @@ export const calibur = (scene, sword, nikke) => {
     nikke.destroy()
     return
   }
-  nikke.setVisible(state.talked)
-  const ev = state.talked ? nikke : sword
-  ev.setTapEvent(async () => {
+  nikke.setDisplayName('ニッケ').setVisible(state.talked)
+  const eventTarget = state.talked ? nikke : sword
+  const event = async () => {
     const chara = nikke
     const battle = async () => {
+      const i = await scene.select(['はい', 'いいえ'])
+      if (i === 1) {
+        await scene.talk([
+          { chara, text: 'じゃあ準備ができたらまた来てね。' }
+        ])
+        eventTarget.removeTapEvent()
+        nikke.setTapEvent(event)
+        return
+      }
       await scene.talk([
         { chara, text: 'うわ、' },
         { chara, text: '凄く強いんだね。' },
@@ -19,6 +28,7 @@ export const calibur = (scene, sword, nikke) => {
         { chara, text: '持っていって。' },
         { chara: 'ann', text: 'ありがとう。' }
       ])
+      scene.ui.increaseWeapon(19)
       await scene.talk([
         { chara, text: 'うん、よく似合ってるよ。' },
         { chara: 'ann', text: 'そうかな。' },
@@ -37,6 +47,10 @@ export const calibur = (scene, sword, nikke) => {
         { chara, text: 'まあいいか、' },
         { chara, text: 'それもキミたち人間の作った力だろうしね。' }
       ])
+      state.completed = true
+      scene.ui.missionUpdate('m4_3', true)
+      sword.destroy()
+      nikke.destroy()
     }
     if (state.talked) {
       await scene.talk([
@@ -107,5 +121,6 @@ export const calibur = (scene, sword, nikke) => {
       ])
       await battle()
     }
-  })
+  }
+  eventTarget.setTapEvent(event)
 }

@@ -1,5 +1,6 @@
 export const architect = (scene, chara) => {
   const state = scene.storage.state.event.m4_1
+  chara.setDisplayName('彫刻家クラウス')
   chara.setTapEvent(async () => {
     if (state.completed) {
     } else if (state.started) {
