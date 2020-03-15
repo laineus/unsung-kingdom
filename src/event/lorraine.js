@@ -1,4 +1,5 @@
 export const architect = (scene, chara) => {
+  const state = scene.storage.state.event.m4_1
   chara.setTapEvent(async () => {
     await scene.talk([
       { chara: 'ann', text: '何をしているんですか？' },
@@ -54,7 +55,7 @@ export const architect = (scene, chara) => {
   })
 }
 
-class LorrainGimmick {
+class LorraineGimmick {
   constructor () {
     this.keys = [false, true, true, false]
     this.buttons = [
@@ -73,13 +74,21 @@ class LorrainGimmick {
 }
 
 export const gimmick = (scene, buttons, pictures) => {
-  const lorrainGimmick = new LorrainGimmick()
-  const applyToPicutres = () => pictures.forEach((pic, i) => pic.setVisible(lorrainGimmick.keys[i]))
+  const state = scene.storage.state.event.m4_1
+  if (!state.started) return
+  if (state.completed) {
+    return
+  }
+  const lorraineGimmick = new LorraineGimmick()
+  const applyToPicutres = () => pictures.forEach((pic, i) => pic.setVisible(lorraineGimmick.keys[i]))
   buttons.forEach((button, i) => {
     button.setTapEvent(async () => {
-      lorrainGimmick.push(i)
+      lorraineGimmick.push(i)
       applyToPicutres()
-      if (lorrainGimmick.unlocked) console.log('unlocked')
+      if (lorraineGimmick.unlocked) {
+        state.completed = true
+        buttons.forEach(b => b.removeTapEvent())
+      }
     })
   })
 }

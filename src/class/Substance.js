@@ -58,7 +58,7 @@ export default class Substance extends Phaser.GameObjects.Container {
     })
     return this
   }
-  removeTapEvent() {
+  removeTapEvent () {
     if (this.tapArea) this.tapArea.destroy()
     if (this.balloon) this.balloon.destroy()
     this.tapArea = null
