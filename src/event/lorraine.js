@@ -85,10 +85,19 @@ class LorraineGimmick {
   }
 }
 
-export const gimmick = (scene, buttons, doors, lights) => {
+export const gimmick = (scene, buttons, doorContainer, doors, lights) => {
   const state = scene.storage.state.event.m4_1
+  const removeCollidesForDoor = () => {
+    const layer3 = scene.map.getLayerByName('layer3')
+    const positions = [[17, 2], [18, 2], [19, 2]]
+    positions.forEach(pos => {
+      layer3.layer.data[pos[1]][pos[0]].setCollision(false)
+    })
+  }
   if (!state.started) return
   if (state.completed) {
+    doorContainer.destroy()
+    removeCollidesForDoor()
     return
   }
   const lorraineGimmick = new LorraineGimmick()
@@ -109,6 +118,7 @@ export const gimmick = (scene, buttons, doors, lights) => {
         right.forEach(v => {
           scene.add.tween({ targets: v, duration: 2000, x: v.x + 48, ease: 'Power2' })
         })
+        removeCollidesForDoor()
         scene.ui.missionUpdate('m4_1', true)
         state.completed = true
       }

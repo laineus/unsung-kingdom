@@ -18,6 +18,10 @@
  "tileheight":32,
  "tiles":[
         {
+         "id":9,
+         "type":"collides"
+        }, 
+        {
          "id":10,
          "type":"collides"
         }, 
