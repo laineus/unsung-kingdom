@@ -53,3 +53,33 @@ export const architect = (scene, chara) => {
     ])
   })
 }
+
+class LorrainGimmick {
+  constructor () {
+    this.keys = [false, true, true, false]
+    this.buttons = [
+      { state: false, affects: [0, 2] },
+      { state: false, affects: [1, 2] },
+      { state: false, affects: [2, 3] }
+    ]
+  }
+  push (buttonIndex) {
+    this.buttons[buttonIndex].affects.forEach(i => this.keys[i] = !this.keys[i])
+    return this.keys
+  }
+  get unlocked () {
+    return this.keys.every(Boolean)
+  }
+}
+
+export const gimmick = (scene, buttons, pictures) => {
+  const lorrainGimmick = new LorrainGimmick()
+  const applyToPicutres = () => pictures.forEach((pic, i) => pic.setVisible(lorrainGimmick.keys[i]))
+  buttons.forEach((button, i) => {
+    button.setTapEvent(async () => {
+      lorrainGimmick.push(i)
+      applyToPicutres()
+      if (lorrainGimmick.unlocked) console.log('unlocked')
+    })
+  })
+}
