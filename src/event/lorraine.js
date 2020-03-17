@@ -111,6 +111,8 @@ export const gimmick = (scene, buttons, doorContainer, doors, lights) => {
       if (lorraineGimmick.unlocked) {
         state.completed = true
         buttons.forEach(b => b.removeTapEvent())
+        await scene.ui.sleep(500)
+        await scene.camera.look((18).toPixelCenter, (1).toPixelCenter, 300)
         const left = [doors[0], lights[0], lights[1]]
         const right = [doors[1], lights[2], lights[3]]
         left.forEach(v => {
@@ -120,8 +122,10 @@ export const gimmick = (scene, buttons, doorContainer, doors, lights) => {
           scene.add.tween({ targets: v, duration: 2000, x: v.x + 48, ease: 'Power2' })
         })
         removeCollidesForDoor()
+        await scene.ui.sleep(2000)
         scene.ui.missionUpdate('m4_1', true)
         state.completed = true
+        await scene.camera.revert(300)
       }
     })
   })

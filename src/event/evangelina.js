@@ -18,7 +18,7 @@ export const evangelina = (scene, queen, queen2, grave) => {
     return
   }
   queen.setTapEvent(async chara => {
-    await scene.camera.look(0, -80, 600)
+    await scene.camera.look(chara.x, chara.y + 50, 600)
     await scene.talk([
       { chara: 'ann', text: '…あ、あの。' },
       { chara: 'ann', text: '王妃殿下…？' },
@@ -34,7 +34,7 @@ export const evangelina = (scene, queen, queen2, grave) => {
     const result = await scene.ui.battle([generateBattler('queen', 25, { hp: 1700 })], { boss: true })
     if (!result) return
     chara.destroy()
-    await scene.camera.look(0, 80, 600)
+    await scene.camera.revert(600)
     await scene.talk([
       { chara: 'ann', text: '…倒した？' },
       { chara: 'jaquelyn', text: 'みたいね。' },
@@ -56,7 +56,7 @@ export const evangelina = (scene, queen, queen2, grave) => {
       { chara, text: 'お待ちなさい。' },
       { chara: 'ann', text: 'え！？' }
     ])
-    await scene.camera.look(0, 80, 600)
+    await scene.camera.look(chara.x, chara.y - 60, 600)
     await scene.talk([
       { chara, text: 'あなたたち、' },
       { chara, text: 'ありがとう。' },

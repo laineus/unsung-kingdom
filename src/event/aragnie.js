@@ -166,7 +166,7 @@ export const lamp = (scene, cassandra, hector, mary, loretta, jail, wall, yarn) 
       await scene.ui.transition('normal')
       scene.player.setPosition((45).toPixelCenter, (16).toPixel).setR('up')
       setCharaVisible(true)
-      await scene.camera.look(0, -100, 1000)
+      await scene.camera.look(cassandra.x, cassandra.y + 70, 1000)
       await scene.talk([
         { chara: loretta, text: '本当に、開いたね。' },
         { chara: mary, text: 'よかった…！' },
@@ -192,7 +192,7 @@ export const lamp = (scene, cassandra, hector, mary, loretta, jail, wall, yarn) 
         { chara: cassandra, text: 'はい。' }
       ], { angle: false })
       await scene.ui.transition('slow')
-      scene.camera.look(0, 100, 0)
+      scene.camera.revert()
       cassandra.setVisible(false)
       hector.setVisible(false)
       mary.setR('right')
@@ -225,7 +225,7 @@ export const lamp = (scene, cassandra, hector, mary, loretta, jail, wall, yarn) 
       await scene.ui.transition('normal')
       scene.player.setPosition((45).toPixelCenter, (16).toPixel).setR('up')
       setCharaVisible(true)
-      await scene.camera.look(0, -100, 1000)
+      await scene.camera.look(cassandra.x, cassandra.y + 70, 1000)
       await scene.talk([
         { chara: hector, text: 'カサンドラ。' },
         { chara: cassandra, text: 'ヘクター、誰を連れてきたの？' },

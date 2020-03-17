@@ -72,7 +72,7 @@ export const renfield = (scene, ray, spectres) => {
         { chara, text: '掘り起こして、燃やして、野道にでも捨ててやる。' },
         { chara: 'ann', text: 'そんな…。' }
       ])
-      await scene.camera.look(0, -150, 300)
+      await scene.camera.look(0, -150, 300, true)
       spectres.forEach(s => s.setVisible(true))
       await scene.talk([
         { chara: 'ann', text: 'うわ！！' },
@@ -97,7 +97,7 @@ export const renfield = (scene, ray, spectres) => {
       ])
       state.started = true
       scene.ui.missionUpdate('m3_4')
-      await scene.camera.look(0, 150, 300)
+      await scene.camera.revert(300)
     }
   })
   const spectreEvent = async (spectre, i) => {

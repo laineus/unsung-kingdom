@@ -24,13 +24,13 @@ export default {
     const layer4 = scene.map.getLayerByName('layer4')
     layer4.layer.data[10][8].index = 20
     if (event) await scene.ui.sleep(500)
-    if (event) await scene.camera.look(1000, 50, 1500)
+    if (event) await scene.camera.look((53).toPixelCenter, (17).toPixelCenter, 1500)
     if (event) await scene.ui.sleep(100)
     Array(50, 51, 52, 53, 54, 55, 56, 57).forEach(x => {
       layer4.layer.data[17][x].index = 79
       layer4.layer.data[17][x].setCollision(false)
     })
     if (event) await scene.ui.sleep(500)
-    if (event) await scene.camera.look(-1000, -50, 1500)
+    if (event) await scene.camera.revert(1500)
   }
 }

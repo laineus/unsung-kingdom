@@ -137,7 +137,7 @@ export const orthrus = (scene, boss, area) => {
   }
   area.setEvent(async () => {
     if (state.started) {
-      await scene.camera.look(0, -180, 1000)
+      await scene.camera.look(0, -180, 1000, true)
       await scene.ui.sleep(1200)
       await scene.talk([
         { chara: 'ann', text: 'こいつがオルトロスね。' },
@@ -148,7 +148,7 @@ export const orthrus = (scene, boss, area) => {
       if (!result) return
       area.destroy()
       boss.destroy()
-      await scene.ui.sleep(500)
+      await scene.camera.revert(500)
       await scene.talk([
         { chara: 'ann', text: 'なんとか倒したね。' },
         { chara: 'jaquelyn', text: '密売人に報告しに行きましょう。' }

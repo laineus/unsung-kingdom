@@ -14,7 +14,7 @@ export const jack = (scene, area, chara) => {
     scene.player.setPosition((50).toPixel, (29).toPixel)
     scene.camera.updateFollow()
     await scene.ui.sleep(500)
-    await scene.camera.look(0, -180, 1000)
+    await scene.camera.look(0, -180, 1000, true)
     await scene.talk([
       { chara: 'jaquelyn', text: '日が落ち始めたわね。' },
       { chara: 'ann', text: 'もうそろそろ現れるころかな？' },
@@ -28,7 +28,7 @@ export const jack = (scene, area, chara) => {
     ])
     await scene.talk([{ chara, text: 'おい、お前たち、こんなところで何をしている？' }])
     chara.setVisible(true)
-    await scene.camera.look(0, 180, 300)
+    await scene.camera.revert(300)
     await scene.talk([
       { chara: 'ann', text: 'え！？' },
       { chara: 'ann', text: 'あ、いえ…その…、' },
@@ -101,7 +101,7 @@ export const king = (scene, area, chara, soldier1, soldier2) => {
     scene.player.setPosition((18).toPixelCenter, (24).toPixelCenter).setR('up')
     scene.camera.updateFollow()
     await scene.ui.sleep(500)
-    scene.camera.look(-50, -180, 1000)
+    scene.camera.look((16).toPixel, (18).toPixel, 1000)
     await chara.setTargetPosition((16).toPixel, (17).toPixelCenter)
     await scene.talk([
       { chara: 'ann', text: 'みて、あそこ！あれがエドガー王？' },
