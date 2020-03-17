@@ -84,9 +84,9 @@ export default class GameScene extends Phaser.Scene {
     camera.setZoom(1)
     camera.startFollow(this.player, true, 0.1, 0.1)
     camera.updateFollow = () => camera.centerOn(camera._follow.x, camera._follow.y)
-    camera.look = (x, y, duration, absolute = false) => {
-      const newX = absolute ? x : camera.scrollX + camera.centerX + x
-      const newY = absolute ? y : camera.scrollY + camera.centerY + y
+    camera.look = (x, y, duration, relative = false) => {
+      const newX = relative ? (camera.scrollX + camera.centerX + x) : x
+      const newY = relative ? (camera.scrollY + camera.centerY + y) : y
       const offsetX = newX - camera._follow.x
       const offsetY = newY - camera._follow.y
       return new Promise(resolve => {
@@ -98,7 +98,7 @@ export default class GameScene extends Phaser.Scene {
         })
       })
     }
-    camera.revert = () => camera.setFollowOffset(0, 0)
+    camera.revert = (duration = 0) => camera.look(camera._follow.x, camera._follow.y, duration)
     return camera
   }
   get stronger () {
