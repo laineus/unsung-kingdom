@@ -1,4 +1,4 @@
-export const APLLES_COUNT = 5
+export const APPLES_COUNT = 5
 export const lute = (scene, poets) => {
   const state = scene.storage.state.event.m4_4
   poets.setDisplayName('ライラ')
@@ -8,7 +8,7 @@ export const lute = (scene, poets) => {
       await scene.talk([
         { chara, text: 'やあ' }
       ])
-    } else if (state.apples.length >= APLLES_COUNT) {
+    } else if (state.apples.length >= APPLES_COUNT) {
       await scene.talk([
         { chara: 'ann', text: 'リンゴ集めてきたよ！' },
         { chara, text: 'お、いいね。' },

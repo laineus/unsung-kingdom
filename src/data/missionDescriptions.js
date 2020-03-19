@@ -1,6 +1,8 @@
 import { MANDRAKE_COUNT } from '../event/drystan'
 import { MAGIC_STONES } from '../event/princess'
 import { WATER_COUNT } from '../event/marianne'
+import { KELUNNE_COUNT } from '../event/allsRight'
+import { APPLES_COUNT } from '../event/lute'
 
 export default {
   m0_1 (state) {
@@ -98,5 +100,29 @@ export default {
     const base = 'ダリオが生み出した偽物のエヴァンジェリナ妃の亡霊は王を恨んでいる。'
     const started = '王妃の亡霊を探し出して倒そう。'
     return state.event.m3_5.completed ? base : `${base}\n${started}`
+  },
+  m4_1 (state) {
+    const base = '彫刻家のクラウスから神殿の仕掛けのことを教えてもらった。'
+    const started = '像の仕掛けを解いて2階への扉を開放しよう。'
+    return state.event.m4_1.completed ? base : `${base}\n${started}`
+  },
+  m4_2 (state) {
+    const base = '神殿に暮らす竜族のズィから聖剣のことを聞いた。\n彼は聖剣を守る竜族のニッケに伝言を用意してくれるようだ。'
+    const started = '必要な材料を集めよう。'
+    const cnt = `集めたケルーネの羽根（${state.event.m4_2.count}/${KELUNNE_COUNT}）`
+    return state.event.m4_2.completed ? base : `${base}\n${started}\n${cnt}`
+  },
+  m4_3 (state) {
+    const base = '聖剣カリブルヌスは竜族のニッケが守っている。'
+    const started = 'ズィにもらった言葉の煙を使ってニッケを呼び出そう。'
+    const talked = '力を証明するためにニッケの挑戦を受けよう。'
+    if (state.event.m4_3.completed) return base
+    return state.event.m4_3.talked ? `${base}\n${talked}` : `${base}\n${started}`
+  },
+  m4_4 (state) {
+    const base = 'リュート弾きのライラは地下への扉を開けられるらしい。'
+    const started = 'ライラのためにリンゴを集めよう。'
+    const cnt = `集めたリンゴ（${state.event.m4_4.apples.length}/${APPLES_COUNT}）`
+    return state.event.m4_4.completed ? base : `${base}\n${started}\n${cnt}`
   }
 }
