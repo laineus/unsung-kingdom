@@ -17,6 +17,7 @@ export const calibur = (scene, sword, nikke) => {
         ])
         eventTarget.removeTapEvent()
         nikke.setTapEvent(event)
+        await scene.camera.revert(500)
         return
       }
       await scene.talk([
@@ -51,8 +52,10 @@ export const calibur = (scene, sword, nikke) => {
       scene.ui.missionUpdate('m4_3', true)
       sword.destroy()
       nikke.destroy()
+      await scene.camera.revert(500)
     }
     if (state.talked) {
+      await scene.camera.look((16).toPixel, (7).toPixelCenter, 500)
       await scene.talk([
         { chara, text: '準備はできた？' }
       ])
@@ -63,6 +66,7 @@ export const calibur = (scene, sword, nikke) => {
         { chara: 'ann', text: 'よし、竜族の言葉の煙を出すよ。' }
       ])
       nikke.setVisible(true)
+      await scene.camera.look((16).toPixel, (7).toPixel, 500)
       await scene.talk([
         { chara, text: 'やあ、' },
         { chara, text: '僕を呼んだのはキミだね？' },
