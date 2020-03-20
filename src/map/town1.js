@@ -22,5 +22,6 @@ export default {
     const maison = scene.map.getObjectById(11).setDisplayName('メイソン').destroy()
     const area1 = scene.map.getObjectById(12)
     events[scene.storage.state.chapter](scene, { amber, elliott, max, annabelle, matilda, maison, area1 })
+    if(scene.storage.state.chapter === 4) scene.map.rain()
   }
 }

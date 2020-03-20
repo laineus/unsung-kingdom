@@ -3,6 +3,7 @@ import Gate from './Gate'
 import Character from './Character'
 import Substance from './Substance'
 import TreasureChest from './TreasureChest'
+import config from '../data/config'
 const DEPTH = {
   GROUND: 0,
   PARTICLES: 100000,
@@ -175,7 +176,7 @@ export default class Field {
       frequency: 20
     })
   }
-  _renderDarkness (alpha, color, lights, exposures) {
+  _renderDarkness (alpha, color, lights = [], exposures = []) {
     const posAndSize = [0, 0, this.width, this.height]
     const dark = this.scene.add.renderTexture(...posAndSize).fill(color, alpha, ...posAndSize).setOrigin(0.0).setDepth(DEPTH.DARKNESS)
     const brush = this.scene.add.image(0, 0, 'light').setScale(3, 3)
@@ -232,5 +233,23 @@ export default class Field {
       zone_width: v.width,
       zone_height: v.height
     }
+  }
+  rain () {
+    const particles = this.scene.add.particles('rectangle')
+    particles.setDepth(DEPTH.SUN_LIGHT).setAngle(-3)
+    particles.createEmitter({
+      x: { min: 0, max: Math.max(this.width, (40).toPixel) },
+      y: { min: 0, max: Math.max(this.height, (40).toPixel) },
+      scaleX: { start: 0.03, end: 0.07 },
+      scaleY: { start: 0.4, end: 1 },
+      color: config.COLORS.ghost,
+      alpha: { start: 0.3, end: 0.1 },
+      lifespan: 2000,
+      speedY: { min: 100, max: 300 },
+      accelerationX: 30,
+      accelerationY: 300,
+      frequency: 20
+    })
+    this._renderDarkness(0.3, config.COLORS.black)
   }
 }
