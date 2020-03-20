@@ -104,7 +104,18 @@ export const king = (scene, area, chara, soldier1, soldier2) => {
     scene.camera.look((16).toPixel, (18).toPixel, 1000)
     await chara.setTargetPosition((16).toPixel, (17).toPixelCenter)
     await scene.talk([
-      { chara: 'ann', text: 'みて、あそこ！あれがエドガー王？' },
+      { chara: 'ann', text: 'みて、あそこ！あれがエドガー王？' }
+    ])
+    await scene.ui.sleep(500)
+    await scene.talk([
+      { chara, text: 'エゼルはまだ帰っていないのか？' },
+      { chara, text: 'はい、王弟殿下はまだグリファルデ神殿かと。' },
+      { chara, text: '竜との交渉は順調に進んでいるとは言えないようだな。' },
+      { chara, text: '…申し上げにくいのですが、そのようです。' },
+      { chara, text: 'そうか…。' }
+    ])
+    await scene.ui.sleep(500)
+    await scene.talk([
       { chara: 'jaquelyn', text: 'よかった、無事みたい。' },
       { chara: 'francisca', text: 'ジャックはどこ…？' },
       { chara: 'jaquelyn', text: '暗殺は諦めたのかもしれないね。とにかく、一回ここを離れましょう。' },
