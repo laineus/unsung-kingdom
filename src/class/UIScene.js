@@ -215,7 +215,7 @@ export default class UIScene extends Phaser.Scene {
     if (!weapon) return false
     const id = Math.max(...storage.state.weapons.map(v => v.id), 0) + 1
     this.storage.state.weapons.push({ id, weapon_id: weapon.id })
-    if (announce) this.announce(`${weapon.name}を手に入れた`)
+    if (announce) this.announce(`『${weapon.name}』を手に入れた`)
     return weapon
   }
   missionUpdate (key, completed) {

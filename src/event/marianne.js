@@ -24,7 +24,7 @@ export const marianne = (scene, sister) => {
         { chara, text: 'あの、' },
         { chara, text: '親切にしていただいたお礼に、このお守りを受け取ってください。' }
       ])
-      scene.ui.announce('十字のお守りを手に入れた')
+      scene.ui.announce('『十字のお守り』を手に入れた')
       await scene.talk([
         { chara: 'ann', text: 'お礼なんていいのに。' },
         { chara: 'ann', text: 'あ、そういえばマリアンヌは王妃と仲がよかったって言っていたよね？' },

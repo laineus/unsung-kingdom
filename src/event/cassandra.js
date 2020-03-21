@@ -8,7 +8,7 @@ export const cassandra = (scene, gate, cassandra, door, doorEvent, candle) => {
     if (i === 1) return
     state.key = true
     candle.setVisible(false)
-    scene.ui.announce('地下通路の鍵を手に入れた')
+    scene.ui.announce('『地下通路の鍵』を手に入れた')
   }).setVisible(state.started && !state.key)
   doorEvent.setTapEvent(async () => {
     if (state.key) {
