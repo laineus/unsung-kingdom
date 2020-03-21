@@ -38,5 +38,6 @@ module.exports = [
   ['architect', 3, 4],
   ['zi', 3, 4],
   ['nikke', 3, 1],
-  ['poets', 3, 2]
+  ['poets', 3, 2],
+  ['apple', 2, 1]
 ]

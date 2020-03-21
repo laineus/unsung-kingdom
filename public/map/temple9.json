@@ -107,6 +107,30 @@
                  "width":0,
                  "x":511,
                  "y":286
+                }, 
+                {
+                 "height":0,
+                 "id":4,
+                 "name":"apple",
+                 "point":true,
+                 "rotation":0,
+                 "type":"object",
+                 "visible":true,
+                 "width":0,
+                 "x":772,
+                 "y":687
+                }, 
+                {
+                 "height":0,
+                 "id":5,
+                 "name":"apple",
+                 "point":true,
+                 "rotation":0,
+                 "type":"object",
+                 "visible":true,
+                 "width":0,
+                 "x":140,
+                 "y":952
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -126,7 +150,7 @@
          "y":0
         }],
  "nextlayerid":7,
- "nextobjectid":4,
+ "nextobjectid":6,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"2020.02.26",

@@ -1,4 +1,6 @@
 export const APPLES_COUNT = 5
+export const GOOD_APPLES = ['a8_5', 'a8_6', 'a8_7', 'a8_9', 'a9_4']
+
 export const lute = (scene, poets) => {
   const state = scene.storage.state.event.m4_4
   poets.setDisplayName('ライラ')
@@ -9,10 +11,18 @@ export const lute = (scene, poets) => {
         { chara, text: 'やあ' }
       ])
     } else if (state.apples.length >= APPLES_COUNT) {
+      const completedGoodApples = state.apples.count(v => GOOD_APPLES.includes(v)) >= APPLES_COUNT
       await scene.talk([
         { chara: 'ann', text: 'リンゴ集めてきたよ！' },
         { chara, text: 'お、いいね。' },
-        { chara, text: 'うん、美味しい。' },
+      ])
+      await scene.ui.sleep(500)
+      await scene.talk([
+        { chara, text: completedGoodApples ? 'うん、美味しい。' : 'うーん、あんまり美味しくないリンゴだね。' },
+        { chara, text: completedGoodApples ? 'ありがとう。' : 'まあ、仕方ないか。' }
+      ])
+      await scene.ui.sleep(500)
+      await scene.talk([
         { chara, text: 'じゃあ約束だね、' },
         { chara, text: '開けるよ。' },
         { chara: 'ann', text: 'どういう仕掛けなの？' },
@@ -31,10 +41,12 @@ export const lute = (scene, poets) => {
         { chara, text: '女神さまに向けて、しっかり心を込めて弾けば開くんだ。' },
         { chara, text: 'きっと大昔にこの仕掛けを作った人も、女神さまが大好きだったのさ。' },
         { chara: 'ann', text: 'それは素敵だね。' },
-        { chara, text: 'お嬢さんが持ってきてくれたリンゴだってそうだ。' },
-        { chara, text: 'かなり美味しいよ。' },
-        { chara, text: 'ちゃんと私のことを思って持ってきくれたに違いない。' },
-        { chara: 'ann', text: 'へへ。' },
+        ...(completedGoodApples ? [
+          { chara, text: 'お嬢さんが持ってきてくれたリンゴだってそうだ。' },
+          { chara, text: 'かなり美味しいよ。' },
+          { chara, text: 'ちゃんと私のことを思って持ってきくれたに違いない。' },
+          { chara: 'ann', text: 'へへ。' },
+        ] : []),
         { chara, text: 'さあ、' },
         { chara, text: 'じゃあ気をつけて行っておいで。' },
         { chara: 'ann', text: 'ありがとう！' }
@@ -88,5 +100,20 @@ export const lute = (scene, poets) => {
         { chara: 'ann', text: 'どうも！' }
       ])
     }
+  })
+}
+
+export const appleCollection = (scene, apple, appleName) => {
+  const state = scene.storage.state.event.m4_4
+  const good = GOOD_APPLES.includes(appleName)
+  apple.image.setFrame(good ? 0 : 1)
+  if (state.apples.includes(appleName)) return apple.destroy()
+  if (!state.started || state.completed) return
+  apple.setTapEvent(async () => {
+    const i = await scene.select(['拾う', 'いらない'])
+    if (i === 1) return
+    state.apples.push(appleName)
+    scene.ui.announce('『リンゴ』を手に入れた')
+    apple.destroy()
   })
 }

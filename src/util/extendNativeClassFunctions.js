@@ -47,6 +47,9 @@ Object.defineProperty(String.prototype, 'upperCase', {
 Object.defineProperty(Array.prototype, 'random', {
   value () { return this[Math.randomInt(0, this.length - 1)] }
 })
+Object.defineProperty(Array.prototype, 'count', {
+  value (callbackfn) { return this.filter(callbackfn).length }
+})
 // Math class methods
 Math.sum = (...args) => args.reduce((accumulator, current) => accumulator + current)
 Math.average = (...args) => Math.sum(...args) / args.length

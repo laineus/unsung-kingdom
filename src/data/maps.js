@@ -34,6 +34,7 @@ import catacomb11 from '../map/catacomb11'
 import temple2 from '../map/temple2'
 import temple4 from '../map/temple4'
 import temple7 from '../map/temple7'
+import temple8 from '../map/temple8'
 import temple9 from '../map/temple9'
 import temple10 from '../map/temple10'
 export default {
@@ -73,6 +74,7 @@ export default {
   temple2,
   temple4,
   temple7,
+  temple8,
   temple9,
   temple10
 }
