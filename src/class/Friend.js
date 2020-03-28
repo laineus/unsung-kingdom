@@ -1,4 +1,5 @@
 import Character from './Character'
+import TweetBubble from './TweetBubble'
 export default class Friend extends Character {
   constructor (scene, x, y, key, option) {
     super(scene, x, y, key, option)
@@ -7,6 +8,11 @@ export default class Friend extends Character {
     this.player = scene.player
     this.body.setDrag(700)
     this.setAllowWalkingWhileEvent(false)
+    this.tweetBubble = new TweetBubble(scene, x, y - 60, 'テストテスト').setDepth(99999999)
+  }
+  preUpdate () {
+    super.preUpdate()
+    this.tweetBubble.setPosition(this.x, this.y - 60)
   }
   _walkToTargetPosition () {
     if (this.scene.ui.eventMode && !this.allowWalkingWhileEvent) return

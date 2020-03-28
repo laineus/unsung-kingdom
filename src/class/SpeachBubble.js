@@ -30,7 +30,7 @@ export default class SpeachBubble extends Phaser.GameObjects.Container {
     this.add([this.bg, this.image, this.name, this.text, this.tri])
     scene.add.existing(this)
   }
-  setText(text) {
+  setText (text) {
     this.text.text = lineBreak(text, 28)
   }
 }
