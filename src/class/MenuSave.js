@@ -6,12 +6,12 @@ import chapters from '../data/chapters'
 import { slideIn } from '../util/animations'
 import missions from '../data/missions'
 export default class MenuSave extends Phaser.GameObjects.Container {
-  constructor (scene, readOnly = false) {
+  constructor (scene, loadMode = false) {
     super(scene)
     this.scene = scene
-    this.readOnly = readOnly
-    const title = scene.add.text(20, 15, readOnly ? 'LOAD' : 'SAVE', { align: 'center', fill: config.COLORS.theme.toColorString, fontSize: 25, fontStyle: 'bold', fontFamily: config.FONTS.UI })
-    const sub = scene.add.text(20, 41, readOnly ? 'ロード' : 'セーブ', { align: 'center', fill: config.COLORS.gray.toColorString, fontSize: 10, fontStyle: 'bold', fontFamily: config.FONTS.TEXT })
+    this.loadMode = loadMode
+    const title = scene.add.text(20, 15, loadMode ? 'LOAD' : 'SAVE', { align: 'center', fill: config.COLORS.theme.toColorString, fontSize: 25, fontStyle: 'bold', fontFamily: config.FONTS.UI })
+    const sub = scene.add.text(20, 41, loadMode ? 'ロード' : 'セーブ', { align: 'center', fill: config.COLORS.gray.toColorString, fontSize: 10, fontStyle: 'bold', fontFamily: config.FONTS.TEXT })
     this.add([title, sub])
     this.setItems()
     this.setContent(this.scene.storage.lastNumber || 0)
@@ -58,8 +58,8 @@ export default class MenuSave extends Phaser.GameObjects.Container {
     const tx = this.scene.add.text(0, 225, data.name, { fontSize: 22, fontStyle: 'bold', fontFamily: config.FONTS.UI })
     container.add(tx)
     const buttonWidth = 150
-    if (data.number > 0 && !this.readOnly) {
-      const save = new Button(this.scene, buttonWidth.half, 330, 'Save', buttonWidth, 40).on('click', () => {
+    if (data.number > 0 && !this.loadMode) {
+      const save = new Button(this.scene, 280, 320, 'Save', buttonWidth, 40).on('click', () => {
         this.scene.storage.save(data.number)
         this.setItems()
         this.setContent(data.number, true)
@@ -81,10 +81,12 @@ export default class MenuSave extends Phaser.GameObjects.Container {
       const progress = this.getProgress(data.state).toFixed(1)
       const date = this.scene.add.text(100, 243, `${timeString}     Progress  ${progress}%`, { fontSize: 16, fontFamily: config.FONTS.UI, fill: config.COLORS.gray.toColorString })
       container.add([detail, date])
-      const load = new Button(this.scene, buttonWidth.half + buttonWidth + 10, 331, 'Load', buttonWidth, 40).on('click', () => {
-        this.emit('loadData', data)
-      })
-      container.add(load)
+      if (this.loadMode) {
+        const load = new Button(this.scene, 280, 320, 'Load', buttonWidth, 40).on('click', () => {
+          this.emit('loadData', data)
+        })
+        container.add(load)
+      }
     }
     return container
   }
