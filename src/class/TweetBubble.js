@@ -17,8 +17,8 @@ export default class TweenBubble extends Phaser.GameObjects.Container {
       this.setScale(0, 0).setAlpha(0)
       this.scene.add.tween({ targets: this, scaleX: 1, scaleY: 1, alpha: 1, duration: 150, ease: 'Power2' })
       this.setVisible(true)
-      clearTimeout(this.timer)
     }
+    clearTimeout(this.timer)
     this.timer = setTimeout(() => this.hide(), 3000)
     this.text.text = text
     this.bg.pathData = points.map((p, i) => {
@@ -29,5 +29,9 @@ export default class TweenBubble extends Phaser.GameObjects.Container {
   }
   hide () {
     this.scene.add.tween({ targets: this, scaleX: 0, scaleY: 0, alpha: 0, duration: 150, ease: 'Power2', onComplete: () => this.setVisible(false) })
+  }
+  destroy () {
+    clearTimeout(this.timer)
+    super.destroy()
   }
 }
