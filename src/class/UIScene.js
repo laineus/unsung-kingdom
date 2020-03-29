@@ -13,6 +13,7 @@ import WorldMap from './WorldMap'
 import Box from './Box'
 import BattlerSummaryService from './BattlerSummaryService'
 import StoryTelling from './StoryTelling'
+import VirtualStick from './VirtualStick'
 import weapons from '../data/weapons'
 const MESSAGES = [
   `王は死んだ。\n冷たく閉ざされた門扉の先に、かつての繁栄はもはや見る影もない。\n王国は偉大なる王の死とともに終わりを迎えたのだ。`,
@@ -39,6 +40,7 @@ export default class UIScene extends Phaser.Scene {
     this.battlerSummary = new BattlerSummaryService(this)
     this.blocker = this.add.rectangle(0, 0, config.WIDTH, config.HEIGHT).setInteractive().setOrigin(0, 0).setVisible(false)
     this.add.existing(this.blocker)
+    // this.virtualStick = new VirtualStick(this, 100, (100).byBottom)
     this.eventMode = false
     // TOOD: map name
     // setTimeout(() => {
@@ -52,6 +54,9 @@ export default class UIScene extends Phaser.Scene {
   }
   update (time, delta) {
     this.battlerSummary.update()
+    // if (this.gameScene.player) {
+    //   this.gameScene.player.setTargetPosition(this.gameScene.player.x + this.virtualStick.velocityX, this.gameScene.player.y + this.virtualStick.velocityY)
+    // }
   }
   showController (bool) {
     this.menuButton.visible = bool
