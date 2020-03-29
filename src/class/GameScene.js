@@ -6,6 +6,12 @@ import storage from '../data/storage'
 import generateBattler from '../util/generateBattler'
 import Friend from './Friend'
 import downloadBySource from '../util/downloadBySource'
+const TWEET_DATA = {
+  lost: [
+    { key: 'francisca', distance: 250, tweets: ['ま、待って！', 'アンが消えた…'] },
+    { key: 'jaquelyn', distance: 300, tweets: ['アン、置いていっちゃいやよ', 'アン、どこ？'] }
+  ]
+}
 export default class GameScene extends Phaser.Scene {
   constructor () {
     super({ key: 'Game', active: false })
@@ -56,6 +62,7 @@ export default class GameScene extends Phaser.Scene {
     if (this.event.update) this.event.update(this)
     this.map.update(time)
     // this.fadeout.setPosition(this.camera.scrollX + config.WIDTH.half, this.camera.scrollY + config.HEIGHT.half)
+    if (this.frame % 20 === 0) this.tweetLost()
   }
   get ui () {
     return this.scene.get('UI')
@@ -72,6 +79,7 @@ export default class GameScene extends Phaser.Scene {
   }
   mapChange (mapKey, x, y, { r = null, save = true, speed = 'fast' } = {}) {
     this.ui.battlerSummary.hide()
+    this.alreadyTweetLost = false
     this.scene.pause('Game')
     return this.ui.transition(speed).then(() => {
       this.scene.start('Game', { map: mapKey, x, y, r, save })
@@ -165,5 +173,13 @@ export default class GameScene extends Phaser.Scene {
         info.innerText = `FPS: ${this.game.loop.actualFps}`
       }, 100)
     })
+  }
+  tweetLost () {
+    if (this.alreadyTweetLost) return
+    const chara = TWEET_DATA.lost.random()
+    if (this[chara.key].distanceToPlayer > chara.distance) {
+      this[chara.key].tweet(chara.tweets.random())
+      this.alreadyTweetLost = true
+    }
   }
 }
