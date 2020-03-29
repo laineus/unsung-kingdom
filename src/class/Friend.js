@@ -8,7 +8,7 @@ export default class Friend extends Character {
     this.player = scene.player
     this.body.setDrag(700)
     this.setAllowWalkingWhileEvent(false)
-    this.tweetBubble = new TweetBubble(scene, x, y - 60, 'テストテスト').setDepth(99999999)
+    this.tweetBubble = new TweetBubble(scene).setDepth(200000)
   }
   preUpdate () {
     super.preUpdate()
@@ -24,6 +24,9 @@ export default class Friend extends Character {
   }
   setAllowWalkingWhileEvent (bool) {
     this.allowWalkingWhileEvent = bool
+  }
+  tweet (text) {
+    this.tweetBubble.setText(text)
   }
   get followingX () {
     return this.player.positionHistory[this.followDiff][0]
