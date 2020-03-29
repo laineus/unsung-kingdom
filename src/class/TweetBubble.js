@@ -1,12 +1,12 @@
 import config from '../data/config'
-const points = [[11,2],[43,0],[55,11],[46,22],[31,26],[27,32],[23,26],[9,22],[0,11]]
-const pointTimes = [-0.5, 0.5, 0.5, 0.5, 0, 0, 0, -0.5, -0.5]
+const points = [[11,2], [21, 0], [43,2], [55,11], [46,22], [31,26], [27,32], [23,26], [9,22], [0,11]]
+const pointTimes = [-0.5, 0, 0.5, 0.5, 0.5, 0, 0, 0, -0.5, -0.5]
 export default class TweenBubble extends Phaser.GameObjects.Container {
   constructor (scene, x = 0, y = 0) {
     super(scene, x, y)
     this.scene = scene
     this.bg = scene.add.polygon(0, 0, points, config.COLORS.black).setAlpha(0.7)
-    this.text = scene.add.text(0, -6, '', { fill: config.COLORS.white.toColorString, fontSize: 11, fontFamily: config.FONTS.TEXT, lineSpacing: 4.5, stroke: config.COLORS.dark.toColorString, strokeThickness: 1.5 }).setOrigin(0.5, 0.5).setPadding(0, 2, 0, 0)
+    this.text = scene.add.text(0, -5, '', { fill: config.COLORS.white.toColorString, fontSize: 11, fontFamily: config.FONTS.TEXT, lineSpacing: 4.5, stroke: config.COLORS.dark.toColorString, strokeThickness: 1.5 }).setOrigin(0.5, 0.5).setPadding(0, 2, 0, 0)
     this.add([this.bg, this.text])
     this.setVisible(false)
     scene.add.existing(this)
