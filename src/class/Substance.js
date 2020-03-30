@@ -45,6 +45,7 @@ export default class Substance extends Phaser.GameObjects.Container {
   }
   setTapEvent (event) {
     this.removeTapEvent()
+    this.tapEvent = event
     const distance = 150
     this.tapArea = this.scene.add.rectangle(0, -this.image.height.half - 15, this.image.width + 20, this.image.height + 50).setAlpha(0.5).setInteractive()
     this.add(this.tapArea)
@@ -52,9 +53,7 @@ export default class Substance extends Phaser.GameObjects.Container {
     this.tapArea.on('pointerdown', (_pointer, _x, _y, e) => {
       if (this.distanceToPlayer >= distance) return
       e.stopPropagation()
-      this.scene.ui.setEventMode(true)
-      const ui = this.scene.ui
-      event(this).then(() => ui.setEventMode(false))
+      this.execTapEvent()
     })
     return this
   }
@@ -63,6 +62,13 @@ export default class Substance extends Phaser.GameObjects.Container {
     if (this.balloon) this.balloon.destroy()
     this.tapArea = null
     this.balloon = null
+    this.tapEvent = null
+  }
+  execTapEvent () {
+    if (!this.tapEvent) return
+    const ui = this.scene.ui
+    ui.setEventMode(true)
+    this.tapEvent(this).then(() => ui.setEventMode(false))
   }
   distanceTo (target) {
     return Phaser.Math.Distance.Between(this.x, this.y, target.x, target.y)

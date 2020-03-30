@@ -43,7 +43,7 @@ export default class GameScene extends Phaser.Scene {
     // player controll
     const walk = pointer => {
       if (this.ui.eventMode || this.touchMode) return
-      if (!pointer.isDown || this.scene.map.isCollides(pointer.worldX.toTile, pointer.worldY.toTile)) return
+      if (!pointer.isDown || this.map.isCollides(pointer.worldX.toTile, pointer.worldY.toTile)) return
       this.player.setTargetPosition(pointer.worldX, pointer.worldY)
     }
     this.input.on('pointerdown', walk)
@@ -66,7 +66,7 @@ export default class GameScene extends Phaser.Scene {
     this.map.update(time)
     // this.fadeout.setPosition(this.camera.scrollX + config.WIDTH.half, this.camera.scrollY + config.HEIGHT.half)
     if (this.frame % 20 === 0) this.tweetLost()
-    if (this.touchMode) {
+    if (this.touchMode && !this.ui.eventMode) {
       this.player.setTargetPosition(this.player.x + this.ui.virtualStick.velocityX, this.player.y + this.ui.virtualStick.velocityY)
     }
   }

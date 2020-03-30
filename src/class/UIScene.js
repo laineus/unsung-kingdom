@@ -15,6 +15,7 @@ import BattlerSummaryService from './BattlerSummaryService'
 import StoryTelling from './StoryTelling'
 import VirtualStick from './VirtualStick'
 import weapons from '../data/weapons'
+import Button from './Button'
 const MESSAGES = [
   `王は死んだ。\n冷たく閉ざされた門扉の先に、かつての繁栄はもはや見る影もない。\n王国は偉大なる王の死とともに終わりを迎えたのだ。`,
   '― 『ベリオン王国史』',
@@ -41,6 +42,10 @@ export default class UIScene extends Phaser.Scene {
     this.blocker = this.add.rectangle(0, 0, config.WIDTH, config.HEIGHT).setInteractive().setOrigin(0, 0).setVisible(false)
     this.add.existing(this.blocker)
     this.virtualStick = new VirtualStick(this, 100, (100).byBottom).setVisible(this.touchMode)
+    this.checkButton = new Button(this, (100).byRight, config.HEIGHT.half, 'Check', 200, 50).setVisible(false).setInteractive().on('pointerdown', () => {
+      this.gameScene.nearestCheckable.execTapEvent()
+    })
+    this.add.existing(this.checkButton)
     this.eventMode = false
     // TOOD: map name
     // setTimeout(() => {
@@ -54,6 +59,7 @@ export default class UIScene extends Phaser.Scene {
   }
   update (time, delta) {
     this.battlerSummary.update()
+    this.checkButton.setVisible(this.touchMode && this.gameScene.nearestCheckable)
   }
   showController (bool) {
     this.menuButton.visible = bool

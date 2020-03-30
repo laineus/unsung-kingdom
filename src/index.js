@@ -24,6 +24,9 @@ const option = {
       gravity: { y: 0 }
     }
   },
+  input: {
+    activePointers:3,
+  },
   // fps: { target: 30, forceSetTimeOut: true }
 }
 
