@@ -1,3 +1,4 @@
+import config from '../data/config'
 export default class VirtualStick extends Phaser.GameObjects.Container {
   constructor (scene, x, y,) {
     super(scene, x, y)
@@ -6,8 +7,8 @@ export default class VirtualStick extends Phaser.GameObjects.Container {
     this.stick = null
     this.velocityX = 0
     this.velocityY = 0
-    const padArea = this.scene.add.circle(0, 0, 80, 0x000000, 0.5).setInteractive()
-    const pad = this.scene.add.circle(0, 0, 30, 0xFFFFFF, 0.25)
+    const padArea = this.scene.add.circle(0, 0, 80, config.COLORS.black, 0.5).setInteractive()
+    const pad = this.scene.add.circle(0, 0, 30, config.COLORS.white, 0.25)
     this.add([padArea, pad])
     padArea.on('pointerdown', pointer => {
       this.stick = pointer

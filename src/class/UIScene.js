@@ -15,7 +15,6 @@ import BattlerSummaryService from './BattlerSummaryService'
 import StoryTelling from './StoryTelling'
 import VirtualStick from './VirtualStick'
 import weapons from '../data/weapons'
-import Button from './Button'
 const MESSAGES = [
   `王は死んだ。\n冷たく閉ざされた門扉の先に、かつての繁栄はもはや見る影もない。\n王国は偉大なる王の死とともに終わりを迎えたのだ。`,
   '― 『ベリオン王国史』',
@@ -41,11 +40,8 @@ export default class UIScene extends Phaser.Scene {
     this.battlerSummary = new BattlerSummaryService(this)
     this.blocker = this.add.rectangle(0, 0, config.WIDTH, config.HEIGHT).setInteractive().setOrigin(0, 0).setVisible(false)
     this.add.existing(this.blocker)
-    this.virtualStick = new VirtualStick(this, 100, (100).byBottom).setVisible(this.touchMode)
-    this.checkButton = new Button(this, (100).byRight, config.HEIGHT.half, 'Check', 200, 50).setVisible(false).setInteractive().on('pointerdown', () => {
-      this.gameScene.nearestCheckable.execTapEvent()
-    })
-    this.add.existing(this.checkButton)
+    this.virtualStick = new VirtualStick(this, 100, (160).byBottom).setVisible(this.touchMode)
+    this.checkButton = this.getCheckButton().setVisible(false)
     this.eventMode = false
     // TOOD: map name
     // setTimeout(() => {
@@ -86,6 +82,16 @@ export default class UIScene extends Phaser.Scene {
     this.add.tween({ targets: this.encounter2, duration: 400, ease: 'Power2', loop: -1, scaleX: 1.1, scaleY: 1.1 })
     this.encounter2.setInteractive().on('pointerdown', () => this.gameScene.encounter(true))
     this.setEncounter(false)
+  }
+  getCheckButton () {
+    const btn = this.add.container((70).byRight, (160).byBottom).setSize(80, 80).setInteractive().on('pointerdown', () => {
+      this.gameScene.nearestCheckable.execTapEvent()
+    })
+    btn.add(this.add.circle(0, 0, 50, config.COLORS.black, 0.5))
+    btn.add(this.add.circle(0, 0, 7, config.COLORS.white, 0.25))
+    btn.add(this.add.circle(-24, 0, 7, config.COLORS.white, 0.25))
+    btn.add(this.add.circle(24, 0, 7, config.COLORS.white, 0.25))
+    return btn
   }
   setEncounter (bool, stronger) {
     if (bool) {
