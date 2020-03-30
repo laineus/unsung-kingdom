@@ -38,7 +38,6 @@ export default class Character extends Substance {
     return this
   }
   setTargetPosition (x = null, y = null) {
-    if (x !== null && y !== null && this.scene.map.isCollides(x.toTile, y.toTile)) return
     this.unsetFollowing()
     this._targetPositionX = x
     this._targetPositionY = y

@@ -43,7 +43,8 @@ export default class GameScene extends Phaser.Scene {
     // player controll
     const walk = pointer => {
       if (this.ui.eventMode || this.touchMode) return
-      if (pointer.isDown) this.player.setTargetPosition(pointer.worldX, pointer.worldY)
+      if (!pointer.isDown || this.scene.map.isCollides(pointer.worldX.toTile, pointer.worldY.toTile)) return
+      this.player.setTargetPosition(pointer.worldX, pointer.worldY)
     }
     this.input.on('pointerdown', walk)
     this.input.on('pointermove', walk)
