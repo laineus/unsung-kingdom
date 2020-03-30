@@ -13,7 +13,7 @@ export default class Substance extends Phaser.GameObjects.Container {
   preUpdate () {
     this.setDepth(this.y)
     if (this.balloon) {
-      this.balloon.setVisible(this.visible && !this.scene.ui.eventMode && this.distanceToPlayer < 150)
+      this.balloon.setVisible(this.checkable && (!this.scene.touchMode || this === this.scene.nearestCheckable))
       this.balloon.setPosition(this.x, this.y - this.image.height.half - 32)
     }
   }
@@ -75,6 +75,9 @@ export default class Substance extends Phaser.GameObjects.Container {
   }
   get spriteKey () {
     return `chara_sprite/${this.key}`
+  }
+  get checkable () {
+    return this.balloon && this.visible && !this.scene.ui.eventMode && this.distanceToPlayer < 150
   }
   destroy () {
     if (this.balloon) this.balloon.destroy()

@@ -6,6 +6,8 @@ import storage from '../data/storage'
 import generateBattler from '../util/generateBattler'
 import Friend from './Friend'
 import downloadBySource from '../util/downloadBySource'
+import Character from './Character'
+import Substance from './Substance'
 const TWEET_DATA = {
   lost: [
     { key: 'francisca', distance: 250, tweets: ['ま、待って！', 'アンが消えた…'] },
@@ -63,13 +65,25 @@ export default class GameScene extends Phaser.Scene {
     this.map.update(time)
     // this.fadeout.setPosition(this.camera.scrollX + config.WIDTH.half, this.camera.scrollY + config.HEIGHT.half)
     if (this.frame % 20 === 0) this.tweetLost()
-    this.player.setTargetPosition(this.player.x + this.ui.virtualStick.velocityX, this.player.y + this.ui.virtualStick.velocityY)
+    if (this.touchMode) {
+      this.player.setTargetPosition(this.player.x + this.ui.virtualStick.velocityX, this.player.y + this.ui.virtualStick.velocityY)
+    }
   }
   get ui () {
     return this.scene.get('UI')
   }
   get touchMode () {
     return this.ui.touchMode
+  }
+  get npcList () {
+    return this.children.list.filter(v => v.constructor === Character || v.constructor === Substance)
+  }
+  get checkables () {
+    return this.npcList.filter(v => v.checkable)
+  }
+  get nearestCheckable () {
+    const distance = Math.min(...this.checkables.map(v => v.distanceToPlayer))
+    return this.checkables.find(v => v.distanceToPlayer === distance)
   }
   talk (talks, option) {
     return this.ui.talk(talks, option)
