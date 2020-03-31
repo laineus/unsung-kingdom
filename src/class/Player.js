@@ -21,7 +21,7 @@ export default class Player extends Character {
   preUpdate () {
     super.preUpdate()
     if (!this.targetMarker.visible && this.hasTargetPosition) this.targetMarker.anim.seek(0)
-    this.targetMarker.setVisible(this.hasTargetPosition && !this.scene.touchMode)
+    this.targetMarker.setVisible(this.hasTargetPosition && !this.scene.touchMode && !this.scene.ui.eventMode)
     this.targetMarker.setPosition(this.diffToFollowingX, this.diffToFollowingY)
     this.scene.storage.state.map = this.scene.map.name
     this.scene.storage.state.x = this.x
