@@ -4,7 +4,7 @@
   <property name="MatchOutsideMap" type="bool" value="false"/>
  </properties>
  <tileset firstgid="1" name="mapchip" tilewidth="32" tileheight="32" tilecount="160" columns="10">
-  <image source="../img/tileset/original/catacomb.png" width="320" height="512"/>
+  <image source="../img/tilesets/original/catacomb.png" width="320" height="512"/>
  </tileset>
  <layer id="1" name="regions" width="15" height="15" visible="0">
   <data encoding="csv">
