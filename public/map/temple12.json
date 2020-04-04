@@ -1,17 +1,9 @@
-{ "compressionlevel":0,
- "editorsettings":
-    {
-     "export":
-        {
-         "target":"."
-        }
-    },
- "height":40,
+{ "height":40,
  "infinite":false,
  "layers":[
         {
          "compression":"zlib",
-         "data":"eAHt0DEBAAAAwqD1T20MH4hAYcCAAQMGDBgwYMCAAQMGDBgwYMCAAQMGDBgwYMCAAQMGDBgw8BwYIcAAAQ==",
+         "data":"eJztmTFywyAQRXGTW+T+RZIySZmkhRbuoEOkCIUYfz0jCTRYMhkVfwYDu+xfdtf2MhhjhoPgRvgDbbgH\/IhwJ\/0vEa8RbzuP7cjLNdSpvN4jPiI+dx6nGPQNdSqvr4jviJ+dx8Fcc6yVTuVlxXdBPtsRer6TNYf9ST7ImjfXeLNYd\/I5QFcwUxs4H2RedTN\/dQ\/P8GYaM6rfZeR0HCBnoT9gTc9SLsFMOei62q\/11UKOHHLzar\/eI\/UoF5Wz5vbu6Sc\/M0\/fcH+6t5ws7VQdegeJF\/3sza0fycNDJ\/3LGCRn3rXmguYX19Q3vwvgfnK2K\/I10NjM1YPEczDTWCGfNH66zEPzi7GTOC7J14D5zFhI9g7iV+7T+efLPBi3rAl+Rb4GGt+MWT2Pv9M0jrSuLZ1FeeVV4pcazOUp65LGHuuZ2lfiw9x3S4l8DUrz0IMDcyXNlZ6lfHS+Fa+aPOT3DGPSrdjFGpKg8614tb7XUn3Ka28uW+61N16tcfLqCyevvnDy6gsnr75w8uoL\/4kX\/9\/k+m5H27iVF3tn7EcdbeMWsCfGHmivvJQL+7w939dcz7f3\/GK\/W3sIJf2sRwX7I+xFrfVHHhV8R2H\/vNf8Yn+Ybxu9xiHfTVg3eo1Dvsfw3fGIevgHD3JBUA==",
          "encoding":"base64",
          "height":40,
          "id":1,
@@ -25,7 +17,7 @@
         }, 
         {
          "compression":"zlib",
-         "data":"eAHt0DEBAAAAwqD1T20MH4hAYcCAAQMGDBgwYMCAAQMGDBgwYMCAAQMGDBgwYMCAAQMGDBgw8BwYIcAAAQ==",
+         "data":"eJztwTEBAAAAwqD1T20MH6AAAAAAAAAAAHgaIcAAAQ==",
          "encoding":"base64",
          "height":40,
          "id":2,
@@ -39,7 +31,7 @@
         }, 
         {
          "compression":"zlib",
-         "data":"eAHt0DEBAAAAwqD1T20MH4hAYcCAAQMGDBgwYMCAAQMGDBgwYMCAAQMGDBgwYMCAAQMGDBgw8BwYIcAAAQ==",
+         "data":"eJztwTEBAAAAwqD1T20MH6AAAAAAAAAAAHgaIcAAAQ==",
          "encoding":"base64",
          "height":40,
          "id":3,
@@ -121,7 +113,7 @@
  "nextobjectid":3,
  "orientation":"orthogonal",
  "renderorder":"right-down",
- "tiledversion":"2020.01.22",
+ "tiledversion":"1.2.1",
  "tileheight":32,
  "tilesets":[
         {

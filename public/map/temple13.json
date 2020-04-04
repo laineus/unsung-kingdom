@@ -1,17 +1,9 @@
-{ "compressionlevel":0,
- "editorsettings":
-    {
-     "export":
-        {
-         "target":"."
-        }
-    },
- "height":28,
+{ "height":28,
  "infinite":false,
  "layers":[
         {
          "compression":"zlib",
-         "data":"eAHt0DEBAAAAwqD1T+1pCYhAYcCAAQMGDBgwYMCAAQMGDBgwYMCAAQMGDBgwYOADAxpAAAE=",
+         "data":"eJztWEEOwjAMKw\/Z\/\/+SXtP\/gMQiGdOxdkvXIO1gCYE67DhJky2PlJYd5PRGeUFW7J25CrLyUkdOCs\/MwfSWQZwsjubzbJ3sRXbmZDEswfw1Tt68dH2edxy9NIszPwlYuwbLZ3WstYi9CmF3iEd\/sd7sGb8Res\/el1gTli+zdf2Cgi+9mvG+1T\/Qyj73cMaZxbydraPHY+TeGiPs8VFrtgact1r1CtSA\/FEum97evmVn8F6braMFOBP15mVJn3Uf9d6tac2pf6bGnhVtB6xxNU9xf+jljN5G24vQUyGeR+cirOFI97CQB\/z5jC+FtI7YNY9wMj7ohWfNZfKa33dwTHlfxl5w9P1Lqfz3qJkIZ1PkrhVdeeM33M3RnxZf8CxiZB\/FfEYNGGdNnzXFs1omnS37CJ\/DPLuifiR95xPvJuwnf8e1gFqw\/3DPnNk3jRt7u1V3WuHOsdAN7ZwTV2v1ihf2VtTEtRHt7r9xIwKeN1OxCQ==",
          "encoding":"base64",
          "height":28,
          "id":1,
@@ -25,7 +17,7 @@
         }, 
         {
          "compression":"zlib",
-         "data":"eAHt0DEBAAAAwqD1T+1pCYhAYcCAAQMGDBgwYMCAAQMGDBgwYMCAAQMGDBgwYOADAxpAAAE=",
+         "data":"eJztwTEBAAAAwqD1T+1pCaAAAAAAAADgBhpAAAE=",
          "encoding":"base64",
          "height":28,
          "id":2,
@@ -39,7 +31,7 @@
         }, 
         {
          "compression":"zlib",
-         "data":"eAHt0DEBAAAAwqD1T+1pCYhAYcCAAQMGDBgwYMCAAQMGDBgwYMCAAQMGDBgwYOADAxpAAAE=",
+         "data":"eJztwTEBAAAAwqD1T+1pCaAAAAAAAADgBhpAAAE=",
          "encoding":"base64",
          "height":28,
          "id":3,
@@ -121,7 +113,7 @@
  "nextobjectid":3,
  "orientation":"orthogonal",
  "renderorder":"right-down",
- "tiledversion":"2020.01.22",
+ "tiledversion":"1.2.1",
  "tileheight":32,
  "tilesets":[
         {
