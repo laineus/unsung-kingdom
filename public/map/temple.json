@@ -560,6 +560,34 @@
         {
          "id":274,
          "type":"collides"
+        }, 
+        {
+         "id":284,
+         "type":"collides"
+        }, 
+        {
+         "id":320,
+         "type":"collides"
+        }, 
+        {
+         "id":321,
+         "type":"collides"
+        }, 
+        {
+         "id":322,
+         "type":"collides"
+        }, 
+        {
+         "id":330,
+         "type":"collides"
+        }, 
+        {
+         "id":331,
+         "type":"collides"
+        }, 
+        {
+         "id":332,
+         "type":"collides"
         }],
  "tilewidth":32,
  "type":"tileset",
