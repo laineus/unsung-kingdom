@@ -4,10 +4,19 @@ const scriptsForSoldiers = [
   ],
   [
     '十年前、王はどうやってアイツに勝ったというのだ…。'
+  ],
+  [
+    '王を助けに行きたいが…、体が動いてくれない…。'
   ]
 ]
 export const ethelbald = (scene, ethel, soldiers) => {
   const state = scene.storage.state.event.m4_5
+  soldiers.forEach((v, i) => {
+    if (state.completed) return v.destroy()
+    v.setDisplayName('負傷した兵士').setTapEvent(async chara => {
+      await scene.talk(scriptsForSoldiers[i].map(text => ({ chara, text })))
+    })
+  })
   ethel.setDisplayName('王弟エゼルバルド').setTapEvent(async chara => {
     if (state.started) {
       await scene.talk([

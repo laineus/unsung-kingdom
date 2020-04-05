@@ -2,6 +2,7 @@ import { ethelbald } from '../event/dragonkiller'
 export default {
   create (scene) {
     const ethel = scene.map.getObjectById(3)
-    ethelbald(scene, ethel)
+    const soldiers = Array.range(4, 6).map(id => scene.map.getObjectById(id))
+    ethelbald(scene, ethel, soldiers)
   }
 }

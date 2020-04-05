@@ -105,6 +105,42 @@
                  "width":0,
                  "x":1274,
                  "y":946
+                }, 
+                {
+                 "height":0,
+                 "id":4,
+                 "name":"soldier",
+                 "point":true,
+                 "rotation":0,
+                 "type":"chara",
+                 "visible":true,
+                 "width":0,
+                 "x":1276,
+                 "y":732
+                }, 
+                {
+                 "height":0,
+                 "id":5,
+                 "name":"soldier",
+                 "point":true,
+                 "rotation":0,
+                 "type":"chara",
+                 "visible":true,
+                 "width":0,
+                 "x":1066,
+                 "y":852
+                }, 
+                {
+                 "height":0,
+                 "id":6,
+                 "name":"soldier",
+                 "point":true,
+                 "rotation":0,
+                 "type":"chara",
+                 "visible":true,
+                 "width":0,
+                 "x":1150,
+                 "y":1020
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -124,7 +160,7 @@
          "y":0
         }],
  "nextlayerid":6,
- "nextobjectid":4,
+ "nextobjectid":7,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"2020.02.26",
