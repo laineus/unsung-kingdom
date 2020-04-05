@@ -221,5 +221,51 @@ const events = [
       { chara: 'ann', text: '見に行ってみよう！' }
     ])
     await scene.ui.chapterStart(`${chapters[4].name} ${chapters[4].title}`)
+  },
+  async (scene) => {
+    scene.player.setR('down')
+    await scene.ui.sleep(1000)
+    await scene.talk([
+      { chara: 'ann', text: 'やっと落ち着いたね。' },
+      { chara: 'francisca', text: '大変だった…。' },
+      { chara: 'jaquelyn', text: 'でもうまいこと王がドラゴンを倒したことにできてよかったわね。' },
+      { chara: 'ann', text: 'そうだね。' },
+      { chara: 'francisca', text: 'で、王国史は？' },
+      { chara: 'jaquelyn', text: '今度こそ王は助かったかしら？' },
+      { chara: 'ann', text: 'うん、助かっと思う。' },
+      { chara: 'ann', text: 'そんな気がする。' },
+      { chara: 'ann', text: 'じゃあ見るよ。' },
+      { chara: 'ann', text: 'えっとね…、' },
+      { chara: 'ann', text: 'あ！ほら、見て！' },
+      { chara: 'ann', text: '王が亡くなる時期が20年近く先になってる。' },
+      { chara: 'ann', text: 'これって…、' },
+      { chara: 'francisca', text: 'うん。' },
+      { chara: 'jaquelyn', text: 'そうね。' },
+      { chara: 'francisca', text: '助けられたって十分言えるね。' },
+      { chara: 'ann', text: 'そうだよね、よかった！' },
+      { chara: 'ann', text: 'じゃあ私たちの時代は…！' },
+      { chara: 'jaquelyn', text: '待ってアン、' },
+      { chara: 'jaquelyn', text: 'その先は読まないでおきましょう。' },
+      { chara: 'ann', text: 'そっか、' },
+      { chara: 'ann', text: '未来へ帰ったら、直接確かめられるんだね。' },
+      { chara: 'ann', text: 'よし、じゃあ帰ろう！私たちの時代に！' },
+      { chara: 'francisca', text: 'そうしたいけどね。' },
+      { chara: 'ann', text: 'え…？' },
+      { chara: 'jaquelyn', text: '時間水晶をまだ取り返していないわ。' },
+      { chara: 'ann', text: 'そうだった！' },
+      { chara: 'ann', text: 'どうしよう…。' },
+      { chara: 'francisca', text: 'ジャックを探すしかないね。' },
+      { chara: 'jaquelyn', text: 'グリファルデ神殿では出会わなかったわ。' },
+      { chara: 'ann', text: 'やっぱり、聖アンテルスの墓地で落ちたときに死んじゃったのかな…。' },
+      { chara: 'francisca', text: 'もしそうなら探しやすくて助かるんだけど。' },
+      { chara: 'jaquelyn', text: '王が殺される歴史じゃなくなったことも考えると、' },
+      { chara: 'jaquelyn', text: '確かにジャックが既に死んでいる可能性は高いわね。' },
+      { chara: 'ann', text: 'そうなのかな…。' },
+      { chara: 'ann', text: 'でもなんとなくまだ生きている気がするんだよね。' },
+      { chara: 'francisca', text: 'そう？' },
+      { chara: 'jaquelyn', text: 'アンがそう思うなら、探しに行ってみましょう。' },
+      { chara: 'ann', text: 'そうしよう！' }
+    ])
+    await scene.ui.chapterStart(`${chapters[5].name} ${chapters[5].title}`)
   }
 ]
