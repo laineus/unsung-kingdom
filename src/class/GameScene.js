@@ -40,14 +40,6 @@ export default class GameScene extends Phaser.Scene {
     if (!this.storage.state.visited.includes(payload.map)) this.storage.state.visited.push(payload.map)
     // camera
     this.camera = this.getCamera()
-    // player controll
-    const walk = pointer => {
-      if (this.ui.eventMode || this.touchMode) return
-      if (!pointer.isDown || this.map.isCollides(pointer.worldX.toTile, pointer.worldY.toTile)) return
-      this.player.setTargetPosition(pointer.worldX, pointer.worldY)
-    }
-    this.input.on('pointerdown', walk)
-    this.input.on('pointermove', walk)
     this.event = maps[payload.map] || {}
     if (this.event.create) this.event.create(this)
     this.ui.showMapInfo(this.event)
@@ -68,6 +60,13 @@ export default class GameScene extends Phaser.Scene {
     if (this.frame % 20 === 0) this.tweetLost()
     if (this.touchMode && !this.ui.eventMode) {
       this.player.setTargetPosition(this.player.x + this.ui.virtualStick.velocityX, this.player.y + this.ui.virtualStick.velocityY)
+    }
+    if (this.input.mousePointer.isDown) {
+      if (this.ui.eventMode || this.touchMode) return
+      const worldX = this.input.mousePointer.x + this.camera.scrollX
+      const worldY = this.input.mousePointer.y + this.camera.scrollY
+      if (this.map.isCollides(worldX.toTile, worldY.toTile)) return
+      this.player.setTargetPosition(worldX, worldY)
     }
   }
   get ui () {
