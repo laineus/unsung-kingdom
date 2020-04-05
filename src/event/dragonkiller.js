@@ -50,6 +50,7 @@ export const ethelbald = (scene, ethel, soldiers) => {
 export const dragon = (scene, sonberk, king, area1, area2) => {
   const state = scene.storage.state.event.m4_5
   area1.setEvent(async () => {
+    await scene.camera.look((16).toPixelCenter, (9).toPixelCenter, 800)
     await scene.talk([
       { chara: sonberk, text: 'エドガーよ、貴様自ら現れるとは、良い度胸だ。' },
       { chara: sonberk, text: 'この俺を十年も封じておきながら、ただで帰れるとは思っていまいな。' },
@@ -66,9 +67,12 @@ export const dragon = (scene, sonberk, king, area1, area2) => {
       { chara: king, text: '弟とどのような交渉をしたのかは存ぜぬが、それこそ私の望むところだ。' },
       { chara: king, text: 'さあ、気の済むまで私を焼くがよい。' }
     ])
+    await scene.camera.revert(600)
   })
   area2.setEvent(async () => {
     const chara = sonberk
+    await scene.camera.look((16).toPixelCenter, (9).toPixelCenter, 400)
+    await scene.player.setTargetPosition((17).toPixelCenter, (12).toPixelCenter)
     await scene.talk([
       { chara: 'ann', text: 'ソンベルク！覚悟しなさい！' },
       { chara, text: '誰だ？' },
