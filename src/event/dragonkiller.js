@@ -132,8 +132,32 @@ export const dragon = (scene, sonberk, king, area1, area2, area3) => {
       { chara, text: '立ち去る気がないのなら相手になってやろう。' },
       { chara, text: '来い！' }
     ])
+    await scene.player.setTargetPosition((17).toPixel, (11).toPixel)
     const result = await scene.ui.battle([generateBattler('orthrus', 15, { hp: 800 })], { boss: true })
     if (!result) return
+    scene.francisca.setAllowWalkingWhileEvent(false).stopWalk().setPosition(scene.player.x + 40, scene.player.y + 27).setR('up')
+    scene.jaquelyn.setAllowWalkingWhileEvent(false).stopWalk().setPosition(scene.player.x + 20, scene.player.y + 70).setR('up')
+    await scene.ui.sleep(100)
     await sonberk.die()
+    await scene.ui.sleep(300)
+    await scene.camera.look(0, (3).toPixelCenter, 400, true)
+    await scene.talk([
+      { chara: 'ann', text: 'やった！倒した！' },
+      { chara: 'jaquelyn', text: 'やったわね、アン。' },
+      { chara: 'francisca', text: 'なんとかね。' },
+    ])
+    scene.player.setR('down')
+    scene.francisca.setR('left')
+    await scene.talk([
+      { chara: 'ann', text: 'よし、早く王や騎士団の皆を助けないと！' },
+      { chara: 'jaquelyn', text: 'そうね。' },
+      { chara: 'francisca', text: '後片付けが終わったら、私たちはさっさと姿を消そう。' },
+      { chara: 'ann', text: 'オーケー！' }
+    ])
+    scene.ui.missionUpdate('m4_5', true)
+    state.completed = true
+    await scene.ui.sleep(800)
+    scene.storage.state.chapter = 5
+    await scene.mapChange('room1', (19).toPixelCenter, (11).toPixel, { speed: 'slow' })
   })
 }

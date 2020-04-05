@@ -54,6 +54,7 @@ export default class Character extends Substance {
   stopWalk () {
     this.unsetFollowing()
     this.body.setVelocity(0, 0)
+    return this
   }
   setSpeed (speed = 120) {
     this.speed = speed
