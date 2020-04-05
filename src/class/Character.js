@@ -202,4 +202,17 @@ export default class Character extends Substance {
     this.lastX = this.x
     this.lastY = this.y
   }
+  die () {
+    return new Promise(resolve => {
+      this.image.setTint(0xFF0000)
+      this.scene.add.tween({
+        targets: this, duration: 500, ease: 'Power2',
+        scaleX: 1.3, scaleY: 1.3, alpha: 0.2,
+        onComplete: () => {
+          this.destroy()
+          resolve()
+        }
+      })
+    })
+  }
 }

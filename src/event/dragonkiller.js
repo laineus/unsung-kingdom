@@ -134,5 +134,6 @@ export const dragon = (scene, sonberk, king, area1, area2, area3) => {
     ])
     const result = await scene.ui.battle([generateBattler('orthrus', 15, { hp: 800 })], { boss: true })
     if (!result) return
+    await sonberk.die()
   })
 }
