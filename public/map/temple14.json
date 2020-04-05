@@ -101,7 +101,7 @@
                  "id":3,
                  "name":"king",
                  "point":true,
-                 "rotation":0,
+                 "rotation":180,
                  "type":"chara",
                  "visible":true,
                  "width":0,
@@ -122,6 +122,17 @@
                 {
                  "height":96,
                  "id":5,
+                 "name":"",
+                 "rotation":0,
+                 "type":"area",
+                 "visible":true,
+                 "width":224,
+                 "x":384,
+                 "y":768
+                }, 
+                {
+                 "height":96,
+                 "id":6,
                  "name":"",
                  "rotation":0,
                  "type":"area",
@@ -148,7 +159,7 @@
          "y":0
         }],
  "nextlayerid":12,
- "nextobjectid":6,
+ "nextobjectid":7,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"2020.02.26",

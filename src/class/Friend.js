@@ -24,6 +24,7 @@ export default class Friend extends Character {
   }
   setAllowWalkingWhileEvent (bool) {
     this.allowWalkingWhileEvent = bool
+    return this
   }
   tweet (text) {
     this.tweetBubble.setText(text)

@@ -5,6 +5,7 @@ export default {
     const king = scene.map.getObjectById(3)
     const area1 = scene.map.getObjectById(4)
     const area2 = scene.map.getObjectById(5)
-    dragon(scene, sonberk, king, area1, area2)
+    const area3 = scene.map.getObjectById(6)
+    dragon(scene, sonberk, king, area1, area2, area3)
   }
 }

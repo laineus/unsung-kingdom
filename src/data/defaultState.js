@@ -33,7 +33,7 @@ export default () => {
       m4_2: { started: false, completed: false, count: 0 },
       m4_3: { started: false, completed: false, talked: false },
       m4_4: { started: false, completed: false, apples: [] },
-      m4_5: { started: false, completed: false },
+      m4_5: { started: false, completed: false, area1: false, area2: false },
       m5_1: { started: false, completed: false },
       m0: { talked_matilda: false, talked_annabelle: false, talked_amber: false, area: false },
       m1: { talked_amber: false, talked_annabelle: false, talked_elliott: false },

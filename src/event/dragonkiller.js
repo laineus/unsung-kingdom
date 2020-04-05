@@ -1,3 +1,4 @@
+import generateBattler from '../util/generateBattler'
 const scriptsForSoldiers = [
   [
     'ドラゴンは…、我々が想定していたよりもずっと強力だった…。'
@@ -47,8 +48,15 @@ export const ethelbald = (scene, ethel, soldiers) => {
   })
 }
 
-export const dragon = (scene, sonberk, king, area1, area2) => {
+export const dragon = (scene, sonberk, king, area1, area2, area3) => {
   const state = scene.storage.state.event.m4_5
+  if (state.area1) {
+    area1.destroy()
+  }
+  if (state.area2) {
+    king.y += (3).toPixel
+    area2.destroy()
+  }
   area1.setEvent(async () => {
     await scene.camera.look((16).toPixelCenter, (9).toPixelCenter, 800)
     await scene.talk([
@@ -66,11 +74,43 @@ export const dragon = (scene, sonberk, king, area1, area2) => {
       { chara: king, text: 'そうか。' },
       { chara: king, text: '弟とどのような交渉をしたのかは存ぜぬが、それこそ私の望むところだ。' },
       { chara: king, text: 'さあ、気の済むまで私を焼くがよい。' }
-    ])
+    ], { angle: false })
     await scene.camera.revert(600)
+    area1.destroy()
   })
   area2.setEvent(async () => {
+    const red = scene.add.rectangle(0, 0, scene.map.width, scene.map.height, 0xCC2200)
+    red.setAlpha(0).setBlendMode(Phaser.BlendModes.OVERLAY).setDepth(140000).setOrigin(0,0)
+    scene.add.tween({
+      targets: red,
+      duration: 700,
+      ease: 'Power2',
+      alpha: 1,
+      yoyo: true,
+      onComplete() {
+        red.destroy()
+      }
+    })
+    await new Promise(resolve => scene.camera.shake(1000, 0.03, undefined, resolve))
+    await scene.talk([
+      { chara: king, text: 'ぐわっ！' },
+      { chara: 'ann', text: '！' },
+      { chara: 'ann', text: '急がないと！' }
+    ], { angle: false })
+    king.y += (3).toPixel
+    state.area2 = true
+    area2.destroy()
+  })
+  area3.setEvent(async () => {
     const chara = sonberk
+    scene.jaquelyn.setAllowWalkingWhileEvent(true).setTargetPosition((16).toPixelCenter, (13).toPixelCenter)
+    scene.francisca.setAllowWalkingWhileEvent(true).setTargetPosition((18).toPixelCenter, (13).toPixelCenter)
+    await scene.player.setTargetPosition((17).toPixelCenter, (15).toPixel)
+    scene.player.setR('left')
+    await scene.talk([
+      { chara: king, text: '…。' },
+      { chara: 'ann', text: '大丈夫、気を失ってるだけ…！' }
+    ])
     await scene.camera.look((16).toPixelCenter, (9).toPixelCenter, 400)
     await scene.player.setTargetPosition((17).toPixelCenter, (12).toPixelCenter)
     await scene.talk([
@@ -92,5 +132,7 @@ export const dragon = (scene, sonberk, king, area1, area2) => {
       { chara, text: '立ち去る気がないのなら相手になってやろう。' },
       { chara, text: '来い！' }
     ])
+    const result = await scene.ui.battle([generateBattler('orthrus', 15, { hp: 800 })], { boss: true })
+    if (!result) return
   })
 }
