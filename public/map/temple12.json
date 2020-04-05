@@ -93,6 +93,18 @@
                  "width":96,
                  "x":640,
                  "y":1216
+                }, 
+                {
+                 "height":0,
+                 "id":3,
+                 "name":"king",
+                 "point":true,
+                 "rotation":0,
+                 "type":"chara",
+                 "visible":true,
+                 "width":0,
+                 "x":1274,
+                 "y":946
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -112,7 +124,7 @@
          "y":0
         }],
  "nextlayerid":6,
- "nextobjectid":3,
+ "nextobjectid":4,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"2020.02.26",
