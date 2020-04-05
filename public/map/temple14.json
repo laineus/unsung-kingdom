@@ -83,6 +83,52 @@
                  "width":96,
                  "x":640,
                  "y":1376
+                }, 
+                {
+                 "height":0,
+                 "id":2,
+                 "name":"orthrus",
+                 "point":true,
+                 "rotation":0,
+                 "type":"chara",
+                 "visible":true,
+                 "width":0,
+                 "x":527.895326221489,
+                 "y":261.401544173985
+                }, 
+                {
+                 "height":0,
+                 "id":3,
+                 "name":"king",
+                 "point":true,
+                 "rotation":0,
+                 "type":"chara",
+                 "visible":true,
+                 "width":0,
+                 "x":524.500500972476,
+                 "y":380.220427889432
+                }, 
+                {
+                 "height":96,
+                 "id":4,
+                 "name":"",
+                 "rotation":0,
+                 "type":"area",
+                 "visible":true,
+                 "width":256,
+                 "x":544,
+                 "y":1152
+                }, 
+                {
+                 "height":96,
+                 "id":5,
+                 "name":"",
+                 "rotation":0,
+                 "type":"area",
+                 "visible":true,
+                 "width":224,
+                 "x":512,
+                 "y":480
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -102,7 +148,7 @@
          "y":0
         }],
  "nextlayerid":12,
- "nextobjectid":2,
+ "nextobjectid":6,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"2020.02.26",
