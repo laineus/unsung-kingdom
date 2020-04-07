@@ -243,7 +243,7 @@ const events = [
       { chara: 'jaquelyn', text: 'そうね。' },
       { chara: 'francisca', text: '助けられたって十分言えるね。' },
       { chara: 'ann', text: 'そうだよね、よかった！' },
-      { chara: 'ann', text: 'じゃあ私たちの時代は…！' },
+      { chara: 'ann', text: 'じゃあ私たちの時代はどうなったかな…！' },
       { chara: 'jaquelyn', text: '待ってアン、' },
       { chara: 'jaquelyn', text: 'その先は読まないでおきましょう。' },
       { chara: 'ann', text: 'そっか、' },

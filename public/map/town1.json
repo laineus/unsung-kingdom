@@ -248,6 +248,30 @@
                  "width":0,
                  "x":406,
                  "y":562
+                }, 
+                {
+                 "height":0,
+                 "id":18,
+                 "name":"soldier",
+                 "point":true,
+                 "rotation":-90,
+                 "type":"chara",
+                 "visible":true,
+                 "width":0,
+                 "x":514,
+                 "y":638
+                }, 
+                {
+                 "height":0,
+                 "id":19,
+                 "name":"soldier",
+                 "point":true,
+                 "rotation":0,
+                 "type":"chara",
+                 "visible":true,
+                 "width":0,
+                 "x":559,
+                 "y":614
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -256,7 +280,7 @@
          "y":0
         }],
  "nextlayerid":19,
- "nextobjectid":18,
+ "nextobjectid":20,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"2020.02.26",
