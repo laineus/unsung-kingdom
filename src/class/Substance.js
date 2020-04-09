@@ -31,6 +31,7 @@ export default class Substance extends Phaser.GameObjects.Container {
       this.add(this.shadow)
     }
     this.add(this.image)
+    return this
   }
   setId (id) {
     this.id = id
