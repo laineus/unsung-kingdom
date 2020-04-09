@@ -140,6 +140,12 @@ export default class GameScene extends Phaser.Scene {
     this.ui.setEncounter(false)
     this.encountDelay = Math.randomInt(300, 500) + (this.stronger ? 100 : 0)
   }
+  setMembersPosition (x, y, r) {
+    [this.player, this.francisca, this.jaquelyn].forEach(v => {
+      v.setPosition(x, y)
+      if (r) v.setR(r)
+    })
+  }
   setDebugAction () {
     window.storage = storage
     this.input.keyboard.on('keydown_I', () => {
