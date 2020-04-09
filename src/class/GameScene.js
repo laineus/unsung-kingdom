@@ -140,9 +140,12 @@ export default class GameScene extends Phaser.Scene {
     this.ui.setEncounter(false)
     this.encountDelay = Math.randomInt(300, 500) + (this.stronger ? 100 : 0)
   }
+  get members () {
+    return [this.player, this.francisca, this.jaquelyn]
+  }
   setMembersPosition (x, y, r) {
-    [this.player, this.francisca, this.jaquelyn].forEach(v => {
-      v.setPosition(x, y)
+    this.members.forEach((v, i) => {
+      v.setPosition(x, i === 0 ? y : y - 1)
       if (r) v.setR(r)
     })
   }
