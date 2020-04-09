@@ -1,5 +1,5 @@
 import generateBattler from '../util/generateBattler'
-export const jack = (scene, area, chara) => {
+export const jackEvent = (scene, area, chara) => {
   const state = scene.storage.state.event.m0_1
   if (state.battled) {
     chara.destroy()
@@ -87,7 +87,7 @@ export const jack = (scene, area, chara) => {
   })
 }
 
-export const king = (scene, area, chara, soldier1, soldier2) => {
+export const kingEvent = (scene, area, chara, soldier1, soldier2) => {
   const state = scene.storage.state.event.m0_1
   if (state.completed) {
     chara.destroy()
