@@ -124,5 +124,10 @@ export default {
     const started = 'ライラのためにリンゴを集めよう。'
     const cnt = `集めたリンゴ（${state.event.m4_4.apples.length}/${APPLES_COUNT}）`
     return state.event.m4_4.completed ? base : `${base}\n${started}\n${cnt}`
+  },
+  m5_1 (_state) {
+    const base = '王弟エゼルバルドからの手紙には「王城の裏庭で待つ」とだけあった。'
+    const started = '王城の裏庭へ向かおう。'
+    return `${base}\n${started}`
   }
 }
