@@ -68,7 +68,7 @@ export default class TitleScene extends Phaser.Scene {
   runGame (map, x, y) {
     this.ui.showController(true)
     this.scene.start('Game', { map, x, y })
-    this.scene.remove('Title')
+    this.scene.sleep('Title')
   }
   loadData () {
     this.list.forEach(v => v.setVisible(false))

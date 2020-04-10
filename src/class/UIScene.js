@@ -209,9 +209,14 @@ export default class UIScene extends Phaser.Scene {
   chapterStart (text) {
     return new Promise(resolve => {
       const m = this.add.text(config.WIDTH.half, config.HEIGHT.half - 5, text, { fill: config.COLORS.white.toColorString, fontSize: 16, fontFamily: config.FONTS.TEXT }).setOrigin(0.5, 0.5)
-      new StoryTelling(this, [m], false).on('beforeEnd', () => {
-        resolve()
-      })
+      new StoryTelling(this, [m], false).on('beforeEnd', resolve)
+    })
+  }
+  credit () {
+    return new Promise(resolve => {
+      const m1 = this.add.text(config.WIDTH.half, config.HEIGHT.half - 5, 'Laineus', { fill: config.COLORS.white.toColorString, fontSize: 16, fontFamily: config.FONTS.TEXT }).setOrigin(0.5, 0.5)
+      const m2 = this.add.text(config.WIDTH.half, config.HEIGHT.half - 5, '真符', { fill: config.COLORS.white.toColorString, fontSize: 16, fontFamily: config.FONTS.TEXT }).setOrigin(0.5, 0.5)
+      new StoryTelling(this, [m1, m2], false).on('beforeEnd', resolve)
     })
   }
   storyTelling () {
@@ -222,9 +227,7 @@ export default class UIScene extends Phaser.Scene {
       const m2 = this.add.text(config.WIDTH.half, config.HEIGHT.half - 5, MESSAGES[2], { align: 'left', fill: config.COLORS.white.toColorString, fontSize: 18, fontFamily: config.FONTS.TEXT }).setOrigin(0.5, 0.5).setLineSpacing(15)
       const m3 = this.add.text(config.WIDTH.half, config.HEIGHT.half - 5, MESSAGES[3], { align: 'left', fill: config.COLORS.white.toColorString, fontSize: 18, fontFamily: config.FONTS.TEXT }).setOrigin(0.5, 0.5).setLineSpacing(15)
       const m4 = this.add.text(config.WIDTH.half, config.HEIGHT.half - 5, MESSAGES[4], { align: 'left', fill: config.COLORS.white.toColorString, fontSize: 18, fontFamily: config.FONTS.TEXT }).setOrigin(0.5, 0.5).setLineSpacing(15)
-      new StoryTelling(this, [m1, m2, m3, m4], true).on('beforeEnd', () => {
-        resolve()
-      })
+      new StoryTelling(this, [m1, m2, m3, m4], true).on('beforeEnd', resolve)
     })
   }
   increaseWeapon (weaponId, announce = true) {

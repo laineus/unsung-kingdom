@@ -123,9 +123,9 @@ export const peaceful = (scene, area1, area2, soldier1, soldier2, jack) => {
     await scene.ui.sleep(1500)
     await scene.ui.transition('normal')
     scene.members.forEach(v => v.setVisible(false))
-    soldier1.setPosition((33).toPixelCenter, (17).toPixelCenter).setVisible(true)
-    soldier2.setPosition((32).toPixelCenter, (18).toPixelCenter).setVisible(true)
     jack.initImage('jack').setFaceKey('jack2')
+    soldier1.setPosition((33).toPixelCenter, (17).toPixelCenter).setVisible(true)
+    await soldier2.setPosition((32).toPixelCenter, (18).toPixelCenter).setVisible(true)
     await scene.ui.sleep(1500)
     await scene.talk([
       { chara, text: '君たちの時代が明るいことは、' },
@@ -133,15 +133,16 @@ export const peaceful = (scene, area1, area2, soldier1, soldier2, jack) => {
       { chara, text: '平和王エドガーが保証する。' }
     ], { angle: false })
     await scene.ui.sleep(1500)
-    soldier1.setTargetPosition(soldier1.x + 200, soldier1.y).setSpeed(180)
-    soldier2.setTargetPosition(soldier2.x + 200, soldier2.y).setSpeed(180)
+    soldier1.setSpeed(180).setTargetPosition(soldier1.x + 200, soldier1.y)
+    soldier2.setSpeed(180).setTargetPosition(soldier2.x + 200, soldier2.y)
     await scene.talk([
       { chara: soldier1, text: 'おい、居たぞ！' },
       { chara: soldier1, text: '黒いローブの暗殺者だ！' },
       { chara: soldier2, text: '逃がすな、射て！' },
       { chara, text: '王よ、後世でうたわれる王国を…' }
     ], { angle: false })
-    scene.camera.revert(0)
+    await scene.ui.credit()
+    scene.scene.start('Title')
   }).setActive(false)
   if (state.soldiers) afterSawSoldiers()
 }
