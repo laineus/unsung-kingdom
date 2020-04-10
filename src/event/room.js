@@ -232,7 +232,7 @@ const events = [
       { chara: 'ann', text: 'そうだね。' },
       { chara: 'francisca', text: 'で、王国史は？' },
       { chara: 'jaquelyn', text: '今度こそ王は助かったかしら？' },
-      { chara: 'ann', text: 'うん、助かっと思う。' },
+      { chara: 'ann', text: 'うん、助かったと思う。' },
       { chara: 'ann', text: 'そんな気がする。' },
       { chara: 'ann', text: 'じゃあ見るよ。' },
       { chara: 'ann', text: 'えっとね…、' },

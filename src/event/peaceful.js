@@ -1,8 +1,16 @@
 export const peaceful = (scene, area1, area2, soldier1, soldier2, jack) => {
-  jack.setVisible(false).setPosition((53).toPixelCenter, (19).toPixelCenter).setR('left')
+  jack.setVisible(false).setDisplayName('ジャック').setPosition((53).toPixelCenter, (19).toPixelCenter).setR('left')
+  soldier1.setDisplayName('衛兵').setR('right')
+  soldier2.setDisplayName('衛兵').setR('left')
+  const state = scene.storage.state.event.m5_1
+  const afterSawSoldiers = () => {
+    jack.setVisible(true)
+    soldier1.setVisible(false)
+    soldier2.setVisible(false)
+    area1.setActive(true)
+    area2.setActive(false)
+  }
   area2.setEvent(async () => {
-    soldier1.setDisplayName('衛兵').setR('right')
-    soldier2.setDisplayName('衛兵').setR('left')
     await scene.camera.look((16).toPixel, (15).toPixel, 800)
     await scene.ui.sleep(500)
     await scene.talk([
@@ -14,10 +22,8 @@ export const peaceful = (scene, area1, area2, soldier1, soldier2, jack) => {
     await scene.ui.transition('normal')
     await scene.camera.revert(0)
     scene.setMembersPosition((26).toPixelCenter, (20).toPixelCenter, 'right')
-    jack.setVisible(true)
-    soldier1.setVisible(false)
-    soldier2.setVisible(false)
-    area1.setActive(true)
+    state.soldiers = true
+    afterSawSoldiers()
   })
   area1.setEvent(async () => {
     await scene.camera.look(jack.x - 70, jack.y, 800)
@@ -36,7 +42,7 @@ export const peaceful = (scene, area1, area2, soldier1, soldier2, jack) => {
       { chara, text: '…。' },
       { chara, text: '今一度、名乗らせてくれ。' }
     ])
-    jack.initImage('soldier').setFaceKey('kingbrother2')
+    jack.initImage('soldier').setFaceKey('kingbrother2').setDisplayName('王弟エゼルバルド')
     await scene.talk([
       { chara, text: '俺は王弟エゼルバルドだ。' },
       { chara: 'ann', text: '！' },
@@ -117,14 +123,18 @@ export const peaceful = (scene, area1, area2, soldier1, soldier2, jack) => {
     await scene.ui.sleep(1500)
     await scene.ui.transition('normal')
     scene.members.forEach(v => v.setVisible(false))
-    await scene.ui.sleep(1500)
+    soldier1.setPosition((33).toPixelCenter, (17).toPixelCenter).setVisible(true)
+    soldier2.setPosition((32).toPixelCenter, (18).toPixelCenter).setVisible(true)
     jack.initImage('jack').setFaceKey('jack2')
+    await scene.ui.sleep(1500)
     await scene.talk([
       { chara, text: '君たちの時代が明るいことは、' },
       { chara, text: '我らが王、' },
       { chara, text: '平和王エドガーが保証する。' }
     ], { angle: false })
     await scene.ui.sleep(1500)
+    soldier1.setTargetPosition(soldier1.x + 200, soldier1.y).setSpeed(180)
+    soldier2.setTargetPosition(soldier2.x + 200, soldier2.y).setSpeed(180)
     await scene.talk([
       { chara: soldier1, text: 'おい、居たぞ！' },
       { chara: soldier1, text: '黒いローブの暗殺者だ！' },
@@ -133,4 +143,5 @@ export const peaceful = (scene, area1, area2, soldier1, soldier2, jack) => {
     ], { angle: false })
     scene.camera.revert(0)
   }).setActive(false)
+  if (state.soldiers) afterSawSoldiers()
 }
