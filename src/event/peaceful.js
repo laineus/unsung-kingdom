@@ -1,5 +1,5 @@
 export const peaceful = (scene, area1, area2, soldier1, soldier2, jack) => {
-  jack.setVisible(false).setDisplayName('ジャック').setPosition((53).toPixelCenter, (19).toPixelCenter).setR('left')
+  jack.setVisible(false).setDisplayName('ジャック')
   soldier1.setDisplayName('衛兵').setR('right')
   soldier2.setDisplayName('衛兵').setR('left')
   const state = scene.storage.state.event.m5_1
@@ -42,7 +42,10 @@ export const peaceful = (scene, area1, area2, soldier1, soldier2, jack) => {
       { chara, text: '…。' },
       { chara, text: '今一度、名乗らせてくれ。' }
     ])
-    jack.initImage('soldier').setFaceKey('kingbrother2').setDisplayName('王弟エゼルバルド')
+    await scene.ui.sleep(500)
+    await scene.ui.transition('fast')
+    jack.initImage('kingbrother').setFaceKey('kingbrother2').setDisplayName('王弟エゼルバルド')
+    await scene.ui.sleep(500)
     await scene.talk([
       { chara, text: '俺は王弟エゼルバルドだ。' },
       { chara: 'ann', text: '！' },
@@ -138,9 +141,20 @@ export const peaceful = (scene, area1, area2, soldier1, soldier2, jack) => {
     await scene.talk([
       { chara: soldier1, text: 'おい、居たぞ！' },
       { chara: soldier1, text: '黒いローブの暗殺者だ！' },
-      { chara: soldier2, text: '逃がすな、射て！' },
-      { chara, text: '王よ、後世でうたわれる王国を…' }
+      { chara: soldier2, text: '逃がすな、射て！' }
     ], { angle: false })
+    await scene.ui.sleep(800)
+    const red = scene.add.rectangle(0, 0, scene.map.width, scene.map.height, 0xEE2200).setAlpha(0).setDepth(140000).setOrigin(0,0)
+    scene.add.tween({
+      targets: red, duration: 400, ease: 'Power2', alpha: 0.6, yoyo: true,
+      onComplete() { jack.initImage('jack2') }
+    })
+    await scene.ui.sleep(2500)
+    await scene.talk([
+      { chara, text: '王よ、' },
+      { chara, text: '後世でうたわれる王国を…' }
+    ], { angle: false })
+    await scene.ui.sleep(2000)
     await scene.ui.credit()
     scene.scene.start('Title')
   }).setActive(false)

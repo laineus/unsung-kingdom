@@ -141,6 +141,18 @@
                  "width":0,
                  "x":582,
                  "y":488
+                }, 
+                {
+                 "height":0,
+                 "id":14,
+                 "name":"jack",
+                 "point":true,
+                 "rotation":90,
+                 "type":"chara",
+                 "visible":true,
+                 "width":0,
+                 "x":1711,
+                 "y":626
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -149,10 +161,10 @@
          "y":0
         }],
  "nextlayerid":22,
- "nextobjectid":14,
+ "nextobjectid":15,
  "orientation":"orthogonal",
  "renderorder":"right-down",
- "tiledversion":"2019.12.11",
+ "tiledversion":"2020.02.26",
  "tileheight":32,
  "tilesets":[
         {
