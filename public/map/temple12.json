@@ -97,7 +97,7 @@
                 {
                  "height":0,
                  "id":3,
-                 "name":"king",
+                 "name":"kingbrother2",
                  "point":true,
                  "rotation":0,
                  "type":"chara",
@@ -109,7 +109,7 @@
                 {
                  "height":0,
                  "id":4,
-                 "name":"soldier",
+                 "name":"injured_soldier3",
                  "point":true,
                  "rotation":0,
                  "type":"chara",
@@ -121,7 +121,7 @@
                 {
                  "height":0,
                  "id":5,
-                 "name":"soldier",
+                 "name":"injured_soldier5",
                  "point":true,
                  "rotation":0,
                  "type":"chara",
@@ -133,7 +133,7 @@
                 {
                  "height":0,
                  "id":6,
-                 "name":"soldier",
+                 "name":"injured_soldier2",
                  "point":true,
                  "rotation":0,
                  "type":"chara",
