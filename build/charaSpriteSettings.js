@@ -4,6 +4,7 @@ module.exports = [
   ['francisca', 3, 4],
   ['jaquelyn', 3, 4],
   ['jack', 3, 4],
+  ['jack2', 1, 1],
   ['king', 3, 4],
   ['soldier', 3, 4],
   ['hunter', 3, 4],
