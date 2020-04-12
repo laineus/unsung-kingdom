@@ -31,13 +31,19 @@ import catacomb8 from '../map/catacomb8'
 import catacomb9 from '../map/catacomb9'
 import catacomb10 from '../map/catacomb10'
 import catacomb11 from '../map/catacomb11'
+import temple1 from '../map/temple1'
 import temple2 from '../map/temple2'
+import temple3 from '../map/temple3'
 import temple4 from '../map/temple4'
+import temple5 from '../map/temple5'
+import temple6 from '../map/temple6'
 import temple7 from '../map/temple7'
 import temple8 from '../map/temple8'
 import temple9 from '../map/temple9'
 import temple10 from '../map/temple10'
+import temple11 from '../map/temple11'
 import temple12 from '../map/temple12'
+import temple13 from '../map/temple13'
 import temple14 from '../map/temple14'
 export default {
   room1,
@@ -73,12 +79,18 @@ export default {
   catacomb9,
   catacomb10,
   catacomb11,
+  temple1,
   temple2,
+  temple3,
   temple4,
+  temple5,
+  temple6,
   temple7,
   temple8,
   temple9,
   temple10,
+  temple11,
   temple12,
+  temple13,
   temple14
 }

@@ -1,5 +1,9 @@
 import { dragon } from '../event/dragonkiller'
 export default {
+  name: 'グリファルデ神殿 - 最深部',
+  enemyLevel: 24,
+  enemyGroups: [
+  ],
   create (scene) {
     const sonberk = scene.map.getObjectById(2)
     const king = scene.map.getObjectById(3)
