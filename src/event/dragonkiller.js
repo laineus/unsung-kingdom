@@ -98,6 +98,7 @@ export const dragon = (scene, sonberk, king, area1, area2, area3) => {
       { chara: 'ann', text: '急がないと！' }
     ], { angle: false })
     king.y += (3).toPixel
+    king.initImage('king2')
     state.area2 = true
     area2.destroy()
   })
@@ -110,7 +111,7 @@ export const dragon = (scene, sonberk, king, area1, area2, area3) => {
     await scene.talk([
       { chara: king, text: '…。' },
       { chara: 'ann', text: '大丈夫、気を失ってるだけ…！' }
-    ])
+    ], { angle: false })
     await scene.camera.look((16).toPixelCenter, (9).toPixelCenter, 400)
     await scene.player.setTargetPosition((17).toPixelCenter, (12).toPixelCenter)
     await scene.talk([
