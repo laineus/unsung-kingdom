@@ -6,7 +6,8 @@
   "license": "MIT",
   "scripts": {
     "dev": "webpack-dev-server --mode development --host 0.0.0.0",
-    "build": "webpack --mode production"
+    "build": "webpack --mode production",
+    "lint": "eslint src"
   },
   "dependencies": {
     "moment": "^2.24.0",
@@ -16,6 +17,12 @@
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.5",
     "babel-preset-env": "^1.7.0",
+    "eslint": "^6.8.0",
+    "eslint-config-standard": "^14.1.1",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
     "image-size": "^0.8.3",
     "tile-extruder": "^2.0.3",
     "webpack": "^4.27.0",
