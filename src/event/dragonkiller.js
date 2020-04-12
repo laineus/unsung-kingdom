@@ -138,7 +138,17 @@ export const dragon = (scene, sonberk, king, area1, area2, area3) => {
     if (!result) return
     scene.francisca.setAllowWalkingWhileEvent(false).stopWalk().setPosition(scene.player.x + 40, scene.player.y + 27).setR('up')
     scene.jaquelyn.setAllowWalkingWhileEvent(false).stopWalk().setPosition(scene.player.x + 20, scene.player.y + 70).setR('up')
-    await scene.ui.sleep(100)
+    await scene.ui.sleep(200)
+    const red = scene.add.rectangle(0, 0, scene.map.width, scene.map.height, 0xCC8844)
+    red.setAlpha(0).setBlendMode(Phaser.BlendModes.OVERLAY).setDepth(140000).setOrigin(0, 0)
+    scene.add.tween({
+      targets: red, duration: 1200, ease: 'Power2', alpha: 1, yoyo: true,
+      onComplete () {
+        red.destroy()
+      }
+    })
+    scene.camera.shake(2000, 0.03)
+    await scene.ui.sleep(1800)
     await sonberk.die()
     await scene.ui.sleep(300)
     await scene.camera.look(0, (3).toPixelCenter, 400, true)
