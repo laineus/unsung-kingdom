@@ -5,12 +5,15 @@ module.exports = {
   rules: {
     'object-property-newline': 0,
     'no-extend-native': 0,
-    'lines-between-class-members': 0
+    'lines-between-class-members': 0,
+    'no-return-assign': 0
   },
   globals: {
     location: true,
     alert: true,
     localStorage: true,
+    FileReader: true,
+    Blob: true,
     WebGLRenderingContext: true,
     Phaser: true
   },
