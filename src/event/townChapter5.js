@@ -1,9 +1,9 @@
 export default (scene, charas) => {
-  const eState = scene.storage.state.event.m5
-  const m5_1 = scene.storage.state.event.m5_1
+  // const eState = scene.storage.state.event.m5
+  const eState = scene.storage.state.event.m5_1
   const { soldier1, soldier2 } = charas
-  soldier1.setVisible(!m5_1.started)
-  soldier2.setVisible(!m5_1.started)
+  soldier1.setVisible(!eState.started)
+  soldier2.setVisible(!eState.started)
   // 兵士
   const soldierEvent = async () => {
     await scene.talk([
@@ -33,7 +33,7 @@ export default (scene, charas) => {
       { chara: 'ann', text: 'うーん。' },
       { chara: 'ann', text: 'よく分からないけど行くしかないね。' }
     ])
-    m5_1.started = true
+    eState.started = true
     scene.ui.missionUpdate('m5_1')
   }
   charas.soldier1.setTapEvent(soldierEvent)

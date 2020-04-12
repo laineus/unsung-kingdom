@@ -10,7 +10,7 @@ const positions = {
   2: [-130, 130],
   3: [-200, 0, 200],
   4: [-240, -80, 80, 240],
-  5: [-260, -130, 0, 130, 260],
+  5: [-260, -130, 0, 130, 260]
 }
 export default class Battle extends Phaser.GameObjects.Container {
   constructor (scene, group, { boss = false, defeatEvent = false } = {}, callback) {
@@ -149,7 +149,7 @@ export default class Battle extends Phaser.GameObjects.Container {
     const ability = this.currentBattler.weapon ? abilities[this.currentBattler.weapon.ability] : null
     if (!ability) return
     switch (ability) {
-      case 'Heal':
+      case 'Heal': {
         this.players.list.forEach((player, i) => {
           if (!player.alive || player.hp === player.maxHp) return
           this.addOptionButton('Heal', 220 + i * 310, 390, () => {
@@ -158,7 +158,8 @@ export default class Battle extends Phaser.GameObjects.Container {
           })
         })
         break
-      case 'Heal-All':
+      }
+      case 'Heal-All': {
         const players = this.players.list.filter(p => p.alive && p.hp < p.maxHp)
         if (!players.length) return
         this.addOptionButton('Heal All', 80, 320, () => {
@@ -166,11 +167,13 @@ export default class Battle extends Phaser.GameObjects.Container {
           this.increaseTurn()
         })
         break
-      case 'Multi-Attack':
+      }
+      case 'Multi-Attack': {
         this.addOptionButton('Multi Attack', 80, 220, () => {
           this.multiAttack().then(this.increaseTurn.bind(this))
         })
         break
+      }
     }
     slideIn(this.scene, this.ablButtons)
   }

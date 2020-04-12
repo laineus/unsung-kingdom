@@ -190,9 +190,12 @@ export const jack = (scene, jk, area1, area2, area3) => {
     await scene.ui.sleep(700)
     jk.setR('up')
     await scene.ui.sleep(500)
-    scene.add.tween({ targets: jk, duration: 200, y: jk.y - 70, ease: 'Power2', onComplete: () => {
-      scene.add.tween({ targets: jk, duration: 200, alpha: 0, y: jk.y + 55, ease: 'Cubic.easeIn', onComplete: () => jk.destroy() })
-    } })
+    scene.add.tween({
+      targets: jk, duration: 200, y: jk.y - 70, ease: 'Power2',
+      onComplete: () => {
+        scene.add.tween({ targets: jk, duration: 200, alpha: 0, y: jk.y + 55, ease: 'Cubic.easeIn', onComplete: () => jk.destroy() })
+      }
+    })
     await scene.ui.sleep(200)
     scene.player.setTargetPosition(scene.player.x + 50, scene.player.y)
     await scene.ui.sleep(1000)

@@ -10,7 +10,7 @@ export default class ExpGauge extends Phaser.GameObjects.Container {
     this.setPosition(x, y)
     this.bg = scene.add.rectangle(-width.half, 0, width, 1, config.COLORS.soy).setOrigin(0, 0.5)
     this.bar = scene.add.rectangle(-width.half, 0, width - 11, 2, config.COLORS.soy).setOrigin(0, 1).setScale(this.barScale, 1)
-    this.arrow = scene.add.polygon(width.half -1, 5, [[0, -5], [0, 0], [10, 0]], config.COLORS.soy).setOrigin(1, 1)
+    this.arrow = scene.add.polygon(width.half - 1, 5, [[0, -5], [0, 0], [10, 0]], config.COLORS.soy).setOrigin(1, 1)
     this.label = this.scene.add.text(-width.half, -4, 'EXP', { fill: config.COLORS.soy.toColorString, fontSize: 11, fontStyle: 'bold', fontFamily: config.FONTS.UI }).setOrigin(0, 1)
     this.add([this.bg, this.bar, this.arrow, this.label])
   }
@@ -38,7 +38,7 @@ export default class ExpGauge extends Phaser.GameObjects.Container {
       targets: this.bar, duration: 1000 * diff, ease: 'Power2',
       scaleX,
       onComplete: () => {
-        if (thisTimeSum  === this.valueMax) {
+        if (thisTimeSum === this.valueMax) {
           this.lv++
           this.exp += thisTimeAdd
           this.bar.scaleX = 0

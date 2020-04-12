@@ -144,10 +144,10 @@ export const peaceful = (scene, area1, area2, soldier1, soldier2, jack) => {
       { chara: soldier2, text: '逃がすな、射て！' }
     ], { angle: false })
     await scene.ui.sleep(800)
-    const red = scene.add.rectangle(0, 0, scene.map.width, scene.map.height, 0xEE2200).setAlpha(0).setDepth(140000).setOrigin(0,0)
+    const red = scene.add.rectangle(0, 0, scene.map.width, scene.map.height, 0xEE2200).setAlpha(0).setDepth(140000).setOrigin(0, 0)
     scene.add.tween({
       targets: red, duration: 400, ease: 'Power2', alpha: 0.6, yoyo: true,
-      onComplete() { jack.initImage('jack2') }
+      onComplete () { jack.initImage('jack2') }
     })
     await scene.ui.sleep(2500)
     await scene.talk([

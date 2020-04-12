@@ -1,6 +1,6 @@
 export default class Area extends Phaser.GameObjects.Zone {
-  constructor (scene, zone_x, zone_y, zone_width, zone_height) {
-    super(scene, zone_x, zone_y, zone_width, zone_height)
+  constructor (scene, zoneX, zoneY, zoneWidth, zoneHeight) {
+    super(scene, zoneX, zoneY, zoneWidth, zoneHeight)
     this.setOrigin(0, 0)
     this.lastEnteredFrame = 0
     scene.physics.world.enable(this)

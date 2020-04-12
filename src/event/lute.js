@@ -14,7 +14,7 @@ export const lute = (scene, poets) => {
       const completedGoodApples = state.apples.count(v => GOOD_APPLES.includes(v)) >= APPLES_COUNT
       await scene.talk([
         { chara: 'ann', text: 'リンゴ集めてきたよ！' },
-        { chara, text: 'お、いいね。' },
+        { chara, text: 'お、いいね。' }
       ])
       await scene.ui.sleep(500)
       await scene.talk([
@@ -45,7 +45,7 @@ export const lute = (scene, poets) => {
           { chara, text: 'お嬢さんが持ってきてくれたリンゴだってそうだ。' },
           { chara, text: 'かなり美味しいよ。' },
           { chara, text: 'ちゃんと私のことを思って持ってきくれたに違いない。' },
-          { chara: 'ann', text: 'へへ。' },
+          { chara: 'ann', text: 'へへ。' }
         ] : []),
         { chara, text: 'さあ、' },
         { chara, text: 'じゃあ気をつけて行っておいで。' },

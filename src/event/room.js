@@ -9,8 +9,8 @@ export const execChapterBeginEvents = (scene) => {
   const chapter = scene.storage.state.chapter
   const state = scene.storage.state.event.chapter_begin
   if (state[chapter]) return
-  const francisca = scene.francisca.setPosition(655, 440).setR('up').setTarget(null)
-  const jaquelyn = scene.jaquelyn.setPosition(591, 440).setR('up').setTarget(null)
+  scene.francisca.setPosition(655, 440).setR('up').setTarget(null)
+  scene.jaquelyn.setPosition(591, 440).setR('up').setTarget(null)
   scene.ui.autoEvent(async () => {
     await events[chapter](scene)
     state[chapter] = true
@@ -24,13 +24,13 @@ const events = [
       { chara: 'jaquelyn', text: 'よろしくね、アン。' },
       { chara: 'francisca', text: 'アンが仕切るの？不安なんですけど。' },
       { chara: 'francisca', text: '私達がこの時代に来た目的、ちゃんと理解してる？' },
-      { chara: 'ann', text: '当たり前じゃん！' },
+      { chara: 'ann', text: '当たり前じゃん！' }
     ])
     const i = await scene.select(['王の暗殺を阻止すること', '観光'])
     await scene.talk([
       ...(i === 0 ? [
         { chara: 'ann', text: '私達の目的はエドガー王が暗殺されるのを阻止すること。' },
-        { chara: 'jaquelyn', text: 'ちゃんと覚えていて偉いわ、アン。' },
+        { chara: 'jaquelyn', text: 'ちゃんと覚えていて偉いわ、アン。' }
       ] : [
         { chara: 'francisca', text: 'はぁ…。' },
         { chara: 'jaquelyn', text: 'そうじゃないでしょ、アン。' },

@@ -60,7 +60,7 @@ export default [
     chapter: 2,
     title: 'アラグニエのねぐら',
     en: 'Aragnie\'s lair',
-      map: 'underpass1'
+    map: 'underpass1'
   },
   {
     key: 'm3_1',

@@ -47,7 +47,7 @@ export default class BattleQuestService {
     if (event.m3_3.completed || !event.m3_3.started) return
     const result = this.collection('jack', 100)
     if (!result) return
-    return `ダリオの短剣を獲得！`
+    return 'ダリオの短剣を獲得！'
   }
   m4_2 (event) {
     if (event.m4_2.completed || !event.m4_2.started) return

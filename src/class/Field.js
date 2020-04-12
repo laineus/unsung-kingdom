@@ -128,7 +128,8 @@ export default class Field {
     const sun1 = this.scene.add.sprite(30, -70, 'sun_light').setDepth(DEPTH.SUN_LIGHT).setBlendMode(Phaser.BlendModes.OVERLAY).setOrigin(0.5, 0).setScale(1.4, 10).setRotation(-1.1).setAlpha(0.6)
     const sun2 = this.scene.add.sprite(-70, -70, 'sun_light').setDepth(DEPTH.SUN_LIGHT).setBlendMode(Phaser.BlendModes.OVERLAY).setOrigin(0.5, 0).setScale(0.8, 10).setRotation(-0.8).setAlpha(0.6)
     const sun3 = this.scene.add.sprite(-70, 30, 'sun_light').setDepth(DEPTH.SUN_LIGHT).setBlendMode(Phaser.BlendModes.OVERLAY).setOrigin(0.5, 0).setScale(0.4, 10).setRotation(-0.5).setAlpha(0.6)
-    Array(sun1, sun2, sun3).forEach(sun => {
+    const suns = [sun1, sun2, sun3]
+    suns.forEach(sun => {
       this.scene.add.tween({
         targets: sun, duration: Math.randomInt(400, 700),
         scaleX: sun.scaleX + 0.02, alpha: 0.8,

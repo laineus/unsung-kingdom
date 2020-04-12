@@ -15,7 +15,7 @@ export const renfield = (scene, ray, spectres) => {
         { chara, text: '大したものは無いけど、' },
         { chara, text: 'これ、さっき拾った鍵をやるよ。' },
         { chara, text: 'どっかに使えんだろ。' },
-        { chara: 'ann', text: 'ああ、うん、ありがとう。' },
+        { chara: 'ann', text: 'ああ、うん、ありがとう。' }
       ])
       scene.ui.announce('『錆びた鍵』を手に入れた')
       await scene.talk([

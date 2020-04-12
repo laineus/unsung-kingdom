@@ -125,11 +125,10 @@ export const elliott = async (scene, chara) => {
     const i = await scene.select(['はい', 'いいえ'])
     await scene.talk([
       ...(i === 0 ? [
-          { chara: 'francisca', text: 'やめなさいよ、アン。' },
-          { chara: 'ann', text: 'でも儲かるみたいだよ？' },
-          { chara: 'francisca', text: 'バカね。とにかくダメ。' }
-        ] : []
-      ),
+        { chara: 'francisca', text: 'やめなさいよ、アン。' },
+        { chara: 'ann', text: 'でも儲かるみたいだよ？' },
+        { chara: 'francisca', text: 'バカね。とにかくダメ。' }
+      ] : []),
       { chara, text: 'ちっ、' }
     ])
     chara.nextMessages = [{ chara, text: '気は変わらないか？' }]

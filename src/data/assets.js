@@ -19,7 +19,7 @@ export default {
     ['tileset/underpass', '../img/tilesets/extruded/underpass.png'],
     ['tileset/catacomb', '../img/tilesets/extruded/catacomb.png'],
     ['tileset/temple', '../img/tilesets/extruded/temple.png'],
-    ...assetData.tilesetImages,
+    ...assetData.tilesetImages
   ],
   json: [
     ...assetData.tilesetTiles

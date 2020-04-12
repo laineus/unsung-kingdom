@@ -18,4 +18,4 @@ const option = {
   }
 }
 
-new Phaser.Game(option)
+window.game = new Phaser.Game(option)

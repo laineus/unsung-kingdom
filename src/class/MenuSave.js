@@ -32,7 +32,7 @@ export default class MenuSave extends Phaser.GameObjects.Container {
     item.add(bg)
     const tx = this.scene.add.text(-120, 0, data.name, { fontSize: 18, fontStyle: 'bold', fontFamily: config.FONTS.UI }).setOrigin(0, 0.5)
     item.add(tx)
-    item.setActive = bool => tx.setFill(config.COLORS[bool ? 'theme' :'white'].toColorString)
+    item.setActive = bool => tx.setFill(config.COLORS[bool ? 'theme' : 'white'].toColorString)
     if (data.exists) {
       const progress = this.getProgress(data.state).toFixed(1)
       const time = this.scene.add.text(120, 0, `Chapter-${data.state.chapter}    ${progress}%`, { fontSize: 16, fontFamily: config.FONTS.UI, fill: config.COLORS.gray.toColorString }).setOrigin(1, 0.5)

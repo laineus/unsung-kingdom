@@ -25,8 +25,8 @@ const option = {
     }
   },
   input: {
-    activePointers:3,
-  },
+    activePointers: 3
+  }
   // fps: { target: 30, forceSetTimeOut: true }
 }
 

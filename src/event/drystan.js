@@ -37,12 +37,12 @@ export const drystan = (scene, door, drystan) => {
         { chara, text: 'さあ、あまり時間はないぞ。' }
       ])
       scene.ui.missionUpdate('m1_3')
-    } else if(!state1.completed && !hasMandrake) {
+    } else if (!state1.completed && !hasMandrake) {
       await scene.talk([
         { chara, text: `マンドレイクの根を${MANDRAKE_COUNT}つだぞ。` },
         { chara, text: '早いところ持ってきなさい。' }
       ])
-    } else if(!state1.completed && hasMandrake) {
+    } else if (!state1.completed && hasMandrake) {
       await scene.talk([
         { chara: 'ann', text: 'マンドレイクの根を集めてきました。' },
         { chara, text: '早かったな。' },

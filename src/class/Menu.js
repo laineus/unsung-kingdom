@@ -6,10 +6,10 @@ import MenuSetting from './MenuSetting'
 import { slideIn, slideOut, fadeIn, fadeOut } from '../util/animations'
 import UICloseButton from './UICloseButton'
 const contents = [
-  { class: MenuMap, name: 'MAP & QUESTS', min: 'マップ・クエスト', size: 52, frame: 0 },
-  { class: MenuStatus, name: 'CHARACTERS', min: 'キャラクター', size: 52, frame: 1 },
-  { class: MenuSave, name: 'SAVE', min: 'セーブ', size: 52, frame: 2 },
-  { class: MenuSetting, name: 'SETTINGS', min: '設定', size: 42, frame: 3 }
+  { Class: MenuMap, name: 'MAP & QUESTS', min: 'マップ・クエスト', size: 52, frame: 0 },
+  { Class: MenuStatus, name: 'CHARACTERS', min: 'キャラクター', size: 52, frame: 1 },
+  { Class: MenuSave, name: 'SAVE', min: 'セーブ', size: 52, frame: 2 },
+  { Class: MenuSetting, name: 'SETTINGS', min: '設定', size: 42, frame: 3 }
 ]
 export default class Menu extends Phaser.GameObjects.Container {
   constructor (scene, callback) {
@@ -58,9 +58,9 @@ export default class Menu extends Phaser.GameObjects.Container {
     return button
   }
   loadContent (content) {
-    if (this.content instanceof content.class) return
+    if (this.content instanceof content.Class) return
     if (this.content) this.content.destroy()
-    this.content = new content.class(this.scene)
+    this.content = new content.Class(this.scene)
     this.content.on('close', this.destroy.bind(this, false))
     this.content.on('loadData', data => {
       this.scene.storage.load(data.number)

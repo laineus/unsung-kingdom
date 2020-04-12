@@ -80,14 +80,14 @@ export const dragon = (scene, sonberk, king, area1, area2, area3) => {
   })
   area2.setEvent(async () => {
     const red = scene.add.rectangle(0, 0, scene.map.width, scene.map.height, 0xCC2200)
-    red.setAlpha(0).setBlendMode(Phaser.BlendModes.OVERLAY).setDepth(140000).setOrigin(0,0)
+    red.setAlpha(0).setBlendMode(Phaser.BlendModes.OVERLAY).setDepth(140000).setOrigin(0, 0)
     scene.add.tween({
       targets: red,
       duration: 700,
       ease: 'Power2',
       alpha: 1,
       yoyo: true,
-      onComplete() {
+      onComplete () {
         red.destroy()
       }
     })
@@ -144,7 +144,7 @@ export const dragon = (scene, sonberk, king, area1, area2, area3) => {
     await scene.talk([
       { chara: 'ann', text: 'やった！倒した！' },
       { chara: 'jaquelyn', text: 'やったわね、アン。' },
-      { chara: 'francisca', text: 'なんとかね。' },
+      { chara: 'francisca', text: 'なんとかね。' }
     ])
     scene.player.setR('down')
     scene.francisca.setR('left')

@@ -72,13 +72,12 @@ export default (scene, charas) => {
       const i = await scene.select(['買う', '買わない'])
       await scene.talk([
         ...(i === 0 ? [
-            { chara: 'francisca', text: 'バカねアン、明らかにインチキじゃない。' },
-            { chara: 'ann', text: 'でも、本当かもしれないよ？' },
-            { chara: c2, text: 'やめておきなお嬢ちゃん。' }
-          ] : [
-            { chara: c2, text: '賢い判断だお嬢ちゃん。' },
-          ]
-        ),
+          { chara: 'francisca', text: 'バカねアン、明らかにインチキじゃない。' },
+          { chara: 'ann', text: 'でも、本当かもしれないよ？' },
+          { chara: c2, text: 'やめておきなお嬢ちゃん。' }
+        ] : [
+          { chara: c2, text: '賢い判断だお嬢ちゃん。' }
+        ]),
         { chara: c2, text: 'そんなろくでなしの売るモンは怪しさ満点だ。' },
         { chara, text: 'おい！人の商売の邪魔をするなマックス！' },
         { chara, text: '脳みそが筋肉でできたお前には解らんだろうが、こいつは本物だ。' },

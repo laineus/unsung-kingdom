@@ -1,5 +1,5 @@
 import config from '../data/config'
-const points = [[11,2], [21, 0], [43,2], [55,11], [46,22], [31,26], [27,32], [23,26], [9,22], [0,11]]
+const points = [[11, 2], [21, 0], [43, 2], [55, 11], [46, 22], [31, 26], [27, 32], [23, 26], [9, 22], [0, 11]]
 const pointTimes = [-0.5, 0, 0.5, 0.5, 0.5, 0, 0, 0, -0.5, -0.5]
 export default class TweenBubble extends Phaser.GameObjects.Container {
   constructor (scene, x = 0, y = 0) {

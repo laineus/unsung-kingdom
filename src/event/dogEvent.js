@@ -29,7 +29,7 @@ export const dogEventHunter = (scene, hunter) => {
         { chara, text: 'ああ、相棒の狩猟犬が産んだ5匹の子犬たちだ。まだ1歳にもなっていない。' },
         { chara, text: `あ、${last}` },
         null
-      ] : [ { chara, text: last }, null ])
+      ] : [{ chara, text: last }, null])
       const i = await scene.select(['はい', 'いいえ'])
       state.talked = true
       t.destroy()

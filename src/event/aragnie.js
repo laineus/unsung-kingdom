@@ -353,8 +353,3 @@ const setLamp = (scene, player, yarn) => {
   player.add(lamp)
   player.lamp = lamp
 }
-
-const clearLamp = (player, yarn) => {
-  player.lamp.destroy()
-  yarn.destroy()
-}

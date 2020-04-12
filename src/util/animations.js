@@ -13,7 +13,7 @@ export const slideIn = (scene, list, { x = -200, y = 0, delay = 0 } = {}) => {
         x: v.x - x,
         y: v.y - y,
         alpha: 1,
-        onComplete() {
+        onComplete () {
           if (i === listArray.length - 1) resolve()
         }
       })
@@ -33,7 +33,7 @@ export const slideOut = (scene, list, { x = 200, y = 0, destroy = true, delay = 
         x: v.x + x,
         y: v.y + y,
         alpha: 0,
-        onComplete() {
+        onComplete () {
           v.x -= x
           v.y -= y
           if (destroy) v.destroy()
@@ -54,7 +54,7 @@ export const fadeIn = (scene, list, { duration = 250, alpha = 1, delay = 0 } = {
       ease: 'Power2',
       delay,
       alpha,
-      onComplete() {
+      onComplete () {
         resolve()
       }
     })
@@ -70,7 +70,7 @@ export const fadeOut = (scene, list, { destroy = true, duration = 250, delay = 0
       ease: 'Power2',
       delay,
       alpha: 0,
-      onComplete() {
+      onComplete () {
         if (destroy) listArray.forEach(v => v.destroy.bind(v))
         resolve()
       }

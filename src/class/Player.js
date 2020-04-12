@@ -33,7 +33,7 @@ export default class Player extends Character {
       if (this.positionHistory.length > 100) this.positionHistory.pop()
     }
   }
-  setPosition(x, y) {
+  setPosition (x, y) {
     if (this.positionHistory) this.positionHistory.fill([x, y])
     return super.setPosition(x, y)
   }
