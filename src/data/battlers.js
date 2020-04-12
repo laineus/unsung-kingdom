@@ -154,17 +154,17 @@ export default [
   },
   {
     key: 'tree', name: 'トルコリス', lv: 1, effect: 'crash',
-    hp: 20, atk: 4, def: 6, dex: 3, agi: 3,
-    up: { hp: 90, atk: 80, def: 90, dex: 75, agi: 70 }
+    hp: 20, atk: 4, def: 6, dex: 4, agi: 4,
+    up: { hp: 90, atk: 80, def: 90, dex: 75, agi: 75 }
   },
   {
     key: 'knight', name: 'レムリアンナイト', lv: 1, effect: 'slash',
-    hp: 80, atk: 6, def: 7, dex: 3, agi: 3,
+    hp: 80, atk: 6, def: 7, dex: 4, agi: 4,
     up: { hp: 100, atk: 90, def: 100, dex: 75, agi: 75 }
   },
   {
     key: 'thief', name: 'シーフェン', lv: 1, effect: 'slash',
-    hp: 50, atk: 4, def: 3, dex: 6, agi: 6,
+    hp: 50, atk: 4, def: 4, dex: 6, agi: 6,
     up: { hp: 90, atk: 80, def: 70, dex: 90, agi: 90 },
     abillities: [{ type: 'double', chance: 70 }]
   },
@@ -176,7 +176,7 @@ export default [
   },
   {
     key: 'dragon', name: 'ソンベルク', lv: 1, effect: 'scratch',
-    hp: 100, atk: 7, def: 5, dex: 4, agi: 3,
+    hp: 100, atk: 7, def: 6, dex: 6, agi: 5,
     up: { hp: 100, atk: 100, def: 95, dex: 90, agi: 85 },
     abillities: [{ type: 'multi', chance: 80 }]
   }
