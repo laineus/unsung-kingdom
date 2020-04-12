@@ -41,7 +41,7 @@ const list = [
   // m4_2
   (group, event) => {
     if (event.m4_2.completed || !event.m4_2.started) return
-    const result = collection(group, 'kelunne', 75)
+    const result = collection(group, 'bird', 75)
     if (!result) return
     event.m4_2.count += result
     return `ケルーネの羽を${result}個獲得！（${event.m4_2.count}/${KELUNNE_COUNT}）`

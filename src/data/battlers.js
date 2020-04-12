@@ -141,5 +141,43 @@ export default [
     up: { hp: 100, atk: 95, def: 80, dex: 75, agi: 80 },
     abillities: [{ type: 'multi', chance: 70 }],
     dropWeapon: { id: 13, chance: 100 }
+  },
+  {
+    key: 'bird', name: 'ケルーネ', lv: 1, effect: 'hit',
+    hp: 20, atk: 4, def: 4, dex: 5, agi: 5,
+    up: { hp: 75, atk: 75, def: 75, dex: 85, agi: 85 }
+  },
+  {
+    key: 'lizard', name: 'バリザード', lv: 1, effect: 'scratch',
+    hp: 20, atk: 6, def: 3, dex: 5, agi: 4,
+    up: { hp: 85, atk: 90, def: 75, dex: 95, agi: 80 }
+  },
+  {
+    key: 'tree', name: 'トルコリス', lv: 1, effect: 'crash',
+    hp: 20, atk: 4, def: 6, dex: 3, agi: 3,
+    up: { hp: 90, atk: 80, def: 90, dex: 75, agi: 70 }
+  },
+  {
+    key: 'knight', name: 'レムリアンナイト', lv: 1, effect: 'slash',
+    hp: 80, atk: 6, def: 7, dex: 3, agi: 3,
+    up: { hp: 100, atk: 90, def: 100, dex: 75, agi: 75 }
+  },
+  {
+    key: 'thief', name: 'シーフェン', lv: 1, effect: 'slash',
+    hp: 50, atk: 4, def: 3, dex: 6, agi: 6,
+    up: { hp: 90, atk: 80, def: 70, dex: 90, agi: 90 },
+    abillities: [{ type: 'double', chance: 70 }]
+  },
+  {
+    key: 'nikke', name: 'ニッケ', lv: 1, effect: 'crash',
+    hp: 50, atk: 4, def: 3, dex: 7, agi: 6,
+    up: { hp: 90, atk: 80, def: 70, dex: 95, agi: 90 },
+    abillities: [{ type: 'double', chance: 70 }]
+  },
+  {
+    key: 'dragon', name: 'ソンベルク', lv: 1, effect: 'scratch',
+    hp: 100, atk: 7, def: 5, dex: 4, agi: 3,
+    up: { hp: 100, atk: 100, def: 95, dex: 90, agi: 85 },
+    abillities: [{ type: 'multi', chance: 80 }]
   }
 ]
