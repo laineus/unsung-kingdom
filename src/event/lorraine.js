@@ -3,6 +3,10 @@ export const architect = (scene, chara) => {
   chara.setDisplayName('彫刻家クラウス')
   chara.setTapEvent(async () => {
     if (state.completed) {
+      await scene.talk([
+        { chara, text: '仕掛けは解けたようだね。' },
+        { chara, text: '地下へも行きたいのなら、ライラという女性を探すといい。' }
+      ])
     } else if (state.started) {
       await scene.talk([
         { chara, text: '仕掛けの動かし方は、せっかくだから考えてみてくれ。' }

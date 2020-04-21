@@ -38,7 +38,7 @@ export const allsRight = (scene, zi) => {
     } else if (state.started) {
       await scene.talk([
         { chara, text: `ケルーネの羽根を${KELUNNE_COUNT}枚、集めてきてくれ。` },
-        { chara, text: 'それを使って伝言を用意する。' }
+        { chara, text: 'それを使って伝言を作る。' }
       ])
     } else {
       await scene.talk([
@@ -94,6 +94,7 @@ export const allsRight = (scene, zi) => {
         { chara, text: 'お前たちがソンベルクを殺そうと気にしないとは言ったが、' },
         { chara, text: '積極的に手を貸すつもりでもない。' },
         { chara: 'ann', text: 'そっか…。' },
+        { chara: 'ann', text: '困ったな…。' },
         { chara, text: '…。' },
         { chara, text: 'ニッケと話す機会くらいはつくろう。' },
         { chara: 'ann', text: '話す機会？' },
@@ -104,8 +105,8 @@ export const allsRight = (scene, zi) => {
         { chara, text: '少し準備が必要だ。' },
         { chara: 'ann', text: '準備？' },
         { chara, text: `ケルーネの羽根を${KELUNNE_COUNT}枚、集めてきてくれ。` },
-        { chara, text: 'それを使って伝言を用意する。' },
-        { chara: 'ann', text: 'うーん、' },
+        { chara, text: 'それを使って伝言を作る。' },
+        { chara: 'ann', text: '伝言を作る…？' },
         { chara: 'ann', text: 'よく分からないけど分かった！集めてくるね。' }
       ])
       state.started = true
