@@ -1,6 +1,13 @@
 import { gimmick } from '../event/lorraine'
 export default {
   name: 'グリファルデ神殿 - 広場',
+  enemyLevel: 26,
+  enemyGroups: [
+    ['bird'],
+    ['bird', 'bird'],
+    ['lizard'],
+    ['lizard', 'lizard']
+  ],
   create (scene) {
     const buttons = [6, 7, 8].map(id => scene.map.getObjectById(id))
     const doorContainer = scene.map.getObjectById(9)

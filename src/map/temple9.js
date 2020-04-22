@@ -2,8 +2,11 @@ import { calibur } from '../event/calibur'
 import { appleCollection } from '../event/lute'
 export default {
   name: 'グリファルデ神殿 - 東部',
-  enemyLevel: 24,
+  enemyLevel: 32,
   enemyGroups: [
+    ['tree', 'tree'],
+    ['bird', 'tree', 'bird'],
+    ['thief']
   ],
   create (scene) {
     const sword = scene.map.getObjectById(3)

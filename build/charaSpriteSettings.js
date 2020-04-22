@@ -49,5 +49,6 @@ module.exports = [
   ['injured_soldier5', 1, 1],
   ['injured_soldier6', 1, 1],
   ['kingbrother', 3, 4],
-  ['kingbrother2', 1, 1]
+  ['kingbrother2', 1, 1],
+  ['dragon', 1, 1]
 ]

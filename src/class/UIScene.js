@@ -156,11 +156,13 @@ export default class UIScene extends Phaser.Scene {
       this.battlerSummary.setVisible(false)
       this.encounter1.setAlpha(0)
       this.encounter2.setAlpha(0)
+      if (this.mapInfo) this.mapInfo.setVisible(false)
     } else {
       this.menuButton.setVisible(true)
       this.battlerSummary.setVisible(true)
       this.encounter1.setAlpha(1)
       this.encounter2.setAlpha(1)
+      if (this.mapInfo) this.mapInfo.setVisible(true)
       this.time.delayedCall(1, () => {
         this.blocker.setVisible(false)
       })

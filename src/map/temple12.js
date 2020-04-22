@@ -1,8 +1,11 @@
 import { ethelbald } from '../event/dragonkiller'
 export default {
   name: 'グリファルデ神殿 - 地下',
-  enemyLevel: 24,
+  enemyLevel: 35,
   enemyGroups: [
+    ['thief', 'thief'],
+    ['knight'],
+    ['knight', 'knight']
   ],
   create (scene) {
     const ethel = scene.map.getObjectById(3)

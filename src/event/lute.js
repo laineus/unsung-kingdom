@@ -4,7 +4,11 @@ export const GOOD_APPLES = ['a8_5', 'a8_6', 'a8_7', 'a8_9', 'a9_4']
 export const lute = (scene, poets) => {
   const state = scene.storage.state.event.m4_4
   poets.setDisplayName('ライラ')
-  poets.image.anims.play('poets_lute', true)
+  if (state.completed) {
+    poets.image.anims.play('poets_lute', true)
+  } else if (!scene.storage.state.event.m4_3.completed) {
+    poets.image.setFrame(2)
+  }
   poets.setTapEvent(async chara => {
     if (state.completed) {
       await scene.talk([
@@ -31,6 +35,8 @@ export const lute = (scene, poets) => {
         { chara: 'ann', text: 'へー。' },
         { chara, text: 'じゃあ、聞いていてね。' }
       ])
+      poets.image.anims.play('poets_lute', true)
+      scene.ui.sleep(3000)
       await scene.talk([
         { chara, text: 'さて、開いたはずだよ。' },
         { chara: 'ann', text: 'すごい！' },
@@ -96,8 +102,11 @@ export const lute = (scene, poets) => {
       scene.ui.missionUpdate('m4_4')
     } else {
       await scene.talk([
-        { chara, text: 'こんにちはお嬢さん。' },
-        { chara: 'ann', text: 'どうも！' }
+        { chara: 'ann', text: 'あのー…、' }
+      ])
+      scene.ui.sleep(700)
+      await scene.talk([
+        { chara: 'ann', text: '寝てるみたい。' }
       ])
     }
   })
