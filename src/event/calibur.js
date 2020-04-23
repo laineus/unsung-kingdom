@@ -5,9 +5,16 @@ export const calibur = (scene, sword, nikke) => {
     nikke.destroy()
     return
   }
+  const fixPosition = async () => {
+    if (scene.player.y > (nikke.y + 40)) return
+    await scene.ui.transition('fast')
+    scene.setMembersPosition(nikke.x, nikke.y + 70, 'up')
+    await scene.ui.sleep(300)
+  }
   nikke.setDisplayName('ニッケ').setVisible(state.talked)
   const eventTarget = state.talked ? nikke : sword
   const event = async () => {
+    await fixPosition()
     const chara = nikke
     const battle = async () => {
       const i = await scene.select(['はい', 'いいえ'])
@@ -65,7 +72,17 @@ export const calibur = (scene, sword, nikke) => {
       await scene.talk([
         { chara: 'ann', text: 'よし、竜族の言葉の煙を出すよ。' }
       ])
+      scene.ui.sleep(300)
+      const mist = scene.add.rectangle(0, 0, scene.map.width, scene.map.height, 0x44CC88)
+      mist.setAlpha(0).setBlendMode(Phaser.BlendModes.OVERLAY).setDepth(140000).setOrigin(0, 0)
+      scene.add.tween({
+        targets: mist, duration: 1200, ease: 'Power2', alpha: 0.7, yoyo: true, onComplete () { mist.destroy() }
+      })
+      await scene.ui.sleep(1200)
       nikke.setVisible(true)
+      await scene.ui.sleep(300)
+      scene.player.tweet('！')
+      await scene.ui.sleep(1200)
       await scene.camera.look((16).toPixel, (7).toPixel, 500)
       await scene.talk([
         { chara, text: 'やあ、' },
@@ -101,6 +118,7 @@ export const calibur = (scene, sword, nikke) => {
         { chara, text: 'まあでも仕方ないね。' },
         { chara, text: 'ここは今は人間の地だ。' },
         { chara, text: '残った竜族は虐げられても文句は言えない。' },
+        { chara: 'ann', text: '虐げるつもりはないんだけど…、' },
         { chara: 'ann', text: 'ソンベルクは説得したら王や王国を襲うのをやめるかな？' },
         { chara, text: 'やめないと思う。' },
         { chara: 'ann', text: 'そうなんだ…。' },
@@ -110,14 +128,14 @@ export const calibur = (scene, sword, nikke) => {
         { chara, text: '人が作ったものだしね。' },
         { chara, text: '人に返すのがフェアだ。' },
         { chara, text: 'そしてそれをどう使おうとキミたちの自由だ。' },
-        { chara: 'ann', text: 'いいの？' },
+        { chara: 'ann', text: 'いいの！？' },
         { chara, text: 'うん。' },
         { chara, text: 'でも返す相手が人なら誰でもいいとは思ってない。' },
         { chara, text: '見て、' },
         { chara, text: 'これを作った人間は間違いなく強いヤツだ。' },
         { chara, text: 'キミはこれを持つにふさわしいかな？' },
         { chara, text: '試してもいいよね？' },
-        { chara: 'ann', text: 'つまり？' },
+        { chara: 'ann', text: '試すって？' },
         { chara, text: '僕と戦うんだよ。' },
         { chara: 'ann', text: 'なるほど。' },
         { chara, text: 'それでいいよね？' },
