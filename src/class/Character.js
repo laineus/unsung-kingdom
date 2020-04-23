@@ -1,4 +1,5 @@
 import Substance from './Substance'
+import TweetBubble from './TweetBubble'
 import assets from '../data/assets'
 const angleData = {
   down: { frame: 1, r: Math.PI / 2 },
@@ -14,6 +15,7 @@ export default class Character extends Substance {
     this.setR('down')
     this.setFaceKey(this.key)
     this.setTalking(false)
+    this.tweetBubble = new TweetBubble(scene).setDepth(200000)
   }
   preUpdate () {
     super.preUpdate()
@@ -22,6 +24,7 @@ export default class Character extends Substance {
     this._updateAnimation()
     this._randomWalk()
     this._collideWall()
+    this.tweetBubble.setPosition(this.x, this.y - 60)
   }
   setDisplayName (name) {
     this.displayName = name
@@ -67,6 +70,9 @@ export default class Character extends Substance {
   }
   getBalloon () {
     return super.getBalloon('bubble_talk')
+  }
+  tweet (text) {
+    this.tweetBubble.setText(text)
   }
   get hasTarget () {
     return this.target !== null
