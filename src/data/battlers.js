@@ -183,6 +183,6 @@ export default [
     key: 'dragon', name: 'ソンベルク', lv: 1, effect: 'scratch',
     hp: 100, atk: 7, def: 6, dex: 6, agi: 5,
     up: { hp: 100, atk: 100, def: 95, dex: 90, agi: 85 },
-    abillities: [{ type: 'multi', chance: 80 }]
+    abillities: [{ type: 'multi', chance: 70 }, { type: 'double', chance: 50 }]
   }
 ]

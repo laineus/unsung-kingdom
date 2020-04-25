@@ -1,7 +1,8 @@
 export const APPLES_COUNT = 5
 export const GOOD_APPLES = ['a8_5', 'a8_6', 'a8_7', 'a8_9', 'a9_4']
 
-export const lute = (scene, poets) => {
+export const lute = (scene, poets, goddessLight) => {
+  goddessLight.setVisible(false)
   const state = scene.storage.state.event.m4_4
   poets.setDisplayName('ライラ')
   if (state.completed) {
@@ -11,9 +12,8 @@ export const lute = (scene, poets) => {
   }
   poets.setTapEvent(async chara => {
     if (state.completed) {
-      await scene.talk([
-        { chara, text: 'やあ' }
-      ])
+      chara.tweet('♪')
+      await scene.ui.sleep(1000)
     } else if (state.apples.length >= APPLES_COUNT) {
       const completedGoodApples = state.apples.count(v => GOOD_APPLES.includes(v)) >= APPLES_COUNT
       await scene.talk([
@@ -36,7 +36,16 @@ export const lute = (scene, poets) => {
         { chara, text: 'じゃあ、聞いていてね。' }
       ])
       poets.image.anims.play('poets_lute', true)
-      scene.ui.sleep(3000)
+      await scene.ui.sleep(3300)
+      goddessLight.setVisible(true).setAlpha(0)
+      scene.add.tween({
+        targets: goddessLight, duration: 1200, yoyo: true, alpha: 1, loop: 3
+      })
+      await scene.ui.sleep(7200)
+      goddessLight.setVisible(false)
+      await scene.ui.sleep(2000)
+      poets.image.anims.stop()
+      poets.image.setFrame(1)
       await scene.talk([
         { chara, text: 'さて、開いたはずだよ。' },
         { chara: 'ann', text: 'すごい！' },
@@ -58,6 +67,7 @@ export const lute = (scene, poets) => {
         { chara, text: 'じゃあ気をつけて行っておいで。' },
         { chara: 'ann', text: 'ありがとう！' }
       ])
+      poets.image.anims.play('poets_lute', true)
       state.completed = true
       scene.ui.missionUpdate('m4_4', true)
     } else if (state.started) {

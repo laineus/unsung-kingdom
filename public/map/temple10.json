@@ -1,4 +1,12 @@
-{ "height":45,
+{ "compressionlevel":-1,
+ "editorsettings":
+    {
+     "export":
+        {
+         "target":"."
+        }
+    },
+ "height":45,
  "infinite":false,
  "layers":[
         {
@@ -85,8 +93,8 @@
                  "type":"chara",
                  "visible":true,
                  "width":0,
-                 "x":231.599014868193,
-                 "y":1252.89391589893
+                 "x":279.599014868193,
+                 "y":1131.89391589893
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -110,7 +118,7 @@
          "image":"..\/img\/tilesets\/image\/temple_megami2.png",
          "name":"megami",
          "offsetx":188,
-         "offsety":948,
+         "offsety":905,
          "opacity":1,
          "type":"imagelayer",
          "visible":true,
@@ -122,7 +130,7 @@
          "image":"..\/img\/tilesets\/image\/temple_megami3.png",
          "name":"megami2",
          "offsetx":188,
-         "offsety":948,
+         "offsety":905,
          "opacity":1,
          "type":"imagelayer",
          "visible":true,
@@ -133,7 +141,7 @@
  "nextobjectid":3,
  "orientation":"orthogonal",
  "renderorder":"right-down",
- "tiledversion":"1.2.1",
+ "tiledversion":"2020.02.26",
  "tileheight":32,
  "tilesets":[
         {
