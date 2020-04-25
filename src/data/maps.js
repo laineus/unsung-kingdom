@@ -45,6 +45,7 @@ import temple11 from '../map/temple11'
 import temple12 from '../map/temple12'
 import temple13 from '../map/temple13'
 import temple14 from '../map/temple14'
+import temple15 from '../map/temple15'
 export default {
   room1,
   town1,
@@ -92,5 +93,6 @@ export default {
   temple11,
   temple12,
   temple13,
-  temple14
+  temple14,
+  temple15
 }

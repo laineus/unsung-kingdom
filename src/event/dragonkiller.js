@@ -48,6 +48,8 @@ export const ethelbald = (scene, ethel, soldiers) => {
   })
 }
 
+export const gateConfirm = (scene, gate) => {}
+
 export const dragon = (scene, sonberk, king, area1, area2, area3) => {
   const state = scene.storage.state.event.m4_5
   if (state.area1) {
