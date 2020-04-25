@@ -95,6 +95,18 @@
                  "width":64,
                  "x":0,
                  "y":448
+                }, 
+                {
+                 "height":0,
+                 "id":2,
+                 "name":"17",
+                 "point":true,
+                 "rotation":90,
+                 "type":"treasure",
+                 "visible":true,
+                 "width":0,
+                 "x":789.116186693148,
+                 "y":720.953326713009
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -114,10 +126,10 @@
          "y":0
         }],
  "nextlayerid":8,
- "nextobjectid":2,
+ "nextobjectid":3,
  "orientation":"orthogonal",
  "renderorder":"right-down",
- "tiledversion":"2020.01.22",
+ "tiledversion":"2020.02.26",
  "tileheight":32,
  "tilesets":[
         {

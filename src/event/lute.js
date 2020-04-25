@@ -43,6 +43,7 @@ export const lute = (scene, poets) => {
         { chara: 'ann', text: 'どうして音で仕掛けが動くの？' },
         { chara, text: '私もよく分からないんだよね。' },
         { chara, text: '私が女神さま大好きだからかな。' },
+        { chara: 'ann', text: 'どういうこと？' },
         { chara, text: '同じ音を出しても、ちゃんと心をこめてないと開かないんだ。' },
         { chara, text: '女神さまに向けて、しっかり心を込めて弾けば開くんだ。' },
         { chara, text: 'きっと大昔にこの仕掛けを作った人も、女神さまが大好きだったのさ。' },

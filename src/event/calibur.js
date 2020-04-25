@@ -1,3 +1,4 @@
+import generateBattler from '../util/generateBattler'
 export const calibur = (scene, sword, nikke) => {
   const state = scene.storage.state.event.m4_3
   if (!state.started || state.completed) {
@@ -27,6 +28,8 @@ export const calibur = (scene, sword, nikke) => {
         await scene.camera.revert(500)
         return
       }
+      const result = await scene.ui.battle([generateBattler('nikke', 33, { hp: 1500 })], { boss: true })
+      if (!result) return
       await scene.talk([
         { chara, text: 'うわ、' },
         { chara, text: '凄く強いんだね。' },
