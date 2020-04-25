@@ -150,23 +150,27 @@ export default [
   {
     key: 'lizard', name: 'バリザード', lv: 1, effect: 'scratch',
     hp: 20, atk: 6, def: 3, dex: 5, agi: 4,
-    up: { hp: 85, atk: 90, def: 75, dex: 95, agi: 80 }
+    up: { hp: 85, atk: 90, def: 75, dex: 95, agi: 80 },
+    dropWeapon: { id: 15, chance: 5 }
   },
   {
     key: 'tree', name: 'トルコリス', lv: 1, effect: 'crash',
     hp: 20, atk: 4, def: 6, dex: 4, agi: 4,
-    up: { hp: 90, atk: 80, def: 90, dex: 75, agi: 75 }
+    up: { hp: 90, atk: 80, def: 90, dex: 75, agi: 75 },
+    dropWeapon: { id: 16, chance: 6 }
   },
   {
     key: 'knight', name: 'レムリアンナイト', lv: 1, effect: 'slash',
     hp: 80, atk: 6, def: 7, dex: 4, agi: 4,
-    up: { hp: 100, atk: 90, def: 100, dex: 75, agi: 75 }
+    up: { hp: 100, atk: 90, def: 100, dex: 75, agi: 75 },
+    dropWeapon: { id: 17, chance: 4 }
   },
   {
     key: 'thief', name: 'シーフェン', lv: 1, effect: 'slash',
     hp: 50, atk: 4, def: 4, dex: 6, agi: 6,
     up: { hp: 90, atk: 80, def: 70, dex: 90, agi: 90 },
-    abillities: [{ type: 'double', chance: 70 }]
+    abillities: [{ type: 'double', chance: 70 }],
+    dropWeapon: { id: 18, chance: 3 }
   },
   {
     key: 'nikke', name: 'ニッケ', lv: 1, effect: 'crash',
