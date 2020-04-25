@@ -48,7 +48,18 @@ export const ethelbald = (scene, ethel, soldiers) => {
   })
 }
 
-export const gateConfirm = (scene, gate) => {}
+export const gateConfirm = (scene, gate) => {
+  const state = scene.storage.state.event.m4_5
+  if (state.area1) return
+  gate.setBlocked(async go => {
+    await scene.talk([
+      { chara: 'francisca', text: 'この先が最深部みたいだけど。' }
+    ])
+    const i = await scene.select(['先に進む', 'やめておく'])
+    if (i === 1) return
+    go()
+  })
+}
 
 export const dragon = (scene, sonberk, king, area1, area2, area3) => {
   const state = scene.storage.state.event.m4_5
@@ -60,6 +71,8 @@ export const dragon = (scene, sonberk, king, area1, area2, area3) => {
     area2.destroy()
   }
   area1.setEvent(async () => {
+    scene.player.tweet('！')
+    await scene.ui.sleep(800)
     await scene.camera.look((16).toPixelCenter, (9).toPixelCenter, 800)
     await scene.talk([
       { chara: sonberk, text: 'エドガーよ、貴様自ら現れるとは、良い度胸だ。' },
@@ -78,6 +91,7 @@ export const dragon = (scene, sonberk, king, area1, area2, area3) => {
       { chara: king, text: 'さあ、気の済むまで私を焼くがよい。' }
     ], { angle: false })
     await scene.camera.revert(600)
+    state.area1 = true
     area1.destroy()
   })
   area2.setEvent(async () => {
