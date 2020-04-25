@@ -80,8 +80,8 @@ export default class BattleResult extends Phaser.GameObjects.Container {
   expAdjustment (targetLv, ownLv) {
     const diff = targetLv - ownLv
     if (diff > 0) return 1
-    const negative = (Math.abs(diff) + 1) * 0.3
-    return Math.max(0.1, 1 - negative)
+    const negative = (Math.abs(diff) + 1) * 0.25
+    return Math.max(0.15, 1 - negative)
   }
   increaceExp () {
     const alives = storage.state.battlers.filter(v => v.hp > 0)
