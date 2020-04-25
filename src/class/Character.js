@@ -15,7 +15,7 @@ export default class Character extends Substance {
     this.setR('down')
     this.setFaceKey(this.key)
     this.setTalking(false)
-    this.tweetBubble = new TweetBubble(scene).setDepth(200000)
+    this.tweetBubble = new TweetBubble(scene).setDepth(210000)
   }
   preUpdate () {
     super.preUpdate()
