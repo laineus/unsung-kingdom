@@ -51,6 +51,12 @@
          "id":3,
          "name":"layer4",
          "opacity":1,
+         "properties":[
+                {
+                 "name":"dynamic",
+                 "type":"bool",
+                 "value":true
+                }],
          "type":"tilelayer",
          "visible":true,
          "width":32,
@@ -153,7 +159,7 @@
  "nextobjectid":6,
  "orientation":"orthogonal",
  "renderorder":"right-down",
- "tiledversion":"1.3.3",
+ "tiledversion":"2020.02.26",
  "tileheight":32,
  "tilesets":[
         {

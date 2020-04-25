@@ -1,6 +1,16 @@
 import generateBattler from '../util/generateBattler'
+
+const removeSword = scene => {
+  const layer4 = scene.map.getLayerByName('layer4')
+  layer4.layer.data[7][15].index = 326
+  layer4.layer.data[7][16].index = 327
+  layer4.layer.data[8][15].index = 336
+  layer4.layer.data[8][16].index = 337
+}
+
 export const calibur = (scene, sword, nikke) => {
   const state = scene.storage.state.event.m4_3
+  if (state.completed) removeSword(scene)
   if (!state.started || state.completed) {
     sword.destroy()
     nikke.destroy()
@@ -39,6 +49,7 @@ export const calibur = (scene, sword, nikke) => {
         { chara, text: '持っていって。' },
         { chara: 'ann', text: 'ありがとう。' }
       ])
+      removeSword(scene)
       scene.ui.increaseWeapon(19)
       await scene.talk([
         { chara, text: 'うん、よく似合ってるよ。' },
