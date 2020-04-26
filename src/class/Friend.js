@@ -21,9 +21,11 @@ export default class Friend extends Character {
     return this
   }
   get followingX () {
+    if (this.hasTargetPosition) return this._targetPositionX
     return this.player.positionHistory[this.followDiff][0]
   }
   get followingY () {
+    if (this.hasTargetPosition) return this._targetPositionY
     return this.player.positionHistory[this.followDiff][1]
   }
 }
