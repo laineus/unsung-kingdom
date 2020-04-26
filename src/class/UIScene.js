@@ -174,6 +174,7 @@ export default class UIScene extends Phaser.Scene {
   }
   snapshopForSaveData () {
     return new Promise(resolve => {
+      this.gameScene.player.targetMarker.anim.seek(0)
       this.scene.sleep('UI')
       this.game.renderer.snapshot(img => {
         this.storage.lastSnapshot = img.src
