@@ -4,7 +4,7 @@ import Character from './Character'
 import Substance from './Substance'
 import TreasureChest from './TreasureChest'
 import config from '../data/config'
-const DEPTH = {
+export const DEPTH = {
   GROUND: 0,
   PARTICLES: 100000,
   TOP: 110000,
