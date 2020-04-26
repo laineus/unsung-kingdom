@@ -11,7 +11,7 @@ export const jackEvent = (scene, area, chara) => {
     scene.player.stopWalk()
     await scene.ui.sleep(500)
     await scene.ui.transition('normal')
-    scene.player.setPosition((50).toPixel, (29).toPixel)
+    scene.setMembersPosition((50).toPixel, (29).toPixelCenter, 'up')
     scene.camera.updateFollow()
     await scene.ui.sleep(500)
     await scene.camera.look(0, -180, 1000, true)
@@ -27,6 +27,8 @@ export const jackEvent = (scene, area, chara) => {
       { chara: 'ann', text: '『平和王エドガー』、平和を願った優しい王さまを殺すなんて…、' }
     ])
     await scene.talk([{ chara, text: 'おい、お前たち、こんなところで何をしている？' }])
+    scene.francisca.setR('down')
+    scene.jaquelyn.setR('down')
     chara.setVisible(true)
     await scene.camera.revert(300)
     await scene.talk([
@@ -56,7 +58,11 @@ export const jackEvent = (scene, area, chara) => {
       { chara: 'ann', text: '分かった。' },
       { chara: 'ann', text: 'アンタ、覚悟しなさい！' }
     ])
+    scene.francisca.setAllowWalkingWhileEvent(true).setTargetPosition((48).toPixelCenter, (31).toPixel)
+    scene.jaquelyn.setAllowWalkingWhileEvent(true).setTargetPosition((50).toPixelCenter, (31).toPixel)
     await scene.player.setTargetPosition((49).toPixelCenter, (31).toPixelCenter)
+    scene.francisca.stopWalk().setR('down')
+    scene.jaquelyn.stopWalk().setR('down')
     await scene.ui.sleep(500)
     await scene.ui.battle([generateBattler('jack', 5, { hp: 1000 })], { boss: true, defeatEvent: true })
     await scene.ui.sleep(500)
@@ -70,14 +76,22 @@ export const jackEvent = (scene, area, chara) => {
     await scene.ui.sleep(2000)
     await chara.setTargetPosition((41).toPixelCenter, (26).toPixelCenter)
     scene.player.setR('left')
+    scene.francisca.setR('left')
+    scene.jaquelyn.setR('left')
     await chara.setTargetPosition((32).toPixelCenter, (26).toPixelCenter)
     chara.destroy()
     await scene.ui.sleep(1500)
     await scene.talk([
-      { chara: 'jaquelyn', text: '追いかけないと…。' },
+      { chara: 'jaquelyn', text: '追いかけないと…。' }
+    ])
+    scene.jaquelyn.setR('down')
+    await scene.talk([
       { chara: 'jaquelyn', text: '大丈夫？アン' },
       { chara: 'ann', text: 'う、うん。' },
-      { chara: 'ann', text: 'あれ！？時間水晶がない！' },
+      { chara: 'ann', text: 'あれ！？時間水晶がない！' }
+    ])
+    scene.francisca.setR('down')
+    await scene.talk([
       { chara: 'francisca', text: 'きっと装備と一緒に奴に持って行かれたんだ。' },
       { chara: 'francisca', text: '早く追いかけよう。' }
     ])
@@ -87,7 +101,7 @@ export const jackEvent = (scene, area, chara) => {
   })
 }
 
-export const kingEvent = (scene, area, chara, soldier1, soldier2) => {
+export const kingEvent = (scene, area, chara, soldier) => {
   const state = scene.storage.state.event.m0_1
   if (state.completed) {
     chara.destroy()
@@ -98,7 +112,7 @@ export const kingEvent = (scene, area, chara, soldier1, soldier2) => {
     scene.player.stopWalk()
     await scene.ui.sleep(500)
     await scene.ui.transition('normal')
-    scene.player.setPosition((18).toPixelCenter, (24).toPixelCenter).setR('up')
+    scene.setMembersPosition((18).toPixelCenter, (26).toPixelCenter, 'up')
     scene.camera.updateFollow()
     await scene.ui.sleep(500)
     scene.camera.look((16).toPixel, (18).toPixel, 1000)
@@ -109,11 +123,11 @@ export const kingEvent = (scene, area, chara, soldier1, soldier2) => {
     await scene.ui.sleep(500)
     await scene.talk([
       { chara, text: 'エゼルはまだ帰っていないのか？' },
-      { chara, text: 'はい、王弟殿下はまだグリファルデ神殿かと。' },
+      { chara: soldier, text: 'はい、王弟殿下はまだグリファルデ神殿かと。' },
       { chara, text: '竜との交渉は順調に進んでいるとは言えないようだな。' },
-      { chara, text: '…申し上げにくいのですが、そのようです。' },
+      { chara: soldier, text: '…申し上げにくいのですが、そのようです。' },
       { chara, text: 'そうか…。' }
-    ])
+    ], { angle: false })
     await scene.ui.sleep(500)
     await scene.talk([
       { chara: 'jaquelyn', text: 'よかった、無事みたい。' },
