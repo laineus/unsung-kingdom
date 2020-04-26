@@ -14,7 +14,7 @@ export default {
     if (scene.storage.state.chapter === 0) {
       // cp0
       jackEvent(scene, area1, jack)
-      kingEvent(scene, area2, king, soldier1, soldier3)
+      kingEvent(scene, area2, king, soldier3)
       kingbrother.destroy()
       soldier1.destroy()
     } else if (scene.storage.state.chapter === 5) {

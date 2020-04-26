@@ -102,6 +102,8 @@ export const jackEvent = (scene, area, chara) => {
 }
 
 export const kingEvent = (scene, area, chara, soldier) => {
+  chara.setDisplayName('エドガー王')
+  soldier.setDisplayName('衛兵')
   const state = scene.storage.state.event.m0_1
   if (state.completed) {
     chara.destroy()
