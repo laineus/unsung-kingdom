@@ -1,5 +1,6 @@
 import { gimmick } from '../event/lorraine'
 import { DEPTH } from '../class/Field'
+import templeCharacters from '../event/templeCharacters'
 export default {
   name: 'グリファルデ神殿 - 広場',
   enemyLevel: 26,
@@ -10,6 +11,17 @@ export default {
     ['lizard', 'lizard']
   ],
   create (scene) {
+    // Characters
+    templeCharacters(scene, {
+      soldier1: scene.map.getObjectById(11),
+      soldier2: scene.map.getObjectById(12),
+      mary: scene.map.getObjectById(13),
+      loretta: scene.map.getObjectById(14),
+      dario: scene.map.getObjectById(15).setRandomWalk(true),
+      drystan: scene.map.getObjectById(16),
+      ray: scene.map.getObjectById(17).setRandomWalk(true)
+    })
+    // Door to loof
     const buttons = [6, 7, 8].map(id => scene.map.getObjectById(id))
     const doorContainer = scene.map.getObjectById(9)
     const doors = Number(2).toArray().map(i => {
