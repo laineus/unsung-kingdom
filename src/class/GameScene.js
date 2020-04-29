@@ -41,6 +41,7 @@ export default class GameScene extends Phaser.Scene {
     // camera
     this.camera = this.getCamera()
     this.event = maps[payload.map] || {}
+    this.ui.setBgm(this.event.bgm || null)
     if (this.event.create) this.event.create(this)
     if (payload.map !== 'room1') this.ui.showMapInfo(this.event)
     this.setEncountDelay(payload.encountDelay)

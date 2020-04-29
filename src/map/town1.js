@@ -14,6 +14,7 @@ const events = [
 ]
 export default {
   name: 'ベリオン王国 - 王都',
+  bgm: 'town',
   create (scene) {
     scene.map.getObjectById(6).setTapEvent(async () => scene.mapChange('room1', (17).toPixel, (16).toPixelCenter, { r: 'up' }))
     const amber = scene.map.getObjectById(2).setDisplayName('噂好きなアンバー婦人').setRandomWalk(true)
