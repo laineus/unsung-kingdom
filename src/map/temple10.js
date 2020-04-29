@@ -10,6 +10,7 @@ export default {
   ],
   create (scene) {
     const poets = scene.map.getObjectById(2)
-    lute(scene, poets)
+    const goddessLight = scene.map.getImageByName('megami2')
+    lute(scene, poets, goddessLight)
   }
 }

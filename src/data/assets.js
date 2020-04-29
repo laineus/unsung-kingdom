@@ -21,6 +21,9 @@ export default {
     ['tileset/temple', '../img/tilesets/extruded/temple.png'],
     ...assetData.tilesetImages
   ],
+  audio: [
+    ['bgm/town', '../town.mp3']
+  ],
   json: [
     ...assetData.tilesetTiles
   ],

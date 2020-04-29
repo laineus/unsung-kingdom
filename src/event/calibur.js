@@ -1,6 +1,16 @@
 import generateBattler from '../util/generateBattler'
+
+const removeSword = scene => {
+  const layer4 = scene.map.getLayerByName('layer4')
+  layer4.layer.data[7][15].index = 326
+  layer4.layer.data[7][16].index = 327
+  layer4.layer.data[8][15].index = 336
+  layer4.layer.data[8][16].index = 337
+}
+
 export const calibur = (scene, sword, nikke) => {
   const state = scene.storage.state.event.m4_3
+  if (state.completed) removeSword(scene)
   if (!state.started || state.completed) {
     sword.destroy()
     nikke.destroy()
@@ -39,6 +49,7 @@ export const calibur = (scene, sword, nikke) => {
         { chara, text: '持っていって。' },
         { chara: 'ann', text: 'ありがとう。' }
       ])
+      removeSword(scene)
       scene.ui.increaseWeapon(19)
       await scene.talk([
         { chara, text: 'うん、よく似合ってるよ。' },
@@ -48,6 +59,8 @@ export const calibur = (scene, sword, nikke) => {
         { chara, text: '剣を見張る必要もなくなったし、' },
         { chara, text: '僕もどこかに旅に出ようかな。' }
       ])
+      scene.substances.remove(chara)
+      await chara.setSpeed(80).setTargetPosition(chara.x - 70, chara.y + 40)
       await scene.talk([
         { chara, text: 'あ、' },
         { chara, text: 'ところでキミたちさ、' },
@@ -58,6 +71,8 @@ export const calibur = (scene, sword, nikke) => {
         { chara, text: 'まあいいか、' },
         { chara, text: 'それもキミたち人間の作った力だろうしね。' }
       ])
+      await chara.setSpeed(200).setTargetPosition(chara.x - 20, chara.y + 150)
+      await chara.setSpeed(400).setTargetPosition(chara.x - 30, chara.y + 300)
       state.completed = true
       scene.ui.missionUpdate('m4_3', true)
       sword.destroy()

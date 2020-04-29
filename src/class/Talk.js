@@ -23,7 +23,7 @@ export default class Talk extends Phaser.GameObjects.Container {
       return v
     }, null)
     this.tapArea = this.scene.add.rectangle(0, 0, config.WIDTH, config.HEIGHT).setOrigin(0, 0)
-    this.tapArea.setInteractive().on('pointerdown', this.next.bind(this))
+    this.tapArea.setInteractive().on('pointerup', this.next.bind(this))
     this.add(this.tapArea)
     this.next()
   }

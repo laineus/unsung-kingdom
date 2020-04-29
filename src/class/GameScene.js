@@ -41,9 +41,10 @@ export default class GameScene extends Phaser.Scene {
     // camera
     this.camera = this.getCamera()
     this.event = maps[payload.map] || {}
+    this.ui.setBgm(this.event.bgm || null)
     if (this.event.create) this.event.create(this)
     if (payload.map !== 'room1') this.ui.showMapInfo(this.event)
-    this.setEncountDelay()
+    this.setEncountDelay(payload.encountDelay)
     setTimeout(() => {
       // auto save
       if (payload.save) this.ui.snapshopForSaveData().then(() => this.storage.save(0))
@@ -99,8 +100,9 @@ export default class GameScene extends Phaser.Scene {
     this.ui.battlerSummary.hide()
     this.alreadyTweetLost = false
     this.scene.pause('Game')
+    const encountDelay = Math.max(this.encountDelay, 300)
     return this.ui.transition(speed).then(() => {
-      this.scene.start('Game', { map: mapKey, x, y, r, save })
+      this.scene.start('Game', { map: mapKey, x, y, r, save, encountDelay })
     })
   }
   getCamera () {
@@ -136,9 +138,13 @@ export default class GameScene extends Phaser.Scene {
     this.player.stopWalk()
     this.ui.battle(this.event.enemyGroups.random().map(key => generateBattler(key, this.event.enemyLevel)))
   }
-  setEncountDelay () {
+  setEncountDelay (value) {
     this.ui.setEncounter(false)
-    this.encountDelay = Math.randomInt(300, 500) + (this.stronger ? 100 : 0)
+    if (value) {
+      this.encountDelay = value
+      return
+    }
+    this.encountDelay = Math.randomInt(400, 600)
   }
   get members () {
     return [this.player, this.francisca, this.jaquelyn]

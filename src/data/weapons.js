@@ -27,5 +27,5 @@ export default [
   { id: 16, name: 'バイキングアクス', atk: 15, agi: -2, ability: null, effect: 'crash', icon: 'w10' },
   { id: 17, name: 'フランベルジュ', atk: 14, def: 3, ability: 2, effect: 'slash', icon: 'w5' },
   { id: 18, name: 'カタナ', atk: 15, dex: 2, agi: 2, ability: null, effect: 'slash', icon: 'w6' },
-  { id: 19, name: 'カリブルヌス', atk: 18, ability: 1, effect: 'slash', icon: 'w7' }
+  { id: 19, name: 'カリブルヌス', atk: 20, ability: 1, effect: 'slash', icon: 'w7' }
 ]

@@ -1,12 +1,4 @@
-{ "compressionlevel":0,
- "editorsettings":
-    {
-     "export":
-        {
-         "target":"."
-        }
-    },
- "height":32,
+{ "height":32,
  "infinite":false,
  "layers":[
         {
@@ -100,12 +92,22 @@
          "visible":true,
          "x":0,
          "y":0
+        }, 
+        {
+         "id":6,
+         "image":"..\/img\/tilesets\/image\/temple_terrace.png",
+         "name":"terrace",
+         "opacity":1,
+         "type":"imagelayer",
+         "visible":true,
+         "x":0,
+         "y":0
         }],
- "nextlayerid":6,
+ "nextlayerid":7,
  "nextobjectid":4,
  "orientation":"orthogonal",
  "renderorder":"right-down",
- "tiledversion":"2020.02.26",
+ "tiledversion":"1.2.1",
  "tileheight":32,
  "tilesets":[
         {

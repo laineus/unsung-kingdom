@@ -168,8 +168,8 @@ export default [
   },
   {
     key: 'thief', name: 'シーフェン', lv: 1, effect: 'slash',
-    hp: 50, atk: 4, def: 4, dex: 6, agi: 6,
-    up: { hp: 90, atk: 80, def: 70, dex: 90, agi: 90 },
+    hp: 40, atk: 3, def: 4, dex: 5, agi: 5,
+    up: { hp: 80, atk: 80, def: 70, dex: 90, agi: 90 },
     abillities: [{ type: 'double', chance: 50 }],
     dropWeapon: { id: 18, chance: 3 }
   },
@@ -183,6 +183,6 @@ export default [
     key: 'dragon', name: 'ソンベルク', lv: 1, effect: 'scratch',
     hp: 100, atk: 7, def: 6, dex: 6, agi: 5,
     up: { hp: 100, atk: 100, def: 95, dex: 90, agi: 85 },
-    abillities: [{ type: 'multi', chance: 80 }]
+    abillities: [{ type: 'multi', chance: 70 }, { type: 'double', chance: 50 }]
   }
 ]

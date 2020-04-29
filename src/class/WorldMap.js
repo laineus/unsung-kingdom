@@ -2,16 +2,17 @@ import config from '../data/config'
 import Box from './Box'
 import Button from './Button'
 import { slideIn, slideOut } from '../util/animations'
+const OFFSET = { x: 385, y: 260 }
 const AERA_LIST = [
   { name: '王都', x: 960, y: 560, key: 'town1', mapX: 2, mapY: 20, r: 'right' },
   { name: '王城 - 裏庭', x: 960, y: 360, key: 'castle1', mapX: 48, mapY: 37, r: 'up' },
   { name: 'ワルコフォレンスの森', x: 350, y: 220, key: 'forest1', mapX: 45, mapY: 17, r: 'left' },
-  { name: 'トロイア公爵邸の地下通路', x: 1184, y: 736, key: 'underpass1', mapX: 14, mapY: 39, r: 'up' },
+  { name: 'トロイア公爵邸の地下通路', x: 1220, y: 736, key: 'underpass1', mapX: 14, mapY: 39, r: 'up' },
   { name: '聖アンテルスの墓地', x: 960, y: 928, key: 'catacomb1', mapX: 2, mapY: 14, r: 'right' },
-  { name: 'グリファルデ神殿', x: 1728, y: 485, key: 'temple1', mapX: 2, mapY: 13, r: 'right' }
+  { name: 'グリファルデ神殿', x: 1670, y: 485, key: 'temple1', mapX: 2, mapY: 13, r: 'right' }
 ]
 const SCALE = {
-  DEFAULT: 0.5,
+  DEFAULT: 0.37,
   ZOOM: 0.75
 }
 export default class WorldMap extends Phaser.GameObjects.Container {
@@ -27,7 +28,7 @@ export default class WorldMap extends Phaser.GameObjects.Container {
     this.scene.gameScene.player.stopWalk()
   }
   init () {
-    this.map = this.scene.add.sprite(0, 0, 'map_image/world').setScale(SCALE.DEFAULT).setOrigin(0, 0).setInteractive().on('pointerdown', () => {
+    this.map = this.scene.add.sprite(-20, -20, 'map_image/world').setScale(SCALE.DEFAULT).setOrigin(0, 0).setInteractive().on('pointerdown', () => {
       this.setArea(null)
     })
     this.add(this.map)
@@ -63,8 +64,8 @@ export default class WorldMap extends Phaser.GameObjects.Container {
   setArea (area) {
     this.selected = area
     this.button.setText(area ? 'OK' : 'Cancel')
-    const positionX = area ? config.WIDTH.half - area.x * SCALE.ZOOM : 0
-    const positionY = area ? config.HEIGHT.half - area.y * SCALE.ZOOM : 0
+    const positionX = area ? config.WIDTH.half - (area.x + OFFSET.x) * SCALE.ZOOM : -20
+    const positionY = area ? config.HEIGHT.half - (area.y + OFFSET.y) * SCALE.ZOOM : -20
     const scale = area ? SCALE.ZOOM : SCALE.DEFAULT
     this.scene.add.tween({ targets: this.map, duration: 400, ease: 'Power2', x: positionX, y: positionY, scale })
     this.rows.forEach(row => row.setActive(row.area === area))

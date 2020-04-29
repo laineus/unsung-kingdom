@@ -16,7 +16,8 @@ export default class Button extends Phaser.GameObjects.Container {
     this.on('pointerout', () => {
       this.bgLight.visible = false
     })
-    this.on('pointerdown', () => {
+    this.on('pointerup', p => {
+      if (Math.abs(p.downX - p.upX) > 3 || Math.abs(p.downY - p.upY) > 3) return
       this.emit('click')
     })
   }
