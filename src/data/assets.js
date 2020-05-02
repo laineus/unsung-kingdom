@@ -22,7 +22,7 @@ export default {
     ...assetData.tilesetImages
   ],
   audio: [
-    ['bgm/town', '../town.mp3']
+    ...assetData.audio
   ],
   json: [
     ...assetData.tilesetTiles

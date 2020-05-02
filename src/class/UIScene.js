@@ -61,7 +61,7 @@ export default class UIScene extends Phaser.Scene {
     if (this.currentBgm === name) return
     this.currentBgm = name
     if (name) {
-      return this.sound.play(`bgm/${name}`, { loop: true })
+      return this.sound.play(name, { loop: true })
     } 
     this.sound.stopAll()
   }
