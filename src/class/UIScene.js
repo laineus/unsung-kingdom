@@ -58,12 +58,14 @@ export default class UIScene extends Phaser.Scene {
     this.checkButton.setVisible(this.touchMode && this.gameScene.nearestCheckable)
   }
   setBgm (name) {
-    if (this.currentBgm === name) return
-    this.currentBgm = name
-    if (name) {
-      return this.sound.play(name, { loop: true })
-    } 
-    this.sound.stopAll()
+    if (this.currentBgm && this.currentBgm.key === name) return
+    if (!name) {
+      this.currentBgm = null
+      this.sound.stopAll()
+      return
+    }
+    this.currentBgm = this.sound.add(name, { loop: true })
+    this.currentBgm.play()
   }
   showController (bool) {
     this.menuButton.visible = bool
@@ -131,8 +133,17 @@ export default class UIScene extends Phaser.Scene {
     return new Promise(resolve => new Select(this, options, resolve))
   }
   battle (group, option) {
+    if (this.currentBgm) this.currentBgm.pause()
+    const bgm = this.sound.add('battle', { loop: true }) // Handle in Battle
+    bgm.play()
     this.gameScene.setEncountDelay()
-    return new Promise(resolve => new Battle(this, group, option, resolve))
+    return new Promise(resolve => {
+      return new Battle(this, group, option, result => {
+        if (this.currentBgm) this.currentBgm.resume()
+        bgm.stop()
+        resolve(result)
+      })
+    })
   }
   battleResult (group, option) {
     return new Promise(resolve => new BattleResult(this, group, option, resolve))
