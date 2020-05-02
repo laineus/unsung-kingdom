@@ -2,6 +2,7 @@ import { dogEventFound } from '../event/dogEvent'
 import { mercenary1 } from '../event/mercenary'
 export default {
   name: 'ワルコフォレンスの森 - キャンプ',
+  bgm: 'forest',
   enemyLevel: 3,
   enemyGroups: [
     ['slime', 'slime'],

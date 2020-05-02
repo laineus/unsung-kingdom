@@ -1,5 +1,6 @@
 export default {
   name: 'ワルコフォレンスの森 - 高台北',
+  bgm: 'forest',
   enemyLevel: 7,
   enemyGroups: [
     ['wolf'],

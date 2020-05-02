@@ -1,6 +1,7 @@
 import { dogEventFound } from '../event/dogEvent'
 export default {
   name: 'ワルコフォレンスの森 - 南部',
+  bgm: 'forest',
   enemyLevel: 2,
   enemyGroups: [
     ['slime'],
