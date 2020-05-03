@@ -39,13 +39,112 @@ export default (scene, charas) => {
   charas.soldier1.setTapEvent(soldierEvent)
   charas.soldier2.setTapEvent(soldierEvent)
   // 噂好きのアンバー婦人
-  charas.amber.setTapEvent(async chara => {})
+  charas.amber.setTapEvent(async chara => {
+    if (chara.nextMessages) return await scene.talk(chara.nextMessages)
+    await scene.talk([
+      { chara, text: 'もちろん知っているだろうけど、' },
+      { chara, text: '陛下がついにドラゴンを倒したのよ！' },
+      { chara, text: 'ほんとに、本当によかったわ。' },
+      { chara: 'ann', text: 'そうですね。' },
+      { chara, text: '平和が何より一番ね。' },
+      { chara, text: 'ところで、' },
+      { chara, text: 'ドラゴンを倒したのは本当に王なのか、って噂もあるわ。' },
+      { chara, text: '陛下はもう若くないし、' },
+      { chara, text: '実は王弟が倒したんじゃないかとか、' },
+      { chara, text: '無名のナイトが倒したけど、' },
+      { chara, text: 'それじゃあ格好がつかないからって、王の手柄になっただとか。' },
+      { chara, text: 'おまけに旅人の女の子たちが倒しただなんて噂まであるわ。' },
+      { chara: 'ann', text: 'あはは。' },
+      { chara, text: 'まあ、私は陛下が倒したって信じているわ。' },
+    ])
+    chara.nextMessages = [{ chara, text: '平和が何より一番ね。' }]
+  })
   // 宿屋のアナベル
-  charas.annabelle.setTapEvent(async chara => {})
+  charas.annabelle.setTapEvent(async chara => {
+    if (chara.nextMessages) return await scene.talk(chara.nextMessages)
+    await scene.talk([
+      { chara, text: '♪' },
+      { chara: 'ann', text: '鼻歌なんか歌って、今日はご機嫌だね。' },
+      { chara, text: 'まあね。' },
+      { chara: 'ann', text: '平和になってよかったね。' },
+      { chara, text: 'もちろんそれも嬉しいけどね。' },
+      { chara: 'ann', text: '「それも」？' },
+      { chara, text: 'えっとね、ふふ、' },
+      { chara: 'ann', text: 'え、なになに？' },
+      { chara, text: 'マチルダ、わかる？' },
+      { chara, text: 'いつもそこに隠れて私を見ている子。' },
+      { chara: 'ann', text: 'ああ、あの子ね。' },
+      { chara: 'ann', text: 'あの子がどうしたの？' },
+      { chara, text: '私のことが好きみたい。' },
+      { chara: 'ann', text: 'え！？' },
+      { chara, text: 'いや、知ってはいたんだけど、' },
+      { chara, text: 'いざ直接言われるとなんだか嬉しくって。' },
+      { chara, text: '今度遊びに来るの。' },
+      { chara: 'ann', text: 'そうなんだ！' },
+      { chara: 'ann', text: 'よかったね！' },
+      { chara, text: 'まあね。' }
+    ])
+    chara.nextMessages = [
+      { chara: 'ann', text: 'よかったね！' },
+      { chara, text: 'まあね。' }
+    ]
+  })
   // 内気なマチルダ
-  charas.matilda.setTapEvent(async chara => {})
+  charas.matilda.setTapEvent(async chara => {
+    if (chara.nextMessages) return await scene.talk(chara.nextMessages)
+    await scene.talk([
+      { chara, text: '…。' },
+      { chara: 'ann', text: 'どうしたの？' },
+      { chara, text: 'え、あ、ううん、' },
+      { chara, text: '平和になってよかったな、って。' },
+      { chara: 'ann', text: 'ほんとにね！' },
+      { chara, text: 'それは凄く嬉しいことなんだけど、' },
+      { chara, text: '私、浮かれすぎちゃったのかな…、' },
+      { chara: 'ann', text: 'なにかあった？' },
+      { chara, text: 'えっと、アナベルとね、久しぶりに話したんだけど…、' },
+      { chara, text: 'なんていうか、変なこと言っちゃった…。' },
+      { chara: 'ann', text: 'そうなの？' },
+      { chara: 'ann', text: 'なんて？' },
+      { chara, text: 'それは…、内緒なんだけど…、' },
+      { chara, text: 'でも、また仲良くできそうで、嬉しいなって。' },
+      { chara: 'ann', text: 'そっか！' },
+      { chara: 'ann', text: 'よかったね。' },
+      { chara, text: 'うん…！' }
+    ])
+    chara.nextMessages = [
+      { chara: 'ann', text: 'よかったね。' },
+      { chara, text: 'うん…！' }
+    ]
+  })
   // 卑劣なエリオット
-  charas.elliott.setTapEvent(async chara => {})
+  charas.elliott.setTapEvent(async chara => {
+    if (chara.nextMessages) return await scene.talk(chara.nextMessages)
+    await scene.talk([
+      { chara, text: '信じられるか？' },
+      { chara, text: 'エドガー王がドラゴンを倒したんだ。' },
+      { chara, text: 'ほんと、ベリオン人として誇らしく思うぜ。' },
+      { chara, text: '国民のために自ら命がけで戦うなんてな。' },
+      { chara, text: '俺も、なんというか、' },
+      { chara, text: 'もっと人のために生きてみてもいいんじゃないかって、' },
+      { chara, text: 'ちょっと考えさせられたよ。' },
+    ])
+    chara.nextMessages = [{ chara, text: 'ほんと、ベリオン人として誇らしく思うぜ。' }]
+  })
   // 賞金稼ぎのマックス
-  charas.max.setTapEvent(async chara => {})
+  charas.max.setTapEvent(async chara => {
+    if (chara.nextMessages) return await scene.talk(chara.nextMessages)
+    await scene.talk([
+      { chara, text: 'な？俺の言った通りだったろ。' },
+      { chara, text: 'エドガー王がついにやってくれたぜ。' },
+      { chara, text: '…。' },
+      { chara, text: 'いや、正直言うと俺も無理なんじゃないかって思ってたよ。' },
+      { chara, text: 'だが、俺達の平和王エドガーは、また見事に平和を守り抜いてくれた。' },
+      { chara, text: 'この国の民はまた王にベタボレさ。' },
+      { chara, text: 'もちろん俺も含めてな。' }
+    ])
+    chara.nextMessages = [
+      { chara, text: 'この国の民はまた王にベタボレさ。' },
+      { chara, text: 'もちろん俺も含めてな。' }
+    ]
+  })
 }
