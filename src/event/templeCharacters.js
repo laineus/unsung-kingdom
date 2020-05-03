@@ -30,21 +30,52 @@ export default (scene, characters) => {
       { chara, text: '何度言われましても、お通しすることはできません。' },
       { chara: mary, text: '私の命令に背くだなんて！お父様に言いつけるわ。' },
       { chara, text: 'これはまさにその陛下のご命令なのです。' },
-      { chara, text: 'どうかご容赦ください。' },
-    ])
+      { chara, text: 'どうかご容赦ください。' }
+    ], { angle: false })
   })
   mary.setTapEvent(async chara => {
-    if (state.talked_ray) {
+    if (state.talked_mary) {
       await scene.talk([
-        { chara: 'ann', text: '' }
+        { chara, text: 'あなた達からもなんとか言ってちょうだい。' },
+        { chara: 'ann', text: 'うーん、どうにもならないと思うけど…。' }
       ])
-    } else {}
+    } else {
+      await scene.talk([
+        { chara, text: '？' },
+        { chara, text: 'あなた達、見覚えがあるわ。' },
+        { chara: 'ann', text: '忘れたの！？' },
+        { chara: 'ann', text: 'ほら、地下通路で会ったお姉さんだよ！' },
+        { chara, text: 'ああ、思い出したわ。' },
+        { chara: 'ann', text: 'こんなところで何してるの？' },
+        { chara: 'ann', text: '危ないよ。' },
+        { chara, text: 'お父様や叔父様がドラゴンと戦うっていうのよ。' },
+        { chara, text: '黙って待っていられるわけないじゃない！' },
+        { chara, text: 'でも、このナイト達が先へ行かせてくれないの。' },
+        { chara, text: 'あなた達からもなんとか言ってちょうだい。' },
+        { chara: 'ann', text: 'うーん、どうにもならないと思うけど…。' }
+      ])
+      state.talked_mary = true
+    }
   })
   loretta.setTapEvent(async chara => {
-    if (state.talked_ray) {} else {
+    if (state.talked_loretta) {
       await scene.talk([
-        { chara: 'ann', text: '' }
+        { chara, text: 'もし陛下に何かあったら…、メアリーは…、' },
+        { chara, text: '私が支えなくちゃ…。' }
       ])
+    } else {
+      await scene.talk([
+        { chara, text: 'あ、あなた達は、地下で会った怪しいお姉さん。' },
+        { chara: 'ann', text: 'へへ、また会ったね。' },
+        { chara: 'ann', text: 'こんなところで何しているの？' },
+        { chara, text: '陛下がドラゴンと戦うのよ。知らないの？' },
+        { chara, text: 'だからメアリーと一緒に駆けつけたの。' },
+        { chara: 'ann', text: 'そうか、心配なんだよね…。' },
+        { chara, text: 'もし陛下に何かあったら…、メアリーは…、' },
+        { chara, text: '私が支えなくちゃ…。' },
+        { chara: 'ann', text: '…きっと大丈夫だよ。' }
+      ])
+      state.talked_loretta = true
     }
   })
   dario.setTapEvent(async chara => {
@@ -72,7 +103,7 @@ export default (scene, characters) => {
         { chara, text: '森の賢人とともに、ドラゴン討伐の支援に呼ばれたと聞いてね。' },
         { chara, text: '心配で僕もついて来たんだ。' },
         { chara, text: '君たちも、もし回復が必要だったら遠慮なく言ってくれ。' },
-        { chara: 'ann', text: 'ありがとう！' },
+        { chara: 'ann', text: 'ありがとう！' }
       ])
       state.talked_dario = true
     }
