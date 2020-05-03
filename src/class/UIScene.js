@@ -67,6 +67,20 @@ export default class UIScene extends Phaser.Scene {
     this.currentBgm = this.sound.add(name, { loop: true })
     this.currentBgm.play()
   }
+  interruptBgm (name) {
+    if (this.currentBgm) this.currentBgm.pause()
+    const bgm = this.sound.add(name, { loop: true })
+    bgm.play()
+    const resolve = () => {
+      if (this.currentBgm) {
+        this.currentBgm.resume()
+        this.currentBgm.setVolume(0)
+        this.add.tween({ targets: this.currentBgm, volume: 1, duration: 2000 })
+      }
+      bgm.stop()
+    }
+    return resolve
+  }
   showController (bool) {
     this.menuButton.visible = bool
   }
@@ -133,17 +147,8 @@ export default class UIScene extends Phaser.Scene {
     return new Promise(resolve => new Select(this, options, resolve))
   }
   battle (group, option) {
-    if (this.currentBgm) this.currentBgm.pause()
-    const bgm = this.sound.add('battle', { loop: true }) // Handle in Battle
-    bgm.play()
     this.gameScene.setEncountDelay()
-    return new Promise(resolve => {
-      return new Battle(this, group, option, result => {
-        if (this.currentBgm) this.currentBgm.resume()
-        bgm.stop()
-        resolve(result)
-      })
-    })
+    return new Promise(resolve => new Battle(this, group, option, resolve))
   }
   battleResult (group, option) {
     return new Promise(resolve => new BattleResult(this, group, option, resolve))

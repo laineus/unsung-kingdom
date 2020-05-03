@@ -61,6 +61,7 @@ export default class Battle extends Phaser.GameObjects.Container {
       v.y += 150
       this.scene.add.tween({ targets: v, duration: 200, ease: 'Power2', delay: i * 50, y: v.y - 150 })
     })
+    this.bgmResolver = this.scene.interruptBgm('battle')
   }
   preUpdate () {
     this.enemies.list.forEach((v, i) => {
@@ -236,6 +237,7 @@ export default class Battle extends Phaser.GameObjects.Container {
   destroy (result) {
     this.scene.scene.resume('Game')
     this.scene.gameScene.blur(false)
+    this.bgmResolver()
     super.destroy()
     this.callback(result)
   }
