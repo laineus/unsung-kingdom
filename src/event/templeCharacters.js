@@ -16,6 +16,64 @@ export default (scene, characters) => {
   drystan.setDisplayName('ドリスタン')
   ray.setDisplayName('レイ')
   // events
+  const soldiers = async chara => {
+    await scene.talk([
+      { chara: 'ann', text: '' }
+    ])
+  }
+  soldier1.setTapEvent(soldiers)
+  soldier2.setTapEvent(soldiers)
+  mary.setTapEvent(async chara => {
+    if (chara.nextMessages) return await scene.talk(chara.nextMessages)
+    await scene.talk([
+      { chara: 'ann', text: '' }
+    ])
+    chara.nextMessages = [
+    ]
+  })
+  loretta.setTapEvent(async chara => {
+    if (chara.nextMessages) return await scene.talk(chara.nextMessages)
+    await scene.talk([
+      { chara: 'ann', text: '' }
+    ])
+    chara.nextMessages = [
+    ]
+  })
+  dario.setTapEvent(async chara => {
+    if (chara.nextMessages) return await scene.talk(chara.nextMessages)
+    await scene.talk([
+      { chara: 'ann', text: '' }
+    ])
+    chara.nextMessages = [
+    ]
+  })
+  drystan.setTapEvent(async chara => {
+    if (chara.nextMessages) return await scene.talk(chara.nextMessages)
+    await scene.talk([
+      { chara: 'ann', text: 'あなたは、ワルコフォレンスの森の賢人！' },
+      { chara: 'ann', text: 'この間は薬を作ってくれてありがとう。' },
+      { chara, text: '誰かと思えばあのときの者達か。' },
+      { chara, text: 'また王族の揉め事に首を突っ込みに来たのか？' },
+      { chara: 'ann', text: 'あなたこそ、どうしてここに？' },
+      { chara, text: '好きで来ているわけではない。' },
+      { chara, text: '負傷した兵の治癒を頼まれたのだ。' },
+      { chara: 'ann', text: 'そうだったんだ。' },
+      { chara, text: '竜に手を出すなど、無謀な真似をしてくれた。' },
+      { chara, text: '負けは目に見えている。' },
+      { chara: 'ann', text: 'ドラゴンはそんなに強いの？' },
+      { chara, text: '奴らは人間の知り得ない特殊な力を持っている。' },
+      { chara, text: '対抗するためには力ではなく知恵が欠かせない。' },
+      { chara, text: '遠い昔、この神殿を作った時代の人間は、' },
+      { chara, text: 'その知恵を持っていた。' },
+      { chara, text: 'だが今の我々はそれを失ってしまったのだ。' },
+      { chara: 'ann', text: '知恵、か…。' },
+      { chara, text: 'お前たちも、今回ばかりは諦めることだ。' },
+      { chara, text: '熊退治のようにはいかんぞ。' }
+    ])
+    chara.nextMessages = [
+      { chara, text: 'お前たちも、今回ばかりは諦めることだ。' }
+    ]
+  })
   ray.setTapEvent(async chara => {
     if (chara.nextMessages) return await scene.talk(chara.nextMessages)
     await scene.talk([
