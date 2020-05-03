@@ -42,69 +42,86 @@ export default (scene, characters) => {
   })
   dario.setTapEvent(async chara => {
     if (chara.nextMessages) return await scene.talk(chara.nextMessages)
-    await scene.talk([
-      { chara: 'ann', text: 'あ！あなたは、墓地に居た魔法使いね。' },
-      { chara, text: '君たちは…、' },
-      { chara, text: 'よかった。' },
-      { chara, text: '僕は君たちにお礼を言う必要があった。' },
-      { chara, text: '王妃の亡霊のこと…、本当にありがとう。' },
-      { chara, text: 'そして、危険な目にあわせてしまって申し訳なかった。' },
-      { chara: 'ann', text: 'いいよ、そんなの。' },
-      { chara: 'ann', text: 'ところでどうしてここに？' },
-      { chara, text: '森の賢人とともに、ドラゴン討伐の支援に呼ばれたと聞いてね。' },
-      { chara, text: '心配で僕もついて来たんだ。' },
-      { chara, text: '君たちも、もし回復が必要だったら遠慮なく言ってくれ。' },
-      { chara: 'ann', text: 'ありがとう！' },
-    ])
-    chara.nextMessages = [
-    ]
+    if (state.talked_dario) {
+      await scene.talk([
+        { chara, text: '回復するかい？' }
+      ])
+      const i = await this.ui.select(['お願い', '大丈夫'])
+      if (i === 1) return
+      scene.storage.state.battlers.forEach(v => v.hp = v.max_hp)
+      scene.ui.announce('HPが全回復した')
+    } else {
+      await scene.talk([
+        { chara: 'ann', text: 'あ！あなたは、墓地に居た魔法使いね。' },
+        { chara, text: '君たちは…、' },
+        { chara, text: 'よかった。' },
+        { chara, text: '僕は君たちにお礼を言う必要があった。' },
+        { chara, text: '王妃の亡霊のこと…、本当にありがとう。' },
+        { chara, text: 'そして、危険な目にあわせてしまって申し訳なかった。' },
+        { chara: 'ann', text: 'いいよ、そんなの。' },
+        { chara: 'ann', text: 'ところでどうしてここに？' },
+        { chara, text: '森の賢人とともに、ドラゴン討伐の支援に呼ばれたと聞いてね。' },
+        { chara, text: '心配で僕もついて来たんだ。' },
+        { chara, text: '君たちも、もし回復が必要だったら遠慮なく言ってくれ。' },
+        { chara: 'ann', text: 'ありがとう！' },
+      ])
+      state.talked_dario = true
+    }
   })
   drystan.setTapEvent(async chara => {
     if (chara.nextMessages) return await scene.talk(chara.nextMessages)
-    await scene.talk([
-      { chara: 'ann', text: 'あなたは、ワルコフォレンスの森の賢人！' },
-      { chara: 'ann', text: 'この間は薬を作ってくれてありがとう。' },
-      { chara, text: '誰かと思えばあのときの者達か。' },
-      { chara, text: 'また王族の揉め事に首を突っ込みに来たのか？' },
-      { chara: 'ann', text: 'あなたこそ、どうしてここに？' },
-      { chara, text: '好きで来ているわけではない。' },
-      { chara, text: '負傷した兵の治癒を頼まれたのだ。' },
-      { chara: 'ann', text: 'そうだったんだ。' },
-      { chara, text: '竜に手を出すなど、無謀な真似をしてくれた。' },
-      { chara, text: '負けは目に見えている。' },
-      { chara: 'ann', text: 'ドラゴンはそんなに強いの？' },
-      { chara, text: '奴らは人間の知り得ない特殊な力を持っている。' },
-      { chara, text: '対抗するためには力ではなく知恵が欠かせない。' },
-      { chara, text: '遠い昔、この神殿を作った時代の人間は、' },
-      { chara, text: 'その知恵を持っていた。' },
-      { chara, text: 'だが今の我々はそれを失ってしまったのだ。' },
-      { chara: 'ann', text: '知恵、か…。' },
-      { chara, text: 'お前たちも、今回ばかりは諦めることだ。' },
-      { chara, text: '熊退治のようにはいかんぞ。' }
-    ])
-    chara.nextMessages = [
-      { chara, text: 'お前たちも、今回ばかりは諦めることだ。' }
-    ]
+    if (state.talked_drystan) {
+      await scene.talk([
+        { chara, text: 'お前たちも、今回ばかりは諦めることだ。' }
+      ])
+    } else {
+      await scene.talk([
+        { chara: 'ann', text: 'あなたは、ワルコフォレンスの森の賢人！' },
+        { chara: 'ann', text: 'この間は薬を作ってくれてありがとう。' },
+        { chara, text: '誰かと思えばあのときの者達か。' },
+        { chara, text: 'また王族の揉め事に首を突っ込みに来たのか？' },
+        { chara: 'ann', text: 'あなたこそ、どうしてここに？' },
+        { chara, text: '好きで来ているわけではない。' },
+        { chara, text: '負傷した兵の治癒を頼まれたのだ。' },
+        { chara: 'ann', text: 'そうだったんだ。' },
+        { chara, text: '竜に手を出すなど、無謀な真似をしてくれた。' },
+        { chara, text: '負けは目に見えている。' },
+        { chara: 'ann', text: 'ドラゴンはそんなに強いの？' },
+        { chara, text: '奴らは人間の知り得ない特殊な力を持っている。' },
+        { chara, text: '対抗するためには力ではなく知恵が欠かせない。' },
+        { chara, text: '遠い昔、この神殿を作った時代の人間は、' },
+        { chara, text: 'その知恵を持っていた。' },
+        { chara, text: 'だが今の我々はそれを失ってしまったのだ。' },
+        { chara: 'ann', text: '知恵、か…。' },
+        { chara, text: 'お前たちも、今回ばかりは諦めることだ。' },
+        { chara, text: '熊退治のようにはいかんぞ。' }
+      ])
+      state.talked_drystan = true
+    }
   })
   ray.setTapEvent(async chara => {
     if (chara.nextMessages) return await scene.talk(chara.nextMessages)
-    await scene.talk([
-      { chara: 'ann', text: 'あれ、キミは墓荒らしの男の子！' },
-      { chara, text: 'ん？' },
-      { chara, text: 'なんだ、この前のねーちゃん達じゃねーか。' },
-      { chara: 'ann', text: 'こんなところで何してるの？' },
-      { chara, text: '別に。' },
-      { chara, text: 'ドラゴンを見に来たんだよ。' },
-      { chara: 'ann', text: 'ドラゴン？' },
-      { chara: 'ann', text: '危ないからやめときなさい！' },
-      { chara, text: 'なんだよ、関係ねーだろ。' },
-      { chara: 'ann', text: '生意気ね。' },
-      { chara: 'ann', text: 'まあでも、元気そうでよかった。' },
-      { chara, text: 'ふん。' }
-    ])
-    chara.nextMessages = [
-      { chara: 'ann', text: '元気そうでよかった。' },
-      { chara, text: 'ふん。' }
-    ]
+    if (state.talked_ray) {
+      await scene.talk([
+        { chara: 'ann', text: '元気そうでよかった。' },
+        { chara, text: 'ふん。' }
+      ])
+    } else {
+      await scene.talk([
+        { chara: 'ann', text: 'あれ、キミは墓荒らしの男の子！' },
+        { chara, text: 'ん？' },
+        { chara, text: 'なんだ、この前のねーちゃん達じゃねーか。' },
+        { chara: 'ann', text: 'こんなところで何してるの？' },
+        { chara, text: '別に。' },
+        { chara, text: 'ドラゴンを見に来たんだよ。' },
+        { chara: 'ann', text: 'ドラゴン？' },
+        { chara: 'ann', text: '危ないからやめときなさい！' },
+        { chara, text: 'なんだよ、関係ねーだろ。' },
+        { chara: 'ann', text: '生意気ね。' },
+        { chara: 'ann', text: 'まあでも、元気そうでよかった。' },
+        { chara, text: 'ふん。' }
+      ])
+      state.talked_ray = true
+    }
   })
 }
