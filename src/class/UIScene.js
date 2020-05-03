@@ -77,7 +77,7 @@ export default class UIScene extends Phaser.Scene {
         this.currentBgm.setVolume(0)
         this.add.tween({ targets: this.currentBgm, volume: 1, duration: 2000 })
       }
-      bgm.stop()
+      this.add.tween({ targets: bgm, volume: 0, duration: 500, onComplete: () => bgm.stop() })
     }
     return resolve
   }
