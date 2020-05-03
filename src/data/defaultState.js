@@ -39,7 +39,10 @@ export default () => {
       m1: { talked_amber: false, talked_annabelle: false, talked_elliott: false },
       m2: { talked_amber1: false, talked_elliott: false, talked_annabelle: false, talked_amber2: false },
       m3: { talked_amber: false, talked_max: false, talked_matilda: false },
-      m4: { talked_amber: false, talked_elliott: false, talked_max: false, talked_matilda: false, talked_annabelle: false },
+      m4: {
+        talked_amber: false, talked_elliott: false, talked_max: false, talked_matilda: false, talked_annabelle: false,
+        talked_soldiers: false, talked_mary: false, talked_loretta: false, talked_dario: false, talked_drystan: false, talked_ray: false
+      },
       town: { amber: [], annabelle: [], matilda: [], elliott: [], max: [] }
     },
     gimmicks: [],

@@ -8,6 +8,7 @@ export default (scene, characters) => {
     drystan,
     ray
   } = characters
+  const state = scene.storage.state.event.m4
   soldier1.setDisplayName('衛兵')
   soldier2.setDisplayName('衛兵')
   mary.setDisplayName('メアリー')
