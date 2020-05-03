@@ -277,6 +277,7 @@ export default class UIScene extends Phaser.Scene {
   }
   async showMapInfo (e) {
     if (this.mapInfo) this.mapInfo.destroy()
+    if (!e) return
     const mapName = e.name || '不明なエリア'
     const boxWidth = Math.max(70 + mapName.width * 6, 180)
     const diff = e.enemyLevel ? e.enemyLevel - Math.average(...this.storage.state.battlers.map(b => b.lv)) : 0

@@ -43,7 +43,7 @@ export default class GameScene extends Phaser.Scene {
     this.event = maps[payload.map] || {}
     this.ui.setBgm(this.event.bgm || null)
     if (this.event.create) this.event.create(this)
-    if (payload.map !== 'room1') this.ui.showMapInfo(this.event)
+    this.ui.showMapInfo(payload.map !== 'room1' ? this.event : null)
     this.setEncountDelay(payload.encountDelay)
     setTimeout(() => {
       // auto save
