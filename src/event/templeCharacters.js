@@ -80,11 +80,13 @@ export default (scene, characters) => {
   })
   dario.setTapEvent(async chara => {
     if (state.talked_dario) {
-      await scene.talk([
-        { chara, text: '回復するかい？' }
+      const t = await scene.talk([
+        { chara, text: '回復するかい？' },
+        null
       ])
-      const i = await this.ui.select(['お願い', '大丈夫'])
+      const i = await scene.ui.select(['お願い', '大丈夫'])
       if (i === 1) return
+      t.destroy()
       scene.storage.state.battlers.forEach(v => v.hp = v.max_hp)
       scene.ui.announce('HPが全回復した')
       await scene.talk([
@@ -99,8 +101,8 @@ export default (scene, characters) => {
         { chara, text: '王妃の亡霊のこと…、本当にありがとう。' },
         { chara, text: 'そして、危険な目にあわせてしまって申し訳なかった。' },
         { chara: 'ann', text: 'いいよ、そんなの。' },
-        { chara: 'ann', text: 'ところでどうしてここに？' },
-        { chara, text: '森の賢人とともに、ドラゴン討伐の支援に呼ばれたと聞いてね。' },
+        { chara: 'ann', text: 'ところで、どうしてここに？' },
+        { chara, text: '森の賢人がドラゴン討伐の支援に呼ばれたと聞いてね。' },
         { chara, text: '心配で僕もついて来たんだ。' },
         { chara, text: '君たちも、もし回復が必要だったら遠慮なく言ってくれ。' },
         { chara: 'ann', text: 'ありがとう！' }

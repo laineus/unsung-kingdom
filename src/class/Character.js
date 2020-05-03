@@ -183,6 +183,7 @@ export default class Character extends Substance {
   }
   setTalking (bool) {
     this.talking = bool
+    if (bool) this.stopWalk()
     return this
   }
   _randomWalk () {
