@@ -42,7 +42,18 @@ export default (scene, characters) => {
   dario.setTapEvent(async chara => {
     if (chara.nextMessages) return await scene.talk(chara.nextMessages)
     await scene.talk([
-      { chara: 'ann', text: '' }
+      { chara: 'ann', text: 'あ！あなたは、墓地に居た魔法使いね。' },
+      { chara, text: '君たちは…、' },
+      { chara, text: 'よかった。' },
+      { chara, text: '僕は君たちにお礼を言う必要があった。' },
+      { chara, text: '王妃の亡霊のこと…、本当にありがとう。' },
+      { chara, text: 'そして、危険な目にあわせてしまって申し訳なかった。' },
+      { chara: 'ann', text: 'いいよ、そんなの。' },
+      { chara: 'ann', text: 'ところでどうしてここに？' },
+      { chara, text: '森の賢人とともに、ドラゴン討伐の支援に呼ばれたと聞いてね。' },
+      { chara, text: '心配で僕もついて来たんだ。' },
+      { chara, text: '君たちも、もし回復が必要だったら遠慮なく言ってくれ。' },
+      { chara: 'ann', text: 'ありがとう！' },
     ])
     chara.nextMessages = [
     ]
