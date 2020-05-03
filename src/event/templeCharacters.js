@@ -17,31 +17,37 @@ export default (scene, characters) => {
   drystan.setDisplayName('ドリスタン')
   ray.setDisplayName('レイ')
   // events
-  const soldiers = async chara => {
+  soldier1.setTapEvent(async chara => {
     await scene.talk([
-      { chara: 'ann', text: '' }
+      { chara, text: '本当に陛下の助言どおりであった。' },
+      { chara, text: 'プリンセスはまんまと城内の監視をすり抜けて、' },
+      { chara, text: '陛下を追ってついにここまで来られたのだ。' },
+      { chara, text: 'だが地下にだけは絶対に通すわけにはいかない…。' }
     ])
-  }
-  soldier1.setTapEvent(soldiers)
-  soldier2.setTapEvent(soldiers)
+  })
+  soldier2.setTapEvent(async chara => {
+    await scene.talk([
+      { chara, text: '何度言われましても、お通しすることはできません。' },
+      { chara: mary, text: '私の命令に背くだなんて！お父様に言いつけるわ。' },
+      { chara, text: 'これはまさにその陛下のご命令なのです。' },
+      { chara, text: 'どうかご容赦ください。' },
+    ])
+  })
   mary.setTapEvent(async chara => {
-    if (chara.nextMessages) return await scene.talk(chara.nextMessages)
-    await scene.talk([
-      { chara: 'ann', text: '' }
-    ])
-    chara.nextMessages = [
-    ]
+    if (state.talked_ray) {
+      await scene.talk([
+        { chara: 'ann', text: '' }
+      ])
+    } else {}
   })
   loretta.setTapEvent(async chara => {
-    if (chara.nextMessages) return await scene.talk(chara.nextMessages)
-    await scene.talk([
-      { chara: 'ann', text: '' }
-    ])
-    chara.nextMessages = [
-    ]
+    if (state.talked_ray) {} else {
+      await scene.talk([
+        { chara: 'ann', text: '' }
+      ])
+    }
   })
   dario.setTapEvent(async chara => {
-    if (chara.nextMessages) return await scene.talk(chara.nextMessages)
     if (state.talked_dario) {
       await scene.talk([
         { chara, text: '回復するかい？' }
@@ -50,6 +56,9 @@ export default (scene, characters) => {
       if (i === 1) return
       scene.storage.state.battlers.forEach(v => v.hp = v.max_hp)
       scene.ui.announce('HPが全回復した')
+      await scene.talk([
+        { chara: 'ann', text: 'ありがとう！' }
+      ])
     } else {
       await scene.talk([
         { chara: 'ann', text: 'あ！あなたは、墓地に居た魔法使いね。' },
@@ -69,7 +78,6 @@ export default (scene, characters) => {
     }
   })
   drystan.setTapEvent(async chara => {
-    if (chara.nextMessages) return await scene.talk(chara.nextMessages)
     if (state.talked_drystan) {
       await scene.talk([
         { chara, text: 'お前たちも、今回ばかりは諦めることだ。' }
@@ -100,7 +108,6 @@ export default (scene, characters) => {
     }
   })
   ray.setTapEvent(async chara => {
-    if (chara.nextMessages) return await scene.talk(chara.nextMessages)
     if (state.talked_ray) {
       await scene.talk([
         { chara: 'ann', text: '元気そうでよかった。' },
