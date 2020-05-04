@@ -1,37 +1,5 @@
 // 噂好きのアンバー婦人
 export const amber = async (scene, chara) => {
-  if (chara.nextMessages) return await scene.talk(chara.nextMessages)
-  const state = scene.storage.state.event.town.amber
-  if (!state.includes(0)) {
-    await scene.talk([
-      { chara, text: 'この間グリファルデ神殿に行ってきたの。' },
-      { chara: 'ann', text: '神殿、ですか？' },
-      { chara, text: 'あなたよそから来たなら知らないかしら。' },
-      { chara, text: '今は使われていない神殿なんだけど、' },
-      { chara, text: '十年ほど前にこの国を襲ったドラゴンがそこで眠っているの。' },
-      { chara, text: 'そのドラゴンと戦って神殿には封じたのは他でもないエドガー王よ。' },
-      { chara, text: 'この話はベリオンの民にとって誇りなの。' }
-    ])
-    chara.nextMessages = [
-      { chara, text: 'この話はベリオンの民にとって誇りなの。' }
-    ]
-    state.push(0)
-  } else if (!state.includes(0)) {
-    await scene.talk([
-      { chara, text: 'グリファルデ神殿のドラゴンが目覚めたんじゃないかって噂を聞いたわ。' },
-      { chara, text: 'ドラゴンが封じられている神殿の地下へは普通は入れないから、' },
-      { chara, text: '直接見た人が居るわけじゃないけれど、' },
-      { chara, text: '最近王弟が頻繁に神殿を訪れているらしいの。' },
-      { chara, text: 'だから神殿で何か起きているんじゃないかって皆心配しているわ。' },
-      { chara, text: 'いつかは目覚めるって昔から言われていたけれど、' },
-      { chara, text: '怖いわ。' }
-    ])
-    chara.nextMessages = [
-      { chara, text: 'いつかは目覚めるって昔から言われていたけれど、' },
-      { chara, text: '怖いわ。' }
-    ]
-    state.push(0)
-  }
   await scene.talk([
     { chara, text: '今日もいい天気ね。' }
   ])
@@ -78,7 +46,7 @@ export const annabelle = async (scene, chara) => {
       { chara: 'ann', text: 'なんで？' },
       { chara, text: 'さあ、なんでだろうね。' }
     ])
-    chara.nextMessages = [{ chara, text: 'あの子、マチルダっていうんだよ。' }]
+    chara.nextMessages = [{ chara, text: 'あの子、マチルダっていうんだよ。' }, { chara, text: '可愛いでしょ。' }]
     state.push(1)
   } else if (!state.includes(2)) {
     await scene.talk([
@@ -141,6 +109,22 @@ export const matilda = async (scene, chara) => {
       { chara, text: 'また昔みたいに仲良くしたいな…。' }
     ]
     state.push(0)
+  } else if (!state.includes(1)) {
+    await scene.talk([
+      { chara: 'ann', text: 'どうしたの？そんな怖い顔して。' },
+      { chara, text: 'あ、あのね、えっと、' },
+      { chara, text: 'グリファルデ神殿にはね、昔エドガー王が封印したドラゴンが眠っているの。' },
+      { chara, text: 'そのドラゴンがね、目覚めたんじゃないかって噂を聞いたの。' },
+      { chara, text: 'それで、怖いなって…。' },
+      { chara: 'ann', text: 'そうなの？' },
+      { chara, text: 'うん、直接見た人が居るわけじゃないみたいだけど、' },
+      { chara, text: '最近、エゼルバルド王弟が頻繁に神殿を訪れているんだって。' },
+      { chara, text: 'だから神殿で何か起きているんじゃないかって皆心配してるの…。' },
+      { chara, text: 'いつかは目覚める、って私が小さい頃から言われていたけれど、' },
+      { chara, text: '怖いな…。' }
+    ])
+    chara.nextMessages = [{ chara, text: '怖いな…。' }]
+    state.push(1)
   } else {
     await scene.talk([
       { chara, text: 'アナベル、今日も綺麗でいいな…。' }
@@ -169,8 +153,8 @@ export const elliott = async (scene, chara) => {
     ])
     chara.nextMessages = [{ chara, text: '気は変わらないか？' }]
     state.push(0)
-  } else {
-    await scene.talk([
+  } else if (!state.includes(1)) {
+    const arr = [
       { chara, text: 'グリファルデ神殿って知ってるか？' },
       { chara, text: 'ずっと昔に作られて、今は使われていない神殿なんだけどな、' },
       { chara, text: '十年ほど前にこの国を襲ったドラゴンがそこに眠っているんだ。' },
@@ -178,6 +162,13 @@ export const elliott = async (scene, chara) => {
       { chara, text: '神殿のどこかには、王が切り落とした竜の鱗が落ちているって噂だ。' },
       { chara, text: 'さすがにちょっと嘘くさい気もするが、' },
       { chara, text: 'もし本当に見つかったら、相当高く売れるんだろうな。' }
+    ]
+    await scene.talk(arr)
+    chara.nextMessages = arr
+    state.push(1)
+  } else {
+    await scene.talk([
+      { chara, text: 'よう、元気にしてるか？' }
     ])
   }
 }
