@@ -31,11 +31,10 @@ export const amber = async (scene, chara) => {
       { chara, text: '怖いわ。' }
     ]
     state.push(0)
-  } else {
-    await scene.talk([
-      { chara, text: 'TODO' }
-    ])
   }
+  await scene.talk([
+    { chara, text: '今日もいい天気ね。' }
+  ])
 }
 
 // 宿屋のアナベル
@@ -56,17 +55,54 @@ export const annabelle = async (scene, chara) => {
       { chara, text: 'いっぱいサービスするわ。' },
       { chara: 'ann', text: '高級な宿ってこと？' },
       { chara: 'ann', text: 'ちょっとそういう感じには見えないけどな…。' },
-      { chara, text: 'そういうことじゃないよ。' },
-      { chara, text: '私のサービスは女の子専門なんだけど…、' },
-      { chara, text: 'お姉さんには馴染みがなかったかな？' },
+      { chara, text: 'そういうことじゃなくて。' },
+      { chara, text: '来てみたら分かるよ。' },
+      { chara, text: 'お姉さんにはいっぱいサービスしちゃう。' },
       { chara: 'ann', text: '？' },
-      { chara: 'jaquelyn', text: 'ありがとう、宿屋さん。' },
-      { chara: 'jaquelyn', text: '間に合ってるから、結構よ。' },
-      { chara, text: 'そう。' },
       { chara, text: '気が向いたら来てね。' }
     ])
     chara.nextMessages = [{ chara, text: '気が向いたら来てね。' }]
     state.push(0)
+  } else if (!state.includes(1)) {
+    await scene.talk([
+      { chara, text: 'あ、お姉さん、' },
+      { chara, text: 'よかったらうちでお昼はいかが？' },
+      { chara, text: '今ならパンが焼きたて。' },
+      { chara: 'ann', text: 'あ、いいな！' },
+      { chara, text: 'ぜひ。' },
+      { chara, text: '私の焼くパンはファンも多いのよ。' },
+      { chara: 'ann', text: 'そうなの？' },
+      { chara, text: 'うん。' },
+      { chara, text: '例えばほら、そこの影に隠れている女の子もそうだよ。' },
+      { chara, text: 'なぜか私が居ないときにコソコソ買いに来るんだけど。' },
+      { chara: 'ann', text: 'なんで？' },
+      { chara, text: 'さあ、なんでだろうね。' }
+    ])
+    chara.nextMessages = [{ chara, text: 'あの子、マチルダっていうんだよ。' }]
+    state.push(1)
+  } else if (!state.includes(2)) {
+    await scene.talk([
+      { chara, text: '十年くらい前に、ドラゴンがこの国を襲った話は知ってる？' },
+      { chara, text: 'エドガー王がそのドラゴンと戦って、グリファルデ神殿に封じたの。' },
+      { chara, text: 'パパやママはいつもこの話を私に聞かせたわ。' },
+      { chara, text: 'うちの宿屋にもね、ドラゴンと戦うエドガー王の絵画が飾ってあるから、' },
+      { chara, text: 'よかったら見ていってね。' },
+      { chara, text: 'パパが高く買った絵なんだけど、とっても評判がいいの。' },
+      { chara, text: 'ベリオン人にとってこの話は誇りみたい。' },
+    ])
+    chara.nextMessages = [{ chara, text: 'ベリオン人にとってこの話は誇りみたい。' }]
+    state.push(2)
+  } else if (!state.includes(3)) {
+    const arr = [
+      { chara, text: 'マチルダとはね、' },
+      { chara, text: '昔は結構仲が良かったんだ。' },
+      { chara, text: 'でもいつの間にか避けられるようになってね、' },
+      { chara, text: 'さりげなーく近づくと、慌てて逃げていっちゃうの。' },
+      { chara, text: '可愛いでしょ。' }
+    ]
+    await scene.talk(arr)
+    chara.nextMessages = arr
+    state.push(3)
   } else {
     await scene.talk([
       { chara, text: '今日もいい天気ですね。' }
@@ -135,8 +171,13 @@ export const elliott = async (scene, chara) => {
     state.push(0)
   } else {
     await scene.talk([
-      { chara, text: '調子はどうだ？' },
-      { chara, text: '何か良い儲け話があったら教えてくれ。' }
+      { chara, text: 'グリファルデ神殿って知ってるか？' },
+      { chara, text: 'ずっと昔に作られて、今は使われていない神殿なんだけどな、' },
+      { chara, text: '十年ほど前にこの国を襲ったドラゴンがそこに眠っているんだ。' },
+      { chara, text: 'そのときドラゴンと戦ったのがエドガー王なんだが、' },
+      { chara, text: '神殿のどこかには、王が切り落とした竜の鱗が落ちているって噂だ。' },
+      { chara, text: 'さすがにちょっと嘘くさい気もするが、' },
+      { chara, text: 'もし本当に見つかったら、相当高く売れるんだろうな。' }
     ])
   }
 }
