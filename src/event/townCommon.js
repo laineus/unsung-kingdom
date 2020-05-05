@@ -25,7 +25,7 @@ export const annabelle = async (scene, chara) => {
       { chara: 'ann', text: 'ちょっとそういう感じには見えないけどな…。' },
       { chara, text: 'そういうことじゃなくて。' },
       { chara, text: '来てみたら分かるよ。' },
-      { chara, text: 'お姉さんにはいっぱいサービスしちゃう。' },
+      { chara, text: 'お姉さんには頑張っちゃう。' },
       { chara: 'ann', text: '？' },
       { chara, text: '気が向いたら来てね。' }
     ])
@@ -121,13 +121,41 @@ export const matilda = async (scene, chara) => {
       { chara, text: '最近、エゼルバルド王弟が頻繁に神殿を訪れているんだって。' },
       { chara, text: 'だから神殿で何か起きているんじゃないかって皆心配してるの…。' },
       { chara, text: 'いつかは目覚める、って私が小さい頃から言われていたけれど、' },
-      { chara, text: '怖いな…。' }
+      { chara, text: '怖いな…。' },
+      { chara: 'ann', text: 'そうなんだ…。怖いね。' }
     ])
     chara.nextMessages = [{ chara, text: '怖いな…。' }]
     state.push(1)
+  } else if (!state.includes(2)) {
+    await scene.talk([
+      { chara, text: '…。' },
+      { chara, text: '………。' },
+      { chara, text: 'あ！ごめんね…、' },
+      { chara, text: '気づかなった…。ぼうっとしてて…。' },
+      { chara: 'ann', text: '大丈夫？' },
+      { chara: 'ann', text: 'また宿屋の子見てたの？' },
+      { chara, text: 'あ、うん…、' },
+      { chara, text: 'いつも、見てる…。' },
+      { chara: 'ann', text: 'そ、そうなんだ。' },
+      { chara: 'ann', text: '話しかけたら？' },
+      { chara, text: 'ううん…。緊張しちゃうから…。' }
+    ])
+    chara.nextMessages = [{ chara, text: 'アナベル…。' }]
+    state.push(2)
+  } else if (!state.includes(3)) {
+    await scene.talk([
+      { chara, text: '昔ね…、' },
+      { chara, text: 'アナベルがふざけて私にキスしたことがあるの。' },
+      { chara, text: 'ずるいよね。' },
+      { chara, text: '自分だけ何もなかったみたいな顔して…。' },
+      { chara, text: 'あれ、なんだったのかな…。' }
+    ])
+    chara.nextMessages = [{ chara, text: 'あれ、なんだったのかな…。' }]
+    state.push(3)
   } else {
     await scene.talk([
-      { chara, text: 'アナベル、今日も綺麗でいいな…。' }
+      { chara, text: 'アナベル…。' },
+      { chara, text: 'はあ…。' }
     ])
   }
 }
@@ -166,6 +194,25 @@ export const elliott = async (scene, chara) => {
     await scene.talk(arr)
     chara.nextMessages = arr
     state.push(1)
+  } else if (!state.includes(2)) {
+    await scene.talk([
+      { chara, text: '聖アンテルスの墓地には、市民から王家に至るまで幅広く埋葬されている。' },
+      { chara, text: 'もちろんその中で扱いに差はあるがな。' },
+      { chara, text: 'だから上流階級のエリアには、' },
+      { chara, text: '金目の物を漁りに墓荒らしが来ることもあるんだ。' },
+      { chara: 'ann', text: 'へえ。' },
+      { chara, text: '…おい、俺は流石にそこまで堕ちちゃいないぞ。' },
+      { chara: 'ann', text: '何も言ってないよ。' },
+      { chara, text: 'まあでもちゃんと衛兵が置かれているから被害は少ないらしい。' },
+      { chara, text: 'だが、そんな衛兵の仕事に最近「悪霊退治」が加わったらしいぜ。' },
+      { chara: 'ann', text: 'おばけが出るの？' },
+      { chara, text: 'ああ。' },
+      { chara, text: 'だから墓参りしたいときも、衛兵に金を払って護衛を頼む必要があるんだってよ。' },
+      { chara, text: 'どちらかというと俺が興味があったのはそっちさ。' },
+      { chara, text: '俺もマックスのように剣が扱えたなら、用心棒でもやるんだがな。' }
+    ])
+    chara.nextMessages = [{ chara, text: '俺もマックスのように剣が扱えたなら、用心棒でもやるんだがな。' }]
+    state.push(2)
   } else {
     await scene.talk([
       { chara, text: 'よう、元気にしてるか？' }
