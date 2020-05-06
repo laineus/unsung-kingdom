@@ -1,5 +1,8 @@
 import generateBattler from '../util/generateBattler'
 export const mercenary1 = (scene, leader, member, member2) => {
+  if (scene.storage.state.chapter !== 1) {
+    return [leader, member, member2].forEach(v => v.destroy())
+  }
   const state = scene.storage.state.event.m1_2
   if (!state.solved) member2.setVisible(false)
   member2.setDisplayName('負傷した傭兵団員').setTapEvent(async chara => {
