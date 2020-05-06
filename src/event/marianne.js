@@ -2,6 +2,9 @@ export const WATER_COUNT = 5
 
 export const marianne = (scene, sister) => {
   const state = scene.storage.state.event.m3_2
+  if (state.completed && scene.storage.state.chapter !== 3) {
+    return sister.destroy()
+  }
   sister.setDisplayName('シスター')
   sister.setTapEvent(async chara => {
     if (state.completed) {
