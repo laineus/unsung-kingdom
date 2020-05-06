@@ -9,5 +9,15 @@ export default {
     const area2 = scene.map.getObjectById(5)
     const area3 = scene.map.getObjectById(6)
     dragon(scene, sonberk, king, area1, area2, area3)
+    const dragonScale = scene.map.getObjectById(7)
+    if (scene.storage.state.chapter === 5 && !scene.storage.state.gimmicks.includes('temple15_7')) {
+      dragonScale.setTapEvent(async () => {
+        scene.storage.state.gimmicks.push('temple15_7')
+        scene.ui.announce('『ドラゴンの鱗』を手に入れた')
+        dragonScale.destroy()
+      })
+    } else {
+      dragonScale.destroy()
+    }
   }
 }
