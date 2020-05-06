@@ -1,5 +1,8 @@
 export const architect = (scene, chara) => {
   const state = scene.storage.state.event.m4_1
+  if (state.completed && scene.storage.state.chapter !== 4) {
+    return chara.destroy()
+  }
   chara.setDisplayName('彫刻家クラウス')
   chara.setTapEvent(async () => {
     if (state.completed) {

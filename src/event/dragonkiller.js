@@ -18,6 +18,9 @@ export const ethelbald = (scene, ethel, soldiers) => {
       await scene.talk(scriptsForSoldiers[i].map(text => ({ chara, text })))
     })
   })
+  if (state.completed) {
+    return ethel.destroy()
+  }
   ethel.setDisplayName('王弟エゼルバルド').setTapEvent(async chara => {
     if (state.started) {
       await scene.talk([
@@ -69,6 +72,9 @@ export const dragon = (scene, sonberk, king, area1, area2, area3) => {
   if (state.area2) {
     king.y += (3).toPixel
     area2.destroy()
+  }
+  if (state.completed) {
+    return [sonberk, king, area3].forEach(v => v.destroy())
   }
   area1.setEvent(async () => {
     scene.player.tweet('！')

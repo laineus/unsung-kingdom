@@ -8,6 +8,9 @@ export default (scene, characters) => {
     drystan,
     ray
   } = characters
+  if (scene.storage.state.chapter !== 4) {
+    return [soldier1, soldier2, mary, loretta, dario, drystan, ray].forEach(v => v.destroy())
+  }
   const state = scene.storage.state.event.m4
   soldier1.setDisplayName('衛兵')
   soldier2.setDisplayName('衛兵')

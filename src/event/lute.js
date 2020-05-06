@@ -3,6 +3,9 @@ export const GOOD_APPLES = ['a8_5', 'a8_6', 'a8_7', 'a8_9', 'a9_4']
 
 export const lute = (scene, poets, goddessLight) => {
   goddessLight.setVisible(false)
+  if (scene.storage.state.chapter !== 4) {
+    return poets.destroy()
+  }
   const state = scene.storage.state.event.m4_4
   poets.setDisplayName('ライラ')
   if (state.completed) {
