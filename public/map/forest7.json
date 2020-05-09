@@ -1,4 +1,12 @@
-{ "height":48,
+{ "compressionlevel":-1,
+ "editorsettings":
+    {
+     "export":
+        {
+         "target":"."
+        }
+    },
+ "height":48,
  "infinite":false,
  "layers":[
         {
@@ -174,7 +182,7 @@
                  "name":"flower",
                  "point":true,
                  "rotation":0,
-                 "type":"object",
+                 "type":"chara",
                  "visible":true,
                  "width":0,
                  "x":774,
@@ -325,7 +333,7 @@
          "value":true
         }],
  "renderorder":"right-down",
- "tiledversion":"1.2.1",
+ "tiledversion":"2020.05.07",
  "tileheight":32,
  "tilesets":[
         {

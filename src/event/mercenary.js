@@ -95,11 +95,11 @@ export const mercenary2 = (scene, flower, mercenary) => {
     const i = await scene.select(['調べる', 'そっとしておく'])
     if (i === 1) return
     await scene.ui.sleep(300)
-    const result = await scene.ui.battle([generateBattler('flower', 6, { hp: 270 })], { boss: true })
+    const result = await scene.ui.battle([generateBattler('flower', 5, { hp: 270 })], { boss: true })
     if (!result) return
     const chara = mercenary.setDisplayName('負傷した傭兵団員')
-    flower.setVisible(false)
     mercenary.setVisible(true)
+    await flower.die()
     await scene.talk([
       { chara: 'ann', text: 'びっくりした…。モンスターだったなんて。' },
       { chara: 'francisca', text: 'ちょっとアン、中から人が出てきたんだけど…。' },
