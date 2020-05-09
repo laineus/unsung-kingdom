@@ -140,7 +140,7 @@
                  "id":3,
                  "name":"dionysus",
                  "point":true,
-                 "rotation":0,
+                 "rotation":180,
                  "type":"chara",
                  "visible":true,
                  "width":0,
@@ -214,7 +214,7 @@
          "value":"#ffff0000"
         }],
  "renderorder":"right-down",
- "tiledversion":"2020.01.22",
+ "tiledversion":"2020.05.07",
  "tileheight":32,
  "tilesets":[
         {

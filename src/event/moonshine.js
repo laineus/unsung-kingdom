@@ -28,7 +28,7 @@ export const dionysus = (scene, dionysus, area, gate) => {
       { chara, text: 'だが必ず倒せよ。俺も身を削るんだからな。' },
       { chara, text: 'よし、じゃあちょっと待ってろ。' }
     ])
-    await dionysus.setTargetPosition((8).toPixelCenter, (0).toPixelCenter)
+    await dionysus.setTargetPosition((9).toPixelCenter, (2).toPixelCenter)
     dionysus.setVisible(false)
     await scene.ui.sleep(500)
     await scene.talk([
@@ -110,6 +110,7 @@ export const dionysus = (scene, dionysus, area, gate) => {
         { chara, text: 'ああ。密造酒は城の奴らと取引している。' },
         { chara, text: '毎日1バレルを地下通路の最奥まで運んで、' },
         { chara, text: '20バレル貯まった日の夜に、城内の人間が最後の扉を開放し、酒を搬入する。' },
+        { chara: 'francisca', text: 'ということは、' },
         { chara: 'francisca', text: '城内に繋がる最後の扉は城の内側からしか開かないということ？' },
         { chara, text: 'そうだ。' },
         { chara, text: 'なんだ、城に侵入しようってのか？' },
