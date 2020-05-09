@@ -1,9 +1,30 @@
 {
   "map": "underpass5",
-  "x": 327.2146087194328,
-  "y": 221.22465303869177,
-  "r": 1.720263254081271,
+  "x": 308.907433362895,
+  "y": 222.25440499345606,
+  "r": -1.4487036097594244,
   "chapter": 2,
+  "allowed_area": 3,
+  "visited": [
+    "room1",
+    "town1",
+    "castle1",
+    "forest1",
+    "forest2",
+    "forest3",
+    "forest5",
+    "forest6",
+    "forest7",
+    "forest8",
+    "forest9",
+    "forest4",
+    "underpass1",
+    "underpass2",
+    "underpass3",
+    "underpass5",
+    "underpass4",
+    "underpass6"
+  ],
   "event": {
     "chapter_begin": [
       true,
@@ -20,13 +41,13 @@
     },
     "m1_1": {
       "started": true,
-      "completed": true,
+      "completed": false,
       "talked": true,
-      "d1": 2,
-      "d2": 2,
-      "d3": 2,
-      "d4": 2,
-      "d5": 2
+      "d1": 1,
+      "d2": 0,
+      "d3": 0,
+      "d4": 0,
+      "d5": 1
     },
     "m1_2": {
       "started": true,
@@ -48,19 +69,19 @@
     "m2_1": {
       "started": true,
       "completed": true,
+      "wine": [
+        2,
+        3,
+        1
+      ],
       "talked": true,
       "key": true,
-      "opened": true,
-      "wine": [
-        1,
-        2,
-        3
-      ]
+      "opened": true
     },
     "m2_2": {
       "started": true,
       "completed": true,
-      "count": 5
+      "count": 6
     },
     "m2_3": {
       "started": true,
@@ -73,10 +94,10 @@
       "completed": false,
       "solved": false,
       "jack": false,
-      "search": false,
       "talked": false,
-      "boss": false,
-      "found": false
+      "search": false,
+      "found": false,
+      "boss": false
     },
     "m3_1": {
       "started": false,
@@ -107,43 +128,40 @@
     },
     "m4_2": {
       "started": false,
-      "completed": false
+      "completed": false,
+      "count": 0
     },
     "m4_3": {
       "started": false,
-      "completed": false
+      "completed": false,
+      "talked": false
     },
     "m4_4": {
       "started": false,
-      "completed": false
+      "completed": false,
+      "apples": []
     },
     "m4_5": {
       "started": false,
-      "completed": false
+      "completed": false,
+      "area1": false,
+      "area2": false
     },
     "m5_1": {
       "started": false,
-      "completed": false
+      "completed": false,
+      "soldiers": false
     },
     "m0": {
       "talked_matilda": true,
       "talked_annabelle": true,
-      "talked_amber": false,
+      "talked_amber": true,
       "area": true
     },
     "m1": {
       "talked_amber": true,
       "talked_annabelle": true,
       "talked_elliott": true
-    },
-    "town": {
-      "amber": [],
-      "annabelle": [
-        0
-      ],
-      "matilda": [],
-      "elliott": [],
-      "max": []
     },
     "m2": {
       "talked_amber1": true,
@@ -161,25 +179,53 @@
       "talked_elliott": false,
       "talked_max": false,
       "talked_matilda": false,
-      "talked_annabelle": false
+      "talked_annabelle": false,
+      "talked_mary": false,
+      "talked_loretta": false,
+      "talked_dario": false,
+      "talked_drystan": false,
+      "talked_ray": false
+    },
+    "town": {
+      "amber": [],
+      "annabelle": [
+        0
+      ],
+      "matilda": [
+        0,
+        1
+      ],
+      "elliott": [
+        0,
+        1
+      ],
+      "max": [
+        0,
+        1,
+        2
+      ]
     }
   },
+  "gimmicks": [
+    "unserpass4_9"
+  ],
   "treasures": [
+    "forest2_5",
     "forest8_4",
     "forest3_5",
-    "underpass5_5"
+    "forest4_5"
   ],
   "battlers": [
     {
       "key": "ann",
       "name": "Ann",
-      "lv": 12,
+      "lv": 16,
       "effect": "hit",
-      "hp": 95,
-      "atk": 15,
-      "def": 14,
+      "hp": 105,
+      "atk": 19,
+      "def": 17,
       "dex": 11,
-      "agi": 11,
+      "agi": 12,
       "up": {
         "hp": 100,
         "atk": 100,
@@ -187,20 +233,20 @@
         "dex": 70,
         "agi": 70
       },
-      "exp": 217.66666666666666,
-      "max_hp": 95,
-      "weapon": 6
+      "exp": 368,
+      "max_hp": 115,
+      "weapon": 15
     },
     {
       "key": "francisca",
       "name": "Francisca",
-      "lv": 12,
+      "lv": 16,
       "effect": "hit",
-      "hp": 52,
-      "atk": 11,
-      "def": 10,
-      "dex": 14,
-      "agi": 13,
+      "hp": 64,
+      "atk": 18,
+      "def": 14,
+      "dex": 18,
+      "agi": 18,
       "up": {
         "hp": 85,
         "atk": 85,
@@ -208,20 +254,20 @@
         "dex": 100,
         "agi": 85
       },
-      "exp": 214.66666666666666,
-      "max_hp": 75,
-      "weapon": 5
+      "exp": 376,
+      "max_hp": 90,
+      "weapon": 16
     },
     {
       "key": "jaquelyn",
       "name": "Jaquelyn",
-      "lv": 12,
+      "lv": 16,
       "effect": "hit",
-      "hp": 75,
-      "atk": 10,
-      "def": 10,
-      "dex": 13,
-      "agi": 15,
+      "hp": 85,
+      "atk": 13,
+      "def": 12,
+      "dex": 17,
+      "agi": 19,
       "up": {
         "hp": 90,
         "atk": 75,
@@ -229,9 +275,9 @@
         "dex": 85,
         "agi": 100
       },
-      "exp": 217.66666666666666,
-      "max_hp": 85,
-      "weapon": 7
+      "exp": 376,
+      "max_hp": 105,
+      "weapon": 13
     }
   ],
   "weapons": [
@@ -253,23 +299,23 @@
     },
     {
       "id": 5,
-      "weapon_id": 4
-    },
-    {
-      "id": 6,
       "weapon_id": 3
     },
     {
+      "id": 6,
+      "weapon_id": 4
+    },
+    {
       "id": 7,
-      "weapon_id": 6
+      "weapon_id": 2
     },
     {
       "id": 8,
-      "weapon_id": 1
+      "weapon_id": 2
     },
     {
       "id": 9,
-      "weapon_id": 2
+      "weapon_id": 1
     },
     {
       "id": 10,
@@ -277,36 +323,33 @@
     },
     {
       "id": 11,
-      "weapon_id": 5
+      "weapon_id": 3
     },
     {
       "id": 12,
-      "weapon_id": 6
+      "weapon_id": 3
     },
     {
       "id": 13,
+      "weapon_id": 5
+    },
+    {
+      "id": 14,
+      "weapon_id": 2
+    },
+    {
+      "id": 15,
+      "weapon_id": 8
+    },
+    {
+      "id": 16,
       "weapon_id": 8
     }
   ],
-  "saved": 1580024627,
-  "allowed_area": 3,
-  "visited": [
-    "forest1",
-    "forest2",
-    "forest5",
-    "forest6",
-    "forest7",
-    "forest8",
-    "forest9",
-    "forest3",
-    "forest4",
-    "room1",
-    "town1",
-    "underpass1",
-    "underpass2",
-    "underpass3",
-    "underpass4",
-    "underpass5"
-  ],
-  "gimmicks": []
+  "saved": 1589044774,
+  "sec": 4788,
+  "tweets": [
+    "mdrk",
+    "mstn"
+  ]
 }

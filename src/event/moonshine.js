@@ -148,7 +148,7 @@ export const orthrus = (scene, boss, area) => {
       const result = await scene.ui.battle([generateBattler('orthrus', 18, { hp: 800 })], { boss: true })
       if (!result) return
       area.destroy()
-      boss.destroy()
+      await boss.die()
       await scene.camera.revert(500)
       await scene.talk([
         { chara: 'ann', text: 'なんとか倒したね。' },

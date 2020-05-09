@@ -82,7 +82,7 @@ export default [
   },
   {
     key: 'orthrus', name: 'オルトロス', lv: 1, effect: 'scratch',
-    hp: 50, atk: 4, def: 3, dex: 3, agi: 4,
+    hp: 50, atk: 5, def: 3, dex: 3, agi: 4,
     abillities: [{ type: 'double', chance: 25 }],
     up: { hp: 100, atk: 95, def: 70, dex: 70, agi: 80 }
   },
