@@ -27,6 +27,7 @@ const SPEED = {
   normal: 500,
   slow: 1000
 }
+const DUMMY_VOLUME = 0
 export default class UIScene extends Phaser.Scene {
   constructor () {
     super({ key: 'UI', active: false })
@@ -69,18 +70,18 @@ export default class UIScene extends Phaser.Scene {
       this.sound.stopAll()
       return
     }
-    this.currentBgm = this.sound.add(name, { loop: true })
+    this.currentBgm = this.sound.add(name, { loop: true, volume: DUMMY_VOLUME })
     this.currentBgm.play()
   }
   interruptBgm (name) {
     if (this.currentBgm) this.currentBgm.pause()
-    const bgm = this.sound.add(name, { loop: true })
+    const bgm = this.sound.add(name, { loop: true, volume: DUMMY_VOLUME })
     bgm.play()
     const resolve = () => {
       if (this.currentBgm) {
         this.currentBgm.resume()
         this.currentBgm.setVolume(0)
-        this.add.tween({ targets: this.currentBgm, volume: 1, duration: 2000 })
+        this.add.tween({ targets: this.currentBgm, volume: DUMMY_VOLUME, duration: 2000 })
       }
       this.add.tween({ targets: bgm, volume: 0, duration: 500, onComplete: () => bgm.stop() })
     }
