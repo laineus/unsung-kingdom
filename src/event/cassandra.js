@@ -119,6 +119,13 @@ export const wine = (scene, barrel, number) => {
   barrel.setTapEvent(async () => {
     state.wine.push(number)
     scene.ui.announce('『ワイン』を手に入れた')
+    if (state.wine.length === 1) {
+      scene.player.tweet('ほんとにあった！？').then(() => scene.jaquelyn.tweet('あと2つだね'))
+    } else if (state.wine.length === 2) {
+      scene.francisca.tweet('あと1つ見つけなきゃ')
+    } else if (state.wine.length === 3) {
+      scene.jaquelyn.tweet('全部集まったみたいね')
+    }
     barrel.destroy()
   })
 }

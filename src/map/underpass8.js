@@ -1,7 +1,7 @@
 import { jack } from '../event/aragnie'
 export default {
   name: 'トロイア公爵邸の地下通路 - 廊下',
-  enemyLevel: 13,
+  enemyLevel: 16,
   enemyGroups: [
     ['gargoyle', 'gargoyle'],
     ['gargoyle', 'gargoyle', 'gargoyle'],

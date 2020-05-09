@@ -5,15 +5,50 @@ const setDefaultWeapon = state => {
   state.battlers.forEach((v, i) => (v.weapon = i + 1))
 }
 
-export const execChapterBeginEvents = (scene) => {
+export const execChapterBeginEvents = (scene, book) => {
   const chapter = scene.storage.state.chapter
   const state = scene.storage.state.event.chapter_begin
-  if (state[chapter]) return
+  if (state[chapter]) return setBookEvent(scene, book, chapter)
   scene.francisca.setPosition(655, 440).setR('up').setTarget(null)
   scene.jaquelyn.setPosition(591, 440).setR('up').setTarget(null)
   scene.ui.autoEvent(async () => {
     await events[chapter](scene)
     state[chapter] = true
+    setBookEvent(scene, book, chapter)
+  })
+}
+
+const setBookEvent = (scene, book, chapter) => {
+  book.setTapEvent(async () => {
+    const scripts = [
+      [
+        { chara: 'ann', text: 'べリオン王国史によると、王は暗殺者によって殺された…。' },
+        { chara: 'ann', text: '現場の王城の裏庭に急ごう！' }
+      ],
+      [
+        { chara: 'ann', text: '「王は急な病に伏して亡くなった」か。' },
+        { chara: 'ann', text: '王もそれほど若くないんだよね。' }
+      ],
+      [
+        { chara: 'ann', text: '「退役した王国騎士に裏切られ、殺される」' },
+        { chara: 'ann', text: 'この前の王殺しのジャックと関係があるのかな…？' }
+      ],
+      [
+        { chara: 'ann', text: '「王は王妃の亡霊に呪い殺されたと語られている」' },
+        { chara: 'ann', text: 'ほんとかなあ…？' }
+      ],
+      [
+        { chara: 'ann', text: '「王はドラゴンとの戦いに破れて死ぬ」' },
+        { chara: 'ann', text: 'ドラゴンか…。' },
+        { chara: 'ann', text: '私たちの手に負えるのかな…？' }
+      ],
+      [
+        { chara: 'ann', text: '「王は安らかに天命を全うした」' },
+        { chara: 'ann', text: 'うん、' },
+        { chara: 'ann', text: '嬉しくて何度も読み直したくなるね' }
+      ]
+    ]
+    await scene.talk(scripts[chapter])
   })
 }
 
@@ -239,7 +274,8 @@ const events = [
       { chara: 'ann', text: 'じゃあ見るよ。' },
       { chara: 'ann', text: 'えっとね…、' },
       { chara: 'ann', text: 'あ！ほら、見て！' },
-      { chara: 'ann', text: '王が亡くなる時期が20年近く先になってる。' },
+      { chara: 'ann', text: '「王は安らかに天命を全うした」' },
+      { chara: 'ann', text: '王が亡くなる時期が20年近く先になってる！' },
       { chara: 'ann', text: 'これって…、' },
       { chara: 'francisca', text: 'うん。' },
       { chara: 'jaquelyn', text: 'そうね。' },
