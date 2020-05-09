@@ -133,6 +133,7 @@ export const rexBear = (scene, area, bear) => {
   }
   if (!state2.area) {
     scene.ui.autoEvent(async () => {
+      await scene.ui.sleep(1000)
       await scene.talk([
         { chara: 'ann', text: 'このエリア、モンスターが全然いない…？' },
         { chara: 'francisca', text: '怪しいね。注意して調べよう。' }
@@ -144,6 +145,8 @@ export const rexBear = (scene, area, bear) => {
     await scene.talk([
       { chara: 'ann', text: 'いた！' }
     ])
+    scene.francisca.setAllowWalkingWhileEvent(true)
+    scene.jaquelyn.setAllowWalkingWhileEvent(true)
     await scene.player.setTargetPosition(795, 490)
     await scene.player.setR('up')
     await scene.ui.sleep(500)
