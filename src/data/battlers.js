@@ -37,19 +37,19 @@ export default [
     key: 'slime', name: 'ベニクス', lv: 1, effect: 'hit',
     hp: 24, atk: 3, def: 4, dex: 2, agi: 2,
     up: { hp: 100, atk: 80, def: 95, dex: 50, agi: 50 },
-    dropWeapon: { id: 1, chance: 5 }
+    dropWeapon: { id: 1, chance: 3 }
   },
   {
     key: 'mandrake', name: 'マンドレイク', lv: 1, effect: 'crash',
     hp: 21, atk: 3, def: 4, dex: 4, agi: 2,
     up: { hp: 90, atk: 70, def: 90, dex: 80, agi: 60 },
-    dropWeapon: { id: 2, chance: 5 }
+    dropWeapon: { id: 2, chance: 3 }
   },
   {
     key: 'wolf', name: 'ヴォルフェス', lv: 1, effect: 'scratch',
     hp: 28, atk: 3, def: 2, dex: 4, agi: 5,
     up: { hp: 100, atk: 80, def: 60, dex: 80, agi: 100 },
-    dropWeapon: { id: 3, chance: 4 }
+    dropWeapon: { id: 3, chance: 3 }
   },
   {
     key: 'flower', name: 'サニズマスク', lv: 1, effect: 'hit',
@@ -133,7 +133,7 @@ export default [
     hp: 75, atk: 6, def: 6, dex: 3, agi: 3,
     up: { hp: 150, atk: 90, def: 90, dex: 70, agi: 70 },
     abillities: [{ type: 'multi', chance: 20 }],
-    dropWeapon: { id: 12, chance: 5 }
+    dropWeapon: { id: 12, chance: 4 }
   },
   {
     key: 'queen', name: 'エヴァンジェリナ妃の亡霊', lv: 1, effect: 'stab',
@@ -151,13 +151,13 @@ export default [
     key: 'lizard', name: 'バリザード', lv: 1, effect: 'scratch',
     hp: 20, atk: 6, def: 3, dex: 5, agi: 4,
     up: { hp: 85, atk: 90, def: 75, dex: 95, agi: 80 },
-    dropWeapon: { id: 15, chance: 5 }
+    dropWeapon: { id: 15, chance: 3 }
   },
   {
     key: 'tree', name: 'トルコリス', lv: 1, effect: 'crash',
     hp: 20, atk: 4, def: 6, dex: 4, agi: 4,
     up: { hp: 90, atk: 80, def: 90, dex: 75, agi: 75 },
-    dropWeapon: { id: 16, chance: 6 }
+    dropWeapon: { id: 16, chance: 3 }
   },
   {
     key: 'knight', name: 'レムリアンナイト', lv: 1, effect: 'slash',

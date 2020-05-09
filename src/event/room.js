@@ -138,7 +138,7 @@ const events = [
       { chara: 'ann', text: 'じゃあ決まり！' },
       { chara: 'ann', text: '王を助けつつ、王が死んでしまう謎を追いかける。' },
       { chara: 'jaquelyn', text: '今回の王の死について、王国史にもっと詳しい情報はあるかしら？' },
-      { chara: 'ann', text: 'うん、' },
+      { chara: 'ann', text: 'うん、読むね。' },
       { chara: 'ann', text: '「現場は王城、深夜に外部から侵入した元騎士のヘクターによって殺害される」' },
       { chara: 'ann', text: '「ヘクターは王城の地下に作られた隠し通路から侵入したとされる」' },
       { chara: 'ann', text: 'だって。' },
