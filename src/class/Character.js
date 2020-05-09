@@ -72,7 +72,9 @@ export default class Character extends Substance {
     return super.getBalloon('bubble_talk')
   }
   tweet (text) {
-    this.tweetBubble.setText(text)
+    return new Promise(resolve => {
+      this.tweetBubble.setText(text, resolve)
+    })
   }
   get hasTarget () {
     return this.target !== null
