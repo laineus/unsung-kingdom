@@ -8,6 +8,7 @@ import Friend from './Friend'
 import downloadBySource from '../util/downloadBySource'
 import Character from './Character'
 import Substance from './Substance'
+import { MANDRAKE_COUNT } from '../event/drystan'
 const TWEET_DATA = {
   lost: [
     { key: 'francisca', distance: 250, tweets: ['ま、待って！', 'アンが消えた…'] },
@@ -136,7 +137,12 @@ export default class GameScene extends Phaser.Scene {
     this.setEncountDelay()
     if (!bool) return
     this.player.stopWalk()
-    this.ui.battle(this.event.enemyGroups.random().map(key => generateBattler(key, this.event.enemyLevel)))
+    this.ui.battle(this.event.enemyGroups.random().map(key => generateBattler(key, this.event.enemyLevel))).then(() => {
+      // TODO: Refactoring
+      if (this.storage.state.event.m1_3.count >= MANDRAKE_COUNT) {
+        this.tweetOnce(this.jaquelyn, 'マンドレイクの根が集まったみたいね', 'mandrake')
+      }
+    })
   }
   setEncountDelay (value) {
     this.ui.setEncounter(false)
