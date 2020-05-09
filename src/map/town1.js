@@ -21,7 +21,7 @@ export default {
     const elliott = scene.map.getObjectById(7).setDisplayName('卑劣なエリオット')
     const max = scene.map.getObjectById(8).setDisplayName('賞金稼ぎのマックス').setRandomWalk(true)
     const annabelle = scene.map.getObjectById(9).setDisplayName('宿屋のアナベル')
-    const matilda = scene.map.getObjectById(10).setDisplayName('内気なマチルダ').setRandomWalk(true)
+    const matilda = scene.map.getObjectById(10).setDisplayName('内気なマチルダ')
     const soldier1 = scene.map.getObjectById(18).setDisplayName('兵士').setVisible(false)
     const soldier2 = scene.map.getObjectById(19).setDisplayName('兵士').setVisible(false)
     const maison = scene.map.getObjectById(11).setDisplayName('メイソン').destroy()

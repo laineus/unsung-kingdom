@@ -159,12 +159,12 @@
                  "id":10,
                  "name":"matilda",
                  "point":true,
-                 "rotation":0,
+                 "rotation":90,
                  "type":"chara",
                  "visible":true,
                  "width":0,
-                 "x":409,
-                 "y":339
+                 "x":403.727272727273,
+                 "y":357.727272727273
                 }, 
                 {
                  "height":0,
@@ -283,7 +283,7 @@
  "nextobjectid":20,
  "orientation":"orthogonal",
  "renderorder":"right-down",
- "tiledversion":"2020.02.26",
+ "tiledversion":"2020.05.07",
  "tileheight":32,
  "tilesets":[
         {
