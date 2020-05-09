@@ -45,6 +45,7 @@ export default () => {
       },
       town: { amber: [], annabelle: [], matilda: [], elliott: [], max: [] }
     },
+    tweets: [],
     gimmicks: [],
     treasures: [],
     battlers: getPlayerBattlers(),

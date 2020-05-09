@@ -155,6 +155,11 @@ export default class GameScene extends Phaser.Scene {
       if (r) v.setR(r)
     })
   }
+  tweetOnce (chara, message, key) {
+    if (this.storage.state.tweets.includes(key)) return
+    this.storage.state.tweets.push(key)
+    chara.tweet(message)
+  }
   setDebugAction () {
     window.storage = storage
     this.input.keyboard.on('keydown_I', () => {
