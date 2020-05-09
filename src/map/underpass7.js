@@ -1,6 +1,6 @@
 export default {
   name: 'トロイア公爵邸の地下通路 - 王家側通路',
-  enemyLevel: 15,
+  enemyLevel: 16,
   enemyGroups: [
     ['gargoyle', 'gargoyle'],
     ['gargoyle', 'gargoyle', 'gargoyle'],

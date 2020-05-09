@@ -1,7 +1,7 @@
 import { aragnie } from '../event/aragnie'
 export default {
   name: 'アラグニエのねぐら',
-  enemyLevel: 16,
+  enemyLevel: 18,
   enemyGroups: [
     ['goblin2', 'goblin2'],
     ['goblin', 'goblin2', 'goblin']
