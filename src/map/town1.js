@@ -28,5 +28,17 @@ export default {
     const area1 = scene.map.getObjectById(12)
     events[scene.storage.state.chapter](scene, { amber, elliott, max, annabelle, matilda, maison, area1, soldier1, soldier2 })
     if (scene.storage.state.chapter === 4) scene.map.rain()
+    this.greetings = [
+      { chara: amber, message: 'いい天気ね', met: false },
+      { chara: elliott, message: 'よう', met: false },
+      { chara: max, message: '元気か？', met: false },
+      { chara: annabelle, message: 'こんにちは', met: false }
+    ]
+  },
+  update () {
+    this.greetings.filter(g => !g.met && g.chara.checkable).forEach(g => {
+      g.met = true
+      g.chara.tweet(g.message)
+    })
   }
 }
