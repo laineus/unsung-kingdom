@@ -51,6 +51,9 @@ export default class Substance extends Phaser.GameObjects.Container {
     this.tapArea = this.scene.add.rectangle(0, -this.image.height.half - 15, this.image.width + 20, this.image.height + 50).setAlpha(0.5).setInteractive()
     this.add(this.tapArea)
     this.balloon = this.getBalloon()
+    this.tapArea.on('pointerdown', pointer => {
+      if (this.tapEvent) pointer.isDown = false
+    })
     this.tapArea.on('pointerup', (_pointer, _x, _y, e) => {
       if (this.distanceToPlayer >= distance) return
       e.stopPropagation()
