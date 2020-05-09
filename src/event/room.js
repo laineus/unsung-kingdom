@@ -19,6 +19,7 @@ export const execChapterBeginEvents = (scene) => {
 
 const events = [
   async (scene) => {
+    scene.ui.sleep(1000)
     await scene.talk([
       { chara: 'ann', text: 'じゃ、みんな、あらためてよろしく！' },
       { chara: 'jaquelyn', text: 'よろしくね、アン。' },
@@ -46,7 +47,7 @@ const events = [
       { chara: 'jaquelyn', text: '問題ないわ。' },
       { chara: 'jaquelyn', text: '準備ができたらすぐに出発しましょう。' },
       { chara: 'ann', text: '準備ならバッチリ！早く行こう！' },
-      { chara: 'jaquelyn', text: 'アン、その自動小銃は置いていこうね。' },
+      { chara: 'jaquelyn', text: 'アン、その短銃は置いていこうね。' },
       { chara: 'jaquelyn', text: 'みんなの分の武器は調達してあるから。' },
       { chara: 'ann', text: 'すごい、この時代の剣だね！これで戦うの？' },
       { chara: 'francisca', text: 'フェアに、正々堂々と、そういうルールよ。銃は禁止。' },

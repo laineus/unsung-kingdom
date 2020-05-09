@@ -49,6 +49,7 @@ export default () => {
     treasures: [],
     battlers: getPlayerBattlers(),
     weapons: [],
-    saved: null
+    saved: null,
+    sec: 0
   }
 }

@@ -54,6 +54,11 @@ export default class UIScene extends Phaser.Scene {
     // }, 2000)
   }
   update (time, delta) {
+    const sec = Math.floor(time / 1000)
+    if (this.sec !== sec) {
+      this.sec = sec
+      this.storage.state.sec += 1
+    }
     this.battlerSummary.update()
     this.checkButton.setVisible(this.touchMode && this.gameScene.nearestCheckable)
   }
