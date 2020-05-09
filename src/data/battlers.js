@@ -53,14 +53,14 @@ export default [
   },
   {
     key: 'flower', name: 'サニズマスク', lv: 1, effect: 'hit',
-    hp: 35, atk: 8, def: 6, dex: 4, agi: 5,
-    up: { hp: 100, atk: 90, def: 90, dex: 70, agi: 70 }
+    hp: 35, atk: 4, def: 3, dex: 3, agi: 4,
+    up: { hp: 100, atk: 90, def: 85, dex: 70, agi: 70 }
   },
   {
     key: 'bear', name: 'レックスベア', lv: 1, effect: 'scratch',
     hp: 40, atk: 4, def: 4, dex: 2, agi: 2,
-    abillities: [{ type: 'multi', chance: 60 }],
-    up: { hp: 100, atk: 100, def: 85, dex: 75, agi: 75 }
+    abillities: [{ type: 'multi', chance: 50 }],
+    up: { hp: 100, atk: 100, def: 85, dex: 75, agi: 65 }
   },
   {
     key: 'goblin', name: 'ゴブリン', lv: 1, effect: 'crash',
