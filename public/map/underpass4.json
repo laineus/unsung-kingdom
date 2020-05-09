@@ -107,18 +107,6 @@
                  "width":0,
                  "x":419.463753723932,
                  "y":262.164846077458
-                }, 
-                {
-                 "height":0,
-                 "id":4,
-                 "name":"",
-                 "point":true,
-                 "rotation":0,
-                 "type":"object",
-                 "visible":true,
-                 "width":0,
-                 "x":623.731177068707,
-                 "y":255.838861182395
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -141,7 +129,7 @@
          "value":"#ffff0000"
         }],
  "renderorder":"right-down",
- "tiledversion":"2020.01.22",
+ "tiledversion":"2020.05.07",
  "tileheight":32,
  "tilesets":[
         {
