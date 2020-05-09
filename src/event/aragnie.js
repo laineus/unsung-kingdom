@@ -25,6 +25,13 @@ export const jack = (scene, jack, area) => {
     await scene.ui.transition('normal')
     jack.destroy()
     area.destroy()
+    await scene.ui.sleep(1500)
+    await scene.talk([
+      { chara: 'ann', text: 'どうして王殺しのジャックがここに？' },
+      { chara: 'jaquelyn', text: 'やっぱりあいつが騎士のヘクター…？' },
+      { chara: 'ann', text: 'うーん、' },
+      { chara: 'ann', text: '分からないけど、ひとまず先を急ごう。' }
+    ])
   })
 }
 
@@ -38,6 +45,9 @@ export const hector = (scene, hector, mary, loretta) => {
     return
   }
   hector.setDisplayName('ヘクター').setTapEvent(async chara => {
+    await scene.ui.transition('fast')
+    scene.setMembersPosition((16).toPixelCenter, (11).toPixel, 'up')
+    await scene.ui.sleep(300)
     if (!state.talked) {
       await scene.talk([
         { chara, text: '何者だ！' },
@@ -126,8 +136,14 @@ export const hector = (scene, hector, mary, loretta) => {
         { chara: mary, text: 'そこのあなたたち、一緒について来て。' },
         { chara: 'ann', text: 'え？' },
         { chara: loretta, text: '何よ、勝手に侵入している身分で断るっていうの？' },
-        { chara: loretta, text: 'この落ちぶれたナイトだけでは不安だわ。' },
-        { chara: 'ann', text: 'アラグニエを倒すんだね、任せて！' }
+        { chara: loretta, text: '戦力がこの落ちぶれたナイトだけでは不安だわ。' },
+        { chara: 'ann', text: 'なるほど、アラグニエを倒すんだね、任せて！' },
+        { chara, text: '待ってくれ、' },
+        { chara: mary, text: '待ちません。' },
+        { chara, text: '…。' },
+        { chara, text: '…そうだな。' },
+        { chara, text: '確かに、ためらう理由など一つもない。' },
+        { chara, text: '…妹を、助けに行こう。' }
       ], { angle: false })
       charas.forEach(c => c.setSpeed(100).setTargetPosition(scene.player.x, scene.player.y))
       await scene.ui.transition('normal')
@@ -164,7 +180,7 @@ export const lamp = (scene, cassandra, hector, mary, loretta, jail, wall, yarn) 
   cassandra.setTapEvent(async () => {
     if (state.solved) {
       await scene.ui.transition('normal')
-      scene.player.setPosition((45).toPixelCenter, (16).toPixel).setR('up')
+      scene.setMembersPosition((45).toPixelCenter, (16).toPixel, 'up')
       setCharaVisible(true)
       await scene.camera.look(cassandra.x, cassandra.y + 70, 1000)
       await scene.talk([
@@ -173,14 +189,15 @@ export const lamp = (scene, cassandra, hector, mary, loretta, jail, wall, yarn) 
         { chara: mary, text: 'カサンドラ、今から貴女は自由です。' },
         { chara: cassandra, text: '…。' },
         { chara: cassandra, text: 'やはり…、私はここからは出られません。' },
-        { chara: mary, text: 'どうして？' },
+        { chara: mary, text: 'どうして！？' },
         { chara: cassandra, text: 'その目、' },
         { chara: cassandra, text: 'その目を見るたび、私は私自身の心を斬り刻むのです。' },
         { chara: cassandra, text: 'こうして牢の内から、罰を受けながらでなければ、' },
         { chara: cassandra, text: 'どのようにしてそのお顔を見ることができましょう。' },
         { chara: mary, text: 'カサンドラ、私の目を憐れむのは辞めて。' },
-        { chara: loretta, text: 'そうよ、うじうじ言ってないで早く出てきなさい。' },
-        { chara: loretta, text: '分からない？メアリーが牢に封じられているあなたを見る気持ちだってそれと同じなのよ。' },
+        { chara: loretta, text: 'そうよ、うじうじ言ってないで早く出て行きなさい。' },
+        { chara: loretta, text: '分からない？' },
+        { chara: loretta, text: 'メアリーが牢に封じられているあなたを見る気持ちだってそれと同じなのよ。' },
         { chara: cassandra, text: 'レディロレッタ…。' },
         { chara: hector, text: 'カサンドラ、出てきてくれ。' },
         { chara: hector, text: '遠い地に移り住み、お前の人生をやり直そう。' },
@@ -198,6 +215,7 @@ export const lamp = (scene, cassandra, hector, mary, loretta, jail, wall, yarn) 
       mary.setR('right')
       loretta.setR('left')
       scene.player.setR('right')
+      await scene.ui.sleep(1000)
       await scene.talk([
         { chara: loretta, text: '行っちゃったね。' },
         { chara: mary, text: 'うん…。' },
@@ -223,7 +241,7 @@ export const lamp = (scene, cassandra, hector, mary, loretta, jail, wall, yarn) 
       ])
     } else {
       await scene.ui.transition('normal')
-      scene.player.setPosition((45).toPixelCenter, (16).toPixel).setR('up')
+      scene.setMembersPosition((45).toPixelCenter, (16).toPixel, 'up')
       setCharaVisible(true)
       await scene.camera.look(cassandra.x, cassandra.y + 70, 1000)
       await scene.talk([
@@ -240,7 +258,10 @@ export const lamp = (scene, cassandra, hector, mary, loretta, jail, wall, yarn) 
         { chara: cassandra, text: '詫びねばならぬのは私のほうです。' },
         { chara: hector, text: '聞け、カサンドラ。' },
         { chara: hector, text: '王女はアラグニエを探すための道具を作ってくれた。' },
-        { chara: hector, text: 'お前のためにだ。' },
+        { chara: cassandra, text: 'え…？' },
+        { chara: cassandra, text: 'ほ、本当なの？' },
+        { chara: hector, text: 'ああ。お前のためにだ。' },
+        { chara: cassandra, text: '私のため…に？' },
         { chara: hector, text: '王女のお気持ちに背く理由はない。' },
         { chara: cassandra, text: '…。' },
         { chara: loretta, text: 'さあ、魔石に光を灯しましょう。' }
@@ -256,6 +277,7 @@ export const lamp = (scene, cassandra, hector, mary, loretta, jail, wall, yarn) 
         { chara: 'ann', text: 'アラグニエの糸が見える！' },
         { chara: 'ann', text: 'これでアラグニエの居場所を探せばいいのね。' }
       ])
+      cassandra.tweet('…')
     }
   })
 }
@@ -281,6 +303,7 @@ export const aragnie = (scene, area, boss, hector, hectorInjured, scream) => {
     (async () => {
       scene.ui.setEventMode(true)
       scene.player.setR('up')
+      hector.tweet('！')
       await scene.ui.sleep(1000)
       await scene.talk([
         { chara: hector, text: 'こんな場所があったなんて…！' },
@@ -288,6 +311,7 @@ export const aragnie = (scene, area, boss, hector, hectorInjured, scream) => {
       ], { angle: false })
       await hector.setSpeed(300).setTargetPosition((10).toPixel, (33).toPixel)
       hector.destroy()
+      scene.player.tweet('行っちゃった…')
       scene.ui.setEventMode(false)
       state.found = true
     })()
@@ -309,6 +333,7 @@ export const aragnie = (scene, area, boss, hector, hectorInjured, scream) => {
   })
   const talkerLoretta = new Talker('loretta', 'ロレッタ', scene.player)
   const talkerMary = new Talker('mary', 'メアリー', scene.player)
+  const talkerHector = new Talker('hector', 'ヘクター', scene.player)
   area.setEvent(async () => {
     await scene.talk([
       { chara: talkerMary, text: '居た！アラグニエよ！' },
@@ -317,13 +342,16 @@ export const aragnie = (scene, area, boss, hector, hectorInjured, scream) => {
       { chara: 'ann', text: 'え、ちょっと！まだ心の準備が！' }
     ])
     await scene.ui.sleep(500)
-    const result = await scene.ui.battle([generateBattler('aragnie', 20, { hp: 1200 })], { boss: true })
+    const result = await scene.ui.battle([generateBattler('aragnie', 21, { hp: 1 })], { boss: true })
     if (!result) return
-    boss.destroy()
+    hectorInjured.destroy()
+    boss.die()
     // clearLamp(scene.player, yarn)
     await scene.talk([
       { chara: 'ann', text: 'た、倒せた…。' },
       { chara: talkerLoretta, text: 'よくやったわ！' },
+      { chara: talkerHector, text: '…面目ない。' },
+      { chara: talkerHector, text: '尊敬に値する戦いぶりだったよ。' },
       { chara: talkerMary, text: 'カサンドラの元に戻ろう！' }
     ])
     area.destroy()
