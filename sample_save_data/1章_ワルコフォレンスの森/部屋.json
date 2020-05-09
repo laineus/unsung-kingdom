@@ -1,9 +1,9 @@
 {
-  "map": "castle1",
-  "x": 1552,
-  "y": 1200,
-  "r": -1.5707963267948966,
-  "chapter": 0,
+  "map": "room1",
+  "x": 624,
+  "y": 352,
+  "r": 1.5707963267948966,
+  "chapter": 1,
   "allowed_area": 1,
   "visited": [
     "room1",
@@ -13,7 +13,7 @@
   "event": {
     "chapter_begin": [
       true,
-      false,
+      true,
       false,
       false,
       false,
@@ -21,8 +21,8 @@
     ],
     "m0_1": {
       "started": true,
-      "completed": false,
-      "battled": false
+      "completed": true,
+      "battled": true
     },
     "m1_1": {
       "started": false,
@@ -260,6 +260,6 @@
       "weapon_id": 2
     }
   ],
-  "saved": 1589008033,
-  "sec": 423
+  "saved": 1589008200,
+  "sec": 791
 }

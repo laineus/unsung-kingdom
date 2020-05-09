@@ -52,10 +52,10 @@
     "m2_1": {
       "started": false,
       "completed": false,
+      "wine": [],
       "talked": false,
       "key": false,
-      "opened": false,
-      "wine": []
+      "opened": false
     },
     "m2_2": {
       "started": false,
@@ -75,8 +75,8 @@
       "jack": false,
       "talked": false,
       "search": false,
-      "boss": false,
-      "found": false
+      "found": false,
+      "boss": false
     },
     "m3_1": {
       "started": false,
@@ -107,23 +107,29 @@
     },
     "m4_2": {
       "started": false,
-      "completed": false
+      "completed": false,
+      "count": 0
     },
     "m4_3": {
       "started": false,
-      "completed": false
+      "completed": false,
+      "talked": false
     },
     "m4_4": {
       "started": false,
-      "completed": false
+      "completed": false,
+      "apples": []
     },
     "m4_5": {
       "started": false,
-      "completed": false
+      "completed": false,
+      "area1": false,
+      "area2": false
     },
     "m5_1": {
       "started": false,
-      "completed": false
+      "completed": false,
+      "soldiers": false
     },
     "m0": {
       "talked_matilda": false,
@@ -147,21 +153,27 @@
       "talked_max": false,
       "talked_matilda": false
     },
+    "m4": {
+      "talked_amber": false,
+      "talked_elliott": false,
+      "talked_max": false,
+      "talked_matilda": false,
+      "talked_annabelle": false,
+      "talked_mary": false,
+      "talked_loretta": false,
+      "talked_dario": false,
+      "talked_drystan": false,
+      "talked_ray": false
+    },
     "town": {
       "amber": [],
       "annabelle": [],
       "matilda": [],
       "elliott": [],
       "max": []
-    },
-    "m4": {
-      "talked_amber": false,
-      "talked_elliott": false,
-      "talked_max": false,
-      "talked_matilda": false,
-      "talked_annabelle": false
     }
   },
+  "gimmicks": [],
   "treasures": [],
   "battlers": [
     {
@@ -242,6 +254,6 @@
       "weapon_id": 2
     }
   ],
-  "saved": 1583939291,
-  "gimmicks": []
+  "saved": null,
+  "sec": 84
 }
