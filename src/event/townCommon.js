@@ -99,7 +99,7 @@ export const matilda = async (scene, chara) => {
       { chara, text: 'そうなんだけど…、' },
       { chara, text: 'なんか最近話しかけるのが恥ずかしくなっちゃって…、' },
       { chara, text: 'なんでかな…。' },
-      { chara: 'ann', text: 'そうなんだぁ。' },
+      { chara: 'ann', text: 'そうなんだ。' },
       { chara: 'ann', text: 'まあそういうときもあるさ。' },
       { chara: 'ann', text: 'きっとまたそのうち仲良くできると思うよ。' },
       { chara, text: 'そうなのかな…。ありがとう。' }

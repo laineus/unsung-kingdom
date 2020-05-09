@@ -126,7 +126,7 @@ export const kingEvent = (scene, area, chara, soldier) => {
     await scene.talk([
       { chara, text: 'エゼルはまだ帰っていないのか？' },
       { chara: soldier, text: 'はい、王弟殿下はまだグリファルデ神殿かと。' },
-      { chara, text: '竜との交渉は順調に進んでいるとは言えないようだな。' },
+      { chara, text: 'ドラゴンとの交渉は順調に進んでいるとは言えないようだな。' },
       { chara: soldier, text: '…申し上げにくいのですが、そのようです。' },
       { chara, text: 'そうか…。' }
     ], { angle: false })

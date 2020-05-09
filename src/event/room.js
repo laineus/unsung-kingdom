@@ -71,10 +71,11 @@ const events = [
     await scene.ui.sleep(1000)
     await scene.talk([
       { chara: 'ann', text: 'まさか負けうちゃんなんて…。' },
-      { chara: 'jaquelyn', text: 'でも少なくとも王は殺されずに済んだみたいだけど。' },
-      { chara: 'francisca', text: '成功とは言いづらいけど、まあ、そうね。' },
+      { chara: 'jaquelyn', text: 'でも何故か王は殺されずに済んだわ。' },
+      { chara: 'francisca', text: '成功とは言いづらいけど、まあ、そうだね。' },
+      { chara: 'jaquelyn', text: 'あのあとジャックはどこに消えたのかしら…？' },
       { chara: 'ann', text: 'うーん。' },
-      { chara: 'ann', text: 'これでよかったのかな…？' }
+      { chara: 'ann', text: '過程はともかく、結果としてはこれでよかったのかな…？' }
     ])
     await scene.ui.sleep(2000)
     await scene.talk([
@@ -86,7 +87,7 @@ const events = [
       { chara: 'ann', text: 'そうなんだけど、これ…' },
       { chara: 'francisca', text: 'ふんふん、' },
       { chara: 'francisca', text: '「王は急な病に伏して亡くなった」か。' },
-      { chara: 'jaquelyn', text: 'やっぱり暗殺される歴史は変えることができたみたいね。' },
+      { chara: 'jaquelyn', text: '急な病…。' },
       { chara: 'ann', text: '病気ってことは、この歴史は悲しまなくてもいいのかな？' },
       { chara: 'francisca', text: 'そうとも言えないかも。' },
       { chara: 'francisca', text: '亡くなった時期がほとんど変わっていない。' },
