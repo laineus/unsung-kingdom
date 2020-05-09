@@ -1,9 +1,9 @@
 {
-  "map": "underpass8",
-  "x": 572.4728079425978,
-  "y": 343.04751332713823,
-  "r": -0.5011291009145445,
-  "chapter": 2,
+  "map": "room1",
+  "x": 624,
+  "y": 352,
+  "r": 1.5707963267948966,
+  "chapter": 3,
   "allowed_area": 3,
   "visited": [
     "room1",
@@ -25,14 +25,16 @@
     "underpass4",
     "underpass6",
     "underpass7",
-    "underpass8"
+    "underpass8",
+    "underpass9",
+    "underpass10"
   ],
   "event": {
     "chapter_begin": [
       true,
       true,
       true,
-      false,
+      true,
       false,
       false
     ],
@@ -92,14 +94,14 @@
       "talked": true
     },
     "m2_4": {
-      "started": false,
-      "completed": false,
-      "solved": false,
-      "jack": false,
-      "talked": false,
-      "search": false,
-      "found": false,
-      "boss": false
+      "started": true,
+      "completed": true,
+      "solved": true,
+      "jack": true,
+      "talked": true,
+      "search": true,
+      "found": true,
+      "boss": true
     },
     "m3_1": {
       "started": false,
@@ -225,13 +227,13 @@
     {
       "key": "ann",
       "name": "Ann",
-      "lv": 18,
+      "lv": 20,
       "effect": "hit",
-      "hp": 125,
-      "atk": 21,
-      "def": 19,
-      "dex": 13,
-      "agi": 14,
+      "hp": 135,
+      "atk": 23,
+      "def": 21,
+      "dex": 15,
+      "agi": 15,
       "up": {
         "hp": 100,
         "atk": 100,
@@ -239,20 +241,20 @@
         "dex": 70,
         "agi": 70
       },
-      "exp": 463,
-      "max_hp": 125,
+      "exp": 605,
+      "max_hp": 135,
       "weapon": 17
     },
     {
       "key": "francisca",
       "name": "Francisca",
-      "lv": 18,
+      "lv": 20,
       "effect": "hit",
-      "hp": 100,
-      "atk": 20,
-      "def": 16,
-      "dex": 20,
-      "agi": 20,
+      "hp": 56,
+      "atk": 22,
+      "def": 18,
+      "dex": 22,
+      "agi": 21,
       "up": {
         "hp": 85,
         "atk": 85,
@@ -260,20 +262,20 @@
         "dex": 100,
         "agi": 85
       },
-      "exp": 471,
-      "max_hp": 100,
+      "exp": 613,
+      "max_hp": 105,
       "weapon": 16
     },
     {
       "key": "jaquelyn",
       "name": "Jaquelyn",
-      "lv": 18,
+      "lv": 20,
       "effect": "hit",
-      "hp": 110,
-      "atk": 15,
-      "def": 14,
-      "dex": 18,
-      "agi": 21,
+      "hp": 77,
+      "atk": 16,
+      "def": 16,
+      "dex": 20,
+      "agi": 23,
       "up": {
         "hp": 90,
         "atk": 75,
@@ -281,8 +283,8 @@
         "dex": 85,
         "agi": 100
       },
-      "exp": 471,
-      "max_hp": 110,
+      "exp": 613,
+      "max_hp": 120,
       "weapon": 19
     }
   ],
@@ -362,10 +364,14 @@
     {
       "id": 19,
       "weapon_id": 6
+    },
+    {
+      "id": 20,
+      "weapon_id": 9
     }
   ],
-  "saved": 1589046099,
-  "sec": 5216,
+  "saved": 1589048170,
+  "sec": 5944,
   "tweets": [
     "mdrk",
     "mstn"
