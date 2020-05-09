@@ -69,8 +69,14 @@ export default [
     dropWeapon: { id: 5, chance: 3 }
   },
   {
+    key: 'goblin2', name: 'ゴブリン', lv: 1, effect: 'crash',
+    hp: 24, atk: 3, def: 4, dex: 3, agi: 3,
+    up: { hp: 100, atk: 80, def: 95, dex: 50, agi: 50 },
+    abillities: [{ type: 'double', chance: 30 }]
+  },
+  {
     key: 'carbuncle', name: 'カーバンクル', lv: 1, effect: 'shot',
-    hp: 21, atk: 3, def: 2, dex: 4, agi: 7,
+    hp: 21, atk: 3, def: 2, dex: 4, agi: 5,
     up: { hp: 80, atk: 80, def: 60, dex: 80, agi: 100 },
     dropWeapon: { id: 6, chance: 3 }
   },

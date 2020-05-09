@@ -1,6 +1,11 @@
 import { aragnie } from '../event/aragnie'
 export default {
   name: 'アラグニエのねぐら',
+  enemyLevel: 16,
+  enemyGroups: [
+    ['goblin2', 'goblin2'],
+    ['goblin', 'goblin2', 'goblin']
+  ],
   create (scene) {
     const boss = scene.map.getObjectById(3)
     const area = scene.map.getObjectById(5)
