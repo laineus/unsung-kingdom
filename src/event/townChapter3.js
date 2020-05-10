@@ -43,7 +43,7 @@ export default (scene, charas) => {
       scene.storage.state.allowed_area = Math.max(scene.storage.state.allowed_area, 4)
       scene.ui.announce('マップ「聖アンテルスの墓地」が解放された')
     } else {
-      matilda(scene, chara)
+      await matilda(scene, chara)
     }
   })
   // 卑劣なエリオット
