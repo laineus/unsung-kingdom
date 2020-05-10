@@ -29,6 +29,7 @@ export default (scene, characters) => {
     ])
   })
   soldier2.setTapEvent(async chara => {
+    mary.setR('right')
     await scene.talk([
       { chara, text: '何度言われましても、お通しすることはできません。' },
       { chara: mary, text: '私の命令に背くだなんて！お父様に言いつけるわ。' },
@@ -44,12 +45,9 @@ export default (scene, characters) => {
       ])
     } else {
       await scene.talk([
-        { chara, text: '？' },
-        { chara, text: 'あなた達、見覚えがあるわ。' },
-        { chara: 'ann', text: '忘れたの！？' },
-        { chara: 'ann', text: 'ほら、地下通路で会ったお姉さんだよ！' },
-        { chara, text: 'ああ、思い出したわ。' },
-        { chara: 'ann', text: 'こんなところで何してるの？' },
+        { chara, text: 'あ、あなた達は、地下で会った怪しい人たち。' },
+        { chara: 'ann', text: 'へへ、また会ったね。' },
+        { chara: 'ann', text: 'こんなところで何しているの？' },
         { chara: 'ann', text: '危ないよ。' },
         { chara, text: 'お父様や叔父様がドラゴンと戦うっていうのよ。' },
         { chara, text: '黙って待っていられるわけないじゃない！' },
@@ -68,8 +66,11 @@ export default (scene, characters) => {
       ])
     } else {
       await scene.talk([
-        { chara, text: 'あ、あなた達は、地下で会った怪しいお姉さん。' },
-        { chara: 'ann', text: 'へへ、また会ったね。' },
+        { chara, text: '？' },
+        { chara, text: 'あなた達、見覚えがあるわ。' },
+        { chara: 'ann', text: '忘れたの！？' },
+        { chara: 'ann', text: 'ほら、地下通路で会ったお姉さんだよ！' },
+        { chara, text: 'ああ、思い出したわ。' },
         { chara: 'ann', text: 'こんなところで何しているの？' },
         { chara, text: '陛下がドラゴンと戦うのよ。知らないの？' },
         { chara, text: 'だからメアリーと一緒に駆けつけたの。' },
@@ -88,8 +89,8 @@ export default (scene, characters) => {
         null
       ])
       const i = await scene.ui.select(['お願い', '大丈夫'])
-      if (i === 1) return
       t.destroy()
+      if (i === 1) return
       scene.storage.state.battlers.forEach(v => v.hp = v.max_hp)
       scene.ui.announce('HPが全回復した')
       await scene.talk([
