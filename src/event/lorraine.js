@@ -102,7 +102,6 @@ export const gimmick = (scene, buttons, doorContainer, doors, lights) => {
       layer3.layer.data[pos[1]][pos[0]].setCollision(false)
     })
   }
-  if (!state.started) return
   if (state.completed) {
     doorContainer.destroy()
     removeCollidesForDoor()
@@ -111,6 +110,7 @@ export const gimmick = (scene, buttons, doorContainer, doors, lights) => {
   const lorraineGimmick = new LorraineGimmick()
   const applyToPicutres = () => lights.forEach((pic, i) => pic.setVisible(lorraineGimmick.keys[i]))
   applyToPicutres()
+  if (!state.started) return
   buttons.forEach((button, i) => {
     button.setTapEvent(async () => {
       lorraineGimmick.push(i)
