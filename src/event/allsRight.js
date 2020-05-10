@@ -18,7 +18,11 @@ export const allsRight = (scene, zi) => {
       await scene.talk([
         { chara: 'ann', text: '集めてきたよ！' },
         { chara, text: 'よし、確かに。' },
-        { chara, text: 'ちょっと待っていてくれ。' },
+        { chara, text: 'ちょっと待っていてくれ。' }
+      ])
+      await scene.ui.transition('slow')
+      await scene.ui.sleep(1500)
+      await scene.talk([
         { chara, text: 'できた。' },
         { chara: 'ann', text: 'これは…？瓶？' },
         { chara, text: '瓶に言葉の煙を詰めた。' },

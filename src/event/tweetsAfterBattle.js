@@ -13,7 +13,7 @@ export default scene => {
   if (scene.storage.state.event.m3_2.count >= WATER_COUNT) {
     scene.tweetOnce(scene.francisca, '飲み水が十分に集まったね', 'wtr')
   }
-  if (scene.storage.state.event.m4_3.count >= KELUNNE_COUNT) {
+  if (scene.storage.state.event.m4_2.count >= KELUNNE_COUNT) {
     scene.tweetOnce(scene.jaquelyn, 'ケルーネの羽根が集まったね', 'kln')
   }
 }

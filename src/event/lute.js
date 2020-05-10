@@ -138,5 +138,8 @@ export const appleCollection = (scene, apple, appleName) => {
     state.apples.push(appleName)
     scene.ui.announce('『リンゴ』を手に入れた')
     apple.destroy()
+    if (state.apples.length === APPLES_COUNT) {
+      scene.tweetOnce(scene.francisca, 'リンゴが5つ集まったね', 'apl')
+    }
   })
 }
