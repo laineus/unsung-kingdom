@@ -1,6 +1,6 @@
 export default {
   name: 'グリファルデ神殿 - 中央部',
-  enemyLevel: 27,
+  enemyLevel: 34,
   enemyGroups: [
     ['bird'],
     ['bird', 'bird'],

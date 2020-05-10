@@ -3,7 +3,7 @@ import { DEPTH } from '../class/Field'
 import templeCharacters from '../event/templeCharacters'
 export default {
   name: 'グリファルデ神殿 - 広場',
-  enemyLevel: 26,
+  enemyLevel: 33,
   enemyGroups: [
     ['bird'],
     ['bird', 'bird'],

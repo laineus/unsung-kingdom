@@ -38,7 +38,7 @@ export const calibur = (scene, sword, nikke) => {
         await scene.camera.revert(500)
         return
       }
-      const result = await scene.ui.battle([generateBattler('nikke', 33, { hp: 1500 })], { boss: true })
+      const result = await scene.ui.battle([generateBattler('nikke', 40, { hp: 1500 })], { boss: true })
       if (!result) return
       await scene.talk([
         { chara, text: 'うわ、' },

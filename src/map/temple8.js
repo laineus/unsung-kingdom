@@ -1,7 +1,7 @@
 import { appleCollection } from '../event/lute'
 export default {
   name: 'グリファルデ神殿 - 東部',
-  enemyLevel: 31,
+  enemyLevel: 38,
   enemyGroups: [
     ['tree'],
     ['tree', 'tree'],

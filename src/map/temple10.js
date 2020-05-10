@@ -1,7 +1,7 @@
 import { lute } from '../event/lute'
 export default {
   name: 'グリファルデ神殿 - 東部',
-  enemyLevel: 33,
+  enemyLevel: 40,
   enemyGroups: [
     ['tree', 'tree'],
     ['bird', 'tree', 'bird'],

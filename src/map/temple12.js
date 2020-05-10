@@ -1,7 +1,7 @@
 import { ethelbald } from '../event/dragonkiller'
 export default {
   name: 'グリファルデ神殿 - 地下',
-  enemyLevel: 35,
+  enemyLevel: 42,
   enemyGroups: [
     ['thief', 'thief'],
     ['knight'],

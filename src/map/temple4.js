@@ -1,7 +1,7 @@
 import { architect } from '../event/lorraine'
 export default {
   name: 'グリファルデ神殿 - 中央部',
-  enemyLevel: 28,
+  enemyLevel: 35,
   enemyGroups: [
     ['bird'],
     ['bird', 'bird'],

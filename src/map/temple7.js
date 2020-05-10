@@ -1,7 +1,7 @@
 import { allsRight } from '../event/allsRight'
 export default {
   name: 'グリファルデ神殿 - 2階',
-  enemyLevel: 30,
+  enemyLevel: 37,
   enemyGroups: [
     ['bird'],
     ['bird', 'bird'],
