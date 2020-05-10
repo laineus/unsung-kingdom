@@ -218,7 +218,7 @@ export default class Field {
     if (blend) sprite.setBlendMode(Phaser.BlendModes[blend])
     const depth = getValueByProperties(data.properties, 'depth')
     if (depth) {
-      depth === 'SUBSTANCE' ? sprite.setDepth(data.y + sprite.height.half) : sprite.setDepth(DEPTH[depth] + 1)
+      depth === 'SUBSTANCE' ? sprite.setDepth(data.y + (sprite.height * 0.8)) : sprite.setDepth(DEPTH[depth] + 1)
     }
     sprite.name = data.name
     return sprite
