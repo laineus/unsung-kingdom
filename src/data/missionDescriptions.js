@@ -125,6 +125,11 @@ export default {
     const cnt = `集めたリンゴ（${state.event.m4_4.apples.length}/${APPLES_COUNT}）`
     return state.event.m4_4.completed ? base : `${base}\n${started}\n${cnt}`
   },
+  m4_5 (state) {
+    const base = '王は独りドラゴンと戦っている。'
+    const started = '最奥部へ行ってソンベルクを倒そう。'
+    return state.event.m4_5.completed ? base : `${base}\n${started}`
+  },
   m5_1 (_state) {
     const base = '王弟エゼルバルドからの手紙には「王城の裏庭で待つ」とだけあった。'
     const started = '王城の裏庭へ向かおう。'
