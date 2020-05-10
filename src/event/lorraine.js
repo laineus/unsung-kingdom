@@ -110,7 +110,7 @@ class LorraineGimmick {
   }
 }
 
-export const gimmick = (scene, buttons, doorContainer, doors, lights) => {
+export const gimmick = (scene, buttons, doorContainer, doors, lights, area) => {
   const state = scene.storage.state.event.m4_1
   const removeCollidesForDoor = () => {
     const layer3 = scene.map.getLayerByName('layer3')
@@ -128,6 +128,14 @@ export const gimmick = (scene, buttons, doorContainer, doors, lights) => {
   const applyToPicutres = () => lights.forEach((pic, i) => pic.setVisible(lorraineGimmick.keys[i]))
   applyToPicutres()
   if (!state.started) return
+  area.setEvent(async () => {
+    area.destroy()
+    await scene.jaquelyn.tweet('これが仕掛けね')
+    if (lorraineGimmick.unlocked) return
+    await scene.francisca.tweet('アンに解けるの？')
+    if (lorraineGimmick.unlocked) return
+    await scene.jaquelyn.tweet('頑張って！')
+  }, false)
   buttons.forEach((button, i) => {
     button.setTapEvent(async () => {
       lorraineGimmick.push(i)
@@ -147,6 +155,7 @@ export const gimmick = (scene, buttons, doorContainer, doors, lights) => {
         })
         removeCollidesForDoor()
         await scene.ui.sleep(2000)
+        scene.player.tweet('やった！')
         scene.ui.missionUpdate('m4_1', true)
         state.completed = true
         await scene.camera.revert(500)

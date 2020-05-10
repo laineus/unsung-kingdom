@@ -293,6 +293,17 @@
                  "width":0,
                  "x":275,
                  "y":237
+                }, 
+                {
+                 "height":262,
+                 "id":18,
+                 "name":"",
+                 "rotation":0,
+                 "type":"area",
+                 "visible":true,
+                 "width":517,
+                 "x":644,
+                 "y":65
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -349,7 +360,7 @@
          "y":0
         }],
  "nextlayerid":32,
- "nextobjectid":18,
+ "nextobjectid":19,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"2020.05.07",

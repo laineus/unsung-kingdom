@@ -24,6 +24,7 @@ export default {
     // Door to loof
     const buttons = [6, 7, 8].map(id => scene.map.getObjectById(id))
     const doorContainer = scene.map.getObjectById(9)
+    const gimmickArea = scene.map.getObjectById(18)
     const doors = Number(2).toArray().map(i => {
       return scene.add.sprite(i * 48, 0, 'tileset/door_gimmick').setOrigin(0, 0).setFrame(i)
     })
@@ -34,7 +35,7 @@ export default {
     })
     scene.add.tween({ targets: lights, duration: 500, alpha: 0.5, yoyo: true, loop: -1 })
     doorContainer.add([...doors, ...lights])
-    gimmick(scene, buttons, doorContainer, doors, lights)
+    gimmick(scene, buttons, doorContainer, doors, lights, gimmickArea)
     // Door to underpass
     if (scene.storage.state.event.m4_4.completed) {
       const layer3 = scene.map.getLayerByName('layer3')

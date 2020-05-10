@@ -14,7 +14,7 @@
  "name":"underpass",
  "spacing":0,
  "tilecount":340,
- "tiledversion":"2020.02.26",
+ "tiledversion":"2020.05.07",
  "tileheight":32,
  "tiles":[
         {
@@ -427,15 +427,15 @@
         }, 
         {
          "id":220,
-         "type":"collides,top"
+         "type":"top"
         }, 
         {
          "id":221,
-         "type":"collides,top"
+         "type":"top"
         }, 
         {
          "id":222,
-         "type":"collides,top"
+         "type":"top"
         }, 
         {
          "id":223,
