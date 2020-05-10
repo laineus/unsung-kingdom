@@ -40,7 +40,7 @@ const setBookEvent = (scene, book, chapter) => {
       [
         { chara: 'ann', text: '「王はドラゴンとの戦いに破れて死ぬ」' },
         { chara: 'ann', text: 'ドラゴンか…。' },
-        { chara: 'ann', text: '私たちの手に負えるのかな…？' }
+        { chara: 'ann', text: 'きっと凄く強いんだよね。' }
       ],
       [
         { chara: 'ann', text: '「王は安らかに天命を全うした」' },
@@ -245,6 +245,7 @@ const events = [
       { chara: 'ann', text: 'オーケー。' },
       { chara: 'ann', text: 'ええと、' },
       { chara: 'ann', text: '「王はドラゴンとの戦いに破れて死ぬ」' },
+      { chara: 'ann', text: 'これは…、' },
       { chara: 'ann', text: '王妃の言っていた件だね。' },
       { chara: 'jaquelyn', text: 'ドラゴン…、' },
       { chara: 'jaquelyn', text: '私たちの手に負えるかしら。' },
