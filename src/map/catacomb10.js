@@ -1,7 +1,7 @@
 import { renfield } from '../event/renfield'
 export default {
   name: '聖アンテルスの墓地 - 上流階級の墓',
-  enemyLevel: 22,
+  enemyLevel: 28,
   enemyGroups: [
     ['skull', 'spectre', 'skull'],
     ['spectre', 'spectre'],
