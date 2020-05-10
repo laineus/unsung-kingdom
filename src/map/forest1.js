@@ -9,5 +9,6 @@ export default {
   ],
   create (scene) {
     dogEventFound(scene, scene.map.getObjectById(4), 'd1')
+    scene.tweetOnce(scene.player, 'ここがワルコフォレンスの森か', 'fr1')
   }
 }

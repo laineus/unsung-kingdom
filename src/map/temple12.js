@@ -11,5 +11,8 @@ export default {
     const ethel = scene.map.getObjectById(3)
     const soldiers = Array.range(4, 6).map(id => scene.map.getObjectById(id).setFaceKey('soldier'))
     ethelbald(scene, ethel, soldiers)
+    scene.map.getObjectById(7).setEvent(async () => {
+      scene.tweetOnce(scene.player, '！', 'tm12')
+    }, false)
   }
 }

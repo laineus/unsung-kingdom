@@ -17,6 +17,7 @@ export default {
     const loretta = scene.map.getObjectById(8)
     cassandra(scene, scene.map.getObjectById(2), cas, door, scene.map.getObjectById(4), scene.map.getObjectById(5))
     lamp(scene, cas, hector, mary, loretta, jail, scene.map.getObjectById(9), scene.map.getImageByName('aragnie_yarn'))
+    scene.tweetOnce(scene.francisca, 'うまく侵入できたね', 'un1')
   },
   getCollideObject (scene, name) {
     const obj = scene.map.getImageByName(name)
