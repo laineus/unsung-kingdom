@@ -44,7 +44,7 @@ export const evangelina = (scene, queen, queen2, grave) => {
       { chara: 'ann', text: '考えていなかったけど、' },
       { chara: 'ann', text: '本物の王妃は、違うよね…？' },
       { chara: 'jaquelyn', text: '分からないけど、' },
-      { chara: 'jaquelyn', text: '帰って王国史を確認するば分かんるじゃないかしら？' },
+      { chara: 'jaquelyn', text: '帰って王国史を確認すれば分かんるじゃないかしら？' },
       { chara: 'ann', text: 'そうだね、帰ろっか。' }
     ])
     queen2.setVisible(true)
@@ -70,6 +70,7 @@ export const evangelina = (scene, queen, queen2, grave) => {
       { chara: 'ann', text: '王妃は、エドガー王を恨んでいますか？' },
       { chara, text: 'いいえ。' },
       { chara, text: 'あなた達が気にしていることなら分かっています。' },
+      { chara, text: '答えましょう。' },
       { chara, text: '恨むことなど一つもありませんでした。' },
       { chara, text: '私が病弱で、' },
       { chara, text: '民の前に中々姿を見せらないばかりに、' },
@@ -85,7 +86,7 @@ export const evangelina = (scene, queen, queen2, grave) => {
       { chara: 'ann', text: '失礼なことを聞いて、ごめんなさい。' },
       { chara, text: 'いいんです。' },
       { chara, text: '旅の人、' },
-      { chara, text: '私は今も、エドガーの愛したこの国の平和を願い続けています。' },
+      { chara, text: '私は今も、エドガーの愛するこの国の平和を願い続けています。' },
       { chara, text: 'ですが、とても心配しています。' },
       { chara, text: 'かつてエドガーが神殿に封じたドラゴンが、' },
       { chara, text: '目覚め、' },
