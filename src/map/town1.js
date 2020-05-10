@@ -34,10 +34,15 @@ export default {
       { chara: max, message: '元気か？', met: false },
       { chara: annabelle, message: 'こんにちは', met: false }
     ]
+    this.cp4Tweets = [
+      { chara: amber, message: '大変なことになったわ…', met: false },
+      { chara: matilda, message: '怖いな…', met: false }
+
+    ]
   },
   update (scene) {
-    if (scene.storage.state.chapter === 4) return
-    this.greetings.filter(g => !g.met && g.chara.checkable).forEach(g => {
+    const greetings = scene.storage.state.chapter === 4 ? this.cp4Tweets : this.greetings
+    greetings.filter(g => !g.met && g.chara.checkable).forEach(g => {
       g.met = true
       g.chara.tweet(g.message)
     })
