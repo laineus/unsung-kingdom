@@ -36,6 +36,7 @@ export default class Battle extends Phaser.GameObjects.Container {
     }).forEach(e => this.enemies.add(e))
     // set players
     storage.state.battlers.map((player, i) => {
+      if (boss) player.hp = player.max_hp
       const x = config.WIDTH.half + ((i - 1) * 310)
       return new PlayerBattler(this.scene, player).setPosition(x, (70).byBottom)
     }).forEach(e => this.players.add(e))

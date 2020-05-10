@@ -48,7 +48,7 @@ export const dario = (scene, dario) => {
         { chara, text: 'もしも取り返すことができたら、それを私のところに持ってきてくれ。' },
         { chara: 'ann', text: '短剣ね。覚えておくよ。' }
       ])
-    } else {
+    } else if (scene.storage.state.event.m3_1.started) { // フェルディナンドに話しかけて以降開始
       await scene.talk([
         { chara, text: '君たち、用が済んだらできるだけ早くこの墓地を出ていくことだ。' },
         { chara: 'ann', text: 'どうして？' },
@@ -117,6 +117,13 @@ export const dario = (scene, dario) => {
       ])
       state.started = true
       scene.ui.missionUpdate('m3_3')
+    } else {
+      await scene.talk([
+        { chara: 'ann', text: 'あのー。' },
+        { chara, text: '…。' },
+        { chara: 'ann', text: '考え事をしているみたい。' },
+        { chara: 'ann', text: 'また後で来よう。' }
+      ])
     }
   })
 }
@@ -151,6 +158,8 @@ export const jack = (scene, jk, area1, area2, area3) => {
       { chara, text: 'ここで何をしている？' },
       { chara: 'ann', text: '！！' }
     ])
+    scene.francisca.setR('right')
+    scene.jaquelyn.setR('right')
     await jk.setSpeed(140).setTargetPosition(jk.x + (-10).toPixel, jk.y)
     await scene.talk([
       { chara: 'ann', text: 'どこに隠れていたの！？' },
