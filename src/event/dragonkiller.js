@@ -128,8 +128,8 @@ export const dragon = (scene, sonberk, king, area1, area2, area3) => {
   })
   area3.setEvent(async () => {
     const chara = sonberk
-    scene.jaquelyn.setAllowWalkingWhileEvent(true).setTargetPosition((16).toPixelCenter, (13).toPixelCenter)
-    scene.francisca.setAllowWalkingWhileEvent(true).setTargetPosition((18).toPixelCenter, (13).toPixelCenter)
+    scene.jaquelyn.setAllowWalkingWhileEvent(true).setTargetPosition((16).toPixelCenter, (16).toPixelCenter)
+    scene.francisca.setAllowWalkingWhileEvent(true).setTargetPosition((18).toPixelCenter, (16).toPixelCenter)
     await scene.player.setTargetPosition((17).toPixelCenter, (15).toPixel)
     scene.player.setR('left')
     await scene.talk([
@@ -137,9 +137,9 @@ export const dragon = (scene, sonberk, king, area1, area2, area3) => {
       { chara: 'ann', text: '大丈夫、気を失ってるだけ…！' }
     ], { angle: false })
     await scene.camera.look((16).toPixelCenter, (9).toPixelCenter, 400)
+    scene.jaquelyn.setTargetPosition((16).toPixelCenter, (13).toPixelCenter)
+    scene.francisca.setTargetPosition((18).toPixelCenter, (13).toPixelCenter)
     await scene.player.setTargetPosition((17).toPixelCenter, (12).toPixelCenter)
-    scene.jaquelyn.setR('up')
-    scene.francisca.setR('up')
     await scene.talk([
       { chara: 'ann', text: 'ソンベルク！覚悟しなさい！' },
       { chara, text: '誰だ？' },

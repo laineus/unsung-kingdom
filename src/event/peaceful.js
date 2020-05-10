@@ -30,6 +30,7 @@ export const peaceful = (scene, area1, area2, soldier1, soldier2, jack) => {
     await scene.ui.sleep(500)
     await scene.ui.transition('normal')
     scene.setMembersPosition((48).toPixelCenter, (19).toPixelCenter, 'right')
+    scene.camera.look(jack.x - 70, jack.y, 0)
     await scene.ui.sleep(1500)
     jack.setFaceKey('jack2')
     const chara = jack
@@ -54,7 +55,7 @@ export const peaceful = (scene, area1, area2, soldier1, soldier2, jack) => {
       { chara: 'ann', text: 'どういうこと？' },
       { chara: 'ann', text: 'だって、何度も王を殺そうとして…。' },
       { chara, text: 'ああ、間違いない。' },
-      { chara, text: '私は何度も王を殺そうとしていた。' },
+      { chara, text: '俺は何度も王を殺そうとしていた。' },
       { chara, text: '今こそ、全てを説明させてくれ。' },
       { chara, text: '十年前、王がドラゴンと戦ったことは知っているか？' },
       { chara, text: '選択肢' },
