@@ -16,7 +16,7 @@ export default {
     this.sword = sword
   },
   update (scene) {
-    if (scene.storage.state.event.m4_3.started && this.sword.distanceToPlayer < 180) {
+    if (scene.storage.state.event.m4_3.started && this.sword.active && this.sword.distanceToPlayer < 180) {
       scene.tweetOnce(scene.francisca, 'あれが聖剣？', 'clbr')
     }
   }

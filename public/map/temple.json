@@ -607,19 +607,19 @@
         }, 
         {
          "id":323,
-         "type":"top"
+         "type":"collides"
         }, 
         {
          "id":324,
-         "type":"top"
+         "type":"collides"
         }, 
         {
          "id":325,
-         "type":"top"
+         "type":"collides"
         }, 
         {
          "id":326,
-         "type":"top"
+         "type":"collides"
         }, 
         {
          "id":327,

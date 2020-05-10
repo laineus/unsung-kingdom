@@ -181,7 +181,7 @@ export default [
   },
   {
     key: 'nikke', name: 'ニッケ', lv: 1, effect: 'crash',
-    hp: 50, atk: 4, def: 3, dex: 7, agi: 6,
+    hp: 50, atk: 4, def: 3, dex: 5, agi: 5,
     up: { hp: 90, atk: 80, def: 70, dex: 95, agi: 90 },
     abillities: [{ type: 'double', chance: 70 }]
   },
