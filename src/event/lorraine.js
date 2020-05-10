@@ -36,41 +36,58 @@ export const architect = (scene, chara) => {
         { chara, text: '台座に仕掛けが隠されているのを見つけた。' },
         { chara, text: '壊れていたんだけど、それを修理して、また動くようにした。' },
         { chara: 'ann', text: 'すごい。' },
-        { chara: 'ann', text: '像の顔も、少し壊れているみたいだけど、それは直さないの？' },
-        { chara, text: '直さない。' },
-        { chara, text: 'さっき言った通り、この像には心を奪われたんだ。壊れていてもね。' },
-        { chara, text: '何より僕はこの像を彫った人を尊敬している。' },
-        { chara, text: '僕が手を加えるべきではないんだ。' },
-        { chara, text: 'だから、仕掛けだけ動くようにしている。' },
-        { chara, text: '何年もかかってしまったけどね。' },
-        { chara: 'ann', text: 'そっか。ずっとここで作業しているんだね。' },
-        { chara, text: 'ああ。ほとんどの時間をここで過ごしてきた。' },
-        { chara: 'ann', text: 'じゃあさ、ドラゴンが目覚めたのも知っていた？' },
-        { chara, text: 'もちろん。' },
-        { chara, text: 'ドラゴンはこの神殿の地下で眠っていたが、半月ほど前に目覚めた。' },
-        { chara, text: 'それから今日までの間は、王弟がドラゴンのもとを頻繁に訪れていたね。' },
-        { chara: 'ann', text: 'どうして？' },
-        { chara, text: 'ドラゴンの怒りを買っている陛下に代わって、王弟がドラゴンと交渉していたみたいだ。' },
-        { chara, text: 'うまくいかなくて、今日に至ったんだろう。' },
-        { chara: 'ann', text: 'そうだったんだ。' },
-        { chara: 'ann', text: '私たちもドラゴンのところへ行きたいんだけど、' },
-        { chara: 'ann', text: '仕掛けを開けてもらえないかな？' },
-        { chara, text: '残念だけど、地下への仕掛けだけは僕には動かせない。' },
-        { chara, text: 'アレだけちょっと特殊でね、' },
-        { chara, text: '騎士団と一緒に来たライラという女性だけが開閉できる。' },
-        { chara: 'ann', text: 'そっか…、' },
-        { chara, text: '代わりにはならないかもしれないけど、' },
-        { chara, text: 'これを。' }
+        { chara, text: 'ところで君たちは、何か困っているのかい？' }
       ])
-      scene.ui.announce('『簡素な鍵』を手に入れた')
-      await scene.talk([
-        { chara: 'ann', text: 'これは？' },
-        { chara, text: 'これで仕掛けを動かせば、屋上への扉なら開けられる。' },
-        { chara, text: '仕掛けの動かし方は、せっかくだから考えてみてくれ。' },
-        { chara: 'ann', text: 'ありがとう！' }
-      ])
-      scene.ui.missionUpdate('m4_1')
-      state.started = true
+      const next = async () => {
+        chara.setTalking(true)
+        const i = await scene.select(['像について', 'ドラゴンについて'])
+        if (i === 0) { 
+          await scene.camera.look((25).toPixelCenter, (22).toPixelCenter, 600)
+          await scene.ui.sleep(1000)
+          await scene.talk([
+            { chara: 'ann', text: '像の羽も、壊れているみたいだけど、それは直さないの？' },
+            { chara, text: '直さない。' },
+            { chara, text: 'さっき言った通り、この像には心を奪われたんだ。壊れていてもね。' },
+            { chara, text: '何より僕はこの像を彫った人を尊敬している。' },
+            { chara, text: '僕が手を加えるべきではないんだ。' },
+            { chara, text: 'だから、仕掛けだけ動くようにしている。' },
+            { chara, text: '何年もかかってしまったけどね。' },
+            { chara: 'ann', text: 'そっか。ずっとここで作業しているんだね。' },
+            { chara, text: 'ああ。ほとんどの時間をここで過ごしてきた。' }
+          ])
+          await scene.camera.revert(600)
+          await next()
+        } else {
+          await scene.talk([
+            { chara: 'ann', text: 'ドラゴンが目覚めたことは知っていた？' },
+            { chara, text: 'もちろん。' },
+            { chara, text: 'ドラゴンはこの神殿の地下で眠っていたが、半月ほど前に目覚めた。' },
+            { chara, text: 'それから今日までの間は、王弟がドラゴンのもとを頻繁に訪れていたね。' },
+            { chara: 'ann', text: 'どうして？' },
+            { chara, text: 'ドラゴンの怒りを買っている陛下に代わって、王弟がドラゴンと交渉していたみたいだ。' },
+            { chara, text: 'うまくいかなくて、今日に至ったんだろう。' },
+            { chara: 'ann', text: 'そうだったんだ。' },
+            { chara: 'ann', text: '私たちもドラゴンのところへ行きたいんだけど、' },
+            { chara: 'ann', text: '仕掛けを開けてもらえないかな？' },
+            { chara, text: '残念だけど、地下への仕掛けだけは僕には動かせない。' },
+            { chara, text: 'アレだけちょっと特殊でね、' },
+            { chara, text: '騎士団と一緒に来たライラという女性だけが開閉できる。' },
+            { chara: 'ann', text: 'そっか…、' },
+            { chara, text: '代わりにはならないかもしれないけど、' },
+            { chara, text: 'これを。' }
+          ])
+          scene.ui.announce('『簡素な鍵』を手に入れた')
+          await scene.talk([
+            { chara: 'ann', text: 'これは？' },
+            { chara, text: 'これで仕掛けを動かせば、屋上への扉なら開けられる。' },
+            { chara, text: '仕掛けの動かし方は、せっかくだから考えてみてくれ。' },
+            { chara: 'ann', text: 'ありがとう！' }
+          ])
+          scene.ui.missionUpdate('m4_1')
+          state.started = true
+        }
+      }
+      await next()
     }
   })
 }
