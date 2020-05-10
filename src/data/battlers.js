@@ -169,14 +169,14 @@ export default [
     key: 'knight', name: 'レムリアンナイト', lv: 1, effect: 'slash',
     hp: 90, atk: 6, def: 7, dex: 4, agi: 4,
     up: { hp: 100, atk: 90, def: 100, dex: 75, agi: 75 },
-    abillities: [{ type: 'multi', chance: 50 }],
+    abillities: [{ type: 'multi', chance: 40 }],
     dropWeapon: { id: 17, chance: 4 }
   },
   {
     key: 'thief', name: 'シーフェン', lv: 1, effect: 'slash',
     hp: 40, atk: 3, def: 4, dex: 5, agi: 5,
-    up: { hp: 80, atk: 80, def: 70, dex: 90, agi: 90 },
-    abillities: [{ type: 'double', chance: 50 }],
+    up: { hp: 70, atk: 80, def: 70, dex: 90, agi: 90 },
+    abillities: [{ type: 'double', chance: 30 }],
     dropWeapon: { id: 18, chance: 3 }
   },
   {
@@ -187,7 +187,7 @@ export default [
   },
   {
     key: 'dragon', name: 'ソンベルク', lv: 1, effect: 'scratch',
-    hp: 100, atk: 7, def: 6, dex: 6, agi: 5,
+    hp: 100, atk: 10, def: 6, dex: 6, agi: 5,
     up: { hp: 100, atk: 100, def: 95, dex: 90, agi: 85 },
     abillities: [{ type: 'multi', chance: 70 }, { type: 'double', chance: 50 }]
   }

@@ -1,8 +1,8 @@
 {
-  "map": "temple12",
-  "x": 1175.078095864368,
-  "y": 851.2486631183092,
-  "r": 2.5805574331076553,
+  "map": "temple14",
+  "x": 333.0279919924916,
+  "y": 180.07975630128482,
+  "r": -2.1197828899040787,
   "chapter": 4,
   "allowed_area": 5,
   "visited": [
@@ -50,7 +50,9 @@
     "temple10",
     "temple9",
     "temple11",
-    "temple12"
+    "temple12",
+    "temple13",
+    "temple14"
   ],
   "event": {
     "chapter_begin": [
@@ -175,7 +177,7 @@
       ]
     },
     "m4_5": {
-      "started": false,
+      "started": true,
       "completed": false,
       "area1": false,
       "area2": false
@@ -263,13 +265,13 @@
     {
       "key": "ann",
       "name": "Ann",
-      "lv": 42,
+      "lv": 45,
       "effect": "hit",
-      "hp": 193,
-      "atk": 45,
-      "def": 42,
-      "dex": 30,
-      "agi": 33,
+      "hp": 239,
+      "atk": 48,
+      "def": 45,
+      "dex": 33,
+      "agi": 34,
       "up": {
         "hp": 100,
         "atk": 100,
@@ -277,20 +279,20 @@
         "dex": 70,
         "agi": 70
       },
-      "exp": 2703,
-      "max_hp": 245,
-      "weapon": 24
+      "exp": 2984,
+      "max_hp": 260,
+      "weapon": 31
     },
     {
       "key": "francisca",
       "name": "Francisca",
-      "lv": 42,
+      "lv": 45,
       "effect": "hit",
-      "hp": 185,
-      "atk": 42,
-      "def": 32,
-      "dex": 44,
-      "agi": 41,
+      "hp": 184,
+      "atk": 45,
+      "def": 35,
+      "dex": 47,
+      "agi": 44,
       "up": {
         "hp": 85,
         "atk": 85,
@@ -298,20 +300,20 @@
         "dex": 100,
         "agi": 85
       },
-      "exp": 2703,
-      "max_hp": 185,
-      "weapon": 27
+      "exp": 3015,
+      "max_hp": 200,
+      "weapon": 32
     },
     {
       "key": "jaquelyn",
       "name": "Jaquelyn",
-      "lv": 42,
+      "lv": 45,
       "effect": "hit",
-      "hp": 185,
-      "atk": 30,
-      "def": 36,
-      "dex": 41,
-      "agi": 45,
+      "hp": 155,
+      "atk": 33,
+      "def": 37,
+      "dex": 44,
+      "agi": 48,
       "up": {
         "hp": 90,
         "atk": 75,
@@ -319,8 +321,8 @@
         "dex": 85,
         "agi": 100
       },
-      "exp": 2703,
-      "max_hp": 210,
+      "exp": 3015,
+      "max_hp": 220,
       "weapon": 28
     }
   ],
@@ -448,10 +450,14 @@
     {
       "id": 31,
       "weapon_id": 19
+    },
+    {
+      "id": 32,
+      "weapon_id": 17
     }
   ],
-  "saved": 1589115751,
-  "sec": 9927,
+  "saved": 1589116304,
+  "sec": 10330,
   "tweets": [
     "mdrk",
     "mstn",

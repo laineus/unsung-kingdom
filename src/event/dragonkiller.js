@@ -76,6 +76,8 @@ export const dragon = (scene, sonberk, king, area1, area2, area3) => {
   if (state.completed) {
     return [sonberk, king, area3].forEach(v => v.destroy())
   }
+  king.setDisplayName('エドガー王')
+  sonberk.setDisplayName('ソンベルク')
   area1.setEvent(async () => {
     scene.player.tweet('！')
     await scene.ui.sleep(800)
@@ -136,6 +138,8 @@ export const dragon = (scene, sonberk, king, area1, area2, area3) => {
     ], { angle: false })
     await scene.camera.look((16).toPixelCenter, (9).toPixelCenter, 400)
     await scene.player.setTargetPosition((17).toPixelCenter, (12).toPixelCenter)
+    scene.jaquelyn.setR('up')
+    scene.francisca.setR('up')
     await scene.talk([
       { chara: 'ann', text: 'ソンベルク！覚悟しなさい！' },
       { chara, text: '誰だ？' },
@@ -156,7 +160,7 @@ export const dragon = (scene, sonberk, king, area1, area2, area3) => {
       { chara, text: '来い！' }
     ])
     await scene.player.setTargetPosition((17).toPixel, (11).toPixel)
-    const result = await scene.ui.battle([generateBattler('dragon', 47, { hp: 2500 })], { boss: true })
+    const result = await scene.ui.battle([generateBattler('dragon', 48, { hp: 2500 })], { boss: true })
     if (!result) return
     scene.francisca.setAllowWalkingWhileEvent(false).stopWalk().setPosition(scene.player.x + 40, scene.player.y + 27).setR('up')
     scene.jaquelyn.setAllowWalkingWhileEvent(false).stopWalk().setPosition(scene.player.x + 20, scene.player.y + 70).setR('up')
