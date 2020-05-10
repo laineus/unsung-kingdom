@@ -112,6 +112,12 @@ export const dogEventFound = (scene, dog, key) => {
         await scene.talk([messages[key]])
         state[key] = 1
         dog.destroy()
+        const remain = Object.keys(messages).count(k => state[k] === 0)
+        if (remain) {
+          Math.chance(50) ? scene.jaquelyn.tweet(`あと${remain}匹ね`) : scene.francisca.tweet(`あと${remain}匹だね`)
+        } else {
+          scene.jaquelyn.tweet('これで全部ね')
+        }
       }
     })
   }
