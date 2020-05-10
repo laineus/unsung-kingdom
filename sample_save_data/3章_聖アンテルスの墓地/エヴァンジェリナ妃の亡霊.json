@@ -1,9 +1,45 @@
 {
   "map": "catacomb11",
-  "x": 515.585509461393,
-  "y": 362.3226866540549,
-  "r": -1.4484821857171895,
+  "x": 496.9251033474108,
+  "y": 391.5340091913511,
+  "r": -1.729536118396789,
   "chapter": 3,
+  "allowed_area": 4,
+  "visited": [
+    "room1",
+    "town1",
+    "castle1",
+    "forest1",
+    "forest2",
+    "forest3",
+    "forest5",
+    "forest6",
+    "forest7",
+    "forest8",
+    "forest9",
+    "forest4",
+    "underpass1",
+    "underpass2",
+    "underpass3",
+    "underpass5",
+    "underpass4",
+    "underpass6",
+    "underpass7",
+    "underpass8",
+    "underpass9",
+    "underpass10",
+    "catacomb1",
+    "catacomb2",
+    "catacomb11",
+    "catacomb3",
+    "catacomb4",
+    "catacomb5",
+    "catacomb8",
+    "catacomb6",
+    "catacomb7",
+    "catacomb9",
+    "catacomb10"
+  ],
   "event": {
     "chapter_begin": [
       true,
@@ -20,13 +56,13 @@
     },
     "m1_1": {
       "started": true,
-      "completed": true,
+      "completed": false,
       "talked": true,
-      "d1": 2,
-      "d2": 2,
-      "d3": 2,
-      "d4": 2,
-      "d5": 2
+      "d1": 1,
+      "d2": 0,
+      "d3": 0,
+      "d4": 0,
+      "d5": 1
     },
     "m1_2": {
       "started": true,
@@ -48,19 +84,19 @@
     "m2_1": {
       "started": true,
       "completed": true,
+      "wine": [
+        2,
+        3,
+        1
+      ],
       "talked": true,
       "key": true,
-      "opened": true,
-      "wine": [
-        1,
-        2,
-        3
-      ]
+      "opened": true
     },
     "m2_2": {
       "started": true,
       "completed": true,
-      "count": 5
+      "count": 6
     },
     "m2_3": {
       "started": true,
@@ -73,19 +109,19 @@
       "completed": true,
       "solved": true,
       "jack": true,
-      "search": true,
       "talked": true,
-      "boss": true,
-      "found": true
+      "search": true,
+      "found": true,
+      "boss": true
     },
     "m3_1": {
       "started": true,
-      "completed": true
+      "completed": false
     },
     "m3_2": {
-      "started": true,
-      "completed": true,
-      "count": 3
+      "started": false,
+      "completed": false,
+      "count": 0
     },
     "m3_3": {
       "started": true,
@@ -93,15 +129,9 @@
       "solved": true
     },
     "m3_4": {
-      "started": true,
-      "completed": true,
-      "ghosts": [
-        0,
-        1,
-        2,
-        3,
-        4
-      ]
+      "started": false,
+      "completed": false,
+      "ghosts": []
     },
     "m3_5": {
       "started": true,
@@ -113,47 +143,40 @@
     },
     "m4_2": {
       "started": false,
-      "completed": false
+      "completed": false,
+      "count": 0
     },
     "m4_3": {
       "started": false,
-      "completed": false
+      "completed": false,
+      "talked": false
     },
     "m4_4": {
       "started": false,
-      "completed": false
+      "completed": false,
+      "apples": []
     },
     "m4_5": {
       "started": false,
-      "completed": false
+      "completed": false,
+      "area1": false,
+      "area2": false
     },
     "m5_1": {
       "started": false,
-      "completed": false
+      "completed": false,
+      "soldiers": false
     },
     "m0": {
       "talked_matilda": true,
       "talked_annabelle": true,
-      "talked_amber": false,
+      "talked_amber": true,
       "area": true
     },
     "m1": {
       "talked_amber": true,
       "talked_annabelle": true,
       "talked_elliott": true
-    },
-    "town": {
-      "amber": [],
-      "annabelle": [
-        0
-      ],
-      "matilda": [
-        0
-      ],
-      "elliott": [
-        0
-      ],
-      "max": []
     },
     "m2": {
       "talked_amber1": true,
@@ -171,29 +194,63 @@
       "talked_elliott": false,
       "talked_max": false,
       "talked_matilda": false,
-      "talked_annabelle": false
+      "talked_annabelle": false,
+      "talked_mary": false,
+      "talked_loretta": false,
+      "talked_dario": false,
+      "talked_drystan": false,
+      "talked_ray": false
+    },
+    "town": {
+      "amber": [],
+      "annabelle": [
+        0,
+        1
+      ],
+      "matilda": [
+        0,
+        1,
+        2
+      ],
+      "elliott": [
+        0,
+        1,
+        2
+      ],
+      "max": [
+        0,
+        1,
+        2
+      ]
     }
   },
+  "gimmicks": [
+    "unserpass4_9",
+    "unserpass7_8",
+    "unserpass8_5"
+  ],
   "treasures": [
+    "forest2_5",
     "forest8_4",
     "forest3_5",
-    "underpass5_5",
+    "forest4_5",
+    "underpass7_6",
+    "underpass8_6",
     "catacomb2_5",
     "catacomb5_8",
-    "catacomb8_9",
-    "catacomb6_9"
+    "catacomb8_9"
   ],
   "battlers": [
     {
       "key": "ann",
       "name": "Ann",
-      "lv": 24,
+      "lv": 30,
       "effect": "hit",
-      "hp": 139,
-      "atk": 27,
-      "def": 26,
-      "dex": 19,
-      "agi": 18,
+      "hp": 185,
+      "atk": 33,
+      "def": 30,
+      "dex": 21,
+      "agi": 22,
       "up": {
         "hp": 100,
         "atk": 100,
@@ -201,20 +258,20 @@
         "dex": 70,
         "agi": 70
       },
-      "exp": 837.6666666666666,
-      "max_hp": 155,
-      "weapon": 17
+      "exp": 1337,
+      "max_hp": 185,
+      "weapon": 24
     },
     {
       "key": "francisca",
       "name": "Francisca",
-      "lv": 24,
+      "lv": 30,
       "effect": "hit",
-      "hp": 86,
-      "atk": 21,
-      "def": 18,
-      "dex": 26,
-      "agi": 25,
+      "hp": 125,
+      "atk": 31,
+      "def": 24,
+      "dex": 32,
+      "agi": 30,
       "up": {
         "hp": 85,
         "atk": 85,
@@ -222,20 +279,20 @@
         "dex": 100,
         "agi": 85
       },
-      "exp": 838.6666666666666,
-      "max_hp": 135,
-      "weapon": 18
+      "exp": 1310,
+      "max_hp": 145,
+      "weapon": 25
     },
     {
       "key": "jaquelyn",
       "name": "Jaquelyn",
-      "lv": 24,
+      "lv": 30,
       "effect": "hit",
-      "hp": 128,
-      "atk": 20,
-      "def": 20,
-      "dex": 24,
-      "agi": 27,
+      "hp": 139,
+      "atk": 22,
+      "def": 25,
+      "dex": 29,
+      "agi": 33,
       "up": {
         "hp": 90,
         "atk": 75,
@@ -243,9 +300,9 @@
         "dex": 85,
         "agi": 100
       },
-      "exp": 831.6666666666666,
-      "max_hp": 140,
-      "weapon": 20
+      "exp": 1310,
+      "max_hp": 160,
+      "weapon": 15
     }
   ],
   "weapons": [
@@ -267,23 +324,23 @@
     },
     {
       "id": 5,
-      "weapon_id": 4
-    },
-    {
-      "id": 6,
       "weapon_id": 3
     },
     {
+      "id": 6,
+      "weapon_id": 4
+    },
+    {
       "id": 7,
-      "weapon_id": 6
+      "weapon_id": 2
     },
     {
       "id": 8,
-      "weapon_id": 1
+      "weapon_id": 2
     },
     {
       "id": 9,
-      "weapon_id": 2
+      "weapon_id": 1
     },
     {
       "id": 10,
@@ -291,80 +348,69 @@
     },
     {
       "id": 11,
-      "weapon_id": 5
+      "weapon_id": 3
     },
     {
       "id": 12,
-      "weapon_id": 6
+      "weapon_id": 3
     },
     {
       "id": 13,
-      "weapon_id": 8
+      "weapon_id": 5
     },
     {
       "id": 14,
-      "weapon_id": 7
+      "weapon_id": 2
     },
     {
       "id": 15,
-      "weapon_id": 9
+      "weapon_id": 8
     },
     {
       "id": 16,
-      "weapon_id": 10
+      "weapon_id": 8
     },
     {
       "id": 17,
-      "weapon_id": 15
+      "weapon_id": 7
     },
     {
       "id": 18,
-      "weapon_id": 11
+      "weapon_id": 7
     },
     {
       "id": 19,
-      "weapon_id": 10
+      "weapon_id": 6
     },
     {
       "id": 20,
-      "weapon_id": 12
+      "weapon_id": 9
+    },
+    {
+      "id": 21,
+      "weapon_id": 9
+    },
+    {
+      "id": 22,
+      "weapon_id": 10
+    },
+    {
+      "id": 23,
+      "weapon_id": 9
+    },
+    {
+      "id": 24,
+      "weapon_id": 15
+    },
+    {
+      "id": 25,
+      "weapon_id": 11
     }
   ],
-  "saved": 1583679420,
-  "allowed_area": 4,
-  "visited": [
-    "forest1",
-    "forest2",
-    "forest5",
-    "forest6",
-    "forest7",
-    "forest8",
-    "forest9",
-    "forest3",
-    "forest4",
-    "room1",
-    "town1",
-    "underpass1",
-    "underpass2",
-    "underpass3",
-    "underpass4",
-    "underpass5",
-    "underpass6",
-    "underpass7",
-    "underpass8",
-    "underpass9",
-    "underpass10",
-    "catacomb1",
-    "catacomb2",
-    "catacomb3",
-    "catacomb4",
-    "catacomb5",
-    "catacomb6",
-    "catacomb7",
-    "catacomb8",
-    "catacomb9",
-    "catacomb10",
-    "catacomb11"
-  ],
-  "gimmicks": []
+  "saved": 1589089091,
+  "sec": 7570,
+  "tweets": [
+    "mdrk",
+    "mstn"
+  ]
 }
