@@ -656,6 +656,10 @@
         {
          "id":336,
          "type":"collides"
+        }, 
+        {
+         "id":339,
+         "type":"collides"
         }],
  "tilewidth":32,
  "type":"tileset",
