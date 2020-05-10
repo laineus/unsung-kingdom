@@ -30,6 +30,8 @@ export const peaceful = (scene, area1, area2, soldier1, soldier2, jack) => {
     await scene.ui.sleep(500)
     await scene.ui.transition('normal')
     scene.setMembersPosition((48).toPixelCenter, (19).toPixelCenter, 'right')
+    scene.francisca.setPosition((47).toPixelCenter, (18).toPixelCenter)
+    scene.jaquelyn.setPosition((47).toPixelCenter, (20).toPixelCenter)
     scene.camera.look(jack.x - 70, jack.y, 0)
     await scene.ui.sleep(1500)
     jack.setFaceKey('jack2')
@@ -47,7 +49,7 @@ export const peaceful = (scene, area1, area2, soldier1, soldier2, jack) => {
     await scene.ui.transition('fast')
     jack.initImage('kingbrother').setFaceKey('kingbrother2').setDisplayName('王弟エゼルバルド')
     await scene.ui.sleep(500)
-    await scene.talk([
+    const t = await scene.talk([
       { chara, text: '俺は王弟エゼルバルドだ。' },
       { chara: 'ann', text: '！' },
       { chara, text: 'すまなかった。' },
@@ -58,8 +60,12 @@ export const peaceful = (scene, area1, area2, soldier1, soldier2, jack) => {
       { chara, text: '俺は何度も王を殺そうとしていた。' },
       { chara, text: '今こそ、全てを説明させてくれ。' },
       { chara, text: '十年前、王がドラゴンと戦ったことは知っているか？' },
-      { chara, text: '選択肢' },
-      { chara, text: 'そう、' },
+      null
+    ])
+    const i = await scene.select(['知ってる', '知らない'])
+    t.destroy()
+    await scene.talk([
+      ...(i === 0 ? [{ chara, text: 'そう、' }] : []),
       { chara, text: '十年前、王はソンベルクと戦い、グリファルデ神殿に封じた。' },
       { chara, text: 'しかし半月ほど前、' },
       { chara, text: 'グリファルデ神殿の見張りがソンベルクの覚醒を知らせたのだ。' },
@@ -107,6 +113,7 @@ export const peaceful = (scene, area1, area2, soldier1, soldier2, jack) => {
       { chara, text: '俺は兄とともにドラゴンに立ち向かうことを決意した。' },
       { chara, text: '結局は破れ、お前たちに助けられたがな。' },
       { chara: 'ann', text: 'ソンベルクを倒したのは王だよ。' },
+      { chara, text: 'そうだったな。' },
       { chara, text: 'そういうことにしておこう。' },
       { chara, text: 'とにかく、これが俺のやってきたことの全てだ。' },
       { chara, text: '呼び出してすまなかった。' },
@@ -115,7 +122,15 @@ export const peaceful = (scene, area1, area2, soldier1, soldier2, jack) => {
     await scene.ui.announce('『時間水晶』を手に入れた')
     await scene.talk([
       { chara: 'ann', text: 'ありがとう。' },
+      { chara: 'ann', text: 'すごくびっくりしたし、' },
+      { chara: 'ann', text: 'まだちょっと頭の整理ができていないけど…、' },
+      { chara: 'ann', text: 'とにかくあなたのやってきたことを知ることができてよかったよ。' },
+      { chara: 'ann', text: 'あなたのことはずっと謎だったしね。' },
+      { chara: 'ann', text: 'あとね、' },
       { chara: 'ann', text: '最後に暗殺を考え直してくれてよかった。' },
+      { chara: 'ann', text: '私たちはここでの目的を終えたから帰るつもりだったけど、' },
+      { chara: 'ann', text: '正直このまま帰って大丈夫か少し不安だったんだ…。' },
+      { chara: 'ann', text: 'でも、' },
       { chara: 'ann', text: 'この時代のことは、安心して任せられるね。' },
       { chara, text: '…。' },
       { chara, text: 'その通り、もう心配事はないはずだ。' },
@@ -128,8 +143,8 @@ export const peaceful = (scene, area1, area2, soldier1, soldier2, jack) => {
     await scene.ui.transition('normal')
     scene.members.forEach(v => v.setVisible(false))
     jack.initImage('jack').setFaceKey('jack2')
-    soldier1.setPosition((33).toPixelCenter, (17).toPixelCenter).setVisible(true)
-    await soldier2.setPosition((32).toPixelCenter, (18).toPixelCenter).setVisible(true)
+    soldier1.setPosition((33).toPixelCenter, (19).toPixelCenter).setVisible(true)
+    await soldier2.setPosition((32).toPixelCenter, (20).toPixelCenter).setVisible(true)
     await scene.ui.sleep(1500)
     await scene.talk([
       { chara, text: '君たちの時代が明るいことは、' },
@@ -138,7 +153,7 @@ export const peaceful = (scene, area1, area2, soldier1, soldier2, jack) => {
     ], { angle: false })
     await scene.ui.sleep(1500)
     soldier1.setSpeed(180).setTargetPosition(soldier1.x + 200, soldier1.y)
-    soldier2.setSpeed(180).setTargetPosition(soldier2.x + 200, soldier2.y)
+    await soldier2.setSpeed(180).setTargetPosition(soldier2.x + 200, soldier2.y)
     await scene.talk([
       { chara: soldier1, text: 'おい、居たぞ！' },
       { chara: soldier1, text: '黒いローブの暗殺者だ！' },
