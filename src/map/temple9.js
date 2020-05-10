@@ -13,5 +13,11 @@ export default {
     const nikke = scene.map.getObjectById(2)
     calibur(scene, sword, nikke)
     Array.range(4, 5).forEach(id => appleCollection(scene, scene.map.getObjectById(id), `a9_${id}`))
+    this.sword = sword
+  },
+  update (scene) {
+    if (scene.storage.state.event.m4_3.started && this.sword.distanceToPlayer < 180) {
+      scene.tweetOnce(scene.francisca, 'あれが聖剣？', 'clbr')
+    }
   }
 }
