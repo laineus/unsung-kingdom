@@ -35,7 +35,7 @@ export default {
       { chara: annabelle, message: 'こんにちは', met: false }
     ]
   },
-  update () {
+  update (scene) {
     if (scene.storage.state.chapter === 4) return
     this.greetings.filter(g => !g.met && g.chara.checkable).forEach(g => {
       g.met = true
