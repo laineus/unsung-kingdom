@@ -5,7 +5,6 @@ export const ferdinand = (scene, fdn) => {
     return fdn.destroy()
   }
   fdn.setTapEvent(async chara => {
-    await fdn.setSpeed(220).setTargetPosition(fdn.x - 320, fdn.y)
     if (scene.storage.state.event.m3_2.completed) {
       await scene.talk([
         { chara, text: 'おい、何とかできそうか？' },
