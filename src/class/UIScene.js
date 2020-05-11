@@ -28,6 +28,9 @@ const SPEED = {
   slow: 1000
 }
 const DUMMY_VOLUME = 0
+const DEPTH = {
+  ANNOUNCE: 100
+}
 export default class UIScene extends Phaser.Scene {
   constructor () {
     super({ key: 'UI', active: false })
@@ -133,6 +136,7 @@ export default class UIScene extends Phaser.Scene {
   }
   async announce (text) {
     const announcement = this.add.container(20, 50)
+    announcement.setDepth(DEPTH.ANNOUNCE)
     const tx = this.add.text(15, -1, text, { align: 'left', fontSize: 13, fontFamily: config.FONTS.TEXT }).setPadding(0, 2, 0, 0).setOrigin(0, 0.5)
     const bg = new Box(this, 0, 0, tx.width + 35, 27).setOrigin(0, 0.5)
     announcement.add([bg, tx])
@@ -325,5 +329,6 @@ export default class UIScene extends Phaser.Scene {
     })
     this.add.existing(container)
     this.mapInfo = container
+    this.mapInfo.e = e
   }
 }
