@@ -8,6 +8,9 @@ export default class UICloseButton extends Phaser.GameObjects.Container {
     this.add(scene.add.text(15, 11, '閉じる', { align: 'center', fontSize: 10, fontStyle: 'bold', fontFamily: config.FONTS.TEXT }).setPadding(0, 2, 0, 0).setOrigin(0.5, 0.5))
     this.add(scene.add.rectangle(-35, 0, 30, 3, config.COLORS.theme).setRotation(Math.PI / 4))
     this.add(scene.add.rectangle(-35, 0, 30, 3, config.COLORS.theme).setRotation(Math.PI / -4))
-    this.setInteractive().on('pointerdown', () => this.emit('click'))
+    this.setInteractive().on('pointerdown', pointer => {
+      pointer.isDown = false
+      this.emit('click')
+    })
   }
 }

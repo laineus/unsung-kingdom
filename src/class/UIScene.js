@@ -226,8 +226,9 @@ export default class UIScene extends Phaser.Scene {
     button.add(this.add.text(15, 11, 'メニュー', { align: 'center', fontSize: 10, fontStyle: 'bold', fontFamily: config.FONTS.TEXT }).setPadding(0, 2, 0, 0).setOrigin(0.5, 0.5))
     button.add(this.add.rectangle(-35, -1, 25, 3, config.COLORS.theme).setRotation(Math.PI / 1))
     button.add(this.add.rectangle(-35, -1, 25, 3, config.COLORS.theme).setRotation(Math.PI / -2))
-    button.setInteractive().on('pointerdown', () => {
+    button.setInteractive().on('pointerdown', (pointer) => {
       if (button.x !== x || this.inBattle) return
+      pointer.isDown = false
       slideOut(this, this.encounter1, { destroy: false, x: 100 })
       slideOut(this, this.encounter2, { destroy: false, x: 100 })
       slideOut(this, button, { destroy: false, x: 100 })
