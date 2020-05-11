@@ -296,7 +296,6 @@ const events = [
       { chara: 'francisca', text: 'ジャックを探すしかないね。' },
       { chara: 'jaquelyn', text: 'グリファルデ神殿では出会わなかったわ。' },
       { chara: 'ann', text: 'やっぱり、聖アンテルスの墓地で落ちたときに死んじゃったのかな…。' },
-      { chara: 'francisca', text: 'もしそうなら探しやすくて助かるんだけど。' },
       { chara: 'jaquelyn', text: '王が殺される歴史じゃなくなったことも考えると、' },
       { chara: 'jaquelyn', text: '確かにジャックが既に死んでいる可能性は高いわね。' },
       { chara: 'ann', text: 'そうなのかな…。' },
