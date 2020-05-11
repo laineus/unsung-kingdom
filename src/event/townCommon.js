@@ -166,16 +166,28 @@ export const elliott = async (scene, chara) => {
   const state = scene.storage.state.event.town.elliott
   if (!state.includes(0)) {
     await scene.talk([
-      { chara, text: 'あんた、どっから来た旅人さんか知らんが、金には不自由してなさそうだな。' },
-      { chara, text: 'なあ、俺にちょっと金を預けてみないか？' },
-      { chara, text: 'いい儲け話を手に入れたんだが、それをするための元手がないんだ。' }
+      { chara, text: '傭兵をやってたマックスに聞いたんだが、' },
+      { chara, text: '傭兵稼業ってのは誰だって始められるわけじゃないらしい。' },
+      { chara, text: '戦うための装備を揃えなきゃいけないからだ。' },
+      { chara, text: '弱いやつほど死なないために良い装備が欲しいところだが、' },
+      { chara, text: '弱いやつほど稼ぎが少なくて劣悪な装備しか買えない。' },
+      { chara, text: 'たとえ才能があっても、始めるチャンスがないというわけだ。' },
+      { chara: 'ann', text: 'そうなんだ。' },
+      { chara, text: 'それでいいことを思いついたんだ。' },
+      { chara, text: 'まず俺が傭兵を始めたい奴の中から才能がありそうな奴を見つける。' },
+      { chara, text: 'そして俺はそいつに良い装備を貸す。' },
+      { chara, text: 'それからそいつがその装備を使ってうまく稼げた場合、' },
+      { chara, text: '稼いだ金のうちの一部を俺に返すんだ。' },
+      { chara, text: 'どうだ、いいアイディアだろ？' },
+      { chara: 'ann', text: 'なるほど。' },
+      { chara, text: 'だがこの商売を始めようにも俺も「良い装備」を買うための元手がないんだ。' },
+      { chara, text: 'だからあんた、俺に金を貸してみないか？' },
+      { chara, text: 'この商売で儲かった分の一部をあんたに返すぜ。' }
     ])
     const i = await scene.select(['はい', 'いいえ'])
     await scene.talk([
       ...(i === 0 ? [
-        { chara: 'francisca', text: 'やめなさいよ、アン。' },
-        { chara: 'ann', text: 'でも儲かるみたいだよ？' },
-        { chara: 'francisca', text: 'バカね。とにかくダメ。' }
+        { chara: 'francisca', text: 'やめなさいよ、アン。バカね。' }
       ] : []),
       { chara, text: 'ちっ、' }
     ])
