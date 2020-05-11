@@ -29,7 +29,9 @@ const SPEED = {
 }
 const DUMMY_VOLUME = 0
 const DEPTH = {
-  ANNOUNCE: 100
+  ANNOUNCE: 300,
+  MAP_INFO: 100,
+  BATTLE_RESULT: 200
 }
 export default class UIScene extends Phaser.Scene {
   constructor () {
@@ -161,7 +163,7 @@ export default class UIScene extends Phaser.Scene {
     return new Promise(resolve => new Battle(this, group, option, resolve))
   }
   battleResult (group, option) {
-    return new Promise(resolve => new BattleResult(this, group, option, resolve))
+    return new Promise(resolve => new BattleResult(this, group, option, resolve).setDepth(DEPTH.BATTLE_RESULT))
   }
   sleep (time) {
     return new Promise(resolve => setTimeout(() => resolve(), time))
@@ -285,7 +287,7 @@ export default class UIScene extends Phaser.Scene {
     const filename = `ScreenShot_${moment().format('YYYYMMDD_HHmmss')}.png`
     this.game.renderer.snapshot(img => downloadBySource(img.src, filename))
   }
-  async showMapInfo (e) {
+  async showMapInfo (e, reload = false) {
     if (this.mapInfo) this.mapInfo.destroy()
     if (!e) return
     const mapName = e.name || '不明なエリア'
@@ -319,16 +321,21 @@ export default class UIScene extends Phaser.Scene {
     const lvInfo = e.enemyLevel ? `推奨レベル ${e.enemyLevel}〜` : '推奨レベル -'
     const lv = this.add.text(42, 21, lvInfo, { align: 'left', fill: color.toColorString, fontSize: 12, fontFamily: config.FONTS.TEXT }).setOrigin(0, 0)
     container.add([box, icon, map, lv])
-    slideIn(this, container, { delay: 250 })
-    this.add.tween({
-      targets: container,
-      duration: 400,
-      ease: 'Power2',
-      delay: 3100,
-      x: -(boxWidth - 10)
-    })
+    const movedX = -(boxWidth - 10)
+    if (!reload) {
+      slideIn(this, container, { delay: 250 })
+      this.add.tween({
+        targets: container,
+        duration: 400,
+        ease: 'Power2',
+        delay: 3100,
+        x: movedX
+      })
+    } else {
+      container.x = movedX
+    }
     this.add.existing(container)
     this.mapInfo = container
-    this.mapInfo.e = e
+    this.mapInfo.reload = () => this.showMapInfo(e, true)
   }
 }

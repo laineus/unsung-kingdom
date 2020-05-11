@@ -43,6 +43,7 @@ export default class BattleResult extends Phaser.GameObjects.Container {
     }
     slideIn(this.scene, this, { x: -100 }).then(() => {
       this.increaceExp().then(() => {
+        if (this.scene.mapInfo) this.scene.mapInfo.reload()
         setTimeout(() => {
           slideOut(this.scene, this, { x: -100, destroy: false }).then(() => {
             this.scene.battlerSummary.show()
