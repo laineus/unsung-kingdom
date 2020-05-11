@@ -131,13 +131,32 @@ export default class Battle extends Phaser.GameObjects.Container {
     this.increaseTurn()
   }
   async attackToOnePlayer (loop = 1, mag = 1) {
-    await this.scene.sleep(180)
     const tgt = this.players.list.filter(v => v.alive).random()
-    if (!tgt) return
+    if (!tgt) return await this.scene.sleep(180)
+    const counterResult = await this.counter(this.currentBattler, tgt)
+    if (counterResult) return
     await this.currentBattler.attackAnim()
     await this.currentBattler.attackTo(tgt, { mag })
     if (loop <= 1) return
     return this.attackToOnePlayer(loop - 1, mag)
+  }
+  counter (base, tgt) {
+    // const button = this.scene.add.rectangle(0, 0, config.WIDTH, config.HEIGHT, 0xFF0000).setOrigin(0, 0).setAlpha(0.5).setBlendMode(Phaser.BlendModes.OVERLAY)
+    const diffX = tgt.x - base.x
+    const diffY = tgt.y - 45 - base.y
+    const line = this.scene.add.line(0, 0, base.x, base.y, tgt.x, tgt.y - 45, 0xEE8811).setOrigin(0, 0).setLineWidth(1).setAlpha(0.5)
+    const circle = this.scene.add.circle(base.x, base.y, 3, 0xEE8811).setOrigin(0.5, 0.5)
+    const triangle = this.scene.add.triangle(tgt.x, tgt.y - 45, -10, -7, -10, 7, 10, 0, 0xEE8811).setRotation(Math.atan2(diffY, diffX)).setOrigin(0, 0)
+    const button = new Button(this.scene, base.x + diffX.half, base.y + diffY.half, 'COUNTER!!', 240, 70)
+    const objs = [button, line, circle, triangle]
+    this.add(objs)
+    return new Promise(resolve => {
+      button.setInteractive().on('pointerdown', () => resolve(true))
+      this.scene.sleep(500).then(() => resolve(false))
+    }).then(result => {
+      objs.forEach(v => v.destroy())
+      return result
+    })
   }
   addOptionButton (name, x, y, onClick) {
     const button = new Button(this.scene, x, y, name, 120, 40).setInteractive().on('pointerdown', onClick.bind(this))
