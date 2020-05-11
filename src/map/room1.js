@@ -2,6 +2,7 @@ import { execChapterBeginEvents } from '../event/room'
 export default {
   name: '王都 - 拠点',
   create (scene) {
+    scene.storage.state.battlers.forEach(v => v.hp = v.max_hp)
     const book = scene.map.getObjectById(13)
     execChapterBeginEvents(scene, book)
     scene.map.getObjectById(11).setEvent(async () => {
