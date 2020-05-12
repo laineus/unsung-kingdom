@@ -134,13 +134,15 @@ export default class Battle extends Phaser.GameObjects.Container {
     const tgt = this.players.list.filter(v => v.alive).random()
     if (!tgt) return await this.scene.sleep(180)
     const counterResult = await this.counter(this.currentBattler, tgt)
-    if (counterResult) return
+    if (counterResult) return await tgt.attackTo(this.currentBattler)
     await this.currentBattler.attackAnim()
     await this.currentBattler.attackTo(tgt, { mag })
     if (loop <= 1) return
     return this.attackToOnePlayer(loop - 1, mag)
   }
-  counter (base, tgt) {
+  async counter (base, tgt) {
+    const noCounterPercent = Math.round(tgt.hp * 100 / tgt.maxHp)
+    if (Math.chance(noCounterPercent)) return false
     // const button = this.scene.add.rectangle(0, 0, config.WIDTH, config.HEIGHT, 0xFF0000).setOrigin(0, 0).setAlpha(0.5).setBlendMode(Phaser.BlendModes.OVERLAY)
     const diffX = tgt.x - base.x
     const diffY = tgt.y - 45 - base.y
