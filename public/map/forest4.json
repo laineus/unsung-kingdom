@@ -1,4 +1,12 @@
-{ "height":32,
+{ "compressionlevel":-1,
+ "editorsettings":
+    {
+     "export":
+        {
+         "target":"."
+        }
+    },
+ "height":32,
  "infinite":false,
  "layers":[
         {
@@ -146,6 +154,18 @@
                  "width":0,
                  "x":195,
                  "y":407
+                }, 
+                {
+                 "height":0,
+                 "id":19,
+                 "name":"Crystal",
+                 "point":true,
+                 "rotation":0,
+                 "type":"crystal",
+                 "visible":true,
+                 "width":0,
+                 "x":497.9627776666,
+                 "y":768.461076645988
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -273,7 +293,7 @@
          "y":0
         }],
  "nextlayerid":16,
- "nextobjectid":18,
+ "nextobjectid":20,
  "orientation":"orthogonal",
  "properties":[
         {
@@ -292,7 +312,7 @@
          "value":true
         }],
  "renderorder":"right-down",
- "tiledversion":"1.2.1",
+ "tiledversion":"2020.05.07",
  "tileheight":32,
  "tilesets":[
         {

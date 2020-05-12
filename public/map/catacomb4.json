@@ -161,6 +161,18 @@
                  "width":0,
                  "x":384.038791797151,
                  "y":834.023638751389
+                }, 
+                {
+                 "height":0,
+                 "id":12,
+                 "name":"Crystal",
+                 "point":true,
+                 "rotation":0,
+                 "type":"crystal",
+                 "visible":true,
+                 "width":0,
+                 "x":904.222533520112,
+                 "y":332.999799879928
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -252,7 +264,7 @@
          "y":0
         }],
  "nextlayerid":23,
- "nextobjectid":12,
+ "nextobjectid":13,
  "orientation":"orthogonal",
  "properties":[
         {
@@ -266,7 +278,7 @@
          "value":"#ffbb00ff"
         }],
  "renderorder":"right-down",
- "tiledversion":"2020.01.22",
+ "tiledversion":"2020.05.07",
  "tileheight":32,
  "tilesets":[
         {

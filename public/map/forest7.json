@@ -173,8 +173,8 @@
                  "type":"chara",
                  "visible":true,
                  "width":0,
-                 "x":523,
-                 "y":998
+                 "x":513,
+                 "y":1000
                 }, 
                 {
                  "height":0,
@@ -199,6 +199,18 @@
                  "width":0,
                  "x":774,
                  "y":259
+                }, 
+                {
+                 "height":0,
+                 "id":15,
+                 "name":"Crystal",
+                 "point":true,
+                 "rotation":0,
+                 "type":"crystal",
+                 "visible":true,
+                 "width":0,
+                 "x":704,
+                 "y":880
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -314,7 +326,7 @@
          "y":0
         }],
  "nextlayerid":13,
- "nextobjectid":15,
+ "nextobjectid":16,
  "orientation":"orthogonal",
  "properties":[
         {

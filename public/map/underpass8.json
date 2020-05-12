@@ -158,6 +158,18 @@
                  "width":0,
                  "x":603.851091142491,
                  "y":840.0513478819
+                }, 
+                {
+                 "height":0,
+                 "id":7,
+                 "name":"Crystal",
+                 "point":true,
+                 "rotation":0,
+                 "type":"crystal",
+                 "visible":true,
+                 "width":0,
+                 "x":1521.8045112782,
+                 "y":501.754385964912
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -166,7 +178,7 @@
          "y":0
         }],
  "nextlayerid":17,
- "nextobjectid":7,
+ "nextobjectid":8,
  "orientation":"orthogonal",
  "properties":[
         {

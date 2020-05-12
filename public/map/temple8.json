@@ -187,6 +187,18 @@
                  "width":0,
                  "x":284,
                  "y":274
+                }, 
+                {
+                 "height":0,
+                 "id":10,
+                 "name":"Crystal",
+                 "point":true,
+                 "rotation":0,
+                 "type":"crystal",
+                 "visible":true,
+                 "width":0,
+                 "x":891,
+                 "y":539
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -206,10 +218,10 @@
          "y":0
         }],
  "nextlayerid":11,
- "nextobjectid":10,
+ "nextobjectid":11,
  "orientation":"orthogonal",
  "renderorder":"right-down",
- "tiledversion":"2020.02.26",
+ "tiledversion":"2020.05.07",
  "tileheight":32,
  "tilesets":[
         {
