@@ -3,6 +3,7 @@ import Gate from './Gate'
 import Character from './Character'
 import Substance from './Substance'
 import TreasureChest from './TreasureChest'
+import Crystal from './Crystal'
 import config from '../data/config'
 export const DEPTH = {
   GROUND: 0,
@@ -65,6 +66,7 @@ export default class Field {
     this.charas = this._getObjects(tilemap, 'chara').map(data => new Character(scene, data.x, data.y, data.name).setR((data.rotation + 90) * (Math.PI / 180)).setId(data.id))
     this.objects = this._getObjects(tilemap, 'object').map(data => new Substance(scene, data.x, data.y, data.name).setId(data.id))
     this.treasures = this._getObjects(tilemap, 'treasure').map(data => new TreasureChest(scene, data.x, data.y, Number(data.name), `${mapKey}_${data.id}`, data.rotation === 90).setId(data.id))
+    this.crystals = this._getObjects(tilemap, 'crystal').map(data => new Crystal(scene, data.x, data.y).setId(data.id))
   }
   update (time) {
     this.animationTiles.forEach(setting => {
@@ -81,7 +83,7 @@ export default class Field {
     return this.layers.find(v => v.layer.name === name)
   }
   getObjectById (id) {
-    return ['charas', 'gates', 'areas', 'objects', 'treasures'].reduce((found, key) => {
+    return ['charas', 'gates', 'areas', 'objects', 'treasures', 'crystals'].reduce((found, key) => {
       return found || this[key].find(v => v.id === id)
     }, null)
   }
