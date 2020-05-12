@@ -272,6 +272,18 @@
                  "width":0,
                  "x":559,
                  "y":614
+                }, 
+                {
+                 "height":0,
+                 "id":20,
+                 "name":"",
+                 "point":true,
+                 "rotation":0,
+                 "type":"object",
+                 "visible":true,
+                 "width":0,
+                 "x":688,
+                 "y":324
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -280,7 +292,7 @@
          "y":0
         }],
  "nextlayerid":19,
- "nextobjectid":20,
+ "nextobjectid":21,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"2020.05.07",

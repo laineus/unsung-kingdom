@@ -39,6 +39,20 @@ export default {
       { chara: matilda, message: '怖いな…', met: false }
 
     ]
+    scene.map.getObjectById(20).setTapEvent(async () => {
+      const cp = scene.storage.state.chapter
+      const messages = [
+        '市街についての案内が貼り出されている。',
+        '森の凶暴なモンスター「レックスベア」の討伐報酬について貼り出されている。',
+        '禁酒令の罰則に関して貼り出されている。',
+        'レンフィールド家の邸宅が火事になった件について貼り出されている。',
+        'ドランゴンの覚醒と討伐隊が結成されたことについて貼り出されている。',
+        'エドガー王がドラゴンを倒したことについて貼り出されている。'
+      ]
+      await scene.talk([
+        { chara: 'ann', text: messages[cp] }
+      ])
+    })
   },
   update (scene) {
     const greetings = scene.storage.state.chapter === 4 ? this.cp4Tweets : this.greetings
