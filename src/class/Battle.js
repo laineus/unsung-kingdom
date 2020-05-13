@@ -161,7 +161,7 @@ export default class Battle extends Phaser.GameObjects.Container {
   }
   async counter (base, tgt) {
     const noCounterPercent = Math.round(tgt.hp * 100 / tgt.maxHp)
-    if (Math.chance(noCounterPercent) && false) return false
+    if (Math.chance(noCounterPercent)) return false
     // const button = this.scene.add.rectangle(0, 0, config.WIDTH, config.HEIGHT, 0xFF0000).setOrigin(0, 0).setAlpha(0.5).setBlendMode(Phaser.BlendModes.OVERLAY)
     const diffX = tgt.x - base.x
     const diffY = tgt.y - 45 - base.y
