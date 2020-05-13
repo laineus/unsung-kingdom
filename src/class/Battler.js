@@ -64,7 +64,8 @@ export default class Battler extends Phaser.GameObjects.Container {
     const damage = baseDamage * (cri ? 2 : 1) * weakness
     this.hp -= damage
     this.add(new BattleEffect(this.scene, cri, attacker.effect))
-    this.damageText(damage)
+    if (cri) this.critical()
+    this.damageText(damage, { cri })
     await this.scene.sleep(120)
     return this.hp <= 0 ? this.die() : null
   }
@@ -73,16 +74,35 @@ export default class Battler extends Phaser.GameObjects.Container {
     const limit = target.maxHp - target.hp
     const addition = Math.min(Math.round(target.maxHp * percent * 0.01), limit)
     target.hp += addition
-    target.damageText(addition, 'theme')
+    target.damageText(addition, { colorKey: 'theme' })
   }
-  damageText (damage, colorKey = 'soy') {
-    const text = this.scene.add.text(0, 0, damage, { fill: config.COLORS[colorKey].toColorString, stroke: config.COLORS.dark.toColorString, strokeThickness: 5, fontSize: 36, fontStyle: 'bold', fontFamily: config.FONTS.UI }).setOrigin(0.5, 0.5)
+  critical () {
+    const bg = this.scene.add.sprite(0, 0, 'critical_bg').setTint(0xCC0000).setScale(0)
+    const tx = this.scene.add.sprite(0, 0, 'critical_tx').setScale(0)
     this.scene.add.tween({
-      targets: text, duration: 120,
+      targets: [bg, tx], duration: 30, scale: 2, ease: 'Power2', onComplete: () => {
+        this.scene.add.tween({
+          targets: [bg, tx], duration: 100, scale: 1, ease: 'Power2', onComplete: () => {
+            this.scene.add.tween({
+              targets: [bg, tx], duration: 300, delay: 100, alpha: 0, ease: 'Power2', onComplete: () => {
+                bg.destroy()
+                tx.destroy()
+              }
+            })
+          }
+        })
+      }
+    })
+    this.add([bg, tx])
+  }
+  damageText (damage, { colorKey = 'soy', cri = false } = {}) {
+    const text = this.scene.add.text(0, 0, damage, { fill: config.COLORS[colorKey].toColorString, stroke: config.COLORS.dark.toColorString, strokeThickness: 5, fontSize: cri ? 50 : 36, fontStyle: 'bold', fontFamily: config.FONTS.UI }).setOrigin(0.5, 0.5)
+    this.scene.add.tween({
+      targets: text, duration: 150,
       y: -40,
       onComplete: () => {
         this.scene.add.tween({
-          targets: text, duration: 120,
+          targets: text, duration: 150,
           y: -60, alpha: 0.2,
           onComplete: () => text.destroy()
         })
