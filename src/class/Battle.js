@@ -134,15 +134,34 @@ export default class Battle extends Phaser.GameObjects.Container {
     const tgt = this.players.list.filter(v => v.alive).random()
     if (!tgt) return await this.scene.sleep(180)
     const counterResult = await this.counter(this.currentBattler, tgt)
-    if (counterResult) return await tgt.attackTo(this.currentBattler)
+    if (counterResult) {
+      await this.cutIn()
+      return await tgt.attackTo(this.currentBattler)
+    }
     await this.currentBattler.attackAnim()
     await this.currentBattler.attackTo(tgt, { mag })
     if (loop <= 1) return
     return this.attackToOnePlayer(loop - 1, mag)
   }
+  async cutIn () {
+    const h = 110
+    const counterBg = this.scene.add.rectangle(0, (h.half + 24).byBottom, config.WIDTH, h, config.COLORS.theme).setOrigin(0, 0.5).setScale(1, 0)
+    const counterChara = this.scene.add.sprite(200, (180).byBottom, 'ann').setOrigin(0.5, 0)
+    this.scene.add.tween({
+      targets: counterBg, duration: 100, ease: 'Power2', scaleY: 1, onComplete: () => {
+        this.scene.add.tween({
+          targets: [counterBg, counterChara], duration: 100, ease: 'Power2', delay: 600, alpha: 0, onComplete: () => {
+            counterBg.destroy()
+          }
+        })
+      }
+    })
+    this.add([counterBg, counterChara])
+    await this.scene.sleep(200)
+  }
   async counter (base, tgt) {
     const noCounterPercent = Math.round(tgt.hp * 100 / tgt.maxHp)
-    if (Math.chance(noCounterPercent)) return false
+    if (Math.chance(noCounterPercent) && false) return false
     // const button = this.scene.add.rectangle(0, 0, config.WIDTH, config.HEIGHT, 0xFF0000).setOrigin(0, 0).setAlpha(0.5).setBlendMode(Phaser.BlendModes.OVERLAY)
     const diffX = tgt.x - base.x
     const diffY = tgt.y - 45 - base.y
@@ -154,7 +173,7 @@ export default class Battle extends Phaser.GameObjects.Container {
     this.add(objs)
     return new Promise(resolve => {
       button.setInteractive().on('pointerdown', () => resolve(true))
-      this.scene.sleep(500).then(() => resolve(false))
+      this.scene.sleep(1500).then(() => resolve(false))
     }).then(result => {
       objs.forEach(v => v.destroy())
       return result
