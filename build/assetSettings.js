@@ -7,5 +7,6 @@ module.exports = [
   { key: 'tilesetImages', prefix: 'tileset/', dir: '/img/tilesets/image', rule: /^\w+\.png$/ },
   { key: 'tilesetTiles', prefix: '', dir: '/map', rule: /^\w+\D\.json$/ },
   { key: 'tilesetMaps', prefix: '', dir: '/map', rule: /^\w+\d+\.json$/ },
-  { key: 'audio', prefix: '', dir: '/audio', rule: /^\w+\D\.mp3$/ }
+  { key: 'se', prefix: 'se/', dir: '/audio/se', rule: /^\w+\D\.wav$/ },
+  { key: 'bgm', prefix: 'bgm/', dir: '/audio/bgm', rule: /^\w+\D\.mp3$/ }
 ]

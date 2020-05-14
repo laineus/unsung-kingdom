@@ -22,7 +22,8 @@ export default {
     ...assetData.tilesetImages
   ],
   audio: [
-    ...assetData.audio
+    ...assetData.se,
+    ...assetData.bgm
   ],
   json: [
     ...assetData.tilesetTiles

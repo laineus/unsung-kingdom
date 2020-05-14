@@ -27,7 +27,7 @@ const SPEED = {
   normal: 500,
   slow: 1000
 }
-const DUMMY_VOLUME = 0
+const DUMMY_VOLUME = 1
 const DEPTH = {
   ANNOUNCE: 300,
   MAP_INFO: 100,
@@ -69,18 +69,19 @@ export default class UIScene extends Phaser.Scene {
     this.checkButton.setVisible(this.touchMode && this.gameScene.nearestCheckable)
   }
   setBgm (name) {
-    if (this.currentBgm && this.currentBgm.key === name) return
     if (!name) {
       this.currentBgm = null
       this.sound.stopAll()
       return
     }
-    this.currentBgm = this.sound.add(name, { loop: true, volume: DUMMY_VOLUME })
+    const key = `bgm/${name}`
+    if (this.currentBgm && this.currentBgm.key === key) return
+    this.currentBgm = this.sound.add(key, { loop: true, volume: DUMMY_VOLUME })
     this.currentBgm.play()
   }
   interruptBgm (name) {
     if (this.currentBgm) this.currentBgm.pause()
-    const bgm = this.sound.add(name, { loop: true, volume: DUMMY_VOLUME })
+    const bgm = this.sound.add(`bgm/${name}`, { loop: true, volume: DUMMY_VOLUME })
     bgm.play()
     const resolve = () => {
       if (this.currentBgm) {
