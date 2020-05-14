@@ -351,5 +351,6 @@
   "tweets": [
     "mdrk",
     "mstn"
-  ]
+  ],
+  "counter_delay": 500
 }

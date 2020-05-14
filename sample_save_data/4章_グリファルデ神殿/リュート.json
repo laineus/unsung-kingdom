@@ -451,5 +451,6 @@
     "aplg",
     "aplb",
     "clbr"
-  ]
+  ],
+  "counter_delay": 500
 }

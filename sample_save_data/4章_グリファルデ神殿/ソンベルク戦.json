@@ -467,5 +467,6 @@
     "clbr",
     "apl",
     "tm12"
-  ]
+  ],
+  "counter_delay": 500
 }

@@ -366,9 +366,11 @@
     }
   ],
   "saved": 1589047214,
-  "sec": 5478,
+  "sec": 5484,
   "tweets": [
     "mdrk",
-    "mstn"
-  ]
+    "mstn",
+    "un1"
+  ],
+  "counter_delay": 500
 }

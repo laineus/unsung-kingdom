@@ -325,5 +325,6 @@
   "sec": 3016,
   "tweets": [
     "mdrk"
-  ]
+  ],
+  "counter_delay": 500
 }
