@@ -24,6 +24,9 @@ export default class TitleScene extends Phaser.Scene {
   get ui () {
     return this.scene.get('UI')
   }
+  se (...args) {
+    this.ui.se(...args)
+  }
   async logo () {
     const bg = this.add.rectangle(0, 0, config.WIDTH, config.HEIGHT, 0x111111).setOrigin(0, 0)
     await this.delay(200)

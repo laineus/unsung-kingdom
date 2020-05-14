@@ -74,6 +74,9 @@ export default class GameScene extends Phaser.Scene {
   get ui () {
     return this.scene.get('UI')
   }
+  se (...args) {
+    this.ui.se(...args)
+  }
   get touchMode () {
     return this.ui.touchMode
   }

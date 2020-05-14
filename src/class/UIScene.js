@@ -68,6 +68,9 @@ export default class UIScene extends Phaser.Scene {
     this.battlerSummary.update()
     this.checkButton.setVisible(this.touchMode && this.gameScene.nearestCheckable)
   }
+  se (name) {
+    this.sound.play(`se/${name}`, { volume: DUMMY_VOLUME })
+  }
   setBgm (name) {
     if (!name) {
       this.currentBgm = null
