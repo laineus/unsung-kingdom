@@ -49,6 +49,7 @@ export default () => {
     gimmicks: [],
     treasures: [],
     battlers: getPlayerBattlers(),
+    counter_delay: 1000,
     weapons: [],
     saved: null,
     sec: 0
