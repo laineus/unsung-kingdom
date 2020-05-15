@@ -77,7 +77,11 @@ export default class MenuMap extends Phaser.GameObjects.Container {
     const state = storage.state.event[mission.key]
     const container = this.scene.add.container(x, y).setSize(270, 32)
     const box = new Box(this.scene, 0, 0, 270, 32)
-    if (state.started) container.setInteractive().on('pointerdown', () => this.setMissionDetail(mission))
+    container.setInteractive().on('pointerdown', () => {
+      if (!state.started) return
+      this.scene.se('click')
+      this.setMissionDetail(mission)
+    })
     const fill = state.started ? config.COLORS.white.toColorString : config.COLORS.ghost.toColorString
     const title = this.scene.add.text(-120, 0, state.started ? mission.title : '？？？', { fontSize: 14, fontStyle: 'bold', fontFamily: config.FONTS.UI }).setOrigin(0, 0.5)
     const check = this.scene.add.sprite(113, 0, 'check').setTint(config.COLORS[state.completed ? 'theme' : 'ghost']).setFrame(Number(state.completed))

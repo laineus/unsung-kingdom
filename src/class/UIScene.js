@@ -233,6 +233,7 @@ export default class UIScene extends Phaser.Scene {
     button.setInteractive().on('pointerdown', (pointer) => {
       if (button.x !== x || this.inBattle) return
       pointer.isDown = false
+      this.se('click')
       slideOut(this, this.encounter1, { destroy: false, x: 100 })
       slideOut(this, this.encounter2, { destroy: false, x: 100 })
       slideOut(this, button, { destroy: false, x: 100 })

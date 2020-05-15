@@ -115,7 +115,10 @@ export default class MenuStatus extends Phaser.GameObjects.Container {
     sprite.setCrop(0, 0, sprite.width, 150)
     const text = this.scene.add.text(50, 18, chara.name, { fontSize: 17, fontStyle: 'bold', fontFamily: config.FONTS.UI }).setOrigin(1, 1)
     container.setActive = bool => text.setFill(config.COLORS[bool ? 'theme' : 'white'].toColorString)
-    container.setInteractive().on('pointerdown', () => this.setCharacter(chara))
+    container.setInteractive().on('pointerdown', () => {
+      this.scene.se('click')
+      this.setCharacter(chara)
+    })
     container.add([box, sprite, text])
     return container
   }
@@ -134,10 +137,14 @@ export default class MenuStatus extends Phaser.GameObjects.Container {
     const line2 = this.scene.add.line(-192, 1, 0, 0, -25, 120, config.COLORS.white).setOrigin(1, 0).setLineWidth(0.5).setAlpha(0.5)
     const line3 = this.scene.add.line(-242, 121, 0, 0, 80, 0, config.COLORS.white).setOrigin(1, 0).setLineWidth(0.5).setAlpha(0.5)
     const circle = this.scene.add.circle(-322, 123, 2, config.COLORS.white).setOrigin(0.5, 0.5)
-    container.setInteractive().on('pointerdown', () => this.setWeapon(null))
+    container.setInteractive().on('pointerdown', () => {
+      this.scene.se('click')
+      this.setWeapon(null)
+    })
     container.setSource = id => {
       const data = this.idToWeaponData(id)
-      icon.setTexture(`icon/${data.icon}`)
+      icon.setVisible(Boolean(data))
+      if (data) icon.setTexture(`icon/${data.icon}`)
       text.text = data ? data.name : '-'
       status.text = data ? this.getStatusText(data) : null
     }
@@ -161,7 +168,10 @@ export default class MenuStatus extends Phaser.GameObjects.Container {
       const count = this.scene.add.text(-133 + text.width, 0, `* ${weapon.count}`, { fontSize: 11, fontFamily: config.FONTS.UI, fill: config.COLORS.gray.toColorString }).setOrigin(0, 0.5)
       container.add([count])
     }
-    container.setInteractive().on('pointerdown', () => this.setWeapon(weapon.id))
+    container.setInteractive().on('pointerdown', () => {
+      this.scene.se('click')
+      this.setWeapon(weapon.id)
+    })
     return container
   }
 }
