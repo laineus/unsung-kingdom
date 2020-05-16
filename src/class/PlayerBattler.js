@@ -59,6 +59,9 @@ export default class PlayerBattler extends Battler {
     this.hpMaxLabel.setText(`/${this.maxHp}`)
     this.hpValueLabel.setText(this.hp)
   }
+  get hitSE () {
+    return 'hit'
+  }
   setWeapon () {
     const src = storage.state.weapons.find(v => v.id === this.source.weapon)
     this.weapon = src ? weapons.find(v => v.id === src.weapon_id) : null
