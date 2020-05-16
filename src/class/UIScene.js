@@ -115,11 +115,17 @@ export default class UIScene extends Phaser.Scene {
     this.encounter1.add(this.add.sprite(0, 60, 'click').setOrigin(0.5, 0.5).setScale(1, 1))
     this.add.tween({ targets: this.encounter1.list[0], duration: 400, ease: 'Power2', loop: -1, scaleX: 1.1, scaleY: 1.1 })
     this.add.tween({ targets: this.encounter1.list[1], duration: 400, loop: -1, yoyo: true, y: 65 })
-    this.encounter1.setInteractive().on('pointerdown', () => this.gameScene.encounter(true))
+    this.encounter1.setInteractive().on('pointerdown', () => {
+      this.se('click')
+      this.gameScene.encounter(true)
+    })
     // 2
     this.encounter2 = this.add.sprite((70).byRight, 70, 'encounter2').setOrigin(0.5, 0.5).setScale(0.9, 0.9)
     this.add.tween({ targets: this.encounter2, duration: 400, ease: 'Power2', loop: -1, scaleX: 1.1, scaleY: 1.1 })
-    this.encounter2.setInteractive().on('pointerdown', () => this.gameScene.encounter(true))
+    this.encounter2.setInteractive().on('pointerdown', () => {
+      this.se('click')
+      this.gameScene.encounter(true)
+    })
     this.setEncounter(false)
   }
   getCheckButton () {
