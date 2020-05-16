@@ -72,6 +72,7 @@ export default class PlayerBattler extends Battler {
     this.effect = this.weapon.effect
   }
   die () {
+    this.scene.se('die')
     return new Promise(resolve => {
       this.sprite.setTint(0x555555)
       resolve()

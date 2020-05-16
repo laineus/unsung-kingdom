@@ -141,6 +141,7 @@ export default class UIScene extends Phaser.Scene {
     }
   }
   async announce (text) {
+    this.se('announce')
     const announcement = this.add.container(20, 50)
     announcement.setDepth(DEPTH.ANNOUNCE)
     const tx = this.add.text(15, -1, text, { align: 'left', fontSize: 13, fontFamily: config.FONTS.TEXT }).setPadding(0, 2, 0, 0).setOrigin(0, 0.5)

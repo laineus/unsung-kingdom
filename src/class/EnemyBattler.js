@@ -50,6 +50,7 @@ export default class EnemyBattler extends Battler {
     })
   }
   die () {
+    this.scene.se(this.boss ? 'die_boss' : 'die')
     return new Promise(resolve => {
       this.sprite.setTint(0xFF0000)
       this.scene.add.tween({

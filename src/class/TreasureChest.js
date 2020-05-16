@@ -21,6 +21,7 @@ export default class TreasureChest extends Substance {
   }
   setEvent () {
     if (!this.weaponId || this.alreadyEarned) return
+    this.scene.se('unbox')
     this.setTapEvent(this.event.bind(this))
   }
   preUpdate () {
