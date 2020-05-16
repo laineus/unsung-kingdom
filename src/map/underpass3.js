@@ -2,6 +2,7 @@ import { doorEvent } from '../event/princess'
 import { wine } from '../event/cassandra'
 export default {
   name: 'トロイア公爵邸の地下通路 - 水路',
+  bgm: 'underpass',
   enemyLevel: 13,
   enemyGroups: [
     ['goblin', 'goblin', 'goblin'],

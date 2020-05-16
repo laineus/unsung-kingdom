@@ -2,6 +2,7 @@ import { cassandra } from '../event/cassandra'
 import { lamp } from '../event/aragnie'
 export default {
   name: 'トロイア公爵邸の地下通路 - 牢獄',
+  bgm: 'underpass',
   enemyLevel: 11,
   enemyGroups: [
     ['goblin'],
