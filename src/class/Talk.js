@@ -50,6 +50,7 @@ export default class Talk extends Phaser.GameObjects.Container {
   }
   next () {
     if (!this.current) return this.end()
+    this.scene.se('talk')
     if (this.sameSpeakerAsBefore) {
       this.bubble.setText(this.current.text)
     } else {
