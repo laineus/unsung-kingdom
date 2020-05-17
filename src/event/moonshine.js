@@ -129,13 +129,14 @@ export const dionysus = (scene, dionysus, area, gate) => {
   })
 }
 
-export const orthrus = (scene, boss, area) => {
+export const orthrus = (scene, boss, area, barrel) => {
   const state = scene.storage.state.event.m2_3
   if (state.solved) {
     area.destroy()
     boss.destroy()
     return
   }
+  if (!state.started) barrel.destroy()
   area.setEvent(async () => {
     if (state.started) {
       await scene.camera.look(0, -180, 1000, true)

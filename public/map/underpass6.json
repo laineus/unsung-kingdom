@@ -70,6 +70,24 @@
          "y":0
         }, 
         {
+         "id":20,
+         "image":"..\/img\/tilesets\/image\/barrel.png",
+         "name":"barrel",
+         "offsetx":645,
+         "offsety":522,
+         "opacity":1,
+         "properties":[
+                {
+                 "name":"depth",
+                 "type":"string",
+                 "value":"SUBSTANCE"
+                }],
+         "type":"imagelayer",
+         "visible":true,
+         "x":0,
+         "y":0
+        }, 
+        {
          "draworder":"topdown",
          "id":18,
          "name":"exposure",
@@ -170,7 +188,7 @@
          "x":0,
          "y":0
         }],
- "nextlayerid":19,
+ "nextlayerid":21,
  "nextobjectid":6,
  "orientation":"orthogonal",
  "properties":[
@@ -185,7 +203,7 @@
          "value":"#ffff0000"
         }],
  "renderorder":"right-down",
- "tiledversion":"2020.01.22",
+ "tiledversion":"2020.05.07",
  "tileheight":32,
  "tilesets":[
         {
