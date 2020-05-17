@@ -2,6 +2,7 @@ import { calibur } from '../event/calibur'
 import { appleCollection } from '../event/lute'
 export default {
   name: 'グリファルデ神殿 - 東部',
+  bgm: 'temple',
   enemyLevel: 39,
   enemyGroups: [
     ['tree', 'tree'],
