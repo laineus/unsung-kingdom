@@ -145,7 +145,7 @@ export const orthrus = (scene, boss, area) => {
         { chara: 'ann', text: 'さあみんな、行くよ！' }
       ])
       await scene.ui.sleep(500)
-      const result = await scene.ui.battle([generateBattler('orthrus', 18, { hp: 800 })], { boss: true })
+      const result = await scene.ui.battle([generateBattler('orthrus', 18, { hp: 800 })], { boss: true, bgm: 'battle2' })
       if (!result) return
       area.destroy()
       await boss.die()

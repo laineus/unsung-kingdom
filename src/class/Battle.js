@@ -13,7 +13,7 @@ const positions = {
   5: [-260, -130, 0, 130, 260]
 }
 export default class Battle extends Phaser.GameObjects.Container {
-  constructor (scene, group, { boss = false, defeatEvent = false } = {}, callback) {
+  constructor (scene, group, { boss = false, defeatEvent = false, bgm = null } = {}, callback) {
     super(scene)
     this.group = group
     this.scene = scene
@@ -62,7 +62,7 @@ export default class Battle extends Phaser.GameObjects.Container {
       v.y += 150
       this.scene.add.tween({ targets: v, duration: 200, ease: 'Power2', delay: i * 50, y: v.y - 150 })
     })
-    this.bgmResolver = this.scene.interruptBgm('battle')
+    this.bgmResolver = this.scene.interruptBgm(bgm || 'battle')
   }
   preUpdate () {
     this.enemies.list.forEach((v, i) => {

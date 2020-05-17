@@ -184,7 +184,7 @@ export const jack = (scene, jk, area1, area2, area3) => {
       { chara: 'ann', text: 'あんたこそ、残念だけど前のようにはいかないよ。覚悟しなさい。' }
     ])
     await scene.ui.sleep(500)
-    const result = await scene.ui.battle([generateBattler('jack', 27, { hp: 1300 })], { boss: true })
+    const result = await scene.ui.battle([generateBattler('jack', 27, { hp: 1300 })], { boss: true, bgm: 'battle2' })
     if (!result) return
     await scene.ui.sleep(500)
     await scene.talk([
