@@ -21,7 +21,6 @@ export default class TreasureChest extends Substance {
   }
   setEvent () {
     if (!this.weaponId || this.alreadyEarned) return
-    this.scene.se('unbox')
     this.setTapEvent(this.event.bind(this))
   }
   preUpdate () {
@@ -29,6 +28,7 @@ export default class TreasureChest extends Substance {
   }
   open () {
     this.state.push(this.stateKey)
+    this.scene.se('unbox')
     this.image.anims.play('treasure', true)
     this.removeTapEvent()
   }
