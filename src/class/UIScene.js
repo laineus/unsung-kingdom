@@ -79,6 +79,7 @@ export default class UIScene extends Phaser.Scene {
     }
     const key = `bgm/${name}`
     if (this.currentBgm && this.currentBgm.key === key) return
+    if (this.currentBgm) this.currentBgm.stop()
     this.currentBgm = this.sound.add(key, { loop: true, volume: DUMMY_VOLUME })
     this.currentBgm.play()
   }
