@@ -1,5 +1,6 @@
 export default {
   name: '聖アンテルスの墓地 - 上流階級の墓',
+  bgm: 'catacomb',
   enemyLevel: 27,
   enemyGroups: [
     ['skull', 'spectre', 'skull'],

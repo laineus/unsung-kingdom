@@ -1,6 +1,7 @@
 import { jack } from '../event/dario'
 export default {
   name: '聖アンテルスの墓地 - 西区画',
+  bgm: 'catacomb',
   enemyLevel: 25,
   enemyGroups: [
     ['ghost', 'ghost'],

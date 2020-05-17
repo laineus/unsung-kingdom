@@ -1,6 +1,7 @@
 import { ferdinand } from '../event/ferdinand'
 export default {
   name: '聖アンテルスの墓地 - 共同墓地',
+  bgm: 'catacomb',
   enemyLevel: 21,
   enemyGroups: [
     ['phantom'],

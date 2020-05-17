@@ -1,6 +1,7 @@
 import { marianne } from '../event/marianne'
 export default {
   name: '聖アンテルスの墓地 - 共同墓地南',
+  bgm: 'catacomb',
   enemyLevel: 23,
   enemyGroups: [
     ['phantom', 'skull'],

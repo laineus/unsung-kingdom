@@ -1,5 +1,6 @@
 export default {
   name: '聖アンテルスの墓地 - 西区画',
+  bgm: 'catacomb',
   enemyLevel: 24,
   enemyGroups: [
     ['ghost', 'ghost'],

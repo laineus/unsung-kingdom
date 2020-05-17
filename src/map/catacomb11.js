@@ -1,6 +1,7 @@
 import { evangelina } from '../event/evangelina'
 export default {
   name: '聖アンテルスの墓地 - 王家の墓',
+  bgm: 'catacomb',
   enemyLevel: 29,
   enemyGroups: [
     ['skull', 'spectre', 'skull'],
