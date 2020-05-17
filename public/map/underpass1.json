@@ -62,8 +62,14 @@
          "image":"..\/img\/tilesets\/image\/aragnie_jail.png",
          "name":"jail",
          "offsetx":1312,
-         "offsety":320,
+         "offsety":260,
          "opacity":1,
+         "properties":[
+                {
+                 "name":"depth",
+                 "type":"string",
+                 "value":"SUBSTANCE"
+                }],
          "type":"imagelayer",
          "visible":true,
          "x":0,
@@ -295,7 +301,7 @@
          "value":"#ffff0000"
         }],
  "renderorder":"right-down",
- "tiledversion":"2020.01.22",
+ "tiledversion":"2020.05.07",
  "tileheight":32,
  "tilesets":[
         {
