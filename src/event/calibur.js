@@ -94,10 +94,11 @@ export const calibur = (scene, sword, nikke) => {
       const mist = scene.add.rectangle(0, 0, scene.map.width, scene.map.height, 0x44CC88)
       mist.setAlpha(0).setBlendMode(Phaser.BlendModes.OVERLAY).setDepth(140000).setOrigin(0, 0)
       scene.add.tween({
-        targets: mist, duration: 1200, ease: 'Power2', alpha: 0.7, yoyo: true, onComplete () { mist.destroy() }
+        targets: mist, duration: 1200, ease: 'Power2', alpha: 0.7, yoyo: true, hold: 1200, onComplete () { mist.destroy() }
       })
-      await scene.ui.sleep(1200)
-      nikke.setVisible(true)
+      await scene.ui.sleep(2400)
+      nikke.setVisible(true).setAlpha(0)
+      scene.add.tween({ targets: nikke, duration: 1200, ease: 'Power2', alpha: 1 })
       await scene.ui.sleep(300)
       scene.player.tweet('！')
       await scene.ui.sleep(1200)
@@ -107,6 +108,7 @@ export const calibur = (scene, sword, nikke) => {
         { chara, text: '僕を呼んだのはキミだね？' },
         { chara: 'ann', text: 'えっと、ニッケさん？' },
         { chara, text: 'うん。' },
+        { chara, text: 'ズィからの伝言を聞いたよ。' },
         { chara, text: 'キミは？' },
         { chara: 'ann', text: '私はアン。' },
         { chara, text: 'アン、キミはこの剣が欲しいんだね？' },
