@@ -5,7 +5,7 @@ export default {
     ['bird'],
     ['bird', 'bird']
   ],
-  create () {
+  create (scene) {
     scene.tweetOnce(scene.jaquelyn, '神殿の入り口に着いたわ', 'tm1')
   }
 }
