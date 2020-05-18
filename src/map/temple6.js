@@ -1,6 +1,7 @@
 export default {
   name: 'グリファルデ神殿 - 2階',
   bgm: 'temple',
+  battleBgm: 'temple',
   enemyLevel: 37,
   enemyGroups: [
     ['bird'],

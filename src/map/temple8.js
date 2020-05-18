@@ -2,6 +2,7 @@ import { appleCollection, GOOD_APPLES } from '../event/lute'
 export default {
   name: 'グリファルデ神殿 - 東部',
   bgm: 'temple',
+  battleBgm: 'temple',
   enemyLevel: 38,
   enemyGroups: [
     ['tree'],
