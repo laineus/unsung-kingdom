@@ -45,8 +45,11 @@ export default class PlayerBattler extends Battler {
     this.setWeapon()
     this.weaponLabel = this.scene.add.container(122, 38).setSize(360, 45)
     const weaponName = this.scene.add.text(0, 0, this.weapon ? this.weapon.name : '-', { fill: config.COLORS.gray.toColorString, stroke: config.COLORS.dark.toColorString, strokeThickness: 2, fontSize: 11, fontFamily: config.FONTS.TEXT }).setOrigin(1, 1)
-    const icon = this.scene.add.sprite(-weaponName.width, 2, `icon/${this.weapon.icon}`).setScale(0.18).setOrigin(1, 1).setTint(config.COLORS.gray)
-    this.weaponLabel.add([icon, weaponName])
+    this.weaponLabel.add(weaponName)
+    if (this.weapon) {
+      const icon = this.scene.add.sprite(-weaponName.width, 2, `icon/${this.weapon.icon}`).setScale(0.18).setOrigin(1, 1).setTint(config.COLORS.gray)
+      this.weaponLabel.add(icon)
+    }
     this.add(this.weaponLabel)
   }
   get hp () {
