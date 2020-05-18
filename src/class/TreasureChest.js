@@ -16,8 +16,10 @@ export default class TreasureChest extends Substance {
     return this.state.includes(this.stateKey)
   }
   async event () {
-    this.scene.ui.increaseWeapon(this.weaponId)
     this.open()
+    this.scene.ui.sleep(300).then(() => {
+      this.scene.ui.increaseWeapon(this.weaponId)
+    })
   }
   setEvent () {
     if (!this.weaponId || this.alreadyEarned) return
