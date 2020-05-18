@@ -140,7 +140,9 @@ export default class GameScene extends Phaser.Scene {
     this.setEncountDelay()
     if (!bool) return
     this.player.stopWalk()
-    this.ui.battle(this.event.enemyGroups.random().map(key => generateBattler(key, this.event.enemyLevel))).then(() => {
+    const group = this.event.enemyGroups.random().map(key => generateBattler(key, this.event.enemyLevel))
+    const bgm = this.event.battleBgm
+    this.ui.battle(group, { bgm }).then(() => {
       tweetsAfterBattle(this)
     })
   }

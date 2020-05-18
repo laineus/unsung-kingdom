@@ -84,8 +84,12 @@ export default class UIScene extends Phaser.Scene {
     this.currentBgm.play()
   }
   interruptBgm (name) {
-    if (this.currentBgm) this.currentBgm.pause()
-    const bgm = this.sound.add(`bgm/${name}`, { loop: true, volume: DUMMY_VOLUME, duration: 200 })
+    const key = `bgm/${name}`
+    if (this.currentBgm) {
+      if (this.currentBgm.key === key) return () => null
+      this.currentBgm.pause()
+    }
+    const bgm = this.sound.add(key, { loop: true, volume: DUMMY_VOLUME, duration: 200 })
     bgm.play()
     const resolve = () => {
       if (this.currentBgm) {
