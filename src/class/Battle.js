@@ -63,6 +63,21 @@ export default class Battle extends Phaser.GameObjects.Container {
       this.scene.add.tween({ targets: v, duration: 200, ease: 'Power2', delay: i * 50, y: v.y - 150 })
     })
     this.bgmResolver = this.scene.interruptBgm(bgm || 'battle')
+    this.cutIn2()
+  }
+  cutIn2 () {
+    const x = config.WIDTH.half
+    const y = config.HEIGHT.half
+    const points = [[0, 200], [config.WIDTH, 0], [config.WIDTH, 150], [0, 220]]
+    const yAll = points.map(v => v[1])
+    const height = Math.max(...yAll) - Math.min(...yAll)
+    const bg = this.scene.add.polygon(x, y, points).setFillStyle(config.COLORS.black).setScale(1, 0)
+    const graphic = this.scene.make.graphics().setPosition(0, y).setScale(1, 0).fillStyle(config.COLORS.black).fillPoints(bg.geom.points, true)
+    const mask = new Phaser.Display.Masks.GeometryMask(this.scene, graphic)
+    const image = this.scene.add.sprite(x, y, 'title').setAlpha(0.5).setMask(mask)
+    this.scene.add.tween({ targets: bg, duration: 1000, ease: 'Power2', scaleY: 1, loop: -1 })
+    this.scene.add.tween({ targets: graphic, duration: 1000, ease: 'Power2', scaleY: 1, y: y - height.half, loop: -1 })
+    this.add([bg, image])
   }
   preUpdate () {
     this.enemies.list.forEach((v, i) => {
