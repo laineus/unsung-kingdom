@@ -12,12 +12,10 @@ export default class Box extends Phaser.GameObjects.Polygon {
     const leftBottom = [0, height]
     const rightTop = [width, 0]
     const rightBottom = [width - diff, height]
-    super(scene, x, y, [leftTop, rightTop, rightBottom, leftBottom], color)
-    this.setAlpha(alpha)
+    super(scene, x, y, [leftTop, rightTop, rightBottom, leftBottom])
+    this.setFillStyle(color, alpha)
     if (lineColor) {
-      this.isStroked = true
-      this.lineWidth = 1.5
-      this.strokeColor = lineColor
+      this.setStrokeStyle(1.1, lineColor)
     }
   }
 }
