@@ -159,7 +159,7 @@ export default class Battle extends Phaser.GameObjects.Container {
   async counter (base, tgt) {
     const noCounterPercent = Math.round(tgt.hp * 100 / tgt.maxHp)
     if (Math.chance(noCounterPercent)) return false
-    const result = await this.counterChance(base, tgt)
+    const result = await this.counterChance(tgt)
     if (result) {
       storage.state.counter_delay -= storage.state.counter_delay > 500 ? 100 : 10
       await this.cutIn()
@@ -169,21 +169,17 @@ export default class Battle extends Phaser.GameObjects.Container {
     }
     return result
   }
-  async counterChance (base, tgt) {
-    // const button = this.scene.add.rectangle(0, 0, config.WIDTH, config.HEIGHT, 0xFF0000).setOrigin(0, 0).setAlpha(0.5).setBlendMode(Phaser.BlendModes.OVERLAY)
-    const diffX = tgt.x - base.x
-    const diffY = tgt.y - 45 - base.y
-    const line = this.scene.add.line(0, 0, base.x, base.y, tgt.x, tgt.y - 45, 0xEE8811).setOrigin(0, 0).setLineWidth(1).setAlpha(0.5)
-    const circle = this.scene.add.circle(base.x, base.y, 3, 0xEE8811).setOrigin(0.5, 0.5)
-    const triangle = this.scene.add.triangle(tgt.x, tgt.y - 45, -10, -7, -10, 7, 10, 0, 0xEE8811).setRotation(Math.atan2(diffY, diffX)).setOrigin(0, 0)
-    const button = new Button(this.scene, base.x + diffX.half, base.y + diffY.half, 'COUNTER!!', 240, 70)
-    const objs = [button, line, circle, triangle]
-    this.add(objs)
+  async counterChance (tgt) {
+    const button = this.scene.add.container(tgt.x, tgt.y - 90).setSize(140, 140)
+    const box = this.scene.add.rectangle(0, 0, 140, 140).setFillStyle(config.COLORS.black, 0.6).setStrokeStyle(1, config.COLORS.white).setRotation(Math.PI / 4)
+    const text = this.scene.add.text(0, 0, 'COUNTER!!', { align: 'center', fontSize: 27, fontFamily: config.FONTS.UI }).setOrigin(0.5, 0.5).setPadding(0, 2, 0, 0)
+    button.add([box, text])
+    this.add(button)
     return new Promise(resolve => {
       button.setInteractive().on('pointerdown', () => resolve(true))
-      this.scene.sleep(storage.state.counter_delay).then(() => resolve(false))
+      this.scene.sleep(storage.state.counter_delay + 1000000).then(() => resolve(false))
     }).then(result => {
-      objs.forEach(v => v.destroy())
+      button.destroy()
       return result
     })
   }
