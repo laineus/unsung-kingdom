@@ -40,9 +40,6 @@ export default class Battler extends Phaser.GameObjects.Container {
     const lvCorrection = Math.fix((this.lv - target.lv) * 0.6, 1, 4)
     return Math.round(base * lvCorrection)
   }
-  weaknessTo (target) {
-    return 1
-  }
   accuracyTo (target) {
     return this.dex * 80 / target.agi
   }
@@ -52,21 +49,25 @@ export default class Battler extends Phaser.GameObjects.Container {
   getAttackMode () {
     return this.abillities.find(v => Math.chance(v.chance)) || { type: 'normal', mag: 1 }
   }
-  async attackTo (target, { mag = 1 } = {}) {
+  async attackTo (target, { mag = 1, counter = false } = {}) {
     const baseDamage = Math.round(this.baseDamageTo(target) * mag)
-    const cri = Math.chance(this.criticalTo(target))
-    const weakness = this.weaknessTo(target)
-    const hit = Math.chance(this.accuracyTo(target))
+    const cri = !counter && Math.chance(this.criticalTo(target))
+    const hit = counter || Math.chance(this.accuracyTo(target))
     this.setActive(false)
-    return hit ? target.addDamage(this, baseDamage, cri, weakness) : target.damageText('Miss')
+    return hit ? target.addDamage(this, baseDamage, { cri, counter }) : target.damageText('Miss')
   }
-  async addDamage (attacker, baseDamage, cri, weakness) {
-    const damage = baseDamage * (cri ? 2 : 1) * weakness
+  async addDamage (attacker, baseDamage, { cri, counter } = {}) {
+    const mag = (() => {
+      if (cri) return 2
+      return counter ? 1.5 : 1
+    })()
+    const damage = Math.round(baseDamage * mag)
     this.hp -= damage
-    this.add(new BattleEffect(this.scene, cri, attacker.effect))
-    if (cri) this.critical()
+    const largeEffect = (cri || counter)
+    this.add(new BattleEffect(this.scene, largeEffect, attacker.effect))
+    if (largeEffect) this.critical(counter)
     this.scene.se(this.hitSE)
-    this.damageText(damage, { cri })
+    this.damageText(damage, { large: largeEffect })
     await this.scene.sleep(120)
     return this.hp <= 0 ? this.die() : null
   }
@@ -81,9 +82,9 @@ export default class Battler extends Phaser.GameObjects.Container {
     this.scene.se('heal')
     target.damageText(addition, { colorKey: 'theme' })
   }
-  critical () {
-    const bg = this.scene.add.sprite(0, 0, 'critical_bg').setTint(0xCC0000).setScale(0)
-    const tx = this.scene.add.sprite(0, 0, 'critical_tx').setScale(0)
+  critical (counter) {
+    const bg = this.scene.add.sprite(0, 0, 'critical_bg').setTint(counter ? 0xEE8811 : 0xCC0000).setScale(0)
+    const tx = this.scene.add.sprite(0, 0, counter ? 'counter_tx' : 'critical_tx').setScale(0)
     this.scene.add.tween({
       targets: [bg, tx], duration: 30, scale: 2, ease: 'Power2', onComplete: () => {
         this.scene.add.tween({
@@ -100,8 +101,8 @@ export default class Battler extends Phaser.GameObjects.Container {
     })
     this.add([bg, tx])
   }
-  damageText (damage, { colorKey = 'soy', cri = false } = {}) {
-    const text = this.scene.add.text(0, 0, damage, { fill: config.COLORS[colorKey].toColorString, stroke: config.COLORS.dark.toColorString, strokeThickness: 5, fontSize: cri ? 50 : 36, fontStyle: 'bold', fontFamily: config.FONTS.UI }).setOrigin(0.5, 0.5)
+  damageText (damage, { colorKey = 'soy', large = false } = {}) {
+    const text = this.scene.add.text(0, 0, damage, { fill: config.COLORS[colorKey].toColorString, stroke: config.COLORS.dark.toColorString, strokeThickness: 5, fontSize: large ? 50 : 36, fontStyle: 'bold', fontFamily: config.FONTS.UI }).setOrigin(0.5, 0.5)
     this.scene.add.tween({
       targets: text, duration: 150,
       y: -40,

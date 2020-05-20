@@ -167,7 +167,7 @@ export default class Battle extends Phaser.GameObjects.Container {
     if (result) {
       storage.state.counter_delay -= storage.state.counter_delay > 500 ? 100 : 10
       await this.cutIn(tgt)
-      await tgt.attackTo(this.currentBattler)
+      await tgt.attackTo(this.currentBattler, { counter: true })
     } else {
       if (storage.state.counter_delay < 500) storage.state.counter_delay += 10
     }
