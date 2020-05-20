@@ -1,4 +1,12 @@
 { "columns":20,
+ "editorsettings":
+    {
+     "export":
+        {
+         "format":"",
+         "target":"."
+        }
+    },
  "image":"..\/img\/tilesets\/original\/town.png",
  "imageheight":416,
  "imagewidth":640,
@@ -6,7 +14,7 @@
  "name":"town",
  "spacing":0,
  "tilecount":260,
- "tiledversion":"2018.12.22",
+ "tiledversion":"1.3.3",
  "tileheight":32,
  "tiles":[
         {
@@ -382,14 +390,53 @@
          "type":"collides"
         }, 
         {
+         "animation":[
+                {
+                 "duration":100,
+                 "tileid":170
+                }, 
+                {
+                 "duration":100,
+                 "tileid":210
+                }, 
+                {
+                 "duration":100,
+                 "tileid":130
+                }],
          "id":170,
          "type":"collides"
         }, 
         {
+         "animation":[
+                {
+                 "duration":100,
+                 "tileid":171
+                }, 
+                {
+                 "duration":100,
+                 "tileid":131
+                }, 
+                {
+                 "duration":100,
+                 "tileid":211
+                }],
          "id":171,
          "type":"collides"
         }, 
         {
+         "animation":[
+                {
+                 "duration":100,
+                 "tileid":172
+                }, 
+                {
+                 "duration":100,
+                 "tileid":132
+                }, 
+                {
+                 "duration":100,
+                 "tileid":212
+                }],
          "id":172,
          "type":"collides"
         }, 
@@ -414,14 +461,53 @@
          "type":"collides"
         }, 
         {
+         "animation":[
+                {
+                 "duration":100,
+                 "tileid":190
+                }, 
+                {
+                 "duration":100,
+                 "tileid":150
+                }, 
+                {
+                 "duration":100,
+                 "tileid":230
+                }],
          "id":190,
          "type":"collides"
         }, 
         {
+         "animation":[
+                {
+                 "duration":100,
+                 "tileid":191
+                }, 
+                {
+                 "duration":100,
+                 "tileid":151
+                }, 
+                {
+                 "duration":100,
+                 "tileid":231
+                }],
          "id":191,
          "type":"collides"
         }, 
         {
+         "animation":[
+                {
+                 "duration":100,
+                 "tileid":192
+                }, 
+                {
+                 "duration":100,
+                 "tileid":152
+                }, 
+                {
+                 "duration":100,
+                 "tileid":232
+                }],
          "id":192,
          "type":"collides"
         }, 
