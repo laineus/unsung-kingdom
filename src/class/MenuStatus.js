@@ -132,8 +132,8 @@ export default class MenuStatus extends Phaser.GameObjects.Container {
     const box = new Box(this.scene, 0, 0, 360, 40).setOrigin(0.5, 0.5)
     const icon = this.scene.add.sprite(-168, 0).setScale(0.22).setOrigin(0, 0.5).setTint(config.COLORS.ghost)
     const text = this.scene.add.text(-138, 0, null, { fontSize: 15, fontStyle: 'bold', fontFamily: config.FONTS.TEXT }).setOrigin(0, 0.5)
-    const status = this.scene.add.text(165, 0, null, { fontSize: 14, fontStyle: 'bold', fontFamily: config.FONTS.UI, fill: config.COLORS.gray.toColorString }).setOrigin(1, 0.5)
-    const ability = this.scene.add.sprite(0, 0, 'weapon_abilities').setOrigin(1, 0.5)
+    const status = this.scene.add.text(137, 0, null, { fontSize: 14, fontStyle: 'bold', fontFamily: config.FONTS.UI, fill: config.COLORS.gray.toColorString }).setOrigin(1, 0.5)
+    const ability = this.scene.add.sprite(165, 0, 'weapon_abilities').setOrigin(1, 0.5)
     const line1 = this.scene.add.line(-177, 0, 0, 0, 40, 0, config.COLORS.white).setOrigin(1, 0).setLineWidth(0.5).setAlpha(0.5)
     const line2 = this.scene.add.line(-192, 1, 0, 0, -25, 120, config.COLORS.white).setOrigin(1, 0).setLineWidth(0.5).setAlpha(0.5)
     const line3 = this.scene.add.line(-242, 121, 0, 0, 80, 0, config.COLORS.white).setOrigin(1, 0).setLineWidth(0.5).setAlpha(0.5)
@@ -150,7 +150,7 @@ export default class MenuStatus extends Phaser.GameObjects.Container {
       status.text = data ? this.getStatusText(data) : null
       if (data) {
         icon.setTexture(`icon/${data.icon}`)
-        ability.setPosition(status.x - status.width - 7, 0).setFrame(Math.max(data.ability - 1, 0)).setVisible(data.ability !== null)
+        ability.setFrame(Math.max(data.ability - 1, 0)).setVisible(data.ability !== null)
       }
     }
     container.setSource(id)
@@ -167,10 +167,10 @@ export default class MenuStatus extends Phaser.GameObjects.Container {
     const box = new Box(this.scene, 0, 0, 360, 32).setOrigin(0.5, 0.5)
     const icon = this.scene.add.sprite(-168, 0, `icon/${weapon.icon}`).setScale(0.2).setOrigin(0, 0.5).setTint(config.COLORS.ghost)
     const text = this.scene.add.text(-138, 0, weapon.name, { fontSize: 14, fontStyle: 'bold', fontFamily: config.FONTS.TEXT }).setOrigin(0, 0.5)
-    const status = this.scene.add.text(165, 0, this.getStatusText(weapon), { fontSize: 12, fontFamily: config.FONTS.UI, fill: config.COLORS.gray.toColorString }).setOrigin(1, 0.5)
+    const status = this.scene.add.text(137, 0, this.getStatusText(weapon), { fontSize: 12, fontFamily: config.FONTS.UI, fill: config.COLORS.gray.toColorString }).setOrigin(1, 0.5)
     container.add([box, icon, text, status])
     if (weapon.ability) {
-      const ability = this.scene.add.sprite(status.x - status.width - 7, 0, 'weapon_abilities').setFrame(weapon.ability - 1).setOrigin(1, 0.5)
+      const ability = this.scene.add.sprite(165, 0, 'weapon_abilities').setFrame(weapon.ability - 1).setOrigin(1, 0.5)
       container.add(ability)
     }
     if (weapon.count > 1) {
