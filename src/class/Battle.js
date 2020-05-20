@@ -63,21 +63,6 @@ export default class Battle extends Phaser.GameObjects.Container {
       this.scene.add.tween({ targets: v, duration: 200, ease: 'Power2', delay: i * 50, y: v.y - 150 })
     })
     this.bgmResolver = this.scene.interruptBgm(bgm || 'battle')
-    this.cutIn2()
-  }
-  cutIn2 () {
-    const x = config.WIDTH.half
-    const y = config.HEIGHT.half
-    const points = [[0, 200], [config.WIDTH, 0], [config.WIDTH, 150], [0, 220]]
-    const yAll = points.map(v => v[1])
-    const height = Math.max(...yAll) - Math.min(...yAll)
-    const bg = this.scene.add.polygon(x, y, points).setFillStyle(config.COLORS.black).setScale(1, 0)
-    const graphic = this.scene.make.graphics().setPosition(0, y).setScale(1, 0).fillStyle(config.COLORS.black).fillPoints(bg.geom.points, true)
-    const mask = new Phaser.Display.Masks.GeometryMask(this.scene, graphic)
-    const image = this.scene.add.sprite(x, y, 'title').setAlpha(0.5).setMask(mask)
-    this.scene.add.tween({ targets: bg, duration: 1000, ease: 'Power2', scaleY: 1, loop: -1 })
-    this.scene.add.tween({ targets: graphic, duration: 1000, ease: 'Power2', scaleY: 1, y: y - height.half, loop: -1 })
-    this.add([bg, image])
   }
   preUpdate () {
     this.enemies.list.forEach((v, i) => {
@@ -156,20 +141,24 @@ export default class Battle extends Phaser.GameObjects.Container {
     return this.attackToOnePlayer(loop - 1, mag)
   }
   async cutIn () {
-    const h = 110
-    const counterBg = this.scene.add.rectangle(0, (h.half + 24).byBottom, config.WIDTH, h, config.COLORS.theme).setOrigin(0, 0.5).setScale(1, 0)
-    const counterChara = this.scene.add.sprite(200, (180).byBottom, 'ann').setOrigin(0.5, 0)
-    this.scene.add.tween({
-      targets: counterBg, duration: 100, ease: 'Power2', scaleY: 1, onComplete: () => {
-        this.scene.add.tween({
-          targets: [counterBg, counterChara], duration: 100, ease: 'Power2', delay: 600, alpha: 0, onComplete: () => {
-            counterBg.destroy()
-          }
-        })
-      }
+    const scene = this.scene
+    const x = -10
+    const y = 450
+    const r = -0.12
+    const points = [[0, 80], [config.WIDTH + 50, 0], [config.WIDTH + 50, 240], [0, 160]]
+    const height = Math.max(...points.map(v => v[1])) - Math.min(...points.map(v => v[1]))
+    const moveX = Math.cos(r - Math.PI / 2) * height.half
+    const moveY = Math.sin(r - Math.PI / 2) * height.half
+    const bg = scene.add.polygon(x, y, points).setFillStyle(config.COLORS.black).setScale(1, 0).setRotation(r).setOrigin(0, 0)
+    const graphic = scene.make.graphics().setPosition(x, y).setScale(1, 0).setRotation(r).fillPoints(bg.geom.points, true)
+    const mask = new Phaser.Display.Masks.GeometryMask(scene, graphic)
+    const image = scene.add.sprite(x + 600, y + 200, 'ann').setAlpha(0.5).setMask(mask)
+    scene.add.tween({
+      targets: [bg, graphic], duration: 120, ease: 'Power2', yoyo: true, hold: 500,
+      scaleY: 1, x: x + moveX, y: y + moveY,
+      onComplete: () => [bg, graphic, mask, image].forEach(v => v.destroy())
     })
-    this.add([counterBg, counterChara])
-    await this.scene.sleep(200)
+    await this.scene.sleep(400)
   }
   async counter (base, tgt) {
     const noCounterPercent = Math.round(tgt.hp * 100 / tgt.maxHp)
