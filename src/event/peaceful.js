@@ -47,7 +47,7 @@ export const peaceful = (scene, area1, area2, soldier1, soldier2, jack) => {
     ])
     await scene.ui.sleep(500)
     await scene.ui.transition('fast')
-    jack.initImage('kingbrother').setFaceKey('kingbrother2').setDisplayName('王弟エゼルバルド')
+    jack.initImage('kingbrother').setFaceKey('kingbrother3').setDisplayName('王弟エゼルバルド')
     await scene.ui.sleep(500)
     const t = await scene.talk([
       { chara, text: '俺は王弟エゼルバルドだ。' },
