@@ -183,7 +183,7 @@ export default class Battle extends Phaser.GameObjects.Container {
     this.add(button)
     return new Promise(resolve => {
       button.setInteractive().on('pointerdown', () => resolve(true))
-      this.scene.sleep(storage.state.counter_delay + 1000000).then(() => resolve(false))
+      this.scene.sleep(storage.state.counter_delay).then(() => resolve(false))
     }).then(result => {
       button.destroy()
       return result
