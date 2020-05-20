@@ -41,7 +41,7 @@ export const architect = (scene, chara) => {
       const next = async () => {
         chara.setTalking(true)
         const i = await scene.select(['像について', 'ドラゴンについて'])
-        if (i === 0) { 
+        if (i === 0) {
           await scene.camera.look((25).toPixelCenter, (22).toPixelCenter, 600)
           await scene.ui.sleep(1000)
           await scene.talk([

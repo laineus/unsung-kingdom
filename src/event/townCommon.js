@@ -56,7 +56,7 @@ export const annabelle = async (scene, chara) => {
       { chara, text: 'うちの宿屋にもね、ドラゴンと戦うエドガー王の絵画が飾ってあるから、' },
       { chara, text: 'よかったら見ていってね。' },
       { chara, text: 'パパが高く買った絵なんだけど、とっても評判がいいの。' },
-      { chara, text: 'ベリオン人にとってこの話は誇りみたい。' },
+      { chara, text: 'ベリオン人にとってこの話は誇りみたい。' }
     ])
     chara.nextMessages = [{ chara, text: 'ベリオン人にとってこの話は誇りみたい。' }]
     state.push(2)

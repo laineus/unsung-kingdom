@@ -55,7 +55,7 @@ export default (scene, charas) => {
       { chara, text: 'それじゃあ格好がつかないからって、王の手柄になっただとか。' },
       { chara, text: 'おまけに旅人の女の子たちが倒しただなんて噂まであるわ。' },
       { chara: 'ann', text: 'あはは。' },
-      { chara, text: 'まあ、私は陛下が倒したって信じているわ。' },
+      { chara, text: 'まあ、私は陛下が倒したって信じているわ。' }
     ])
     chara.nextMessages = [{ chara, text: '平和が何より一番ね。' }]
   })
@@ -126,7 +126,7 @@ export default (scene, charas) => {
       { chara, text: '国民のために自ら命がけで戦うなんてな。' },
       { chara, text: '俺も、なんというか、' },
       { chara, text: 'もっと人のために生きてみてもいいんじゃないかって、' },
-      { chara, text: 'ちょっと考えさせられたよ。' },
+      { chara, text: 'ちょっと考えさせられたよ。' }
     ])
     chara.nextMessages = [{ chara, text: 'ほんと、ベリオン人として誇らしく思うぜ。' }]
   })
