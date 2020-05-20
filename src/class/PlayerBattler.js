@@ -43,12 +43,17 @@ export default class PlayerBattler extends Battler {
     this.add(this.gauge)
     // weapon
     this.setWeapon()
+    const padding = this.weapon && this.weapon.ability ? 24 : 0
     this.weaponLabel = this.scene.add.container(122, 38).setSize(360, 45)
-    const weaponName = this.scene.add.text(0, 0, this.weapon ? this.weapon.name : '-', { fill: config.COLORS.gray.toColorString, stroke: config.COLORS.dark.toColorString, strokeThickness: 2, fontSize: 11, fontFamily: config.FONTS.TEXT }).setOrigin(1, 1)
+    const weaponName = this.scene.add.text(-padding, 0, this.weapon ? this.weapon.name : '-', { fill: config.COLORS.gray.toColorString, stroke: config.COLORS.dark.toColorString, strokeThickness: 2, fontSize: 11, fontFamily: config.FONTS.TEXT }).setOrigin(1, 1)
     this.weaponLabel.add(weaponName)
     if (this.weapon) {
-      const icon = this.scene.add.sprite(-weaponName.width, 2, `icon/${this.weapon.icon}`).setScale(0.18).setOrigin(1, 1).setTint(config.COLORS.gray)
+      const icon = this.scene.add.sprite(-weaponName.width - padding, 2, `icon/${this.weapon.icon}`).setScale(0.18).setOrigin(1, 1).setTint(config.COLORS.gray)
       this.weaponLabel.add(icon)
+      if (this.weapon.ability) {
+        const ability = this.scene.add.sprite(0, 1, 'weapon_abilities').setFrame(this.weapon.ability - 1).setOrigin(1, 1)
+        this.weaponLabel.add(ability)
+      }
     }
     this.add(this.weaponLabel)
   }
