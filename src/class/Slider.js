@@ -1,8 +1,8 @@
 import Gauge from './Gauge'
 import config from '../data/config'
 export default class Slider extends Gauge {
-  constructor (scene, x, y) {
-    super(scene, 400, 10)
+  constructor (scene, x, y, width, height, option) {
+    super(scene, width, height, option)
     this.scene = scene
     this.setPosition(x, y)
     this.activePointer = false
