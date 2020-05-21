@@ -4,7 +4,6 @@ import Gauge from './Gauge'
 import ExpGauge from './ExpGauge'
 import Pager from './Pager'
 import weapons from '../data/weapons'
-import abilities from '../data/abilities'
 import { slideOut, slideIn } from '../util/animations'
 import storage from '../data/storage'
 const PER_PAGE = 7

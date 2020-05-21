@@ -24,6 +24,8 @@ export default class MenuSetting extends Phaser.GameObjects.Container {
       this.scene.setting.state[key] = v
       this.scene.setting.save()
       if (key === 'bgm') this.scene.audio.updateBgmVolume()
+    }).on('pointerup', () => {
+      if (key === 'se') this.scene.audio.se('announce')
     })
     container.add([title, slider, valueLabel])
     return container
