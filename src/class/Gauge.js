@@ -4,6 +4,7 @@ export default class Gauge extends Phaser.GameObjects.Container {
     super(scene)
     this.scene = scene
     scene.add.existing(this)
+    this.setSize(width, height)
     this.bg = scene.add.rectangle(0, 0, width, height, config.COLORS.dark).setOrigin(0, 0.5).setPosition(width / -2, 0)
     this.add(this.bg)
     if (blood) {
