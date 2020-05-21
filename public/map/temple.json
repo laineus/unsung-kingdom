@@ -1,12 +1,4 @@
 { "columns":10,
- "editorsettings":
-    {
-     "export":
-        {
-         "format":"",
-         "target":"."
-        }
-    },
  "image":"..\/img\/tilesets\/original\/temple.png",
  "imageheight":1088,
  "imagewidth":320,
@@ -14,7 +6,7 @@
  "name":"underpass",
  "spacing":0,
  "tilecount":340,
- "tiledversion":"2020.05.07",
+ "tiledversion":"1.2.1",
  "tileheight":32,
  "tiles":[
         {
@@ -570,6 +562,22 @@
          "type":"collides"
         }, 
         {
+         "animation":[
+                {
+                 "duration":200,
+                 "tileid":269
+                }, 
+                {
+                 "duration":200,
+                 "tileid":319
+                }, 
+                {
+                 "duration":200,
+                 "tileid":329
+                }],
+         "id":269
+        }, 
+        {
          "id":270,
          "type":"collides,top"
         }, 
@@ -590,8 +598,45 @@
          "type":"collides,top"
         }, 
         {
+         "animation":[
+                {
+                 "duration":300,
+                 "tileid":284
+                }, 
+                {
+                 "duration":300,
+                 "tileid":279
+                }, 
+                {
+                 "duration":250,
+                 "tileid":289
+                }, 
+                {
+                 "duration":300,
+                 "tileid":279
+                }],
          "id":284,
          "type":"collides"
+        }, 
+        {
+         "animation":[
+                {
+                 "duration":400,
+                 "tileid":259
+                }, 
+                {
+                 "duration":200,
+                 "tileid":309
+                }, 
+                {
+                 "duration":200,
+                 "tileid":299
+                }, 
+                {
+                 "duration":200,
+                 "tileid":309
+                }],
+         "id":299
         }, 
         {
          "id":320,

@@ -1,12 +1,4 @@
-{ "compressionlevel":0,
- "editorsettings":
-    {
-     "export":
-        {
-         "target":"."
-        }
-    },
- "height":52,
+{ "height":52,
  "infinite":false,
  "layers":[
         {
@@ -315,7 +307,151 @@
          "draworder":"topdown",
          "id":5,
          "name":"exposure",
-         "objects":[],
+         "objects":[
+                {
+                 "height":0,
+                 "id":20,
+                 "name":"",
+                 "point":true,
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":174,
+                 "y":668
+                }, 
+                {
+                 "height":0,
+                 "id":21,
+                 "name":"",
+                 "point":true,
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":570,
+                 "y":706
+                }, 
+                {
+                 "height":0,
+                 "id":23,
+                 "name":"",
+                 "point":true,
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":808,
+                 "y":730
+                }, 
+                {
+                 "height":0,
+                 "id":24,
+                 "name":"",
+                 "point":true,
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":731,
+                 "y":257
+                }, 
+                {
+                 "height":0,
+                 "id":25,
+                 "name":"",
+                 "point":true,
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":873,
+                 "y":302
+                }, 
+                {
+                 "height":0,
+                 "id":26,
+                 "name":"",
+                 "point":true,
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":276,
+                 "y":285
+                }, 
+                {
+                 "height":0,
+                 "id":27,
+                 "name":"",
+                 "point":true,
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":588,
+                 "y":137
+                }, 
+                {
+                 "height":0,
+                 "id":28,
+                 "name":"",
+                 "point":true,
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":596,
+                 "y":463
+                }, 
+                {
+                 "height":0,
+                 "id":30,
+                 "name":"",
+                 "point":true,
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":297,
+                 "y":1217
+                }, 
+                {
+                 "height":0,
+                 "id":31,
+                 "name":"",
+                 "point":true,
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":486,
+                 "y":1264
+                }, 
+                {
+                 "height":0,
+                 "id":32,
+                 "name":"",
+                 "point":true,
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":804,
+                 "y":1244
+                }, 
+                {
+                 "height":0,
+                 "id":34,
+                 "name":"",
+                 "point":true,
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":853,
+                 "y":1051
+                }],
          "opacity":1,
          "type":"objectgroup",
          "visible":true,
@@ -344,26 +480,37 @@
          "y":0
         }, 
         {
-         "id":29,
-         "image":"..\/img\/tilesets\/image\/temple_img1.png",
-         "name":"img",
+         "id":32,
+         "image":"..\/img\/tilesets\/image\/temple_img2.png",
+         "name":"img3",
          "opacity":1,
          "properties":[
                 {
+                 "name":"blend",
+                 "type":"string",
+                 "value":"OVERLAY"
+                }, 
+                {
                  "name":"depth",
                  "type":"string",
-                 "value":"DARKNESS"
+                 "value":"LIGHT"
                 }],
          "type":"imagelayer",
          "visible":false,
          "x":0,
          "y":0
         }],
- "nextlayerid":32,
- "nextobjectid":19,
+ "nextlayerid":33,
+ "nextobjectid":35,
  "orientation":"orthogonal",
+ "properties":[
+        {
+         "name":"darkness",
+         "type":"color",
+         "value":"#6e8aebdd"
+        }],
  "renderorder":"right-down",
- "tiledversion":"2020.05.07",
+ "tiledversion":"1.2.1",
  "tileheight":32,
  "tilesets":[
         {
