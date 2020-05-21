@@ -13,7 +13,7 @@ export default class BattleResult extends Phaser.GameObjects.Container {
     this.group = group
     this.boss = boss
     this.callback = callback
-    scene.se('result')
+    scene.audio.se('result')
     const bg = new Box(this.scene, -110, 0, 480, config.HEIGHT).setOrigin(0, 0)
     this.add(bg)
     const title = scene.add.text(20, 15, 'Result', { align: 'center', fill: config.COLORS.theme.toColorString, fontSize: 25, fontStyle: 'bold', fontFamily: config.FONTS.UI })
@@ -108,7 +108,7 @@ export default class BattleResult extends Phaser.GameObjects.Container {
   levelUp (battler) {
     const next = expTable[battler.lv]
     if (next && battler.exp >= next) {
-      this.scene.se('lvup')
+      this.scene.audio.se('lvup')
       battler.lv++
       Object.keys(battler.up).filter(key => Math.chance(battler.up[key])).forEach(key => {
         if (key === 'hp') {

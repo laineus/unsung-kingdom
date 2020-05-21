@@ -15,6 +15,7 @@ import Box from './Box'
 import BattlerSummaryService from './BattlerSummaryService'
 import StoryTelling from './StoryTelling'
 import VirtualStick from './VirtualStick'
+import AudioController from './AudioController'
 import weapons from '../data/weapons'
 const MESSAGES = [
   '王は死んだ。\n冷たく閉ざされた門扉の先に、かつての繁栄はもはや見る影もない。\n王国は偉大なる王の死とともに終わりを迎えたのだ。',
@@ -40,6 +41,7 @@ export default class UIScene extends Phaser.Scene {
   create (payload = {}) {
     this.storage = storage
     this.setting = setting
+    this.audio = new AudioController(this)
     this.input.keyboard.on('keydown_S', this.snapShot.bind(this))
     this.menuButton = this.getMenuButton((70).byRight, (35).byBottom)
     this.add.existing(this.menuButton)
@@ -69,45 +71,6 @@ export default class UIScene extends Phaser.Scene {
     this.battlerSummary.update()
     this.checkButton.setVisible(this.touchMode && this.gameScene.nearestCheckable)
   }
-  se (name) {
-    this.sound.play(`se/${name}`, { volume: this.setting.state.se / 100 })
-  }
-  updateBgmVolume () {
-    this.sound.sounds.filter(sound => sound.key.startsWith('bgm')).forEach(bgm => {
-      bgm.volume = this.setting.state.bgm / 100
-    })
-  }
-  setBgm (name) {
-    if (!name) {
-      this.currentBgm = null
-      this.sound.stopAll()
-      return
-    }
-    const key = `bgm/${name}`
-    if (this.currentBgm && this.currentBgm.key === key) return
-    if (this.currentBgm) this.currentBgm.stop()
-    this.currentBgm = this.sound.add(key, { loop: true, volume: this.setting.state.bgm / 100 })
-    this.currentBgm.play()
-  }
-  interruptBgm (name) {
-    const volume = this.setting.state.bgm / 100
-    const key = `bgm/${name}`
-    if (this.currentBgm) {
-      if (this.currentBgm.key === key) return () => null
-      this.currentBgm.pause()
-    }
-    const bgm = this.sound.add(key, { loop: true, volume, duration: 200 })
-    bgm.play()
-    const resolve = () => {
-      if (this.currentBgm) {
-        this.currentBgm.resume()
-        this.currentBgm.setVolume(0)
-        this.add.tween({ targets: this.currentBgm, volume, duration: 2000 })
-      }
-      this.add.tween({ targets: bgm, volume: 0, duration: 500, onComplete: () => bgm.stop() })
-    }
-    return resolve
-  }
   showController (bool) {
     this.menuButton.visible = bool
   }
@@ -128,14 +91,14 @@ export default class UIScene extends Phaser.Scene {
     this.add.tween({ targets: this.encounter1.list[0], duration: 400, ease: 'Power2', loop: -1, scaleX: 1.1, scaleY: 1.1 })
     this.add.tween({ targets: this.encounter1.list[1], duration: 400, loop: -1, yoyo: true, y: 65 })
     this.encounter1.setInteractive().on('pointerdown', () => {
-      this.se('click')
+      this.audio.se('click')
       this.gameScene.encounter(true)
     })
     // 2
     this.encounter2 = this.add.sprite((70).byRight, 70, 'encounter2').setOrigin(0.5, 0.5).setScale(0.9, 0.9)
     this.add.tween({ targets: this.encounter2, duration: 400, ease: 'Power2', loop: -1, scaleX: 1.1, scaleY: 1.1 })
     this.encounter2.setInteractive().on('pointerdown', () => {
-      this.se('click')
+      this.audio.se('click')
       this.gameScene.encounter(true)
     })
     this.setEncounter(false)
@@ -159,7 +122,7 @@ export default class UIScene extends Phaser.Scene {
     }
   }
   async announce (text) {
-    this.se('announce')
+    this.audio.se('announce')
     const announcement = this.add.container(20, 50)
     announcement.setDepth(DEPTH.ANNOUNCE)
     const tx = this.add.text(15, -1, text, { align: 'left', fontSize: 13, fontFamily: config.FONTS.TEXT }).setPadding(0, 2, 0, 0).setOrigin(0, 0.5)
@@ -252,7 +215,7 @@ export default class UIScene extends Phaser.Scene {
     button.setInteractive().on('pointerdown', (pointer) => {
       if (button.x !== x || this.inBattle) return
       pointer.isDown = false
-      this.se('click')
+      this.audio.se('click')
       slideOut(this, this.encounter1, { destroy: false, x: 100 })
       slideOut(this, this.encounter2, { destroy: false, x: 100 })
       slideOut(this, button, { destroy: false, x: 100 })

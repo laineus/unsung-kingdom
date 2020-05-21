@@ -17,7 +17,7 @@ export default class MenuSetting extends Phaser.GameObjects.Container {
       bgmValue.setText(`${v}%`)
       scene.setting.state.bgm = v
       scene.setting.save()
-      scene.updateBgmVolume()
+      scene.audio.updateBgmVolume()
     })
     this.add([bgmTitle, bgmSlider, bgmValue])
   }

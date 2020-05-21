@@ -10,7 +10,7 @@ export default class UICloseButton extends Phaser.GameObjects.Container {
     this.add(scene.add.rectangle(-35, 0, 30, 3, config.COLORS.theme).setRotation(Math.PI / -4))
     this.setInteractive().on('pointerdown', pointer => {
       pointer.isDown = false
-      scene.se('click')
+      scene.audio.se('click')
       this.emit('click')
     })
   }

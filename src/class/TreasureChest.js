@@ -30,7 +30,7 @@ export default class TreasureChest extends Substance {
   }
   open () {
     this.state.push(this.stateKey)
-    this.scene.se('unbox')
+    this.scene.audio.se('unbox')
     this.image.anims.play('treasure', true)
     this.removeTapEvent()
   }

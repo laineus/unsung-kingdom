@@ -79,7 +79,7 @@ export default class MenuMap extends Phaser.GameObjects.Container {
     const box = new Box(this.scene, 0, 0, 270, 32)
     container.setInteractive().on('pointerdown', () => {
       if (!state.started) return
-      this.scene.se('click')
+      this.scene.audio.se('click')
       this.setMissionDetail(mission)
     })
     const fill = state.started ? config.COLORS.white.toColorString : config.COLORS.ghost.toColorString

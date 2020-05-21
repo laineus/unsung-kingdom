@@ -26,7 +26,7 @@ export default class MenuSave extends Phaser.GameObjects.Container {
   }
   getItem (data, x, y) {
     const item = this.scene.add.container(x, y).setSize(240, 30).setInteractive().on('pointerdown', () => {
-      this.scene.se('click')
+      this.scene.audio.se('click')
       this.setContent(data.number)
     })
     const bg = new Box(this.scene, 0, 0, 270, 32)

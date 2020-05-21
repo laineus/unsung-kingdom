@@ -55,7 +55,7 @@ export default class Menu extends Phaser.GameObjects.Container {
     const min = this.scene.add.text(0, content.size - 28, content.min, { align: 'center', fill: config.COLORS.gray.toColorString, fontSize: 10, fontStyle: 'bold', fontFamily: config.FONTS.TEXT }).setOrigin(0.5, 0).setPadding(0, 2, 0, 0)
     button.add([bg, icon, tx, min])
     button.setInteractive().on('pointerdown', () => {
-      this.scene.se('click')
+      this.scene.audio.se('click')
       this.loadContent(content)
     })
     return button

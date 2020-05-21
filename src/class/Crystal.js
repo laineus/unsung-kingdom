@@ -11,7 +11,7 @@ export default class Character extends Substance {
     this.add(light)
     this.setTapEvent(async () => {
       scene.storage.state.battlers.forEach(v => v.hp = v.max_hp)
-      scene.se('heal')
+      scene.audio.se('heal')
       scene.ui.sleep(600).then(() => scene.ui.announce('HPが全回復した'))
       tween.stop()
       light.setAlpha(1)

@@ -116,7 +116,7 @@ export default class MenuStatus extends Phaser.GameObjects.Container {
     const text = this.scene.add.text(50, 18, chara.name, { fontSize: 17, fontStyle: 'bold', fontFamily: config.FONTS.UI }).setOrigin(1, 1)
     container.setActive = bool => text.setFill(config.COLORS[bool ? 'theme' : 'white'].toColorString)
     container.setInteractive().on('pointerdown', () => {
-      this.scene.se('click')
+      this.scene.audio.se('click')
       this.setCharacter(chara)
     })
     container.add([box, sprite, text])
@@ -139,7 +139,7 @@ export default class MenuStatus extends Phaser.GameObjects.Container {
     const line3 = this.scene.add.line(-242, 121, 0, 0, 80, 0, config.COLORS.white).setOrigin(1, 0).setLineWidth(0.5).setAlpha(0.5)
     const circle = this.scene.add.circle(-322, 123, 2, config.COLORS.white).setOrigin(0.5, 0.5)
     container.setInteractive().on('pointerdown', () => {
-      this.scene.se('click')
+      this.scene.audio.se('click')
       this.setWeapon(null)
     })
     container.setSource = id => {
@@ -178,7 +178,7 @@ export default class MenuStatus extends Phaser.GameObjects.Container {
       container.add([count])
     }
     container.setInteractive().on('pointerdown', () => {
-      this.scene.se('click')
+      this.scene.audio.se('click')
       this.setWeapon(weapon.id)
     })
     return container

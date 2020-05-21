@@ -66,7 +66,7 @@ export default class Battler extends Phaser.GameObjects.Container {
     const largeEffect = (cri || counter)
     this.add(new BattleEffect(this.scene, largeEffect, attacker.effect))
     if (largeEffect) this.critical(counter)
-    this.scene.se(this.hitSE)
+    this.scene.audio.se(this.hitSE)
     this.damageText(damage, { large: largeEffect })
     await this.scene.sleep(120)
     return this.hp <= 0 ? this.die() : null
@@ -79,7 +79,7 @@ export default class Battler extends Phaser.GameObjects.Container {
     const limit = target.maxHp - target.hp
     const addition = Math.min(Math.round(target.maxHp * percent * 0.01), limit)
     target.hp += addition
-    this.scene.se('heal')
+    this.scene.audio.se('heal')
     target.damageText(addition, { colorKey: 'theme' })
   }
   critical (counter) {

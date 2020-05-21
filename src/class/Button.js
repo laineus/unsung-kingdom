@@ -18,7 +18,7 @@ export default class Button extends Phaser.GameObjects.Container {
     })
     this.on('pointerup', p => {
       if (Math.abs(p.downX - p.upX) > 3 || Math.abs(p.downY - p.upY) > 3) return
-      scene.se('click')
+      scene.audio.se('click')
       this.emit('click')
     })
   }
