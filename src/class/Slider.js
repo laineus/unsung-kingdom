@@ -30,6 +30,7 @@ export default class Slider extends Gauge {
     const v = this.valueMax * scale
     this.value = v
     this.setButtonX()
+    this.emit('updated', v)
   }
   setButtonX () {
     const left = this.width * -this.originX
