@@ -1,6 +1,7 @@
 import moment from 'moment'
 import config from '../data/config'
 import storage from '../data/storage'
+import setting from '../data/setting'
 import missions from '../data/missions'
 import { slideIn, slideOut } from '../util/animations'
 import downloadBySource from '../util/downloadBySource'
@@ -27,7 +28,6 @@ const SPEED = {
   normal: 500,
   slow: 1000
 }
-const DUMMY_VOLUME = 1
 const DEPTH = {
   ANNOUNCE: 300,
   MAP_INFO: 100,
@@ -39,6 +39,7 @@ export default class UIScene extends Phaser.Scene {
   }
   create (payload = {}) {
     this.storage = storage
+    this.setting = setting
     this.input.keyboard.on('keydown_S', this.snapShot.bind(this))
     this.menuButton = this.getMenuButton((70).byRight, (35).byBottom)
     this.add.existing(this.menuButton)
@@ -69,7 +70,12 @@ export default class UIScene extends Phaser.Scene {
     this.checkButton.setVisible(this.touchMode && this.gameScene.nearestCheckable)
   }
   se (name) {
-    this.sound.play(`se/${name}`, { volume: DUMMY_VOLUME })
+    this.sound.play(`se/${name}`, { volume: this.setting.state.se / 100 })
+  }
+  updateBgmVolume () {
+    this.sound.sounds.filter(sound => sound.key.startsWith('bgm')).forEach(bgm => {
+      bgm.volume = this.setting.state.bgm / 100
+    })
   }
   setBgm (name) {
     if (!name) {
@@ -80,22 +86,23 @@ export default class UIScene extends Phaser.Scene {
     const key = `bgm/${name}`
     if (this.currentBgm && this.currentBgm.key === key) return
     if (this.currentBgm) this.currentBgm.stop()
-    this.currentBgm = this.sound.add(key, { loop: true, volume: DUMMY_VOLUME })
+    this.currentBgm = this.sound.add(key, { loop: true, volume: this.setting.state.bgm / 100 })
     this.currentBgm.play()
   }
   interruptBgm (name) {
+    const volume = this.setting.state.bgm / 100
     const key = `bgm/${name}`
     if (this.currentBgm) {
       if (this.currentBgm.key === key) return () => null
       this.currentBgm.pause()
     }
-    const bgm = this.sound.add(key, { loop: true, volume: DUMMY_VOLUME, duration: 200 })
+    const bgm = this.sound.add(key, { loop: true, volume, duration: 200 })
     bgm.play()
     const resolve = () => {
       if (this.currentBgm) {
         this.currentBgm.resume()
         this.currentBgm.setVolume(0)
-        this.add.tween({ targets: this.currentBgm, volume: DUMMY_VOLUME, duration: 2000 })
+        this.add.tween({ targets: this.currentBgm, volume, duration: 2000 })
       }
       this.add.tween({ targets: bgm, volume: 0, duration: 500, onComplete: () => bgm.stop() })
     }
