@@ -25,7 +25,7 @@ export default class Slider extends Gauge {
   }
   setValueOfPointer (pointer) {
     const pointerX = pointer.position.x
-    const leftX = this.x + (this.width * -this.originX)
+    const leftX = this.screenX + (this.width * -this.originX)
     const scale = Math.fix(pointerX - leftX, 0, this.width) / this.width
     const v = this.valueMax * scale
     this.value = v
@@ -36,5 +36,12 @@ export default class Slider extends Gauge {
     const left = this.width * -this.originX
     const x = this.width * this.barScale
     this.button.x = left + x
+  }
+  get screenX () {
+    const getX = (gameObject, x) => {
+      if (!gameObject.parentContainer) return x
+      return getX(gameObject.parentContainer, x + gameObject.parentContainer.x)
+    }
+    return getX(this, this.x)
   }
 }
