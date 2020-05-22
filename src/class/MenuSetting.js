@@ -37,6 +37,11 @@ export default class MenuSetting extends Phaser.GameObjects.Container {
     const title = this.scene.add.text(0, 0, 'UI Type :', { fill: config.COLORS.gray.toColorString, fontSize: 14, fontStyle: 'bold', fontFamily: config.FONTS.TEXT })
     const radio = new Radio(this.scene, 0, 40, ['Auto Detection', 'Click to Walk', 'Virtual Stick'])
     container.add([title, radio])
+    radio.setValue(this.scene.setting.state.controller)
+    radio.on('updated', index => {
+      this.scene.setting.state.controller = index
+      this.scene.setting.save()
+    })
     return container
   }
 }

@@ -69,6 +69,7 @@ export default class UIScene extends Phaser.Scene {
       this.storage.state.sec += 1
     }
     this.battlerSummary.update()
+    this.virtualStick.setVisible(this.touchMode)
     this.checkButton.setVisible(this.touchMode && this.gameScene.nearestCheckable)
   }
   showController (bool) {
@@ -78,7 +79,11 @@ export default class UIScene extends Phaser.Scene {
     return this.scene.get('Game')
   }
   get touchMode () {
-    return !this.sys.game.device.os.desktop
+    switch (this.setting.state.controller) {
+      case 0: return !this.sys.game.device.os.desktop
+      case 1: return false
+      case 2: return true
+    }
   }
   get inBattle () {
     return this.children.list.some(v => v instanceof Battle)

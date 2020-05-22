@@ -19,7 +19,7 @@ export default class CommonSetting {
     return {
       bgm: 100,
       se: 100,
-      controller: 'auto'
+      controller: 0
     }
   }
 }
