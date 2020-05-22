@@ -6,7 +6,7 @@ export default class Slider extends Gauge {
     this.scene = scene
     this.setPosition(x, y)
     this.activePointer = false
-    this.button = scene.add.circle(0, 0, 10, config.COLORS.gray).setStrokeStyle(1, config.COLORS.ghost)
+    this.button = scene.add.circle(0, 0, 9, config.COLORS.gray).setStrokeStyle(1, config.COLORS.ghost)
     this.button.setInteractive().on('pointerdown', pointer => {
       this.scene.audio.se('click')
       this.activePointer = pointer
