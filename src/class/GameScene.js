@@ -63,10 +63,11 @@ export default class GameScene extends Phaser.Scene {
     if (this.touchMode && !this.ui.eventMode) {
       this.player.setTargetPosition(this.player.x + this.ui.virtualStick.velocityX, this.player.y + this.ui.virtualStick.velocityY)
     }
-    if (this.input.mousePointer.isDown) {
+    const activePointer = this.input.manager.pointers.find(v => v.isDown)
+    if (activePointer) {
       if (this.ui.eventMode || this.touchMode) return
-      const worldX = this.input.mousePointer.x + this.camera.scrollX
-      const worldY = this.input.mousePointer.y + this.camera.scrollY
+      const worldX = activePointer.x + this.camera.scrollX
+      const worldY = activePointer.y + this.camera.scrollY
       if (this.map.isCollides(worldX.toTile, worldY.toTile)) return
       this.player.setTargetPosition(worldX, worldY)
     }
