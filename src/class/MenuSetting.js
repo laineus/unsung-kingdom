@@ -2,6 +2,7 @@ import config from '../data/config'
 import Slider from './Slider'
 import { slideIn } from '../util/animations'
 import Radio from './Radio'
+import Button from './Button'
 export default class MenuSetting extends Phaser.GameObjects.Container {
   constructor (scene) {
     super(scene)
@@ -12,8 +13,9 @@ export default class MenuSetting extends Phaser.GameObjects.Container {
     const bgm = this.getVolumeSetting(220, 120, 'bgm', 'BGM')
     const se = this.getVolumeSetting(220, 200, 'se', 'SE')
     const controlMode = this.getControlMode(220, 280)
-    this.add([bgm, se, controlMode])
-    slideIn(scene, [bgm, se, controlMode], { x: -100 })
+    const toTitle = this.getBackToTitle(220, 400)
+    this.add([bgm, se, controlMode, toTitle])
+    slideIn(scene, [bgm, se, controlMode, toTitle], { x: -100 })
   }
   getVolumeSetting (x, y, key, name) {
     const container = this.scene.add.container(x, y)
@@ -42,6 +44,24 @@ export default class MenuSetting extends Phaser.GameObjects.Container {
       this.scene.setting.state.controller = index
       this.scene.setting.save()
     })
+    return container
+  }
+  getBackToTitle (x, y) {
+    const container = this.scene.add.container(x, y)
+    const title = this.scene.add.text(0, 0, 'Back to Title :', { fill: config.COLORS.gray.toColorString, fontSize: 14, fontStyle: 'bold', fontFamily: config.FONTS.TEXT })
+    const confirm = this.scene.add.text(title.width + 13, 0, 'Confirm', { fill: config.COLORS.theme.toColorString, fontSize: 13, fontFamily: config.FONTS.TEXT })
+    const underline = this.scene.add.rectangle(title.width + 13, 15, confirm.width, 1, config.COLORS.theme).setOrigin(0, 0)
+    const button = new Button(this.scene, 85, 50, 'Back to Title', 160, 30).setVisible(false)
+    confirm.setInteractive().on('pointerdown', () => {
+      this.scene.audio.se('click')
+      button.setVisible(true)
+      confirm.setVisible(false)
+      underline.setVisible(false)
+    })
+    button.setInteractive().on('pointerdown', () => {
+      window.location.reload()
+    })
+    container.add([title, confirm, underline, button])
     return container
   }
 }
