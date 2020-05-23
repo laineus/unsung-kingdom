@@ -99,7 +99,7 @@ export default class MenuMap extends Phaser.GameObjects.Container {
     }
     this.detail = this.getMissionDetail(mission, 330, 400)
     this.add(this.detail)
-    this.setMap(mission.map, 500, 400)
+    this.setMap(mission.map.key, mission.map.x.toPixel, mission.map.y.toPixel)
     this.missionLabels.forEach(v => v.setActive(v.key === mission.key))
   }
   getMissionDetail (mission, x, y) {
