@@ -214,8 +214,12 @@ export default class Field {
     return expLayer ? expLayer.objects : []
   }
   _getImage (data) {
+    const originalData = this.scene.cache.tilemap.get(this.name).data.layers.find(v => {
+      return v.image === data.image && v.offsetx === data.x && v.offsety === data.y
+    })
     const image = data.image.split('/').slice(-1)[0].split('.')[0]
     const sprite = this.scene.add.sprite(data.x, data.y, `tileset/${image}`).setOrigin(0, 0).setDepth(DEPTH.GROUND + this._getLayerIndexByName(data.name))
+    if (originalData.tintcolor) sprite.setTint(originalData.tintcolor.toColorInt)
     const blend = getValueByProperties(data.properties, 'blend')
     if (blend) sprite.setBlendMode(Phaser.BlendModes[blend])
     const depth = getValueByProperties(data.properties, 'depth')
