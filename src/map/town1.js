@@ -4,6 +4,7 @@ import townChapter2 from '../event/townChapter2'
 import townChapter3 from '../event/townChapter3'
 import townChapter4 from '../event/townChapter4'
 import townChapter5 from '../event/townChapter5'
+import storage from '../data/storage'
 const events = [
   townChapter0,
   townChapter1,
@@ -14,7 +15,9 @@ const events = [
 ]
 export default {
   name: 'ベリオン王国 - 王都',
-  bgm: 'town',
+  get bgm () {
+    return storage.state.chapter === 4 ? 'rain' : 'town'
+  },
   create (scene) {
     scene.map.getObjectById(6).setTapEvent(async () => scene.mapChange('room1', (17).toPixel, (16).toPixelCenter, { r: 'up' }))
     const amber = scene.map.getObjectById(2).setDisplayName('噂好きなアンバー婦人').setRandomWalk(true)
