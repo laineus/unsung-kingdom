@@ -59,7 +59,7 @@ export default class MenuSetting extends Phaser.GameObjects.Container {
       underline.setVisible(false)
     })
     button.setInteractive().on('pointerdown', () => {
-      window.location.reload()
+      this.emit('backToTitle')
     })
     container.add([title, confirm, underline, button])
     return container

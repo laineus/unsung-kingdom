@@ -221,17 +221,20 @@ export default class UIScene extends Phaser.Scene {
       if (button.x !== x || this.inBattle) return
       pointer.isDown = false
       this.audio.se('click')
+      slideOut(this, button, { destroy: false, x: 100 })
       slideOut(this, this.encounter1, { destroy: false, x: 100 })
       slideOut(this, this.encounter2, { destroy: false, x: 100 })
-      slideOut(this, button, { destroy: false, x: 100 })
+      if (this.mapInfo) this.mapInfo.setVisible(false)
       this.snapshopForSaveData().then(() => {
-        this.menu().then(() => {
+        this.menu().then(result => {
           button.x = x
+          slideIn(this, button, { x: 100, delay: 100 })
+          if (result === 'backToTitle') return this.gameScene.backToTitle()
           this.encounter1.x = (70).byRight
           this.encounter2.x = (70).byRight
           slideIn(this, this.encounter1, { x: 100, delay: 100 })
           slideIn(this, this.encounter2, { x: 100, delay: 100 })
-          slideIn(this, button, { x: 100, delay: 100 })
+          if (this.mapInfo) this.mapInfo.setVisible(true)
           this.battlerSummary.show()
         })
       })

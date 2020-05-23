@@ -110,6 +110,9 @@ export default class GameScene extends Phaser.Scene {
       this.scene.start('Game', { map: mapKey, x, y, r, save, encountDelay })
     })
   }
+  backToTitle () {
+    this.scene.start('Title')
+  }
   getCamera () {
     const camera = this.cameras.main
     camera.setBounds(0, 0, this.map.width, this.map.height)

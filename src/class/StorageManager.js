@@ -6,6 +6,9 @@ const STORAGE_KEY = 'data'
 const SHIFT = 0
 export default class StorageManager {
   constructor () {
+    this.init()
+  }
+  init () {
     const savedNumber = localStorage.getItem(`${STORAGE_KEY}_last_saved_number`)
     this.lastNumber = savedNumber ? Number(savedNumber) : null
     this.lastSnapshot = null

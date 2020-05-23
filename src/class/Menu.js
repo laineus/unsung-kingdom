@@ -36,10 +36,10 @@ export default class Menu extends Phaser.GameObjects.Container {
     slideIn(scene, [...this.buttons, this.close], { x: 100 })
     slideIn(scene, [this.window, this.content], { x: -100 })
   }
-  destroy (anime = false) {
+  destroy (anime = false, result = null) {
     this.scene.gameScene.blur(false)
     this.scene.scene.resume('Game')
-    this.callback()
+    this.callback(result)
     if (!anime) return super.destroy()
     fadeOut(this.scene, this.bg)
     slideOut(this.scene, [...this.buttons, this.close], { x: 100 })
@@ -70,6 +70,9 @@ export default class Menu extends Phaser.GameObjects.Container {
       this.scene.gameScene.mapChange(data.state.map, data.state.x, data.state.y, { save: false }).then(() => {
         this.destroy(false)
       })
+    })
+    this.content.on('backToTitle', data => {
+      this.destroy(true, 'backToTitle')
     })
     this.add(this.content)
     this.buttons.forEach(b => this.moveTo(b, this.length - 1))
