@@ -69,14 +69,15 @@ export default class UIScene extends Phaser.Scene {
       this.storage.state.sec += 1
     }
     this.battlerSummary.update()
-    this.virtualStick.setVisible(this.touchMode)
-    this.checkButton.setVisible(this.touchMode && this.gameScene.nearestCheckable)
-  }
-  showController (bool) {
-    this.menuButton.visible = bool
+    this.virtualStick.setVisible(this.controllable && this.touchMode)
+    this.checkButton.setVisible(this.controllable && this.touchMode && this.gameScene.nearestCheckable)
+    this.menuButton.setVisible(this.controllable)
   }
   get gameScene () {
     return this.scene.get('Game')
+  }
+  get controllable () {
+    return !this.eventMode && this.scene.isActive('Game')
   }
   get touchMode () {
     switch (this.setting.state.controller) {
@@ -179,13 +180,11 @@ export default class UIScene extends Phaser.Scene {
     if (bool) {
       this.gameScene.player.stopWalk()
       this.blocker.setVisible(true)
-      this.menuButton.setVisible(false)
       this.battlerSummary.setVisible(false)
       this.encounter1.setAlpha(0)
       this.encounter2.setAlpha(0)
       if (this.mapInfo) this.mapInfo.setVisible(false)
     } else {
-      this.menuButton.setVisible(true)
       this.battlerSummary.setVisible(true)
       this.encounter1.setAlpha(1)
       this.encounter2.setAlpha(1)

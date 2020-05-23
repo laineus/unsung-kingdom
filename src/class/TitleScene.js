@@ -12,7 +12,6 @@ export default class TitleScene extends Phaser.Scene {
   create () {
     this.storage = storage
     this.storage.init()
-    this.ui.showController(false)
     this.content()
     // this.logo()
     // DEBUG
@@ -70,7 +69,6 @@ export default class TitleScene extends Phaser.Scene {
     })
   }
   runGame (map, x, y) {
-    this.ui.showController(true)
     this.scene.start('Game', { map, x, y })
     this.scene.sleep('Title')
   }
