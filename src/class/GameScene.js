@@ -61,7 +61,9 @@ export default class GameScene extends Phaser.Scene {
     // this.fadeout.setPosition(this.camera.scrollX + config.WIDTH.half, this.camera.scrollY + config.HEIGHT.half)
     if (this.frame % 20 === 0) this.tweetLost()
     if (this.touchMode && !this.ui.eventMode) {
-      this.player.setTargetPosition(this.player.x + this.ui.virtualStick.velocityX, this.player.y + this.ui.virtualStick.velocityY)
+      const x = Math.fix(this.player.x + this.ui.virtualStick.velocityX, 0, this.map.width)
+      const y = Math.fix(this.player.y + this.ui.virtualStick.velocityY, 0, this.map.height)
+      this.player.setTargetPosition(x, y)
     }
     const activePointer = this.input.manager.pointers.find(v => v.isDown)
     if (activePointer) {
