@@ -63,7 +63,7 @@ export default class WorldMap extends Phaser.GameObjects.Container {
   }
   setArea (area) {
     this.selected = area
-    this.button.setText(area ? 'OK' : 'Cancel')
+    this.button.setText(area ? 'OK' : 'Cancel').setSeKey(area ? 'click' : 'cancel')
     const positionX = area ? config.WIDTH.half - (area.x + OFFSET.x) * SCALE.ZOOM : -20
     const positionY = area ? config.HEIGHT.half - (area.y + OFFSET.y) * SCALE.ZOOM : -20
     const scale = area ? SCALE.ZOOM : SCALE.DEFAULT
