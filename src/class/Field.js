@@ -222,6 +222,9 @@ export default class Field {
     if (depth) {
       depth === 'SUBSTANCE' ? sprite.setDepth(data.y + (sprite.height * 0.8)) : sprite.setDepth(DEPTH[depth] + 1)
     }
+    const anim = getValueByProperties(data.properties, 'animation')
+    if (anim === 'cloud') this.scene.add.tween({ targets: sprite, duration: 100000, x: sprite.x - 1200 })
+    if (anim === 'cloud_slow') this.scene.add.tween({ targets: sprite, duration: 200000, x: sprite.x - 1200 })
     sprite.name = data.name
     return sprite
   }
