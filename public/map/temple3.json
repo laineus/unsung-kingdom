@@ -58,6 +58,29 @@
          "y":0
         }, 
         {
+         "id":12,
+         "image":"..\/img\/tilesets\/image\/temple_img2.png",
+         "name":"light",
+         "offsetx":21.2121212121212,
+         "offsety":-387.878787878788,
+         "opacity":1,
+         "properties":[
+                {
+                 "name":"blend",
+                 "type":"string",
+                 "value":"OVERLAY"
+                }, 
+                {
+                 "name":"depth",
+                 "type":"string",
+                 "value":"LIGHT"
+                }],
+         "type":"imagelayer",
+         "visible":true,
+         "x":0,
+         "y":0
+        }, 
+        {
          "draworder":"topdown",
          "id":4,
          "name":"event",
@@ -138,16 +161,118 @@
          "draworder":"topdown",
          "id":5,
          "name":"exposure",
-         "objects":[],
+         "objects":[
+                {
+                 "height":0,
+                 "id":4,
+                 "name":"",
+                 "point":true,
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":306.060606060606,
+                 "y":330.30303030303
+                }, 
+                {
+                 "height":0,
+                 "id":5,
+                 "name":"",
+                 "point":true,
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":239.393939393939,
+                 "y":612.121212121212
+                }, 
+                {
+                 "height":0,
+                 "id":6,
+                 "name":"",
+                 "point":true,
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":293.939393939394,
+                 "y":857.575757575758
+                }, 
+                {
+                 "height":0,
+                 "id":7,
+                 "name":"",
+                 "point":true,
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":593.939393939394,
+                 "y":515.151515151515
+                }, 
+                {
+                 "height":0,
+                 "id":8,
+                 "name":"",
+                 "point":true,
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":587.878787878788,
+                 "y":796.969696969697
+                }, 
+                {
+                 "height":0,
+                 "id":9,
+                 "name":"",
+                 "point":true,
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":866.666666666667,
+                 "y":821.212121212121
+                }, 
+                {
+                 "height":0,
+                 "id":10,
+                 "name":"",
+                 "point":true,
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":851.515151515152,
+                 "y":557.575757575758
+                }, 
+                {
+                 "height":0,
+                 "id":11,
+                 "name":"",
+                 "point":true,
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":900,
+                 "y":333.333333333333
+                }],
          "opacity":1,
          "type":"objectgroup",
-         "visible":false,
+         "visible":true,
          "x":0,
          "y":0
         }],
- "nextlayerid":12,
- "nextobjectid":4,
+ "nextlayerid":13,
+ "nextobjectid":12,
  "orientation":"orthogonal",
+ "properties":[
+        {
+         "name":"darkness",
+         "type":"color",
+         "value":"#508aebdd"
+        }],
  "renderorder":"right-down",
  "tiledversion":"2020.05.07",
  "tileheight":32,

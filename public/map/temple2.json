@@ -58,6 +58,27 @@
          "y":0
         }, 
         {
+         "id":30,
+         "image":"..\/img\/tilesets\/image\/temple_img2.png",
+         "name":"light",
+         "opacity":1,
+         "properties":[
+                {
+                 "name":"blend",
+                 "type":"string",
+                 "value":"OVERLAY"
+                }, 
+                {
+                 "name":"depth",
+                 "type":"string",
+                 "value":"LIGHT"
+                }],
+         "type":"imagelayer",
+         "visible":true,
+         "x":0,
+         "y":0
+        }, 
+        {
          "draworder":"topdown",
          "id":4,
          "name":"event",
@@ -462,27 +483,6 @@
                 }],
          "opacity":1,
          "type":"objectgroup",
-         "visible":true,
-         "x":0,
-         "y":0
-        }, 
-        {
-         "id":30,
-         "image":"..\/img\/tilesets\/image\/temple_img2.png",
-         "name":"img2",
-         "opacity":1,
-         "properties":[
-                {
-                 "name":"blend",
-                 "type":"string",
-                 "value":"OVERLAY"
-                }, 
-                {
-                 "name":"depth",
-                 "type":"string",
-                 "value":"LIGHT"
-                }],
-         "type":"imagelayer",
          "visible":true,
          "x":0,
          "y":0

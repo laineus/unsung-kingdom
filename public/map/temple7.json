@@ -114,8 +114,19 @@
  "nextlayerid":7,
  "nextobjectid":4,
  "orientation":"orthogonal",
+ "properties":[
+        {
+         "name":"darkness",
+         "type":"color",
+         "value":"#b35879e2"
+        }, 
+        {
+         "name":"sun",
+         "type":"bool",
+         "value":true
+        }],
  "renderorder":"right-down",
- "tiledversion":"1.3.3",
+ "tiledversion":"2020.05.07",
  "tileheight":32,
  "tilesets":[
         {
