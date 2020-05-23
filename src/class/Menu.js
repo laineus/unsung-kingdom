@@ -38,7 +38,7 @@ export default class Menu extends Phaser.GameObjects.Container {
   }
   destroy (anime = false, result = null) {
     this.scene.gameScene.blur(false)
-    this.scene.scene.resume('Game')
+    if (result !== 'backToTitle') this.scene.scene.resume('Game')
     this.callback(result)
     if (!anime) return super.destroy()
     fadeOut(this.scene, this.bg)

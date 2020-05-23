@@ -111,7 +111,9 @@ export default class GameScene extends Phaser.Scene {
     })
   }
   backToTitle () {
-    this.scene.start('Title')
+    return this.ui.transition('normal').then(() => {
+      this.scene.start('Title')
+    })
   }
   getCamera () {
     const camera = this.cameras.main
