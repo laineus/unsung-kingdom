@@ -71,6 +71,9 @@ export default class UIScene extends Phaser.Scene {
     this.battlerSummary.update()
     this.virtualStick.setVisible(this.controllable && this.touchMode)
     this.checkButton.setVisible(this.controllable && this.touchMode && this.gameScene.nearestCheckable)
+    if (this.gameScene.nearestCheckable) {
+      this.checkButton.icon.setFrame(this.gameScene.nearestCheckable.balloon.key === 'bubble_talk' ? 0 : 1)
+    }
     this.menuButton.setVisible(this.controllable)
   }
   get gameScene () {
@@ -110,13 +113,12 @@ export default class UIScene extends Phaser.Scene {
     this.setEncounter(false)
   }
   getCheckButton () {
-    const btn = this.add.container((70).byRight, (160).byBottom).setSize(80, 80).setInteractive().on('pointerdown', () => {
+    const btn = this.add.container((70).byRight, (160).byBottom).setSize(80, 80).setInteractive().on('pointerup', () => {
       this.gameScene.nearestCheckable.execTapEvent()
     })
     btn.add(this.add.circle(0, 0, 50, config.COLORS.black, 0.5))
-    btn.add(this.add.circle(0, 0, 7, config.COLORS.white, 0.25))
-    btn.add(this.add.circle(-24, 0, 7, config.COLORS.white, 0.25))
-    btn.add(this.add.circle(24, 0, 7, config.COLORS.white, 0.25))
+    btn.icon = this.add.sprite(0, 0, 'virtual_button').setAlpha(0.25)
+    btn.add(btn.icon)
     return btn
   }
   setEncounter (bool, stronger) {

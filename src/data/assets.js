@@ -34,6 +34,7 @@ export default {
   spritesheet: [
     // *
     ['check', '../img/check.ss.png', { frameWidth: 14, frameHeight: 13, endFrame: 2 }],
+    ['virtual_button', '../img/virtual_button.ss.png', { frameWidth: 100, frameHeight: 100, endFrame: 2 }],
     ['menu_icons', '../img/menu_icons.ss.png', { frameWidth: 72, frameHeight: 72, endFrame: 4 }],
     ['weapon_abilities', '../img/weapon_abilities.ss.png', { frameWidth: 18, frameHeight: 18, endFrame: 3 }],
     ['battle_effects', '../img/battle_effects.ss.png', { frameWidth: 320, frameHeight: 320, endFrame: 6 }],

@@ -39,6 +39,7 @@ export default class Substance extends Phaser.GameObjects.Container {
   }
   getBalloon (key = 'bubble_action') {
     const balloon = this.scene.add.container(0, 0).setDepth(200000)
+    balloon.key = key
     const img = this.scene.add.sprite(0, 0, key)
     this.scene.add.tween({ targets: img, duration: 400, loop: -1, yoyo: true, y: -4 })
     balloon.add(img)
