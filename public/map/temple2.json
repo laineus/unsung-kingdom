@@ -59,8 +59,10 @@
         }, 
         {
          "id":30,
-         "image":"..\/img\/tilesets\/image\/temple_img2.png",
+         "image":"..\/img\/tilesets\/image\/sunbeams.png",
          "name":"light",
+         "offsetx":10,
+         "offsety":42,
          "opacity":1,
          "properties":[
                 {
@@ -73,6 +75,31 @@
                  "type":"string",
                  "value":"LIGHT"
                 }],
+         "tintcolor":"#b8713f",
+         "type":"imagelayer",
+         "visible":true,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "id":33,
+         "image":"..\/img\/tilesets\/image\/sunbeams.png",
+         "name":"light",
+         "offsetx":98,
+         "offsety":740,
+         "opacity":1,
+         "properties":[
+                {
+                 "name":"blend",
+                 "type":"string",
+                 "value":"OVERLAY"
+                }, 
+                {
+                 "name":"depth",
+                 "type":"string",
+                 "value":"LIGHT"
+                }],
+         "tintcolor":"#ee8844",
          "type":"imagelayer",
          "visible":true,
          "x":0,
@@ -487,7 +514,7 @@
          "x":0,
          "y":0
         }],
- "nextlayerid":33,
+ "nextlayerid":34,
  "nextobjectid":35,
  "orientation":"orthogonal",
  "properties":[

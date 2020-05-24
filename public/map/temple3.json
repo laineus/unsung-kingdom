@@ -59,10 +59,10 @@
         }, 
         {
          "id":12,
-         "image":"..\/img\/tilesets\/image\/temple_img2.png",
+         "image":"..\/img\/tilesets\/image\/sunbeams.png",
          "name":"light",
-         "offsetx":21.2121212121212,
-         "offsety":-387.878787878788,
+         "offsetx":63.6363636363636,
+         "offsety":69.6969696969695,
          "opacity":1,
          "properties":[
                 {
@@ -75,6 +75,7 @@
                  "type":"string",
                  "value":"LIGHT"
                 }],
+         "tintcolor":"#ee8844",
          "type":"imagelayer",
          "visible":true,
          "x":0,
