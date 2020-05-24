@@ -61,5 +61,25 @@ export default [
       { key: 'catacomb10', x: 106, y: 0 },
       { key: 'catacomb11', x: 138, y: 33 }
     ]
+  },
+  {
+    key: 'temple',
+    list: [
+      { key: 'temple1', x: 35, y: 47 },
+      { key: 'temple2', x: 79, y: 38 },
+      { key: 'temple3', x: 117, y: 45 },
+      { key: 'temple4', x: 116, y: 81 },
+      { key: 'temple5', x: 59, y: 6 },
+      { key: 'temple6', x: 111, y: 0 },
+      { key: 'temple7', x: 27, y: 1 },
+      { key: 'temple8', x: 153, y: 45 },
+      { key: 'temple9', x: 185, y: 5 },
+      { key: 'temple10', x: 186, y: 81 },
+      { key: 'temple11', x: 61, y: 90 },
+      { key: 'temple12', x: 38, y: 118 },
+      { key: 'temple13', x: 10, y: 158 },
+      { key: 'temple14', x: -4, y: 113 },
+      { key: 'temple15', x: -15, y: 68 }
+    ]
   }
 ]

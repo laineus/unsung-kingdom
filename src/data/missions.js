@@ -102,35 +102,35 @@ export default [
     chapter: 4,
     title: '清浄なるロレイン像',
     en: 'Sinning Lorraine\'s statue',
-    map: { key: 'forest1', x: 25, y: 25 }
+    map: { key: 'temple4', x: 25, y: 25 }
   },
   {
     key: 'm4_2',
     chapter: 4,
     title: 'すべて世はこともなし',
     en: 'All\'s right with the world',
-    map: { key: 'forest1', x: 19, y: 14 }
+    map: { key: 'temple7', x: 19, y: 14 }
   },
   {
     key: 'm4_3',
     chapter: 4,
     title: '聖剣カリブルヌス',
     en: 'Caliburnus',
-    map: { key: 'forest1', x: 16, y: 9 }
+    map: { key: 'temple9', x: 16, y: 12 }
   },
   {
     key: 'm4_4',
     chapter: 4,
     title: '女神さまに捧ぐリュート',
     en: 'Lute for goddess',
-    map: { key: 'forest1', x: 9, y: 35 }
+    map: { key: 'temple10', x: 9, y: 35 }
   },
   {
     key: 'm4_5',
     chapter: 4,
     title: '竜殺しの王',
     en: 'The Dragonkiller King',
-    map: { key: 'forest1', x: 16, y: 9 }
+    map: { key: 'temple15', x: 16, y: 12 }
   },
   {
     key: 'm5_1',
