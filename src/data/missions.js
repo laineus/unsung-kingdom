@@ -4,7 +4,7 @@ export default [
     chapter: 0,
     title: '王殺しのジャック',
     en: 'Jack the Kingkiller',
-    map: { key: 'forest1', x: 46, y: 24 }
+    map: { key: 'castle1', x: 34, y: 21 }
   },
   {
     key: 'm1_1',
@@ -137,6 +137,6 @@ export default [
     chapter: 5,
     title: '平和王エドガー',
     en: 'Edgar the Peaceful',
-    map: { key: 'forest1', x: 16, y: 14 }
+    map: { key: 'castle1', x: 34, y: 21 }
   }
 ]
