@@ -215,10 +215,10 @@ export default class Field {
   }
   _getImage (data) {
     const originalData = this.scene.cache.tilemap.get(this.name).data.layers.find(v => {
-      return v.image === data.image && v.offsetx === data.x && v.offsety === data.y
+      return v.image === data.image && (v.offsetx || v.x) === data.x && (v.offsety || v.y) === data.y
     })
     const image = data.image.split('/').slice(-1)[0].split('.')[0]
-    const sprite = this.scene.add.sprite(data.x, data.y, `tileset/${image}`).setOrigin(0, 0).setDepth(DEPTH.GROUND + this._getLayerIndexByName(data.name))
+    const sprite = this.scene.add.sprite(data.x, data.y, `tileset/${image}`).setOrigin(0, 0).setDepth(DEPTH.GROUND + this._getLayerIndexByName(data.name)).setAlpha(data.alpha)
     if (originalData.tintcolor) sprite.setTint(originalData.tintcolor.toColorInt)
     const blend = getValueByProperties(data.properties, 'blend')
     if (blend) sprite.setBlendMode(Phaser.BlendModes[blend])
