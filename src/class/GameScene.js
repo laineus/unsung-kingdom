@@ -8,6 +8,7 @@ import Friend from './Friend'
 import downloadBySource from '../util/downloadBySource'
 import Character from './Character'
 import Substance from './Substance'
+import TreasureChest from './TreasureChest'
 import tweetsAfterBattle from '../event/tweetsAfterBattle'
 const TWEET_DATA = {
   lost: [
@@ -84,7 +85,8 @@ export default class GameScene extends Phaser.Scene {
     return this.ui.touchMode
   }
   get npcList () {
-    return this.children.list.filter(v => v.constructor === Character || v.constructor === Substance)
+    const checkableClasses = [Character, Substance, TreasureChest]
+    return this.children.list.filter(v => checkableClasses.includes(v.constructor))
   }
   get checkables () {
     return this.npcList.filter(v => v.checkable)
