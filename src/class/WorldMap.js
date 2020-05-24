@@ -42,7 +42,7 @@ export default class WorldMap extends Phaser.GameObjects.Container {
       return row
     })
     slideIn(this.scene, this.rows)
-    this.button = new Button(this.scene, (105).byRight, (52).byBottom, 'Cancel', 140, 40)
+    this.button = new Button(this.scene, (105).byRight, (52).byBottom, 'Cancel', 140, 40).setSeKey('cancel')
     this.button.on('click', () => {
       slideOut(this.scene, this.rows, { x: -200 })
       slideOut(this.scene, this.button)
