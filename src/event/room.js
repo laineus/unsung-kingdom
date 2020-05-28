@@ -105,7 +105,7 @@ const events = [
     scene.player.setR('down')
     await scene.ui.sleep(1000)
     await scene.talk([
-      { chara: 'ann', text: 'まさか負けうちゃんなんて…。' },
+      { chara: 'ann', text: 'まさか負けちゃうなんて…。' },
       { chara: 'jaquelyn', text: 'でも何故か王は殺されずに済んだわ。' },
       { chara: 'francisca', text: '成功とは言いづらいけど、まあ、そうだね。' },
       { chara: 'jaquelyn', text: 'あのあとジャックはどこに消えたのかしら…？' },
