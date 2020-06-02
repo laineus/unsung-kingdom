@@ -190,7 +190,10 @@ export default class Battle extends Phaser.GameObjects.Container {
     })
   }
   addOptionButton (name, x, y, onClick) {
-    const button = new Button(this.scene, x, y, name, 120, 40).setInteractive().on('pointerdown', onClick.bind(this))
+    const button = new Button(this.scene, x, y, name, 120, 40).setInteractive().on('pointerdown', () => {
+      button.destroy()
+      onClick()
+    })
     this.add(button)
     this.ablButtons.push(button)
   }
