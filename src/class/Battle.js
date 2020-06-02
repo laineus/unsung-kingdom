@@ -70,11 +70,8 @@ export default class Battle extends Phaser.GameObjects.Container {
     })
   }
   updateButtons () {
-    const updated = this.buttons.list.some((v, i) => {
-      if (i < this.enemies.length) return false
-      v.destroy()
-      return true
-    })
+    const updated = this.enemies.length !== this.buttons.list.length
+    this.buttons.list.slice(this.enemies.length).forEach(v => v.destroy())
     if (updated) this.fixButtonsPosition()
     this.buttons.list.forEach(button => {
       if (!button.visible && this.playerTurn) this.slideInButtons()
