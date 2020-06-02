@@ -135,7 +135,7 @@ export default class Character extends Substance {
   }
   _updateAnimation () {
     if (!this.walking) {
-      if (this.frameLength === 3) this.image.anims.play(this._waitAnimName, true)
+      if (this.frameLength === 3) this.image.anims.play(this._waitAnimName, true, { yoyo: true })
       if (this.frameLength === 12) this.image.setFrame(this.angleFrame)
     } else {
       this.image.anims.play(this._animName, true)
@@ -151,8 +151,6 @@ export default class Character extends Substance {
   get _animName () {
     if (this.frameLength === 12) {
       return `${this.key}_walk_${this.angleKey}`
-    } else if (this.frameLength === 6) {
-      return this.body.velocity.y < 0 ? `${this.key}_walk_back` : `${this.key}_walk_front`
     }
     return this._waitAnimName
   }
