@@ -1,7 +1,7 @@
 import chapters from '../data/chapters'
 
 const setDefaultWeapon = state => {
-  state.weapons = [{ id: 1, weapon_id: 1 }, { id: 2, weapon_id: 1 }, { id: 3, weapon_id: 2 }]
+  state.weapons = [{ id: 1, weapon_id: 1 }, { id: 2, weapon_id: 2 }, { id: 3, weapon_id: 1 }]
   state.battlers.forEach((v, i) => (v.weapon = i + 1))
 }
 

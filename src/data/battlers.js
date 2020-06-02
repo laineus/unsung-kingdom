@@ -6,13 +6,13 @@ export default [
   },
   {
     key: 'francisca', name: 'Francisca', lv: 1, effect: 'hit',
-    hp: 30, atk: 3, def: 2, dex: 3, agi: 4,
-    up: { hp: 85, atk: 85, def: 75, dex: 100, agi: 85 }
+    hp: 30, atk: 2, def: 2, dex: 4, agi: 4,
+    up: { hp: 85, atk: 75, def: 80, dex: 90, agi: 100 }
   },
   {
     key: 'jaquelyn', name: 'Jaquelyn', lv: 1, effect: 'hit',
-    hp: 35, atk: 2, def: 2, dex: 4, agi: 4,
-    up: { hp: 90, atk: 75, def: 80, dex: 85, agi: 100 }
+    hp: 35, atk: 3, def: 2, dex: 3, agi: 4,
+    up: { hp: 90, atk: 85, def: 75, dex: 100, agi: 85 }
   },
   {
     key: 'jack', name: '王殺しのジャック', lv: 1, effect: 'slash', y: 70,
