@@ -14,6 +14,7 @@ export default class TitleScene extends Phaser.Scene {
     this.storage.init()
     this.content()
     // this.logo()
+    this.ui.audio.setBgm('theme')
     // DEBUG
     if (location.query.load) {
       const data = storage.getRow(Number(location.query.load))

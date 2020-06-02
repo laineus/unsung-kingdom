@@ -263,6 +263,8 @@ export default class UIScene extends Phaser.Scene {
       const m2 = this.add.text(config.WIDTH.half, config.HEIGHT.half - 5, MESSAGES[2], { align: 'left', fill: config.COLORS.white.toColorString, fontSize: 18, fontFamily: config.FONTS.TEXT }).setOrigin(0.5, 0.5).setLineSpacing(15)
       const m3 = this.add.text(config.WIDTH.half, config.HEIGHT.half - 5, MESSAGES[3], { align: 'left', fill: config.COLORS.white.toColorString, fontSize: 18, fontFamily: config.FONTS.TEXT }).setOrigin(0.5, 0.5).setLineSpacing(15)
       const m4 = this.add.text(config.WIDTH.half, config.HEIGHT.half - 5, MESSAGES[4], { align: 'left', fill: config.COLORS.white.toColorString, fontSize: 18, fontFamily: config.FONTS.TEXT }).setOrigin(0.5, 0.5).setLineSpacing(15)
+      this.audio.setBgm(null)
+      this.sleep(1700).then(() => this.audio.setBgm('storytelling'))
       new StoryTelling(this, [m1, m2, m3, m4], true).on('beforeEnd', resolve)
     })
   }

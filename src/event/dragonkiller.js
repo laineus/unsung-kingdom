@@ -160,7 +160,7 @@ export const dragon = (scene, sonberk, king, area1, area2, area3) => {
       { chara, text: '来い！' }
     ])
     await scene.player.setTargetPosition((17).toPixel, (11).toPixel)
-    const result = await scene.ui.battle([generateBattler('dragon', 48, { hp: 2500 })], { boss: true })
+    const result = await scene.ui.battle([generateBattler('dragon', 48, { hp: 2500 })], { boss: true, bgm: 'battle3' })
     if (!result) return
     scene.francisca.setAllowWalkingWhileEvent(false).stopWalk().setPosition(scene.player.x + 40, scene.player.y + 27).setR('up')
     scene.jaquelyn.setAllowWalkingWhileEvent(false).stopWalk().setPosition(scene.player.x + 20, scene.player.y + 70).setR('up')

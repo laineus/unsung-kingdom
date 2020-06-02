@@ -342,7 +342,7 @@ export const aragnie = (scene, area, boss, hector, hectorInjured, scream) => {
       { chara: 'ann', text: 'え、ちょっと！まだ心の準備が！' }
     ])
     await scene.ui.sleep(500)
-    const result = await scene.ui.battle([generateBattler('aragnie', 21, { hp: 1200 })], { boss: true })
+    const result = await scene.ui.battle([generateBattler('aragnie', 21, { hp: 1200 })], { boss: true, bgm: 'battle3' })
     if (!result) return
     hectorInjured.destroy()
     boss.die()
