@@ -62,7 +62,7 @@ export default class Battle extends Phaser.GameObjects.Container {
       v.y += 150
       this.scene.add.tween({ targets: v, duration: 200, ease: 'Power2', delay: i * 50, y: v.y - 150 })
     })
-    this.bgmResolver = this.scene.audio.interruptBgm(bgm || 'battle')
+    this.bgmResolver = this.scene.audio.interruptBgm(bgm || 'battle1')
   }
   preUpdate () {
     this.enemies.list.forEach((v, i) => {
