@@ -152,7 +152,7 @@ export default class Battle extends Phaser.GameObjects.Container {
     const bg = scene.add.polygon(x, y, points).setFillStyle(config.COLORS.black).setScale(1, 0).setRotation(r).setOrigin(0, 0)
     const graphic = scene.make.graphics().setPosition(x, y).setScale(1, 0).setRotation(r).fillPoints(bg.geom.points, true)
     const mask = new Phaser.Display.Masks.GeometryMask(scene, graphic)
-    const image = scene.add.sprite(x + 600, y + 200, chara.key).setAlpha(0.5).setMask(mask).setRotation(-0.1)
+    const image = scene.add.sprite(x + 600, y - 125, `cutin_${chara.key}`).setAlpha(0.5).setMask(mask).setRotation(-0.1)
     scene.add.tween({
       targets: [bg, graphic], duration: 120, ease: 'Power2', yoyo: true, hold: 500,
       scaleY: 1, x: x + moveX, y: y + moveY,
