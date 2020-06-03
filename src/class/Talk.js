@@ -57,7 +57,7 @@ export default class Talk extends Phaser.GameObjects.Container {
       this.deleteBubble()
       const isPlayer = (typeof this.current.chara === 'string')
       const chara = this.getChara(this.current)
-      const displayName = isPlayer ? this.current.chara.upperCase : chara.displayName || 'No name'
+      const displayName = chara.displayName || 'No name'
       const imageKey = isPlayer ? this.current.chara : chara.faceKey
       const camera = this.scene.gameScene.camera
       const x = chara.x - camera.scrollX + this.currentPosition * 30
