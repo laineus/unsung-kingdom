@@ -126,8 +126,18 @@ export const kingEvent = (scene, area, chara, soldier) => {
     await scene.talk([
       { chara, text: 'エゼルはまだ帰っていないのか？' },
       { chara: soldier, text: 'はい、王弟殿下はまだグリファルデ神殿かと。' },
+    ], { angle: false })
+    await scene.ui.sleep(300)
+    await chara.setTargetPosition((16).toPixel, (19).toPixel)
+    await scene.ui.sleep(300)
+    await scene.talk([
       { chara, text: 'ドラゴンとの交渉は順調に進んでいるとは言えないようだな。' },
       { chara: soldier, text: '…申し上げにくいのですが、そのようです。' },
+    ], { angle: false })
+    await scene.ui.sleep(500)
+    chara.setR('right')
+    await scene.ui.sleep(800)
+    await scene.talk([
       { chara, text: 'そうか…。' }
     ], { angle: false })
     await scene.ui.sleep(500)
