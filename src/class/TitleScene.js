@@ -12,7 +12,12 @@ export default class TitleScene extends Phaser.Scene {
   create () {
     this.storage = storage
     this.storage.init()
-    this.content()
+    const background = this.add.sprite(0, 0, 'title').setOrigin(0, 0)
+    const startButton = this.getStartButton()
+    background.setInteractive().on('pointerup', () => {
+      startButton.destroy()
+      this.initContents()
+    })
     // this.logo()
     this.ui.audio.setBgm('theme')
     // DEBUG
@@ -46,9 +51,15 @@ export default class TitleScene extends Phaser.Scene {
   delay (time) {
     return new Promise(resolve => setTimeout(resolve, time))
   }
-  content () {
-    this.add.sprite(0, 0, 'title').setOrigin(0, 0)
-    // this.title = this.add.text(config.WIDTH.half, config.HEIGHT.half -120, 'UNSUNG KINGDOM', { align: 'center', fontSize: 50, fontFamily: config.FONTS.UI, fill: 0xAAAAAA.toColorString }).setOrigin(0.5, 0.5)
+  getStartButton () {
+    const text = this.add.text(config.WIDTH.half, (100).byBottom, 'T a p  t o  S t a r t', { fontSize: 18, fontFamily: config.FONTS.UI })
+    this.add.tween({ targets: text, duration: 600, alpha: 0.5, yoyo: true, loop: -1 })
+    return text
+  }
+  initContents () {
+    const bgBlur = this.add.sprite(0, 0, 'title_blur').setOrigin(0, 0)
+    fadeIn(this, bgBlur)
+    this.add.rectangle(0, 0, config.WIDTH, config.HEIGHT, config.COLORS.black).setOrigin(0, 0).setAlpha(0.5)
     this.list = [
       { text: 'New Game', callback: this.newGame },
       { text: 'Continue', callback: this.loadData }
