@@ -3,7 +3,7 @@ import config from '../data/config'
 import storage from '../data/storage'
 import setting from '../data/setting'
 import missions from '../data/missions'
-import { slideIn, slideOut } from '../util/animations'
+import { fadeIn, fadeOut, slideIn, slideOut } from '../util/animations'
 import downloadBySource from '../util/downloadBySource'
 import Talk from './Talk'
 import Select from './Select'
@@ -139,6 +139,13 @@ export default class UIScene extends Phaser.Scene {
     await slideIn(this, announcement)
     await slideOut(this, announcement, { x: -200, delay: 2000 })
     return announcement
+  }
+  async systemMessage (message, delay = 1000) {
+    const y = this.mapInfo && this.mapInfo.warning ? 52 : 22
+    const text = this.add.text((20).byRight, y, message, { align: 'right', fontSize: 12, fontFamily: config.FONTS.TEXT }).setPadding(0, 2, 0, 0).setOrigin(1, 0.5)
+    await fadeIn(this, text)
+    await fadeOut(this, text, { delay })
+    return text
   }
   menu () {
     return new Promise(resolve => new Menu(this, resolve))
@@ -300,6 +307,7 @@ export default class UIScene extends Phaser.Scene {
       return config.COLORS.theme
     })()
     const container = this.add.container(0, 0)
+    container.warning = warning
     if (warning) {
       const bg = new Box(this, boxWidth - 17, 0, config.WIDTH + 50, 30, { color, alpha: 0.4 }).setOrigin(0, 0)
       this.add.tween({ targets: bg, duration: alert ? 300 : 600, yoyo: true, loop: -1, alpha: 0.6 })
