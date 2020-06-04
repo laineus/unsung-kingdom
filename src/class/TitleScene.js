@@ -70,7 +70,7 @@ export default class TitleScene extends Phaser.Scene {
       { text: 'Continue', callback: this.loadData },
       { text: 'Settings', callback: this.settings }
     ].map((v, i) => {
-      const row = new Button(this, config.WIDTH.half, (140).byBottom + i * 40, v.text, 200, 30).on('click', v.callback.bind(this))
+      const row = new Button(this, config.WIDTH.half, (360).byBottom + i * 120, v.text, 420, 90, { fontSize: 22 }).on('click', v.callback.bind(this))
       this.add.existing(row)
       return row
     })
