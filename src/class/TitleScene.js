@@ -2,6 +2,7 @@ import storage from '../data/storage'
 import config from '../data/config'
 import chapters from '../data/chapters'
 import MenuSave from './MenuSave'
+import MenuSetting from './MenuSetting'
 import Button from './Button'
 import { slideIn, slideOut, fadeIn, fadeOut } from '../util/animations'
 import UICloseButton from './UICloseButton'
@@ -34,6 +35,9 @@ export default class TitleScene extends Phaser.Scene {
   get audio () {
     return this.ui.audio
   }
+  get setting () {
+    return this.ui.setting
+  }
   async logo () {
     const bg = this.add.rectangle(0, 0, config.WIDTH, config.HEIGHT, 0x111111).setOrigin(0, 0)
     await this.delay(200)
@@ -63,7 +67,8 @@ export default class TitleScene extends Phaser.Scene {
     this.add.rectangle(0, 0, config.WIDTH, config.HEIGHT, config.COLORS.black).setOrigin(0, 0).setAlpha(0.5)
     this.list = [
       { text: 'New Game', callback: this.newGame },
-      { text: 'Continue', callback: this.loadData }
+      { text: 'Continue', callback: this.loadData },
+      { text: 'Settings', callback: this.settings }
     ].map((v, i) => {
       const row = new Button(this, config.WIDTH.half, (140).byBottom + i * 40, v.text, 200, 30).on('click', v.callback.bind(this))
       this.add.existing(row)
@@ -98,6 +103,10 @@ export default class TitleScene extends Phaser.Scene {
     })
     this.add.existing(close)
     slideIn(this, close, { x: 100 })
+  }
+  settings () {
+    const settings = new MenuSetting(this, true)
+    this.subContent(settings)
   }
   loadData () {
     const save = new MenuSave(this, true)

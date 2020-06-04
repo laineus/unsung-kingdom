@@ -4,7 +4,7 @@ import { slideIn } from '../util/animations'
 import Radio from './Radio'
 import Button from './Button'
 export default class MenuSetting extends Phaser.GameObjects.Container {
-  constructor (scene) {
+  constructor (scene, titleMode = false) {
     super(scene)
     this.scene = scene
     const title = scene.add.text(20, 15, 'SETTINGS', { align: 'center', fill: config.COLORS.theme.toColorString, fontSize: 25, fontStyle: 'bold', fontFamily: config.FONTS.UI })
@@ -13,7 +13,7 @@ export default class MenuSetting extends Phaser.GameObjects.Container {
     const bgm = this.getVolumeSetting(220, 100, 'bgm', 'BGM')
     const se = this.getVolumeSetting(220, 180, 'se', 'SE')
     const controlMode = this.getControlMode(220, 260)
-    const toTitle = this.getBackToTitle(220, 380)
+    const toTitle = this.getBackToTitle(220, 380).setVisible(!titleMode)
     this.add([bgm, se, controlMode, toTitle])
     slideIn(scene, [bgm, se, controlMode, toTitle], { x: -100 })
   }
