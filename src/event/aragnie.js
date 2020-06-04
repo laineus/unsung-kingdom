@@ -277,7 +277,6 @@ export const lamp = (scene, cassandra, hector, mary, loretta, jail, wall, yarn) 
         { chara: 'ann', text: 'アラグニエの糸が見える！' },
         { chara: 'ann', text: 'これでアラグニエの居場所を探せばいいのね。' }
       ])
-      cassandra.tweet('…')
     }
   })
 }
