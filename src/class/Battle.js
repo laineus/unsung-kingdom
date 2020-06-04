@@ -188,14 +188,14 @@ export default class Battle extends Phaser.GameObjects.Container {
   }
   addOptionButton (name, x, y, onClick) {
     const button = new Button(this.scene, x, y, name, 120, 40).setInteractive().on('pointerdown', () => {
-      button.destroy()
+      this.clearAblButtons()
       onClick()
     })
     this.add(button)
     this.ablButtons.push(button)
   }
   setAbilityButtons () {
-    if (this.ablButtons) this.ablButtons.forEach(v => v.destroy())
+    this.clearAblButtons()
     this.ablButtons = []
     if (!this.playerTurn) return
     const ability = this.currentBattler.weapon ? abilities[this.currentBattler.weapon.ability] : null
@@ -229,8 +229,13 @@ export default class Battle extends Phaser.GameObjects.Container {
     }
     slideIn(this.scene, this.ablButtons)
   }
+  clearAblButtons () {
+    if (!this.ablButtons) return
+    this.ablButtons.forEach(v => v.destroy())
+  }
   tapEnemy (enemy) {
     if (!this.playerTurn) return
+    this.clearAblButtons()
     this.buttons.list.forEach(v => (v.visible = false))
     this.currentBattler.attackTo(enemy).then(() => {
       this.buttons.list.forEach(v => (v.visible = true))
