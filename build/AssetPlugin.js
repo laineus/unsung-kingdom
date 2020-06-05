@@ -9,9 +9,13 @@ module.exports = class {
       const promises = ASSET_SETTINGS.map(setting => {
         return new Promise(resolve => {
           fs.readdir(`./public/${setting.dir}`, (_, files) => {
-            const list = files.filter(file => setting.rule.test(file)).map(file => {
-              return [`${setting.prefix}${file.split('.')[0]}`, `.${setting.dir}/${file}`]
-            })
+            const list = files.filter(file => setting.rule.test(file)).reduce((list, file) => {
+              const key = `${setting.prefix}${file.split('.')[0]}`
+              const path = `.${setting.dir}/${file}`
+              const found = list.find(v => v[0] === key)
+              found ? found.splice(1, 1, [found[1], path].flat()) : list.push([key, path])
+              return list
+            }, [])
             resolve({ key: setting.key, list })
           })
         })
