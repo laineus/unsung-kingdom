@@ -336,7 +336,7 @@ export const aragnie = (scene, area, boss, hector, hectorInjured, scream) => {
   area.setEvent(async () => {
     await scene.talk([
       { chara: talkerMary, text: '居た！アラグニエよ！' },
-      { chara: talkerMary, text: '凄く強うそうだわ…。' },
+      { chara: talkerMary, text: 'すごく強そうだわ…。' },
       { chara: talkerLoretta, text: 'さあ、早く倒すのよ！' },
       { chara: 'ann', text: 'え、ちょっと！まだ心の準備が！' }
     ])
