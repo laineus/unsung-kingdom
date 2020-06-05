@@ -1,0 +1,14 @@
+{
+  "name": "unsung-kingdom",
+  "version": "1.0.0",
+  "main": "index.html",
+  "window": {
+    "width": 960,
+    "height": 540,
+    "min_width": 960,
+    "min_height": 540,
+    "icon":"img/logo_laineus.png"
+  },
+  "user-agent": "Mozilla/5.0 (%osinfo) AppleWebKit/%webkit_ver Chrome/%chromium_ver %name",
+  "chromium-args" : "--disable-devtools"
+}
