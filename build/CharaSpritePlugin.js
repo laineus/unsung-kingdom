@@ -12,7 +12,7 @@ module.exports = class {
         const frameWidth = Math.round(width / x)
         const frameHeight = Math.round(height / y)
         const endFrame = x * y
-        return [`chara_sprite/${name}`, `../img/chara_sprites/${name}.png`, { frameWidth, frameHeight, endFrame }]
+        return [`chara_sprite/${name}`, `./img/chara_sprites/${name}.png`, { frameWidth, frameHeight, endFrame }]
       })
       compiler.options.externals.charaSpriteData = JSON.stringify(list)
       console.log('End: CharaSprite')

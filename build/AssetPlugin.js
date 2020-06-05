@@ -10,7 +10,7 @@ module.exports = class {
         return new Promise(resolve => {
           fs.readdir(`./public/${setting.dir}`, (_, files) => {
             const list = files.filter(file => setting.rule.test(file)).map(file => {
-              return [`${setting.prefix}${file.split('.')[0]}`, `..${setting.dir}/${file}`]
+              return [`${setting.prefix}${file.split('.')[0]}`, `.${setting.dir}/${file}`]
             })
             resolve({ key: setting.key, list })
           })
