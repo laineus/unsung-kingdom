@@ -147,6 +147,7 @@ export const kingEvent = (scene, area, chara, soldier) => {
       { chara: 'jaquelyn', text: '暗殺は諦めたのかもしれないね。とにかく、一回ここを離れましょう。' },
       { chara: 'ann', text: 'うん。' }
     ])
+    scene.game.archiveManager.activate('saved_king')
     await scene.ui.missionUpdate('m0_1', true)
     scene.storage.state.chapter = 1
     await scene.mapChange('room1', (19).toPixelCenter, (11).toPixel, { speed: 'slow' })
