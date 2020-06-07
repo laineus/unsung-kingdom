@@ -1,7 +1,7 @@
 {
   "name": "unsung-kingdom",
   "version": "1.0.0",
-  "main": "index.html",
+  "main": "nw.html",
   "window": {
     "width": 960,
     "height": 540,
