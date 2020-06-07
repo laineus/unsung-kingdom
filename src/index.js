@@ -4,6 +4,7 @@ import BootScene from './class/BootScene'
 import TitleScene from './class/TitleScene'
 import GameScene from './class/GameScene'
 import UIScene from './class/UIScene'
+import ArchiveManager from './class/ArchiveManager'
 import config from './data/config'
 
 location.query = location.search.substr(1).split('&').filter(Boolean).reduce((obj, v) => {
@@ -34,6 +35,11 @@ const option = {
 }
 
 const game = new Phaser.Game(option)
+game.archiveManager = new ArchiveManager()
 
 window.game = game
 window.addEventListener('resize', () => game.scale.refresh())
+
+if (typeof greenworks !== 'undefined' && greenworks.init()) {
+  game.archiveManager.initSteam(greenworks)
+}
