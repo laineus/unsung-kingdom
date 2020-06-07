@@ -4,7 +4,7 @@ import { encrypt, decrypt } from '../util/encryption'
 const STORAGE_KEY = 'data'
 // const SHIFT = 11
 const SHIFT = 0
-export default class StorageManager {
+export default class SaveDataManager {
   constructor () {
     this.init()
   }

@@ -1,2 +1,2 @@
-import StorageManager from '../class/StorageManager'
-export default new StorageManager()
+import SaveDataManager from '../class/SaveDataManager'
+export default new SaveDataManager()
