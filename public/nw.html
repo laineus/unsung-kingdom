@@ -15,6 +15,11 @@
   </div>
   <script>
     const greenworks = require('./greenworks.js')
+    const fullscreenShotcut = new nw.Shortcut({
+      key: 'F11',
+      active: () => nw.Window.get().toggleFullscreen()
+    })
+    nw.App.registerGlobalHotKey(fullscreenShotcut)
   </script>
   <script src="./js/vendor.bundle.js"></script>
   <script src="./js/app.bundle.js"></script>
