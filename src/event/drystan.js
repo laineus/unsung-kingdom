@@ -159,7 +159,7 @@ export const rexBear = (scene, area, bear) => {
     await scene.ui.sleep(500)
     const result = await scene.ui.battle([generateBattler('bear', 11, { hp: 600 })], { boss: true, bgm: 'battle3' })
     if (!result) return
-    scene.game.archiveManager.activate('rex_bear')
+    window.archiveManager.activate('rex_bear')
     area.destroy()
     await bear.die()
     await scene.ui.sleep(500)

@@ -140,7 +140,7 @@ export const peaceful = (scene, area1, area2, soldier1, soldier2, jack) => {
       { chara: 'ann', text: 'さようなら。' }
     ])
     await scene.ui.sleep(500)
-    scene.game.archiveManager.activate('saved_kingdom')
+    window.archiveManager.activate('saved_kingdom')
     await scene.ui.missionUpdate('m5_1', true)
     await scene.ui.sleep(1000)
     await scene.ui.transition('normal')

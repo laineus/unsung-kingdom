@@ -5,13 +5,25 @@ import TitleScene from './class/TitleScene'
 import GameScene from './class/GameScene'
 import UIScene from './class/UIScene'
 import ArchiveManager from './class/ArchiveManager'
+import AppStorage from './class/AppStorage'
 import config from './data/config'
+import storage from './data/storage'
+import setting from './data/setting'
 
 location.query = location.search.substr(1).split('&').filter(Boolean).reduce((obj, v) => {
   const arr = v.split('=')
   obj[arr[0]] = arr[1]
   return obj
 }, {})
+
+window.appStorage = new AppStorage()
+window.archiveManager = new ArchiveManager()
+if (typeof greenworks !== 'undefined' && greenworks.init()) {
+  window.archiveManager.initSteam(greenworks)
+  window.appStorage.initSteam(greenworks)
+}
+storage.loadSetting()
+setting.loadSetting()
 
 const option = {
   type: Phaser.AUTO,
@@ -35,11 +47,5 @@ const option = {
 }
 
 const game = new Phaser.Game(option)
-game.archiveManager = new ArchiveManager()
-
 window.game = game
 window.addEventListener('resize', () => game.scale.refresh())
-
-if (typeof greenworks !== 'undefined' && greenworks.init()) {
-  game.archiveManager.initSteam(greenworks)
-}

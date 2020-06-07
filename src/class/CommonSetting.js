@@ -1,19 +1,21 @@
 export default class CommonSetting {
   constructor () {
-    this.state = this.getSetting()
+    this.state = this.getDefaultSetting()
   }
-  getSetting () {
-    const settingString = localStorage.getItem('setting')
-    if (!settingString) return this.getDefaultSetting()
-    try {
-      return JSON.parse(settingString)
-    } catch (error) {
-      return this.getDefaultSetting()
-    }
+  loadSetting () {
+    window.appStorage.getItem('setting').then(settingString => {
+      if (!settingString) return
+      try {
+        const setting = JSON.parse(settingString)
+        this.state = setting
+      } catch (error) {
+        return
+      }
+    })
   }
   save () {
     const json = JSON.stringify(this.state)
-    localStorage.setItem('setting', json)
+    window.appStorage.setItem('setting', json)
   }
   getDefaultSetting () {
     return {

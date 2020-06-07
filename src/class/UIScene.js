@@ -288,7 +288,7 @@ export default class UIScene extends Phaser.Scene {
     const mission = missions.find(v => v.key === key)
     const text = `『${mission.title}』を${completed ? '完了' : '開始'}`
     const completedAll = missions.every(v => this.storage.state.event[v.key].completed)
-    if (completedAll) this.game.archiveManager.activate('completed')
+    if (completedAll) window.archiveManager.activate('completed')
     return this.announce(text)
   }
   snapShot () {

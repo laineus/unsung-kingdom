@@ -33,7 +33,7 @@ export const evangelina = (scene, queen, queen2, grave) => {
     await scene.ui.sleep(500)
     const result = await scene.ui.battle([generateBattler('queen', 32, { hp: 1700 })], { boss: true, bgm: 'battle3' })
     if (!result) return
-    scene.game.archiveManager.activate('evangelina')
+    window.archiveManager.activate('evangelina')
     chara.die()
     await scene.camera.revert(600)
     await scene.talk([

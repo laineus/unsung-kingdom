@@ -25,8 +25,9 @@ export default class TitleScene extends Phaser.Scene {
     // DEBUG
     if (location.query.load) {
       const data = storage.getRow(Number(location.query.load))
-      this.storage.load(data.number)
-      this.continueGame(data.state.map, data.state.x, data.state.y)
+      this.storage.load(data.number).then(() => {
+        this.continueGame(data.state.map, data.state.x, data.state.y)
+      })
     }
   }
   get ui () {
@@ -111,8 +112,9 @@ export default class TitleScene extends Phaser.Scene {
   loadData () {
     const save = new MenuSave(this, true)
     save.on('loadData', data => {
-      this.storage.load(data.number)
-      this.continueGame(data.state.map, data.state.x, data.state.y)
+      this.storage.load(data.number).then(() => {
+        this.continueGame(data.state.map, data.state.x, data.state.y)
+      })
     })
     this.subContent(save)
   }

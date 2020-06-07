@@ -13,13 +13,14 @@ export default class MenuSave extends Phaser.GameObjects.Container {
     const title = scene.add.text(20, 15, loadMode ? 'LOAD' : 'SAVE', { align: 'center', fill: config.COLORS.theme.toColorString, fontSize: 25, fontStyle: 'bold', fontFamily: config.FONTS.UI })
     const sub = scene.add.text(20, 41, loadMode ? 'ロード' : 'セーブ', { align: 'center', fill: config.COLORS.gray.toColorString, fontSize: 10, fontStyle: 'bold', fontFamily: config.FONTS.TEXT })
     this.add([title, sub])
-    this.setItems()
-    this.setContent(this.scene.storage.lastNumber || 0)
+    this.setItems().then(() => {
+      this.setContent(this.scene.storage.lastNumber || 0)
+    })
   }
-  setItems () {
+  async setItems () {
     const firstTime = !this.items
     if (!firstTime) this.items.forEach(v => v.destroy())
-    const dataList = this.scene.storage.getList()
+    const dataList = await this.scene.storage.getList()
     this.items = dataList.map((data, i) => this.getItem(data, 165, i * 40 + 120))
     this.add(this.items)
     if (firstTime) slideIn(this.scene, this.items)
@@ -41,14 +42,14 @@ export default class MenuSave extends Phaser.GameObjects.Container {
     }
     return item
   }
-  setContent (number, reload = false) {
+  async setContent (number, reload = false) {
     if (!reload && this.content && this.content.number === number) return
     const x = 380
     if (this.items) {
       this.items.forEach((v, i) => v.setActive(i === number))
     }
     if (this.content) this.scene.add.tween({ targets: this.content, duration: 250, ease: 'Power2', x: x + 100, alpha: 0, onComplete: this.content.destroy.bind(this.content) })
-    const data = this.scene.storage.getRow(number)
+    const data = await this.scene.storage.getRow(number)
     this.content = this.getContent(data, x - 100, 104).setAlpha(0)
     this.add(this.content)
     this.scene.add.tween({ targets: this.content, duration: 250, ease: 'Power2', x, alpha: 1 })
@@ -61,9 +62,11 @@ export default class MenuSave extends Phaser.GameObjects.Container {
     const buttonWidth = 150
     if (data.number > 0 && !this.loadMode) {
       const save = new Button(this.scene, 280, 320, 'Save', buttonWidth, 40).on('click', () => {
-        this.scene.storage.save(data.number)
-        this.setItems()
-        this.setContent(data.number, true)
+        this.scene.storage.save(data.number).then(() => {
+          this.setItems().then(() => {
+            this.setContent(data.number, true)
+          })
+        })
       })
       container.add(save)
     }

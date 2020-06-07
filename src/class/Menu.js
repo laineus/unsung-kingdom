@@ -66,9 +66,10 @@ export default class Menu extends Phaser.GameObjects.Container {
     this.content = new content.Class(this.scene)
     this.content.on('close', this.destroy.bind(this, false))
     this.content.on('loadData', data => {
-      this.scene.storage.load(data.number)
-      this.scene.gameScene.mapChange(data.state.map, data.state.x, data.state.y, { save: false }).then(() => {
-        this.destroy(false)
+      this.scene.storage.load(data.number).then(() => {
+        this.scene.gameScene.mapChange(data.state.map, data.state.x, data.state.y, { save: false }).then(() => {
+          this.destroy(false)
+        })
       })
     })
     this.content.on('backToTitle', data => {
