@@ -1,7 +1,7 @@
 export default class ArchiveManager {
   constructor () {}
-  initSteam (steam) {
-    this.steam = steam
+  initSteam (greenworks) {
+    this.steam = greenworks
   }
   activate (name) {
     if (this.steam) {
