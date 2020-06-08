@@ -1,6 +1,11 @@
 import { execChapterBeginEvents } from '../event/room'
+import storage from '../data/storage'
 export default {
   name: '王都 - 拠点',
+  get bgm () {
+    return storage.state.chapter === 4 ? 'rain' : 'town'
+  },
+  sceneVolume: 0.3,
   create (scene) {
     scene.storage.state.battlers.forEach(v => v.hp = v.max_hp)
     const book = scene.map.getObjectById(13)

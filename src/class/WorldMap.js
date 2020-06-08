@@ -28,6 +28,8 @@ export default class WorldMap extends Phaser.GameObjects.Container {
     this.scene.gameScene.player.stopWalk()
   }
   init () {
+    this.originalVolume = this.scene.audio.sceneVolume
+    this.scene.audio.setSceneVolume(0.3)
     this.map = this.scene.add.sprite(-20, -20, 'map_image/world').setScale(SCALE.DEFAULT).setOrigin(0, 0).setInteractive().on('pointerdown', () => {
       this.setArea(null)
     })
@@ -84,6 +86,7 @@ export default class WorldMap extends Phaser.GameObjects.Container {
     return container
   }
   destroy () {
+    this.scene.audio.setSceneVolume(this.originalVolume)
     this.scene.scene.resume('Game')
     this.callback()
     super.destroy()

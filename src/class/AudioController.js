@@ -4,6 +4,7 @@ export default class {
     this.scene = scene
     this.setting = setting
     this.currentBgm = null
+    this.sceneVolume = 1
   }
   get seVolume () {
     return this.setting.state.se / 100
@@ -16,8 +17,12 @@ export default class {
   }
   updateBgmVolume () {
     this.scene.sound.sounds.filter(sound => sound.key.startsWith('bgm')).forEach(bgm => {
-      bgm.volume = this.bgmVolume
+      bgm.volume = this.bgmVolume * this.sceneVolume
     })
+  }
+  setSceneVolume (volume) {
+    this.sceneVolume = volume
+    this.updateBgmVolume()
   }
   setBgm (name) {
     if (!name) {
