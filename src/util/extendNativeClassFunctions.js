@@ -57,6 +57,6 @@ Math.fix = (value, min, max) => Math.min(Math.max(value, min), max)
 Math.randomInt = (min, max) => Math.floor(Math.random() * (max + 1 - min)) + min
 Math.chance = percent => (percent / 100) > Math.random()
 // Object class method
-Object.isObject = value => Boolean(value && value.constructor.name === 'Object')
+Object.isObject = value => Boolean(value && value.constructor === Object)
 // Array class method
 Array.range = (start, end) => (end - start + 1).toArray().map(i => i + start)

@@ -1,5 +1,6 @@
 import config from '../data/config'
 import SpeachBubble from './SpeachBubble'
+import Character from './Character'
 export default class Talk extends Phaser.GameObjects.Container {
   constructor (scene, events, { angle = true } = {}, callback) {
     super(scene)
@@ -8,7 +9,7 @@ export default class Talk extends Phaser.GameObjects.Container {
     this.callback = callback
     this.index = 0
     scene.add.existing(this)
-    this.npc = this.events.filter(v => v && v.chara.constructor.name === 'Character').map(v => v.chara)
+    this.npc = this.events.filter(v => v && v.chara.constructor === Character).map(v => v.chara)
     this.npc.forEach(c => {
       c.setTalking(true)
       if (angle) c.setR(c.angleTo(this.scene.gameScene.player))

@@ -102,7 +102,7 @@ export default class Battle extends Phaser.GameObjects.Container {
     return this.all[this.turnIndex]
   }
   get playerTurn () {
-    return this.currentBattler.constructor.name === 'PlayerBattler'
+    return this.currentBattler.constructor === PlayerBattler
   }
   increaseTurn () {
     if (this.defeat) return this.end(false)
