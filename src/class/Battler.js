@@ -102,7 +102,7 @@ export default class Battler extends Phaser.GameObjects.Container {
     this.add([bg, tx])
   }
   damageText (damage, { colorKey = 'soy', large = false } = {}) {
-    const text = this.scene.add.text(0, 0, damage, { fill: config.COLORS[colorKey].toColorString, stroke: config.COLORS.dark.toColorString, strokeThickness: 5, fontSize: large ? 50 : 36, fontStyle: 'bold', fontFamily: config.FONTS.UI }).setOrigin(0.5, 0.5)
+    const text = this.scene.add.text(0, 0, damage, { fill: config.COLORS[colorKey].toColorString, stroke: config.COLORS.dark.toColorString, strokeThickness: 5, fontSize: large ? 43 : 30, fontStyle: 'bold', fontFamily: config.FONTS.UI }).setOrigin(0.5, 0.5)
     this.scene.add.tween({
       targets: text, duration: 150,
       y: -40,

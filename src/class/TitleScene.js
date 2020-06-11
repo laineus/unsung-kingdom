@@ -58,7 +58,7 @@ export default class TitleScene extends Phaser.Scene {
     return new Promise(resolve => setTimeout(resolve, time))
   }
   getStartButton () {
-    const text = this.add.text(config.WIDTH.half, (100).byBottom, 'T a p  t o  S t a r t', { fontSize: 18, fontFamily: config.FONTS.UI })
+    const text = this.add.text(config.WIDTH.half, (100).byBottom, 'T A P  T O  S T A R T', { align: 'center', fontSize: 16, fontFamily: config.FONTS.UI })
     this.add.tween({ targets: text, duration: 600, alpha: 0.5, yoyo: true, loop: -1 })
     return text
   }

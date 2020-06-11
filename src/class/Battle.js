@@ -174,7 +174,7 @@ export default class Battle extends Phaser.GameObjects.Container {
     const button = this.scene.add.container(tgt.x, tgt.y - 90).setSize(140, 140)
     const bg = this.scene.add.rectangle(0, 0, 140, 140, config.COLORS.black).setRotation(Math.PI / 4).setScale(0.7).setAlpha(0.4)
     const box = this.scene.add.rectangle(0, 0, 140, 140).setFillStyle(config.COLORS.black, 0.6).setStrokeStyle(1, config.COLORS.white).setRotation(Math.PI / 4)
-    const text = this.scene.add.text(0, 0, 'COUNTER!!', { align: 'center', fontSize: 27, fontFamily: config.FONTS.UI }).setOrigin(0.5, 0.5).setPadding(0, 2, 0, 0)
+    const text = this.scene.add.text(0, 0, 'COUNTER!!', { align: 'center', fontSize: 15, fontFamily: config.FONTS.UI }).setOrigin(0.5, 0.5).setPadding(0, 2, 0, 0)
     this.scene.add.tween({ targets: bg, duration: 200, ease: 'Power2', loop: -1, scale: 1.2, alpha: 0.2 })
     button.add([bg, box, text])
     this.add(button)
@@ -278,7 +278,7 @@ export default class Battle extends Phaser.GameObjects.Container {
       }
     } else {
       const blood = this.scene.add.rectangle(0, 0, config.WIDTH, config.HEIGHT, 0xFF0000).setOrigin(0, 0)
-      const gameover = this.lvLabel = this.scene.add.text(config.WIDTH.half, config.HEIGHT.half - 10, 'GAME OVER', { align: 'center', fill: config.COLORS.white.toColorString, fontSize: 28, fontFamily: config.FONTS.UI }).setOrigin(0.5, 0.5)
+      const gameover = this.lvLabel = this.scene.add.text(config.WIDTH.half, config.HEIGHT.half - 10, 'GAME OVER', { align: 'center', fill: config.COLORS.white.toColorString, fontSize: 26, fontFamily: config.FONTS.UI }).setOrigin(0.5, 0.5)
       this.add([blood, gameover])
       fadeIn(this.scene, blood, { alpha: 0.6, duration: 1800 })
       fadeIn(this.scene, gameover, { duration: 800 })

@@ -15,9 +15,9 @@ export default class EnemyBattler extends Battler {
     this.add(this.nameLabel)
     if (!boss) {
       // hp
-      this.hpMaxLabel = this.scene.add.text(0, -134, `/${this.maxHp}`, { fill: config.COLORS.soy.toColorString, stroke: config.COLORS.dark.toColorString, strokeThickness: 2, fontSize: 14, fontStyle: 'bold', fontFamily: config.FONTS.UI }).setOrigin(0, 1)
+      this.hpMaxLabel = this.scene.add.text(0, -134, `/${this.maxHp}`, { fill: config.COLORS.soy.toColorString, stroke: config.COLORS.dark.toColorString, strokeThickness: 2, fontSize: 12, fontStyle: 'bold', fontFamily: config.FONTS.UI }).setOrigin(0, 1)
       this.add(this.hpMaxLabel)
-      this.hpValueLabel = this.scene.add.text(0, -133, this.hp, { fill: config.COLORS.soy.toColorString, stroke: config.COLORS.dark.toColorString, strokeThickness: 2, fontSize: 19, fontStyle: 'bold', fontFamily: config.FONTS.UI }).setOrigin(1, 1)
+      this.hpValueLabel = this.scene.add.text(0, -133, this.hp, { fill: config.COLORS.soy.toColorString, stroke: config.COLORS.dark.toColorString, strokeThickness: 2, fontSize: 17, fontStyle: 'bold', fontFamily: config.FONTS.UI }).setOrigin(1, 1)
       this.add(this.hpValueLabel)
       // gauge
       this.gauge = new Gauge(this.scene, 100, 7, { valueMax: this.hp, color: 0xEE8811, blood: true }).setPosition(0, -130)

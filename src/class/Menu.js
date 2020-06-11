@@ -6,7 +6,7 @@ import MenuSetting from './MenuSetting'
 import { slideIn, slideOut, fadeIn, fadeOut } from '../util/animations'
 import UICloseButton from './UICloseButton'
 const contents = [
-  { Class: MenuMap, name: 'MAP & QUESTS', min: 'マップ・クエスト', size: 52, frame: 0 },
+  { Class: MenuMap, name: 'QUESTS', min: 'マップ・クエスト', size: 52, frame: 0 },
   { Class: MenuStatus, name: 'CHARACTERS', min: 'キャラクター', size: 52, frame: 1 },
   { Class: MenuSave, name: 'SAVE', min: 'セーブ', size: 52, frame: 2 },
   { Class: MenuSetting, name: 'SETTINGS', min: '設定', size: 42, frame: 3 }
@@ -51,8 +51,8 @@ export default class Menu extends Phaser.GameObjects.Container {
     const button = this.scene.add.container(x, y).setSize(104, 104)
     const bg = this.scene.add.circle(0, 0, content.size, config.COLORS.black)
     const icon = this.scene.add.sprite(0, -8, 'menu_icons').setOrigin(0.5, 0.5).setTint(config.COLORS.ghost).setFrame(content.frame)
-    const tx = this.scene.add.text(0, content.size - 24, content.name, { align: 'center', fill: config.COLORS.theme.toColorString, fontSize: 20, fontStyle: 'bold', fontFamily: config.FONTS.UI }).setOrigin(0.5, 1).setPadding(0, 2, 0, 0)
-    const min = this.scene.add.text(0, content.size - 28, content.min, { align: 'center', fill: config.COLORS.gray.toColorString, fontSize: 10, fontStyle: 'bold', fontFamily: config.FONTS.TEXT }).setOrigin(0.5, 0).setPadding(0, 2, 0, 0)
+    const tx = this.scene.add.text(0, content.size - 24, content.name, { align: 'center', fill: config.COLORS.theme.toColorString, stroke: config.COLORS.dark.toColorString, strokeThickness: 4, fontSize: 17, fontStyle: 'bold', fontFamily: config.FONTS.UI }).setOrigin(0.5, 1).setPadding(0, 2, 0, 0)
+    const min = this.scene.add.text(0, content.size - 28, content.min, { align: 'center', fill: config.COLORS.gray.toColorString, fontSize: 9, fontStyle: 'bold', fontFamily: config.FONTS.TEXT }).setOrigin(0.5, 0).setPadding(0, 2, 0, 0)
     button.add([bg, icon, tx, min])
     button.setInteractive().on('pointerdown', () => {
       this.scene.audio.se('click')

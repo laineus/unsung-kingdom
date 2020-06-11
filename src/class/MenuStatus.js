@@ -11,7 +11,7 @@ export default class MenuStatus extends Phaser.GameObjects.Container {
   constructor (scene) {
     super(scene)
     this.scene = scene
-    const title = scene.add.text(20, 15, 'CHARACTERS', { align: 'center', fill: config.COLORS.theme.toColorString, fontSize: 25, fontStyle: 'bold', fontFamily: config.FONTS.UI })
+    const title = scene.add.text(20, 15, 'CHARACTERS', { align: 'center', fill: config.COLORS.theme.toColorString, fontSize: 21, fontStyle: 'bold', fontFamily: config.FONTS.UI })
     const sub = scene.add.text(20, 41, 'キャラクター', { align: 'center', fill: config.COLORS.gray.toColorString, fontSize: 10, fontStyle: 'bold', fontFamily: config.FONTS.TEXT })
     this.add([title, sub])
     const players = scene.storage.state.battlers
@@ -84,14 +84,14 @@ export default class MenuStatus extends Phaser.GameObjects.Container {
     const img = this.scene.add.sprite(0, 0, chara.key).setOrigin(0.5, 1).setScale(0.64, 0.64)
     container.add([imgBg, img])
     const charaInformation = this.scene.add.container(-81, -158)
-    const name = this.scene.add.text(0, 0, chara.name, { fill: config.COLORS.theme.toColorString, stroke: config.COLORS.dark.toColorString, strokeThickness: 2, fontSize: 24, fontStyle: 'bold', fontFamily: config.FONTS.UI })
-    const lv = this.scene.add.text(21 + chara.name.length * 9, 7, `Lv ${chara.lv}`, { fill: config.COLORS.theme.toColorString, stroke: config.COLORS.dark.toColorString, strokeThickness: 2, fontSize: 16, fontStyle: 'bold', fontFamily: config.FONTS.UI })
+    const name = this.scene.add.text(0, 0, chara.name, { fill: config.COLORS.theme.toColorString, stroke: config.COLORS.dark.toColorString, strokeThickness: 3, fontSize: 22, fontStyle: 'bold', fontFamily: config.FONTS.UI })
+    const lv = this.scene.add.text(25 + chara.name.length * 9, 7, `Lv ${chara.lv}`, { fill: config.COLORS.theme.toColorString, stroke: config.COLORS.dark.toColorString, strokeThickness: 2, fontSize: 14, fontStyle: 'bold', fontFamily: config.FONTS.UI })
     const hpLabel = this.scene.add.text(0, 40, 'HP', { fill: config.COLORS.soy.toColorString, stroke: config.COLORS.dark.toColorString, strokeThickness: 2, fontSize: 11, fontStyle: 'bold', fontFamily: config.FONTS.UI })
-    const hpMaxLabel = this.scene.add.text(162, 55, `/${chara.max_hp}`, { fill: config.COLORS.soy.toColorString, stroke: config.COLORS.dark.toColorString, strokeThickness: 2, fontSize: 18, fontStyle: 'bold', fontFamily: config.FONTS.UI }).setOrigin(1, 1)
-    const hpValueLabel = this.scene.add.text(hpMaxLabel.x - hpMaxLabel.width, 56, chara.hp, { fill: config.COLORS.soy.toColorString, stroke: config.COLORS.dark.toColorString, strokeThickness: 2, fontSize: 24, fontStyle: 'bold', fontFamily: config.FONTS.UI }).setOrigin(1, 1)
+    const hpMaxLabel = this.scene.add.text(162, 55, `/${chara.max_hp}`, { fill: config.COLORS.soy.toColorString, stroke: config.COLORS.dark.toColorString, strokeThickness: 2, fontSize: 15, fontStyle: 'bold', fontFamily: config.FONTS.UI }).setOrigin(1, 1)
+    const hpValueLabel = this.scene.add.text(hpMaxLabel.x - hpMaxLabel.width, 56, chara.hp, { fill: config.COLORS.soy.toColorString, stroke: config.COLORS.dark.toColorString, strokeThickness: 2, fontSize: 19, fontStyle: 'bold', fontFamily: config.FONTS.UI }).setOrigin(1, 1)
     const gauge = new Gauge(this.scene, 160, 10, { valueMax: chara.max_hp, color: config.COLORS.theme }).setPosition(81, 62)
     const exp = new ExpGauge(this.scene, 81, 95, 160, chara.lv, chara.exp)
-    const option = { fill: config.COLORS.soy.toColorString, stroke: config.COLORS.dark.toColorString, strokeThickness: 2, fontSize: 17, fontStyle: 'bold', fontFamily: config.FONTS.UI }
+    const option = { fill: config.COLORS.soy.toColorString, stroke: config.COLORS.dark.toColorString, strokeThickness: 2, fontSize: 15, fontStyle: 'bold', fontFamily: config.FONTS.UI }
     const atk = this.scene.add.text(0, 110, 'ATK', option)
     const atkVal = this.scene.add.text(70, 110, chara.atk, option).setOrigin(1, 0)
     const def = this.scene.add.text(0, 132, 'DEF', option)
@@ -112,7 +112,7 @@ export default class MenuStatus extends Phaser.GameObjects.Container {
     const box = new Box(this.scene, 0, 0, 140, 45)
     const sprite = this.scene.add.sprite(-76, -16, chara.key).setScale(0.25).setOrigin(0, 0)
     sprite.setCrop(0, 0, sprite.width, 150)
-    const text = this.scene.add.text(50, 18, chara.name, { fontSize: 17, fontStyle: 'bold', fontFamily: config.FONTS.UI }).setOrigin(1, 1)
+    const text = this.scene.add.text(52, 18, chara.name, { fontSize: 14, fontStyle: 'bold', fontFamily: config.FONTS.UI }).setOrigin(1, 1)
     container.setActive = bool => text.setFill(config.COLORS[bool ? 'theme' : 'white'].toColorString)
     container.setInteractive().on('pointerdown', () => {
       this.scene.audio.se('click')
@@ -131,7 +131,7 @@ export default class MenuStatus extends Phaser.GameObjects.Container {
     const box = new Box(this.scene, 0, 0, 360, 40).setOrigin(0.5, 0.5)
     const icon = this.scene.add.sprite(-168, 0).setScale(0.22).setOrigin(0, 0.5).setTint(config.COLORS.ghost)
     const text = this.scene.add.text(-138, 0, null, { fontSize: 15, fontStyle: 'bold', fontFamily: config.FONTS.TEXT }).setOrigin(0, 0.5)
-    const status = this.scene.add.text(137, 0, null, { fontSize: 14, fontStyle: 'bold', fontFamily: config.FONTS.UI, fill: config.COLORS.gray.toColorString }).setOrigin(1, 0.5)
+    const status = this.scene.add.text(137, 0, null, { fontSize: 13, fontStyle: 'bold', fontFamily: config.FONTS.UI, fill: config.COLORS.gray.toColorString }).setOrigin(1, 0.5)
     const ability = this.scene.add.sprite(165, 0, 'weapon_abilities').setOrigin(1, 0.5)
     const line1 = this.scene.add.line(-177, 0, 0, 0, 40, 0, config.COLORS.white).setOrigin(1, 0).setLineWidth(0.5).setAlpha(0.5)
     const line2 = this.scene.add.line(-192, 1, 0, 0, -25, 120, config.COLORS.white).setOrigin(1, 0).setLineWidth(0.5).setAlpha(0.5)

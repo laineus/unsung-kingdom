@@ -221,8 +221,8 @@ export default class UIScene extends Phaser.Scene {
   getMenuButton (x, y) {
     const button = this.add.container(x, y).setSize(120, 50)
     button.add(this.add.rectangle(0, 0, 120, 50, config.COLORS.black).setAlpha(0))
-    button.add(this.add.text(15, -8, 'MENU', { align: 'center', fontSize: 25, fontStyle: 'bold', fontFamily: config.FONTS.UI }).setPadding(0, 2, 0, 0).setOrigin(0.5, 0.5))
-    button.add(this.add.text(15, 11, 'メニュー', { align: 'center', fontSize: 10, fontStyle: 'bold', fontFamily: config.FONTS.TEXT }).setPadding(0, 2, 0, 0).setOrigin(0.5, 0.5))
+    button.add(this.add.text(15, -8, 'MENU', { align: 'center', fontSize: 20, fontStyle: 'bold', fontFamily: config.FONTS.UI }).setPadding(0, 2, 0, 0).setOrigin(0.5, 0.5))
+    button.add(this.add.text(15, 11, 'メニュー', { align: 'center', fontSize: 9, fontStyle: 'bold', fontFamily: config.FONTS.TEXT }).setPadding(0, 2, 0, 0).setOrigin(0.5, 0.5))
     button.add(this.add.rectangle(-35, -1, 25, 3, config.COLORS.theme).setRotation(Math.PI / 1))
     button.add(this.add.rectangle(-35, -1, 25, 3, config.COLORS.theme).setRotation(Math.PI / -2))
     button.setInteractive().on('pointerdown', (pointer) => {
@@ -313,8 +313,8 @@ export default class UIScene extends Phaser.Scene {
     if (warning) {
       const bg = new Box(this, boxWidth - 17, 0, config.WIDTH + 50, 30, { color, alpha: 0.4 }).setOrigin(0, 0)
       this.add.tween({ targets: bg, duration: alert ? 300 : 600, yoyo: true, loop: -1, alpha: 0.6 })
-      const bgText = this.add.text(boxWidth + 5, 6, 'WARNING', { align: 'left', fill: config.COLORS.white.toColorString, fontSize: 18, fontFamily: config.FONTS.UI }).setAlpha(0.5).setOrigin(0, 0)
-      const dashedLine = this.add.tileSprite(boxWidth + 69, 12, config.WIDTH, 6, 'dashedline').setAlpha(0.5).setOrigin(0, 0)
+      const bgText = this.add.text(boxWidth + 5, 6, 'WARNING', { align: 'left', fill: config.COLORS.white.toColorString, stroke: config.COLORS.white.toColorString, strokeThickness: 1, fontSize: 16, fontFamily: config.FONTS.UI }).setAlpha(0.5).setOrigin(0, 0)
+      const dashedLine = this.add.tileSprite(boxWidth + 90, 12, config.WIDTH, 6, 'dashedline').setAlpha(0.5).setOrigin(0, 0)
       container.add([bg, bgText, dashedLine])
     }
     const box = new Box(this, -10, 0, boxWidth, 44).setOrigin(0, 0)

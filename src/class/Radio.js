@@ -14,7 +14,7 @@ export default class Radio extends Phaser.GameObjects.Container {
   getRow (value, index) {
     const container = this.scene.add.container(0, 0)
     container.value = value
-    const label = this.scene.add.text(13, 0, value, { align: 'center', fontSize: 18, fontFamily: config.FONTS.UI }).setOrigin(0.5, 0.5)
+    const label = this.scene.add.text(13, 0, value, { align: 'center', fontSize: 15, fontFamily: config.FONTS.UI }).setOrigin(0.5, 0.5)
     const circleBg = this.scene.add.circle(-label.width.half - 5, 0, 9, config.COLORS.ghost)
     const circleValue = this.scene.add.circle(-label.width.half - 5, 0, 6, config.COLORS.theme)
     container.radio = circleValue

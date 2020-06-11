@@ -10,7 +10,7 @@ export default class MenuSave extends Phaser.GameObjects.Container {
     super(scene)
     this.scene = scene
     this.loadMode = loadMode
-    const title = scene.add.text(20, 15, loadMode ? 'LOAD' : 'SAVE', { align: 'center', fill: config.COLORS.theme.toColorString, fontSize: 25, fontStyle: 'bold', fontFamily: config.FONTS.UI })
+    const title = scene.add.text(20, 15, loadMode ? 'LOAD' : 'SAVE', { align: 'center', fill: config.COLORS.theme.toColorString, fontSize: 21, fontStyle: 'bold', fontFamily: config.FONTS.UI })
     const sub = scene.add.text(20, 41, loadMode ? 'ロード' : 'セーブ', { align: 'center', fill: config.COLORS.gray.toColorString, fontSize: 10, fontStyle: 'bold', fontFamily: config.FONTS.TEXT })
     this.add([title, sub])
     this.setItems().then(() => {
@@ -32,12 +32,12 @@ export default class MenuSave extends Phaser.GameObjects.Container {
     })
     const bg = new Box(this.scene, 0, 0, 270, 32)
     item.add(bg)
-    const tx = this.scene.add.text(-120, 0, data.name, { fontSize: 18, fontStyle: 'bold', fontFamily: config.FONTS.UI }).setOrigin(0, 0.5)
+    const tx = this.scene.add.text(-120, 0, data.name, { fontSize: 15, fontStyle: 'bold', fontFamily: config.FONTS.UI }).setOrigin(0, 0.5)
     item.add(tx)
     item.setActive = bool => tx.setFill(config.COLORS[bool ? 'theme' : 'white'].toColorString)
     if (data.exists) {
       const progress = this.getProgress(data.state).toFixed(1)
-      const time = this.scene.add.text(120, 0, `Chapter-${data.state.chapter}    ${progress}%`, { fontSize: 16, fontFamily: config.FONTS.UI, fill: config.COLORS.gray.toColorString }).setOrigin(1, 0.5)
+      const time = this.scene.add.text(120, 0, `Chapter-${data.state.chapter}    ${progress}%`, { fontSize: 13, fontFamily: config.FONTS.UI, fill: config.COLORS.gray.toColorString }).setOrigin(1, 0.5)
       item.add(time)
     }
     return item
@@ -57,7 +57,7 @@ export default class MenuSave extends Phaser.GameObjects.Container {
   getContent (data, x, y) {
     const container = this.scene.add.container(x, y)
     container.number = data.number
-    const tx = this.scene.add.text(0, 225, data.name, { fontSize: 22, fontStyle: 'bold', fontFamily: config.FONTS.UI })
+    const tx = this.scene.add.text(0, 228, data.name, { fontSize: 19, fontStyle: 'bold', fontFamily: config.FONTS.UI })
     container.add(tx)
     const buttonWidth = 150
     if (data.number > 0 && !this.loadMode) {
@@ -80,10 +80,10 @@ export default class MenuSave extends Phaser.GameObjects.Container {
         })
       }
       const chapter = chapters[data.state.chapter]
-      const detail = this.scene.add.text(100, 220, `${chapter.name} ${chapter.title}`, { fontSize: 16, fontStyle: 'bold', fontFamily: config.FONTS.TEXT })
+      const detail = this.scene.add.text(110, 220, `${chapter.name} ${chapter.title}`, { fontSize: 16, fontStyle: 'bold', fontFamily: config.FONTS.TEXT })
       const timeString = moment(data.state.saved, 'X').format('YYYY/MM/DD  HH:mm')
       const progress = this.getProgress(data.state).toFixed(1)
-      const date = this.scene.add.text(100, 243, `${timeString}     Progress  ${progress}%`, { fontSize: 16, fontFamily: config.FONTS.UI, fill: config.COLORS.gray.toColorString })
+      const date = this.scene.add.text(110, 247, `${timeString}     Progress  ${progress}%`, { fontSize: 13, fontFamily: config.FONTS.UI, fill: config.COLORS.gray.toColorString })
       container.add([detail, date])
       if (this.loadMode) {
         const load = new Button(this.scene, 280, 320, 'Load', buttonWidth, 40).on('click', () => {

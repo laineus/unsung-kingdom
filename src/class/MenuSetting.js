@@ -7,7 +7,7 @@ export default class MenuSetting extends Phaser.GameObjects.Container {
   constructor (scene, titleMode = false) {
     super(scene)
     this.scene = scene
-    const title = scene.add.text(20, 15, 'SETTINGS', { align: 'center', fill: config.COLORS.theme.toColorString, fontSize: 25, fontStyle: 'bold', fontFamily: config.FONTS.UI })
+    const title = scene.add.text(20, 15, 'SETTINGS', { align: 'center', fill: config.COLORS.theme.toColorString, fontSize: 21, fontStyle: 'bold', fontFamily: config.FONTS.UI })
     const sub = scene.add.text(20, 41, '設定', { align: 'center', fill: config.COLORS.gray.toColorString, fontSize: 10, fontStyle: 'bold', fontFamily: config.FONTS.TEXT })
     this.add([title, sub])
     const bgm = this.getVolumeSetting(220, 100, 'bgm', 'BGM')
@@ -19,7 +19,7 @@ export default class MenuSetting extends Phaser.GameObjects.Container {
   }
   getVolumeSetting (x, y, key, name) {
     const container = this.scene.add.container(x, y)
-    const title = this.scene.add.text(0, 0, `${name} Volume :`, { fill: config.COLORS.gray.toColorString, fontSize: 14, fontStyle: 'bold', fontFamily: config.FONTS.TEXT })
+    const title = this.scene.add.text(0, 0, `${name} Volume :`, { fill: config.COLORS.gray.toColorString, fontSize: 14, fontStyle: 'bold', fontFamily: config.FONTS.UI })
     const slider = new Slider(this.scene, 200, 35, 400, 10, { value: this.scene.setting.state[key] })
     const valueLabel = this.scene.add.text(430, 26, `${this.scene.setting.state[key]}%`, { fill: config.COLORS.white.toColorString, fontSize: 14, fontStyle: 'bold', fontFamily: config.FONTS.TEXT })
     slider.on('updated', value => {
@@ -36,7 +36,7 @@ export default class MenuSetting extends Phaser.GameObjects.Container {
   }
   getControlMode (x, y) {
     const container = this.scene.add.container(x, y)
-    const title = this.scene.add.text(0, 0, 'UI Type :', { fill: config.COLORS.gray.toColorString, fontSize: 14, fontStyle: 'bold', fontFamily: config.FONTS.TEXT })
+    const title = this.scene.add.text(0, 0, 'UI Type :', { fill: config.COLORS.gray.toColorString, fontSize: 14, fontStyle: 'bold', fontFamily: config.FONTS.UI })
     const radio = new Radio(this.scene, 0, 40, ['Auto Detection', 'Click to Walk', 'Virtual Stick'])
     container.add([title, radio])
     radio.setValue(this.scene.setting.state.controller)
@@ -48,8 +48,8 @@ export default class MenuSetting extends Phaser.GameObjects.Container {
   }
   getBackToTitle (x, y) {
     const container = this.scene.add.container(x, y)
-    const title = this.scene.add.text(0, 0, 'Back to Title :', { fill: config.COLORS.gray.toColorString, fontSize: 14, fontStyle: 'bold', fontFamily: config.FONTS.TEXT })
-    const confirm = this.scene.add.text(title.width + 13, 0, 'Confirm', { fill: config.COLORS.theme.toColorString, fontSize: 13, fontFamily: config.FONTS.TEXT })
+    const title = this.scene.add.text(0, 0, 'Back to Title :', { fill: config.COLORS.gray.toColorString, fontSize: 14, fontStyle: 'bold', fontFamily: config.FONTS.UI })
+    const confirm = this.scene.add.text(title.width + 13, 0, 'Confirm', { fill: config.COLORS.theme.toColorString, fontSize: 14, fontFamily: config.FONTS.UI })
     const underline = this.scene.add.rectangle(title.width + 13, 15, confirm.width, 1, config.COLORS.theme).setOrigin(0, 0)
     const button = new Button(this.scene, 85, 50, 'Back to Title', 160, 30).setVisible(false)
     confirm.setInteractive().on('pointerdown', () => {
