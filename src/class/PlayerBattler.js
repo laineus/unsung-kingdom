@@ -28,7 +28,7 @@ export default class PlayerBattler extends Battler {
     this.nameLabel = this.scene.add.text(-138, 15, this.name, { fill: config.COLORS.theme.toColorString, stroke: config.COLORS.dark.toColorString, strokeThickness: 2, fontSize: 19, fontStyle: 'bold', fontFamily: config.FONTS.UI })
     this.add(this.nameLabel)
     // lv
-    this.lvLabel = this.scene.add.text(-36, 38, `Lv ${this.lv}`, { fill: config.COLORS.gray.toColorString, stroke: config.COLORS.dark.toColorString, strokeThickness: 2, fontSize: 14, fontStyle: 'bold', fontFamily: config.FONTS.UI }).setOrigin(0, 1)
+    this.lvLabel = this.scene.add.text(-36, 38, `Lv ${this.lv}`, { fill: config.COLORS.gray.toColorString, stroke: config.COLORS.dark.toColorString, strokeThickness: 2, fontSize: 12, fontStyle: 'bold', fontFamily: config.FONTS.UI }).setOrigin(0, 1)
     this.add(this.lvLabel)
     // hp
     this.hpLabel = this.scene.add.text(-36, -25, 'HP', { fill: config.COLORS.soy.toColorString, stroke: config.COLORS.dark.toColorString, strokeThickness: 2, fontSize: 14, fontStyle: 'bold', fontFamily: config.FONTS.UI })
@@ -43,9 +43,9 @@ export default class PlayerBattler extends Battler {
     this.add(this.gauge)
     // weapon
     this.setWeapon()
-    const padding = this.weapon && this.weapon.ability ? 24 : 0
-    this.weaponLabel = this.scene.add.container(122, 37).setSize(360, 45)
-    const weaponName = this.scene.add.text(-padding, 0, this.weapon ? this.weapon.name : '-', { fill: config.COLORS.gray.toColorString, stroke: config.COLORS.dark.toColorString, strokeThickness: 2, fontSize: 11, fontFamily: config.FONTS.TEXT }).setOrigin(1, 1)
+    const padding = this.weapon && this.weapon.ability ? 22 : 0
+    this.weaponLabel = this.scene.add.container(124, 37).setSize(360, 45)
+    const weaponName = this.scene.add.text(-padding, 0, this.weapon ? this.weapon.name : '-', { fill: config.COLORS.gray.toColorString, stroke: config.COLORS.dark.toColorString, strokeThickness: 2, fontSize: 10, fontFamily: config.FONTS.TEXT }).setOrigin(1, 1)
     this.weaponLabel.add(weaponName)
     if (this.weapon) {
       const icon = this.scene.add.sprite(-weaponName.width - padding, 2, `icon/${this.weapon.icon}`).setScale(0.18).setOrigin(1, 1).setTint(config.COLORS.gray)

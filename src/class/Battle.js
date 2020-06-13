@@ -187,7 +187,7 @@ export default class Battle extends Phaser.GameObjects.Container {
     })
   }
   addOptionButton (name, x, y, onClick) {
-    const button = new Button(this.scene, x, y, name, 120, 40).setInteractive().on('pointerdown', () => {
+    const button = new Button(this.scene, x, y, name, 130, 40).setInteractive().on('pointerdown', () => {
       this.clearAblButtons()
       onClick()
     })
@@ -204,7 +204,7 @@ export default class Battle extends Phaser.GameObjects.Container {
       case 'Heal': {
         this.players.list.forEach((player, i) => {
           if (!player.alive || player.hp === player.maxHp) return
-          this.addOptionButton('Heal', 220 + i * 310, 390, () => {
+          this.addOptionButton('Heal', 210 + i * 310, 390, () => {
             this.currentBattler.heal(player, 34)
             this.increaseTurn()
           })
@@ -214,14 +214,14 @@ export default class Battle extends Phaser.GameObjects.Container {
       case 'Heal-All': {
         const players = this.players.list.filter(p => p.alive && p.hp < p.maxHp)
         if (!players.length) return
-        this.addOptionButton('Heal All', 80, 320, () => {
+        this.addOptionButton('Heal All', 85, 320, () => {
           players.forEach(p => this.currentBattler.heal(p, 20))
           this.increaseTurn()
         })
         break
       }
       case 'Multi-Attack': {
-        this.addOptionButton('Multi Attack', 80, 220, () => {
+        this.addOptionButton('Multi Attack', 85, 220, () => {
           this.multiAttack().then(this.increaseTurn.bind(this))
         })
         break
