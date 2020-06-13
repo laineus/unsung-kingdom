@@ -14,10 +14,9 @@ export default class TitleScene extends Phaser.Scene {
     this.storage = storage
     this.storage.init()
     const background = this.add.sprite(0, 0, 'title').setOrigin(0, 0)
-    const startButton = this.getStartButton()
+    this.add.sprite(config.WIDTH.half, 270, 'title_logo')
+    this.getStartButton()
     background.setInteractive().on('pointerup', () => {
-      background.removeInteractive()
-      startButton.destroy()
       this.initContents()
     })
     // this.logo()
@@ -58,20 +57,28 @@ export default class TitleScene extends Phaser.Scene {
     return new Promise(resolve => setTimeout(resolve, time))
   }
   getStartButton () {
-    const text = this.add.text(config.WIDTH.half, (100).byBottom, 'T A P  T O  S T A R T', { align: 'center', fontSize: 16, fontFamily: config.FONTS.UI })
+    const text = this.add.sprite(config.WIDTH.half, (70).byBottom, 'taptostart')
     this.add.tween({ targets: text, duration: 600, alpha: 0.5, yoyo: true, loop: -1 })
     return text
   }
   initContents () {
-    const bgBlur = this.add.sprite(0, 0, 'title_blur').setOrigin(0, 0)
+    const bgBlur = this.add.sprite(0, 0, 'title_blur').setOrigin(0, 0).setInteractive()
     fadeIn(this, bgBlur)
-    this.add.rectangle(0, 0, config.WIDTH, config.HEIGHT, config.COLORS.black).setOrigin(0, 0).setAlpha(0.5)
+    const dark = this.add.rectangle(0, 0, config.WIDTH, config.HEIGHT, config.COLORS.black).setOrigin(0, 0).setAlpha(0.5)
+    this.subLogo = this.add.sprite(25, 25, 'logo').setOrigin(0, 0).setScale(0.5, 0.5)
+    const close = () => {
+      fadeOut(this, bgBlur)
+      this.list.forEach(v => v.destroy())
+      this.subLogo.destroy()
+      dark.destroy()
+    }
     this.list = [
       { text: 'New Game', callback: this.newGame },
       { text: 'Continue', callback: this.loadData },
-      { text: 'Settings', callback: this.settings }
+      { text: 'Settings', callback: this.settings },
+      { text: 'Close', callback: close }
     ].map((v, i) => {
-      const row = new Button(this, config.WIDTH.half, (360).byBottom + i * 120, v.text, 420, 90, { fontSize: 22 }).on('click', v.callback.bind(this))
+      const row = new Button(this, config.WIDTH.half, (400).byBottom + i * 100, v.text, 420, 70, { fontSize: 17 }).on('click', v.callback.bind(this))
       this.add.existing(row)
       return row
     })
@@ -92,6 +99,7 @@ export default class TitleScene extends Phaser.Scene {
     this.scene.sleep('Title')
   }
   subContent (content) {
+    this.subLogo.setVisible(false)
     this.list.forEach(v => v.setVisible(false))
     const window = this.add.polygon(0, 0, [[0, 0], [(50).byRight, 0], [(150).byRight, (0).byBottom], [0, (0).byBottom]], config.COLORS.black, 0.7).setOrigin(0, 0)
     this.add.existing(window)
@@ -100,6 +108,7 @@ export default class TitleScene extends Phaser.Scene {
     const close = new UICloseButton(this, (70).byRight, (35).byBottom).on('click', () => {
       slideOut(this, [close], { x: 100 })
       slideOut(this, [content, window], { x: -100 })
+      this.subLogo.setVisible(true)
       this.list.forEach(v => v.setVisible(true))
     })
     this.add.existing(close)
