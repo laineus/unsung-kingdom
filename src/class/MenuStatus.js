@@ -6,6 +6,7 @@ import Pager from './Pager'
 import weapons from '../data/weapons'
 import { slideOut, slideIn } from '../util/animations'
 import storage from '../data/storage'
+import abilities from '../data/abilities'
 const PER_PAGE = 7
 export default class MenuStatus extends Phaser.GameObjects.Container {
   constructor (scene) {
@@ -21,6 +22,19 @@ export default class MenuStatus extends Phaser.GameObjects.Container {
     this.page = this.pageMax
     this.setWeaponList(true)
     this.setCharacter(players[0])
+    this.add(this.getExplanation(525, 30))
+  }
+  getExplanation (x, y) {
+    const explain = this.scene.add.container(x, y)
+    Object.keys(abilities).map(k => abilities[k]).reduce((x, ability, i) => {
+      const icon = this.scene.add.sprite(x, 0, 'weapon_abilities').setOrigin(0, 0).setScale(0.7).setFrame(i)
+      x += icon.width
+      const desc = this.scene.add.text(x, 0, ability, { align: 'right', fill: config.COLORS.gray.toColorString, fontSize: 10, fontStyle: 'bold', fontFamily: config.FONTS.UI }).setOrigin(0, 0)
+      x += desc.width + 15
+      explain.add([icon, desc])
+      return x
+    }, 0)
+    return explain
   }
   get availableWeapons () {
     const usingWeaponIds = storage.state.battlers.map(v => v.weapon).filter(id => id)
@@ -45,13 +59,13 @@ export default class MenuStatus extends Phaser.GameObjects.Container {
   setWeaponList (anim) {
     this.page = Math.fix(this.page, 1, this.pageMax)
     if (this.weapons) this.weapons.destroy()
-    this.weapons = this.scene.add.container(560, 125)
+    this.weapons = this.scene.add.container(560, 135)
     const offset = PER_PAGE * (this.page - 1)
     this.weapons.add(this.weaponGroup.slice(offset, offset + PER_PAGE).map((v, i) => this.getWeapon(v, 0, i * 40)))
     this.add(this.weapons)
     if (anim) slideIn(this.scene, this.weapons.list, { x: -100 })
     if (!this.pager) {
-      this.pager = new Pager(this.scene, 380, 415, 360).on('prev', this.movePage.bind(this, -1)).on('next', this.movePage.bind(this, 1))
+      this.pager = new Pager(this.scene, 380, 425, 360).on('prev', this.movePage.bind(this, -1)).on('next', this.movePage.bind(this, 1))
       this.add(this.pager)
     }
     this.pager.set(this.page > 1, this.page < this.pageMax)
@@ -67,7 +81,7 @@ export default class MenuStatus extends Phaser.GameObjects.Container {
     }
     this.tabs.forEach(t => t.setActive(t.chara === chara))
     this.chara = this.getCharacter(chara, 210, (30).byBottom)
-    this.currentWeapon = this.getCurrentWeapon(this.chara.battler.weapon, 560, 60)
+    this.currentWeapon = this.getCurrentWeapon(this.chara.battler.weapon, 560, 75)
     this.add([this.chara, this.currentWeapon])
     slideIn(this.scene, [this.chara, this.currentWeapon], { x: -50 })
   }
