@@ -18,9 +18,14 @@ location.query = location.search.substr(1).split('&').filter(Boolean).reduce((ob
 
 window.appStorage = new AppStorage()
 window.archiveManager = new ArchiveManager()
-if (typeof greenworks !== 'undefined' && greenworks.init()) {
-  window.archiveManager.initSteam(greenworks)
-  window.appStorage.initSteam(greenworks)
+if (typeof greenworks !== 'undefined') {
+  try {
+    greenworks.init()
+    window.archiveManager.initSteam(greenworks)
+    window.appStorage.initSteam(greenworks)
+  } catch (e) {
+    alert(e)
+  }
 }
 storage.loadSetting()
 setting.loadSetting()
