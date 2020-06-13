@@ -14,6 +14,7 @@
     <div class="content" id="game"></div>
   </div>
   <script>
+    if (!navigator.onLine) alert('Please check your internet connection.')
     window.ASSET_HOST = 'https://unsungkingdom.laineus.com'
     const greenworks = require('./greenworks.js')
     const fullscreenShotcut = new nw.Shortcut({
