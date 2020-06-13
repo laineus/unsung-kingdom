@@ -44,17 +44,20 @@ const assets = {
     ...charaSpriteData
   ]
 }
+const getReplacedPath = path => {
+  return path.replace(/^\.\/(.*)/, `${window.ASSET_HOST}/$1`)
+}
 if (window.ASSET_HOST) {
-  Object.keys(assets).map(k => assets[k]).forEach(arr => {
-    const getReplacedPath = path => path.replace(/^\.\/(.*)/, `${window.ASSET_HOST}/$1`)
-    if (Array.isArray(arr[1])) {
-      arr[1].forEach((_, i) => {
-        arr[1][i] = getReplacedPath(arr[1][i])
-      })
-    } else {
-      arr[1] = getReplacedPath(arr[1])
-    }
+  Object.keys(assets).map(k => assets[k]).forEach(list => {
+    list.forEach(row => {
+      if (Array.isArray(row[1])) {
+        row[1].forEach((_, i) => {
+          row[1][i] = getReplacedPath(row[1][i])
+        })
+      } else {
+        row[1] = getReplacedPath(row[1])
+      }
+    })
   })
 }
-console.log(assets)
 export default assets
