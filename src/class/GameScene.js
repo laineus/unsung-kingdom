@@ -46,18 +46,20 @@ export default class GameScene extends Phaser.Scene {
     this.ui.audio.setBgm(this.event.bgm || null)
     this.ui.audio.setSceneVolume(this.event.sceneVolume || 1)
     if (this.event.create) this.event.create(this)
-    this.ui.showMapInfo(payload.map !== 'room1' ? this.event : null)
     this.setEncountDelay(payload.encountDelay)
-    setTimeout(() => {
-      // auto save
-      if (payload.save) {
-        this.ui.snapshopForSaveData().then(() => {
-          this.storage.save(0)
-          this.ui.systemMessage('Saving...')
-        })
-      }
-      this.ui.battlerSummary.show()
-    }, 150)
+    this.ui.informMapName(payload.informMapName).then(() => {
+      setTimeout(() => {
+        // auto save
+        if (payload.save) {
+          this.ui.snapshopForSaveData().then(() => {
+            this.storage.save(0)
+            this.ui.systemMessage('Saving...')
+          })
+        }
+        this.ui.showMapInfo(payload.map !== 'room1' ? this.event : null)
+        this.ui.battlerSummary.show()
+      }, 150)
+    })
     // debug
     this.setDebugAction()
   }
@@ -111,13 +113,13 @@ export default class GameScene extends Phaser.Scene {
     if (bool) this.camera.setRenderToTexture('blur')
     if (!bool) this.camera.clearRenderToTexture()
   }
-  mapChange (mapKey, x, y, { r = null, save = true, speed = 'fast' } = {}) {
+  mapChange (mapKey, x, y, { r = null, save = true, speed = 'fast', informMapName } = {}) {
     this.ui.battlerSummary.hide()
     this.alreadyTweetLost = false
     this.scene.pause('Game')
     const encountDelay = Math.max(this.encountDelay, 300)
     return this.ui.transition(speed).then(() => {
-      this.scene.start('Game', { map: mapKey, x, y, r, save, encountDelay })
+      this.scene.start('Game', { map: mapKey, x, y, r, save, encountDelay, informMapName })
     })
   }
   backToTitle () {

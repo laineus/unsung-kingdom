@@ -52,15 +52,6 @@ export default class UIScene extends Phaser.Scene {
     this.virtualStick = new VirtualStick(this, 100, (160).byBottom).setVisible(this.touchMode)
     this.checkButton = this.getCheckButton().setVisible(false)
     this.eventMode = false
-    // TOOD: map name
-    // setTimeout(() => {
-    //   this.window = this.add.sprite(0, 0, 'dark').setOrigin(0, 0)
-    //   this.overlay = this.add.rectangle(0, 0, config.WIDTH, config.HEIGHT, 0x000000).setOrigin(0, 0).setAlpha(0.2)
-    //   this.add.text(15, -8, 'WARCOFORENCE', { align: 'center', fontSize: 66, fontFamily: config.FONTS.UI }).setOrigin(0.5, 0.5).setPosition(config.WIDTH.half, config.HEIGHT.half)
-    //   setTimeout(() => {
-    //     this.gameScene.blur(true)
-    //   }, 100)
-    // }, 2000)
   }
   update (time, delta) {
     const sec = Math.floor(time / 1000)
@@ -183,6 +174,20 @@ export default class UIScene extends Phaser.Scene {
         onComplete: () => rect.destroy()
       })
     })
+  }
+  async informMapName (name) {
+    if (!name) return
+    const window = this.add.sprite(0, 0, 'dark').setOrigin(0, 0)
+    const overlay = this.add.rectangle(0, 0, config.WIDTH, config.HEIGHT, 0x000000).setOrigin(0, 0).setInteractive()
+    const mapName = name.split('').join('  ')
+    const text = this.add.text(15, -8, mapName, { align: 'center', fontSize: 21, fontFamily: config.FONTS.UI }).setOrigin(0.5, 0.5).setPosition(config.WIDTH.half, config.HEIGHT.half)
+    const list = [window, overlay, text]
+    fadeIn(this, list, { alpha: 0.5 })
+    this.gameScene.blur(true)
+    await this.sleep(2000)
+    this.gameScene.blur(false)
+    this.add.tween({ targets: text, duration: 250, scale: 4 })
+    await fadeOut(this, list)
   }
   setEventMode (bool) {
     this.eventMode = bool

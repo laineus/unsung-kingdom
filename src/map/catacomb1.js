@@ -16,6 +16,8 @@ export default {
         { chara, text: '近年、出没するモンスターが増えてきて、我々も手に負えなくなってきているんだ。' }
       ])
     })
-    scene.tweetOnce(scene.player, '墓地…ちょっと怖いね…', 'ct1')
+    scene.ui.sleep(2000).then(() => {
+      scene.tweetOnce(scene.player, '墓地…ちょっと怖いね…', 'ct1')
+    })
   }
 }

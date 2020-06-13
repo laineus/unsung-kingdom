@@ -4,12 +4,12 @@ import Button from './Button'
 import { slideIn, slideOut } from '../util/animations'
 const OFFSET = { x: 385, y: 260 }
 const AERA_LIST = [
-  { name: '王都', x: 960, y: 560, key: 'town1', mapX: 2, mapY: 20, r: 'right' },
+  { name: '王都', x: 960, y: 560, key: 'town1', mapX: 2, mapY: 20, r: 'right', label: 'Kingdom of Bellion' },
   { name: '王城 - 裏庭', x: 970, y: 360, key: 'castle1', mapX: 48, mapY: 37, r: 'up' },
-  { name: 'ワルコフォレンスの森', x: 320, y: 240, key: 'forest1', mapX: 45, mapY: 17, r: 'left' },
-  { name: 'トロイア公爵邸の地下通路', x: 1320, y: 716, key: 'underpass1', mapX: 14, mapY: 39, r: 'up' },
-  { name: '聖アンテルスの墓地', x: 980, y: 908, key: 'catacomb1', mapX: 2, mapY: 14, r: 'right' },
-  { name: 'グリファルデ神殿', x: 1670, y: 485, key: 'temple1', mapX: 2, mapY: 13, r: 'right' }
+  { name: 'ワルコフォレンスの森', x: 320, y: 240, key: 'forest1', mapX: 45, mapY: 17, r: 'left', label: 'Warcoforence' },
+  { name: 'トロイア公爵邸の地下通路', x: 1320, y: 716, key: 'underpass1', mapX: 14, mapY: 39, r: 'up', label: 'Troy\'s secret passage' },
+  { name: '聖アンテルスの墓地', x: 980, y: 908, key: 'catacomb1', mapX: 2, mapY: 14, r: 'right', label: 'St Anterus\' catacomb' },
+  { name: 'グリファルデ神殿', x: 1670, y: 485, key: 'temple1', mapX: 2, mapY: 13, r: 'right', label: 'Temple Grefalde' }
 ]
 const SCALE = {
   DEFAULT: 0.37,
@@ -55,7 +55,8 @@ export default class WorldMap extends Phaser.GameObjects.Container {
   }
   onOk () {
     if (this.scene.storage.state.map === this.selected.key) return this.onCancel()
-    this.scene.gameScene.mapChange(this.selected.key, this.selected.mapX.toPixelCenter, this.selected.mapY.toPixelCenter, { r: this.selected.r }).then(() => {
+    const payload = { r: this.selected.r, informMapName: this.selected.label }
+    this.scene.gameScene.mapChange(this.selected.key, this.selected.mapX.toPixelCenter, this.selected.mapY.toPixelCenter, payload).then(() => {
       this.destroy()
     })
   }
