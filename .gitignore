@@ -1,5 +1,6 @@
 node_modules
 ignore
-nw
+/nw/*
+!/nw/public
 /public/js/*.bundle.js
 /public/img/tilesets/extruded/*.png
