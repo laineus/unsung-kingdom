@@ -71,6 +71,7 @@ export const jackEvent = (scene, area, chara) => {
       { chara: 'francisca', text: '強い…。' },
       { chara, text: '装備は没収させてもらうぞ。' }
     ])
+    scene.ui.announce('装備を奪われた')
     scene.storage.state.weapons.length = 0
     scene.storage.state.battlers.forEach(v => v.weapon = null)
     await scene.ui.sleep(2000)

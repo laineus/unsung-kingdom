@@ -61,7 +61,7 @@ export default class BattleResult extends Phaser.GameObjects.Container {
     container.source = chara
     const sprite = this.scene.add.sprite(-78, 0, chara.key).setScale(0.25).setOrigin(0.5, 0)
     sprite.setCrop(0, 0, sprite.width, 150)
-    const name = this.scene.add.text(-53, 0, chara.name, { fill: config.COLORS.theme.toColorString, stroke: config.COLORS.dark.toColorString, strokeThickness: 2, fontSize: 16, fontStyle: 'bold', fontFamily: config.FONTS.UI })
+    const name = this.scene.add.text(-53, 0, chara.name, { fill: config.COLORS.theme.toColorString, stroke: config.COLORS.dark.toColorString, strokeThickness: 2, fontSize: 15, fontStyle: 'bold', fontFamily: config.FONTS.UI })
     const lv = this.scene.add.text(130, 15, `Lv ${chara.lv}`, { fill: config.COLORS.theme.toColorString, stroke: config.COLORS.dark.toColorString, strokeThickness: 2, fontSize: 14, fontStyle: 'bold', fontFamily: config.FONTS.UI, align: 'right' }).setOrigin(1, 0.5)
     const gauge = new ExpGauge(this.scene, 38, 38, 180, chara.lv, chara.exp)
     container.lvUp = newLv => {
