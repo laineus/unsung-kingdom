@@ -9,7 +9,6 @@ export default class CommonSetting {
         const setting = JSON.parse(settingString)
         this.state = setting
       } catch (error) {
-        return
       }
     })
   }

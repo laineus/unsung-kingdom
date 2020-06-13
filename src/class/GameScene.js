@@ -50,10 +50,12 @@ export default class GameScene extends Phaser.Scene {
     this.setEncountDelay(payload.encountDelay)
     setTimeout(() => {
       // auto save
-      if (payload.save) this.ui.snapshopForSaveData().then(() => {
-        this.storage.save(0)
-        this.ui.systemMessage('Saving...')
-      })
+      if (payload.save) {
+        this.ui.snapshopForSaveData().then(() => {
+          this.storage.save(0)
+          this.ui.systemMessage('Saving...')
+        })
+      }
       this.ui.battlerSummary.show()
     }, 150)
     // debug

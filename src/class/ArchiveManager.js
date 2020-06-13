@@ -1,5 +1,4 @@
 export default class ArchiveManager {
-  constructor () {}
   initSteam (greenworks) {
     this.steam = greenworks
   }
