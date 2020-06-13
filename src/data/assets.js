@@ -1,6 +1,6 @@
 import assetData from 'assetData'
 import charaSpriteData from 'charaSpriteData'
-export default {
+const assets = {
   image: [
     // *
     ...assetData.images,
@@ -44,3 +44,17 @@ export default {
     ...charaSpriteData
   ]
 }
+if (window.ASSET_HOST) {
+  Object.keys(assets).map(k => assets[k]).forEach(arr => {
+    const getReplacedPath = path => path.replace(/^\.\/(.*)/, `${window.ASSET_HOST}/$1`)
+    if (Array.isArray(arr[1])) {
+      arr[1].forEach((_, i) => {
+        arr[1][i] = getReplacedPath(arr[1][i])
+      })
+    } else {
+      arr[1] = getReplacedPath(arr[1])
+    }
+  })
+}
+console.log(assets)
+export default assets
