@@ -25,6 +25,8 @@
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1",
     "image-size": "^0.8.3",
+    "imagemin": "^7.0.1",
+    "imagemin-pngquant": "^9.0.0",
     "nw": "^0.46.1",
     "nw-builder": "^3.5.7",
     "tile-extruder": "^2.0.3",
