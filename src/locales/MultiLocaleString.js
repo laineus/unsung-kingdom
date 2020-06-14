@@ -1,21 +1,24 @@
 import locales from './index'
-const translate = (key, variables, lang) => {
+const translate = (key, values, lang) => {
   const locale = locales[lang]
   const text = key.split('.').reduce((obj, k) => obj && obj[k], locale)
   if (text === undefined) return 'Missing'
-  if (!variables) return text
-  const replacedText = variables.reduce((text, v, i) => {
+  if (!values) return text
+  const replacedText = values.reduce((text, v, i) => {
     return text.replace(new RegExp(`\\#\\{${i}\\}`, 'g'), v)
   }, text)
   return replacedText
 }
+const translateAll = (key, values) => {
+  return Object.keys(locales).reduce((obj, lang) => {
+    obj[lang] = translate(key, values, lang)
+    return obj
+  }, {})
+}
 export default class MultiLocaleString extends String {
   constructor (key, values) {
     super()
-    this.strings = {}
-    Object.keys(locales).forEach(lang => {
-      this.strings[lang] = translate(key, values, lang)
-    })
+    this.strings = translateAll(key, values)
   }
   valueOf () {
     return this.strings[window.lang]
