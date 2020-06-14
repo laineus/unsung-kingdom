@@ -27,14 +27,14 @@ Object.defineProperty(Number.prototype, 'byBottom', {
 // String instance methods
 Object.defineProperty(String.prototype, 'width', {
   get () {
-    return [...Array(this.length).keys()].map(i => {
+    return [...Array(this.valueOf().length).keys()].map(i => {
       const charCode = this.charCodeAt(i)
       if (charCode >= 0x00 && charCode < 0x81) return 1
       if (charCode === 0xf8f0) return 1
       if (charCode >= 0xff61 && charCode < 0xffa0) return 1
       if (charCode >= 0xf8f1 && charCode < 0xf8f4) return 1
       return 2
-    }).reduce((sum, v) => sum + v)
+    }).reduce((sum, v) => sum + v, 0)
   }
 })
 Object.defineProperty(String.prototype, 'toColorInt', {

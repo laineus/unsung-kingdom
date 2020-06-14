@@ -17,6 +17,9 @@ export default class MultiLocaleString extends String {
       this.strings[lang] = translate(key, values, lang)
     })
   }
+  valueOf () {
+    return this.strings[window.lang]
+  }
   toString () {
     return this.strings[window.lang]
   }
