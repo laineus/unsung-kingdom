@@ -51,6 +51,8 @@ const option = {
   // fps: { target: 30, forceSetTimeOut: true }
 }
 
+window.lang = 'ja'
+
 const game = new Phaser.Game(option)
 window.game = game
 window.addEventListener('resize', () => game.scale.refresh())

@@ -1,8 +1,8 @@
 export default [
-  { name: '序章', title: '王殺しのジャック', en: 'Jack the Kingkiller' },
-  { name: '1章', title: 'ワルコフォレンスの森', en: 'Warcoforence' },
-  { name: '2章', title: 'トロイア公爵邸の地下通路', en: 'Troy\'s secret passage' },
-  { name: '3章', title: '聖アンテルスの墓地', en: 'St Anterus\' catacomb' },
-  { name: '4章', title: 'グリファルデ神殿', en: 'Temple Grefalde' },
-  { name: '終章', title: '平和王エドガー', en: 'Edgar the Peaceful' }
+  { name: t('chapter.0.name'), title: t('chapter.0.title'), sub: t('chapter.0.sub') },
+  { name: t('chapter.1.name'), title: t('chapter.1.title'), sub: t('chapter.1.sub') },
+  { name: t('chapter.2.name'), title: t('chapter.2.title'), sub: t('chapter.2.sub') },
+  { name: t('chapter.3.name'), title: t('chapter.3.title'), sub: t('chapter.3.sub') },
+  { name: t('chapter.4.name'), title: t('chapter.4.title'), sub: t('chapter.4.sub') },
+  { name: t('chapter.5.name'), title: t('chapter.5.title'), sub: t('chapter.5.sub') }
 ]
