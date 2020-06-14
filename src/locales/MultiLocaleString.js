@@ -22,7 +22,7 @@ export default class MultiLocaleString extends String {
     this.strings = translateAll(key, values)
   }
   valueOf () {
-    return this.strings[setting.state.lang] || 'Undefined Laguage'
+    return this.strings[setting.state.lang] !== undefined ? this.strings[setting.state.lang] : 'Undefined Laguage'
   }
   toString () {
     return this.valueOf()

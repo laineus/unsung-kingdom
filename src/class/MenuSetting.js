@@ -13,9 +13,10 @@ export default class MenuSetting extends Phaser.GameObjects.Container {
     const bgm = this.getVolumeSetting(220, 100, 'bgm', 'BGM')
     const se = this.getVolumeSetting(220, 180, 'se', 'SE')
     const controlMode = this.getControlMode(220, 260)
-    const toTitle = this.getBackToTitle(220, 380).setVisible(!titleMode)
-    this.add([bgm, se, controlMode, toTitle])
-    slideIn(scene, [bgm, se, controlMode, toTitle], { x: -100 })
+    const lang = this.getLanguage(220, 340)
+    const toTitle = this.getBackToTitle(220, 460).setVisible(!titleMode)
+    this.add([bgm, se, controlMode, lang, toTitle])
+    slideIn(scene, [bgm, se, controlMode, lang, toTitle], { x: -100 })
   }
   getVolumeSetting (x, y, key, name) {
     const container = this.scene.add.container(x, y)
@@ -42,6 +43,19 @@ export default class MenuSetting extends Phaser.GameObjects.Container {
     radio.setValue(this.scene.setting.state.controller)
     radio.on('updated', index => {
       this.scene.setting.state.controller = index
+      this.scene.setting.save()
+    })
+    return container
+  }
+  getLanguage (x, y) {
+    const langs = [{ value: 'ja', label: '日本語' }, { value: 'en', label: 'English' }]
+    const container = this.scene.add.container(x, y)
+    const title = this.scene.add.text(0, 0, 'Language :', { fill: config.COLORS.gray.toColorString, fontSize: 14, fontStyle: 'bold', fontFamily: config.FONTS.UI })
+    const radio = new Radio(this.scene, 0, 40, langs.map(v => v.label))
+    container.add([title, radio])
+    radio.setValue(langs.findIndex(v => this.scene.setting.state.lang === v.value))
+    radio.on('updated', index => {
+      this.scene.setting.state.lang = langs[index].value
       this.scene.setting.save()
     })
     return container
