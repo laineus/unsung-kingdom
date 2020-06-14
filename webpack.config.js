@@ -44,7 +44,10 @@ module.exports = {
     }),
     new TileSetPlugin(),
     new AssetPlugin(),
-    new CharaSpritePlugin()
+    new CharaSpritePlugin(),
+    new webpack.ProvidePlugin({
+      t: [path.resolve(__dirname, 'src/locales/t'), 'default']
+    })
   ],
   externals: {},
   optimization: {

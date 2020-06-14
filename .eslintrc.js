@@ -16,7 +16,8 @@ module.exports = {
     Blob: true,
     WebGLRenderingContext: true,
     Phaser: true,
-    greenworks: true
+    greenworks: true,
+    t: true
   },
   ignorePatterns: ['src/shader/']
 }
