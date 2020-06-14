@@ -8,7 +8,7 @@ export default class Gate extends Area {
     this.setEvent(this.originalEvent)
   }
   setBlocked (callback) {
-    this.setEvent(() => callback(this.originalEvent) || this.originalEvent)
+    this.setEvent(callback ? () => callback(this.originalEvent) : this.originalEvent)
     return this
   }
 }
