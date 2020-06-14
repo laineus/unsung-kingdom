@@ -15,5 +15,11 @@ export default {
       load: '',
       settings: ''
     }
+  },
+  townGreeting: {
+    amber: 'How is everything?',
+    elliott: 'What\'s up?',
+    max: 'Hi.',
+    annabelle: 'Good morning.'
   }
 }

@@ -32,10 +32,10 @@ export default {
     events[scene.storage.state.chapter](scene, { amber, elliott, max, annabelle, matilda, maison, area1, soldier1, soldier2 })
     if (scene.storage.state.chapter === 4) scene.map.rain()
     this.greetings = [
-      { chara: amber, message: 'いい天気ね', met: false },
-      { chara: elliott, message: 'よう', met: false },
-      { chara: max, message: '元気か？', met: false },
-      { chara: annabelle, message: 'こんにちは', met: false }
+      { chara: amber, message: t('townGreeting.amber'), met: false },
+      { chara: elliott, message: t('townGreeting.elliott'), met: false },
+      { chara: max, message: t('townGreeting.max'), met: false },
+      { chara: annabelle, message: t('townGreeting.annabelle'), met: false }
     ]
     this.cp4Tweets = [
       { chara: amber, message: '大変なことになったわ…', met: false },
@@ -45,12 +45,11 @@ export default {
     scene.map.getObjectById(20).setTapEvent(async () => {
       const cp = scene.storage.state.chapter
       const messages = [
-        '市街についての案内が貼り出されている。',
-        '森の凶暴なモンスター「レックスベア」の討伐報酬について貼り出されている。',
-        '禁酒令の罰則に関して貼り出されている。',
-        'レンフィールド家の邸宅が火事になった件について貼り出されている。',
-        'ドランゴンの覚醒と討伐隊が結成されたことについて貼り出されている。',
-        'エドガー王がドラゴンを倒したことについて貼り出されている。'
+        t('townBoard.0'),
+        t('townBoard.1'),
+        t('townBoard.2'),
+        t('townBoard.3'),
+        t('townBoard.4')
       ]
       await scene.talk([
         { chara: 'ann', text: messages[cp] }
