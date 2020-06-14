@@ -1,4 +1,5 @@
 import locales from './index'
+import setting from '../data/setting'
 const translate = (key, values, lang) => {
   const locale = locales[lang]
   const text = key.split('.').reduce((obj, k) => obj && obj[k], locale)
@@ -21,9 +22,9 @@ export default class MultiLocaleString extends String {
     this.strings = translateAll(key, values)
   }
   valueOf () {
-    return this.strings[window.lang]
+    return this.strings[setting.state.lang] || 'Undefined Laguage'
   }
   toString () {
-    return this.strings[window.lang]
+    return this.valueOf()
   }
 }

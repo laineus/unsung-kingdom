@@ -20,7 +20,8 @@ export default class CommonSetting {
     return {
       bgm: 100,
       se: 100,
-      controller: 0
+      controller: 0,
+      lang: 'ja'
     }
   }
 }
