@@ -8,5 +8,12 @@ export default {
     { name: 'Ep', title: 'Edgar the Peaceful', sub: '' }
   ],
   ui: {
+    sub: {
+      quests: '',
+      characters: '',
+      save: '',
+      load: '',
+      settings: ''
+    }
   }
 }

@@ -8,7 +8,7 @@ export default class MenuSetting extends Phaser.GameObjects.Container {
     super(scene)
     this.scene = scene
     const title = scene.add.text(20, 15, 'SETTINGS', { align: 'center', fill: config.COLORS.theme.toColorString, fontSize: 21, fontStyle: 'bold', fontFamily: config.FONTS.UI })
-    const sub = scene.add.text(20, 41, '設定', { align: 'center', fill: config.COLORS.gray.toColorString, fontSize: 10, fontStyle: 'bold', fontFamily: config.FONTS.TEXT })
+    const sub = scene.add.text(20, 41, t('ui.sub.settings'), { align: 'center', fill: config.COLORS.gray.toColorString, fontSize: 10, fontStyle: 'bold', fontFamily: config.FONTS.TEXT })
     this.add([title, sub])
     const bgm = this.getVolumeSetting(220, 100, 'bgm', 'BGM')
     const se = this.getVolumeSetting(220, 180, 'se', 'SE')

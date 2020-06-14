@@ -51,7 +51,7 @@ const option = {
   // fps: { target: 30, forceSetTimeOut: true }
 }
 
-window.lang = 'ja'
+window.lang = 'en'
 
 const game = new Phaser.Game(option)
 window.game = game

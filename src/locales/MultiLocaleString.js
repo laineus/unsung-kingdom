@@ -2,7 +2,7 @@ import locales from './index'
 const translate = (key, variables, lang) => {
   const locale = locales[lang]
   const text = key.split('.').reduce((obj, k) => obj && obj[k], locale)
-  if (!text) return 'Missing'
+  if (text === undefined) return 'Missing'
   if (!variables) return text
   const replacedText = variables.reduce((text, v, i) => {
     return text.replace(new RegExp(`\\#\\{${i}\\}`, 'g'), v)

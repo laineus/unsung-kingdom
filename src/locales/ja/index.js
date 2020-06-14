@@ -8,5 +8,12 @@ export default {
     { name: '終章', title: '平和王エドガー', sub: 'Edgar the Peaceful' }
   ],
   ui: {
+    sub: {
+      quests: 'マップ＆クエスト',
+      characters: 'キャラクター',
+      save: 'セーブ',
+      load: 'ロード',
+      settings: '設定'
+    }
   }
 }
