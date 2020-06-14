@@ -22,30 +22,30 @@ const setBookEvent = (scene, book, chapter) => {
   book.setTapEvent(async () => {
     const scripts = [
       [
-        { chara: 'ann', text: 'べリオン王国史によると、王は暗殺者によって殺された…。' },
-        { chara: 'ann', text: '現場の王城の裏庭に急ごう！' }
+        { chara: 'ann', text: t('roomBook.0.0') },
+        { chara: 'ann', text: t('roomBook.0.1') }
       ],
       [
-        { chara: 'ann', text: '「王は急な病に伏して亡くなった」か。' },
-        { chara: 'ann', text: '王もそれほど若くないんだよね。' }
+        { chara: 'ann', text: t('roomBook.1.0') },
+        { chara: 'ann', text: t('roomBook.1.1') }
       ],
       [
-        { chara: 'ann', text: '「退役した王国騎士に裏切られ、殺される」' },
-        { chara: 'ann', text: 'この前の王殺しのジャックと関係があるのかな…？' }
+        { chara: 'ann', text: t('roomBook.2.0') },
+        { chara: 'ann', text: t('roomBook.2.1') }
       ],
       [
-        { chara: 'ann', text: '「王は王妃の亡霊に呪い殺されたと語られている」' },
-        { chara: 'ann', text: 'ほんとかなあ…？' }
+        { chara: 'ann', text: t('roomBook.3.0') },
+        { chara: 'ann', text: t('roomBook.3.1') }
       ],
       [
-        { chara: 'ann', text: '「王はドラゴンとの戦いに破れて死ぬ」' },
-        { chara: 'ann', text: 'ドラゴンか…。' },
-        { chara: 'ann', text: 'きっと凄く強いんだよね。' }
+        { chara: 'ann', text: t('roomBook.4.0') },
+        { chara: 'ann', text: t('roomBook.4.1') },
+        { chara: 'ann', text: t('roomBook.4.2') }
       ],
       [
-        { chara: 'ann', text: '「王は安らかに天命を全うした」' },
-        { chara: 'ann', text: 'うん、' },
-        { chara: 'ann', text: '嬉しくて何度も読み直したくなるね' }
+        { chara: 'ann', text: t('roomBook.5.0') },
+        { chara: 'ann', text: t('roomBook.5.1') },
+        { chara: 'ann', text: t('roomBook.5.2')}
       ]
     ]
     await scene.talk(scripts[chapter])
@@ -56,23 +56,23 @@ const events = [
   async (scene) => {
     scene.ui.sleep(1000)
     await scene.talk([
-      { chara: 'ann', text: 'じゃ、みんな、あらためてよろしく！' },
-      { chara: 'jaquelyn', text: 'よろしくね、アン。' },
-      { chara: 'francisca', text: 'アンが仕切るの？不安なんですけど。' },
-      { chara: 'francisca', text: '私達がこの時代に来た目的、ちゃんと理解してる？' },
-      { chara: 'ann', text: '当たり前じゃん！' }
+      { chara: 'ann', text: t('roomEv.0.0.0') },
+      { chara: 'jaquelyn', text: t('roomEv.0.0.1') },
+      { chara: 'francisca', text: t('roomEv.0.0.2') },
+      { chara: 'francisca', text: t('roomEv.0.0.3') },
+      { chara: 'ann', text: t('roomEv.0.0.4') }
     ])
-    const i = await scene.select(['王の暗殺を阻止すること', '観光'])
+    const i = await scene.select([t('roomEv.0.1.0'), t('roomEv.0.1.1')])
     await scene.talk([
       ...(i === 0 ? [
-        { chara: 'ann', text: '私達の目的はエドガー王が暗殺されるのを阻止すること。' },
-        { chara: 'jaquelyn', text: 'ちゃんと覚えていて偉いわ、アン。' }
+        { chara: 'ann', text: t('roomEv.0.2.0') },
+        { chara: 'jaquelyn', text: t('roomEv.0.2.1')}
       ] : [
-        { chara: 'francisca', text: 'はぁ…。' },
-        { chara: 'jaquelyn', text: 'そうじゃないでしょ、アン。' },
-        { chara: 'jaquelyn', text: '私達の目的はエドガー王が暗殺されるのを阻止することよ。' },
-        { chara: 'ann', text: 'じょ、冗談だよ！' },
-        { chara: 'ann', text: '忘れるわけないじゃん！' }
+        { chara: 'francisca', text: t('roomEv.0.3.0') },
+        { chara: 'jaquelyn', text: t('roomEv.0.3.1') },
+        { chara: 'jaquelyn', text: t('roomEv.0.3.2') },
+        { chara: 'ann', text: t('roomEv.0.3.3') },
+        { chara: 'ann', text: t('roomEv.0.3.4') }
       ]),
       { chara: 'ann', text: '全べリオン人がずっと悔やんできたことだもの。' },
       { chara: 'jaquelyn', text: 'そうね。' },

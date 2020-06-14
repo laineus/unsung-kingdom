@@ -38,8 +38,8 @@ export default {
       { chara: annabelle, message: t('townGreeting.annabelle'), met: false }
     ]
     this.cp4Tweets = [
-      { chara: amber, message: '大変なことになったわ…', met: false },
-      { chara: matilda, message: '怖いな…', met: false }
+      { chara: amber, message: t('townGreeting4.amber'), met: false },
+      { chara: matilda, message: t('townGreeting4.matilda'), met: false }
 
     ]
     scene.map.getObjectById(20).setTapEvent(async () => {
