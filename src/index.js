@@ -18,6 +18,9 @@ location.query = location.search.substr(1).split('&').filter(Boolean).reduce((ob
 
 window.appStorage = new AppStorage()
 window.archiveManager = new ArchiveManager()
+if (window.gtag) {
+  window.archiveManager.initGtag(window.gtag)
+}
 if (typeof greenworks !== 'undefined') {
   try {
     greenworks.init()

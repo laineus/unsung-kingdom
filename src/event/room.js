@@ -102,6 +102,11 @@ const events = [
     ])
     await scene.ui.transition('normal')
     setDefaultWeapon(scene.storage.state)
+    if (window.gtag) {
+      window.gtag('event', 'point', {
+        'event_category': 'start_cp0'
+      })
+    }
   },
   async (scene) => {
     scene.player.setR('down')
