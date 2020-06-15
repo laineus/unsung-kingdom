@@ -6,7 +6,7 @@ export const jackEvent = (scene, area, chara) => {
     area.destroy()
     return
   }
-  chara.setVisible(false).setR('up').setSpeed(180).setDisplayName('？？？')
+  chara.setVisible(false).setR('up').setSpeed(180).setDisplayName(t('chara.unknown'))
   area.setEvent(async () => {
     scene.player.stopWalk()
     await scene.ui.sleep(500)
@@ -103,8 +103,8 @@ export const jackEvent = (scene, area, chara) => {
 }
 
 export const kingEvent = (scene, area, chara, soldier) => {
-  chara.setDisplayName('エドガー王')
-  soldier.setDisplayName('衛兵')
+  chara.setDisplayName(t('chara.king'))
+  soldier.setDisplayName(t('chara.guard'))
   const state = scene.storage.state.event.m0_1
   if (state.completed) {
     chara.destroy()

@@ -3,7 +3,7 @@ export const dogEventHunter = (scene, hunter) => {
   if (state.completed && scene.storage.state.chapter !== 1) {
     return hunter.destroy()
   }
-  hunter.setDisplayName('狩猟家マシュー').setTapEvent(async chara => {
+  hunter.setDisplayName(t('chara.hunter')).setTapEvent(async chara => {
     if (state.completed) {
       await scene.talk([{ chara, text: '助かったよ。本当にありがとう。' }])
     } else if (!state.started) {

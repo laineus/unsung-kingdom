@@ -5,7 +5,7 @@ export const dionysus = (scene, dionysus, area, gate) => {
     return
   }
   const state = scene.storage.state.event.m2_3
-  const chara = dionysus.setDisplayName('ディオニューソス')
+  const chara = dionysus.setDisplayName(t('chara.dionysus'))
   dionysus.setSpeed(180)
   const origin = { x: dionysus.x, y: dionysus.y }
   gate.setActive(state.started)

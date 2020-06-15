@@ -16,7 +16,7 @@ export const drystan = (scene, door, drystan) => {
   }
   // Drystan
   if (state2.completed) return drystan.destroy()
-  drystan.setDisplayName('賢人ドリスタン').setTapEvent(async chara => {
+  drystan.setDisplayName(t('chara.drystan')).setTapEvent(async chara => {
     const hasMandrake = state1.count >= MANDRAKE_COUNT
     if (!state1.started) {
       await scene.talk([

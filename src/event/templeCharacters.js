@@ -12,13 +12,13 @@ export default (scene, characters) => {
     return [soldier1, soldier2, mary, loretta, dario, drystan, ray].forEach(v => v.destroy())
   }
   const state = scene.storage.state.event.m4
-  soldier1.setDisplayName('衛兵')
-  soldier2.setDisplayName('衛兵')
-  mary.setDisplayName('メアリー')
-  loretta.setDisplayName('ロレッタ')
-  dario.setDisplayName('ダリオ')
-  drystan.setDisplayName('ドリスタン')
-  ray.setDisplayName('レイ')
+  soldier1.setDisplayName(t('chara.guard'))
+  soldier2.setDisplayName(t('chara.guard'))
+  mary.setDisplayName(t('chara.mary'))
+  loretta.setDisplayName(t('chara.loretta'))
+  dario.setDisplayName(t('chara.dario'))
+  drystan.setDisplayName(t('chara.drystan'))
+  ray.setDisplayName(t('chara.ray'))
   // events
   soldier1.setTapEvent(async chara => {
     await scene.talk([

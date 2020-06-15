@@ -22,14 +22,14 @@ export const ethelbald = (scene, ethel, soldiers, gate) => {
   }
   soldiers.forEach((v, i) => {
     if (state.completed) return v.destroy()
-    v.setDisplayName('負傷した兵士').setTapEvent(async chara => {
+    v.setDisplayName(t('chara.injuredSoldier')).setTapEvent(async chara => {
       await scene.talk(scriptsForSoldiers[i].map(text => ({ chara, text })))
     })
   })
   if (state.completed) {
     return ethel.destroy()
   }
-  ethel.setDisplayName('王弟エゼルバルド').setTapEvent(async chara => {
+  ethel.setDisplayName(t('chara.ethel')).setTapEvent(async chara => {
     if (state.started) {
       await scene.talk([
         { chara: 'ann', text: 'あの、どこかで会ったことないです…？' },
@@ -85,8 +85,8 @@ export const dragon = (scene, sonberk, king, area1, area2, area3) => {
   if (state.completed) {
     return [sonberk, king, area3].forEach(v => v.destroy())
   }
-  king.setDisplayName('エドガー王')
-  sonberk.setDisplayName('ソンベルク')
+  king.setDisplayName(t('chara.king'))
+  sonberk.setDisplayName(t('chara.sonberk'))
   area1.setEvent(async () => {
     scene.player.tweet('！')
     await scene.ui.sleep(800)

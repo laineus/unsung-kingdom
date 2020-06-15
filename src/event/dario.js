@@ -1,7 +1,7 @@
 import generateBattler from '../util/generateBattler'
 export const dario = (scene, dario) => {
   const state = scene.storage.state.event.m3_3
-  dario.setDisplayName('ダリオ')
+  dario.setDisplayName(t('chara.dario'))
   if (state.completed) {
     return dario.destroy()
   }
@@ -153,7 +153,7 @@ export const jack = (scene, jk, area1, area2, area3) => {
   })
   area1.setEvent(async () => {
     const chara = jk
-    jk.setDisplayName('ジャック').setVisible(true)
+    jk.setDisplayName(t('chara.jack')).setVisible(true)
     await scene.talk([
       { chara, text: 'ここで何をしている？' },
       { chara: 'ann', text: '！！' }

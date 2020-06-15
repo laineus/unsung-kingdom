@@ -22,7 +22,7 @@ export const calibur = (scene, sword, nikke) => {
     scene.setMembersPosition(nikke.x, nikke.y + 70, 'up')
     await scene.ui.sleep(300)
   }
-  nikke.setDisplayName('ニッケ').setVisible(state.talked)
+  nikke.setDisplayName(t('chara.nikke')).setVisible(state.talked)
   const eventTarget = state.talked ? nikke : sword
   const event = async () => {
     await fixPosition()

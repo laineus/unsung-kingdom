@@ -1,7 +1,7 @@
 import generateBattler from '../util/generateBattler'
 export const renfield = (scene, ray, spectres) => {
   const state = scene.storage.state.event.m3_4
-  ray.setDisplayName('レイ')
+  ray.setDisplayName(t('chara.ray'))
   if (state.completed) {
     ray.destroy()
     spectres.forEach(s => s.destroy())

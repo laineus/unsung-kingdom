@@ -7,7 +7,7 @@ export const jack = (scene, jack, area) => {
     area.destroy()
     return
   }
-  const chara = jack.setDisplayName('ジャック')
+  const chara = jack.setDisplayName(t('chara.jack'))
   area.setEvent(async () => {
     await jack.setSpeed(140).setTargetPosition(jack.x, jack.y + (9).toPixel)
     await scene.talk([
@@ -36,15 +36,15 @@ export const jack = (scene, jack, area) => {
 }
 
 export const hector = (scene, hector, mary, loretta) => {
-  mary.setDisplayName('メアリー').setVisible(false)
-  loretta.setDisplayName('ロレッタ').setVisible(false)
+  mary.setDisplayName(t('chara.mary')).setVisible(false)
+  loretta.setDisplayName(t('chara.loretta')).setVisible(false)
   const charas = [hector, mary, loretta]
   const state = scene.storage.state.event.m2_4
   if (!scene.storage.state.event.m2_1.completed || state.started) {
     charas.forEach(c => c.destroy())
     return
   }
-  hector.setDisplayName('ヘクター').setTapEvent(async chara => {
+  hector.setDisplayName(t('chara.hector')).setTapEvent(async chara => {
     await scene.ui.transition('fast')
     scene.setMembersPosition((16).toPixelCenter, (11).toPixel, 'up')
     await scene.ui.sleep(300)
@@ -155,10 +155,10 @@ export const hector = (scene, hector, mary, loretta) => {
 }
 
 export const lamp = (scene, cassandra, hector, mary, loretta, jail, wall, yarn) => {
-  cassandra.setDisplayName('カサンドラ')
-  hector.setDisplayName('ヘクター')
-  mary.setDisplayName('メアリー')
-  loretta.setDisplayName('ロレッタ')
+  cassandra.setDisplayName(t('chara.cassandra'))
+  hector.setDisplayName(t('chara.hector'))
+  mary.setDisplayName(t('chara.mary'))
+  loretta.setDisplayName(t('chara.loretta'))
   const state = scene.storage.state.event.m2_4
   wall.setTapEvent(async () => {
     const i = await scene.select(['調べる', 'やめておく'])
@@ -296,8 +296,8 @@ export const aragnie = (scene, area, boss, hector, hectorInjured, scream) => {
     hectorInjured.destroy()
     return
   }
-  hector.setDisplayName('ヘクター')
-  hectorInjured.setFaceKey('hector').setDisplayName('ヘクター')
+  hector.setDisplayName(t('chara.hector'))
+  hectorInjured.setFaceKey('hector').setDisplayName(t('chara.hector'))
   if (!state.found) {
     (async () => {
       scene.ui.setEventMode(true)
@@ -324,7 +324,7 @@ export const aragnie = (scene, area, boss, hector, hectorInjured, scream) => {
       scream.destroy()
     })
   }
-  hectorInjured.setFaceKey('hector').setDisplayName('ヘクター').setTapEvent(async () => {
+  hectorInjured.setFaceKey('hector').setDisplayName(t('chara.hector')).setTapEvent(async () => {
     await scene.talk([
       { chara: hectorInjured, text: 'っく、くるしい…。' },
       { chara: 'francisca', text: '弱くない…？' }

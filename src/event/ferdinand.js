@@ -1,6 +1,6 @@
 export const ferdinand = (scene, fdn) => {
   const state = scene.storage.state.event.m3_1
-  fdn.setDisplayName('フェルディナンド卿')
+  fdn.setDisplayName(t('chara.fdn'))
   if (state.completed) {
     return fdn.destroy()
   }

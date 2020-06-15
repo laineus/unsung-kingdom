@@ -22,7 +22,7 @@ export const cassandra = (scene, gate, cassandra, door, doorEvent, candle) => {
     }
   }).setVisible(!state.opened)
   if (scene.storage.state.event.m2_4.started) return
-  cassandra.setDisplayName('カサンドラ').setTapEvent(async chara => {
+  cassandra.setDisplayName(t('chara.cassandra')).setTapEvent(async chara => {
     if (state.completed) {
       await scene.talk([
         { chara, text: 'ワイン、ありがとうね。' }

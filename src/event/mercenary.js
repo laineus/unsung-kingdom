@@ -5,7 +5,7 @@ export const mercenary1 = (scene, leader, member, member2) => {
   }
   const state = scene.storage.state.event.m1_2
   if (!state.solved) member2.setVisible(false)
-  member2.setDisplayName('負傷した傭兵団員').setTapEvent(async chara => {
+  member2.setDisplayName(t('chara.injuredMercenary')).setTapEvent(async chara => {
     await scene.talk([
       { chara, text: 'さっきは本当に助かったよ。ありがとな。' },
       ...(state.completed ? [] : [
@@ -13,7 +13,7 @@ export const mercenary1 = (scene, leader, member, member2) => {
       ])
     ])
   })
-  member.setDisplayName('負傷した傭兵団員').setTapEvent(async chara => {
+  member.setDisplayName(t('chara.injuredMercenary')).setTapEvent(async chara => {
     await scene.talk(state.solved ? [
       { chara, text: '仲間を助けてくれて本当にありがとう。' },
       { chara, text: 'まさかあいつ、サニズマスクの胃の中に隠れていたなんてな。' }
@@ -22,7 +22,7 @@ export const mercenary1 = (scene, leader, member, member2) => {
       { chara, text: 'あいつはきっと…。' }
     ])
   })
-  leader.setDisplayName('負傷した傭兵団長').setTapEvent(async chara => {
+  leader.setDisplayName(t('chara.injuredLeader')).setTapEvent(async chara => {
     if (state.completed) {
       await scene.talk([{ chara, text: 'レックスベアは諦めて撤退することにするよ。' }])
     } else if (state.solved) {
@@ -97,7 +97,7 @@ export const mercenary2 = (scene, flower, mercenary) => {
     await scene.ui.sleep(300)
     const result = await scene.ui.battle([generateBattler('flower', 5, { hp: 270 })], { boss: true, bgm: 'battle2' })
     if (!result) return
-    const chara = mercenary.setDisplayName('負傷した傭兵団員')
+    const chara = mercenary.setDisplayName(t('chara.injuredMercenary'))
     mercenary.setVisible(true)
     await flower.die()
     await scene.talk([

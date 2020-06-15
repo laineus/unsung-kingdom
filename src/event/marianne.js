@@ -5,7 +5,7 @@ export const marianne = (scene, sister) => {
   if (state.completed && scene.storage.state.chapter !== 3) {
     return sister.destroy()
   }
-  sister.setDisplayName('シスター')
+  sister.setDisplayName(t('chara.sister'))
   sister.setTapEvent(async chara => {
     if (state.completed) {
       await scene.talk([

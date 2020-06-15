@@ -3,7 +3,7 @@ export const architect = (scene, chara) => {
   if (state.completed && scene.storage.state.chapter !== 4) {
     return chara.destroy()
   }
-  chara.setDisplayName('彫刻家クラウス')
+  chara.setDisplayName(t('chara.klaus'))
   chara.setTapEvent(async () => {
     if (state.completed) {
       await scene.talk([

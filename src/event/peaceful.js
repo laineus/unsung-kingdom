@@ -1,7 +1,7 @@
 export const peaceful = (scene, area1, area2, soldier1, soldier2, jack) => {
-  jack.setVisible(false).setDisplayName('ジャック')
-  soldier1.setDisplayName('衛兵').setR('right')
-  soldier2.setDisplayName('衛兵').setR('left')
+  jack.setVisible(false).setDisplayName(t('chara.jack'))
+  soldier1.setDisplayName(t('chara.guard')).setR('right')
+  soldier2.setDisplayName(t('chara.guard')).setR('left')
   const state = scene.storage.state.event.m5_1
   const afterSawSoldiers = () => {
     jack.setVisible(true)
@@ -47,7 +47,7 @@ export const peaceful = (scene, area1, area2, soldier1, soldier2, jack) => {
     ])
     await scene.ui.sleep(500)
     await scene.ui.transition('fast')
-    jack.initImage('kingbrother').setFaceKey('kingbrother3').setDisplayName('王弟エゼルバルド')
+    jack.initImage('kingbrother').setFaceKey('kingbrother3').setDisplayName(t('chara.ethel'))
     await scene.ui.sleep(500)
     const t = await scene.talk([
       { chara, text: '俺は王弟エゼルバルドだ。' },

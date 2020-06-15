@@ -7,7 +7,7 @@ export const lute = (scene, poets, goddessLight) => {
     return poets.destroy()
   }
   const state = scene.storage.state.event.m4_4
-  poets.setDisplayName('ライラ')
+  poets.setDisplayName(t('chara.lyla'))
   if (state.completed) {
     poets.image.anims.play('poets_lute', true)
   } else if (!scene.storage.state.event.m4_3.completed) {
