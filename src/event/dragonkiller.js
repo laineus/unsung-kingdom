@@ -10,8 +10,16 @@ const scriptsForSoldiers = [
     '王を助けに行きたいが…、体が動いてくれない…。'
   ]
 ]
-export const ethelbald = (scene, ethel, soldiers) => {
+
+export const ethelbald = (scene, ethel, soldiers, gate) => {
   const state = scene.storage.state.event.m4_5
+  if (!state.started) {
+    gate.setBlocked(async () => {
+      await scene.talk([
+        { chara: 'francisca', text: 'ちょっと、怪我人に声もかけないっていうの？' }
+      ])
+    })
+  }
   soldiers.forEach((v, i) => {
     if (state.completed) return v.destroy()
     v.setDisplayName('負傷した兵士').setTapEvent(async chara => {
@@ -47,6 +55,7 @@ export const ethelbald = (scene, ethel, soldiers) => {
       ])
       scene.ui.missionUpdate('m4_5')
       state.started = true
+      gate.setBlocked(false)
     }
   })
 }

@@ -18,6 +18,14 @@ location.query = location.search.substr(1).split('&').filter(Boolean).reduce((ob
 
 window.appStorage = new AppStorage()
 window.archiveManager = new ArchiveManager()
+if (window.gtag) {
+  window.archiveManager.initGtag(window.gtag)
+  window.addEventListener('error', e => {
+    window.gtag('event', 'error', {
+      'event_label': `${e.filename}:${e.lineno} ${e.message}`
+    })
+  })
+}
 if (typeof greenworks !== 'undefined') {
   try {
     greenworks.init()
