@@ -7,31 +7,31 @@ export default (scene, charas) => {
   // 兵士
   const soldierEvent = async () => {
     await scene.talk([
-      { chara: soldier1, text: 'あ、おい見ろ。この者たちじゃないか？' },
-      { chara: soldier2, text: 'ああ、間違いない。' },
-      { chara: soldier2, text: '確かにグリファルデ神殿で王の救出を手伝った者たちだ。' },
-      { chara: 'ann', text: 'なんですか？' },
-      { chara: soldier1, text: '君たち、あのとき何故急に姿を消した？' },
-      { chara: 'ann', text: 'あ、ええと、忙しくて…。' },
-      { chara: soldier1, text: '王弟殿下がお礼をしたいとのことだ。' },
-      { chara: soldier1, text: 'この手紙を預かっている。' },
-      { chara: soldier2, text: '恐らく王城への招待のはずだ。' },
-      { chara: soldier2, text: 'きっと来てくれよ。' }
+      { chara: soldier1, text: t('townChapter5.soldier.0.0') },
+      { chara: soldier2, text: t('townChapter5.soldier.0.1') },
+      { chara: soldier2, text: t('townChapter5.soldier.0.2') },
+      { chara: 'ann', text: t('townChapter5.soldier.0.3') },
+      { chara: soldier1, text: t('townChapter5.soldier.0.4') },
+      { chara: 'ann', text: t('townChapter5.soldier.0.5') },
+      { chara: soldier1, text: t('townChapter5.soldier.0.6') },
+      { chara: soldier1, text: t('townChapter5.soldier.0.7') },
+      { chara: soldier2, text: t('townChapter5.soldier.0.8') },
+      { chara: soldier2, text: t('townChapter5.soldier.0.9') }
     ])
     await scene.ui.transition('normal')
     soldier1.setVisible(false)
     soldier2.setVisible(false)
     await scene.ui.sleep(1000)
     await scene.talk([
-      { chara: 'ann', text: '中身を読むね。' },
-      { chara: 'ann', text: '「王城の裏庭で待つ」' },
-      { chara: 'ann', text: '…。' },
-      { chara: 'ann', text: 'おわり。' },
-      { chara: 'francisca', text: 'え？なにそれ。それだけ？' },
-      { chara: 'jaquelyn', text: '変ね。' },
-      { chara: 'ann', text: '裏庭って最初にジャックの暗殺を止めたところだよね。' },
-      { chara: 'ann', text: 'うーん。' },
-      { chara: 'ann', text: 'よく分からないけど行くしかないね。' }
+      { chara: 'ann', text: t('townChapter5.soldier.1.0') },
+      { chara: 'ann', text: t('townChapter5.soldier.1.1') },
+      { chara: 'ann', text: t('townChapter5.soldier.1.2') },
+      { chara: 'ann', text: t('townChapter5.soldier.1.3') },
+      { chara: 'francisca', text: t('townChapter5.soldier.1.4') },
+      { chara: 'jaquelyn', text: t('townChapter5.soldier.1.5') },
+      { chara: 'ann', text: t('townChapter5.soldier.1.6') },
+      { chara: 'ann', text: t('townChapter5.soldier.1.7') },
+      { chara: 'ann', text: t('townChapter5.soldier.1.8') }
     ])
     eState.started = true
     scene.ui.missionUpdate('m5_1')
@@ -42,109 +42,109 @@ export default (scene, charas) => {
   charas.amber.setTapEvent(async chara => {
     if (chara.nextMessages) return await scene.talk(chara.nextMessages)
     await scene.talk([
-      { chara, text: 'もちろん知っているだろうけど、' },
-      { chara, text: '陛下がついにドラゴンを倒したのよ！' },
-      { chara, text: 'ほんとに、本当によかったわ。' },
-      { chara: 'ann', text: 'そうですね。' },
-      { chara, text: '平和が何より一番ね。' },
-      { chara, text: 'ところで、' },
-      { chara, text: 'ドラゴンを倒したのは本当に王なのか、って噂もあるわ。' },
-      { chara, text: '陛下はもう若くないし、' },
-      { chara, text: '実は王弟が倒したんじゃないかとか、' },
-      { chara, text: '無名のナイトが倒したけど、' },
-      { chara, text: 'それじゃあ格好がつかないからって、王の手柄になっただとか。' },
-      { chara, text: 'おまけに旅人の女の子たちが倒しただなんて噂まであるわ。' },
-      { chara: 'ann', text: 'あはは。' },
-      { chara, text: 'まあ、私は陛下が倒したって信じているわ。' }
+      { chara, text: t('townChapter5.amber.0') },
+      { chara, text: t('townChapter5.amber.1') },
+      { chara, text: t('townChapter5.amber.2') },
+      { chara: 'ann', text: t('townChapter5.amber.3') },
+      { chara, text: t('townChapter5.amber.4') },
+      { chara, text: t('townChapter5.amber.5') },
+      { chara, text: t('townChapter5.amber.6') },
+      { chara, text: t('townChapter5.amber.7') },
+      { chara, text: t('townChapter5.amber.8') },
+      { chara, text: t('townChapter5.amber.9') },
+      { chara, text: t('townChapter5.amber.10') },
+      { chara, text: t('townChapter5.amber.11') },
+      { chara: 'ann', text: t('townChapter5.amber.12') },
+      { chara, text: t('townChapter5.amber.13') }
     ])
-    chara.nextMessages = [{ chara, text: '平和が何より一番ね。' }]
+    chara.nextMessages = [{ chara, text: t('townChapter5.amber.14') }]
   })
   // 宿屋のアナベル
   charas.annabelle.setTapEvent(async chara => {
     if (chara.nextMessages) return await scene.talk(chara.nextMessages)
     await scene.talk([
-      { chara, text: '♪' },
-      { chara: 'ann', text: '鼻歌なんか歌って、今日はご機嫌だね。' },
-      { chara, text: 'まあね。' },
-      { chara: 'ann', text: '平和になってよかったね。' },
-      { chara, text: 'もちろんそれも嬉しいけどね。' },
-      { chara: 'ann', text: '「それも」？' },
-      { chara, text: 'えっとね、ふふ、' },
-      { chara: 'ann', text: 'え、なになに？' },
-      { chara, text: 'マチルダ、わかる？' },
-      { chara, text: 'いつもそこに隠れて私を見ている子。' },
-      { chara: 'ann', text: 'ああ、あの子ね。' },
-      { chara: 'ann', text: 'あの子がどうしたの？' },
-      { chara, text: '私のことが好きみたい。' },
-      { chara: 'ann', text: 'え！？' },
-      { chara, text: 'いや、知ってはいたんだけど、' },
-      { chara, text: 'いざ直接言われるとなんだか嬉しくって。' },
-      { chara, text: '今度遊びに来るの。' },
-      { chara: 'ann', text: 'そうなんだ！' },
-      { chara: 'ann', text: 'よかったね！' },
-      { chara, text: 'まあね。' }
+      { chara, text: t('townChapter5.annabelle.0') },
+      { chara: 'ann', text: t('townChapter5.annabelle.1') },
+      { chara, text: t('townChapter5.annabelle.2') },
+      { chara: 'ann', text: t('townChapter5.annabelle.3') },
+      { chara, text: t('townChapter5.annabelle.4') },
+      { chara: 'ann', text: t('townChapter5.annabelle.5') },
+      { chara, text: t('townChapter5.annabelle.6') },
+      { chara: 'ann', text: t('townChapter5.annabelle.7') },
+      { chara, text: t('townChapter5.annabelle.8') },
+      { chara, text: t('townChapter5.annabelle.9') },
+      { chara: 'ann', text: t('townChapter5.annabelle.10') },
+      { chara: 'ann', text: t('townChapter5.annabelle.11') },
+      { chara, text: t('townChapter5.annabelle.12') },
+      { chara: 'ann', text: t('townChapter5.annabelle.13') },
+      { chara, text: t('townChapter5.annabelle.14') },
+      { chara, text: t('townChapter5.annabelle.15') },
+      { chara, text: t('townChapter5.annabelle.16') },
+      { chara: 'ann', text: t('townChapter5.annabelle.17') },
+      { chara: 'ann', text: t('townChapter5.annabelle.18') },
+      { chara, text: t('townChapter5.annabelle.19') }
     ])
     chara.nextMessages = [
-      { chara: 'ann', text: 'よかったね！' },
-      { chara, text: 'まあね。' }
+      { chara: 'ann', text: t('townChapter5.annabelle.18') },
+      { chara, text: t('townChapter5.annabelle.19') }
     ]
   })
   // 内気なマチルダ
   charas.matilda.setTapEvent(async chara => {
     if (chara.nextMessages) return await scene.talk(chara.nextMessages)
     await scene.talk([
-      { chara, text: '…。' },
-      { chara: 'ann', text: 'どうしたの？' },
-      { chara, text: 'え、あ、ううん、' },
-      { chara, text: '平和になってよかったな、って。' },
-      { chara: 'ann', text: 'ほんとにね！' },
-      { chara, text: 'それは凄く嬉しいことなんだけど、' },
-      { chara, text: '私、浮かれすぎちゃったのかな…、' },
-      { chara: 'ann', text: 'なにかあった？' },
-      { chara, text: 'えっと、アナベルとね、久しぶりに話したんだけど…、' },
-      { chara, text: 'なんていうか、変なこと言っちゃった…。' },
-      { chara: 'ann', text: 'そうなの？' },
-      { chara: 'ann', text: 'なんて？' },
-      { chara, text: 'それは…、内緒なんだけど…、' },
-      { chara, text: 'でも、また仲良くできそうで、嬉しいなって。' },
-      { chara: 'ann', text: 'そっか！' },
-      { chara: 'ann', text: 'よかったね。' },
-      { chara, text: 'うん…！' }
+      { chara, text: t('townChapter5.matilda.0') },
+      { chara: 'ann', text: t('townChapter5.matilda.1') },
+      { chara, text: t('townChapter5.matilda.2') },
+      { chara, text: t('townChapter5.matilda.3') },
+      { chara: 'ann', text: t('townChapter5.matilda.4') },
+      { chara, text: t('townChapter5.matilda.5') },
+      { chara, text: t('townChapter5.matilda.6') },
+      { chara: 'ann', text: t('townChapter5.matilda.7') },
+      { chara, text: t('townChapter5.matilda.8') },
+      { chara, text: t('townChapter5.matilda.9') },
+      { chara: 'ann', text: t('townChapter5.matilda.10') },
+      { chara: 'ann', text: t('townChapter5.matilda.11') },
+      { chara, text: t('townChapter5.matilda.12') },
+      { chara, text: t('townChapter5.matilda.13') },
+      { chara: 'ann', text: t('townChapter5.matilda.14') },
+      { chara: 'ann', text: t('townChapter5.matilda.15') },
+      { chara, text: t('townChapter5.matilda.16') }
     ])
     chara.nextMessages = [
-      { chara: 'ann', text: 'よかったね。' },
-      { chara, text: 'うん…！' }
+      { chara: 'ann', text: t('townChapter5.matilda.15') },
+      { chara, text: t('townChapter5.matilda.16') }
     ]
   })
   // 卑劣なエリオット
   charas.elliott.setTapEvent(async chara => {
     if (chara.nextMessages) return await scene.talk(chara.nextMessages)
     await scene.talk([
-      { chara, text: '信じられるか？' },
-      { chara, text: 'エドガー王がドラゴンを倒したんだ。' },
-      { chara, text: 'ほんと、ベリオン人として誇らしく思うぜ。' },
-      { chara, text: '国民のために自ら命がけで戦うなんてな。' },
-      { chara, text: '俺も、なんというか、' },
-      { chara, text: 'もっと人のために生きてみてもいいんじゃないかって、' },
-      { chara, text: 'ちょっと考えさせられたよ。' }
+      { chara, text: t('townChapter5.elliott.0') },
+      { chara, text: t('townChapter5.elliott.1') },
+      { chara, text: t('townChapter5.elliott.2') },
+      { chara, text: t('townChapter5.elliott.3') },
+      { chara, text: t('townChapter5.elliott.4') },
+      { chara, text: t('townChapter5.elliott.5') },
+      { chara, text: t('townChapter5.elliott.6') }
     ])
-    chara.nextMessages = [{ chara, text: 'ほんと、ベリオン人として誇らしく思うぜ。' }]
+    chara.nextMessages = [{ chara, text: t('townChapter5.elliott.7') }]
   })
   // 賞金稼ぎのマックス
   charas.max.setTapEvent(async chara => {
     if (chara.nextMessages) return await scene.talk(chara.nextMessages)
     await scene.talk([
-      { chara, text: 'な？俺の言った通りだったろ。' },
-      { chara, text: 'エドガー王がついにやってくれたぜ。' },
-      { chara, text: '…。' },
-      { chara, text: 'いや、正直言うと俺も無理なんじゃないかって思ってたよ。' },
-      { chara, text: 'だが、俺達の平和王エドガーは、また見事に平和を守り抜いてくれた。' },
-      { chara, text: 'この国の民はまた王にベタボレさ。' },
-      { chara, text: 'もちろん俺も含めてな。' }
+      { chara, text: t('townChapter5.max.0') },
+      { chara, text: t('townChapter5.max.1') },
+      { chara, text: t('townChapter5.max.2') },
+      { chara, text: t('townChapter5.max.3') },
+      { chara, text: t('townChapter5.max.4') },
+      { chara, text: t('townChapter5.max.5') },
+      { chara, text: t('townChapter5.max.6') }
     ])
     chara.nextMessages = [
-      { chara, text: 'この国の民はまた王にベタボレさ。' },
-      { chara, text: 'もちろん俺も含めてな。' }
+      { chara, text: t('townChapter5.max.5') },
+      { chara, text: t('townChapter5.max.6') }
     ]
   })
 }
