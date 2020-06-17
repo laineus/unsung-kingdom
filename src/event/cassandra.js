@@ -4,106 +4,106 @@ export const cassandra = (scene, gate, cassandra, door, doorEvent, candle) => {
   gate.setActive(state.opened)
   if (scene.storage.state.event.m2_4.started) return
   candle.setTapEvent(async () => {
-    const i = await scene.select(['調べる', '何もしない'])
+    const i = await scene.select([t('cassandra.util.door.0'), t('cassandra.util.door.1')])
     if (i === 1) return
     state.key = true
     candle.setVisible(false)
-    scene.ui.announce('『地下通路の鍵』を手に入れた')
+    scene.ui.announce(t('cassandra.util.key'))
   }).setVisible(state.started && !state.key)
   doorEvent.setTapEvent(async () => {
     if (state.key) {
-      scene.ui.announce('鉄格子の鍵を開けた')
+      scene.ui.announce(t('cassandra.util.unlock'))
       state.opened = true
       door.setVisible(false)
       doorEvent.setVisible(false)
       gate.setActive(true)
     } else {
-      await scene.talk([{ chara: 'ann', text: '鍵がかかってる。' }])
+      await scene.talk([{ chara: 'ann', text: t('cassandra.util.locked') }])
     }
   }).setVisible(!state.opened)
   if (scene.storage.state.event.m2_4.started) return
   cassandra.setDisplayName(t('chara.cassandra')).setTapEvent(async chara => {
     if (state.completed) {
       await scene.talk([
-        { chara, text: 'ワイン、ありがとうね。' }
+        { chara, text: t('cassandra.solved') }
       ])
     } else if (state.wine.length >= 3) {
       await scene.talk([
-        { chara, text: 'ワインは見つかった？' },
-        { chara: 'ann', text: 'はい、ほんとにありました。' },
-        { chara, text: 'よくやったわ！' },
-        { chara, text: 'ありがとう、最高よ。' },
-        { chara, text: 'こんなところに閉じ込められているから、あげられるお礼なんて無いんだけれど…。' },
-        { chara: 'ann', text: 'いいんです。鍵を貸してもらっただけで十分です。' },
-        { chara: 'ann', text: 'でもどうしてここにお酒があるんですか？' },
-        { chara, text: 'それは、密造酒の密売人が、酒の搬入にこの地下通路を使っているからよ。' },
-        { chara, text: '城内の連中が密造酒を買ってるっていうんだから、禁酒令なんてクソだわ。' },
-        { chara: 'ann', text: 'そうなんですか。' },
-        { chara, text: 'ちょうどさっき、あなたと入れ違いでその密売人が入っていったところ。' },
-        { chara, text: '会ったらよろしく言っておいて。' }
+        { chara, text: t('cassandra.solve.0') },
+        { chara: 'ann', text: t('cassandra.solve.1') },
+        { chara, text: t('cassandra.solve.2') },
+        { chara, text: t('cassandra.solve.3') },
+        { chara, text: t('cassandra.solve.4') },
+        { chara: 'ann', text: t('cassandra.solve.5') },
+        { chara: 'ann', text: t('cassandra.solve.6') },
+        { chara, text: t('cassandra.solve.7') },
+        { chara, text: t('cassandra.solve.8') },
+        { chara: 'ann', text: t('cassandra.solve.9') },
+        { chara, text: t('cassandra.solve.10') },
+        { chara, text: t('cassandra.solve.11') }
       ])
       state.completed = true
       scene.ui.missionUpdate('m2_1', true)
     } else if (state.started) {
       if (state.key) {
         await scene.talk([
-          { chara, text: 'ワインはまだ見つからないの？' }
+          { chara, text: t('cassandra.progress.2') }
         ])
       } else {
         await scene.talk([
-          { chara, text: '鍵は見つかった？' },
-          { chara, text: '扉の横にある燭台の底をよく調べてみて。' }
+          { chara, text: t('cassandra.progress.0') },
+          { chara, text: t('cassandra.progress.1') }
         ])
       }
     } else if (state.talked) {
       await scene.talk([
-        { chara, text: 'まだ私に何か用？' },
-        { chara, text: 'ねえあなた、暇なら私にワインを持ってきてくれない？' },
-        { chara, text: 'この国に禁酒令があるのは分かってるけど、手に入る場所を知っているの。' },
-        { chara, text: '取ってきてくれるのなら場所を教えるわ。' }
+        { chara, text: t('cassandra.talk2.0') },
+        { chara, text: t('cassandra.talk2.1') },
+        { chara, text: t('cassandra.talk2.2') },
+        { chara, text: t('cassandra.talk2.3') }
       ])
-      const i = await scene.select(['いいよ', '結構です'])
+      const i = await scene.select([t('cassandra.talk2.4.0'), t('cassandra.talk2.4.1')])
       if (i === 1) {
-        await scene.talk([{ chara, text: 'そう…。' }])
+        await scene.talk([{ chara, text: t('cassandra.talk2.5') }])
         return
       }
       await scene.talk([
-        { chara, text: 'ワインはこの地下通路の奥にある。' },
-        { chara: 'ann', text: 'え、この先に？' },
-        { chara, text: 'そう。' },
-        { chara: 'ann', text: 'でも鍵が…。' },
-        { chara, text: '扉の横にある燭台の底をよく調べてみて。' },
-        { chara, text: '鍵が隠されているはず。' },
-        { chara: 'ann', text: 'なんでそんなところに鍵が？' },
-        { chara, text: '私の兄がたまに出入りしているからよ。' },
-        { chara, text: '私の兄は、私をここから出すためにアラグニエのねぐらを探しているの。' },
-        { chara: 'ann', text: 'そうなんだ。' },
-        { chara: 'ann', text: 'だったら後でお兄さんが困らない？' },
-        { chara, text: 'いいの。アラグニエは見つかるはずはない。' },
-        { chara, text: '兄もやっとそれに気づいたみたいで、…ここしばらくは訪れていないわ。' },
-        { chara, text: 'でもワインは絶対に見つかるはずだから、必ず持ってきて。' }
+        { chara, text: t('cassandra.talk2.6') },
+        { chara: 'ann', text: t('cassandra.talk2.7') },
+        { chara, text: t('cassandra.talk2.8') },
+        { chara: 'ann', text: t('cassandra.talk2.9') },
+        { chara, text: t('cassandra.talk2.10') },
+        { chara, text: t('cassandra.talk2.11') },
+        { chara: 'ann', text: t('cassandra.talk2.12') },
+        { chara, text: t('cassandra.talk2.13') },
+        { chara, text: t('cassandra.talk2.14') },
+        { chara: 'ann', text: t('cassandra.talk2.15') },
+        { chara: 'ann', text: t('cassandra.talk2.16') },
+        { chara, text: t('cassandra.talk2.17') },
+        { chara, text: t('cassandra.talk2.18') },
+        { chara, text: t('cassandra.talk2.19') }
       ])
       state.started = true
       candle.setVisible(true)
       scene.ui.missionUpdate('m2_1')
     } else if (!state.talked) {
       await scene.talk([
-        { chara, text: '…。' },
-        { chara, text: '何を見ているの？' },
-        { chara: 'ann', text: 'これは牢屋ですか？' },
-        { chara, text: '…。' },
-        { chara, text: 'そうよ。' },
-        { chara: 'ann', text: 'お姉さんは悪いことをしたんですか？' },
-        { chara, text: 'そう。' },
-        { chara, text: '二度と出ることはできない。' },
-        { chara: 'ann', text: 'えっ、そんな…。' },
-        { chara, text: 'これはアラグニエの糸でできた鍵のない牢獄。' },
-        { chara, text: 'ヤツが張った糸は、ヤツを倒さない限り切ることはできない。' },
-        { chara: 'ann', text: 'アラグニエ？' },
-        { chara, text: 'アラグニエは巨大な蜘蛛のモンスター。' },
-        { chara, text: 'この牢屋を作ったあと、どこかへ行ってしまったわ。' },
-        { chara, text: 'もう誰にも、見つけることも、倒すこともできない。' },
-        { chara, text: 'さあ、見物されるのは慣れっこだからいいけど、飽きたらどっかに行ってちょうだい。' }
+        { chara, text: t('cassandra.talk1.0') },
+        { chara, text: t('cassandra.talk1.1') },
+        { chara: 'ann', text: t('cassandra.talk1.2') },
+        { chara, text: t('cassandra.talk1.3') },
+        { chara, text: t('cassandra.talk1.4') },
+        { chara: 'ann', text: t('cassandra.talk1.5') },
+        { chara, text: t('cassandra.talk1.6') },
+        { chara, text: t('cassandra.talk1.7') },
+        { chara: 'ann', text: t('cassandra.talk1.8') },
+        { chara, text: t('cassandra.talk1.9') },
+        { chara, text: t('cassandra.talk1.10') },
+        { chara: 'ann', text: t('cassandra.talk1.11') },
+        { chara, text: t('cassandra.talk1.12') },
+        { chara, text: t('cassandra.talk1.13') },
+        { chara, text: t('cassandra.talk1.14') },
+        { chara, text: t('cassandra.talk1.15') }
       ])
       state.talked = true
     }
@@ -118,13 +118,13 @@ export const wine = (scene, barrel, number) => {
   }
   barrel.setTapEvent(async () => {
     state.wine.push(number)
-    scene.ui.announce('『ワイン』を手に入れた')
+    scene.ui.announce(t('cassandra.util.wine'))
     if (state.wine.length === 1) {
-      scene.player.tweet('ほんとにあった！？').then(() => scene.jaquelyn.tweet('あと2つだね'))
+      scene.player.tweet(t('cassandra.tweet.0')).then(() => scene.jaquelyn.tweet(t('cassandra.tweet.1')))
     } else if (state.wine.length === 2) {
-      scene.francisca.tweet('あと1つ見つけなきゃ')
+      scene.francisca.tweet(t('cassandra.tweet.2'))
     } else if (state.wine.length === 3) {
-      scene.jaquelyn.tweet('全部集まったみたいね')
+      scene.jaquelyn.tweet(t('cassandra.tweet.3'))
     }
     barrel.destroy()
   })
