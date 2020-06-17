@@ -5,15 +5,15 @@ export default (scene, charas) => {
   charas.amber.setTapEvent(async chara => {
     await scene.talk([
       ...(eState.talked_amber ? [] : [
-        { chara, text: '王妃が亡くなった理由？' },
-        { chara, text: 'ご病気らしいわ。' },
-        { chara, text: 'ごめんね、私も王妃については詳しいことはあまり分からないの。' },
-        { chara, text: '王妃はご交友が広くなくてね、' },
-        { chara, text: '表に出てこられることも少なくて、' },
-        { chara, text: '私も見かけたとこは数えるほどしかなかったわ。' }
+        { chara, text: t('townChapter3.amber.0') },
+        { chara, text: t('townChapter3.amber.1') },
+        { chara, text: t('townChapter3.amber.2') },
+        { chara, text: t('townChapter3.amber.3') },
+        { chara, text: t('townChapter3.amber.4') },
+        { chara, text: t('townChapter3.amber.5') }
       ]),
-      { chara, text: '陛下とは不仲だったっていう噂もあるけど、' },
-      { chara, text: 'どうかしらね。' }
+      { chara, text: t('townChapter3.amber.6') },
+      { chara, text: t('townChapter3.amber.7') }
     ])
     eState.talked_amber = true
   })
@@ -23,21 +23,21 @@ export default (scene, charas) => {
   charas.matilda.setTapEvent(async chara => {
     if (eState.talked_amber && eState.talked_max && !eState.talked_matilda) {
       await scene.talk([
-        { chara, text: '王妃のこと？' },
-        { chara, text: 'ごめんね、よく知らないかな。' },
-        { chara, text: '王妃が亡くなったのは私が小さい頃のことだし…。' },
-        { chara, text: 'みんなは王様とは仲が悪かったって噂をするけど、' },
-        { chara, text: 'そうなのかな。' },
-        { chara, text: 'そんなことないと思うけどな…。' },
-        { chara, text: 'だって結婚したんでしょ？' },
-        { chara: 'ann', text: 'そうだね。' },
-        { chara, text: 'もし王妃のことが気になるんだったら、' },
-        { chara, text: '会いに行ってみたらいいんじゃないかな？' },
-        { chara: 'ann', text: '会いに？' },
-        { chara, text: 'うん、' },
-        { chara, text: '王妃は聖アンテルスの墓地で眠っているよ。' },
-        { chara: 'ann', text: 'なるほどね！' },
-        { chara: 'ann', text: 'ありがとう！' }
+        { chara, text: t('townChapter3.matilda.0') },
+        { chara, text: t('townChapter3.matilda.1') },
+        { chara, text: t('townChapter3.matilda.2') },
+        { chara, text: t('townChapter3.matilda.3') },
+        { chara, text: t('townChapter3.matilda.4') },
+        { chara, text: t('townChapter3.matilda.5') },
+        { chara, text: t('townChapter3.matilda.6') },
+        { chara: 'ann', text: t('townChapter3.matilda.7') },
+        { chara, text: t('townChapter3.matilda.8') },
+        { chara, text: t('townChapter3.matilda.9') },
+        { chara: 'ann', text: t('townChapter3.matilda.10') },
+        { chara, text: t('townChapter3.matilda.11') },
+        { chara, text: t('townChapter3.matilda.12') },
+        { chara: 'ann', text: t('townChapter3.matilda.13') },
+        { chara: 'ann', text: t('townChapter3.matilda.14') }
       ])
       eState.talked_matilda = true
       scene.storage.state.allowed_area = Math.max(scene.storage.state.allowed_area, 4)
@@ -52,20 +52,20 @@ export default (scene, charas) => {
   charas.max.setTapEvent(async chara => {
     await scene.talk([
       ...(eState.talked_max ? [] : [
-        { chara, text: '王と王妃の仲が悪かったかって？' },
-        { chara, text: '知らないな。' },
-        { chara, text: '確かに噂では仲が悪かったとは聞くが、' },
-        { chara, text: 'そもそも王妃は滅多に人前に出てこなかったんだ。' },
-        { chara, text: 'よく分からないな。' },
-        { chara, text: 'よく分からないからこそ、' },
-        { chara, text: '想像で色んな噂を勝手にたてられるんだろうな。' },
-        { chara, text: 'ついでにもう一つ別の噂を教えてやろう。' }
+        { chara, text: t('townChapter3.max.0') },
+        { chara, text: t('townChapter3.max.1') },
+        { chara, text: t('townChapter3.max.2') },
+        { chara, text: t('townChapter3.max.3') },
+        { chara, text: t('townChapter3.max.4') },
+        { chara, text: t('townChapter3.max.5') },
+        { chara, text: t('townChapter3.max.6') },
+        { chara, text: t('townChapter3.max.7') }
       ]),
-      { chara, text: '王妃はな、' },
-      { chara, text: '王が自ら剣をとってドラゴンと戦ったその姿に心奪われたらしい。' },
-      { chara, text: '噂、だがな。' },
-      { chara, text: '俺はそっちは信じるぜ。' },
-      { chara, text: 'なんせあの勇姿には誰もが心を揺さぶられたんだ。' }
+      { chara, text: t('townChapter3.max.8') },
+      { chara, text: t('townChapter3.max.9') },
+      { chara, text: t('townChapter3.max.10') },
+      { chara, text: t('townChapter3.max.11') },
+      { chara, text: t('townChapter3.max.12') }
     ])
     eState.talked_max = true
   })
