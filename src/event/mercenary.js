@@ -7,75 +7,75 @@ export const mercenary1 = (scene, leader, member, member2) => {
   if (!state.solved) member2.setVisible(false)
   member2.setDisplayName(t('chara.injuredMercenary')).setTapEvent(async chara => {
     await scene.talk([
-      { chara, text: 'さっきは本当に助かったよ。ありがとな。' },
+      { chara, text: t('mercenary.member2.0') },
       ...(state.completed ? [] : [
-        { chara, text: '団長からお礼を受け取ってくれるか？' }
+        { chara, text: t('mercenary.member2.1') }
       ])
     ])
   })
   member.setDisplayName(t('chara.injuredMercenary')).setTapEvent(async chara => {
     await scene.talk(state.solved ? [
-      { chara, text: '仲間を助けてくれて本当にありがとう。' },
-      { chara, text: 'まさかあいつ、サニズマスクの胃の中に隠れていたなんてな。' }
+      { chara, text: t('mercenary.member1.2') },
+      { chara, text: t('mercenary.member1.3') }
     ] : [
-      { chara, text: 'これだけ探して見つからないなんて…、' },
-      { chara, text: 'あいつはきっと…。' }
+      { chara, text: t('mercenary.member1.0') },
+      { chara, text: t('mercenary.member1.1') }
     ])
   })
   leader.setDisplayName(t('chara.injuredLeader')).setTapEvent(async chara => {
     if (state.completed) {
-      await scene.talk([{ chara, text: 'レックスベアは諦めて撤退することにするよ。' }])
+      await scene.talk([{ chara, text: t('mercenary.leader.5') }])
     } else if (state.solved) {
       await scene.talk([
-        { chara, text: 'おお、あんた！' },
-        { chara, text: '仲間から話は聞いたぞ。' },
-        { chara, text: '花のモンスターに飲み込まれていたなんて、' },
-        { chara, text: 'どうりで見つからなかったわけだ。' },
-        { chara, text: '彼を助けてくれてありがとう。これはお礼だ。' }
+        { chara, text: t('mercenary.leader.0') },
+        { chara, text: t('mercenary.leader.1') },
+        { chara, text: t('mercenary.leader.2') },
+        { chara, text: t('mercenary.leader.3') },
+        { chara, text: t('mercenary.leader.4') }
       ])
       scene.ui.missionUpdate('m1_2', true).then(() => {
         scene.ui.increaseWeapon(3)
       })
     } else if (state.started) {
-      await scene.talk([{ chara, text: 'きっとそんなに遠くには行っていないはずだ。頼んだぜ。' }])
+      await scene.talk([{ chara, text: t('mercenary.started') }])
     } else {
       const messages = [
         [
-          { chara: 'ann', text: '大丈夫ですか！？' },
-          { chara, text: 'ああ、大丈夫だ。' },
-          { chara: 'jaquelyn', text: 'みんな怪我をしているように見えますけど…。' },
-          { chara, text: 'レックスベアという人食い熊の討伐に来たんだが、圧倒的に力不足だったようだ。' },
-          { chara, text: '返り討ちにされちまったよ。情けねえ。' },
-          { chara: 'ann', text: 'レックスベアを討伐するとお金になるんですか？' },
-          { chara, text: 'その通りだ。' },
-          { chara, text: 'レックスベアには国から高額な討伐報酬がかけられている。' },
-          { chara: 'jaquelyn', text: '国もレックスベアの脅威を排除したいんですね。' },
-          { chara, text: 'いいや、これはただの厄介払いじゃない。' },
-          { chara, text: '王族の病気が関係しているんだ。' },
-          { chara: 'jaquelyn', text: 'レックスベアに病気がどう関係してるんですか？' },
-          { chara, text: 'この森の奥に住むドリスタンという老人が目当ての薬を調薬できるというんだが、' },
-          { chara, text: 'その材料にレックスベアの血液を要求しているらしい。' },
-          { chara: 'francisca', text: '薬の材料にモンスターの血液を使うなんて聞いたことないけど。' },
-          { chara: 'francisca', text: 'ヤブ医者じゃないの？' },
-          { chara, text: 'そんなことは知らん。' },
-          { chara, text: '俺たちは報酬目当てできてるんだ。' },
-          { chara, text: '「王族」とだけ聞いているが、恐らくはエドガー王のことだろう。' },
-          { chara, text: '彼らの慌てぶりと、討伐報酬の額から察しがつく。' },
-          { chara: 'ann', text: 'なるほど…。' },
-          { chara, text: 'ところであんたら、' }
+          { chara: 'ann', text: t('mercenary.start.0') },
+          { chara, text: t('mercenary.start.1') },
+          { chara: 'jaquelyn', text: t('mercenary.start.2') },
+          { chara, text: t('mercenary.start.3') },
+          { chara, text: t('mercenary.start.4') },
+          { chara: 'ann', text: t('mercenary.start.5') },
+          { chara, text: t('mercenary.start.6') },
+          { chara, text: t('mercenary.start.7') },
+          { chara: 'jaquelyn', text: t('mercenary.start.8') },
+          { chara, text: t('mercenary.start.9') },
+          { chara, text: t('mercenary.start.10') },
+          { chara: 'jaquelyn', text: t('mercenary.start.11') },
+          { chara, text: t('mercenary.start.12') },
+          { chara, text: t('mercenary.start.13') },
+          { chara: 'francisca', text: t('mercenary.start.14') },
+          { chara: 'francisca', text: t('mercenary.start.15') },
+          { chara, text: t('mercenary.start.16') },
+          { chara, text: t('mercenary.start.17') },
+          { chara, text: t('mercenary.start.18') },
+          { chara, text: t('mercenary.start.19') },
+          { chara: 'ann', text: t('mercenary.start.20') },
+          { chara, text: t('mercenary.start.21') }
         ],
         [
-          { chara, text: 'この先で俺達の仲間を見かけたら、この場所を伝えてやってくれないか？' },
-          { chara, text: 'ここまで逃げてくる途中ではぐれちまったんだよ。' },
-          { chara, text: 'おかげでこうして森から撤退できずにいるんだ。' },
+          { chara, text: t('mercenary.start.22') },
+          { chara, text: t('mercenary.start.23') },
+          { chara, text: t('mercenary.start.24') },
           null
         ]
       ]
       const t = await scene.talk(!state.talked ? messages[0].concat(messages[1]) : messages[1])
-      const i = await scene.select(['はい', 'いいえ'])
+      const i = await scene.select([t('mercenary.start.25.0'), t('mercenary.start.25.1')])
       t.destroy()
       state.talked = true
-      await scene.talk([{ chara, text: i === 0 ? '助かる。礼ははずませてもらうぞ。' : 'そうか。' }])
+      await scene.talk([{ chara, text: i === 0 ? t('mercenary.start.26.0') : t('mercenary.start.26.1') }])
       if (i === 0) scene.ui.missionUpdate('m1_2')
     }
   })
@@ -90,9 +90,9 @@ export const mercenary2 = (scene, flower, mercenary) => {
   }
   mercenary.setVisible(false)
   flower.setTapEvent(async () => {
-    await scene.talk([{ chara: 'ann', text: '何この花。へんなの。' }])
+    await scene.talk([{ chara: 'ann', text: t('mercenary.flower.0') }])
     if (!state.started) return
-    const i = await scene.select(['調べる', 'そっとしておく'])
+    const i = await scene.select([t('mercenary.flower.1'), t('mercenary.flower.2')])
     if (i === 1) return
     await scene.ui.sleep(300)
     const result = await scene.ui.battle([generateBattler('flower', 5, { hp: 270 })], { boss: true, bgm: 'battle2' })
@@ -101,33 +101,33 @@ export const mercenary2 = (scene, flower, mercenary) => {
     mercenary.setVisible(true)
     await flower.die()
     await scene.talk([
-      { chara: 'ann', text: 'びっくりした…。モンスターだったなんて。' },
-      { chara: 'francisca', text: 'ちょっとアン、中から人が出てきたんだけど…。' },
-      { chara, text: 'うう…' },
-      { chara: 'ann', text: 'わ！ほんとだ！' },
-      { chara: 'jaquelyn', text: 'だ、大丈夫ですか？' },
-      { chara, text: '助かった…。' },
-      { chara: 'jaquelyn', text: '花のモンスターに食べられてしまったの？' },
-      { chara, text: 'いや、自分から飛び込んだんだ…。' },
-      { chara: 'francisca', text: '自分から？' },
-      { chara: 'francisca', text: '何でそんなアンみたいなことを。' },
-      { chara: 'ann', text: 'ちょっと！' },
-      { chara, text: '実は、レックスベアに負けて仲間と逃げ回っていたんだが、' },
-      { chara, text: '俺だけはぐれた挙句ここまで追い詰められてしまったんだ。' },
-      { chara, text: '目の前にはさっきのサニズマスクがいて、後ろにはレックスベア、' },
-      { chara, text: '意を決して、逃げるようにサニズマスクの胃に飛び込んだんだ。' },
-      { chara: 'ann', text: 'な、なるほど…。' },
-      { chara, text: 'その後自力で出られないことに気づいてから後悔したよ。' },
-      { chara, text: '胃の中でゆっくり溶かされていくくらいなら、' },
-      { chara, text: 'レックスベアにひと思いに殺されればよかったってね。' },
-      { chara: 'ann', text: 'うわー…。' },
-      { chara, text: 'でもあんたたちのおかげで助かったよ。' },
-      { chara: 'jaquelyn', text: 'それは災難でしたね。' },
-      { chara: 'jaquelyn', text: 'ところで、仲間というのが傭兵団の人たちのことでしたら、' },
-      { chara: 'jaquelyn', text: '南のエリアで探していましたよ。' },
-      { chara, text: '本当か？何から何までありがとう。' },
-      { chara, text: 'あとでそっちに寄ってくれないか？お礼をさせてほしい。' },
-      { chara, text: 'じゃあ、あんたたちも気をつけてな。' }
+      { chara: 'ann', text: t('mercenary.battle.0') },
+      { chara: 'francisca', text: t('mercenary.battle.1') },
+      { chara, text: t('mercenary.battle.2') },
+      { chara: 'ann', text: t('mercenary.battle.3') },
+      { chara: 'jaquelyn', text: t('mercenary.battle.4') },
+      { chara, text: t('mercenary.battle.5') },
+      { chara: 'jaquelyn', text: t('mercenary.battle.6') },
+      { chara, text: t('mercenary.battle.7') },
+      { chara: 'francisca', text: t('mercenary.battle.8') },
+      { chara: 'francisca', text: t('mercenary.battle.9') },
+      { chara: 'ann', text: t('mercenary.battle.10') },
+      { chara, text: t('mercenary.battle.11') },
+      { chara, text: t('mercenary.battle.12') },
+      { chara, text: t('mercenary.battle.13') },
+      { chara, text: t('mercenary.battle.14') },
+      { chara: 'ann', text: t('mercenary.battle.15') },
+      { chara, text: t('mercenary.battle.16') },
+      { chara, text: t('mercenary.battle.17') },
+      { chara, text: t('mercenary.battle.18') },
+      { chara: 'ann', text: t('mercenary.battle.19') },
+      { chara, text: t('mercenary.battle.20') },
+      { chara: 'jaquelyn', text: t('mercenary.battle.21') },
+      { chara: 'jaquelyn', text: t('mercenary.battle.22') },
+      { chara: 'jaquelyn', text: t('mercenary.battle.23') },
+      { chara, text: t('mercenary.battle.24') },
+      { chara, text: t('mercenary.battle.25') },
+      { chara, text: t('mercenary.battle.26') }
     ])
     state.solved = true
     await scene.ui.sleep(300)
