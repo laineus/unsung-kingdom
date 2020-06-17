@@ -5,39 +5,38 @@ export const dogEventHunter = (scene, hunter) => {
   }
   hunter.setDisplayName(t('chara.hunter')).setTapEvent(async chara => {
     if (state.completed) {
-      await scene.talk([{ chara, text: '助かったよ。本当にありがとう。' }])
+      await scene.talk([{ chara, text: t('dog.solved.0') }])
     } else if (!state.started) {
-      const last = '悪いんだけど、もしその辺でみかけたら連れてきてくれないかな？'
       const t = await scene.talk(!state.talked ? [
-        { chara, text: 'この森は危ないから、特別な理由がないならあまり奥には進まないほうが良いよ。' },
-        { chara: 'ann', text: 'どうしてですか？' },
-        { chara, text: '人食い熊のレックスベアが出るからだ。' },
-        { chara: 'ann', text: 'くま？' },
-        { chara, text: 'ただの熊じゃない。飛び抜けて凶暴な奴だ。' },
-        { chara, text: '元々はさして脅威ではなかったんだけど、ある個体が一度人間を捕食して以来、' },
-        { chara, text: 'その味を覚えたのか、人を積極的に襲うようになったんだ。' },
-        { chara: 'ann', text: 'こわ！' },
-        { chara, text: '国の討伐隊や、名のある傭兵団がレックスベア討伐に来ているらしいが、どうなったかな。' },
-        { chara: 'ann', text: 'レックスベアを倒すと何か良い事があるんですか？' },
-        { chara: 'francisca', text: '人にとって危険だから賞金がかかっているのでは？' },
-        { chara, text: 'うーん。それにしてはやけに大袈裟な気がする。' },
-        { chara, text: '森に近づかなければいい話だし。' },
-        { chara, text: 'まあ、僕らハンターとしてもレックスベアはあまり遭遇したくない相手だから、' },
-        { chara, text: '誰かが倒してくれるならそれにこしたことはないんだけどね。' },
-        { chara: 'ann', text: 'お兄さんはハンターなんですね。' },
-        { chara: 'ann', text: '何を狩りに来ているんですか？' },
-        { chara, text: '僕はレックスベアとかじゃなく、食肉用の動物とかだよ。' },
-        { chara, text: 'でも今はただ逃げ出してしまった犬を探しているだけなんだ。' },
-        { chara: 'ann', text: '犬が逃げちゃったんですか？' },
-        { chara, text: 'ああ、相棒の狩猟犬が産んだ5匹の子犬たちだ。まだ1歳にもなっていない。' },
-        { chara, text: `あ、${last}` },
+        { chara, text: t('dog.start.0') },
+        { chara: 'ann', text: t('dog.start.1') },
+        { chara, text: t('dog.start.2') },
+        { chara: 'ann', text: t('dog.start.3') },
+        { chara, text: t('dog.start.4') },
+        { chara, text: t('dog.start.5') },
+        { chara, text: t('dog.start.6') },
+        { chara: 'ann', text: t('dog.start.7') },
+        { chara, text: t('dog.start.8') },
+        { chara: 'ann', text: t('dog.start.9') },
+        { chara: 'francisca', text: t('dog.start.10') },
+        { chara, text: t('dog.start.11') },
+        { chara, text: t('dog.start.12') },
+        { chara, text: t('dog.start.13') },
+        { chara, text: t('dog.start.14') },
+        { chara: 'ann', text: t('dog.start.15') },
+        { chara: 'ann', text: t('dog.start.16') },
+        { chara, text: t('dog.start.17') },
+        { chara, text: t('dog.start.18') },
+        { chara: 'ann', text: t('dog.start.19') },
+        { chara, text: t('dog.start.20') },
+        { chara, text: t('dog.start.21') },
         null
-      ] : [{ chara, text: last }, null])
-      const i = await scene.select(['はい', 'いいえ'])
+      ] : [{ chara, text: t('dog.start.21') }, null])
+      const i = await scene.select([t('dog.start.22.0'), t('dog.start.22.1')])
       state.talked = true
       t.destroy()
       await scene.talk([
-        { chara, text: i === 0 ? '助かるよ。よろしく頼んだよ。' : 'そうか。' }
+        { chara, text: i === 0 ? t('dog.start.23.0') : t('dog.start.23.1') }
       ])
       if (i === 0) scene.ui.missionUpdate('m1_1')
     } else {
@@ -52,33 +51,33 @@ export const dogEventHunter = (scene, hunter) => {
       const count = keys.filter(key => state[key] === 0).length
       if (count === 0) {
         await scene.talk([
-          { chara, text: 'ありがとう！これで全員だ。' },
-          { chara, text: '正直全員無事で戻ってこられるとは思ってなかったよ。' },
-          { chara, text: 'なんとお礼を言ったらいいか。' },
-          { chara: 'ann', text: '気にしないでください！' },
-          { chara, text: 'あ、気に入るか分からないけど、僕の予備の弓矢をもらってくれ。' }
+          { chara, text: t('dog.solve.0') },
+          { chara, text: t('dog.solve.1') },
+          { chara, text: t('dog.solve.2') },
+          { chara: 'ann', text: t('dog.solve.3') },
+          { chara, text: t('dog.solve.4') }
         ])
         scene.ui.increaseWeapon(6)
         await scene.talk([
-          { chara: 'ann', text: 'ありがとう。お兄さんの武器は弓なんですね。' },
-          { chara, text: 'そうだよ。' },
-          { chara, text: 'トラップや毒を塗った矢を使って獲物を仕留める。' },
-          { chara, text: '時間はかかるけど、一番安全な狩り方だ。' },
-          { chara: 'ann', text: 'へー。' },
-          { chara, text: 'そういえばこの間、毒矢に使う毒液を分けてくれと訪ねてきた怪しい男が居たんだ。' },
-          { chara, text: '不審に思って断ったけど…、' },
-          { chara, text: '君たちもおかしな奴には気をつけるんだよ。' }
+          { chara: 'ann', text: t('dog.solve.5') },
+          { chara, text: t('dog.solve.6') },
+          { chara, text: t('dog.solve.7') },
+          { chara, text: t('dog.solve.8') },
+          { chara: 'ann', text: t('dog.solve.9') },
+          { chara, text: t('dog.solve.10') },
+          { chara, text: t('dog.solve.11') },
+          { chara, text: t('dog.solve.12') }
         ])
         scene.ui.missionUpdate('m1_1', true)
       } else if (found) {
         await scene.talk([
-          { chara, text: 'ありがとう！' },
-          { chara, text: `あと${count}匹いるはずなんだ。よろしく頼んだよ。` }
+          { chara, text: t('dog.started.0') },
+          { chara, text: `${t('dog.started.1', { count })}${t('dog.started.2')}` }
         ])
       } else {
-        const countText = count < 5 ? `あと${count}匹いるはずなんだ。` : ''
+        const countText = count < 5 ? t('dog.started.1', { count }) : ''
         await scene.talk([
-          { chara, text: `${countText}よろしく頼んだよ。` }
+          { chara, text: `${countText}${t('dog.started.2')}` }
         ])
       }
     }
@@ -100,23 +99,23 @@ export const dogEventFound = (scene, dog, key) => {
     dog.setTarget(scene.player, dogs[key].leave).setSpeed(dogs[key].speed).setTapEvent(async () => {
       dog.setTarget(null)
       if (!state.started) {
-        await scene.talk([{ chara: 'ann', text: 'ワンちゃん、こんなところで何してるの？' }])
+        await scene.talk([{ chara: 'ann', text: t('dog.dog.notStarted') }])
       } else {
         const messages = {
-          d1: { chara: 'ann', text: 'ほら、こっちにおいで。' },
-          d2: { chara: 'jaquelyn', text: 'いい子ね、こっちよ。' },
-          d3: { chara: 'francisca', text: 'おいで、ワンちゃん。' },
-          d4: { chara: 'ann', text: 'おいでー、ほら。' },
-          d5: { chara: 'jaquelyn', text: 'おいで、ご主人が待ってるよ。' }
+          d1: { chara: 'ann', text: t('dog.dog.d1') },
+          d2: { chara: 'jaquelyn', text: t('dog.dog.d2') },
+          d3: { chara: 'francisca', text: t('dog.dog.d3') },
+          d4: { chara: 'ann', text: t('dog.dog.d4') },
+          d5: { chara: 'jaquelyn', text: t('dog.dog.d5') }
         }
         await scene.talk([messages[key]])
         state[key] = 1
         dog.destroy()
         const remain = Object.keys(messages).count(k => state[k] === 0)
         if (remain) {
-          Math.chance(50) ? scene.jaquelyn.tweet(`あと${remain}匹ね`) : scene.francisca.tweet(`あと${remain}匹だね`)
+          Math.chance(50) ? scene.jaquelyn.tweet(t('dog.dog.jaquelyn')) : scene.francisca.tweet(t('dog.dog.francisca'))
         } else {
-          scene.jaquelyn.tweet('これで全部ね')
+          scene.jaquelyn.tweet(t('dog.dog.foundAll'))
         }
       }
     })
