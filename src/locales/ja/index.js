@@ -1,5 +1,8 @@
 import { roomBook, roomEv } from './room'
 import { townGreeting, townGreeting4, townBoard, townCommon, townChapter0, townChapter1, townChapter2, townChapter3, townChapter4, townChapter5 } from './town'
+import { jack } from './chapter0'
+import { dog, mercenary, drystan, bear } from './chapter1'
+import { cassandra } from './chapter2'
 export default {
   chapter: [
     { name: '序章', title: '王殺しのジャック', sub: 'Jack the Kingkiller' },
@@ -66,6 +69,9 @@ export default {
   townChapter3,
   townChapter4,
   townChapter5,
+  jack, 
+  dog, mercenary, drystan, bear,
+  cassandra,
   afterBattle: {
     m1_3: 'マンドレイクの根が集まったみたいね',
     m2_2: 'カーバンクルの魔石が集まったね',
