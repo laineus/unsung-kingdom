@@ -4,9 +4,9 @@ export default (scene, charas) => {
   if (!eState.area) {
     charas.area1.setEvent(async () => {
       await scene.talk([
-        { chara: 'ann', text: 'そういえば、お城の裏庭にはどうやって行くの？' },
-        { chara: 'francisca', text: '街の人に聞いてみよう。' },
-        { chara: 'francisca', text: 'できるだけ怪しまれないようにね。' }
+        { chara: 'ann', text: t('townChapter0.ann.0') },
+        { chara: 'francisca', text: t('townChapter0.ann.1') },
+        { chara: 'francisca', text: t('townChapter0.ann.2') }
       ])
       eState.area = true
       charas.area1.setEvent(null)
@@ -16,27 +16,27 @@ export default (scene, charas) => {
   charas.amber.setTapEvent(async chara => {
     if (!eState.talked_amber) {
       await scene.talk([
-        { chara, text: 'はじめまして、旅人さん。' },
-        { chara, text: 'こちらへは何をしにいらしたのかしら？' },
-        { chara: 'ann', text: 'ええと、王城を見に来ました！' },
-        { chara, text: 'あら、そうなのね？' },
-        { chara, text: 'とっても立派よ。' },
-        { chara: 'ann', text: 'よく行かれるんですか？' },
-        { chara, text: 'ええ、だって私の夫が王家と仲がいいんだもの。' },
-        { chara: 'ann', text: 'すごいですね！' },
-        { chara: 'ann', text: 'ええとじゃあ、裏庭とかにも行ったことあったり？' },
-        { chara, text: 'そんなの行かないわよ。おもてから堂々と入れるもの。' },
-        { chara, text: 'だって仲がいいですから。' },
-        { chara: 'ann', text: 'そ、そうですか。' },
-        { chara, text: 'あなた行きたいの？' },
-        { chara, text: '裏庭って言っても、外周は深い森だから道を知ってないと行けないわよ。' },
-        { chara: 'ann', text: 'そうなんですね、ありがとうございます。' }
+        { chara, text: t('townChapter0.amber.0') },
+        { chara, text: t('townChapter0.amber.1') },
+        { chara: 'ann', text: t('townChapter0.amber.2') },
+        { chara, text: t('townChapter0.amber.3') },
+        { chara, text: t('townChapter0.amber.4') },
+        { chara: 'ann', text: t('townChapter0.amber.5') },
+        { chara, text: t('townChapter0.amber.6') },
+        { chara: 'ann', text: t('townChapter0.amber.7') },
+        { chara: 'ann', text: t('townChapter0.amber.8') },
+        { chara, text: t('townChapter0.amber.9') },
+        { chara, text: t('townChapter0.amber.10') },
+        { chara: 'ann', text: t('townChapter0.amber.11') },
+        { chara, text: t('townChapter0.amber.12') },
+        { chara, text: t('townChapter0.amber.13') },
+        { chara: 'ann', text: t('townChapter0.amber.14') }
       ])
       eState.talked_amber = true
     } else {
       await scene.talk([
-        { chara, text: '裏庭って言っても、外周は深い森だから道を知ってないと行けないわよ。' },
-        { chara: 'ann', text: 'そうなんですね。' }
+        { chara, text: t('townChapter0.amber.13') },
+        { chara: 'ann', text: t('townChapter0.amber.15') }
       ])
     }
   })
@@ -45,24 +45,24 @@ export default (scene, charas) => {
     if (!eState.talked_matilda) return annabelle(scene, chara)
     if (!eState.talked_annabelle) {
       await scene.talk([
-        { chara, text: '王城の裏庭？' },
-        { chara, text: 'あるよ、行ったこと。' },
-        { chara: 'ann', text: 'ほんと！？' },
-        { chara, text: 'うん、たまにだけど食料品のやりとりをするからね。' },
-        { chara, text: '輸送中に襲われるのを防ぐために、人目につかないルートを通るの。' },
-        { chara: 'ann', text: 'あの、道のりを教えてもらうことってできたり？' },
-        { chara, text: 'いいよ。' },
-        { chara: 'ann', text: 'いいの！？' },
-        { chara, text: '別に問題なさそうだし。' },
-        { chara, text: 'その代わり、今度うちの宿に泊まりに来てね。' },
-        { chara: 'ann', text: 'ありがとうー！' }
+        { chara, text: t('townChapter0.annabelle.0') },
+        { chara, text: t('townChapter0.annabelle.1') },
+        { chara: 'ann', text: t('townChapter0.annabelle.2') },
+        { chara, text: t('townChapter0.annabelle.3') },
+        { chara, text: t('townChapter0.annabelle.4') },
+        { chara: 'ann', text: t('townChapter0.annabelle.5') },
+        { chara, text: t('townChapter0.annabelle.6') },
+        { chara: 'ann', text: t('townChapter0.annabelle.7') },
+        { chara, text: t('townChapter0.annabelle.8') },
+        { chara, text: t('townChapter0.annabelle.9') },
+        { chara: 'ann', text: t('townChapter0.annabelle.10') }
       ])
       eState.talked_annabelle = true
       scene.storage.state.allowed_area = Math.max(scene.storage.state.allowed_area, 1)
       scene.ui.announce('マップ「王城 - 裏庭」が解放された')
     } else {
       await scene.talk([
-        { chara, text: '今度うちの宿に泊まりに来てね。' }
+        { chara, text: t('townChapter0.annabelle.11') }
       ])
     }
   })
@@ -70,31 +70,31 @@ export default (scene, charas) => {
   charas.matilda.setTapEvent(async chara => {
     if (!eState.talked_matilda) {
       await scene.talk([
-        { chara: 'ann', text: 'こんにちは。' },
-        { chara, text: 'あ、はい…。' },
-        { chara: 'ann', text: '私たち、王城の裏庭を見てみたいんだけど、行き方知ってるかな？' },
-        { chara, text: 'え、裏庭？' },
-        { chara, text: '私はあんまり外で遊ばないから分からないな…。' },
-        { chara, text: 'ごめんね。' },
-        { chara: 'ann', text: 'そっかぁ…。' },
-        { chara, text: 'あ、もしかしたら、宿屋のアナベルなら…、' },
-        { chara: 'ann', text: 'え、分かりそう！？' },
-        { chara, text: 'うん…。' },
-        { chara, text: 'ほら、すぐそこにいる女の子。' },
-        { chara: 'ann', text: 'ありがとう！' },
-        { chara, text: 'あ、でも、待って…、' },
-        { chara, text: 'お城の裏庭って、どうして…？' },
-        { chara, text: '悪いことするわけじゃないよね…？' },
-        { chara: 'jaquelyn', text: '違うわよ、安心してね。' },
-        { chara: 'jaquelyn', text: '私たち、旅の途中で寄ったんだけれど、' },
-        { chara: 'jaquelyn', text: '王城の裏庭がとっても綺麗だと聞いたから、ぜひ見てみたいと思って、ね。' },
-        { chara, text: 'そうなんだ…、' },
-        { chara, text: 'そんな噂聞いたことないけれど…、お城のそばなら、きっとそうかもしれないね。' }
+        { chara: 'ann', text: t('townChapter0.matilda.0') },
+        { chara, text: t('townChapter0.matilda.1') },
+        { chara: 'ann', text: t('townChapter0.matilda.2') },
+        { chara, text: t('townChapter0.matilda.3') },
+        { chara, text: t('townChapter0.matilda.4') },
+        { chara, text: t('townChapter0.matilda.5') },
+        { chara: 'ann', text: t('townChapter0.matilda.6') },
+        { chara, text: t('townChapter0.matilda.7') },
+        { chara: 'ann', text: t('townChapter0.matilda.8') },
+        { chara, text: t('townChapter0.matilda.9') },
+        { chara, text: t('townChapter0.matilda.10') },
+        { chara: 'ann', text: t('townChapter0.matilda.11') },
+        { chara, text: t('townChapter0.matilda.12') },
+        { chara, text: t('townChapter0.matilda.13') },
+        { chara, text: t('townChapter0.matilda.14') },
+        { chara: 'jaquelyn', text: t('townChapter0.matilda.15') },
+        { chara: 'jaquelyn', text: t('townChapter0.matilda.16') },
+        { chara: 'jaquelyn', text: t('townChapter0.matilda.17') },
+        { chara, text: t('townChapter0.matilda.18') },
+        { chara, text: t('townChapter0.matilda.19') }
       ])
       eState.talked_matilda = true
     } else {
       await scene.talk([
-        { chara, text: 'アナベル、綺麗だよね…。' }
+        { chara, text: t('townChapter0.matilda.20') }
       ])
     }
   })
