@@ -7,107 +7,107 @@ export const ferdinand = (scene, fdn) => {
   fdn.setTapEvent(async chara => {
     if (scene.storage.state.event.m3_2.completed) {
       await scene.talk([
-        { chara, text: 'おい、何とかできそうか？' },
-        { chara: 'ann', text: 'うーん…、' },
-        { chara: 'ann', text: 'このお守りなんてどうかな？' },
-        { chara: 'ann', text: 'さっきシスターさんにもらったんだけど。' },
-        { chara, text: 'そんなもので助かるはずがないだろう！' },
-        { chara: 'ann', text: 'じゃあいらないの？' },
-        { chara, text: '…。' },
-        { chara, text: '一応もらっておこうか…。' },
-        { chara: 'ann', text: 'やっぱ要るんじゃない。' },
-        { chara, text: 'うるさい！ほら、早くよこせ。' }
+        { chara, text: t('ferdinand.talk3.0') },
+        { chara: 'ann', text: t('ferdinand.talk3.1') },
+        { chara: 'ann', text: t('ferdinand.talk3.2') },
+        { chara: 'ann', text: t('ferdinand.talk3.3') },
+        { chara, text: t('ferdinand.talk3.4') },
+        { chara: 'ann', text: t('ferdinand.talk3.5') },
+        { chara, text: t('ferdinand.talk3.6') },
+        { chara, text: t('ferdinand.talk3.7') },
+        { chara: 'ann', text: t('ferdinand.talk3.8') },
+        { chara, text: t('ferdinand.talk3.9') }
       ])
       await scene.ui.sleep(300)
       await scene.talk([
-        { chara, text: 'うわ！！' }
+        { chara, text: t('ferdinand.talk4.0') }
       ])
       fdn.initImage('ferdinand_dragged')
       scene.substances.remove(fdn)
       await scene.talk([
-        { chara, text: '誰だ！？私の足を掴むな！' },
-        { chara: 'ann', text: 'え！なに！？' }
+        { chara, text: t('ferdinand.talk4.1') },
+        { chara: 'ann', text: t('ferdinand.talk4.2') }
       ])
       await fdn.setSpeed(20).setTargetPosition(fdn.x - 20, fdn.y)
       await scene.talk([
-        { chara, text: 'お、おい！！やめろ！！' },
-        { chara, text: 'うわあああああ！！！！' }
+        { chara, text: t('ferdinand.talk4.3') },
+        { chara, text: t('ferdinand.talk4.4') }
       ])
       await fdn.setSpeed(50).setTargetPosition(fdn.x - (2.3).toPixel, fdn.y)
       scene.add.tween({ targets: fdn, duration: 200, alpha: 0, x: fdn.x - 15, y: fdn.y + 30, rotation: fdn.rotation - 1, onComplete: () => fdn.destroy() })
       await scene.ui.sleep(300)
       await scene.talk([
-        { chara: 'ann', text: 'え…！？' },
-        { chara: 'ann', text: 'なに今の……、' },
-        { chara: 'ann', text: 'なにか手みたいなものに引っ張られて…、' }
+        { chara: 'ann', text: t('ferdinand.talk4.5') },
+        { chara: 'ann', text: t('ferdinand.talk4.6') },
+        { chara: 'ann', text: t('ferdinand.talk4.7') }
       ])
       await scene.ui.sleep(500)
       await scene.talk([
-        { chara: 'ann', text: '死んじゃったの…？' },
-        { chara: 'jaquelyn', text: 'この崖の深さなら、…きっとそうね。' },
-        { chara: 'francisca', text: 'こわ。' }
+        { chara: 'ann', text: t('ferdinand.talk4.8') },
+        { chara: 'jaquelyn', text: t('ferdinand.talk4.9') },
+        { chara: 'francisca', text: t('ferdinand.talk4.10') }
       ])
       state.completed = true
       scene.ui.missionUpdate('m3_1', true)
     } else if (state.started) {
       await scene.talk([
-        { chara, text: 'とにかく頼む。' },
-        { chara, text: 'なんとかしてくれ。' }
+        { chara, text: t('ferdinand.talk2.0') },
+        { chara, text: t('ferdinand.talk2.1') }
       ])
     } else {
       await scene.talk([
-        { chara: 'ann', text: '大丈夫ですか？顔色が悪いみたいだけど。' },
-        { chara, text: '…………。' },
-        { chara: 'jaquelyn', text: 'こんな崖のそばにいたら危ないですよ。' },
-        { chara, text: '…………。' },
-        { chara: 'ann', text: 'ねえ！' }
+        { chara: 'ann', text: t('ferdinand.talk1.0') },
+        { chara, text: t('ferdinand.talk1.1') },
+        { chara: 'jaquelyn', text: t('ferdinand.talk1.2') },
+        { chara, text: t('ferdinand.talk1.3') },
+        { chara: 'ann', text: t('ferdinand.talk1.4') }
       ], { angle: false })
       await scene.talk([
-        { chara, text: '………、な、なんだ………？' },
-        { chara, text: '誰だお前たちは…？' },
-        { chara, text: '………、' },
-        { chara, text: 'おい、どこだここは！？' },
-        { chara: 'ann', text: 'え？' },
-        { chara: 'ann', text: '大丈夫？' },
-        { chara, text: 'どこなんだここは？' },
-        { chara: 'ann', text: 'どこって、墓地ですけど。' },
-        { chara, text: '墓地だと？' },
-        { chara: 'ann', text: '聖アンテルスの墓地。' },
-        { chara, text: 'なんだって…？' },
-        { chara, text: 'べリオンじゃないか…。' },
-        { chara, text: '私はなぜこんなところに………。' },
-        { chara: 'ann', text: 'ほんとに大丈夫？' },
-        { chara: 'ann', text: '誰かに連れてこられたの？' },
-        { chara, text: 'ち、違う。' },
-        { chara, text: '私はまともだ。' },
-        { chara, text: 'そうだ、何か用があったはずなんだ。' },
-        { chara, text: '声だ！声が聴こえたんだ。' },
-        { chara, text: 'それでわざわざここまで来たんだ。' },
-        { chara: 'ann', text: 'それで？' },
-        { chara, text: 'それで、そうだ、ここでその声を聴いていたんだ。' },
-        { chara, text: 'そしたらお前たちが話しかけてきた。' },
-        { chara, text: 'おい、ほら、この声だ。聴こえるだろ？' },
-        { chara, text: 'こんなに大勢の声が、一体どこから？' },
-        { chara: 'ann', text: '何それ、怖い。' },
-        { chara: 'ann', text: 'そんなの聞こえないよ。' },
-        { chara, text: 'ふざけるな！' },
-        { chara, text: 'くそっ！くそっ！' },
-        { chara: 'ann', text: 'やっぱり変ですよ。' },
-        { chara: 'ann', text: '家に帰ったほうがいいんじゃない？' },
-        { chara, text: 'ちくしょう。' },
-        { chara, text: '私がこうなったのは全てレンフィールド家のせいだ。' },
-        { chara, text: 'きっとやつらに売りつけられた奴隷や女の霊が私を恨んでいるんだ。' },
-        { chara: 'ann', text: '人を買っていたの？' },
-        { chara: 'francisca', text: 'そりゃあ怨みも買うね。' },
-        { chara: 'jaquelyn', text: '怨みや呪いだなんて…、' },
-        { chara: 'jaquelyn', text: 'きっと自らの罪悪感が生み出した幻聴じゃないかしら。' },
-        { chara, text: 'おい！好き勝手言うな。' },
-        { chara, text: 'くそ、呪いだかなんだか知らんが、' },
-        { chara, text: 'おかげでフェルディナンド家は無茶苦茶だ。' },
-        { chara, text: 'おい、あんたら、なんとかしてくれないか？' },
-        { chara: 'ann', text: 'なんとかってどういうこと？' },
-        { chara, text: 'そんなもん分からん！' },
-        { chara, text: 'とにかく頼む！' }
+        { chara, text: t('ferdinand.talk1.5') },
+        { chara, text: t('ferdinand.talk1.6') },
+        { chara, text: t('ferdinand.talk1.7') },
+        { chara, text: t('ferdinand.talk1.8') },
+        { chara: 'ann', text: t('ferdinand.talk1.9') },
+        { chara: 'ann', text: t('ferdinand.talk1.10') },
+        { chara, text: t('ferdinand.talk1.11') },
+        { chara: 'ann', text: t('ferdinand.talk1.12') },
+        { chara, text: t('ferdinand.talk1.13') },
+        { chara: 'ann', text: t('ferdinand.talk1.14') },
+        { chara, text: t('ferdinand.talk1.15') },
+        { chara, text: t('ferdinand.talk1.16') },
+        { chara, text: t('ferdinand.talk1.17') },
+        { chara: 'ann', text: t('ferdinand.talk1.18') },
+        { chara: 'ann', text: t('ferdinand.talk1.19') },
+        { chara, text: t('ferdinand.talk1.20') },
+        { chara, text: t('ferdinand.talk1.21') },
+        { chara, text: t('ferdinand.talk1.22') },
+        { chara, text: t('ferdinand.talk1.23') },
+        { chara, text: t('ferdinand.talk1.24') },
+        { chara: 'ann', text: t('ferdinand.talk1.25') },
+        { chara, text: t('ferdinand.talk1.26') },
+        { chara, text: t('ferdinand.talk1.27') },
+        { chara, text: t('ferdinand.talk1.28') },
+        { chara, text: t('ferdinand.talk1.29') },
+        { chara: 'ann', text: t('ferdinand.talk1.30') },
+        { chara: 'ann', text: t('ferdinand.talk1.31') },
+        { chara, text: t('ferdinand.talk1.32') },
+        { chara, text: t('ferdinand.talk1.33') },
+        { chara: 'ann', text: t('ferdinand.talk1.34') },
+        { chara: 'ann', text: t('ferdinand.talk1.35') },
+        { chara, text: t('ferdinand.talk1.36') },
+        { chara, text: t('ferdinand.talk1.37') },
+        { chara, text: t('ferdinand.talk1.38') },
+        { chara: 'ann', text: t('ferdinand.talk1.39') },
+        { chara: 'francisca', text: t('ferdinand.talk1.40') },
+        { chara: 'jaquelyn', text: t('ferdinand.talk1.41') },
+        { chara: 'jaquelyn', text: t('ferdinand.talk1.42') },
+        { chara, text: t('ferdinand.talk1.43') },
+        { chara, text: t('ferdinand.talk1.44') },
+        { chara, text: t('ferdinand.talk1.45') },
+        { chara, text: t('ferdinand.talk1.46') },
+        { chara: 'ann', text: t('ferdinand.talk1.47') },
+        { chara, text: t('ferdinand.talk1.48') },
+        { chara, text: t('ferdinand.talk1.49') }
       ])
       state.started = true
       scene.ui.missionUpdate('m3_1')

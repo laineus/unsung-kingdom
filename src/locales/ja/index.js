@@ -3,6 +3,7 @@ import { townGreeting, townGreeting4, townBoard, townCommon, townChapter0, townC
 import { jack } from './chapter0'
 import { dog, mercenary, drystan, bear } from './chapter1'
 import { cassandra, princess, moonshine, aragnie } from './chapter2'
+import { ferdinand } from './chapter3'
 export default {
   chapter: [
     { name: '序章', title: '王殺しのジャック', sub: 'Jack the Kingkiller' },
@@ -72,6 +73,7 @@ export default {
   jack, 
   dog, mercenary, drystan, bear,
   cassandra, princess, moonshine, aragnie,
+  ferdinand,
   afterBattle: {
     m1_3: 'マンドレイクの根が集まったみたいね',
     m2_2: 'カーバンクルの魔石が集まったね',
