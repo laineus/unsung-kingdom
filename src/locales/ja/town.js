@@ -1,3 +1,21 @@
+export const townGreeting = {
+  amber: 'いい天気ね',
+  elliott: 'よう',
+  max: '元気か？',
+  annabelle: 'こんにちは'
+}
+export const townGreeting4 = {
+  amber: '大変なことになったわ…',
+  matilda: '怖いな…'
+}
+export const townBoard = [
+  '市街についての案内が貼り出されている。',
+  '森の凶暴なモンスター「レックスベア」の討伐報酬について貼り出されている。',
+  '禁酒令の罰則に関して貼り出されている。',
+  'レンフィールド家の邸宅が火事になった件について貼り出されている。',
+  'ドランゴンの覚醒と討伐隊が結成されたことについて貼り出されている。',
+  'エドガー王がドラゴンを倒したことについて貼り出されている。'
+]
 export const townCommon = {
   amber: '今日もいい天気ね。',
   annabelle: [

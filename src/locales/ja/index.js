@@ -1,4 +1,5 @@
 import { roomBook, roomEv } from './room'
+import { townGreeting, townGreeting4, townBoard, townCommon, townChapter0, townChapter1, townChapter2, townChapter3, townChapter4, townChapter5 } from './town'
 export default {
   chapter: [
     { name: '序章', title: '王殺しのジャック', sub: 'Jack the Kingkiller' },
@@ -55,24 +56,16 @@ export default {
   },
   roomBook,
   roomEv,
-  townGreeting: {
-    amber: 'いい天気ね',
-    elliott: 'よう',
-    max: '元気か？',
-    annabelle: 'こんにちは'
-  },
-  townGreeting4: {
-    amber: '大変なことになったわ…',
-    matilda: '怖いな…'
-  },
-  townBoard: [
-    '市街についての案内が貼り出されている。',
-    '森の凶暴なモンスター「レックスベア」の討伐報酬について貼り出されている。',
-    '禁酒令の罰則に関して貼り出されている。',
-    'レンフィールド家の邸宅が火事になった件について貼り出されている。',
-    'ドランゴンの覚醒と討伐隊が結成されたことについて貼り出されている。',
-    'エドガー王がドラゴンを倒したことについて貼り出されている。'
-  ],
+  townGreeting,
+  townGreeting4,
+  townBoard,
+  townCommon,
+  townChapter0,
+  townChapter1,
+  townChapter2,
+  townChapter3,
+  townChapter4,
+  townChapter5,
   afterBattle: {
     m1_3: 'マンドレイクの根が集まったみたいね',
     m2_2: 'カーバンクルの魔石が集まったね',
