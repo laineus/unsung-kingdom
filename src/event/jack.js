@@ -16,47 +16,47 @@ export const jackEvent = (scene, area, chara) => {
     await scene.ui.sleep(500)
     await scene.camera.look(0, -180, 1000, true)
     await scene.talk([
-      { chara: 'jaquelyn', text: '日が落ち始めたわね。' },
-      { chara: 'ann', text: 'もうそろそろ現れるころかな？' },
-      { chara: 'francisca', text: 'そうね。' },
-      { chara: 'ann', text: '王殺しのジャックって結局何者なんだろうね。' },
-      { chara: 'francisca', text: 'さあ、' },
-      { chara: 'francisca', text: '捕まえたら分かるかもね。' },
-      { chara: 'ann', text: 'どうして暗殺なんてしたんだろう。' },
-      { chara: 'jaquelyn', text: 'どこの国の王も命を狙われる理由ならたくさんあるんじゃないかしら。' },
-      { chara: 'ann', text: '『平和王エドガー』、平和を願った優しい王さまを殺すなんて…、' }
+      { chara: 'jaquelyn', text: t('jack.0.0') },
+      { chara: 'ann', text: t('jack.0.1') },
+      { chara: 'francisca', text: t('jack.0.2') },
+      { chara: 'ann', text: t('jack.0.3') },
+      { chara: 'francisca', text: t('jack.0.4') },
+      { chara: 'francisca', text: t('jack.0.5') },
+      { chara: 'ann', text: t('jack.0.6') },
+      { chara: 'jaquelyn', text: t('jack.0.7') },
+      { chara: 'ann', text: t('jack.0.8') }
     ])
-    await scene.talk([{ chara, text: 'おい、お前たち、こんなところで何をしている？' }])
+    await scene.talk([{ chara, text: t('jack.1.0') }])
     scene.francisca.setR('down')
     scene.jaquelyn.setR('down')
     chara.setVisible(true)
     await scene.camera.revert(300)
     await scene.talk([
-      { chara: 'ann', text: 'え！？' },
-      { chara: 'ann', text: 'あ、いえ…その…、' },
-      { chara, text: '何をしていると聞いているんだ。' },
-      { chara: 'ann', text: 'ええと、' },
-      { chara: 'ann', text: 'なんていうか…、' },
-      { chara: 'jaquelyn', text: 'お花を摘みに来たのよね。' },
-      { chara: 'ann', text: 'そ、そうよ！お花よ！' },
-      { chara, text: 'なに？' },
-      { chara, text: '武器を持ってか？' },
-      { chara: 'ann', text: 'それは…、' },
-      { chara: 'francisca', text: 'ちょっとあんた、' },
-      { chara: 'francisca', text: 'そういうあんたこそ何者よ？' },
-      { chara: 'francisca', text: '怪しい格好で、こんな茂みの中でコソコソと。' },
-      { chara: 'ann', text: '確かに！' },
-      { chara, text: 'お前たちには関係ない。' },
-      { chara, text: 'この場から離れてもらおうか。' },
-      { chara: 'ann', text: '分かったわ！あなたが暗殺者ね。' },
-      { chara: 'ann', text: 'ここから先へは行かせない！' },
-      { chara, text: 'なんだと？' },
-      { chara, text: 'お前たちが何者かは知らんが、邪魔をしないでもらえるか？' },
-      { chara, text: 'できれば危害は加えたくない。' },
-      { chara: 'francisca', text: 'アン、こいつで間違いないと思う。' },
-      { chara: 'jaquelyn', text: 'そうね、捕まえましょう。' },
-      { chara: 'ann', text: '分かった。' },
-      { chara: 'ann', text: 'アンタ、覚悟しなさい！' }
+      { chara: 'ann', text: t('jack.1.1') },
+      { chara: 'ann', text: t('jack.1.2') },
+      { chara, text: t('jack.1.3') },
+      { chara: 'ann', text: t('jack.1.4') },
+      { chara: 'ann', text: t('jack.1.5') },
+      { chara: 'jaquelyn', text: t('jack.1.6') },
+      { chara: 'ann', text: t('jack.1.7') },
+      { chara, text: t('jack.1.8') },
+      { chara, text: t('jack.1.9') },
+      { chara: 'ann', text: t('jack.1.10') },
+      { chara: 'francisca', text: t('jack.1.11') },
+      { chara: 'francisca', text: t('jack.1.12') },
+      { chara: 'francisca', text: t('jack.1.13') },
+      { chara: 'ann', text: t('jack.1.14') },
+      { chara, text: t('jack.1.15') },
+      { chara, text: t('jack.1.16') },
+      { chara: 'ann', text: t('jack.1.17') },
+      { chara: 'ann', text: t('jack.1.18') },
+      { chara, text: t('jack.1.19') },
+      { chara, text: t('jack.1.20') },
+      { chara, text: t('jack.1.21') },
+      { chara: 'francisca', text: t('jack.1.22') },
+      { chara: 'jaquelyn', text: t('jack.1.23') },
+      { chara: 'ann', text: t('jack.1.24') },
+      { chara: 'ann', text: t('jack.1.25') }
     ])
     scene.francisca.setAllowWalkingWhileEvent(true).setTargetPosition((48).toPixelCenter, (31).toPixel)
     scene.jaquelyn.setAllowWalkingWhileEvent(true).setTargetPosition((50).toPixelCenter, (31).toPixel)
@@ -67,11 +67,11 @@ export const jackEvent = (scene, area, chara) => {
     await scene.ui.battle([generateBattler('jack', 5, { hp: 1000 })], { boss: true, defeatEvent: true })
     await scene.ui.sleep(500)
     await scene.talk([
-      { chara: 'ann', text: 'うぅ…。' },
-      { chara: 'francisca', text: '強い…。' },
-      { chara, text: '装備は没収させてもらうぞ。' }
+      { chara: 'ann', text: t('jack.2.0') },
+      { chara: 'francisca', text: t('jack.2.1') },
+      { chara, text: t('jack.2.2') }
     ])
-    scene.ui.announce('装備を奪われた')
+    scene.ui.announce(t('jack.2.3') )
     scene.storage.state.weapons.length = 0
     scene.storage.state.battlers.forEach(v => v.weapon = null)
     await scene.ui.sleep(2000)
@@ -83,18 +83,18 @@ export const jackEvent = (scene, area, chara) => {
     chara.destroy()
     await scene.ui.sleep(1500)
     await scene.talk([
-      { chara: 'jaquelyn', text: '追いかけないと…。' }
+      { chara: 'jaquelyn', text: t('jack.2.4') }
     ])
     scene.jaquelyn.setR('down')
     await scene.talk([
-      { chara: 'jaquelyn', text: '大丈夫？アン' },
-      { chara: 'ann', text: 'う、うん。' },
-      { chara: 'ann', text: 'あれ！？時間水晶がない！' }
+      { chara: 'jaquelyn', text: t('jack.2.5') },
+      { chara: 'ann', text: t('jack.2.6') },
+      { chara: 'ann', text: t('jack.2.7') }
     ])
     scene.francisca.setR('down')
     await scene.talk([
-      { chara: 'francisca', text: 'きっと装備と一緒に奴に持って行かれたんだ。' },
-      { chara: 'francisca', text: '早く追いかけよう。' }
+      { chara: 'francisca', text: t('jack.2.8') },
+      { chara: 'francisca', text: t('jack.2.9') }
     ])
     scene.camera.revert()
     state.battled = true
@@ -121,32 +121,32 @@ export const kingEvent = (scene, area, chara, soldier) => {
     scene.camera.look((16).toPixel, (18).toPixel, 1000)
     await chara.setTargetPosition((16).toPixel, (17).toPixelCenter)
     await scene.talk([
-      { chara: 'ann', text: 'みて、あそこ！あれがエドガー王？' }
+      { chara: 'ann', text: t('jack.3.0') }
     ])
     await scene.ui.sleep(500)
     await scene.talk([
-      { chara, text: 'エゼルはまだ帰っていないのか？' },
-      { chara: soldier, text: 'はい、王弟殿下はまだグリファルデ神殿かと。' }
+      { chara, text: t('jack.3.1') },
+      { chara: soldier, text: t('jack.3.2') }
     ], { angle: false })
     await scene.ui.sleep(300)
     await chara.setTargetPosition((16).toPixel, (19).toPixel)
     await scene.ui.sleep(300)
     await scene.talk([
-      { chara, text: 'ドラゴンとの交渉は順調に進んでいるとは言えないようだな。' },
-      { chara: soldier, text: '…申し上げにくいのですが、そのようです。' }
+      { chara, text: t('jack.3.3') },
+      { chara: soldier, text: t('jack.3.4') }
     ], { angle: false })
     await scene.ui.sleep(500)
     chara.setR('right')
     await scene.ui.sleep(800)
     await scene.talk([
-      { chara, text: 'そうか…。' }
+      { chara, text: t('jack.3.5') }
     ], { angle: false })
     await scene.ui.sleep(500)
     await scene.talk([
-      { chara: 'jaquelyn', text: 'よかった、無事みたい。' },
-      { chara: 'francisca', text: 'ジャックはどこ…？' },
-      { chara: 'jaquelyn', text: '暗殺は諦めたのかもしれないね。とにかく、一回ここを離れましょう。' },
-      { chara: 'ann', text: 'うん。' }
+      { chara: 'jaquelyn', text: t('jack.3.6') },
+      { chara: 'francisca', text: t('jack.3.7') },
+      { chara: 'jaquelyn', text: t('jack.3.8') },
+      { chara: 'ann', text: t('jack.3.9') }
     ])
     window.archiveManager.activate('saved_king')
     await scene.ui.missionUpdate('m0_1', true)
