@@ -6,57 +6,57 @@ export default (scene, charas) => {
     if (eState.talked_annabelle) {
       if (eState.talked_amber2) {
         await scene.talk([
-          { chara, text: '公爵によろしくね。' }
+          { chara, text: t('townChapter2.amber.solve.18') }
         ])
       } else {
         await scene.talk([
-          { chara: 'ann', text: '公爵への贈り物、決まりましたか？' },
-          { chara, text: 'いいえ、困っているのよ。' },
-          { chara: 'ann', text: 'チューリップなんてどうですか？' },
-          { chara, text: 'そうね、流行っているしいいかもしれないわね。' },
-          { chara, text: 'でも珍しい模様のものはさすがに私にも高すぎるわ…。' },
-          { chara: 'ann', text: '球根でよければおすそ分けしますよ！' },
-          { chara, text: 'あら、いいの？' },
-          { chara, text: '確かに咲く前のものなら、楽しみもあって素敵ね。' },
-          { chara: 'ann', text: 'どうぞ！' },
-          { chara, text: 'ありがとう。' },
-          { chara, text: 'さっそく遣いに届けさせるわ。' },
-          { chara: 'ann', text: 'あ、私たちちょうど近くに用があるので届けますよ！' },
-          { chara, text: 'あら、ほんとに？' },
-          { chara, text: '何から何まで申し訳ないわ。' },
-          { chara: 'ann', text: 'いいんです！' },
-          { chara, text: 'そう？じゃあお願いするわ。' },
-          { chara, text: '公爵への手紙と地図を書くわね。' },
-          { chara, text: 'これで邸宅の入り口までは通してもらえるはずよ。' }
+          { chara: 'ann', text: t('townChapter2.amber.solve.0') },
+          { chara, text: t('townChapter2.amber.solve.1') },
+          { chara: 'ann', text: t('townChapter2.amber.solve.2') },
+          { chara, text: t('townChapter2.amber.solve.3') },
+          { chara, text: t('townChapter2.amber.solve.4') },
+          { chara: 'ann', text: t('townChapter2.amber.solve.5') },
+          { chara, text: t('townChapter2.amber.solve.6') },
+          { chara, text: t('townChapter2.amber.solve.7') },
+          { chara: 'ann', text: t('townChapter2.amber.solve.8') },
+          { chara, text: t('townChapter2.amber.solve.9') },
+          { chara, text: t('townChapter2.amber.solve.10') },
+          { chara: 'ann', text: t('townChapter2.amber.solve.11') },
+          { chara, text: t('townChapter2.amber.solve.12') },
+          { chara, text: t('townChapter2.amber.solve.13') },
+          { chara: 'ann', text: t('townChapter2.amber.solve.14') },
+          { chara, text: t('townChapter2.amber.solve.15') },
+          { chara, text: t('townChapter2.amber.solve.16') },
+          { chara, text: t('townChapter2.amber.solve.17') }
         ])
         eState.talked_amber2 = true
         scene.storage.state.allowed_area = Math.max(scene.storage.state.allowed_area, 3)
         scene.ui.announce('マップ「トロイア公爵邸の地下通路」が解放された')
       }
     } else {
-      const i = await scene.select(['王城の隠し通路について', 'トロイア公爵邸について', 'なんでもない'])
+      const i = await scene.select([t('townChapter2.amber.question.0'), t('townChapter2.amber.question.1'), t('townChapter2.amber.question.2')])
       if (i === 2) return
       await scene.talk(i === 0 ? [
-        { chara, text: '王城の隠し通路ね。' },
-        { chara, text: '戦争のときなんかに王族が城外に逃げるために使うのね。' },
-        { chara: 'ann', text: 'どこにあるか知っていますか？' },
-        { chara, text: 'さすがに知らないわ。' },
-        { chara, text: '出口が敵国にバレたら意味がないもの。極秘なのよね。' },
-        { chara: 'ann', text: 'なるほど。' }
+        { chara, text: t('townChapter2.amber.answer0.0') },
+        { chara, text: t('townChapter2.amber.answer0.1') },
+        { chara: 'ann', text: t('townChapter2.amber.answer0.2') },
+        { chara, text: t('townChapter2.amber.answer0.3') },
+        { chara, text: t('townChapter2.amber.answer0.4') },
+        { chara: 'ann', text: t('townChapter2.amber.answer0.5') }
       ] : [
-        { chara, text: 'トロイア公爵邸なら街を出て南東のほうにあるわ。' },
-        { chara, text: 'あなた、行きたいの？' },
-        { chara, text: '近くまでは行けるでしょうけど、敷地内には入れないわよ。' },
-        { chara: 'ann', text: 'アンバーさんは入れるんですか？' },
-        { chara, text: 'ええ、まあ。' },
-        { chara, text: '公爵とは結構仲がいいのよ。' },
-        { chara, text: 'よく贈り物を贈り合ったりしているわ。' },
-        { chara, text: 'ちょうどこの間もオレンジのジャムをいただいたの。' },
-        { chara: 'francisca', text: 'それは高級品ですね。' },
-        { chara: 'ann', text: 'そうなの…？' },
-        { chara, text: 'ええ、そうよ。' },
-        { chara, text: 'だから今度は何を贈ろうか悩んでいるのよ。' },
-        { chara, text: '何か良いアイディアがあったら教えてちょうだいね。' }
+        { chara, text: t('townChapter2.amber.answer1.0') },
+        { chara, text: t('townChapter2.amber.answer1.1') },
+        { chara, text: t('townChapter2.amber.answer1.2') },
+        { chara: 'ann', text: t('townChapter2.amber.answer1.3') },
+        { chara, text: t('townChapter2.amber.answer1.4') },
+        { chara, text: t('townChapter2.amber.answer1.5') },
+        { chara, text: t('townChapter2.amber.answer1.6') },
+        { chara, text: t('townChapter2.amber.answer1.7') },
+        { chara: 'francisca', text: t('townChapter2.amber.answer1.8') },
+        { chara: 'ann', text: t('townChapter2.amber.answer1.9') },
+        { chara, text: t('townChapter2.amber.answer1.10') },
+        { chara, text: t('townChapter2.amber.answer1.11') },
+        { chara, text: t('townChapter2.amber.answer1.12') }
       ])
       if (i === 1) eState.talked_amber1 = true
     }
@@ -66,19 +66,19 @@ export default (scene, charas) => {
     if (eState.talked_elliott && !eState.talked_amber2) {
       await scene.talk([
         ...(eState.talked_annabelle ? [] : [
-          { chara, text: 'お花？' },
-          { chara, text: 'うん、色々育ててるよ。' },
-          { chara, text: 'お姉さんもチューリップが欲しいのかな？' },
-          { chara, text: 'あったけど、残念ながら他のお客さんに売っちゃった。' },
-          { chara: 'ann', text: 'そっかあ。' },
-          { chara, text: '代わりに余ってる球根をいくつかあげるわ。' },
-          { chara, text: 'もしかしたら珍しい模様になって高値がつくかも。' },
-          { chara: 'ann', text: 'いいの！？' },
-          { chara, text: 'うん。' },
-          { chara: 'ann', text: 'ありがとう！' },
-          { chara, text: 'どういたしまして。' }
+          { chara, text: t('townChapter2.annabelle.0') },
+          { chara, text: t('townChapter2.annabelle.1') },
+          { chara, text: t('townChapter2.annabelle.2') },
+          { chara, text: t('townChapter2.annabelle.3') },
+          { chara: 'ann', text: t('townChapter2.annabelle.4') },
+          { chara, text: t('townChapter2.annabelle.5') },
+          { chara, text: t('townChapter2.annabelle.6') },
+          { chara: 'ann', text: t('townChapter2.annabelle.7') },
+          { chara, text: t('townChapter2.annabelle.8') },
+          { chara: 'ann', text: t('townChapter2.annabelle.9') },
+          { chara, text: t('townChapter2.annabelle.10') }
         ]),
-        { chara, text: 'またなんでも相談してね。' }
+        { chara, text: t('townChapter2.annabelle.11') }
       ])
       eState.talked_annabelle = true
     } else {
@@ -92,17 +92,17 @@ export default (scene, charas) => {
     if (eState.talked_amber1 && !eState.talked_annabelle) {
       await scene.talk([
         ...(eState.talked_elliott ? [] : [
-          { chara, text: '貴族が喜びそうなもの？' },
-          { chara, text: 'そりゃ今はチューリップだな。' },
-          { chara: 'ann', text: 'チューリップ…？' },
-          { chara, text: 'ああ、珍しい模様のチューリップを屋敷に飾って自慢するのが流行っているらしい。' },
-          { chara, text: '花なんか見て何が楽しいのかは知らんが、' },
-          { chara, text: '珍しい模様の物は貴族が高値で買うって言うんで俺も興味を持っているところだ。' },
-          { chara: 'ann', text: '手に入った？' },
-          { chara, text: 'いいや、' }
+          { chara, text: t('townChapter2.elliott.0') },
+          { chara, text: t('townChapter2.elliott.1') },
+          { chara: 'ann', text: t('townChapter2.elliott.2') },
+          { chara, text: t('townChapter2.elliott.3') },
+          { chara, text: t('townChapter2.elliott.4') },
+          { chara, text: t('townChapter2.elliott.5') },
+          { chara: 'ann', text: t('townChapter2.elliott.6') },
+          { chara, text: t('townChapter2.elliott.7') }
         ]),
-        { chara, text: '宿屋のアナベルが花を育てているから、聞いてみたらどうだ？' },
-        { chara, text: '俺ももらいに行きたいところだが、あいつ俺には何もくれないんだよな…。' }
+        { chara, text: t('townChapter2.elliott.8') },
+        { chara, text: t('townChapter2.elliott.9') }
       ])
       eState.talked_elliott = true
     } else {
@@ -113,8 +113,8 @@ export default (scene, charas) => {
   charas.max.setTapEvent(async chara => {
     if (eState.talked_amber1 && !eState.talked_elliott) {
       await scene.talk([
-        { chara, text: '貴族が喜びそうなもの？' },
-        { chara, text: 'そういうのはエリオットが詳しいぜ。' }
+        { chara, text: t('townChapter2.max.0') },
+        { chara, text: t('townChapter2.max.1') }
       ])
     } else {
       return max(scene, chara)
