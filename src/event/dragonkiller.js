@@ -1,14 +1,8 @@
 import generateBattler from '../util/generateBattler'
 const scriptsForSoldiers = [
-  [
-    'ドラゴンは…、我々が想定していたよりもずっと強力だった…。'
-  ],
-  [
-    '十年前、王はどうやってアイツに勝ったというのだ…。'
-  ],
-  [
-    '王を助けに行きたいが…、体が動いてくれない…。'
-  ]
+  [t('dragonKiller.soldier.0')],
+  [t('dragonKiller.soldier.1')],
+  [t('dragonKiller.soldier.2')]
 ]
 
 export const ethelbald = (scene, ethel, soldiers, gate) => {
@@ -16,7 +10,7 @@ export const ethelbald = (scene, ethel, soldiers, gate) => {
   if (!state.started) {
     gate.setBlocked(async () => {
       await scene.talk([
-        { chara: 'francisca', text: 'ちょっと、怪我人に声もかけないっていうの？' }
+        { chara: 'francisca', text: t('dragonKiller.block.0') }
       ])
     })
   }
@@ -32,26 +26,26 @@ export const ethelbald = (scene, ethel, soldiers, gate) => {
   ethel.setDisplayName(t('chara.ethel')).setTapEvent(async chara => {
     if (state.started) {
       await scene.talk([
-        { chara: 'ann', text: 'あの、どこかで会ったことないです…？' },
-        { chara, text: '無駄話をしている場合ではないはずだ。' }
+        { chara: 'ann', text: t('dragonKiller.started.0') },
+        { chara, text: t('dragonKiller.started.1') }
       ])
     } else {
       await scene.talk([
-        { chara: 'ann', text: '大丈夫ですか！？' },
-        { chara, text: 'お前たちは…。' },
-        { chara: 'ann', text: 'ドラゴンにやられたんですね？' },
-        { chara, text: 'そうだ…。' },
-        { chara, text: '兄を…、' },
-        { chara, text: 'エドガーを助けに来たのか？' },
-        { chara: 'ann', text: 'はい。' },
-        { chara: 'ann', text: 'あなたは、王弟？' },
-        { chara, text: '俺のことはいい。' },
-        { chara, text: 'エドガーと、ドラゴンはこの先だ、' },
-        { chara: 'ann', text: 'でも、ひどい傷、' },
-        { chara, text: '構うな。' },
-        { chara, text: '彼は今、独りで戦っている。' },
-        { chara, text: '兄を…、' },
-        { chara, text: '兄を頼む…。' }
+        { chara: 'ann', text: t('dragonKiller.start.0') },
+        { chara, text: t('dragonKiller.start.1') },
+        { chara: 'ann', text: t('dragonKiller.start.2') },
+        { chara, text: t('dragonKiller.start.3') },
+        { chara, text: t('dragonKiller.start.4') },
+        { chara, text: t('dragonKiller.start.5') },
+        { chara: 'ann', text: t('dragonKiller.start.6') },
+        { chara: 'ann', text: t('dragonKiller.start.7') },
+        { chara, text: t('dragonKiller.start.8') },
+        { chara, text: t('dragonKiller.start.9') },
+        { chara: 'ann', text: t('dragonKiller.start.10') },
+        { chara, text: t('dragonKiller.start.11') },
+        { chara, text: t('dragonKiller.start.12') },
+        { chara, text: t('dragonKiller.start.13') },
+        { chara, text: t('dragonKiller.start.14') }
       ])
       scene.ui.missionUpdate('m4_5')
       state.started = true
@@ -65,9 +59,9 @@ export const gateConfirm = (scene, gate) => {
   if (state.area1) return
   gate.setBlocked(async go => {
     await scene.talk([
-      { chara: 'francisca', text: 'この先が最深部みたいだけど。' }
+      { chara: 'francisca', text: t('dragonKiller.confirm.0') }
     ])
-    const i = await scene.select(['先に進む', 'やめておく'])
+    const i = await scene.select([t('dragonKiller.confirmOption.0'), t('dragonKiller.confirmOption.1')])
     if (i === 1) return
     go()
   })
@@ -92,20 +86,20 @@ export const dragon = (scene, sonberk, king, area1, area2, area3) => {
     await scene.ui.sleep(800)
     await scene.camera.look((16).toPixelCenter, (9).toPixelCenter, 800)
     await scene.talk([
-      { chara: sonberk, text: 'エドガーよ、貴様自ら現れるとは、良い度胸だ。' },
-      { chara: sonberk, text: 'この俺を十年も封じておきながら、ただで帰れるとは思っていまいな。' },
-      { chara: sonberk, text: 'それとも、十年前のように俺を倒せるとでも思っているのか？' },
-      { chara: king, text: 'そこまで慢心してはおらん。' },
-      { chara: king, text: 'ソンベルクよ、一つ聞かせてくれ。' },
-      { chara: king, text: '今ここで私の首を差し出せば、お前の怒りは鎮まるか？' },
-      { chara: sonberk, text: 'この期に及んで貴様の王国を心配しているな？' },
-      { chara: sonberk, text: '安心しろ。' },
-      { chara: sonberk, text: '貴様が今ここにいること、' },
-      { chara: sonberk, text: '弟のエゼルバルドは約束を果たしたも同然。' },
-      { chara: sonberk, text: '約束通り貴様の首で王国のことは見逃してやろう。' },
-      { chara: king, text: 'そうか。' },
-      { chara: king, text: '弟とどのような交渉をしたのかは存ぜぬが、それこそ私の望むところだ。' },
-      { chara: king, text: 'さあ、気の済むまで私を焼くがよい。' }
+      { chara: sonberk, text: t('dragonKiller.king1.0') },
+      { chara: sonberk, text: t('dragonKiller.king1.1') },
+      { chara: sonberk, text: t('dragonKiller.king1.2') },
+      { chara: king, text: t('dragonKiller.king1.3') },
+      { chara: king, text: t('dragonKiller.king1.4') },
+      { chara: king, text: t('dragonKiller.king1.5') },
+      { chara: sonberk, text: t('dragonKiller.king1.6') },
+      { chara: sonberk, text: t('dragonKiller.king1.7') },
+      { chara: sonberk, text: t('dragonKiller.king1.8') },
+      { chara: sonberk, text: t('dragonKiller.king1.9') },
+      { chara: sonberk, text: t('dragonKiller.king1.10') },
+      { chara: king, text: t('dragonKiller.king1.11') },
+      { chara: king, text: t('dragonKiller.king1.12') },
+      { chara: king, text: t('dragonKiller.king1.13') }
     ], { angle: false })
     await scene.camera.revert(600)
     state.area1 = true
@@ -126,9 +120,9 @@ export const dragon = (scene, sonberk, king, area1, area2, area3) => {
     })
     await new Promise(resolve => scene.camera.shake(1000, 0.03, undefined, resolve))
     await scene.talk([
-      { chara: king, text: 'ぐわっ！' },
-      { chara: 'ann', text: '！' },
-      { chara: 'ann', text: '急がないと！' }
+      { chara: king, text: t('dragonKiller.king2.0') },
+      { chara: 'ann', text: t('dragonKiller.king2.1') },
+      { chara: 'ann', text: t('dragonKiller.king2.2') }
     ], { angle: false })
     king.y += (3).toPixel
     king.initImage('king2')
@@ -142,31 +136,31 @@ export const dragon = (scene, sonberk, king, area1, area2, area3) => {
     await scene.player.setTargetPosition((17).toPixelCenter, (15).toPixel)
     scene.player.setR('left')
     await scene.talk([
-      { chara: king, text: '…。' },
-      { chara: 'ann', text: '大丈夫、気を失ってるだけ…！' }
+      { chara: king, text: t('dragonKiller.king2.3') },
+      { chara: 'ann', text: t('dragonKiller.king2.4') }
     ], { angle: false })
     await scene.camera.look((16).toPixelCenter, (9).toPixelCenter, 400)
     scene.jaquelyn.setTargetPosition((16).toPixelCenter, (13).toPixelCenter)
     scene.francisca.setTargetPosition((18).toPixelCenter, (13).toPixelCenter)
     await scene.player.setTargetPosition((17).toPixelCenter, (12).toPixelCenter)
     await scene.talk([
-      { chara: 'ann', text: 'ソンベルク！覚悟しなさい！' },
-      { chara, text: '誰だ？' },
-      { chara, text: '騎士共の生き残りじゃないな。' },
-      { chara: 'ann', text: '私たちはただの市民。' },
-      { chara, text: 'ただの市民がなんの用だ。' },
-      { chara, text: '王を助けに来たとでも言うのか？' },
-      { chara: 'ann', text: 'その通りよ！' },
-      { chara, text: 'ナメられたものだ。小娘ごときに何ができる？' },
-      { chara: 'ann', text: 'あなたを倒す。' },
-      { chara: 'ann', text: 'この剣でね。' },
-      { chara, text: 'その剣は…、' },
-      { chara, text: '知っているぞ。' },
-      { chara, text: '何故お前たちが持っている？' },
-      { chara, text: 'まあいい。' },
-      { chara, text: '小娘ごときが剣を手にしたから何だという。' },
-      { chara, text: '立ち去る気がないのなら相手になってやろう。' },
-      { chara, text: '来い！' }
+      { chara: 'ann', text: t('dragonKiller.sonberk.0') },
+      { chara, text: t('dragonKiller.sonberk.1') },
+      { chara, text: t('dragonKiller.sonberk.2') },
+      { chara: 'ann', text: t('dragonKiller.sonberk.3') },
+      { chara, text: t('dragonKiller.sonberk.4') },
+      { chara, text: t('dragonKiller.sonberk.5') },
+      { chara: 'ann', text: t('dragonKiller.sonberk.6') },
+      { chara, text: t('dragonKiller.sonberk.7') },
+      { chara: 'ann', text: t('dragonKiller.sonberk.8') },
+      { chara: 'ann', text: t('dragonKiller.sonberk.9') },
+      { chara, text: t('dragonKiller.sonberk.10') },
+      { chara, text: t('dragonKiller.sonberk.11') },
+      { chara, text: t('dragonKiller.sonberk.12') },
+      { chara, text: t('dragonKiller.sonberk.13') },
+      { chara, text: t('dragonKiller.sonberk.14') },
+      { chara, text: t('dragonKiller.sonberk.15') },
+      { chara, text: t('dragonKiller.sonberk.16') }
     ])
     await scene.player.setTargetPosition((17).toPixel, (11).toPixel)
     const result = await scene.ui.battle([generateBattler('dragon', 48, { hp: 2500 })], { boss: true, bgm: 'battle3' })
@@ -189,17 +183,17 @@ export const dragon = (scene, sonberk, king, area1, area2, area3) => {
     await scene.ui.sleep(300)
     await scene.camera.look(0, (3).toPixelCenter, 400, true)
     await scene.talk([
-      { chara: 'ann', text: 'やった！倒した！' },
-      { chara: 'jaquelyn', text: 'やったわね、アン。' },
-      { chara: 'francisca', text: 'なんとかね。' }
+      { chara: 'ann', text: t('dragonKiller.solve.0') },
+      { chara: 'jaquelyn', text: t('dragonKiller.solve.1') },
+      { chara: 'francisca', text: t('dragonKiller.solve.2') }
     ])
     scene.player.setR('down')
     scene.francisca.setR('left')
     await scene.talk([
-      { chara: 'ann', text: 'よし、早く王や騎士団の皆を助けないと！' },
-      { chara: 'jaquelyn', text: 'そうね。' },
-      { chara: 'francisca', text: '後片付けが終わったら、私たちはさっさと姿を消そう。' },
-      { chara: 'ann', text: 'オーケー！' }
+      { chara: 'ann', text: t('dragonKiller.solve.3') },
+      { chara: 'jaquelyn', text: t('dragonKiller.solve.4') },
+      { chara: 'francisca', text: t('dragonKiller.solve.5') },
+      { chara: 'ann', text: t('dragonKiller.solve.6') }
     ])
     scene.ui.missionUpdate('m4_5', true)
     state.completed = true
