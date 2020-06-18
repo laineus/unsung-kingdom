@@ -6,33 +6,33 @@ export const allsRight = (scene, zi) => {
   zi.setTapEvent(async chara => {
     if (scene.storage.state.event.m4_3.completed) {
       await scene.talk([
-        { chara, text: 'すべて世はこともなし。' },
-        { chara, text: 'この通り私はここで、なんのこともなく、ただ平穏に過ごしている。' }
+        { chara, text: t('allsRight.solved2.0') },
+        { chara, text: t('allsRight.solved2.1') }
       ])
     } else if (state.completed) {
       await scene.talk([
-        { chara, text: '聖剣の近くで、言葉の煙の瓶の栓を抜け。' },
-        { chara, text: '私の言葉がニッケに届くはずだ。' }
+        { chara, text: t('allsRight.solved1.0') },
+        { chara, text: t('allsRight.solved1.1') }
       ])
     } else if (state.count >= KELUNNE_COUNT) {
       await scene.talk([
-        { chara: 'ann', text: '集めてきたよ！' },
-        { chara, text: 'よし、確かに。' },
-        { chara, text: 'ちょっと待っていてくれ。' }
+        { chara: 'ann', text: t('allsRight.solve.0') },
+        { chara, text: t('allsRight.solve.1') },
+        { chara, text: t('allsRight.solve.2') }
       ])
       await scene.ui.transition('slow')
       await scene.ui.sleep(1500)
       await scene.talk([
-        { chara, text: 'できた。' },
-        { chara: 'ann', text: 'これは…？瓶？' },
-        { chara, text: '瓶に言葉の煙を詰めた。' },
-        { chara: 'ann', text: 'え、よく分かんない。' },
-        { chara: 'ann', text: '言葉の煙って？' },
-        { chara, text: '竜族の言葉は煙に込めることができる。' },
-        { chara: 'ann', text: 'すごい、ほんとに…？' },
-        { chara, text: '聖剣の近くで、この瓶の栓を抜け。' },
-        { chara, text: '私の言葉がニッケに届くはずだ。' },
-        { chara: 'ann', text: '分かった、ありがとう！' }
+        { chara, text: t('allsRight.solve.3') },
+        { chara: 'ann', text: t('allsRight.solve.4') },
+        { chara, text: t('allsRight.solve.5') },
+        { chara: 'ann', text: t('allsRight.solve.6') },
+        { chara: 'ann', text: t('allsRight.solve.7') },
+        { chara, text: t('allsRight.solve.8') },
+        { chara: 'ann', text: t('allsRight.solve.9') },
+        { chara, text: t('allsRight.solve.10') },
+        { chara, text: t('allsRight.solve.11') },
+        { chara: 'ann', text: t('allsRight.solve.12') }
       ])
       state.completed = true
       scene.storage.state.event.m4_3.started = true
@@ -41,77 +41,77 @@ export const allsRight = (scene, zi) => {
       })
     } else if (state.started) {
       await scene.talk([
-        { chara, text: `ケルーネの羽根を${KELUNNE_COUNT}枚、集めてきてくれ。` },
-        { chara, text: 'それを使って伝言を作る。' }
+        { chara, text: t('allsRight.start.62', { KELUNNE_COUNT }) },
+        { chara, text: t('allsRight.start.63') }
       ])
     } else {
       await scene.talk([
-        { chara, text: 'ん？' },
-        { chara, text: 'ここへの扉は閉まっていたはずだが…、' },
-        { chara: 'ann', text: 'え！ドラゴン！？' },
-        { chara, text: '竜に会うのは初めてか？' },
-        { chara: 'ann', text: 'う、うん。' },
-        { chara: 'ann', text: 'びっくりした。' },
-        { chara, text: '私は竜族のズィ。' },
-        { chara, text: '驚かせてしまったのなら申し訳ない。' },
-        { chara: 'ann', text: 'この国に竜族が居るなんて。' },
-        { chara, text: 'この通り、居る。' },
-        { chara, text: '遠い昔のこと、この地では竜族と人間が共存していた。' },
-        { chara, text: '二つの種族の間で戦争が起き、破れた竜族はこの地を去った。' },
-        { chara, text: 'よくある話だ。' },
-        { chara, text: 'だが、わずかだが私のようにこの地に残った者もいる。' },
-        { chara: 'ann', text: 'なるほど。' },
-        { chara: 'ann', text: 'あなたはどうしてここに残ったの？' },
-        { chara, text: 'この地の神を信仰しているからだ。' },
-        { chara, text: '神は竜も人も区別せず、' },
-        { chara, text: '私のことも平等に見守っておられる。' },
-        { chara, text: 'この通り私はここで、なんのこともなく、ただ平穏に過ごしている。' },
-        { chara: 'ann', text: 'そうなんだ。' },
-        { chara: 'ann', text: '他に残った竜族も、人の居ないところで暮らしているの？' },
-        { chara, text: '多くはそうだ。' },
-        { chara, text: 'この地に残った竜族の多くは人里離れて静かに暮らしているが、' },
-        { chara, text: 'そうでないものもいる。' },
-        { chara, text: '例えばお前たちがこの地下に封じたソンベルクという竜だ。' },
-        { chara, text: 'お前たちもやつを倒しに来たんだろう？' },
-        { chara: 'ann', text: 'ええと、まあ、はい。' },
-        { chara, text: '私に気を遣う必要はない。' },
-        { chara, text: 'やつは我々から見ても単なる荒くれ者。' },
-        { chara, text: 'お前たちがやつを殺そうとなんとも思わん。' },
-        { chara, text: 'しかし、ソンベルクは大型の竜。' },
-        { chara, text: 'お前たちが勝てる望みは薄いだろう。' },
-        { chara: 'ann', text: '昔の人間はどうやってドラゴンに勝ったんですか？' },
-        { chara, text: '簡単に言えば「技術」だ。' },
-        { chara, text: '人間は特別な武器や道具を作って竜との力の差縮めた。' },
-        { chara, text: '例を挙げるなら、この神殿に封じられている聖剣カリブルヌスがその一つだ。' },
-        { chara, text: 'あの剣は紛れもなく我々にとって脅威だ。' },
-        { chara: 'ann', text: '聖剣カリブルヌス…、' },
-        { chara: 'ann', text: 'その剣があれがあればソンベルクを倒せる？' },
-        { chara, text: '望みはあるだろう。' },
-        { chara: 'ann', text: '王たちは知らないのかな、その剣のこと。' },
-        { chara, text: '知っているはずだ。' },
-        { chara, text: 'だがあの剣は竜族のニッケが封じている。' },
-        { chara, text: '持ち出すことは叶わない。' },
-        { chara: 'ann', text: 'そうなんだ。' },
-        { chara: 'ann', text: 'それって何とかならない？' },
-        { chara: 'ann', text: 'そのニッケにお願いして、貸してもらえないかな。' },
-        { chara, text: 'すまない。' },
-        { chara, text: 'お前たちがソンベルクを殺そうと気にしないとは言ったが、' },
-        { chara, text: '積極的に手を貸すつもりでもない。' },
-        { chara: 'ann', text: 'そっか…。' },
-        { chara: 'ann', text: '困ったな…。' },
-        { chara, text: '…。' },
-        { chara, text: 'ニッケと話す機会くらいはつくろう。' },
-        { chara: 'ann', text: '話す機会？' },
-        { chara, text: 'ニッケは普段姿を消している。' },
-        { chara, text: '人間が呼びかけても応じないだろう。' },
-        { chara, text: '私から伝言を預けるとしよう。' },
-        { chara: 'ann', text: '助かる！' },
-        { chara, text: '少し準備が必要だ。' },
-        { chara: 'ann', text: '準備？' },
-        { chara, text: `ケルーネの羽根を${KELUNNE_COUNT}枚、集めてきてくれ。` },
-        { chara, text: 'それを使って伝言を作る。' },
-        { chara: 'ann', text: '伝言を作る…？' },
-        { chara: 'ann', text: 'よく分からないけど分かった！集めてくるね。' }
+        { chara, text: t('allsRight.start.0') },
+        { chara, text: t('allsRight.start.1') },
+        { chara: 'ann', text: t('allsRight.start.2') },
+        { chara, text: t('allsRight.start.3') },
+        { chara: 'ann', text: t('allsRight.start.4') },
+        { chara: 'ann', text: t('allsRight.start.5') },
+        { chara, text: t('allsRight.start.6') },
+        { chara, text: t('allsRight.start.7') },
+        { chara: 'ann', text: t('allsRight.start.8') },
+        { chara, text: t('allsRight.start.9') },
+        { chara, text: t('allsRight.start.10') },
+        { chara, text: t('allsRight.start.11') },
+        { chara, text: t('allsRight.start.12') },
+        { chara, text: t('allsRight.start.13') },
+        { chara: 'ann', text: t('allsRight.start.14') },
+        { chara: 'ann', text: t('allsRight.start.15') },
+        { chara, text: t('allsRight.start.16') },
+        { chara, text: t('allsRight.start.17') },
+        { chara, text: t('allsRight.start.18') },
+        { chara, text: t('allsRight.start.19') },
+        { chara: 'ann', text: t('allsRight.start.20') },
+        { chara: 'ann', text: t('allsRight.start.21') },
+        { chara, text: t('allsRight.start.22') },
+        { chara, text: t('allsRight.start.23') },
+        { chara, text: t('allsRight.start.24') },
+        { chara, text: t('allsRight.start.25') },
+        { chara, text: t('allsRight.start.26') },
+        { chara: 'ann', text: t('allsRight.start.27') },
+        { chara, text: t('allsRight.start.28') },
+        { chara, text: t('allsRight.start.29') },
+        { chara, text: t('allsRight.start.30') },
+        { chara, text: t('allsRight.start.31') },
+        { chara, text: t('allsRight.start.32') },
+        { chara: 'ann', text: t('allsRight.start.33') },
+        { chara, text: t('allsRight.start.34') },
+        { chara, text: t('allsRight.start.35') },
+        { chara, text: t('allsRight.start.36') },
+        { chara, text: t('allsRight.start.37') },
+        { chara: 'ann', text: t('allsRight.start.38') },
+        { chara: 'ann', text: t('allsRight.start.39') },
+        { chara, text: t('allsRight.start.40') },
+        { chara: 'ann', text: t('allsRight.start.41') },
+        { chara, text: t('allsRight.start.42') },
+        { chara, text: t('allsRight.start.43') },
+        { chara, text: t('allsRight.start.44') },
+        { chara: 'ann', text: t('allsRight.start.45') },
+        { chara: 'ann', text: t('allsRight.start.46') },
+        { chara: 'ann', text: t('allsRight.start.47') },
+        { chara, text: t('allsRight.start.48') },
+        { chara, text: t('allsRight.start.49') },
+        { chara, text: t('allsRight.start.50') },
+        { chara: 'ann', text: t('allsRight.start.51') },
+        { chara: 'ann', text: t('allsRight.start.52') },
+        { chara, text: t('allsRight.start.53') },
+        { chara, text: t('allsRight.start.54') },
+        { chara: 'ann', text: t('allsRight.start.55') },
+        { chara, text: t('allsRight.start.56') },
+        { chara, text: t('allsRight.start.57') },
+        { chara, text: t('allsRight.start.58') },
+        { chara: 'ann', text: t('allsRight.start.59') },
+        { chara, text: t('allsRight.start.60') },
+        { chara: 'ann', text: t('allsRight.start.61') },
+        { chara, text: t('allsRight.start.62', { KELUNNE_COUNT }) },
+        { chara, text: t('allsRight.start.63') },
+        { chara: 'ann', text: t('allsRight.start.64') },
+        { chara: 'ann', text: t('allsRight.start.65') }
       ])
       state.started = true
       scene.ui.missionUpdate('m4_2')
