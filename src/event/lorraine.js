@@ -7,81 +7,81 @@ export const architect = (scene, chara) => {
   chara.setTapEvent(async () => {
     if (state.completed) {
       await scene.talk([
-        { chara, text: '仕掛けは解けたようだね。' },
-        { chara, text: '地下へも行きたいのなら、ライラという女性を探すといい。' }
+        { chara, text: t('lorraine.solved.0') },
+        { chara, text: t('lorraine.solved.1') }
       ])
     } else if (state.started) {
       await scene.talk([
-        { chara, text: '仕掛けの動かし方は、せっかくだから考えてみてくれ。' }
+        { chara, text: t('lorraine.started.0') }
       ])
     } else {
       await scene.talk([
-        { chara: 'ann', text: '何をしているんですか？' },
-        { chara, text: '彫刻の仕掛けを修復しているんだ。' },
-        { chara: 'ann', text: '仕掛け？' },
-        { chara, text: 'そう。この神殿には色々な仕掛けが隠されている。' },
-        { chara, text: '扉を開けたり、閉ざしたり。' },
-        { chara: 'ann', text: 'もしかしてこの彫刻を彫った人？' },
-        { chara, text: 'いいや、' },
-        { chara, text: '僕は仕掛けの部分を直しただけ。' },
-        { chara, text: 'なんせこの神殿は、作られたのも、廃墟になったのも遥かに昔のことだ。' },
-        { chara, text: '仕掛けを見つけたのも偶然。' },
-        { chara: 'ann', text: '偶然？' },
-        { chara, text: '初めてここへ来て、このロレイン像に心を奪われて以来、' },
-        { chara, text: '僕はこの像のことが忘れられなくなった。' },
-        { chara, text: 'やがて彫刻家を目指すことに決めたんだ。' },
-        { chara, text: 'それから、食事をとるのも忘れてこの像を眺めた。' },
-        { chara: 'ann', text: 'それで仕掛けを見つけたんだね。' },
-        { chara, text: 'そう。' },
-        { chara, text: '台座に仕掛けが隠されているのを見つけた。' },
-        { chara, text: '壊れていたんだけど、それを修理して、また動くようにした。' },
-        { chara: 'ann', text: 'すごい。' },
-        { chara, text: 'ところで君たちは、何か困っているのかい？' }
+        { chara: 'ann', text: t('lorraine.start1.0') },
+        { chara, text: t('lorraine.start1.1') },
+        { chara: 'ann', text: t('lorraine.start1.2') },
+        { chara, text: t('lorraine.start1.3') },
+        { chara, text: t('lorraine.start1.4') },
+        { chara: 'ann', text: t('lorraine.start1.5') },
+        { chara, text: t('lorraine.start1.6') },
+        { chara, text: t('lorraine.start1.7') },
+        { chara, text: t('lorraine.start1.8') },
+        { chara, text: t('lorraine.start1.9') },
+        { chara: 'ann', text: t('lorraine.start1.10') },
+        { chara, text: t('lorraine.start1.11') },
+        { chara, text: t('lorraine.start1.12') },
+        { chara, text: t('lorraine.start1.13') },
+        { chara, text: t('lorraine.start1.14') },
+        { chara: 'ann', text: t('lorraine.start1.15') },
+        { chara, text: t('lorraine.start1.16') },
+        { chara, text: t('lorraine.start1.17') },
+        { chara, text: t('lorraine.start1.18') },
+        { chara: 'ann', text: t('lorraine.start1.19') },
+        { chara, text: t('lorraine.start1.20') }
       ])
       const next = async () => {
         chara.setTalking(true)
-        const i = await scene.select(['像について', 'ドラゴンについて'])
+        const i = await scene.select([t('lorraine.option.0'), t('lorraine.option.1')])
         if (i === 0) {
           await scene.camera.look((25).toPixelCenter, (22).toPixelCenter, 600)
           await scene.ui.sleep(1000)
           await scene.talk([
-            { chara: 'ann', text: '像の羽も、壊れているみたいだけど、それは直さないの？' },
-            { chara, text: '直さない。' },
-            { chara, text: 'さっき言った通り、この像には心を奪われたんだ。壊れていてもね。' },
-            { chara, text: '何より僕はこの像を彫った人を尊敬している。' },
-            { chara, text: '僕が手を加えるべきではないんだ。' },
-            { chara, text: 'だから、仕掛けだけ動くようにしている。' },
-            { chara, text: '何年もかかってしまったけどね。' },
-            { chara: 'ann', text: 'そっか。ずっとここで作業しているんだね。' },
-            { chara, text: 'ああ。ほとんどの時間をここで過ごしてきた。' }
+            { chara: 'ann', text: t('lorraine.start2.0') },
+            { chara, text: t('lorraine.start2.1') },
+            { chara, text: t('lorraine.start2.2') },
+            { chara, text: t('lorraine.start2.3') },
+            { chara, text: t('lorraine.start2.4') },
+            { chara, text: t('lorraine.start2.5') },
+            { chara, text: t('lorraine.start2.6') },
+            { chara: 'ann', text: t('lorraine.start2.7') },
+            { chara, text: t('lorraine.start2.8') }
           ])
           await scene.camera.revert(600)
           await next()
         } else {
           await scene.talk([
-            { chara: 'ann', text: 'ドラゴンが目覚めたことは知っていた？' },
-            { chara, text: 'もちろん。' },
-            { chara, text: 'ドラゴンはこの神殿の地下で眠っていたが、半月ほど前に目覚めた。' },
-            { chara, text: 'それから今日までの間は、王弟がドラゴンのもとを頻繁に訪れていたね。' },
-            { chara: 'ann', text: 'どうして？' },
-            { chara, text: 'ドラゴンの怒りを買っている陛下に代わって、王弟がドラゴンと交渉していたみたいだ。' },
-            { chara, text: 'うまくいかなくて、今日に至ったんだろう。' },
-            { chara: 'ann', text: 'そうだったんだ。' },
-            { chara: 'ann', text: '私たちもドラゴンのところへ行きたいんだけど、' },
-            { chara: 'ann', text: '仕掛けを開けてもらえないかな？' },
-            { chara, text: '残念だけど、地下への仕掛けだけは僕には動かせない。' },
-            { chara, text: 'アレだけちょっと特殊でね、' },
-            { chara, text: '騎士団と一緒に来たライラという女性だけが開閉できる。' },
-            { chara: 'ann', text: 'そっか…、' },
-            { chara, text: '代わりにはならないかもしれないけど、' },
-            { chara, text: 'これを。' }
+            { chara: 'ann', text: t('lorraine.start3.0') },
+            { chara, text: t('lorraine.start3.1') },
+            { chara, text: t('lorraine.start3.2') },
+            { chara, text: t('lorraine.start3.3') },
+            { chara: 'ann', text: t('lorraine.start3.4') },
+            { chara, text: t('lorraine.start3.5') },
+            { chara, text: t('lorraine.start3.6') },
+            { chara: 'ann', text: t('lorraine.start3.7') },
+            { chara: 'ann', text: t('lorraine.start3.8') },
+            { chara: 'ann', text: t('lorraine.start3.9') },
+            { chara, text: t('lorraine.start3.10') },
+            { chara, text: t('lorraine.start3.11') },
+            { chara, text: t('lorraine.start3.12') },
+            { chara: 'ann', text: t('lorraine.start3.13') },
+            { chara, text: t('lorraine.start3.14') },
+            { chara, text: t('lorraine.start3.15') }
           ])
-          scene.ui.announce('『簡素な鍵』を手に入れた')
+          scene.ui.announce(t('lorraine.item'))
           await scene.talk([
-            { chara: 'ann', text: 'これは？' },
-            { chara, text: 'これで仕掛けを動かせば、屋上への扉なら開けられる。' },
-            { chara, text: '仕掛けの動かし方は、せっかくだから考えてみてくれ。' },
-            { chara: 'ann', text: 'ありがとう！' }
+            { chara: 'ann', text: t('lorraine.start3.16') },
+            { chara, text: t('lorraine.start3.17') },
+            { chara, text: t('lorraine.start3.18') },
+            { chara: 'ann', text: t('lorraine.start3.19') }
           ])
           scene.ui.missionUpdate('m4_1')
           state.started = true
@@ -130,11 +130,11 @@ export const gimmick = (scene, buttons, doorContainer, doors, lights, area) => {
   if (!state.started) return
   area.setEvent(async () => {
     area.destroy()
-    await scene.jaquelyn.tweet('これが仕掛けね')
+    await scene.jaquelyn.tweet(t('lorraine.tweet.0'))
     if (lorraineGimmick.unlocked) return
-    await scene.francisca.tweet('アンに解けるの？')
+    await scene.francisca.tweet(t('lorraine.tweet.1'))
     if (lorraineGimmick.unlocked) return
-    await scene.jaquelyn.tweet('頑張って！')
+    await scene.jaquelyn.tweet(t('lorraine.tweet.2'))
   }, false)
   buttons.forEach((button, i) => {
     button.setTapEvent(async () => {
@@ -155,7 +155,7 @@ export const gimmick = (scene, buttons, doorContainer, doors, lights, area) => {
         })
         removeCollidesForDoor()
         await scene.ui.sleep(2000)
-        scene.player.tweet('やった！')
+        scene.player.tweet(t('lorraine.tweet.3'))
         scene.ui.missionUpdate('m4_1', true)
         state.completed = true
         await scene.camera.revert(500)
