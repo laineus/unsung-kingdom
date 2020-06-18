@@ -407,3 +407,79 @@ export const renfield = {
   ],
   item: '『錆びた鍵』を手に入れた'
 }
+export const evangelina = {
+  unavailabled: [
+    'ここが王家の墓みたいね。', // jaquelyn
+    'ね、ねえ、なんだか嫌な気配がしない…？', // francisca
+    'え、怖いこと言わないでよ。' // ann
+  ],
+  boss1: [
+    '…あ、あの。', // ann
+    '王妃殿下…？', // ann
+    '…さない', // evangelina
+    '？', // ann
+    '…許さない…', // evangelina
+    'エドガー…', // evangelina
+    '許さない…', // evangelina
+    'えっと、私たちは違います。', // ann
+    '…殺す' // evangelina
+  ],
+  boss2: [
+    '…倒した？', // ann
+    'みたいね。', // jaquelyn
+    'じゃあこれで王は助かるのかな？', // ann
+    '王国史に書かれていた亡霊ってのが、さっきの偽物のほうのことだったらね。', // francisca
+    'え！？', // ann
+    '考えていなかったけど、', // ann
+    '本物の王妃は、違うよね…？', // ann
+    '分からないけど、', // jaquelyn
+    '帰って王国史を確認すれば分かんるじゃないかしら？', // jaquelyn
+    'そうだね、帰ろっか。' // ann
+  ],
+  solve1: [
+    'お待ちなさい。', // evangelina
+    'え！？', // ann
+    'あなたたち、', // evangelina
+    'ありがとう。', // evangelina
+    'ええと…。', // ann
+    '本物の…、エヴァンジェリナ妃？', // ann
+    'ええ。', // evangelina
+    'ありがとう、', // evangelina
+    '私を偽る悪しき存在から、私の場所を守ってくれて。', // evangelina
+    'い、いえ。どういたしまして。', // ann
+    'あの、', // ann
+    '王妃は、エドガー王を恨んでいますか？', // ann
+    'いいえ。', // evangelina
+    'あなた達が気にしていることなら分かっています。', // evangelina
+    '答えましょう。', // evangelina
+    '恨むことなど一つもありませんでした。', // evangelina
+    '私が病弱で、', // evangelina
+    '民の前に中々姿を見せらないばかりに、', // evangelina
+    'よくない噂をされるようになってしまいました。', // evangelina
+    'エドガーには感謝しかありません。', // evangelina
+    'よかった。', // ann
+    '私の病気は始めからです。', // evangelina
+    'エドガーと知り合ったときから、', // evangelina
+    '既に死ぬことは決まっていたのです。', // evangelina
+    'それでもエドガーは、', // evangelina
+    '私を選んでくれたのです。', // evangelina
+    'そうだったんですね。', // ann
+    '失礼なことを聞いて、ごめんなさい。', // ann
+    'いいんです。', // evangelina
+    '旅の人、', // evangelina
+    '私は今も、エドガーの愛するこの国の平和を願い続けています。', // evangelina
+    'ですが、とても心配しています。', // evangelina
+    'かつてエドガーが神殿に封じたドラゴンが、', // evangelina
+    '目覚め、', // evangelina
+    '復讐を果たそうとしています。', // evangelina
+    '私には、祈ることしかできません。', // evangelina
+    'もしもあなた達がこの国の平和を望むのなら、', // evangelina
+    'どうか彼に、力を貸してあげてください。' // evangelina
+  ],
+  solve2: [
+    'あ！待って！', // ann
+    '…消えちゃった。', // ann
+    '詳しく話を聞きたかったんだけど…、', // ann
+    '仕方ない、一旦帰ろう。' // francisca
+  ]
+}
