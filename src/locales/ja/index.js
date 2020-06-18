@@ -4,7 +4,7 @@ import { jack } from './chapter0'
 import { dog, mercenary, drystan, bear } from './chapter1'
 import { cassandra, princess, moonshine, aragnie } from './chapter2'
 import { ferdinand, marianne, dario, renfield, evangelina } from './chapter3'
-import { lorraine, allsRight, nikke } from './chapter4'
+import { lorraine, allsRight, nikke, lute } from './chapter4'
 export default {
   chapter: [
     { name: '序章', title: '王殺しのジャック', sub: 'Jack the Kingkiller' },
@@ -75,7 +75,7 @@ export default {
   dog, mercenary, drystan, bear,
   cassandra, princess, moonshine, aragnie,
   ferdinand, marianne, dario, renfield, evangelina,
-  lorraine, allsRight, nikke,
+  lorraine, allsRight, nikke, lute,
   afterBattle: {
     m1_3: 'マンドレイクの根が集まったみたいね',
     m2_2: 'カーバンクルの魔石が集まったね',
