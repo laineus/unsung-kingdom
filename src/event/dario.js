@@ -8,112 +8,112 @@ export const dario = (scene, dario) => {
   dario.setTapEvent(async chara => {
     if (state.completed) {
       await scene.talk([
-        { chara, text: '…どうか、負けないでくれ。' }
+        { chara, text: t('dario.solved.0') }
       ])
     } else if (state.solved) {
       state.completed = true
       scene.ui.missionUpdate('m3_3', true)
       await scene.talk([
-        { chara: 'ann', text: '短剣ってこれのことだよね？' },
-        { chara: 'ann', text: '取り返してきたよ。' },
-        { chara, text: '本当か？' },
-        { chara, text: '一体どうやって…？' },
-        { chara: 'ann', text: '私たちこう見えて強いの。' },
-        { chara: 'ann', text: 'だからさ、王妃の亡霊、私たちに任せてみない？' },
-        { chara: 'ann', text: 'きっと何とかするよ。' },
-        { chara, text: '…。' },
-        { chara, text: 'アレを止めようと言うのか…。' },
-        { chara: 'ann', text: '何かいい方法はない？' },
-        { chara, text: 'その短剣だ。' },
-        { chara, text: 'その短剣を持ってアレに近づけば、' },
-        { chara, text: '見ることも、触れることもできるだろう。' },
-        { chara, text: '倒すことも、不可能ではないかもしれない。' },
-        { chara: 'ann', text: 'ほんと！？' },
-        { chara, text: 'ああ。' },
-        { chara, text: 'だが、あの亡霊は本当に危険だ。' },
-        { chara, text: 'それでも行くのか…？' },
-        { chara: 'ann', text: '行くよ。' },
-        { chara, text: 'そうか…。' },
-        { chara, text: '短剣なら構わない。' },
-        { chara, text: '持っていってくれ。' },
-        { chara: 'ann', text: 'ありがとう。' },
-        { chara, text: '本当にすまない…。' },
-        { chara, text: '…どうか、負けないでくれ。' }
+        { chara: 'ann', text: t('dario.solve.0') },
+        { chara: 'ann', text: t('dario.solve.1') },
+        { chara, text: t('dario.solve.2') },
+        { chara, text: t('dario.solve.3') },
+        { chara: 'ann', text: t('dario.solve.4') },
+        { chara: 'ann', text: t('dario.solve.5') },
+        { chara: 'ann', text: t('dario.solve.6') },
+        { chara, text: t('dario.solve.7') },
+        { chara, text: t('dario.solve.8') },
+        { chara: 'ann', text: t('dario.solve.9') },
+        { chara, text: t('dario.solve.10') },
+        { chara, text: t('dario.solve.11') },
+        { chara, text: t('dario.solve.12') },
+        { chara, text: t('dario.solve.13') },
+        { chara: 'ann', text: t('dario.solve.14') },
+        { chara, text: t('dario.solve.15') },
+        { chara, text: t('dario.solve.16') },
+        { chara, text: t('dario.solve.17') },
+        { chara: 'ann', text: t('dario.solve.18') },
+        { chara, text: t('dario.solve.19') },
+        { chara, text: t('dario.solve.20') },
+        { chara, text: t('dario.solve.21') },
+        { chara: 'ann', text: t('dario.solve.22') },
+        { chara, text: t('dario.solve.23') },
+        { chara, text: t('dario.solve.24') }
       ])
       scene.ui.missionUpdate('m3_5')
       scene.storage.state.event.m3_5.started = true
     } else if (state.started) {
       await scene.talk([
-        { chara, text: 'あいつは、私が王妃の亡霊を作り出すときに使った短剣を持っている。' },
-        { chara, text: 'もしも取り返すことができたら、それを私のところに持ってきてくれ。' },
-        { chara: 'ann', text: '短剣ね。覚えておくよ。' }
+        { chara, text: t('dario.started.0') },
+        { chara, text: t('dario.started.1') },
+        { chara: 'ann', text: t('dario.started.2') }
       ])
     } else if (scene.storage.state.event.m3_1.started) { // フェルディナンドに話しかけて以降開始
       await scene.talk([
-        { chara, text: '君たち、用が済んだらできるだけ早くこの墓地を出ていくことだ。' },
-        { chara: 'ann', text: 'どうして？' },
-        { chara: 'ann', text: 'おばけが出るからですか？' },
-        { chara, text: 'そんなやさしいものじゃないが、そんなところだ。' },
-        { chara, text: 'ここ数年で、この墓地にはたくさんの悪霊が住み着くようになった。' },
-        { chara, text: 'それ以来、この場所はあまりに哀しい。' },
-        { chara, text: 'たくさんの哀しみに満ちている。' },
-        { chara, text: '私は感じることができる。' },
-        { chara, text: '君たちが陽の光や風を肌で感じるように、' },
-        { chara, text: '私は死者たちの哀しみを体で浴び続けている。' },
-        { chara, text: 'これは君たちにとっても無害ではない。' },
-        { chara, text: '感じることができなくとも、ここにいる間、君たちも哀しみを浴びている。' },
-        { chara, text: 'だから、長居せずに出ていくことだ。' },
-        { chara, text: '特に、北側の王族や貴族の墓地の辺りには近づくな。' },
-        { chara: 'ann', text: 'でも、' },
-        { chara: 'ann', text: '私たち、王妃のお墓に行きたいと思っているの。' },
-        { chara, text: 'なんだって？' },
-        { chara, text: 'それは特におすすめしない。' },
-        { chara: 'ann', text: 'え、どうして？' },
-        { chara: 'ann', text: '王妃の亡霊でも出るの？' },
-        { chara, text: 'そうだ。' },
-        { chara, text: 'いや、そうなんだが、違う。' },
-        { chara, text: 'あの亡霊は、王妃の姿をしているが、王妃ではない。' },
-        { chara: 'ann', text: 'どういこと？' },
-        { chara, text: 'あれは…、' },
-        { chara, text: 'ここに住まう悪霊たちの魂を寄せ集めて作られたものだ。' },
-        { chara, text: '私が…、私が作った…。' },
-        { chara: 'ann', text: 'ええと、ちょっと待って、' },
-        { chara: 'ann', text: 'あなたが、この墓地にいた悪霊を使って、' },
-        { chara: 'ann', text: '王妃の姿をした亡霊を作った、ってそういうわけ？' },
-        { chara, text: 'そうだ。' },
-        { chara: 'ann', text: 'そんなことができるの？' },
-        { chara: 'ann', text: 'というか何のために？' },
-        { chara, text: '私は、死者を操ることができる。' },
-        { chara, text: 'ある男に脅されて、王妃の亡霊を作らされたんだ。' },
-        { chara, text: '理由は分からないが、あいつはあの亡霊を使って、国王陛下を殺すつもりだ。' },
-        { chara, text: 'もし陛下が死んだら、…私のせいだ。' },
-        { chara: 'ann', text: 'その亡霊はあなたの言うことは聞かないの？あなたが作ったんでしょ？' },
-        { chara, text: '無理だ。' },
-        { chara, text: 'もうどうすることもできない。' },
-        { chara, text: 'あれは私の力の範囲を超えて凶悪な存在になった。' },
-        { chara, text: '気をつけろ、' },
-        { chara, text: '今あの亡霊の恨みは国王陛下に向けられているが、近づけば君たちも危険だ。' },
-        { chara: 'ann', text: 'そんなに強力なんだ。' },
-        { chara: 'ann', text: 'あのさ、' },
-        { chara: 'ann', text: 'あなたを脅した男って、黒いローブの男？' },
-        { chara, text: '知っているのか！？' },
-        { chara: 'ann', text: 'よくは知らないけど、私たちも会ったことがある。' },
-        { chara, text: 'あいつは何者だ？何故王を殺そうとしている？' },
-        { chara: 'ann', text: '分からない。' },
-        { chara: 'ann', text: 'あいつの居場所は知っている？' },
-        { chara, text: 'ああ、' },
-        { chara, text: 'あいつならまだこの墓地に居る。' },
-        { chara: 'ann', text: 'ほんと！？' },
-        { chara, text: '会いに行くつもりか？' },
-        { chara, text: '王妃の亡霊も危険だが、あいつも危険だ。' },
-        { chara: 'ann', text: 'それは知っているけど…、' },
-        { chara: 'ann', text: '私たちはあいつを止めなくちゃいけない。' },
-        { chara, text: '…。' },
-        { chara, text: 'そうか。' },
-        { chara, text: 'あいつは、私が王妃の亡霊を作り出すときに使った短剣を持っている。' },
-        { chara, text: 'もし、' },
-        { chara, text: 'もしも取り返すことができたら、それを私のところに持ってきてくれ。' },
-        { chara: 'ann', text: '短剣ね。覚えておくよ。' }
+        { chara, text: t('dario.start.0') },
+        { chara: 'ann', text: t('dario.start.1') },
+        { chara: 'ann', text: t('dario.start.2') },
+        { chara, text: t('dario.start.3') },
+        { chara, text: t('dario.start.4') },
+        { chara, text: t('dario.start.5') },
+        { chara, text: t('dario.start.6') },
+        { chara, text: t('dario.start.7') },
+        { chara, text: t('dario.start.8') },
+        { chara, text: t('dario.start.9') },
+        { chara, text: t('dario.start.10') },
+        { chara, text: t('dario.start.11') },
+        { chara, text: t('dario.start.12') },
+        { chara, text: t('dario.start.13') },
+        { chara: 'ann', text: t('dario.start.14') },
+        { chara: 'ann', text: t('dario.start.15') },
+        { chara, text: t('dario.start.16') },
+        { chara, text: t('dario.start.17') },
+        { chara: 'ann', text: t('dario.start.18') },
+        { chara: 'ann', text: t('dario.start.19') },
+        { chara, text: t('dario.start.20') },
+        { chara, text: t('dario.start.21') },
+        { chara, text: t('dario.start.22') },
+        { chara: 'ann', text: t('dario.start.23') },
+        { chara, text: t('dario.start.24') },
+        { chara, text: t('dario.start.25') },
+        { chara, text: t('dario.start.26') },
+        { chara: 'ann', text: t('dario.start.27') },
+        { chara: 'ann', text: t('dario.start.28') },
+        { chara: 'ann', text: t('dario.start.29') },
+        { chara, text: t('dario.start.30') },
+        { chara: 'ann', text: t('dario.start.31') },
+        { chara: 'ann', text: t('dario.start.32') },
+        { chara, text: t('dario.start.33') },
+        { chara, text: t('dario.start.34') },
+        { chara, text: t('dario.start.35') },
+        { chara, text: t('dario.start.36') },
+        { chara: 'ann', text: t('dario.start.37') },
+        { chara, text: t('dario.start.38') },
+        { chara, text: t('dario.start.39') },
+        { chara, text: t('dario.start.40') },
+        { chara, text: t('dario.start.41') },
+        { chara, text: t('dario.start.42') },
+        { chara: 'ann', text: t('dario.start.43') },
+        { chara: 'ann', text: t('dario.start.44') },
+        { chara: 'ann', text: t('dario.start.45') },
+        { chara, text: t('dario.start.46') },
+        { chara: 'ann', text: t('dario.start.47') },
+        { chara, text: t('dario.start.48') },
+        { chara: 'ann', text: t('dario.start.49') },
+        { chara: 'ann', text: t('dario.start.50') },
+        { chara, text: t('dario.start.51') },
+        { chara, text: t('dario.start.52') },
+        { chara: 'ann', text: t('dario.start.53') },
+        { chara, text: t('dario.start.54') },
+        { chara, text: t('dario.start.55') },
+        { chara: 'ann', text: t('dario.start.56') },
+        { chara: 'ann', text: t('dario.start.57') },
+        { chara, text: t('dario.start.58') },
+        { chara, text: t('dario.start.59') },
+        { chara, text: t('dario.start.60') },
+        { chara, text: t('dario.start.61') },
+        { chara, text: t('dario.start.62') },
+        { chara: 'ann', text: t('dario.start.63') }
       ])
       state.started = true
       scene.ui.missionUpdate('m3_3')
@@ -139,8 +139,8 @@ export const jack = (scene, jk, area1, area2, area3) => {
   }
   area3.setEvent(async () => {
     await scene.talk([
-      { chara: 'jaquelyn', text: 'ねえアン、何か、誰かに見られている感じがしない？' },
-      { chara: 'ann', text: '分からないけど…、注意して進もう。' }
+      { chara: 'jaquelyn', text: t('dario.jack1.0') },
+      { chara: 'ann', text: t('dario.jack1.1') }
     ])
     area3.destroy()
   })
@@ -155,46 +155,46 @@ export const jack = (scene, jk, area1, area2, area3) => {
     const chara = jk
     jk.setDisplayName(t('chara.jack')).setVisible(true)
     await scene.talk([
-      { chara, text: 'ここで何をしている？' },
-      { chara: 'ann', text: '！！' }
+      { chara, text: t('dario.jack2.0') },
+      { chara: 'ann', text: t('dario.jack2.1') }
     ])
     scene.francisca.setR('right')
     scene.jaquelyn.setR('right')
     await jk.setSpeed(140).setTargetPosition(jk.x + (-10).toPixel, jk.y)
     await scene.talk([
-      { chara: 'ann', text: 'どこに隠れていたの！？' },
-      { chara, text: 'お前たち、地下通路でも私の邪魔をしてくれたようだな。' },
-      { chara: 'ann', text: 'そうよ！' },
-      { chara: 'ann', text: '今度はなに？' },
-      { chara: 'ann', text: '王妃の偽物の悪霊を作って王を殺そうだなんて。' },
-      { chara, text: 'あのネクロマンサーが喋ったのか。' },
-      { chara: 'ann', text: 'あんた、どうして王を殺そうとしているの？' },
-      { chara, text: 'しつこいようだから端的に答えてやる。' },
-      { chara, text: 'この国を守るためだ。' },
-      { chara: 'ann', text: '守るため…？' },
-      { chara: 'ann', text: '平和王エドガーを殺すことが何で国を守ることになるっていうの？' },
-      { chara, text: '説明したら、お前らは俺の邪魔を辞めるのか？' },
-      { chara: 'ann', text: '…。' },
-      { chara, text: 'そうだ、無駄だろう。' },
-      { chara, text: '俺もお前たちとお喋りするつもりはない。' },
-      { chara, text: 'これ以上時間を無駄にするわけにはいかないんだ。' },
-      { chara, text: 'いい加減決着をつけよう。' },
-      { chara: 'ann', text: '望むところよ。' },
-      { chara, text: '今度は生かしては帰さないぞ。' },
-      { chara: 'ann', text: 'あんたこそ、残念だけど前のようにはいかないよ。覚悟しなさい。' }
+      { chara: 'ann', text: t('dario.jack2.2') },
+      { chara, text: t('dario.jack2.3') },
+      { chara: 'ann', text: t('dario.jack2.4') },
+      { chara: 'ann', text: t('dario.jack2.5') },
+      { chara: 'ann', text: t('dario.jack2.6') },
+      { chara, text: t('dario.jack2.7') },
+      { chara: 'ann', text: t('dario.jack2.8') },
+      { chara, text: t('dario.jack2.9') },
+      { chara, text: t('dario.jack2.10') },
+      { chara: 'ann', text: t('dario.jack2.11') },
+      { chara: 'ann', text: t('dario.jack2.12') },
+      { chara, text: t('dario.jack2.13') },
+      { chara: 'ann', text: t('dario.jack2.14') },
+      { chara, text: t('dario.jack2.15') },
+      { chara, text: t('dario.jack2.16') },
+      { chara, text: t('dario.jack2.17') },
+      { chara, text: t('dario.jack2.18') },
+      { chara: 'ann', text: t('dario.jack2.19') },
+      { chara, text: t('dario.jack2.20') },
+      { chara: 'ann', text: t('dario.jack2.21') }
     ])
     await scene.ui.sleep(500)
     const result = await scene.ui.battle([generateBattler('jack', 27, { hp: 1300 })], { boss: true, bgm: 'battle2' })
     if (!result) return
     await scene.ui.sleep(500)
     await scene.talk([
-      { chara, text: '負けた…、だと？' },
-      { chara: 'ann', text: 'そう、あなたの負けよ。' },
-      { chara: 'ann', text: 'さて、じゃあまずあの水晶を返して貰おうかな。' },
-      { chara: 'ann', text: '王城の裏庭で私たちから奪ったやつ。無くしてないよね？' },
-      { chara, text: '…まだだ、' },
-      { chara: 'ann', text: 'なんて？' },
-      { chara, text: 'ここで終わるわけにはいかない…。' }
+      { chara, text: t('dario.jack3.0') },
+      { chara: 'ann', text: t('dario.jack3.1') },
+      { chara: 'ann', text: t('dario.jack3.2') },
+      { chara: 'ann', text: t('dario.jack3.3') },
+      { chara, text: t('dario.jack3.4') },
+      { chara: 'ann', text: t('dario.jack3.5') },
+      { chara, text: t('dario.jack3.6') }
     ])
     await scene.ui.sleep(700)
     jk.setR('up')
@@ -209,24 +209,24 @@ export const jack = (scene, jk, area1, area2, area3) => {
     scene.player.setTargetPosition(scene.player.x + 50, scene.player.y)
     await scene.ui.sleep(1000)
     await scene.talk([
-      { chara: 'ann', text: '！！' },
-      { chara: 'jaquelyn', text: '飛び降りるなんて…。' },
-      { chara: 'francisca', text: 'まずいね…。' },
-      { chara: 'ann', text: 'どうしよう…。' },
-      { chara: 'ann', text: '追いかける…？' },
-      { chara: 'jaquelyn', text: 'え、この崖の底に？' },
-      { chara: 'francisca', text: '無理でしょ。' },
-      { chara: 'ann', text: 'そうだよね。' },
-      { chara: 'ann', text: 'この崖、底が見えないけど、どうなってるんだろう…？' },
-      { chara: 'francisca', text: '死んだかもね。' },
-      { chara: 'ann', text: 'うう…。' },
-      { chara: 'ann', text: 'もし今のでジャックが死んだとしたら、歴史はどうなるの？' },
-      { chara: 'francisca', text: '分からないけど、多分まだ王の死は防げていないはず。' },
-      { chara: 'francisca', text: '王妃の亡霊の件が解決していないでしょ。' },
-      { chara: 'ann', text: 'たしかに。' },
-      { chara: 'jaquelyn', text: '追いかけるのも無理そうだし、' },
-      { chara: 'jaquelyn', text: 'ひとまず今は先を急ぎましょう。' },
-      { chara: 'ann', text: 'そうだね、そうしよう。' }
+      { chara: 'ann', text: t('dario.jack4.0') },
+      { chara: 'jaquelyn', text: t('dario.jack4.1') },
+      { chara: 'francisca', text: t('dario.jack4.2') },
+      { chara: 'ann', text: t('dario.jack4.3') },
+      { chara: 'ann', text: t('dario.jack4.4') },
+      { chara: 'jaquelyn', text: t('dario.jack4.5') },
+      { chara: 'francisca', text: t('dario.jack4.6') },
+      { chara: 'ann', text: t('dario.jack4.7') },
+      { chara: 'ann', text: t('dario.jack4.8') },
+      { chara: 'francisca', text: t('dario.jack4.9') },
+      { chara: 'ann', text: t('dario.jack4.10') },
+      { chara: 'ann', text: t('dario.jack4.11') },
+      { chara: 'francisca', text: t('dario.jack4.12') },
+      { chara: 'francisca', text: t('dario.jack4.13') },
+      { chara: 'ann', text: t('dario.jack4.14') },
+      { chara: 'jaquelyn', text: t('dario.jack4.15') },
+      { chara: 'jaquelyn', text: t('dario.jack4.16') },
+      { chara: 'ann', text: t('dario.jack4.17') }
     ])
     state.solved = true
     area1.destroy()
