@@ -1,0 +1,105 @@
+@charset "utf-8";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+body {
+  font-family: 'Electrolize', 'M PLUS 1p', sans-serif;
+}
+li {
+  list-style: none;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 0;
+  background-image: linear-gradient(0, #FFF5E5 0px, transparent 150px), url('../img/lp/header_bg.png');
+  background-size: cover;
+  overflow: hidden;
+}
+.header-content {
+  width: 60%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  z-index: 2;
+}
+.header-chara {
+  width: 40%;
+}
+
+.headerLogo {
+}
+
+.charaList {
+  margin: 0 0 -150px -50px;
+  display: flex;
+  align-items: flex-end;
+  max-width: 500px;
+}
+.charaList-item:nth-child(2) {
+  margin: 0 -40% 0 -25%;
+  z-index: 1;
+}
+
+.buttonList {
+  margin: 30px 10px;
+  display: flex;
+  justify-content: space-between;
+  max-width: 560px;
+}
+.buttonList-item {
+  margin: auto 10px;
+}
+.buttonList-item img {
+  max-height: 50px;
+}
+
+.gameInfo {
+  margin: auto 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 560px;
+  text-shadow: 0 0 2px #FFF, 0 0 2px #FFF, 0 0 2px #FFF, 0 0 2px #FFF, 0 0 2px #FFF;
+}
+.infoDataList {
+  margin: auto 10px;
+}
+.infoDataList-item-term,
+.infoDataList-item-desc {
+  display: inline-block;
+}
+.releaseDate {
+  margin: auto 10px;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.lang {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  padding: 10px;
+  background: #000;
+}
+.lang a {
+  color: #FFF;
+  text-decoration: none;
+}
+
+.scroll {
+  position: absolute;
+}
+
+.story {
+  background: #000;
+  color: #FFF;
+}
