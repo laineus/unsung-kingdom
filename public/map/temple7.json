@@ -1,12 +1,4 @@
-{ "compressionlevel":-1,
- "editorsettings":
-    {
-     "export":
-        {
-         "target":"."
-        }
-    },
- "height":32,
+{ "height":32,
  "infinite":false,
  "layers":[
         {
@@ -59,8 +51,8 @@
          "id":8,
          "image":"..\/img\/tilesets\/image\/temple_terrace_bar.png",
          "name":"terrace_bar",
-         "offsetx":403,
-         "offsety":518,
+         "offsetx":368,
+         "offsety":516,
          "opacity":1,
          "properties":[
                 {
@@ -192,7 +184,7 @@
          "value":true
         }],
  "renderorder":"right-down",
- "tiledversion":"2020.05.07",
+ "tiledversion":"1.2.1",
  "tileheight":32,
  "tilesets":[
         {
