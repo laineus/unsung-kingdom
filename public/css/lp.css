@@ -24,6 +24,10 @@ body.en .ja {
   display: none;
 }
 
+.hidden {
+  display: none !important;
+}
+
 .header {
   display: flex;
   justify-content: center;
@@ -119,6 +123,41 @@ body.ja .changeLang[data-lang="ja"] {
 
 .scroll {
   position: absolute;
+  left: 50%;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 10px;
+  color: #FFF;
+  transform: translateX(-50%);
+}
+.scroll-icon {
+  margin-top: 3px;
+  width: 22px;
+  height: 35px;
+  padding: 3px;
+  border: 2px solid;
+  border-radius: 12px;
+}
+.scroll-icon::before {
+  content: '';
+  display: block;
+  width: 8px;
+  height: 8px;
+  border: 2px solid;
+  border-radius: 12px;
+  transition: 0.2s;
+  animation: scrollIcon 1s infinite;
+}
+@keyframes scrollIcon {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(100%);
+  }
 }
 
 .article {
@@ -273,9 +312,6 @@ body.ja .changeLang[data-lang="ja"] {
   background: #000;
   color: #FFF;
   transition: opacity 0.2s;
-}
-.shareUrl-copied.hide {
-  display: none;
 }
 .shareUrl-copied.transparent {
   opacity: 0;

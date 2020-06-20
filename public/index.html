@@ -57,7 +57,10 @@
     </div>
   </header>
 
-  <div class="scroll">SCROLL</div>
+  <div class="scroll">
+    <div class="scroll-label">SCROLL</div>
+    <div class="scroll-icon"></div>
+  </div>
 
   <article class="article story">
     <div class="article-content">
@@ -133,7 +136,7 @@
         <div class="shareUrl">
           <input class="shareUrl-input" type="text" value="https://unsungkingdom.laineus.com" readonly>
           <div class="shareUrl-copy"><span class="ja">コピー</span><span class="en">Copy</span></div>
-          <div class="shareUrl-copied hide">Copied !</div>
+          <div class="shareUrl-copied hidden">Copied !</div>
         </div>
       </div>
     </div>
@@ -156,13 +159,13 @@
     const shareUrlCopy = document.querySelector('.shareUrl-copy')
     const shareUrlCopied = document.querySelector('.shareUrl-copied')
     const showCopied = () => {
-      if (!shareUrlCopied.classList.contains('hide')) return
+      if (!shareUrlCopied.classList.contains('hidden')) return
       shareUrlCopied.classList.add('transparent')
-      shareUrlCopied.classList.remove('hide')
+      shareUrlCopied.classList.remove('hidden')
       requestAnimationFrame(() => shareUrlCopied.classList.remove('transparent'))
       setTimeout(() => {
         shareUrlCopied.classList.add('transparent')
-        shareUrlCopied.addEventListener('transitionend', () => shareUrlCopied.classList.add('hide'), { once: true })
+        shareUrlCopied.addEventListener('transitionend', () => shareUrlCopied.classList.add('hidden'), { once: true })
       }, 1000)
     }
     shareUrlInput.addEventListener('click', () => shareUrlInput.select())
@@ -197,6 +200,11 @@
     })
     const lang = getLang().startsWith('ja') ? 'ja' : 'en'
     setLang(lang)
+    const scroll = document.querySelector('.scroll')
+    document.addEventListener('scroll', () => {
+      const method = window.scrollY > 0 ? 'add' : 'remove'
+      scroll.classList[method]('hidden')
+    })
   </script>
 </body>
 </html>
