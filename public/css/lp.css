@@ -34,7 +34,7 @@ body.en .ja {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 30px 0;
+  padding: 120px 0 30px;
   background-color: #E0D7CB;
   background-image: linear-gradient(0, #E0D7CB 0px, transparent 150px), url('../img/lp/header_bg.png');
   background-repeat: no-repeat;
@@ -66,7 +66,7 @@ body.en .ja {
   max-width: 500px;
 }
 .charaList-item:nth-child(2) {
-  margin: 0 -40% 0 -25%;
+  margin: 0 -37% 0 -23%;
   z-index: 1;
 }
 
@@ -375,6 +375,7 @@ body.ja .changeLang[data-lang="ja"] {
     font-size: 7px;
   }
   .header {
+    padding-top: 50px;
     padding-bottom: 0;
     flex-direction: column;
     background-size: 200%;
