@@ -57,23 +57,23 @@ export const dionysus = (scene, dionysus, area, gate) => {
   dionysus.setTapEvent(async () => {
     if (state.completed) {
       await scene.talk([
-        { chara, text: t('moonshine.talk5.0') }
+        { chara, text: t('moonshine.solved.0') }
       ])
     } else if (state.solved) {
       await scene.talk([
+        { chara, text: t('moonshine.talk5.0') },
         { chara, text: t('moonshine.talk5.1') },
         { chara, text: t('moonshine.talk5.2') },
         { chara, text: t('moonshine.talk5.3') },
-        { chara, text: t('moonshine.talk5.4') },
-        { chara: 'ann', text: t('moonshine.talk5.5') },
-        { chara, text: t('moonshine.talk5.6') },
-        { chara, text: t('moonshine.talk5.7') }
+        { chara: 'ann', text: t('moonshine.talk5.4') },
+        { chara, text: t('moonshine.talk5.5') },
+        { chara, text: t('moonshine.talk5.6') }
       ])
       scene.ui.increaseWeapon(7)
       await scene.talk([
-        { chara, text: t('moonshine.talk5.8') },
-        { chara: 'ann', text: t('moonshine.talk5.9') },
-        { chara, text: t('moonshine.talk5.10') }
+        { chara, text: t('moonshine.talk5.7') },
+        { chara: 'ann', text: t('moonshine.talk5.8') },
+        { chara, text: t('moonshine.talk5.9') }
       ])
       state.completed = true
       scene.ui.missionUpdate('m2_3', true)
