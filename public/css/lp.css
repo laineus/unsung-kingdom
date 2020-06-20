@@ -92,10 +92,13 @@ li {
   top: 0;
   right: 0;
   display: flex;
-  padding: 10px;
+  padding: 15px 20px;
   background: #000;
 }
-.lang a {
+.lang div {
+  margin: 0 5px;
+  font-size: 1.6rem;
+  font-weight: bold;
   color: #FFF;
   text-decoration: none;
 }
@@ -119,10 +122,20 @@ li {
   width: 70%;
 }
 .articleHeading {
+  position: relative;
   font-size: 3.5rem;
   font-weight: normal;
   font-style: italic;
   letter-spacing: 0.6em;
+}
+.articleHeading::before {
+  position: absolute;
+  top: 18px;
+  left: calc(-100vw + -18px);
+  content: '';
+  display: block;
+  width: 100vw;
+  border-top: 1px solid;
 }
 
 .story {
@@ -165,6 +178,17 @@ li {
 .screenShotList-item {
   width: 47%;
   margin-bottom: 6%;
+}
+.screenShotList-item-wrapper.selected {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .screenShotList-item img {
   display: block;

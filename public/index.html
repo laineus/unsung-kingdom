@@ -46,10 +46,11 @@
       <li class="charaList-item"><img src="./img/lp/chara_ann.png" alt="Ann"></li>
       <li class="charaList-item"><img src="./img/lp/chara_francisca.png" alt="Francisca"></li>
     </ul>
-    <ul class="lang">
-      <li><a href="">EN</a></li>
-      <li><a href="">JP</a></li>
-    </ul>
+    <div class="lang">
+      <div>EN</div>
+      <div>/</div>
+      <div>JP</div>
+    </div>
   </header>
 
   <div class="scroll">SCROLL</div>
@@ -82,12 +83,12 @@
       <div class="article-content-body">
         <iframe class="trailer" width="560" height="315" src="https://www.youtube.com/embed/0ElKMf1g56o" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         <ul class="screenShotList">
-          <li class="screenShotList-item"><a href=""><img src="./img/ss/1.png"></a></li>
-          <li class="screenShotList-item"><a href=""><img src="./img/ss/2.png"></a></li>
-          <li class="screenShotList-item"><a href=""><img src="./img/ss/3.png"></a></li>
-          <li class="screenShotList-item"><a href=""><img src="./img/ss/4.png"></a></li>
-          <li class="screenShotList-item"><a href=""><img src="./img/ss/5.png"></a></li>
-          <li class="screenShotList-item"><a href=""><img src="./img/ss/8.png"></a></li>
+          <li class="screenShotList-item"><div class="screenShotList-item-wrapper"><img src="./img/ss/1.png"></div></li>
+          <li class="screenShotList-item"><div class="screenShotList-item-wrapper"><img src="./img/ss/2.png"></div></li>
+          <li class="screenShotList-item"><div class="screenShotList-item-wrapper"><img src="./img/ss/3.png"></div></li>
+          <li class="screenShotList-item"><div class="screenShotList-item-wrapper"><img src="./img/ss/4.png"></div></li>
+          <li class="screenShotList-item"><div class="screenShotList-item-wrapper"><img src="./img/ss/5.png"></div></li>
+          <li class="screenShotList-item"><div class="screenShotList-item-wrapper"><img src="./img/ss/8.png"></div></li>
         </ul>
       </div>
     </div>
@@ -153,6 +154,16 @@
       shareUrlInput.select()
       document.execCommand('copy')
       showCopied()
+    })
+    const images = document.querySelectorAll('.screenShotList-item-wrapper')
+    images.forEach(img => {
+      img.addEventListener('click', () => {
+        if (img.classList.contains('selected')) {
+          img.classList.remove('selected')
+        } else {
+          img.classList.add('selected')
+        }
+      })
     })
   </script>
 </body>
