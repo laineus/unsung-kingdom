@@ -77,6 +77,7 @@ body.en .ja {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  font-weight: bold;
   max-width: 560px;
   text-shadow: 0 0 2px #FFF, 0 0 2px #FFF, 0 0 2px #FFF, 0 0 2px #FFF, 0 0 2px #FFF;
 }
@@ -90,7 +91,6 @@ body.en .ja {
 .releaseDate {
   margin: auto 10px;
   font-size: 1.8rem;
-  font-weight: bold;
   text-align: center;
 }
 
@@ -102,13 +102,19 @@ body.en .ja {
   padding: 15px 20px;
   background: #000;
 }
-.lang div {
+.lang-item {
   margin: 0 5px;
   font-size: 1.6rem;
   font-weight: bold;
   color: #FFF;
   text-decoration: none;
   cursor: pointer;
+}
+body.en .changeLang[data-lang="en"] {
+  color: #AACC22;
+}
+body.ja .changeLang[data-lang="ja"] {
+  color: #AACC22;
 }
 
 .scroll {
@@ -155,11 +161,18 @@ body.en .ja {
   line-height: 3em;
   color: #FFF;
 }
+.story .article-content-title {
+  background-image: url('../img/lp/emblem.png');
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  background-size: 70%;
+}
 
 .history {
   margin-bottom: 50px;
   font-size: 1.8rem;
   color: #DDD;
+  max-width: 610px;
 }
 .history .ref {
   font-size: 1.6rem;
