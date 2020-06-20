@@ -55,6 +55,9 @@ body.en .ja {
 
 .headerLogo {
 }
+.headerBody {
+  padding: 0 20px;
+}
 
 .charaList {
   margin: 0 0 -150px -50px;
@@ -68,7 +71,7 @@ body.en .ja {
 }
 
 .buttonList {
-  margin: 30px 20px;
+  margin: 30px auto;
   display: flex;
   justify-content: space-between;
   max-width: 560px;
@@ -81,7 +84,7 @@ body.en .ja {
 }
 
 .gameInfo {
-  margin: auto 20px;
+  margin: auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -249,7 +252,7 @@ body.ja .changeLang[data-lang="ja"] {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.8);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -369,6 +372,7 @@ body.ja .changeLang[data-lang="ja"] {
     font-size: 7px;
   }
   .header {
+    padding-bottom: 0;
     flex-direction: column;
     background-size: 200%;
     background-position: center top;
@@ -380,13 +384,23 @@ body.ja .changeLang[data-lang="ja"] {
   .header-content,
   .header-chara {
     width: 100%;
+    max-width: 100%;
   }
   .headerLogo {
+    margin: auto;
+    max-width: 500px;
     padding: 20px 20px 55%;
+  }
+  .headerBody {
+    padding: 0 5px 30px;
+    background-image: linear-gradient(0, rgba(60, 80, 100), transparent);
   }
   .charaList {
     margin: 0 0 -50px;
     max-width: 450px;
+  }
+  .buttonList-item {
+    margin: auto 5px;
   }
   .article {
     padding: 80px 40px;
@@ -410,5 +424,8 @@ body.ja .changeLang[data-lang="ja"] {
   .shareUrl-copied {
     top: -30px;
     right: 0;
+  }
+  .footer-logo {
+    width: 100px;
   }
 }
