@@ -124,7 +124,7 @@ export const matilda = async (scene, chara) => {
       { chara, text: t('townCommon.matilda.1.10') },
       { chara: 'ann', text: t('townCommon.matilda.1.11') }
     ])
-    chara.nextMessages = [{ chara, text: t('townCommon.matilda.1.12') }]
+    chara.nextMessages = [{ chara, text: t('townCommon.matilda.1.10') }]
     state.push(1)
   } else if (!state.includes(2)) {
     await scene.talk([
