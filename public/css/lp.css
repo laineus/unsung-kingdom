@@ -8,6 +8,7 @@
 html {
   font-family: 'Electrolize', 'M PLUS 1p', sans-serif;
   font-size: 10px;
+  scroll-behavior: smooth;
 }
 body {
   font-size: 1.5rem;
@@ -52,7 +53,7 @@ li {
 }
 
 .buttonList {
-  margin: 30px 10px;
+  margin: 30px 20px;
   display: flex;
   justify-content: space-between;
   max-width: 560px;
@@ -65,7 +66,7 @@ li {
 }
 
 .gameInfo {
-  margin: auto 10px;
+  margin: auto 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -176,7 +177,7 @@ li {
   color: #FFF;
 }
 .play h2 {
-  margin-bottom: 30px;
+  margin-bottom: 40px;
   font-size: 3.5rem;
   font-weight: normal;
   letter-spacing: 0.6em;
@@ -201,9 +202,79 @@ li {
   margin-left: 1em;
 }
 
+.shareUrl {
+  width: 500px;
+  position: relative;
+}
+.shareUrl-input {
+  width: 100%;
+  padding: 15px 18px;
+  font-size: 1.6rem;
+  color: #555;
+  border: 2px solid #AAA;
+}
+.shareUrl-copy {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 5px;
+  cursor: pointer;
+}
+.shareUrl-copied {
+  position: absolute;
+  top: 13px;
+  right: -70px;
+  padding: 4px 7px;
+  background: #000;
+  color: #FFF;
+  transition: opacity 0.2s;
+}
+.shareUrl-copied.hide {
+  display: none;
+}
+.shareUrl-copied.transparent {
+  opacity: 0;
+}
+
 .footer {
+  position: relative;
   padding: 80px 0;
   background: #000;
   text-align: center;
   color: #FFF;
+}
+.footer-logo {
+  margin-bottom: 30px;
+}
+.footer small {
+  display: block;
+  font-size: 10px;
+  color: #777;
+}
+.footer .copy {
+  margin-top: 30px;
+  font-size: 12px;
+  color: #AAA;
+}
+.totop {
+  position: absolute;
+  top: 40px;
+  right: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70px;
+  height: 70px;
+  border: 3px solid #777;
+  transform: rotate(45deg);
+  cursor: pointer;
+}
+.totop::before {
+  content: '';
+  display: block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid #777;
+  border-right: transparent;
+  border-bottom: transparent;
 }

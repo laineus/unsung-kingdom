@@ -115,23 +115,45 @@
         <h2 class="articleHeading">SHARE</h2>
       </div>
       <div class="article-content-body">
-        <div>
-          <p>このURLをコピー</p>
-          <input type="text" value="" readonly>
-          <button>コピー</button>
+        <div class="shareUrl">
+          <input class="shareUrl-input" type="text" value="https://unsungkingdom.laineus.com" readonly>
+          <div class="shareUrl-copy">コピー</div>
+          <div class="shareUrl-copied hide">Copied</div>
         </div>
-        <a href="">Twitterでシェア</a>
       </div>
     </div>
   </article>
 
   <footer class="footer">
-    <small>&copy; Laineus</small>
+    <img class="footer-logo" src="./img/lp/footer_logo.png" alt="">
     <small>Google Play および Google Play ロゴは、Google LLC の商標です。</small>
     <small>&copy; 2020 Valve Corporation. Steam 及び Steam ロゴは、米国及びまたはその他の国のValve Corporation の商標及びまたは登録商標です。</small>
-    <img src="./img/lp/footer_logo.png" alt="">
-    
-    <a href="">ScrollTop</a>
+    <small class="copy">Copyright © 2020 Laineus All Rights Reserved.</small>
+    <div class="totop" />
   </footer>
+
+  <script>
+    const totop = document.querySelector('.totop')
+    totop.addEventListener('click', () => window.scrollTo(0, 0))
+    const shareUrlInput = document.querySelector('.shareUrl-input')
+    const shareUrlCopy = document.querySelector('.shareUrl-copy')
+    const shareUrlCopied = document.querySelector('.shareUrl-copied')
+    const showCopied = () => {
+      if (!shareUrlCopied.classList.contains('hide')) return
+      shareUrlCopied.classList.add('transparent')
+      shareUrlCopied.classList.remove('hide')
+      requestAnimationFrame(() => shareUrlCopied.classList.remove('transparent'))
+      setTimeout(() => {
+        shareUrlCopied.classList.add('transparent')
+        shareUrlCopied.addEventListener('transitionend', () => shareUrlCopied.classList.add('hide'), { once: true })
+      }, 1000)
+    }
+    shareUrlInput.addEventListener('click', () => shareUrlInput.select())
+    shareUrlCopy.addEventListener('click', () => {
+      shareUrlInput.select()
+      document.execCommand('copy')
+      showCopied()
+    })
+  </script>
 </body>
 </html>
