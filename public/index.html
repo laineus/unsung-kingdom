@@ -169,15 +169,21 @@
     const shareUrlInput = document.querySelector('.shareUrl-input')
     const shareUrlCopy = document.querySelector('.shareUrl-copy')
     const shareUrlCopied = document.querySelector('.shareUrl-copied')
+    const showElement = (elm, animClass) => {
+      if (!elm.classList.contains('hidden')) return // Already shown
+      shareUrlCopied.classList.add(animClass)
+      shareUrlCopied.classList.remove('hidden')
+      requestAnimationFrame(() => shareUrlCopied.classList.remove(animClass))
+    }
+    const hideElement = (elm, animClass) => {
+      if (elm.classList.contains('hidden'), elm.classList.contains(animClass)) return // Already hidden
+        shareUrlCopied.classList.add(animClass)
+        shareUrlCopied.addEventListener('transitionend', () => shareUrlCopied.classList.add('hidden'), { once: true })
+    }
     const showCopied = () => {
       if (!shareUrlCopied.classList.contains('hidden')) return
-      shareUrlCopied.classList.add('transparent')
-      shareUrlCopied.classList.remove('hidden')
-      requestAnimationFrame(() => shareUrlCopied.classList.remove('transparent'))
-      setTimeout(() => {
-        shareUrlCopied.classList.add('transparent')
-        shareUrlCopied.addEventListener('transitionend', () => shareUrlCopied.classList.add('hidden'), { once: true })
-      }, 1000)
+      showElement(shareUrlCopied, 'transparent')
+      setTimeout(() => hideElement(shareUrlCopied, 'transparent'), 1500)
     }
     shareUrlInput.addEventListener('click', () => shareUrlInput.select())
     shareUrlCopy.addEventListener('click', () => {
