@@ -52,6 +52,29 @@ export default class UIScene extends Phaser.Scene {
     this.virtualStick = new VirtualStick(this, 100, (160).byBottom).setVisible(this.touchMode)
     this.checkButton = this.getCheckButton().setVisible(false)
     this.eventMode = false
+    this.setChapterCreditFlag(false)
+  }
+  setChapterCreditFlag (bool) {
+    this.chapterCreditFlag = bool
+  }
+  async chapterCredit () {
+    if (!this.chapterCreditFlag) return
+    this.setChapterCreditFlag(false)
+    await this.sleep(500)
+    const right = config.WIDTH - 120
+    const tx1 = this.add.text(40, config.HEIGHT.half - 32, 'Written by', { align: 'left', fontSize: 11, fontFamily: config.FONTS.TEXT }).setPadding(0, 2, 0, 0).setOrigin(0, 1)
+    const tx2 = this.add.text(40, config.HEIGHT.half - 30, 'Laineus', { align: 'left', fontSize: 15, fontFamily: config.FONTS.TEXT }).setPadding(0, 2, 0, 0).setOrigin(0, 0)
+    await fadeIn(this, [tx1, tx2])
+    await this.sleep(2500)
+    await fadeOut(this, [tx1, tx2])
+    await this.sleep(1000)
+    const tx3 = this.add.text(right, config.HEIGHT.half - 32, 'Illustrations by', { align: 'left', fontSize: 11, fontFamily: config.FONTS.TEXT }).setPadding(0, 2, 0, 0).setOrigin(0, 1)
+    const tx4 = this.add.text(right, config.HEIGHT.half - 30, '真符', { align: 'left', fontSize: 15, fontFamily: config.FONTS.TEXT }).setPadding(0, 2, 0, 0).setOrigin(0, 0)
+    const tx5 = this.add.text(right, config.HEIGHT.half + 30 , 'Music by', { align: 'left', fontSize: 11, fontFamily: config.FONTS.TEXT }).setPadding(0, 2, 0, 0).setOrigin(0, 1)
+    const tx6 = this.add.text(right, config.HEIGHT.half + 32, 'Laineus', { align: 'left', fontSize: 15, fontFamily: config.FONTS.TEXT }).setPadding(0, 2, 0, 0).setOrigin(0, 0)
+    await fadeIn(this, [tx3, tx4, tx5, tx6])
+    await this.sleep(2500)
+    await fadeOut(this, [tx3, tx4, tx5, tx6])
   }
   update (time, delta) {
     const sec = Math.floor(time / 1000)

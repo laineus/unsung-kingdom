@@ -58,6 +58,7 @@ export default class GameScene extends Phaser.Scene {
         }
         this.ui.showMapInfo(payload.map !== 'room1' ? this.event : null)
         this.ui.battlerSummary.show()
+        this.ui.chapterCredit()
       }, 150)
     })
     // debug
