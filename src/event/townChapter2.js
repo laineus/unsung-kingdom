@@ -31,7 +31,7 @@ export default (scene, charas) => {
         ])
         eState.talked_amber2 = true
         scene.storage.state.allowed_area = Math.max(scene.storage.state.allowed_area, 3)
-        scene.ui.announce('マップ「トロイア公爵邸の地下通路」が解放された')
+        scene.ui.announce(t('unlockArea', t('area.underpass')))
       }
     } else {
       const i = await scene.select([t('townChapter2.amber.question.0'), t('townChapter2.amber.question.1'), t('townChapter2.amber.question.2')])

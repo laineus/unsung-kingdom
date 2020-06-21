@@ -14,6 +14,14 @@ export default {
     { name: '4章', title: 'グリファルデ神殿', sub: 'Temple Grefalde' },
     { name: '終章', title: '平和王エドガー', sub: 'Edgar the Peaceful' }
   ],
+  area: {
+    town: '王都',
+    castle: '王城 - 裏庭',
+    forest: 'ワルコフォレンスの森',
+    underpass: 'トロイア公爵邸の地下通路',
+    catacomb: '聖アンテルスの墓地',
+    temple: 'グリファルデ神殿'
+  },
   chara: {
     ann: 'アン',
     jaquelyn: 'ジャクリーン',
@@ -59,6 +67,7 @@ export default {
       settings: '設定'
     }
   },
+  unlockArea: 'マップ「#{area}」が解放された',
   roomBook,
   roomEv,
   townGreeting,

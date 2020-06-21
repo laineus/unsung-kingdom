@@ -10,7 +10,7 @@ export default (scene, charas) => {
       { chara: 'ann', text: t('townChapter4.ann.2') }
     ])
     scene.storage.state.allowed_area = 5
-    scene.ui.announce('マップ「グリファルデ神殿」が解放された')
+    scene.ui.announce(t('unlockArea', t('area.temple')))
   }
   const charaKeys = ['annabelle', 'elliott', 'max', 'amber', 'matilda']
   Array.range(13, 17).map(id => scene.map.getObjectById(id)).forEach((pos, i) => {

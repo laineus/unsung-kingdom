@@ -41,7 +41,7 @@ export default (scene, charas) => {
       ])
       eState.talked_matilda = true
       scene.storage.state.allowed_area = Math.max(scene.storage.state.allowed_area, 4)
-      scene.ui.announce('マップ「聖アンテルスの墓地」が解放された')
+      scene.ui.announce(t('unlockArea', t('area.catacomb')))
     } else {
       await matilda(scene, chara)
     }

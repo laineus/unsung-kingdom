@@ -59,7 +59,7 @@ export default (scene, charas) => {
       ])
       eState.talked_annabelle = true
       scene.storage.state.allowed_area = Math.max(scene.storage.state.allowed_area, 1)
-      scene.ui.announce('マップ「王城 - 裏庭」が解放された')
+      scene.ui.announce(t('unlockArea', t('area.castle')))
     } else {
       await scene.talk([
         { chara, text: t('townChapter0.annabelle.11') }

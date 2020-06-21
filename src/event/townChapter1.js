@@ -98,7 +98,7 @@ export default (scene, charas) => {
       ])
       eState.talked_elliott = true
       scene.storage.state.allowed_area = Math.max(scene.storage.state.allowed_area, 2)
-      scene.ui.announce('マップ「ワルコフォレンスの森」が解放された')
+      scene.ui.announce(t('unlockArea', t('area.forest')))
     } else {
       await scene.talk([
         { chara, text: t('townChapter1.elliott.2.0') },
