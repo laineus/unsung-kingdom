@@ -75,26 +75,26 @@
   <article class="article story">
     <div class="article-content">
       <div class="article-content-title">
-        <h2 class="articleHeading">STORY</h2>
+        <h2 class="articleHeading slideIn">STORY</h2>
       </div>
       <div class="article-content-body">
-        <div class="history ja">
+        <div class="history ja transparent">
           <p>王は死んだ。<br>
             冷たく閉ざされた門扉の先に、かつての繁栄はもはや見る影もない。<br>
             王国は偉大なる王の死とともに終わりを迎えたのだ。</p>
           <p class="ref">―『ベリオン王国史』</p>
         </div>
-        <div class="introduction ja">
+        <div class="introduction ja transparent">
           <h3>かつて栄華を極めた<br>ベリオン王国の運命を巡る物語。</h3>
           <p>未来からの時間移動者である少女「アン」は、<br>王を死の運命から救うべく旅人に扮し戦う。</p>
         </div>
-        <div class="history en">
+        <div class="history en transparent">
           <p>King is Dead.<br>
             The Glory of the past no longer in sight, beyond the closed Castle Gate.<br>
             The Kingdom came to an end with the Death of the Great King.</p>
           <p class="ref">- "History of Bellion"</p>
         </div>
-        <div class="introduction en">
+        <div class="introduction en transparent">
           <h3>It is a Story of the once glorious Kingdom of Bellion.</h3>
           <p>Ann a Time traveler from the future, fights to save the King from his fate of death.</p>
         </div>
@@ -105,24 +105,24 @@
   <article class="article gallery">
     <div class="article-content">
       <div class="article-content-title">
-        <h2 class="articleHeading">GALLERY</h2>
+        <h2 class="articleHeading slideIn">GALLERY</h2>
       </div>
       <div class="article-content-body">
-        <iframe class="trailer" width="720" height="405" src="https://www.youtube.com/embed/9BODQfp7p1o" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe class="trailer transparent" width="720" height="405" src="https://www.youtube.com/embed/9BODQfp7p1o" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         <ul class="screenShotList">
-          <li class="screenShotList-item"><div class="screenShotList-item-wrapper"><img src="./img/ss/1.png"></div></li>
-          <li class="screenShotList-item"><div class="screenShotList-item-wrapper"><img src="./img/ss/2.png"></div></li>
-          <li class="screenShotList-item"><div class="screenShotList-item-wrapper"><img src="./img/ss/3.png"></div></li>
-          <li class="screenShotList-item"><div class="screenShotList-item-wrapper"><img src="./img/ss/4.png"></div></li>
-          <li class="screenShotList-item"><div class="screenShotList-item-wrapper"><img src="./img/ss/5.png"></div></li>
-          <li class="screenShotList-item"><div class="screenShotList-item-wrapper"><img src="./img/ss/8.png"></div></li>
+          <li class="screenShotList-item transparent"><div class="screenShotList-item-wrapper"><img src="./img/ss/1.png"></div></li>
+          <li class="screenShotList-item transparent"><div class="screenShotList-item-wrapper"><img src="./img/ss/2.png"></div></li>
+          <li class="screenShotList-item transparent"><div class="screenShotList-item-wrapper"><img src="./img/ss/3.png"></div></li>
+          <li class="screenShotList-item transparent"><div class="screenShotList-item-wrapper"><img src="./img/ss/4.png"></div></li>
+          <li class="screenShotList-item transparent"><div class="screenShotList-item-wrapper"><img src="./img/ss/5.png"></div></li>
+          <li class="screenShotList-item transparent"><div class="screenShotList-item-wrapper"><img src="./img/ss/8.png"></div></li>
         </ul>
       </div>
     </div>
   </article>
 
   <article class="play">
-    <h2>PLAY</h2>
+    <h2 class="play-heading">PLAY</h2>
     <p><img src="./img/lp/logo_simple.png" alt="UNSUNG KINGDOM"></p>
     <ul class="buttonList">
       <li class="buttonList-item"><a href="https://store.steampowered.com/app/1344790/Unsung_Kingdom/" target="_blank"><img src="./img/lp/btn_steam_white.png" alt="STEAM"></a></li>
@@ -140,13 +140,13 @@
   <article class="article share">
     <div class="article-content">
       <div class="article-content-title">
-        <h2 class="articleHeading">SHARE</h2>
+        <h2 class="articleHeading slideIn">SHARE</h2>
       </div>
       <div class="article-content-body">
         <div class="shareUrl">
           <input class="shareUrl-input" type="text" value="https://unsungkingdom.laineus.com" readonly>
           <div class="shareUrl-copy"><span class="ja">コピー</span><span class="en">Copy</span></div>
-          <div class="shareUrl-copied hidden">Copied !</div>
+          <div class="shareUrl-copied transparent">Copied !</div>
         </div>
       </div>
     </div>
@@ -169,21 +169,17 @@
     const shareUrlInput = document.querySelector('.shareUrl-input')
     const shareUrlCopy = document.querySelector('.shareUrl-copy')
     const shareUrlCopied = document.querySelector('.shareUrl-copied')
-    const showElement = (elm, animClass) => {
-      if (!elm.classList.contains('hidden')) return // Already shown
-      shareUrlCopied.classList.add(animClass)
-      shareUrlCopied.classList.remove('hidden')
-      requestAnimationFrame(() => shareUrlCopied.classList.remove(animClass))
+    const toggleElement = (elm, animClass, bool) => {
+      return bool ? showElement(elm, animClass) : hideElement(elm, animClass)
     }
-    const hideElement = (elm, animClass) => {
-      if (elm.classList.contains('hidden'), elm.classList.contains(animClass)) return // Already hidden
-        shareUrlCopied.classList.add(animClass)
-        shareUrlCopied.addEventListener('transitionend', () => shareUrlCopied.classList.add('hidden'), { once: true })
+    const inScreen = elm => {
+      const y = elm.offsetTop - window.scrollY
+      return (y + elm.clientHeight) > 0 && window.innerHeight > y
     }
     const showCopied = () => {
-      if (!shareUrlCopied.classList.contains('hidden')) return
-      showElement(shareUrlCopied, 'transparent')
-      setTimeout(() => hideElement(shareUrlCopied, 'transparent'), 1500)
+      if (!shareUrlCopied.classList.contains('transparent')) return
+      shareUrlCopied.classList.remove('transparent')
+      setTimeout(() => shareUrlCopied.classList.add('transparent'), 1500)
     }
     shareUrlInput.addEventListener('click', () => shareUrlInput.select())
     shareUrlCopy.addEventListener('click', () => {
@@ -217,10 +213,15 @@
     })
     const lang = getLang().startsWith('ja') ? 'ja' : 'en'
     setLang(lang)
+    const headings = document.querySelectorAll('.articleHeading')
+    const fade = document.querySelectorAll('.history, .introduction, .trailer, .screenShotList-item')
     const scroll = document.querySelector('.scroll')
+    const letter = document.querySelector('.play-heading')
     document.addEventListener('scroll', () => {
-      const method = window.scrollY > 0 ? 'add' : 'remove'
-      scroll.classList[method]('hidden')
+      scroll.classList.toggle('transparent', window.scrollY > 50)
+      headings.forEach(heading => heading.classList.toggle('slideIn', !inScreen(heading)))
+      fade.forEach(elm => elm.classList.toggle('transparent', !inScreen(elm)))
+      letter.classList.toggle('letterAnim', !inScreen(letter))
     })
   </script>
 </body>

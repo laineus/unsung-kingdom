@@ -25,10 +25,6 @@ body.en .ja {
   display: none;
 }
 
-.hidden {
-  display: none !important;
-}
-
 .header {
   position: relative;
   display: flex;
@@ -139,6 +135,7 @@ body.ja .changeLang[data-lang="ja"] {
   font-size: 10px;
   color: #FFF;
   transform: translateX(-50%);
+  transition: 0.2s;
 }
 .scroll-icon {
   margin-top: 3px;
@@ -187,6 +184,7 @@ body.ja .changeLang[data-lang="ja"] {
   font-weight: normal;
   font-style: italic;
   letter-spacing: 0.6em;
+  transition: 0.5s 0.3s;
 }
 .articleHeading::before {
   position: absolute;
@@ -219,10 +217,14 @@ body.ja .changeLang[data-lang="ja"] {
   font-size: 1.8rem;
   color: #DDD;
   max-width: 610px;
+  transition: 1s;
 }
 .history .ref {
   font-size: 1.6rem;
   text-align: right;
+}
+.introduction {
+  transition: 1s 0.5s;
 }
 .introduction h3 {
   margin-bottom: 30px;
@@ -236,6 +238,7 @@ body.ja .changeLang[data-lang="ja"] {
 .trailer {
   display: block;
   margin-bottom: 6%;
+  transition: 0.5s 0.3s;
 }
 .screenShotList {
   display: flex;
@@ -245,6 +248,7 @@ body.ja .changeLang[data-lang="ja"] {
 .screenShotList-item {
   width: 47%;
   margin-bottom: 6%;
+  transition: 0.5s 0.3s;
 }
 .screenShotList-item-wrapper.selected {
   position: fixed;
@@ -267,12 +271,13 @@ body.ja .changeLang[data-lang="ja"] {
   text-align: center;
   color: #FFF;
 }
-.play h2 {
+.play-heading {
   margin-bottom: 40px;
   font-size: 3.5rem;
   font-weight: normal;
   letter-spacing: 0.6em;
   text-indent: 0.6em;
+  transition: 0.5s 0.3s;
 }
 .play .buttonList {
   margin: 40px auto;
@@ -319,9 +324,6 @@ body.ja .changeLang[data-lang="ja"] {
   background: #000;
   color: #FFF;
   transition: opacity 0.2s;
-}
-.shareUrl-copied.transparent {
-  opacity: 0;
 }
 
 .footer {
@@ -443,4 +445,18 @@ body.ja .changeLang[data-lang="ja"] {
     width: 15px;
     height: 15px;
   }
+}
+
+/* animations */
+.slideIn {
+  opacity: 0;
+  transform: translateX(-200px);
+}
+.transparent {
+  opacity: 0;
+}
+.letterAnim {
+  letter-spacing: 2em;
+  text-indent: 2em;
+  opacity: 0;
 }
