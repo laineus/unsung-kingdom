@@ -14,7 +14,7 @@
  "name":"room",
  "spacing":0,
  "tilecount":100,
- "tiledversion":"2020.02.26",
+ "tiledversion":"2020.05.07",
  "tileheight":32,
  "tiles":[
         {
@@ -35,6 +35,14 @@
         }, 
         {
          "id":4,
+         "type":"collides"
+        }, 
+        {
+         "id":8,
+         "type":"collides"
+        }, 
+        {
+         "id":9,
          "type":"collides"
         }, 
         {
@@ -63,6 +71,10 @@
         }, 
         {
          "id":16,
+         "type":"collides"
+        }, 
+        {
+         "id":17,
          "type":"collides"
         }, 
         {
@@ -138,6 +150,10 @@
          "type":"top"
         }, 
         {
+         "id":38,
+         "type":"top"
+        }, 
+        {
          "id":40,
          "type":"collides"
         }, 
@@ -147,6 +163,10 @@
         }, 
         {
          "id":42,
+         "type":"collides"
+        }, 
+        {
+         "id":48,
          "type":"collides"
         }],
  "tilewidth":32,
