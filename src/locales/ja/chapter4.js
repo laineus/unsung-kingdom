@@ -56,7 +56,7 @@ export const lorraine = {
     '仕掛けの動かし方は、せっかくだから考えてみてくれ。', // architect
     'ありがとう！' // ann
   ],
-  item: '『簡素な鍵』を手に入れた',
+  item: '簡素な鍵',
   started: [
     '仕掛けの動かし方は、せっかくだから考えてみてくれ。' // architect
   ],

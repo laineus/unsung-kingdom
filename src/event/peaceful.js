@@ -119,7 +119,7 @@ export const peaceful = (scene, area1, area2, soldier1, soldier2, jack) => {
       { chara, text: t('peaceful.talk3.51') },
       { chara, text: t('peaceful.talk3.52') }
     ])
-    await scene.ui.announce(t('peaceful.item'))
+    await scene.ui.announce(t('gotItem', t('peaceful.item')))
     await scene.talk([
       { chara: 'ann', text: t('peaceful.talk4.0') },
       { chara: 'ann', text: t('peaceful.talk4.1') },

@@ -13,7 +13,7 @@ export default {
     if (scene.storage.state.chapter === 5 && !scene.storage.state.gimmicks.includes('temple15_7')) {
       dragonScale.setTapEvent(async () => {
         scene.storage.state.gimmicks.push('temple15_7')
-        scene.ui.announce('『ドラゴンの鱗』を手に入れた')
+        scene.ui.announce(t('gotItem', t('item.dragonScale')))
         dragonScale.destroy()
       })
     } else {

@@ -167,7 +167,7 @@ export const marianne = {
   solved: [
     'マリアンヌ…。' // marianne
   ],
-  item: '『十字のお守り』を手に入れた'
+  item: '十字のお守り'
 }
 export const dario = {
   unavailabled: [
@@ -405,7 +405,7 @@ export const renfield = {
     '…。', // ray
     'じゃあな。' // ray
   ],
-  item: '『錆びた鍵』を手に入れた'
+  item: '錆びた鍵'
 }
 export const evangelina = {
   unavailabled: [

@@ -17,7 +17,7 @@ export const renfield = (scene, ray, spectres) => {
         { chara, text: t('renfield.solve.4') },
         { chara: 'ann', text: t('renfield.solve.5') }
       ])
-      scene.ui.announce(t('renfield.item'))
+      scene.ui.announce(t('gotItem', t('renfield.item')))
       await scene.talk([
         { chara: 'ann', text: t('renfield.solve.6') },
         { chara: 'ann', text: t('renfield.solve.7') },

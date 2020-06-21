@@ -58,6 +58,9 @@ export default {
     lyla: 'ライラ',
     unknown: '？？？'
   },
+  item: {
+    dragonScale: 'ドラゴンの鱗'
+  },
   ui: {
     sub: {
       quests: 'マップ＆クエスト',
@@ -68,6 +71,8 @@ export default {
     }
   },
   unlockArea: 'マップ「#{area}」が解放された',
+  gotItem: '『#{name}』を手に入れた',
+  hpRecovered: 'HPが全回復した',
   roomBook,
   roomEv,
   townGreeting,

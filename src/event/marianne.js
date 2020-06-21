@@ -27,7 +27,7 @@ export const marianne = (scene, sister) => {
         { chara, text: t('marianne.solve.8') },
         { chara, text: t('marianne.solve.9') }
       ])
-      scene.ui.announce(t('marianne.item'))
+      scene.ui.announce(t('gotItem', t('marianne.item')))
       await scene.talk([
         { chara: 'ann', text: t('marianne.solve.10') },
         { chara: 'ann', text: t('marianne.solve.11') },

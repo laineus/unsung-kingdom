@@ -92,7 +92,7 @@ export default (scene, characters) => {
       t.destroy()
       if (i === 1) return
       scene.storage.state.battlers.forEach(v => v.hp = v.max_hp)
-      scene.ui.announce('HPが全回復した')
+      scene.ui.announce(t('hpRecovered'))
       await scene.talk([
         { chara: 'ann', text: 'ありがとう！' }
       ])

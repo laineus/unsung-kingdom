@@ -76,7 +76,7 @@ export const architect = (scene, chara) => {
             { chara, text: t('lorraine.start3.14') },
             { chara, text: t('lorraine.start3.15') }
           ])
-          scene.ui.announce(t('lorraine.item'))
+          scene.ui.announce(t('gotItem', t('lorraine.item')))
           await scene.talk([
             { chara: 'ann', text: t('lorraine.start3.16') },
             { chara, text: t('lorraine.start3.17') },
