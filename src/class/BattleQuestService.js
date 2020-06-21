@@ -13,7 +13,7 @@ const list = [
     const result = collection(group, 'mandrake', 75)
     if (!result) return
     event.m1_3.count += result
-    return `マンドレイクの根を${result}個獲得！（${event.m1_3.count}/${MANDRAKE_COUNT}）`
+    return `${t('itemDrop.mandrake', result)}（${event.m1_3.count}/${MANDRAKE_COUNT}）`
   },
   // m2_2
   (group, event) => {
@@ -21,7 +21,7 @@ const list = [
     const result = collection(group, 'carbuncle', 75)
     if (!result) return
     event.m2_2.count += result
-    return `カーバンクルの魔石を${result}個獲得！（${event.m2_2.count}/${MAGIC_STONES}）`
+    return `${t('itemDrop.magicStone', result)}（${event.m2_2.count}/${MAGIC_STONES}）`
   },
   // m3_2
   (group, event) => {
@@ -29,14 +29,14 @@ const list = [
     const result = collection(group, 'phantom', 75)
     if (!result) return
     event.m3_2.count += result
-    return `水の小瓶を${result}個獲得！（${event.m3_2.count}/${WATER_COUNT}）`
+    return `${t('itemDrop.water', result)}（${event.m3_2.count}/${WATER_COUNT}）`
   },
   // m3_3
   (group, event) => {
     if (event.m3_3.completed || !event.m3_3.started) return
     const result = collection(group, 'jack', 100)
     if (!result) return
-    return 'ダリオの短剣を獲得！'
+    return t('itemDrop')
   },
   // m4_2
   (group, event) => {
@@ -44,7 +44,7 @@ const list = [
     const result = collection(group, 'bird', 75)
     if (!result) return
     event.m4_2.count += result
-    return `ケルーネの羽を${result}個獲得！（${event.m4_2.count}/${KELUNNE_COUNT}）`
+    return `${t('itemDrop.kelunne', result)}（${event.m4_2.count}/${KELUNNE_COUNT}）`
   }
 ]
 export default class BattleQuestService {

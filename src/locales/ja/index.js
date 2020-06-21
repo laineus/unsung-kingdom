@@ -73,6 +73,13 @@ export default {
   unlockArea: 'マップ「#{area}」が解放された',
   gotItem: '『#{name}』を手に入れた',
   hpRecovered: 'HPが全回復した',
+  itemDrop: {
+    mandrake: 'マンドレイクの根を#{num}個獲得！',
+    magicStone:'カーバンクルの魔石を#{num}個獲得！',
+    water: '水の小瓶を#{num}個獲得！',
+    dagger: 'ダリオの短剣を獲得！',
+    kelunne: 'ケルーネの羽を#{num}個獲得！'
+  },
   roomBook,
   roomEv,
   townGreeting,
