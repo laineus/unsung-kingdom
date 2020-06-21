@@ -279,8 +279,11 @@ export default class UIScene extends Phaser.Scene {
   }
   chapterStart (text) {
     return new Promise(resolve => {
-      const m = this.add.text(config.WIDTH.half, config.HEIGHT.half - 5, text, { fill: config.COLORS.white.toColorString, fontSize: 16, fontFamily: config.FONTS.TEXT }).setOrigin(0.5, 0.5)
-      new StoryTelling(this, [m], false).on('beforeEnd', resolve)
+      const container = this.add.container(config.WIDTH.half, config.HEIGHT.half)
+      const emblem = this.add.sprite(0, 0, 'emblem').setTint(0x311612)
+      const message = this.add.text(0, -5, text, { fill: config.COLORS.white.toColorString, fontSize: 16, fontFamily: config.FONTS.TEXT }).setOrigin(0.5, 0.5)
+      container.add([emblem, message])
+      new StoryTelling(this, [container], false).on('beforeEnd', resolve)
     })
   }
   credit () {
