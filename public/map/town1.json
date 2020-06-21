@@ -457,9 +457,33 @@
          "visible":true,
          "x":0,
          "y":0
+        }, 
+        {
+         "id":21,
+         "image":"..\/img\/tilesets\/image\/sunbeams.png",
+         "name":"light",
+         "offsetx":-58,
+         "offsety":108,
+         "opacity":0.5,
+         "properties":[
+                {
+                 "name":"blend",
+                 "type":"string",
+                 "value":"OVERLAY"
+                }, 
+                {
+                 "name":"depth",
+                 "type":"string",
+                 "value":"LIGHT"
+                }],
+         "tintcolor":"#ffb042",
+         "type":"imagelayer",
+         "visible":true,
+         "x":0,
+         "y":0
         }],
- "nextlayerid":20,
- "nextobjectid":41,
+ "nextlayerid":22,
+ "nextobjectid":54,
  "orientation":"orthogonal",
  "properties":[
         {
