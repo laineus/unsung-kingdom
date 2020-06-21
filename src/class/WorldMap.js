@@ -4,12 +4,12 @@ import Button from './Button'
 import { slideIn, slideOut } from '../util/animations'
 const OFFSET = { x: 385, y: 260 }
 const AERA_LIST = [
-  { name: '王都', x: 960, y: 545, key: 'town1', mapX: 2, mapY: 20, r: 'right', label: 'Kingdom of Bellion' },
-  { name: '王城 - 裏庭', x: 1020, y: 390, key: 'castle1', mapX: 48, mapY: 37, r: 'up' },
-  { name: 'ワルコフォレンスの森', x: 320, y: 240, key: 'forest1', mapX: 45, mapY: 17, r: 'left', label: 'Warcoforence' },
-  { name: 'トロイア公爵邸の地下通路', x: 1276, y: 705, key: 'underpass1', mapX: 14, mapY: 39, r: 'up', label: 'Troy\'s secret passage' },
-  { name: '聖アンテルスの墓地', x: 995, y: 915, key: 'catacomb1', mapX: 2, mapY: 14, r: 'right', label: 'St Anterus\' catacomb' },
-  { name: 'グリファルデ神殿', x: 1595, y: 530, key: 'temple1', mapX: 2, mapY: 13, r: 'right', label: 'Temple Grefalde' }
+  { name: t('area.town'), x: 960, y: 545, key: 'town1', mapX: 2, mapY: 20, r: 'right', label: 'Kingdom of Bellion' },
+  { name: t('area.castle'), x: 1020, y: 390, key: 'castle1', mapX: 48, mapY: 37, r: 'up' },
+  { name: t('area.forest'), x: 320, y: 240, key: 'forest1', mapX: 45, mapY: 17, r: 'left', label: 'Warcoforence' },
+  { name: t('area.underpass'), x: 1276, y: 705, key: 'underpass1', mapX: 14, mapY: 39, r: 'up', label: 'Troy\'s secret passage' },
+  { name: t('area.catacomb'), x: 995, y: 915, key: 'catacomb1', mapX: 2, mapY: 14, r: 'right', label: 'St Anterus\' catacomb' },
+  { name: t('area.temple'), x: 1595, y: 530, key: 'temple1', mapX: 2, mapY: 13, r: 'right', label: 'Temple Grefalde' }
 ]
 const SCALE = {
   DEFAULT: 0.37,
