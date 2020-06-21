@@ -13,6 +13,7 @@ export const execChapterBeginEvents = (scene, book) => {
   scene.jaquelyn.setPosition(591, 440).setR('up').setTarget(null)
   scene.ui.autoEvent(async () => {
     await events[chapter](scene)
+    scene.ui.setChapterCreditFlag(true)
     state[chapter] = true
     setBookEvent(scene, book, chapter)
   })

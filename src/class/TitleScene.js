@@ -16,11 +16,10 @@ export default class TitleScene extends Phaser.Scene {
     const background = this.add.sprite(0, 0, 'title').setOrigin(0, 0)
     this.add.sprite(config.WIDTH.half, 270, 'title_logo')
     this.getStartButton()
-    background.setInteractive().on('pointerup', () => {
-      this.initContents()
+    this.logo().then(() => {
+      background.setInteractive().on('pointerup', () => this.initContents())
+      this.ui.audio.setBgm('theme')
     })
-    // this.logo()
-    this.ui.audio.setBgm('theme')
     // DEBUG
     if (location.query.load) {
       const data = storage.getRow(Number(location.query.load))
@@ -41,12 +40,12 @@ export default class TitleScene extends Phaser.Scene {
   async logo () {
     const bg = this.add.rectangle(0, 0, config.WIDTH, config.HEIGHT, 0x111111).setOrigin(0, 0)
     await this.delay(200)
-    const logo1 = this.add.sprite(config.WIDTH.half, config.HEIGHT.half, 'logo_laineus').setScale(0.66).setOrigin(0.5, 0.5)
+    const logo1 = this.add.sprite(config.WIDTH.half, config.HEIGHT.half, 'logo_laineus').setOrigin(0.5, 0.5)
     await fadeIn(this, logo1)
     await this.delay(800)
     await fadeOut(this, logo1)
     await this.delay(400)
-    const logo2 = this.add.sprite(config.WIDTH.half, config.HEIGHT.half, 'logo_mafu').setScale(0.66).setOrigin(0.5, 0.5)
+    const logo2 = this.add.sprite(config.WIDTH.half, config.HEIGHT.half, 'logo_mafu').setOrigin(0.5, 0.5)
     await fadeIn(this, logo2)
     await this.delay(800)
     await fadeOut(this, logo2)

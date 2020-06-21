@@ -9,6 +9,7 @@ export default class Substance extends Phaser.GameObjects.Container {
     scene.physics.world.enable(this)
     this.body.setDrag(300)
     this.setId(null)
+    this.setCheckableDistance(150)
   }
   preUpdate () {
     this.setDepth(this.y)
@@ -45,10 +46,13 @@ export default class Substance extends Phaser.GameObjects.Container {
     balloon.add(img)
     return balloon
   }
+  setCheckableDistance (distance) {
+    this.checkableDistance = distance
+    return this
+  }
   setTapEvent (event) {
     this.removeTapEvent()
     this.tapEvent = event
-    const distance = 150
     this.tapArea = this.scene.add.rectangle(0, -this.image.height.half - 15, this.image.width + 20, this.image.height + 50).setAlpha(0.5).setInteractive()
     this.add(this.tapArea)
     this.balloon = this.getBalloon()
@@ -56,7 +60,7 @@ export default class Substance extends Phaser.GameObjects.Container {
       if (this.tapEvent) pointer.isDown = false
     })
     this.tapArea.on('pointerup', (_pointer, _x, _y, e) => {
-      if (this.distanceToPlayer >= distance) return
+      if (this.distanceToPlayer >= this.checkableDistance) return
       e.stopPropagation()
       this.execTapEvent()
     })
@@ -88,7 +92,7 @@ export default class Substance extends Phaser.GameObjects.Container {
     return `chara_sprite/${this.key}`
   }
   get checkable () {
-    return this.balloon && this.visible && !this.scene.ui.eventMode && this.distanceToPlayer < 150
+    return this.balloon && this.visible && !this.scene.ui.eventMode && this.distanceToPlayer < this.checkableDistance
   }
   destroy () {
     if (this.balloon) this.balloon.destroy()
