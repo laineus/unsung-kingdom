@@ -17,7 +17,7 @@ export default {
       ])
     })
     scene.ui.sleep(2000).then(() => {
-      scene.tweetOnce(scene.player, '墓地…ちょっと怖いね…', 'ct1')
+      scene.tweetOnce(scene.player, t('tweet.ct1'), 'ct1')
     })
   }
 }

@@ -18,7 +18,7 @@ export default {
   update (scene) {
     if (scene.frame % 15 !== 0) return
     this.apples.filter(v => v.apple.active && v.apple.distanceToPlayer < 80).forEach(v => {
-      GOOD_APPLES.includes(v.key) ? scene.tweetOnce(scene.player, 'おいしそうなリンゴ', 'aplg') : scene.tweetOnce(scene.francisca, '傷んだリンゴだね', 'aplb')
+      GOOD_APPLES.includes(v.key) ? scene.tweetOnce(scene.player, t('tweet.aplg'), 'aplg') : scene.tweetOnce(scene.francisca, t('tweet.aplb'), 'aplb')
     })
   }
 }

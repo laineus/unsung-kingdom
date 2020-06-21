@@ -98,9 +98,19 @@ export default {
   ferdinand, marianne, dario, renfield, evangelina,
   lorraine, allsRight, nikke, lute, dragonKiller,
   afterBattle: {
-    m1_3: 'マンドレイクの根が集まったみたいね',
-    m2_2: 'カーバンクルの魔石が集まったね',
-    m3_2: '飲み水が十分に集まったね',
-    m4_2: 'ケルーネの羽根が集まったね'
+    m1_3: 'マンドレイクの根が集まったみたいね', // jaquelyn
+    m2_2: 'カーバンクルの魔石が集まったね', // fraancisca
+    m3_2: '飲み水が十分に集まったね', // francisca
+    m4_2: 'ケルーネの羽根が集まったね' // jaquelyn
+  },
+  tweet: {
+    ca1: 'どこかに身を隠して待とう', // francisca
+    ct1: '墓地…ちょっと怖いね…', // ann
+    fr1: 'ここがワルコフォレンスの森か', // ann
+    tm1: '神殿の入り口に着いたわ', // jaquelyn
+    aplg: 'おいしそうなリンゴ', // ann
+    aplb: '傷んだリンゴだね', // ann
+    clbr: 'あれが聖剣？', // francisca
+    un1: 'うまく侵入できたね' // francisca
   }
 }

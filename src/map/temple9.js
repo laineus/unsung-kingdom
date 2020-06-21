@@ -19,7 +19,7 @@ export default {
   },
   update (scene) {
     if (scene.storage.state.event.m4_3.started && this.sword.active && this.sword.distanceToPlayer < 180) {
-      scene.tweetOnce(scene.francisca, 'あれが聖剣？', 'clbr')
+      scene.tweetOnce(scene.francisca, t('tweet.clbr'), 'clbr')
     }
   }
 }

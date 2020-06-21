@@ -8,7 +8,7 @@ export default {
   ],
   create (scene) {
     scene.ui.sleep(2000).then(() => {
-      scene.tweetOnce(scene.jaquelyn, '神殿の入り口に着いたわ', 'tm1')
+      scene.tweetOnce(scene.jaquelyn, t('tweet.tm1'), 'tm1')
     })
   }
 }

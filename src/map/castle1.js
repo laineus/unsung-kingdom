@@ -26,6 +26,6 @@ export default {
     } else {
       [soldier1, soldier2, soldier3, king, jack, kingbrother].forEach(v => v.destroy())
     }
-    scene.tweetOnce(scene.francisca, 'どこかに身を隠して待とう', 'ca1')
+    scene.tweetOnce(scene.francisca, t('tweet.ca1'), 'ca1')
   }
 }
