@@ -62,7 +62,7 @@ export default class GameScene extends Phaser.Scene {
       }, 150)
     })
     // debug
-    this.setDebugAction()
+    if (ENV === 'development') this.setDebugAction()
   }
   update (time, delta) {
     this.frame++

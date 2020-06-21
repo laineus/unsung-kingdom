@@ -7,7 +7,7 @@ const TileSetPlugin = require('./build/TileSetPlugin')
 const AssetPlugin = require('./build/AssetPlugin')
 const CharaSpritePlugin = require('./build/CharaSpritePlugin')
 
-module.exports = {
+module.exports = (_env, argv) => ({
   entry: {
     app: './src/index.js',
     // guide: './src/guide.js',
@@ -39,6 +39,7 @@ module.exports = {
   plugins: [
     new WriteFilePlugin(),
     new webpack.DefinePlugin({
+      'ENV': JSON.stringify(argv.mode),
       'typeof CANVAS_RENDERER': JSON.stringify(true),
       'typeof WEBGL_RENDERER': JSON.stringify(true)
     }),
@@ -54,4 +55,4 @@ module.exports = {
     }
   },
   performance: { hints: false }
-}
+})

@@ -16,11 +16,10 @@ export default class TitleScene extends Phaser.Scene {
     const background = this.add.sprite(0, 0, 'title').setOrigin(0, 0)
     this.add.sprite(config.WIDTH.half, 270, 'title_logo')
     this.getStartButton()
-    background.setInteractive().on('pointerup', () => {
-      this.initContents()
+    this.logo().then(() => {
+      background.setInteractive().on('pointerup', () => this.initContents())
+      this.ui.audio.setBgm('theme')
     })
-    // this.logo()
-    this.ui.audio.setBgm('theme')
     // DEBUG
     if (location.query.load) {
       const data = storage.getRow(Number(location.query.load))
