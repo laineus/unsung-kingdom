@@ -15,7 +15,7 @@ export default {
       scene.jaquelyn.setTarget(scene.player)
     }, false)
     const tw = scene.map.getObjectById(12).setEvent(async () => {
-      Math.chance(50) ? scene.francisca.tweet('早く出発しよう') : scene.jaquelyn.tweet('アン、眠たいの？')
+      Math.chance(50) ? scene.francisca.tweet(t('mapEvent.room1.bed.0')) : scene.jaquelyn.tweet(t('mapEvent.room1.bed.1'))
       tw.destroy()
     }, false)
   }

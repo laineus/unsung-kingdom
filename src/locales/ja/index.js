@@ -165,5 +165,23 @@ export default {
     aplb: '傷んだリンゴだね', // ann
     clbr: 'あれが聖剣？', // francisca
     un1: 'うまく侵入できたね' // francisca
+  },
+  mapEvent: {
+    temple6: {
+      statue: '台座に仕掛けがある！', // ann
+      option: ['仕掛けを動かす', '何もしない']
+    },
+    room1: {
+      bed: [
+        '早く出発しよう', // francisca
+        'アン、眠たいの？' // jaquelyn
+      ]
+    },
+    catacomb1: {
+      guard: [
+        'ここから先へは十分に注意して進んでくれ。',
+        '近年、出没するモンスターが増えてきて、我々も手に負えなくなってきているんだ。'
+      ]
+    }
   }
 }

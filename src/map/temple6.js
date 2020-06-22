@@ -17,9 +17,9 @@ export default {
       treasure.setVisible(false)
       statue.setTapEvent(async () => {
         await scene.talk([
-          { chara: 'ann', text: '台座に仕掛けがある！' }
+          { chara: 'ann', text: t('mapEvent.temple6.statue') }
         ])
-        const i = await scene.select(['仕掛けを動かす', '何もしない'])
+        const i = await scene.select([t('mapEvent.temple6.option.0'), t('mapEvent.temple6.option.1')])
         if (i !== 0) return
         scene.storage.state.gimmicks.push('temple6_13')
         treasure.setVisible(true)

@@ -119,10 +119,10 @@ export const dario = (scene, dario) => {
       scene.ui.missionUpdate('m3_3')
     } else {
       await scene.talk([
-        { chara: 'ann', text: 'あのー。' },
-        { chara, text: '…。' },
-        { chara: 'ann', text: '考え事をしているみたい。' },
-        { chara: 'ann', text: 'また後で来よう。' }
+        { chara: 'ann', text: t('dario.unavailable.0') },
+        { chara, text: t('dario.unavailable.1') },
+        { chara: 'ann', text: t('dario.unavailable.2') },
+        { chara: 'ann', text: t('dario.unavailable.3') }
       ])
     }
   })

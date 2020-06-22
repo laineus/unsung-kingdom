@@ -170,7 +170,7 @@ export const marianne = {
   item: '十字のお守り'
 }
 export const dario = {
-  unavailabled: [
+  unavailable: [
     'あのー。', // ann
     '…。', // dario
     '考え事をしているみたい。', // ann
@@ -408,7 +408,7 @@ export const renfield = {
   item: '錆びた鍵'
 }
 export const evangelina = {
-  unavailabled: [
+  unavailable: [
     'ここが王家の墓みたいね。', // jaquelyn
     'ね、ねえ、なんだか嫌な気配がしない…？', // francisca
     'え、怖いこと言わないでよ。' // ann
