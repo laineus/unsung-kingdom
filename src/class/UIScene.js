@@ -250,7 +250,7 @@ export default class UIScene extends Phaser.Scene {
     const button = this.add.container(x, y).setSize(120, 50)
     button.add(this.add.rectangle(0, 0, 120, 50, config.COLORS.black).setAlpha(0))
     button.add(this.add.text(15, -8, 'MENU', { align: 'center', fontSize: 20, fontStyle: 'bold', fontFamily: config.FONTS.UI }).setPadding(0, 2, 0, 0).setOrigin(0.5, 0.5))
-    button.add(this.add.text(15, 11, 'メニュー', { align: 'center', fontSize: 9, fontStyle: 'bold', fontFamily: config.FONTS.TEXT }).setPadding(0, 2, 0, 0).setOrigin(0.5, 0.5))
+    button.add(this.add.text(15, 11, t('ui.sub.menu'), { align: 'center', fontSize: 9, fontStyle: 'bold', fontFamily: config.FONTS.TEXT }).setPadding(0, 2, 0, 0).setOrigin(0.5, 0.5))
     button.add(this.add.rectangle(-35, -1, 25, 3, config.COLORS.theme).setRotation(Math.PI / 1))
     button.add(this.add.rectangle(-35, -1, 25, 3, config.COLORS.theme).setRotation(Math.PI / -2))
     button.setInteractive().on('pointerdown', (pointer) => {
@@ -317,7 +317,7 @@ export default class UIScene extends Phaser.Scene {
   missionUpdate (key, completed) {
     this.storage.state.event[key][completed ? 'completed' : 'started'] = true
     const mission = missions.find(v => v.key === key)
-    const text = `『${mission.title}』を${completed ? '完了' : '開始'}`
+    const text = completed ? t('missionComplete', mission.title) : t('missionStart', mission.title)
     const completedAll = missions.every(v => this.storage.state.event[v.key].completed)
     if (completedAll) window.archiveManager.activate('completed')
     return this.announce(text)
@@ -329,7 +329,7 @@ export default class UIScene extends Phaser.Scene {
   async showMapInfo (e, reload = false) {
     if (this.mapInfo) this.mapInfo.destroy()
     if (!e) return
-    const mapName = e.name || '不明なエリア'
+    const mapName = e.name || t('ui.undefinedArea')
     const boxWidth = Math.max(70 + mapName.width * 6, 180)
     const diff = e.enemyLevel ? e.enemyLevel - Math.average(...this.storage.state.battlers.map(b => b.lv)) : 0
     const warning = diff >= 2
@@ -358,7 +358,7 @@ export default class UIScene extends Phaser.Scene {
       return circle
     })()
     const map = this.add.text(42, 6, mapName, { align: 'left', fill: config.COLORS.white.toColorString, fontSize: 12, fontFamily: config.FONTS.TEXT }).setOrigin(0, 0)
-    const lvInfo = e.enemyLevel ? `推奨レベル ${e.enemyLevel}〜` : '推奨レベル -'
+    const lvInfo = e.enemyLevel ? `${t('ui.recommendedLevel')} ${e.enemyLevel}〜` : `${t('ui.recommendedLevel')} -`
     const lv = this.add.text(42, 21, lvInfo, { align: 'left', fill: color.toColorString, fontSize: 12, fontFamily: config.FONTS.TEXT }).setOrigin(0, 0)
     container.add([box, icon, map, lv])
     const movedX = -(boxWidth - 10)

@@ -116,13 +116,18 @@ export default {
   },
   ui: {
     sub: {
+      menu: 'メニュー',
       quests: 'マップ＆クエスト',
       characters: 'キャラクター',
       save: 'セーブ',
       load: 'ロード',
       settings: '設定'
-    }
+    },
+    recommendedLevel: '推奨レベル',
+    undefinedArea: '不明なエリア'
   },
+  missionStart: '『#{title}』を開始}',
+  missionComplete: '『#{title}』を完了}',
   unlockArea: 'マップ「#{area}」が解放された',
   gotItem: '『#{name}』を手に入れた',
   hpRecovered: 'HPが全回復した',
