@@ -52,7 +52,7 @@ export default [
     key: 'm2_3',
     chapter: 2,
     title: 'ディオニューソスの密造酒',
-    en: 'Ikarios\' Moonshine',
+    en: 'Dionysus\' Moonshine',
     map: { key: 'underpass5', x: 9, y: 0 }
   },
   {
@@ -73,7 +73,7 @@ export default [
     key: 'm3_2',
     chapter: 3,
     title: 'マリアンヌの歌を聞いてから死ね',
-    en: 'Listen Marianne\'s song before die',
+    en: 'Die after listening Marianne\'s song.',
     map: { key: 'catacomb5', x: 14, y: 14 }
   },
   {
@@ -101,7 +101,7 @@ export default [
     key: 'm4_1',
     chapter: 4,
     title: '清浄なるロレイン像',
-    en: 'Sinning Lorraine\'s statue',
+    en: 'Sacred Lorraine\'s statue',
     map: { key: 'temple4', x: 25, y: 25 }
   },
   {
