@@ -12,8 +12,8 @@ import TreasureChest from './TreasureChest'
 import tweetsAfterBattle from '../event/tweetsAfterBattle'
 const TWEET_DATA = {
   lost: [
-    { key: 'francisca', distance: 250, tweets: ['ま、待って！', 'アンが消えた…'] },
-    { key: 'jaquelyn', distance: 300, tweets: ['アン、置いていっちゃいやよ', 'アン、どこ？'] }
+    { key: 'francisca', distance: 250, tweets: [t('tweet.lost.francisca.0'), t('tweet.lost.francisca.1')] },
+    { key: 'jaquelyn', distance: 300, tweets: [t('tweet.lost.jaquelyn.0'), t('tweet.lost.jaquelyn.1')] }
   ]
 }
 export default class GameScene extends Phaser.Scene {

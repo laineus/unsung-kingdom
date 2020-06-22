@@ -164,7 +164,11 @@ export default {
     aplg: 'おいしそうなリンゴ', // ann
     aplb: '傷んだリンゴだね', // ann
     clbr: 'あれが聖剣？', // francisca
-    un1: 'うまく侵入できたね' // francisca
+    un1: 'うまく侵入できたね', // francisca
+    lost: {
+      francisca: ['ま、待って！', 'アンが消えた…'],
+      jaquelyn: ['アン、置いていっちゃいやよ', 'アン、どこ？']
+    }
   },
   mapEvent: {
     temple6: {
