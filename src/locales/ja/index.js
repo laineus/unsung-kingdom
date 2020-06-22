@@ -22,6 +22,28 @@ export default {
     catacomb: '聖アンテルスの墓地',
     temple: 'グリファルデ神殿'
   },
+  mission: {
+    m0_1: { title: '王殺しのジャック', sub: 'Jack the Kingkiller' },
+    m1_1: { title: 'マシューと狩猟犬', sub: 'Matthew and Hunting dogs' },
+    m1_2: { title: 'アイザムバード傭兵団の討伐遠征', sub: 'Isambard mercenaries' },
+    m1_3: { title: '森の賢人ドリスタン', sub: 'Philosopher Drystan' },
+    m1_4: { title: 'ワルコフォレンスの人食い熊', sub: 'The Rex Bear' },
+    m2_1: { title: '幽閉されしカサンドラ', sub: 'Incarcerated Cassandra' },
+    m2_2: { title: 'メアリー王女と公爵令嬢ロレッタ', sub: 'Princess Mary and Loretta' },
+    m2_3: { title: 'ディオニューソスの密造酒', sub: 'Dionysus\' Moonshine' },
+    m2_4: { title: 'アラグニエのねぐら', sub: 'Aragnie\'s lair' },
+    m3_1: { title: '呪われしフェルディナンド卿', sub: 'Cursed Lord Ferdinand' },
+    m3_2: { title: 'マリアンヌの歌を聞いてから死ね', sub: 'Die after listening Marianne\'s song.' },
+    m3_3: { title: 'ダリオの哀しみ', sub: 'Dario\'s Sorrow' },
+    m3_4: { title: 'レンフィールド家の大罪', sub: 'Sins of the Renfield family' },
+    m3_5: { title: 'エヴァンジェリナ妃の亡霊', sub: 'Ghost of Princess Evangelina' },
+    m4_1: { title: '清浄なるロレイン像', sub: 'Sacred Lorraine\'s statue' },
+    m4_2: { title: 'すべて世はこともなし', sub: 'All\'s right with the world' },
+    m4_3: { title: '聖剣カリブルヌス', sub: 'Caliburnus' },
+    m4_4: { title: '女神さまに捧ぐリュート', sub: 'Lute for goddess' },
+    m4_5: { title: '竜殺しの王', sub: 'The Dragonkiller King' },
+    m5_1: { title: '平和王エドガー', sub: 'Edgar the Peaceful' }
+  },
   chara: {
     ann: 'アン',
     jaquelyn: 'ジャクリーン',
