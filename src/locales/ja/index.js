@@ -155,6 +155,13 @@ export default {
   cassandra, princess, moonshine, aragnie,
   ferdinand, marianne, dario, renfield, evangelina,
   lorraine, allsRight, nikke, lute, dragonKiller,
+  storyTelling: [
+    '王は死んだ。\n冷たく閉ざされた門扉の先に、かつての繁栄はもはや見る影もない。\n王国は偉大なる王の死とともに終わりを迎えたのだ。',
+    '― 『ベリオン王国史』',
+    '千年ののち、王国はその名も失い世界から忘れ去られた。\nしかしベリオンの民の末裔は〈平和王エドガー〉の眠るその地を決して離れようとはしなかった。',
+    'そしてある時、王と王国の死を嘆く研究者たちの手によって、時間を移動する術が発見された。',
+    'それはこの世の理に背くことであったが、彼らは歴史を変えることを厭わなかった。'
+  ],
   afterBattle: {
     m1_3: 'マンドレイクの根が集まったみたいね', // jaquelyn
     m2_2: 'カーバンクルの魔石が集まったね', // fraancisca

@@ -17,13 +17,6 @@ import StoryTelling from './StoryTelling'
 import VirtualStick from './VirtualStick'
 import AudioController from './AudioController'
 import weapons from '../data/weapons'
-const MESSAGES = [
-  '王は死んだ。\n冷たく閉ざされた門扉の先に、かつての繁栄はもはや見る影もない。\n王国は偉大なる王の死とともに終わりを迎えたのだ。',
-  '― 『ベリオン王国史』',
-  '千年ののち、王国はその名も失い世界から忘れ去られた。\nしかしベリオンの民の末裔は〈平和王エドガー〉の眠るその地を決して離れようとはしなかった。',
-  'そしてある時、王と王国の死を嘆く研究者たちの手によって、時間を移動する術が発見された。',
-  'それはこの世の理に背くことであったが、彼らは歴史を変えることを厭わなかった。'
-]
 const SPEED = {
   fast: 200,
   normal: 500,
@@ -294,13 +287,14 @@ export default class UIScene extends Phaser.Scene {
     })
   }
   storyTelling () {
+    const messages = (5).toArray().map(i => t(`storyTelling.${i}`))
     return new Promise(resolve => {
       const m1 = this.add.container(config.WIDTH.half, config.HEIGHT.half)
-      m1.add(this.add.text(0, 0 - 35, MESSAGES[0], { align: 'left', fill: config.COLORS.white.toColorString, fontSize: 18, fontFamily: config.FONTS.TEXT }).setOrigin(0.5, 0.5).setLineSpacing(15))
-      m1.add(this.add.text(185, 0 + 55, MESSAGES[1], { align: 'right', fill: config.COLORS.white.toColorString, fontSize: 18, fontFamily: config.FONTS.TEXT }).setOrigin(0.5, 0.5).setLineSpacing(15))
-      const m2 = this.add.text(config.WIDTH.half, config.HEIGHT.half - 5, MESSAGES[2], { align: 'left', fill: config.COLORS.white.toColorString, fontSize: 18, fontFamily: config.FONTS.TEXT }).setOrigin(0.5, 0.5).setLineSpacing(15)
-      const m3 = this.add.text(config.WIDTH.half, config.HEIGHT.half - 5, MESSAGES[3], { align: 'left', fill: config.COLORS.white.toColorString, fontSize: 18, fontFamily: config.FONTS.TEXT }).setOrigin(0.5, 0.5).setLineSpacing(15)
-      const m4 = this.add.text(config.WIDTH.half, config.HEIGHT.half - 5, MESSAGES[4], { align: 'left', fill: config.COLORS.white.toColorString, fontSize: 18, fontFamily: config.FONTS.TEXT }).setOrigin(0.5, 0.5).setLineSpacing(15)
+      m1.add(this.add.text(0, 0 - 35, messages[0], { align: 'left', fill: config.COLORS.white.toColorString, fontSize: 18, fontFamily: config.FONTS.TEXT }).setOrigin(0.5, 0.5).setLineSpacing(15))
+      m1.add(this.add.text(185, 0 + 55, messages[1], { align: 'right', fill: config.COLORS.white.toColorString, fontSize: 18, fontFamily: config.FONTS.TEXT }).setOrigin(0.5, 0.5).setLineSpacing(15))
+      const m2 = this.add.text(config.WIDTH.half, config.HEIGHT.half - 5, messages[2], { align: 'left', fill: config.COLORS.white.toColorString, fontSize: 18, fontFamily: config.FONTS.TEXT }).setOrigin(0.5, 0.5).setLineSpacing(15)
+      const m3 = this.add.text(config.WIDTH.half, config.HEIGHT.half - 5, messages[3], { align: 'left', fill: config.COLORS.white.toColorString, fontSize: 18, fontFamily: config.FONTS.TEXT }).setOrigin(0.5, 0.5).setLineSpacing(15)
+      const m4 = this.add.text(config.WIDTH.half, config.HEIGHT.half - 5, messages[4], { align: 'left', fill: config.COLORS.white.toColorString, fontSize: 18, fontFamily: config.FONTS.TEXT }).setOrigin(0.5, 0.5).setLineSpacing(15)
       this.audio.setBgm(null)
       this.sleep(1700).then(() => this.audio.setBgm('storytelling'))
       new StoryTelling(this, [m1, m2, m3, m4], true).on('beforeEnd', resolve)
