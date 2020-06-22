@@ -30,7 +30,7 @@ body.en .ja {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 120px 0 30px;
+  padding: 30px 0;
   background-color: #E0D7CB;
   background-image: linear-gradient(0, #E0D7CB 0px, transparent 150px), url('../img/lp/header_bg.png');
   background-repeat: no-repeat;
@@ -39,7 +39,7 @@ body.en .ja {
 }
 .header-content {
   width: 60%;
-  max-width: 600px;
+  max-width: 700px;
   display: flex;
   flex-direction: column;
   align-items: stretch;
@@ -56,10 +56,10 @@ body.en .ja {
 }
 
 .charaList {
-  margin: 0 0 -150px -50px;
+  margin: 0 0 -170px -50px;
   display: flex;
   align-items: flex-end;
-  max-width: 500px;
+  max-width: 600px;
 }
 .charaList-item:nth-child(2) {
   margin: 0 -37% 0 -23%;
