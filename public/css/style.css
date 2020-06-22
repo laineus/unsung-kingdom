@@ -32,18 +32,12 @@ body {
   max-height: 100vh;
   margin: auto;
 }
-.banner {
-  margin-top: 20px;
-  text-align: center;
-}
-.links {
-  margin-top: 20px;
-  font-size: 11px;
-  text-align: center;
-}
-.links a {
-  margin: 0 0.5em;
-  color: #CCC;
+.fullscreenButton {
+  display: block;
+  margin: 10px 0 0 auto;
+  opacity: 0.15;
+  width: 24px;
+  cursor: pointer;
 }
 .debugBox {
   font-size: 12px;
@@ -59,7 +53,6 @@ body {
   max-width: calc(100vh * (16 / 9));
   max-height: calc(100vw * (9 / 16));
 }
-.fullscreen .banner,
-.fullscreen .links {
+.fullscreen .fullscreenButton {
   display: none;
 }
