@@ -25,6 +25,10 @@ body.en .ja {
   display: none;
 }
 
+[data-animation] {
+  transition: 0.5s 0.3s;
+}
+
 .header {
   position: relative;
   display: flex;
@@ -184,7 +188,6 @@ body.ja .changeLang[data-lang="ja"] {
   font-weight: normal;
   font-style: italic;
   letter-spacing: 0.6em;
-  transition: 0.5s 0.3s;
 }
 .articleHeading::before {
   position: absolute;
@@ -238,7 +241,6 @@ body.ja .changeLang[data-lang="ja"] {
 .trailer {
   display: block;
   margin-bottom: 6%;
-  transition: 0.5s 0.3s;
 }
 .screenShotList {
   display: flex;
@@ -248,7 +250,6 @@ body.ja .changeLang[data-lang="ja"] {
 .screenShotList-item {
   width: 47%;
   margin-bottom: 6%;
-  transition: 0.5s 0.3s;
 }
 .screenShotList-item-wrapper.selected {
   position: fixed;
@@ -277,7 +278,6 @@ body.ja .changeLang[data-lang="ja"] {
   font-weight: normal;
   letter-spacing: 0.6em;
   text-indent: 0.6em;
-  transition: 0.5s 0.3s;
 }
 .play .buttonList {
   margin: 40px auto;
