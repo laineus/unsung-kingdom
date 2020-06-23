@@ -55,7 +55,7 @@ const setBookEvent = (scene, book, chapter) => {
 
 const events = [
   async (scene) => {
-    scene.ui.sleep(1000)
+    scene.ui.sleep(2500)
     await scene.talk([
       { chara: 'ann', text: 'じゃ、みんな、あらためてよろしく！' },
       { chara: 'jaquelyn', text: 'よろしくね、アン。' },
@@ -111,7 +111,7 @@ const events = [
   },
   async (scene) => {
     scene.player.setR('down')
-    await scene.ui.sleep(1000)
+    await scene.ui.sleep(1500)
     await scene.talk([
       { chara: 'ann', text: 'まさか負けちゃうなんて…。' },
       { chara: 'jaquelyn', text: 'でも何故か王は殺されずに済んだわ。' },
@@ -156,7 +156,7 @@ const events = [
   },
   async (scene) => {
     scene.player.setR('down')
-    await scene.ui.sleep(1000)
+    await scene.ui.sleep(1500)
     await scene.talk([
       { chara: 'ann', text: 'さあ、べリオン王国史を確認するよ！' },
       { chara: 'jaquelyn', text: '前は、「王は急な病に伏して死ぬ」だったわね。' },
@@ -203,7 +203,7 @@ const events = [
   },
   async (scene) => {
     scene.player.setR('down')
-    await scene.ui.sleep(1000)
+    await scene.ui.sleep(1500)
     await scene.talk([
       { chara: 'francisca', text: 'さあアン、王国史はどうなった？' },
       { chara: 'francisca', text: '次はなにで死ぬことになった？' },
@@ -240,7 +240,7 @@ const events = [
   },
   async (scene) => {
     scene.player.setR('down')
-    await scene.ui.sleep(1000)
+    await scene.ui.sleep(1500)
     await scene.talk([
       { chara: 'jaquelyn', text: '最後に王妃の亡霊が言っていたこと、気になるわね。' },
       { chara: 'ann', text: 'ドラゴンのことだね。' },
@@ -270,7 +270,7 @@ const events = [
   },
   async (scene) => {
     scene.player.setR('down')
-    await scene.ui.sleep(1000)
+    await scene.ui.sleep(1500)
     await scene.talk([
       { chara: 'ann', text: 'やっと落ち着いたね。' },
       { chara: 'francisca', text: '大変だった…。' },

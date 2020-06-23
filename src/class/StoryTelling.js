@@ -16,11 +16,11 @@ export default class StoryTelling extends Phaser.GameObjects.Container {
     this.exec()
   }
   async exec () {
-    await fadeIn(this.scene, this.bg)
+    await fadeIn(this.scene, this.bg, { duration: 1000 })
     await this.sleep(1500)
     await this.execRow()
     this.emit('beforeEnd')
-    await fadeOut(this.scene, this.bg)
+    await fadeOut(this.scene, this.bg, { duration: 1000 })
     this.destroy()
   }
   async execRow (index = 0) {

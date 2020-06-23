@@ -143,7 +143,7 @@ export const peaceful = (scene, area1, area2, soldier1, soldier2, jack) => {
     window.archiveManager.activate('saved_kingdom')
     await scene.ui.missionUpdate('m5_1', true)
     await scene.ui.sleep(1000)
-    await scene.ui.transition('normal')
+    await scene.ui.transition('slow')
     scene.members.forEach(v => v.setVisible(false))
     jack.initImage('jack').setFaceKey('jack2')
     soldier1.setPosition((33).toPixelCenter, (19).toPixelCenter).setVisible(true)
