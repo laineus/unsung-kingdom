@@ -70,7 +70,7 @@ export default class UIScene extends Phaser.Scene {
     await this.sleep(1000)
     const tx3 = this.add.text(right, config.HEIGHT.half - 32, 'Illustrations by', { align: 'left', fontSize: 11, fontFamily: config.FONTS.TEXT }).setPadding(0, 2, 0, 0).setOrigin(0, 1)
     const tx4 = this.add.text(right, config.HEIGHT.half - 30, '真符', { align: 'left', fontSize: 15, fontFamily: config.FONTS.TEXT }).setPadding(0, 2, 0, 0).setOrigin(0, 0)
-    const tx5 = this.add.text(right, config.HEIGHT.half + 30 , 'Music by', { align: 'left', fontSize: 11, fontFamily: config.FONTS.TEXT }).setPadding(0, 2, 0, 0).setOrigin(0, 1)
+    const tx5 = this.add.text(right, config.HEIGHT.half + 30, 'Music by', { align: 'left', fontSize: 11, fontFamily: config.FONTS.TEXT }).setPadding(0, 2, 0, 0).setOrigin(0, 1)
     const tx6 = this.add.text(right, config.HEIGHT.half + 32, 'Laineus', { align: 'left', fontSize: 15, fontFamily: config.FONTS.TEXT }).setPadding(0, 2, 0, 0).setOrigin(0, 0)
     await fadeIn(this, [tx3, tx4, tx5, tx6])
     await this.sleep(2500)

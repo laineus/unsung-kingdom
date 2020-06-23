@@ -50,9 +50,14 @@ export default class {
         this.currentBgm.setVolume(0)
         this.scene.add.tween({ targets: this.currentBgm, volume: this.bgmVolume, duration: 2000 })
       }
-      this.scene.add.tween({ targets: bgm, volume: 0, duration: 500, onComplete: () => {
-        if (bgm.isPlaying) bgm.stop()
-      } })
+      this.scene.add.tween({
+        targets: bgm,
+        volume: 0,
+        duration: 500,
+        onComplete: () => {
+          if (bgm.isPlaying) bgm.stop()
+        }
+      })
     }
     return resolve
   }

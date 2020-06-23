@@ -22,7 +22,7 @@ if (window.gtag) {
   window.archiveManager.initGtag(window.gtag)
   window.addEventListener('error', e => {
     window.gtag('event', 'error', {
-      'event_label': `${e.filename}:${e.lineno} ${e.message}`
+      event_label: `${e.filename}:${e.lineno} ${e.message}`
     })
   })
 }

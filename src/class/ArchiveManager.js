@@ -11,7 +11,7 @@ export default class ArchiveManager {
     }
     if (this.gtag) {
       this.gtag('event', 'archive', {
-        'event_category': name
+        event_category: name
       })
     }
   }
