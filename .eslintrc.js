@@ -17,7 +17,8 @@ module.exports = {
     WebGLRenderingContext: true,
     Phaser: true,
     greenworks: true,
-    t: true
+    t: true,
+    ENV: true
   },
   ignorePatterns: ['src/shader/']
 }
