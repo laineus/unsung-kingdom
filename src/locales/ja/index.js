@@ -4,11 +4,11 @@ import { jack } from './chapter0'
 import { dog, mercenary, drystan, bear } from './chapter1'
 import { cassandra, princess, moonshine, aragnie } from './chapter2'
 import { ferdinand, marianne, dario, renfield, evangelina } from './chapter3'
-import { lorraine, allsRight, nikke, lute, dragonKiller } from './chapter4'
+import { lorraine, allsRight, nikke, lute, dragonKiller, templeCharacters } from './chapter4'
 export default {
   chapter: [
     { name: '序章', title: '王殺しのジャック', sub: 'Jack the Kingkiller' },
-    { name: '1章', title: 'ワルコフォレンスの森', sub: 'Warcoforsubce' },
+    { name: '1章', title: 'ワルコフォレンスの森', sub: 'Warcoforence' },
     { name: '2章', title: 'トロイア公爵邸の地下通路', sub: 'Troy\'s secret passage' },
     { name: '3章', title: '聖アンテルスの墓地', sub: 'St Anterus\' catacomb' },
     { name: '4章', title: 'グリファルデ神殿', sub: 'Temple Grefalde' },
@@ -155,6 +155,7 @@ export default {
   cassandra, princess, moonshine, aragnie,
   ferdinand, marianne, dario, renfield, evangelina,
   lorraine, allsRight, nikke, lute, dragonKiller,
+  templeCharacters,
   storyTelling: [
     '王は死んだ。\n冷たく閉ざされた門扉の先に、かつての繁栄はもはや見る影もない。\n王国は偉大なる王の死とともに終わりを迎えたのだ。',
     '― 『ベリオン王国史』',
