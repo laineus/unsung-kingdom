@@ -6,133 +6,133 @@ import { APPLES_COUNT } from '../event/lute'
 
 export default {
   m0_1 (state) {
-    const base = 'エドガー王の暗殺を阻止するため、暗殺現場とされる王城の裏庭へ向かう。'
-    const first = '王城の裏庭への行き方を街の人に訪ねよう。'
-    const second = '街の外へ出て王城の裏庭へ向かおう。'
+    const base = t('missionDescription.m0_1.base')
+    const first = t('missionDescription.m0_1.first')
+    const second = t('missionDescription.m0_1.second')
     if (state.event.m0_1.completed) return base
     return state.allowed_area === 0 ? `${base}\n${first}` : `${base}\n${second}`
   },
   m1_1 (state) {
-    const base = '狩猟家マシューが連れていた5匹の仔犬が逃げ出してしまった。'
+    const base = t('missionDescription.m1_1.base')
     const found = ['d1', 'd2', 'd3', 'd4', 'd5'].filter(key => state.event.m1_1[key]).length
-    const cnt = `見つけた狩猟犬の数（${found}/5）`
+    const cnt = t('missionDescription.m1_1.cnt', { current: found })
     return state.event.m1_1.completed ? base : `${base}\n${cnt}`
   },
   m1_2 (state) {
-    const base = 'アイザムバード傭兵団の負傷兵が行方不明になっている。'
+    const base = t('missionDescription.m1_2.base')
     if (state.event.m1_2.completed) return base
-    const started = '付近を捜索しよう。'
-    const solved = '負傷兵を助けた。傭兵団のキャンプへ寄ろう'
+    const started = t('missionDescription.m1_2.started')
+    const solved = t('missionDescription.m1_2.solved')
     return state.event.m1_2.solved ? `${base}\n${solved}` : `${base}\n${started}`
   },
   m1_3 (state) {
-    const base = '薬の材料となるマンドレイクの根を集めてドリスタンに届ける。'
-    const cnt = `収集したマンドレイク（${state.event.m1_3.count}/${MANDRAKE_COUNT}）`
+    const base = t('missionDescription.m1_3.base')
+    const cnt = t('missionDescription.m1_3.cnt', { current: state.event.m1_3.count, max: MANDRAKE_COUNT })
     return state.event.m1_3.completed ? base : `${base}\n${cnt}`
   },
   m1_4 (state) {
-    const base = '凶暴なレックスベアを倒し、薬の材料となるレックスベアの血液をドリスタンに\n届ける。'
-    const bear = '森の深くに棲むレックスベアを探し出して倒そう。'
-    const solved = 'レックスベアの血液を手に入れた。ドリスタンの元へ届けよう。'
+    const base = t('missionDescription.m1_4.base')
+    const bear = t('missionDescription.m1_4.bear')
+    const solved = t('missionDescription.m1_4.solved')
     if (state.event.m1_4.completed) return base
     return `${base}\n${state.event.m1_4.solved ? solved : bear}`
   },
   m2_1 (state) {
-    const base = 'アラグニエの糸の牢獄に幽閉されたカサンドラはワインを求めている。'
-    const wip = '地下通路のどこかにあるワインを見つけよう。'
-    const cnt = `見つけたワイン（${state.event.m2_1.wine.length}/3）`
+    const base = t('missionDescription.m2_1.base')
+    const wip = t('missionDescription.m2_1.wip')
+    const cnt = t('missionDescription.m2_1.wine', { current: state.event.m2_1.wine.length })
     if (state.event.m2_1.completed) return base
     return `${base}\n${wip}\n${cnt}`
   },
   m2_2 (state) {
-    const base = 'メアリー王女と公爵令嬢ロレッタは、カサンドラへの贈り物に使うための素材と\nなる魔石を集めている。'
-    const cnt = `収集したカーバンクルの魔石（${state.event.m2_2.count}/${MAGIC_STONES}）`
+    const base = t('missionDescription.m2_2.base')
+    const cnt = t('missionDescription.m2_2.cnt', { current: state.event.m2_2.count, max: MAGIC_STONES })
     return state.event.m2_2.completed ? base : `${base}\n${cnt}`
   },
   m2_3 (state) {
-    const base = '密造酒の密売人ディオニューソスは、番犬オルトロスが眠るのを待っている。'
-    const wip = 'ディオニューソスがオルトロスを泥酔させた。オルトロスを倒そう。'
-    const solved = 'オルトロスを倒した。ディオニューソスの元へ戻ろう。'
+    const base = t('missionDescription.m2_3.base')
+    const wip = t('missionDescription.m2_3.wip')
+    const solved = t('missionDescription.m2_3.solved')
     if (state.event.m2_3.completed) return base
     return `${base}\n${state.event.m2_3.solved ? solved : wip}`
   },
   m2_4 (state) {
-    const base = 'ヘクター元騎士は、カサンドラを投獄した王への復讐を考えている。\nメアリーとロレッタと協力し、カサンドラを解放しよう。'
-    const search = '魔石のランタンを使ってアラグニエのねぐらを探そう。'
-    const solved = 'アラグニエを倒した。カサンドラの元へ戻ろう。'
+    const base = t('missionDescription.m2_4.base')
+    const search = t('missionDescription.m2_4.search')
+    const solved = t('missionDescription.m2_4.solved')
     if (state.event.m2_4.completed) return base
     if (state.event.m2_4.solved) return `${base}\n${solved}`
     if (state.event.m2_4.search) return `${base}\n${search}`
     return base
   },
   m3_1 (state) {
-    const base = '異国の貴族フェルディンドは正気を失っている。'
-    const started = '霊に呪われていると言う彼に、何か役立ちそうなものを持っていこう。'
-    const solved = '霊に呪われていると言う彼に、マリアンヌがくれたお守りを持っていこう。'
-    const completed = '彼は彼を恨む亡霊たちによって崖の底へ引きずり込まれていった。'
+    const base = t('missionDescription.m3_1.base')
+    const started = t('missionDescription.m3_1.started')
+    const solved = t('missionDescription.m3_1.solved')
+    const completed = t('missionDescription.m3_1.completed')
     if (state.event.m3_1.completed) return `${base}\n${completed}`
     if (state.event.m3_2.completed) return `${base}\n${solved}`
     return `${base}\n${started}`
   },
   m3_2 (state) {
-    const base = 'シスターはマリアンヌの墓に寄り添っている。'
-    const started = '衰弱するシスターに飲み水を持っていこう。'
-    const cnt = `収集した水の小瓶（${state.event.m3_2.count}/${WATER_COUNT}）`
+    const base = t('missionDescription.m3_2.base')
+    const started = t('missionDescription.m3_2.started')
+    const cnt = t('missionDescription.m3_2.cnt', { current: state.event.m3_2.count, max: WATER_COUNT })
     if (state.event.m3_2.completed) return base
     return `${base}\n${started}\n${cnt}`
   },
   m3_3 (state) {
-    const base = 'ネクロマンサーのダリオは、ジャックに脅され王妃の悪霊を生み出してしまった。'
-    const started = '近くにジャックがまだ潜んで居るらしい。探し出そう。'
-    const solved = 'ジャックを倒した。ジャックが落とした短剣をダリオに届けよう。'
+    const base = t('missionDescription.m3_3.base')
+    const started = t('missionDescription.m3_3.started')
+    const solved = t('missionDescription.m3_3.solved')
     if (state.event.m3_3.completed) return base
     if (state.event.m3_3.solved) return `${base}\n${solved}`
     return `${base}\n${started}`
   },
   m3_4 (state) {
-    const base = 'レイはレンフィールド家への復讐のために墓を荒らしている。'
-    const started = 'レンフィールド家の亡霊が姿を現した！'
-    const cnt = `倒したレンフィールド家の亡霊（${state.event.m3_4.ghosts.length}/5）`
+    const base = t('missionDescription.m3_4.base')
+    const started = t('missionDescription.m3_4.started')
+    const cnt = t('missionDescription.m3_4.cnt', { current: state.event.m3_4.ghosts.length })
     if (state.event.m3_4.completed) return base
     return `${base}\n${started}\n${cnt}`
   },
   m3_5 (state) {
-    const base = 'ダリオが生み出した偽物のエヴァンジェリナ妃の亡霊は王を恨んでいる。'
-    const started = '王妃の亡霊を探し出して倒そう。'
+    const base = t('missionDescription.m3_5.base')
+    const started = t('missionDescription.m3_5.started')
     return state.event.m3_5.completed ? base : `${base}\n${started}`
   },
   m4_1 (state) {
-    const base = '彫刻家のクラウスから神殿の仕掛けのことを教えてもらった。'
-    const started = '像の仕掛けを解いて2階への扉を開放しよう。'
+    const base = t('missionDescription.m4_1.base')
+    const started = t('missionDescription.m4_1.started')
     return state.event.m4_1.completed ? base : `${base}\n${started}`
   },
   m4_2 (state) {
-    const base = '神殿に暮らす竜族のズィから聖剣のことを聞いた。\n彼は聖剣を守る竜族のニッケに伝言を用意してくれるようだ。'
-    const started = '必要な材料を集めよう。'
-    const cnt = `集めたケルーネの羽根（${state.event.m4_2.count}/${KELUNNE_COUNT}）`
+    const base = t('missionDescription.m4_2.base')
+    const started = t('missionDescription.m4_2.started')
+    const cnt = t('missionDescription.m4_2.cnt', { current: state.event.m4_2.count, max: KELUNNE_COUNT })
     return state.event.m4_2.completed ? base : `${base}\n${started}\n${cnt}`
   },
   m4_3 (state) {
-    const base = '聖剣カリブルヌスは竜族のニッケが守っている。'
-    const started = 'ズィにもらった言葉の煙を使ってニッケを呼び出そう。'
-    const talked = '力を証明するためにニッケの挑戦を受けよう。'
+    const base = t('missionDescription.m4_3.base')
+    const started = t('missionDescription.m4_3.started')
+    const talked = t('missionDescription.m4_3.talked')
     if (state.event.m4_3.completed) return base
     return state.event.m4_3.talked ? `${base}\n${talked}` : `${base}\n${started}`
   },
   m4_4 (state) {
-    const base = 'リュート弾きのライラは地下への扉を開けられるらしい。'
-    const started = 'ライラのためにリンゴを集めよう。'
-    const cnt = `集めたリンゴ（${state.event.m4_4.apples.length}/${APPLES_COUNT}）`
+    const base = t('missionDescription.m4_4.base')
+    const started = t('missionDescription.m4_4.started')
+    const cnt = t('missionDescription.m4_4.cnt', { current: state.event.m4_4.apples.length, max: APPLES_COUNT })
     return state.event.m4_4.completed ? base : `${base}\n${started}\n${cnt}`
   },
   m4_5 (state) {
-    const base = '王は独りドラゴンと戦っている。'
-    const started = '最奥部へ行ってソンベルクを倒そう。'
+    const base = t('missionDescription.m4_5.base')
+    const started = t('missionDescription.m4_5.started')
     return state.event.m4_5.completed ? base : `${base}\n${started}`
   },
   m5_1 (_state) {
-    const base = '王弟エゼルバルドからの手紙には「王城の裏庭で待つ」とだけあった。'
-    const started = '王城の裏庭へ向かおう。'
+    const base = t('missionDescription.m5_1.base')
+    const started = t('missionDescription.m5_1.started')
     return `${base}\n${started}`
   }
 }
