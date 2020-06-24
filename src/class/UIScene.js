@@ -47,28 +47,6 @@ export default class UIScene extends Phaser.Scene {
     this.eventMode = false
     this.setChapterCreditFlag(false)
   }
-  setChapterCreditFlag (bool) {
-    this.chapterCreditFlag = bool
-  }
-  async chapterCredit () {
-    if (!this.chapterCreditFlag) return
-    this.setChapterCreditFlag(false)
-    await this.sleep(500)
-    const right = config.WIDTH - 120
-    const tx1 = this.add.text(40, config.HEIGHT.half - 32, 'Written by', { align: 'left', fontSize: 11, fontFamily: config.FONTS.TEXT }).setPadding(0, 2, 0, 0).setOrigin(0, 1)
-    const tx2 = this.add.text(40, config.HEIGHT.half - 30, 'Laineus', { align: 'left', fontSize: 15, fontFamily: config.FONTS.TEXT }).setPadding(0, 2, 0, 0).setOrigin(0, 0)
-    await fadeIn(this, [tx1, tx2])
-    await this.sleep(2500)
-    await fadeOut(this, [tx1, tx2])
-    await this.sleep(1000)
-    const tx3 = this.add.text(right, config.HEIGHT.half - 32, 'Illustrations by', { align: 'left', fontSize: 11, fontFamily: config.FONTS.TEXT }).setPadding(0, 2, 0, 0).setOrigin(0, 1)
-    const tx4 = this.add.text(right, config.HEIGHT.half - 30, '真符', { align: 'left', fontSize: 15, fontFamily: config.FONTS.TEXT }).setPadding(0, 2, 0, 0).setOrigin(0, 0)
-    const tx5 = this.add.text(right, config.HEIGHT.half + 30, 'Music by', { align: 'left', fontSize: 11, fontFamily: config.FONTS.TEXT }).setPadding(0, 2, 0, 0).setOrigin(0, 1)
-    const tx6 = this.add.text(right, config.HEIGHT.half + 32, 'Laineus', { align: 'left', fontSize: 15, fontFamily: config.FONTS.TEXT }).setPadding(0, 2, 0, 0).setOrigin(0, 0)
-    await fadeIn(this, [tx3, tx4, tx5, tx6])
-    await this.sleep(2500)
-    await fadeOut(this, [tx3, tx4, tx5, tx6])
-  }
   update (time, delta) {
     const sec = Math.floor(time / 1000)
     if (this.sec !== sec) {
@@ -279,11 +257,42 @@ export default class UIScene extends Phaser.Scene {
       new StoryTelling(this, [container], false).on('beforeEnd', resolve)
     })
   }
+  setChapterCreditFlag (bool) {
+    this.chapterCreditFlag = bool
+  }
+  async chapterCredit () {
+    if (!this.chapterCreditFlag) return
+    this.setChapterCreditFlag(false)
+    await this.sleep(500)
+    const right = config.WIDTH - 120
+    const tx1 = this.add.text(40, config.HEIGHT.half - 32, 'Written by', { align: 'left', fontSize: 11, fontFamily: config.FONTS.TEXT }).setPadding(0, 2, 0, 0).setOrigin(0, 1)
+    const tx2 = this.add.text(40, config.HEIGHT.half - 30, 'Laineus', { align: 'left', fontSize: 15, fontFamily: config.FONTS.TEXT }).setPadding(0, 2, 0, 0).setOrigin(0, 0)
+    await fadeIn(this, [tx1, tx2])
+    await this.sleep(2500)
+    await fadeOut(this, [tx1, tx2])
+    await this.sleep(1000)
+    const tx3 = this.add.text(right, config.HEIGHT.half - 32, 'Illustrations by', { align: 'left', fontSize: 11, fontFamily: config.FONTS.TEXT }).setPadding(0, 2, 0, 0).setOrigin(0, 1)
+    const tx4 = this.add.text(right, config.HEIGHT.half - 30, '真符', { align: 'left', fontSize: 15, fontFamily: config.FONTS.TEXT }).setPadding(0, 2, 0, 0).setOrigin(0, 0)
+    const tx5 = this.add.text(right, config.HEIGHT.half + 30, 'Music by', { align: 'left', fontSize: 11, fontFamily: config.FONTS.TEXT }).setPadding(0, 2, 0, 0).setOrigin(0, 1)
+    const tx6 = this.add.text(right, config.HEIGHT.half + 32, 'Laineus', { align: 'left', fontSize: 15, fontFamily: config.FONTS.TEXT }).setPadding(0, 2, 0, 0).setOrigin(0, 0)
+    await fadeIn(this, [tx3, tx4, tx5, tx6])
+    await this.sleep(2500)
+    await fadeOut(this, [tx3, tx4, tx5, tx6])
+  }
   credit () {
     return new Promise(resolve => {
-      const m1 = this.add.text(config.WIDTH.half, config.HEIGHT.half - 5, 'Laineus', { fill: config.COLORS.white.toColorString, fontSize: 16, fontFamily: config.FONTS.TEXT }).setOrigin(0.5, 0.5)
-      const m2 = this.add.text(config.WIDTH.half, config.HEIGHT.half - 5, '真符', { fill: config.COLORS.white.toColorString, fontSize: 16, fontFamily: config.FONTS.TEXT }).setOrigin(0.5, 0.5)
-      new StoryTelling(this, [m1, m2], false).on('beforeEnd', resolve)
+      const data = [
+        { label: 'Written by', name: 'Laineus' },
+        { label: 'Illustrations by', name: '真符' },
+        { label: 'Music by', name: 'Laineus' }
+      ]
+      const list = data.map(v => {
+        const c = this.add.container(config.WIDTH.half, config.HEIGHT.half)
+        c.add(this.add.text(0, -20, v.label, { fill: config.COLORS.white.toColorString, fontSize: 13, fontFamily: config.FONTS.TEXT }).setOrigin(0.5, 0.5))
+        c.add(this.add.text(0, 5, v.name, { fill: config.COLORS.white.toColorString, fontSize: 17, fontFamily: config.FONTS.TEXT }).setOrigin(0.5, 0.5))
+        return c
+      })
+      new StoryTelling(this, list, false).on('beforeEnd', resolve)
     })
   }
   storyTelling () {

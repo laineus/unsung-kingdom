@@ -55,7 +55,7 @@ const setBookEvent = (scene, book, chapter) => {
 
 const events = [
   async (scene) => {
-    scene.ui.sleep(1000)
+    scene.ui.sleep(2500)
     await scene.talk([
       { chara: 'ann', text: t('roomEv.0.0.0') },
       { chara: 'jaquelyn', text: t('roomEv.0.0.1') },
@@ -111,7 +111,7 @@ const events = [
   },
   async (scene) => {
     scene.player.setR('down')
-    await scene.ui.sleep(1000)
+    await scene.ui.sleep(1500)
     await scene.talk([
       { chara: 'ann', text: t('roomEv.1.0.0') },
       { chara: 'jaquelyn', text: t('roomEv.1.0.1') },
@@ -156,7 +156,7 @@ const events = [
   },
   async (scene) => {
     scene.player.setR('down')
-    await scene.ui.sleep(1000)
+    await scene.ui.sleep(1500)
     await scene.talk([
       { chara: 'ann', text: t('roomEv.2.0.0') },
       { chara: 'jaquelyn', text: t('roomEv.2.0.1') },
@@ -203,7 +203,7 @@ const events = [
   },
   async (scene) => {
     scene.player.setR('down')
-    await scene.ui.sleep(1000)
+    await scene.ui.sleep(1500)
     await scene.talk([
       { chara: 'francisca', text: t('roomEv.3.0.0') },
       { chara: 'francisca', text: t('roomEv.3.0.1') },
@@ -240,7 +240,7 @@ const events = [
   },
   async (scene) => {
     scene.player.setR('down')
-    await scene.ui.sleep(1000)
+    await scene.ui.sleep(1500)
     await scene.talk([
       { chara: 'jaquelyn', text: t('roomEv.4.0.0') },
       { chara: 'ann', text: t('roomEv.4.0.1') },
@@ -270,7 +270,7 @@ const events = [
   },
   async (scene) => {
     scene.player.setR('down')
-    await scene.ui.sleep(1000)
+    await scene.ui.sleep(1500)
     await scene.talk([
       { chara: 'ann', text: t('roomEv.5.0.0') },
       { chara: 'francisca', text: t('roomEv.5.0.1') },
