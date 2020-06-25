@@ -117,6 +117,7 @@ export default {
   ui: {
     sub: {
       menu: 'メニュー',
+      close: '閉じる',
       quests: 'マップ＆クエスト',
       characters: 'キャラクター',
       save: 'セーブ',
@@ -131,6 +132,7 @@ export default {
   unlockArea: 'マップ「#{area}」が解放された',
   gotItem: '『#{name}』を手に入れた',
   hpRecovered: 'HPが全回復した',
+  weaponDrop: '#{name} を獲得！',
   itemDrop: {
     mandrake: 'マンドレイクの根を#{num}個獲得！',
     magicStone:'カーバンクルの魔石を#{num}個獲得！',
@@ -280,6 +282,9 @@ export default {
     }
   },
   mapEvent: {
+    underpass8: {
+      candle: '燭台の火が消えてる…。'
+    },
     temple6: {
       statue: '台座に仕掛けがある！', // ann
       option: ['仕掛けを動かす', '何もしない']
@@ -295,6 +300,9 @@ export default {
         'ここから先へは十分に注意して進んでくれ。',
         '近年、出没するモンスターが増えてきて、我々も手に負えなくなってきているんだ。'
       ]
+    },
+    catacomb6: {
+      door: 'さっきもらった鍵がぴったりだ！'
     }
   }
 }

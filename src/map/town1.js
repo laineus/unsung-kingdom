@@ -27,9 +27,8 @@ export default {
     const matilda = scene.map.getObjectById(10).setDisplayName(t('chara.matilda'))
     const soldier1 = scene.map.getObjectById(18).setDisplayName(t('chara.soldier')).setVisible(false)
     const soldier2 = scene.map.getObjectById(19).setDisplayName(t('chara.soldier')).setVisible(false)
-    const maison = scene.map.getObjectById(11).setDisplayName('メイソン').destroy()
     const area1 = scene.map.getObjectById(12)
-    events[scene.storage.state.chapter](scene, { amber, elliott, max, annabelle, matilda, maison, area1, soldier1, soldier2 })
+    events[scene.storage.state.chapter](scene, { amber, elliott, max, annabelle, matilda, area1, soldier1, soldier2 })
     if (scene.storage.state.chapter === 4) scene.map.rain()
     this.greetings = [
       { chara: amber, message: t('townGreeting.amber'), met: false },

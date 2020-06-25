@@ -19,7 +19,7 @@ export default {
       fire.setTapEvent(async () => {
         scene.storage.state.gimmicks.push('unserpass8_5')
         await scene.talk([
-          { chara: 'ann', text: '燭台の火が消えてる…。' }
+          { chara: 'ann', text: t('mapEvent.underpass8.candle') }
         ])
         await scene.ui.sleep(500)
         await scene.player.setTargetPosition((28).toPixelCenter, (40).toPixelCenter)

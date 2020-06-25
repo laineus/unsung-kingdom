@@ -17,7 +17,7 @@ export default {
     } else if (state.event.m3_4.completed) {
       doorEv.setTapEvent(async () => {
         await scene.talk([
-          { chara: 'ann', text: 'さっきもらった鍵がぴったりだ！' }
+          { chara: 'ann', text: t('mapEvent.door.catacomb6') }
         ])
         this.openDoor(scene)
         doorEv.destroy()

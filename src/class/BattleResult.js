@@ -29,7 +29,7 @@ export default class BattleResult extends Phaser.GameObjects.Container {
     if (items.length) {
       const headingItems = scene.add.text(30, secondY, 'Items', { align: 'center', fill: config.COLORS.white.toColorString, fontSize: 16, fontFamily: config.FONTS.UI })
       this.add([headingItems])
-      const rows = items.map((weapon, i) => this.getRow(35, 305 + i * 20, `${weapon.name} を獲得！`))
+      const rows = items.map((weapon, i) => this.getRow(35, 305 + i * 20, t('weaponDrop', weapon.name)))
       this.add(rows)
       slideIn(this.scene, rows)
     }
