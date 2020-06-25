@@ -219,7 +219,7 @@ body.ja .changeLang[data-lang="ja"] {
   margin-bottom: 50px;
   font-size: 1.8rem;
   color: #DDD;
-  max-width: 610px;
+  max-width: 680px;
   transition: 1s;
 }
 .history .ref {
