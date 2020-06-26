@@ -1,6 +1,6 @@
 import { aragnie } from '../event/aragnie'
 export default {
-  name: 'アラグニエのねぐら',
+  name: t('areaSub.aragnie'),
   bgm: 'underpass',
   enemyLevel: 18,
   enemyGroups: [

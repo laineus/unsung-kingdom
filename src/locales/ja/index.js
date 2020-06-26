@@ -47,6 +47,7 @@ export default {
       h: '廊下',
       i: '王城への扉'
     },
+    aragnie: 'アラグニエのねぐら',
     catacomb: {
       a: '入口',
       b: '東の間',
