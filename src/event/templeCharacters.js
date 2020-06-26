@@ -84,12 +84,12 @@ export default (scene, characters) => {
   })
   dario.setTapEvent(async chara => {
     if (state.talked_dario) {
-      const t = await scene.talk([
+      const tk = await scene.talk([
         { chara, text: t('templeCharacters.dario.talk2.0') },
         null
       ])
       const i = await scene.ui.select([t('templeCharacters.dario.option.0'), t('templeCharacters.dario.option.1')])
-      t.destroy()
+      tk.destroy()
       if (i === 1) return
       scene.storage.state.battlers.forEach(v => v.hp = v.max_hp)
       scene.ui.announce(t('hpRecovered'))

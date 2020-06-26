@@ -79,7 +79,7 @@ export default class MenuStatus extends Phaser.GameObjects.Container {
       if (this.chara.battler === chara) return
       slideOut(this.scene, [this.chara, this.currentWeapon], { x: -50 })
     }
-    this.tabs.forEach(t => t.setActive(t.chara === chara))
+    this.tabs.forEach(tab => tab.setActive(tab.chara === chara))
     this.chara = this.getCharacter(chara, 210, (30).byBottom)
     this.currentWeapon = this.getCurrentWeapon(this.chara.battler.weapon, 560, 75)
     this.add([this.chara, this.currentWeapon])

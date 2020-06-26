@@ -71,9 +71,9 @@ export const mercenary1 = (scene, leader, member, member2) => {
           null
         ]
       ]
-      const t = await scene.talk(!state.talked ? messages[0].concat(messages[1]) : messages[1])
+      const tk = await scene.talk(!state.talked ? messages[0].concat(messages[1]) : messages[1])
       const i = await scene.select([t('mercenary.start.25.0'), t('mercenary.start.25.1')])
-      t.destroy()
+      tk.destroy()
       state.talked = true
       await scene.talk([{ chara, text: i === 0 ? t('mercenary.start.26.0') : t('mercenary.start.26.1') }])
       if (i === 0) scene.ui.missionUpdate('m1_2')

@@ -7,7 +7,7 @@ export const dogEventHunter = (scene, hunter) => {
     if (state.completed) {
       await scene.talk([{ chara, text: t('dog.solved.0') }])
     } else if (!state.started) {
-      const t = await scene.talk(!state.talked ? [
+      const tk = await scene.talk(!state.talked ? [
         { chara, text: t('dog.start.0') },
         { chara: 'ann', text: t('dog.start.1') },
         { chara, text: t('dog.start.2') },
@@ -34,7 +34,7 @@ export const dogEventHunter = (scene, hunter) => {
       ] : [{ chara, text: t('dog.start.21') }, null])
       const i = await scene.select([t('dog.start.22.0'), t('dog.start.22.1')])
       state.talked = true
-      t.destroy()
+      tk.destroy()
       await scene.talk([
         { chara, text: i === 0 ? t('dog.start.23.0') : t('dog.start.23.1') }
       ])

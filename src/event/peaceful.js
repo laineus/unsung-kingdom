@@ -49,7 +49,7 @@ export const peaceful = (scene, area1, area2, soldier1, soldier2, jack) => {
     await scene.ui.transition('fast')
     jack.initImage('kingbrother').setFaceKey('kingbrother3').setDisplayName(t('chara.ethel'))
     await scene.ui.sleep(500)
-    const t = await scene.talk([
+    const tk = await scene.talk([
       { chara, text: t('peaceful.talk2.0') },
       { chara: 'ann', text: t('peaceful.talk2.1') },
       { chara, text: t('peaceful.talk2.2') },
@@ -63,7 +63,7 @@ export const peaceful = (scene, area1, area2, soldier1, soldier2, jack) => {
       null
     ])
     const i = await scene.select([t('peaceful.question.0'), t('peaceful.question.1')])
-    t.destroy()
+    tk.destroy()
     await scene.talk([
       ...(i === 0 ? [{ chara, text: t('peaceful.talk3.0') }] : []),
       { chara, text: t('peaceful.talk3.1') },
