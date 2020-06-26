@@ -1,6 +1,6 @@
 import { dogEventFound } from '../event/dogEvent'
 export default {
-  name: 'ワルコフォレンスの森 - 南部',
+  name: `${t('area.forest')} - ${t('areaSub.forest.e')}`,
   bgm: 'forest',
   enemyLevel: 2,
   enemyGroups: [

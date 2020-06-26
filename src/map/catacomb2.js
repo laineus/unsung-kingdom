@@ -1,5 +1,5 @@
 export default {
-  name: '聖アンテルスの墓地 - 東の間',
+  name: `${t('area.catacomb')} - ${t('areaSub.catacomb.b')}`,
   bgm: 'catacomb',
   enemyLevel: 20,
   enemyGroups: [

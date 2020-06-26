@@ -1,6 +1,6 @@
 import { appleCollection, GOOD_APPLES } from '../event/lute'
 export default {
-  name: 'グリファルデ神殿 - 東部',
+  name: `${t('area.temple')} - ${t('areaSub.temple.e')}`,
   bgm: 'temple',
   battleBgm: 'temple',
   enemyLevel: 38,

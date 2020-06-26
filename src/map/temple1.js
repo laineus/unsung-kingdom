@@ -1,5 +1,5 @@
 export default {
-  name: 'グリファルデ神殿 - 入り口',
+  name: `${t('area.temple')} - ${t('areaSub.temple.a')}`,
   bgm: 'wind',
   enemyLevel: 32,
   enemyGroups: [

@@ -1,5 +1,5 @@
 export default {
-  name: 'トロイア公爵邸の地下通路 - 王家側通路',
+  name: `${t('area.underpass')} - ${t('areaSub.underpass.g')}`,
   bgm: 'underpass',
   enemyLevel: 16,
   enemyGroups: [

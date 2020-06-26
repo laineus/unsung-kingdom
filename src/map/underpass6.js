@@ -1,6 +1,6 @@
 import { orthrus } from '../event/moonshine'
 export default {
-  name: 'トロイア公爵邸の地下通路 - 番犬の間',
+  name: `${t('area.underpass')} - ${t('areaSub.underpass.f')}`,
   bgm: 'underpass',
   create (scene) {
     const barrel = scene.map.getImageByName('barrel')

@@ -1,6 +1,6 @@
 import { architect } from '../event/lorraine'
 export default {
-  name: 'グリファルデ神殿 - 中央部',
+  name: `${t('area.temple')} - ${t('areaSub.temple.c')}`,
   bgm: 'temple',
   battleBgm: 'temple',
   enemyLevel: 35,

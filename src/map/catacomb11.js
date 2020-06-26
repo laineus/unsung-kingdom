@@ -1,6 +1,6 @@
 import { evangelina } from '../event/evangelina'
 export default {
-  name: '聖アンテルスの墓地 - 王家の墓',
+  name: `${t('area.catacomb')} - ${t('areaSub.catacomb.g')}`,
   bgm: 'catacomb',
   enemyLevel: 29,
   enemyGroups: [

@@ -1,6 +1,6 @@
 import { jack } from '../event/aragnie'
 export default {
-  name: 'トロイア公爵邸の地下通路 - 廊下',
+  name: `${t('area.underpass')} - ${t('areaSub.underpass.h')}`,
   bgm: 'underpass',
   enemyLevel: 17,
   enemyGroups: [

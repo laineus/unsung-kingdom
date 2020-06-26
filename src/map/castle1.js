@@ -1,7 +1,7 @@
 import { jackEvent, kingEvent } from '../event/jack'
 import { peaceful } from '../event/peaceful'
 export default {
-  name: '王城 - 中庭',
+  name: t('area.castle'),
   create (scene) {
     const area1 = scene.map.getObjectById(8)
     const jack = scene.map.getObjectById(10)

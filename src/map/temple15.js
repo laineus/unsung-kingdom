@@ -1,6 +1,6 @@
 import { dragon } from '../event/dragonkiller'
 export default {
-  name: 'グリファルデ神殿 - 最深部',
+  name: `${t('area.temple')} - ${t('areaSub.temple.g')}`,
   create (scene) {
     const sonberk = scene.map.getObjectById(2)
     sonberk.image.y += 55

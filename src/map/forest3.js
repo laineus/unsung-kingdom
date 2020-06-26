@@ -1,5 +1,5 @@
 export default {
-  name: 'ワルコフォレンスの森 - 高台北',
+  name: `${t('area.forest')} - ${t('areaSub.forest.c')}`,
   bgm: 'forest',
   enemyLevel: 7,
   enemyGroups: [

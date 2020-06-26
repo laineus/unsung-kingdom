@@ -1,6 +1,6 @@
 import { ethelbald } from '../event/dragonkiller'
 export default {
-  name: 'グリファルデ神殿 - 地下',
+  name: `${t('area.temple')} - ${t('areaSub.temple.f')}`,
   enemyLevel: 42,
   enemyGroups: [
     ['thief', 'thief'],

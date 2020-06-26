@@ -1,6 +1,6 @@
 import { renfield } from '../event/renfield'
 export default {
-  name: '聖アンテルスの墓地 - 上流階級の墓',
+  name: `${t('area.catacomb')} - ${t('areaSub.catacomb.f')}`,
   bgm: 'catacomb',
   enemyLevel: 28,
   enemyGroups: [

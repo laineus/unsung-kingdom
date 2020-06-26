@@ -1,7 +1,7 @@
 import { dogEventFound } from '../event/dogEvent'
 import { mercenary1 } from '../event/mercenary'
 export default {
-  name: 'ワルコフォレンスの森 - キャンプ',
+  name: `${t('area.forest')} - ${t('areaSub.forest.f')}`,
   bgm: 'forest',
   enemyLevel: 3,
   enemyGroups: [

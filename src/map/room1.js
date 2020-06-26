@@ -1,7 +1,7 @@
 import { execChapterBeginEvents } from '../event/room'
 import storage from '../data/storage'
 export default {
-  name: '王都 - 拠点',
+  name: `${t('area.town')} - ${t('areaSub.room')}`,
   get bgm () {
     return storage.state.chapter === 4 ? 'rain' : 'town'
   },

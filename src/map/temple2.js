@@ -2,7 +2,7 @@ import { gimmick } from '../event/lorraine'
 import { DEPTH } from '../class/Field'
 import templeCharacters from '../event/templeCharacters'
 export default {
-  name: 'グリファルデ神殿 - 広場',
+  name: `${t('area.temple')} - ${t('areaSub.temple.b')}`,
   bgm: 'temple',
   battleBgm: 'temple',
   enemyLevel: 33,

@@ -1,6 +1,6 @@
 import { allsRight } from '../event/allsRight'
 export default {
-  name: 'グリファルデ神殿 - 2階',
+  name: `${t('area.temple')} - ${t('areaSub.temple.d')}`,
   bgm: 'temple',
   battleBgm: 'temple',
   enemyLevel: 37,

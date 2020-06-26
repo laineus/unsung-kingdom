@@ -1,5 +1,5 @@
 export default {
-  name: 'グリファルデ神殿 - 地下',
+  name: `${t('area.temple')} - ${t('areaSub.temple.f')}`,
   enemyLevel: 41,
   enemyGroups: [
     ['thief', 'thief'],

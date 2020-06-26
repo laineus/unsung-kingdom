@@ -14,7 +14,7 @@ const events = [
   townChapter5
 ]
 export default {
-  name: 'ベリオン王国 - 王都',
+  name: `${areaSub.bellion} - ${area.town}`,
   get bgm () {
     return storage.state.chapter === 4 ? 'rain' : 'town'
   },
