@@ -11,7 +11,7 @@ export default {
     white: 0xFFFFFF,
     gray: 0xAAAAAA,
     ghost: 0x555555,
-    dark: 0x111111,
+    dark: 0x151515,
     black: 0x000000,
     soy: 0xFFEEBB
   }
