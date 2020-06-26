@@ -55,7 +55,7 @@ const setBookEvent = (scene, book, chapter) => {
 
 const events = [
   async (scene) => {
-    scene.ui.sleep(2500)
+    await scene.ui.sleep(1500)
     await scene.talk([
       { chara: 'ann', text: t('roomEv.0.0.0') },
       { chara: 'jaquelyn', text: t('roomEv.0.0.1') },
