@@ -14,7 +14,7 @@ const events = [
   townChapter5
 ]
 export default {
-  name: `${areaSub.bellion} - ${area.town}`,
+  name: `${t('areaSub.bellion')} - ${t('area.town')}`,
   get bgm () {
     return storage.state.chapter === 4 ? 'rain' : 'town'
   },
