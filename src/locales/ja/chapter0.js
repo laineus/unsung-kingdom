@@ -1,4 +1,4 @@
-export const jack = () => [
+export const jack = [
   [ // jack.0.x
     '日が落ち始めたわね。', // jaquelyn
     'もうそろそろ現れるころかな？', // ann

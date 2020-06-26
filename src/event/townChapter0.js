@@ -36,7 +36,7 @@ export default (scene, charas) => {
     } else {
       await scene.talk([
         { chara, text: t('townChapter0.amber.13') },
-        { chara: 'ann', text: t('townChapter0.amber.15') }
+        { chara: 'ann', text: t('townChapter0.amber.14') }
       ])
     }
   })
