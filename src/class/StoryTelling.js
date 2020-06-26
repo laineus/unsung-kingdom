@@ -9,7 +9,7 @@ export default class StoryTelling extends Phaser.GameObjects.Container {
     scene.add.existing(this)
     this.bg = scene.add.rectangle(0, 0, config.WIDTH, config.HEIGHT, 0x111111).setOrigin(0, 0).setInteractive()
     this.add(this.bg)
-    messages.filter(m => typeof m !== 'string').forEach(m => m.setAlpha(0))
+    messages.filter(m => m instanceof String).forEach(m => m.setAlpha(0))
     this.tri = this.scene.add.triangle((25).byRight, (20).byBottom, -5, -3, 5, -3, 0, 4, config.COLORS.white).setAlpha(0)
     scene.add.tween({ targets: this.tri, duration: 400, loop: -1, yoyo: true, y: this.tri.y - 4 })
     this.add(this.tri)
@@ -24,7 +24,7 @@ export default class StoryTelling extends Phaser.GameObjects.Container {
     this.destroy()
   }
   async execRow (index = 0) {
-    const text = typeof this.messages[index] === 'string' ? this.scene.add.text(config.WIDTH.half, config.HEIGHT.half, this.messages[index], { align: 'center', fill: config.COLORS.white.toColorString, fontSize: 18, fontFamily: config.FONTS.TEXT }).setOrigin(0.5, 0.5) : this.messages[index]
+    const text = this.messages[index] instanceof String ? this.scene.add.text(config.WIDTH.half, config.HEIGHT.half, this.messages[index], { align: 'center', fill: config.COLORS.white.toColorString, fontSize: 18, fontFamily: config.FONTS.TEXT }).setOrigin(0.5, 0.5) : this.messages[index]
     this.add(text)
     await fadeIn(this.scene, text)
     this.waitToClick ? await this.waitClick() : await this.sleep(3000)
