@@ -113,7 +113,7 @@ export const dogEventFound = (scene, dog, key) => {
         dog.destroy()
         const remain = Object.keys(messages).count(k => state[k] === 0)
         if (remain) {
-          Math.chance(50) ? scene.jaquelyn.tweet(t('dog.dog.jaquelyn')) : scene.francisca.tweet(t('dog.dog.francisca'))
+          Math.chance(50) ? scene.jaquelyn.tweet(t('dog.dog.jaquelyn', remain)) : scene.francisca.tweet(t('dog.dog.francisca', remain))
         } else {
           scene.jaquelyn.tweet(t('dog.dog.foundAll'))
         }

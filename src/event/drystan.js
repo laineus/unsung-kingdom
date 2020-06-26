@@ -113,10 +113,10 @@ export const drystan = (scene, door, drystan) => {
       await scene.ui.sleep(1000)
       scene.ui.missionUpdate('m1_4', true)
       await scene.talk([
-        { chara: 'ann', text: t('bear.ned.0') },
-        { chara: 'jaquelyn', text: t('bear.ned.1') },
-        { chara: 'francisca', text: t('bear.ned.2') },
-        { chara: 'francisca', text: t('bear.ned.3') }
+        { chara: 'ann', text: t('bear.end.0') },
+        { chara: 'jaquelyn', text: t('bear.end.1') },
+        { chara: 'francisca', text: t('bear.end.2') },
+        { chara: 'francisca', text: t('bear.end.3') }
       ])
       await scene.ui.sleep(1000)
       scene.storage.state.chapter = 2

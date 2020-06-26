@@ -5,7 +5,7 @@ const translate = (key, values, lang) => {
   const text = key.split('.').reduce((obj, k) => obj && obj[k], locale)
   if (text === undefined) return 'Missing'
   if (!values) return text
-  if (values instanceof String) {
+  if (values instanceof String || typeof values === 'number') {
     return text.replace(new RegExp(`\\#\\{\\w+\\}`, 'g'), values)
   } else {
     return Object.keys(values).reduce((text, key) => {
