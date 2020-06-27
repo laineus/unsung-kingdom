@@ -273,15 +273,15 @@ export const moonshine = {
     'じゃあな、気をつけるんだぞ。' // dionysus
   ],
   orthrus1: [
+    'わ、このモンスター、凄く強そう！', // ann
+    'そうね、とても敵わなそう…。', // jaquelyn
+    '一旦出直して倒す方法を検討しよう。' // francisca
+  ],
+  orthrus2: [
     'こいつがオルトロスね。', // ann
     'さあみんな、行くよ！', // ann
     'なんとか倒したね。', // ann
     '密売人に報告しに行きましょう。' // jaquelyn
-  ],
-  orthrus2: [
-    'わ、このモンスター、凄く強そう！', // ann
-    'そうね、とても敵わなそう…。', // jaquelyn
-    '一旦出直して倒す方法を検討しよう。' // francisca
   ]
 }
 export const aragnie = {
