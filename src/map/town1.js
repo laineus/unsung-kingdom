@@ -48,7 +48,8 @@ export default {
         t('townBoard.1'),
         t('townBoard.2'),
         t('townBoard.3'),
-        t('townBoard.4')
+        t('townBoard.4'),
+        t('townBoard.5')
       ]
       await scene.talk([
         { chara: 'ann', text: messages[cp] }
