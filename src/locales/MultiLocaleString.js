@@ -4,7 +4,7 @@ const translate = (key, values, lang) => {
   const locale = locales[lang]
   const text = key.split('.').reduce((obj, k) => obj && obj[k], locale)
   if (text === undefined) {
-    console.error(`Translation missing: "${key}"`)
+    console.error(`Translation missing: "${key}" of "${lang}"`)
     return 'Missing'
   }
   if (!values) return text
