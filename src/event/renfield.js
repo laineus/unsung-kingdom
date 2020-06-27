@@ -46,54 +46,54 @@ export const renfield = (scene, ray, spectres) => {
       ])
     } else {
       await scene.talk([
-        { chara: 'ann', text: t('renfield.start.0') },
-        { chara, text: t('renfield.start.1') },
-        { chara, text: t('renfield.start.2') },
-        { chara: 'ann', text: t('renfield.start.3') },
-        { chara, text: t('renfield.start.4') },
-        { chara, text: t('renfield.start.5') },
-        { chara: 'ann', text: t('renfield.start.6') },
-        { chara: 'ann', text: t('renfield.start.7') },
-        { chara, text: t('renfield.start.8') },
-        { chara, text: t('renfield.start.9') },
-        { chara, text: t('renfield.start.10') },
-        { chara: 'ann', text: t('renfield.start.11') },
-        { chara: 'ann', text: t('renfield.start.12') },
-        { chara, text: t('renfield.start.13') },
-        { chara, text: t('renfield.start.14') },
-        { chara, text: t('renfield.start.15') },
-        { chara, text: t('renfield.start.16') },
-        { chara, text: t('renfield.start.17') },
-        { chara: 'ann', text: t('renfield.start.18') },
-        { chara, text: t('renfield.start.19') },
-        { chara, text: t('renfield.start.20') },
-        { chara, text: t('renfield.start.21') },
-        { chara, text: t('renfield.start.22') },
-        { chara, text: t('renfield.start.23') },
-        { chara: 'ann', text: t('renfield.start.24') }
+        { chara: 'ann', text: t('renfield.start1.0') },
+        { chara, text: t('renfield.start1.1') },
+        { chara, text: t('renfield.start1.2') },
+        { chara: 'ann', text: t('renfield.start1.3') },
+        { chara, text: t('renfield.start1.4') },
+        { chara, text: t('renfield.start1.5') },
+        { chara: 'ann', text: t('renfield.start1.6') },
+        { chara: 'ann', text: t('renfield.start1.7') },
+        { chara, text: t('renfield.start1.8') },
+        { chara, text: t('renfield.start1.9') },
+        { chara, text: t('renfield.start1.10') },
+        { chara: 'ann', text: t('renfield.start1.11') },
+        { chara: 'ann', text: t('renfield.start1.12') },
+        { chara, text: t('renfield.start1.13') },
+        { chara, text: t('renfield.start1.14') },
+        { chara, text: t('renfield.start1.15') },
+        { chara, text: t('renfield.start1.16') },
+        { chara, text: t('renfield.start1.17') },
+        { chara: 'ann', text: t('renfield.start1.18') },
+        { chara, text: t('renfield.start1.19') },
+        { chara, text: t('renfield.start1.20') },
+        { chara, text: t('renfield.start1.21') },
+        { chara, text: t('renfield.start1.22') },
+        { chara, text: t('renfield.start1.23') },
+        { chara: 'ann', text: t('renfield.start1.24') }
       ])
       await scene.camera.look(0, -150, 300, true)
       spectres.forEach(s => s.setVisible(true))
       await scene.talk([
-        { chara: 'ann', text: t('renfield.start.0') },
-        { chara: 'ann', text: t('renfield.start.1') }
+        { chara: 'ann', text: t('renfield.start2.0') },
+        { chara: 'ann', text: t('renfield.start2.1') }
       ])
       chara.setR('left')
       await scene.talk([
-        { chara, text: t('renfield.start.2') },
-        { chara, text: t('renfield.start.3') },
-        { chara: 'ann', text: t('renfield.start.4') },
-        { chara, text: t('renfield.start.5') },
-        { chara, text: t('renfield.start.6') },
-        { chara, text: t('renfield.start.7') }
+        { chara, text: t('renfield.start2.2') },
+        { chara, text: t('renfield.start2.3') },
+        { chara: 'ann', text: t('renfield.start2.4') },
+        { chara, text: t('renfield.start2.5') },
+        { chara, text: t('renfield.start2.6') },
+        { chara, text: t('renfield.start2.7') }
       ], { angle: false })
       await scene.talk([
-        { chara, text: t('renfield.start.8') },
-        { chara: 'ann', text: t('renfield.start.9') },
-        { chara: 'ann', text: t('renfield.start.10') },
-        { chara, text: t('renfield.start.11') },
-        { chara, text: t('renfield.start.12') },
-        { chara, text: t('renfield.start.13') }
+        { chara, text: t('renfield.start2.8') },
+        { chara: 'ann', text: t('renfield.start2.9') },
+        { chara: 'ann', text: t('renfield.start2.10') },
+        { chara, text: t('renfield.start2.11') },
+        { chara, text: t('renfield.start2.12') },
+        { chara, text: t('renfield.start2.13') }
       ])
       state.started = true
       scene.ui.missionUpdate('m3_4')

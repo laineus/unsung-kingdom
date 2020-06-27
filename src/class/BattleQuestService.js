@@ -36,7 +36,7 @@ const list = [
     if (event.m3_3.completed || !event.m3_3.started) return
     const result = collection(group, 'jack', 100)
     if (!result) return
-    return t('itemDrop')
+    return t('itemDrop.dagger')
   },
   // m4_2
   (group, event) => {
