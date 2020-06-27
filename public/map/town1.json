@@ -167,18 +167,6 @@
                  "y":357.727272727273
                 }, 
                 {
-                 "height":0,
-                 "id":11,
-                 "name":"hunter",
-                 "point":true,
-                 "rotation":0,
-                 "type":"chara",
-                 "visible":true,
-                 "width":0,
-                 "x":849,
-                 "y":210
-                }, 
-                {
                  "height":329,
                  "id":12,
                  "name":"",
