@@ -278,7 +278,8 @@ export default class Battle extends Phaser.GameObjects.Container {
       }
     } else {
       const blood = this.scene.add.rectangle(0, 0, config.WIDTH, config.HEIGHT, 0xFF0000).setOrigin(0, 0)
-      const gameover = this.lvLabel = this.scene.add.text(config.WIDTH.half, config.HEIGHT.half - 10, 'GAME OVER', { align: 'center', fill: config.COLORS.white.toColorString, fontSize: 26, fontFamily: config.FONTS.UI }).setOrigin(0.5, 0.5)
+      const text = 'GAME OVER'.split('').join('  ')
+      const gameover = this.lvLabel = this.scene.add.text(config.WIDTH.half, config.HEIGHT.half - 10, text, { align: 'center', fill: config.COLORS.white.toColorString, fontSize: 21, fontFamily: config.FONTS.UI }).setOrigin(0.5, 0.5)
       this.add([blood, gameover])
       fadeIn(this.scene, blood, { alpha: 0.6, duration: 1800 })
       fadeIn(this.scene, gameover, { duration: 800 })
