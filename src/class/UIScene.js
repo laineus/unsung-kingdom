@@ -221,9 +221,11 @@ export default class UIScene extends Phaser.Scene {
     const button = this.add.container(x, y).setSize(120, 50)
     button.add(this.add.rectangle(0, 0, 120, 50, config.COLORS.black).setAlpha(0))
     button.add(this.add.text(15, -8, 'MENU', { align: 'center', fontSize: 20, fontStyle: 'bold', fontFamily: config.FONTS.UI }).setPadding(0, 2, 0, 0).setOrigin(0.5, 0.5))
-    button.add(this.add.text(15, 11, t('ui.sub.menu'), { align: 'center', fontSize: 9, fontStyle: 'bold', fontFamily: config.FONTS.TEXT }).setPadding(0, 2, 0, 0).setOrigin(0.5, 0.5))
+    const sub = this.add.text(15, 11, t('ui.sub.menu'), { align: 'center', fontSize: 9, fontStyle: 'bold', fontFamily: config.FONTS.TEXT }).setPadding(0, 2, 0, 0).setOrigin(0.5, 0.5)
+    button.add(sub)
     button.add(this.add.rectangle(-35, -1, 25, 3, config.COLORS.theme).setRotation(Math.PI / 1))
     button.add(this.add.rectangle(-35, -1, 25, 3, config.COLORS.theme).setRotation(Math.PI / -2))
+    button.updateLabel = () => sub.setText(t('ui.sub.menu'))
     button.setInteractive().on('pointerdown', (pointer) => {
       if (button.x !== x || this.inBattle) return
       pointer.isDown = false
