@@ -40,7 +40,7 @@ export default {
   m2_1 (state) {
     const base = t('missionDescription.m2_1.base')
     const wip = t('missionDescription.m2_1.wip')
-    const cnt = t('missionDescription.m2_1.wine', { current: state.event.m2_1.wine.length })
+    const cnt = t('missionDescription.m2_1.cnt', { current: state.event.m2_1.wine.length })
     if (state.event.m2_1.completed) return base
     return `${base}\n${wip}\n${cnt}`
   },

@@ -21,7 +21,7 @@ export const cassandra = {
     'まだ私に何か用？', // cassandra
     'ねえあなた、暇なら私にワインを持ってきてくれない？', // cassandra
     'この国に禁酒令があるのは分かってるけど、手に入る場所を知っているの。', // cassandra
-    '取ってきてくれるのなら場所を教えるわ。' // cassandra
+    '取ってきてくれるのなら場所を教えるわ。', // cassandra
     ['いいよ', '結構です'],
     'そう…。', // cassandra
     'ワインはこの地下通路の奥にある。', // cassandra
