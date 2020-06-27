@@ -123,7 +123,7 @@ export const dario = (scene, dario) => {
         { chara, text: t('dario.unavailable.1') },
         { chara: 'ann', text: t('dario.unavailable.2') },
         { chara: 'ann', text: t('dario.unavailable.3') }
-      ])
+      ], { angle: false })
     }
   })
 }
