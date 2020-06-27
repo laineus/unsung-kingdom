@@ -118,7 +118,7 @@ export const lute = (scene, poets, goddessLight) => {
       await scene.talk([
         { chara: 'ann', text: t('lute.unavailable.0') }
       ])
-      scene.ui.sleep(700)
+      await scene.ui.sleep(700)
       await scene.talk([
         { chara: 'ann', text: t('lute.unavailable.1') }
       ])

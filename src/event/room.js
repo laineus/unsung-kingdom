@@ -283,7 +283,7 @@ const events = [
       { chara: 'ann', text: t('roomEv.5.0.8') },
       { chara: 'ann', text: t('roomEv.5.0.9') },
       { chara: 'ann', text: t('roomEv.5.0.10') },
-      { chara: 'ann', text: t('roomEv.5.0.1') },
+      { chara: 'ann', text: t('roomEv.5.0.11') },
       { chara: 'ann', text: t('roomEv.5.0.12') },
       { chara: 'ann', text: t('roomEv.5.0.13') },
       { chara: 'francisca', text: t('roomEv.5.0.14') },

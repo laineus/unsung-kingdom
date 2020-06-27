@@ -4,7 +4,7 @@ import { jack } from './chapter0'
 import { dog, mercenary, drystan, bear } from './chapter1'
 import { cassandra, princess, moonshine, aragnie } from './chapter2'
 import { ferdinand, marianne, dario, renfield, evangelina } from './chapter3'
-import { lorraine, allsRight, nikke, lute, dragonKiller, templeCharacters } from './chapter4'
+import { lorraine, allsRight, nikke, calibur, lute, dragonKiller, templeCharacters } from './chapter4'
 export default {
   langLabel: '日本語',
   chapter: [
@@ -232,7 +232,7 @@ export default {
   dog, mercenary, drystan, bear,
   cassandra, princess, moonshine, aragnie,
   ferdinand, marianne, dario, renfield, evangelina,
-  lorraine, allsRight, nikke, lute, dragonKiller,
+  lorraine, allsRight, nikke, calibur, lute, dragonKiller,
   templeCharacters,
   storyTelling: [
     '王は死んだ。\n冷たく閉ざされた門扉の先に、かつての繁栄はもはや見る影もない。\n王国は偉大なる王の死とともに終わりを迎えたのだ。',
