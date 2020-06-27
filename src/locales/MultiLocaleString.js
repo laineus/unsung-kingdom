@@ -3,7 +3,10 @@ import setting from '../data/setting'
 const translate = (key, values, lang) => {
   const locale = locales[lang]
   const text = key.split('.').reduce((obj, k) => obj && obj[k], locale)
-  if (text === undefined) return 'Missing'
+  if (text === undefined) {
+    console.error(`Translation missing: "${key}"`)
+    return 'Missing'
+  }
   if (!values) return text
   if (values instanceof String || typeof values === 'number') {
     return text.replace(new RegExp(`\\#\\{\\w+\\}`, 'g'), values)
