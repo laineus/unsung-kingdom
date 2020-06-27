@@ -29,7 +29,7 @@ export default class MenuStatus extends Phaser.GameObjects.Container {
     const addition = Object.keys(abilities).map(k => abilities[k]).reduce((x, ability, i) => {
       const icon = this.scene.add.sprite(x, 0, 'weapon_abilities').setOrigin(0, 0).setScale(0.7).setFrame(i)
       x += icon.width
-      const desc = this.scene.add.text(x, 0, ability, { align: 'right', fill: config.COLORS.gray.toColorString, fontSize: 10, fontStyle: 'bold', fontFamily: config.FONTS.UI }).setOrigin(0, 0)
+      const desc = this.scene.add.text(x, 0, ability.label, { align: 'right', fill: config.COLORS.gray.toColorString, fontSize: 10, fontStyle: 'bold', fontFamily: config.FONTS.UI }).setOrigin(0, 0)
       x += desc.width + 15
       explain.add([icon, desc])
       return x

@@ -41,7 +41,7 @@ export default class Battle extends Phaser.GameObjects.Container {
       return new PlayerBattler(this.scene, player).setPosition(x, (70).byBottom)
     }).forEach(e => this.players.add(e))
     Number(this.enemies.length).toArray().forEach(i => {
-      const box = new Button(this.scene, 80, 0, 'Attack', 120, 40)
+      const box = new Button(this.scene, 80, 0, t('ui.attack'), 120, 40)
       box.line = this.scene.add.line(-56, 0, 0, 0, 0, 0, config.COLORS.white).setOrigin(0, 0).setLineWidth(0.5).setAlpha(0.5)
       box.circle = this.scene.add.circle(0, 1, 2, config.COLORS.white).setOrigin(0.5, 0.5)
       box.add([box.line, box.circle])
@@ -200,28 +200,28 @@ export default class Battle extends Phaser.GameObjects.Container {
     if (!this.playerTurn) return
     const ability = this.currentBattler.weapon ? abilities[this.currentBattler.weapon.ability] : null
     if (!ability) return
-    switch (ability) {
-      case 'Heal': {
+    switch (ability.key) {
+      case 'heal': {
         this.players.list.forEach((player, i) => {
           if (!player.alive || player.hp === player.maxHp) return
-          this.addOptionButton('Heal', 210 + i * 310, 390, () => {
+          this.addOptionButton(ability.label, 210 + i * 310, 390, () => {
             this.currentBattler.heal(player, 34)
             this.increaseTurn()
           })
         })
         break
       }
-      case 'Multi-Heal': {
+      case 'multi-heal': {
         const players = this.players.list.filter(p => p.alive && p.hp < p.maxHp)
         if (!players.length) return
-        this.addOptionButton('Heal All', 85, 320, () => {
+        this.addOptionButton(ability.label, 85, 320, () => {
           players.forEach(p => this.currentBattler.heal(p, 20))
           this.increaseTurn()
         })
         break
       }
-      case 'Multi-Attack': {
-        this.addOptionButton('Multi Attack', 85, 220, () => {
+      case 'multi-attack': {
+        this.addOptionButton(ability.label, 85, 220, () => {
           this.multiAttack().then(this.increaseTurn.bind(this))
         })
         break

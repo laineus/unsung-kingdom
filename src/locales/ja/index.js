@@ -147,6 +147,11 @@ export default {
     18: 'カタナ',
     19: 'カリブルヌス'
   },
+  ability: {
+    1: '全体攻撃',
+    2: '回復',
+    3: '全体回復'
+  },
   battler: {
     jack: '王殺しのジャック',
     bee: 'ビーストビー',
@@ -191,6 +196,7 @@ export default {
       load: 'ロード',
       settings: '設定'
     },
+    attack: '攻撃',
     recommendedLevel: '推奨レベル',
     undefinedArea: '不明なエリア'
   },
