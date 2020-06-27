@@ -22,11 +22,11 @@ export default class MenuStatus extends Phaser.GameObjects.Container {
     this.page = this.pageMax
     this.setWeaponList(true)
     this.setCharacter(players[0])
-    this.add(this.getExplanation(525, 30))
+    this.add(this.getExplanation(750, 30))
   }
   getExplanation (x, y) {
     const explain = this.scene.add.container(x, y)
-    Object.keys(abilities).map(k => abilities[k]).reduce((x, ability, i) => {
+    const addition = Object.keys(abilities).map(k => abilities[k]).reduce((x, ability, i) => {
       const icon = this.scene.add.sprite(x, 0, 'weapon_abilities').setOrigin(0, 0).setScale(0.7).setFrame(i)
       x += icon.width
       const desc = this.scene.add.text(x, 0, ability, { align: 'right', fill: config.COLORS.gray.toColorString, fontSize: 10, fontStyle: 'bold', fontFamily: config.FONTS.UI }).setOrigin(0, 0)
@@ -34,6 +34,7 @@ export default class MenuStatus extends Phaser.GameObjects.Container {
       explain.add([icon, desc])
       return x
     }, 0)
+    explain.x -= addition
     return explain
   }
   get availableWeapons () {
