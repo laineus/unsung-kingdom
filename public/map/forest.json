@@ -14,7 +14,7 @@
  "name":"forest",
  "spacing":0,
  "tilecount":120,
- "tiledversion":"2020.01.22",
+ "tiledversion":"2020.05.07",
  "tileheight":32,
  "tiles":[
         {
@@ -230,12 +230,28 @@
          "type":"top"
         }, 
         {
+         "id":106,
+         "type":"top"
+        }, 
+        {
+         "id":107,
+         "type":"top"
+        }, 
+        {
          "id":108,
          "type":"top"
         }, 
         {
          "id":109,
          "type":"top"
+        }, 
+        {
+         "id":116,
+         "type":"collides"
+        }, 
+        {
+         "id":117,
+         "type":"collides"
         }, 
         {
          "id":118,

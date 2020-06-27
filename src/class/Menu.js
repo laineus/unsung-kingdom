@@ -19,7 +19,7 @@ export default class Menu extends Phaser.GameObjects.Container {
     scene.add.existing(this)
     this.bg = scene.add.rectangle(0, 0, config.WIDTH, config.HEIGHT, 0x886644, 0.2).setOrigin(0, 0)
     this.bg.blendMode = 1
-    this.window = scene.add.polygon(0, 0, [[0, 0], [(50).byRight, 0], [(150).byRight, (0).byBottom], [0, (0).byBottom]], config.COLORS.black, 0.7).setOrigin(0, 0)
+    this.window = scene.add.polygon(0, 0, [[0, 0], [(50).byRight, 0], [(150).byRight, (0).byBottom], [0, (0).byBottom]], config.COLORS.dark, 0.7).setOrigin(0, 0)
     this.add([this.bg, this.window])
     this.buttons = contents.map((content, i) => {
       const y = contents.slice(0, i).reduce((sum, v) => sum + (v.size * 2) + 10, 15) + content.size
