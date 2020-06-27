@@ -207,10 +207,10 @@
         {
          "name":"particles",
          "type":"color",
-         "value":"#ffff0000"
+         "value":"#ff7700ff"
         }],
  "renderorder":"right-down",
- "tiledversion":"2020.01.22",
+ "tiledversion":"2020.05.07",
  "tileheight":32,
  "tilesets":[
         {
