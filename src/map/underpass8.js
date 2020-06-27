@@ -30,7 +30,7 @@ export default {
         await scene.ui.sleep(500)
         await this.openNeedle(scene, true)
         fire.destroy()
-      })
+      }).setCheckableDistance(70)
     }
   },
   async openNeedle (scene, event) {

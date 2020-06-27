@@ -14,7 +14,7 @@
  "name":"underpass",
  "spacing":0,
  "tilecount":160,
- "tiledversion":"2020.02.26",
+ "tiledversion":"2020.05.07",
  "tileheight":32,
  "tiles":[
         {
@@ -239,11 +239,27 @@
          "type":"top"
         }, 
         {
+         "id":85,
+         "type":"collides"
+        }, 
+        {
+         "id":86,
+         "type":"collides"
+        }, 
+        {
          "id":88,
          "type":"collides"
         }, 
         {
          "id":89,
+         "type":"collides"
+        }, 
+        {
+         "id":95,
+         "type":"collides"
+        }, 
+        {
+         "id":96,
          "type":"collides"
         }, 
         {
@@ -273,6 +289,10 @@
         {
          "id":104,
          "type":"collides,top"
+        }, 
+        {
+         "id":106,
+         "type":"collides"
         }, 
         {
          "animation":[
