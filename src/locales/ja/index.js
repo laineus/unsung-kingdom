@@ -196,7 +196,10 @@ export default {
       load: 'ロード',
       settings: '設定'
     },
-    attack: '攻撃',
+    battle: {
+      attack: '攻撃',
+      counter: 'カウンター'
+    },
     recommendedLevel: '推奨レベル',
     undefinedArea: '不明なエリア'
   },

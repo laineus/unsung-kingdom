@@ -41,7 +41,7 @@ export default class Battle extends Phaser.GameObjects.Container {
       return new PlayerBattler(this.scene, player).setPosition(x, (70).byBottom)
     }).forEach(e => this.players.add(e))
     Number(this.enemies.length).toArray().forEach(i => {
-      const box = new Button(this.scene, 80, 0, t('ui.attack'), 120, 40)
+      const box = new Button(this.scene, 80, 0, t('ui.battle.attack'), 120, 40)
       box.line = this.scene.add.line(-56, 0, 0, 0, 0, 0, config.COLORS.white).setOrigin(0, 0).setLineWidth(0.5).setAlpha(0.5)
       box.circle = this.scene.add.circle(0, 1, 2, config.COLORS.white).setOrigin(0.5, 0.5)
       box.add([box.line, box.circle])
@@ -174,7 +174,7 @@ export default class Battle extends Phaser.GameObjects.Container {
     const button = this.scene.add.container(tgt.x, tgt.y - 90).setSize(140, 140)
     const bg = this.scene.add.rectangle(0, 0, 140, 140, config.COLORS.black).setRotation(Math.PI / 4).setScale(0.7).setAlpha(0.4)
     const box = this.scene.add.rectangle(0, 0, 140, 140).setFillStyle(config.COLORS.black, 0.6).setStrokeStyle(1, config.COLORS.white).setRotation(Math.PI / 4)
-    const text = this.scene.add.text(0, 0, 'COUNTER!!', { align: 'center', fontSize: 18, fontFamily: config.FONTS.UI, fill: config.COLORS.white.toColorString }).setOrigin(0.5, 0.5).setPadding(0, 2, 0, 0)
+    const text = this.scene.add.text(0, 0, t('ui.battle.counter'), { align: 'center', fontSize: 18, fontFamily: config.FONTS.UI, fill: config.COLORS.white.toColorString }).setOrigin(0.5, 0.5).setPadding(0, 2, 0, 0)
     this.scene.add.tween({ targets: bg, duration: 200, ease: 'Power2', loop: -1, scale: 1.2, alpha: 0.2 })
     button.add([bg, box, text])
     this.add(button)
