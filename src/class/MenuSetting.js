@@ -3,6 +3,7 @@ import Slider from './Slider'
 import { slideIn } from '../util/animations'
 import Radio from './Radio'
 import Button from './Button'
+import locales from '../locales/index'
 export default class MenuSetting extends Phaser.GameObjects.Container {
   constructor (scene, titleMode = false) {
     super(scene)
@@ -48,7 +49,9 @@ export default class MenuSetting extends Phaser.GameObjects.Container {
     return container
   }
   getLanguage (x, y) {
-    const langs = [{ value: 'ja', label: '日本語' }, { value: 'en', label: 'English' }]
+    const langs = Object.keys(locales).map(k => {
+      return { value: k, label: locales[k].langLabel }
+    })
     const container = this.scene.add.container(x, y)
     const title = this.scene.add.text(0, 0, 'Language :', { fill: config.COLORS.gray.toColorString, fontSize: 14, fontStyle: 'bold', fontFamily: config.FONTS.UI })
     const radio = new Radio(this.scene, 0, 40, langs.map(v => v.label))

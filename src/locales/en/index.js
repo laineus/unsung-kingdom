@@ -1,4 +1,5 @@
 export default {
+  langLabel: 'English',
   chapter: [
     { name: 'Cp0', title: 'Jack the Kingkiller', sub: '' },
     { name: 'Cp1', title: 'Warcoforsubce', sub: '' },

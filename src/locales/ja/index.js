@@ -6,6 +6,7 @@ import { cassandra, princess, moonshine, aragnie } from './chapter2'
 import { ferdinand, marianne, dario, renfield, evangelina } from './chapter3'
 import { lorraine, allsRight, nikke, lute, dragonKiller, templeCharacters } from './chapter4'
 export default {
+  langLabel: '日本語',
   chapter: [
     { name: '序章', title: '王殺しのジャック', sub: 'Jack the Kingkiller' },
     { name: '1章', title: 'ワルコフォレンスの森', sub: 'Warcoforence' },
