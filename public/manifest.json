@@ -1,0 +1,14 @@
+{
+  "name": "Unsung Kingdom",
+  "short_name": "Unsung Kingdom",
+  "icons": [
+      {
+          "src": "/img/icon.png",
+          "sizes": "144x144",
+          "type": "image/png"
+      }
+  ],
+  "start_url": "https://unsungkingdom.laineus.com/",
+  "display": "standalone",
+  "theme_color": "#111111"
+}
