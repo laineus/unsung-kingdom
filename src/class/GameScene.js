@@ -47,19 +47,17 @@ export default class GameScene extends Phaser.Scene {
     this.ui.audio.setSceneVolume(this.event.sceneVolume || 1)
     if (this.event.create) this.event.create(this)
     this.setEncountDelay(payload.encountDelay)
-    this.ui.informMapName(payload.informMapName).then(() => {
-      setTimeout(() => {
-        // auto save
-        if (payload.save) {
-          this.ui.snapshopForSaveData().then(() => {
-            this.storage.save(0)
-            this.ui.systemMessage('Saving...')
-          })
-        }
-        this.ui.showMapInfo(payload.map !== 'room1' ? this.event : null)
-        this.ui.battlerSummary.show()
-        this.ui.chapterCredit()
-      }, 150)
+    this.frameShadow = this.add.sprite(0, 0, 'frame').setOrigin(0, 0).setDepth(1000000).setScrollFactor(0)
+    this.ui.informMapName(payload.informMapName).then(async () => {
+      await this.ui.sleep(150)
+      if (payload.save) {
+        await this.ui.snapshopForSaveData()
+        this.storage.save(0)
+        this.ui.systemMessage('Saving...')
+      }
+      this.ui.showMapInfo(payload.map !== 'room1' ? this.event : null)
+      this.ui.battlerSummary.show()
+      this.ui.chapterCredit()
     })
     // debug
     if (ENV === 'development') this.setDebugAction()
@@ -83,6 +81,7 @@ export default class GameScene extends Phaser.Scene {
       if (this.map.isCollides(worldX.toTile, worldY.toTile)) return
       this.player.setTargetPosition(worldX, worldY)
     }
+    // this.frameShadow.setPosition(this.camera.scrollX, this.camera.scrollY)
   }
   get ui () {
     return this.scene.get('UI')
