@@ -17,7 +17,7 @@ export default {
     } else if (state.event.m3_4.completed) {
       doorEv.setTapEvent(async () => {
         await scene.talk([
-          { chara: 'ann', text: t('mapEvent.door.catacomb6') }
+          { chara: 'ann', text: t('mapEvent.catacomb6.door') }
         ])
         this.openDoor(scene)
         doorEv.destroy()
