@@ -4,7 +4,7 @@ import Button from './Button'
 import { slideIn, slideOut } from '../util/animations'
 const OFFSET = { x: 385, y: 260 }
 const AERA_LIST = [
-  { name: t('area.town'), x: 960, y: 545, key: 'town1', mapX: 2, mapY: 20, r: 'right', label: 'Kingdom of Bellion' },
+  { name: t('area.town'), x: 960, y: 545, key: 'town1', mapX: 2, mapY: 20, r: 'right' },
   { name: t('area.castle'), x: 1020, y: 390, key: 'castle1', mapX: 48, mapY: 37, r: 'up' },
   { name: t('area.forest'), x: 320, y: 240, key: 'forest1', mapX: 45, mapY: 17, r: 'left', label: 'Warcoforence' },
   { name: t('area.underpass'), x: 1276, y: 705, key: 'underpass1', mapX: 14, mapY: 39, r: 'up', label: 'Troy\'s secret passage' },
