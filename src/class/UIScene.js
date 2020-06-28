@@ -331,8 +331,11 @@ export default class UIScene extends Phaser.Scene {
     const filename = `ScreenShot_${moment().format('YYYYMMDD_HHmmss')}.png`
     this.game.renderer.snapshot(img => downloadBySource(img.src, filename))
   }
-  async showMapInfo (e, reload = false) {
+  clearMapInfo () {
     if (this.mapInfo) this.mapInfo.destroy()
+  }
+  async showMapInfo (e, reload = false) {
+    this.clearMapInfo()
     if (!e) return
     const mapName = e.name || t('ui.undefinedArea')
     const boxWidth = Math.max(70 + mapName.width * 6, 180)

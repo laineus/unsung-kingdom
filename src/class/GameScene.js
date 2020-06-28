@@ -48,6 +48,7 @@ export default class GameScene extends Phaser.Scene {
     if (this.event.create) this.event.create(this)
     this.setEncountDelay(payload.encountDelay)
     this.frameShadow = this.add.sprite(0, 0, 'frame').setOrigin(0, 0).setDepth(1000000).setScrollFactor(0)
+    this.ui.clearMapInfo()
     this.ui.informMapName(payload.informMapName).then(async () => {
       await this.ui.sleep(150)
       if (payload.save) {
