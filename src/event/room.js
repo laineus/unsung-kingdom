@@ -46,7 +46,7 @@ const setBookEvent = (scene, book, chapter) => {
       [
         { chara: 'ann', text: t('roomBook.5.0') },
         { chara: 'ann', text: t('roomBook.5.1') },
-        { chara: 'ann', text: t('roomBook.5.2')}
+        { chara: 'ann', text: t('roomBook.5.2') }
       ]
     ]
     await scene.talk(scripts[chapter])
@@ -67,7 +67,7 @@ const events = [
     await scene.talk([
       ...(i === 0 ? [
         { chara: 'ann', text: t('roomEv.0.2.0') },
-        { chara: 'jaquelyn', text: t('roomEv.0.2.1')}
+        { chara: 'jaquelyn', text: t('roomEv.0.2.1') }
       ] : [
         { chara: 'francisca', text: t('roomEv.0.3.0') },
         { chara: 'jaquelyn', text: t('roomEv.0.3.1') },

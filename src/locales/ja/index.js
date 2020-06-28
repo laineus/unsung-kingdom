@@ -212,7 +212,7 @@ export default {
   weaponDrop: '#{name} を獲得！',
   itemDrop: {
     mandrake: 'マンドレイクの根を#{num}個獲得！',
-    magicStone:'カーバンクルの魔石を#{num}個獲得！',
+    magicStone: 'カーバンクルの魔石を#{num}個獲得！',
     water: '水の小瓶を#{num}個獲得！',
     dagger: 'ダリオの短剣を獲得！',
     kelunne: 'ケルーネの羽を#{num}個獲得！'
@@ -229,7 +229,7 @@ export default {
   townChapter3,
   townChapter4,
   townChapter5,
-  jack, 
+  jack,
   dog, mercenary, drystan, bear,
   cassandra, princess, moonshine, aragnie,
   ferdinand, marianne, dario, renfield, evangelina,

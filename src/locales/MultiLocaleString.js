@@ -9,7 +9,7 @@ const translate = (key, values, lang) => {
   }
   if (!values) return text
   if (values instanceof String || typeof values === 'number') {
-    return text.replace(new RegExp(`\\#\\{\\w+\\}`, 'g'), values)
+    return text.replace(new RegExp('\\#\\{\\w+\\}', 'g'), values)
   } else {
     return Object.keys(values).reduce((text, key) => {
       return text.replace(new RegExp(`\\#\\{${key}\\}`, 'g'), values[key])

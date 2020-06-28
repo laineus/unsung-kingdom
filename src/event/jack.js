@@ -71,7 +71,7 @@ export const jackEvent = (scene, area, chara) => {
       { chara: 'francisca', text: t('jack.2.1') },
       { chara, text: t('jack.2.2') }
     ])
-    scene.ui.announce(t('jack.2.3') )
+    scene.ui.announce(t('jack.2.3'))
     scene.storage.state.weapons.length = 0
     scene.storage.state.battlers.forEach(v => v.weapon = null)
     await scene.ui.sleep(2000)

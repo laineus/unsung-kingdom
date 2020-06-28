@@ -43,7 +43,7 @@ export const cassandra = {
     door: ['調べる', '何もしない'],
     key: '『地下通路の鍵』を手に入れた',
     unlock: '鉄格子の鍵を開けた',
-    locked: '鍵がかかってる。',  // ann
+    locked: '鍵がかかってる。', // ann
     wine: '『ワイン』を手に入れた'
   },
   progress: [

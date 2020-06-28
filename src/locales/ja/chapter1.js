@@ -57,7 +57,7 @@ export const dog = {
     d5: 'おいで、ご主人が待ってるよ。', // jaquelyn
     jaquelyn: 'あと#{remain}匹ね',
     francisca: 'あと#{remain}匹だね',
-    foundAll: 'これで全部ね' 
+    foundAll: 'これで全部ね'
   }
 }
 export const mercenary = {

@@ -52,7 +52,7 @@ export const templeCharacters = {
       'ありがとう！' // ann
     ],
     talk2: [
-      '回復するかい？', // dario
+      '回復するかい？' // dario
     ],
     option: ['お願い', '大丈夫']
   },
