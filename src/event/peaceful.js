@@ -26,8 +26,10 @@ export const peaceful = (scene, area1, area2, soldier1, soldier2, jack) => {
     afterSawSoldiers()
   })
   area1.setEvent(async () => {
+    scene.player.tweet('！')
+    await scene.ui.sleep(400)
     await scene.camera.look(jack.x - 70, jack.y, 800)
-    await scene.ui.sleep(500)
+    await scene.ui.sleep(1000)
     await scene.ui.transition('normal')
     scene.setMembersPosition((48).toPixelCenter, (19).toPixelCenter, 'right')
     scene.francisca.setPosition((47).toPixelCenter, (18).toPixelCenter)
