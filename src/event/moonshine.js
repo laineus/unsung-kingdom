@@ -139,7 +139,7 @@ export const orthrus = (scene, boss, area, barrel) => {
   if (!state.started) barrel.destroy()
   area.setEvent(async () => {
     if (state.started) {
-      await scene.camera.look(0, -180, 1000, true)
+      await scene.camera.look(0, -140, 1000, true)
       await scene.ui.sleep(1200)
       await scene.talk([
         { chara: 'ann', text: t('moonshine.orthrus2.0') },
