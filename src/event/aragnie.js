@@ -296,6 +296,7 @@ export const aragnie = (scene, area, boss, hector, hectorInjured, scream) => {
     hectorInjured.destroy()
     return
   }
+  boss.shadow.y -= 40
   hector.setDisplayName(t('chara.hector'))
   hectorInjured.setFaceKey('hector').setDisplayName(t('chara.hector'))
   if (!state.found) {
