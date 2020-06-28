@@ -126,8 +126,7 @@ export default class UIScene extends Phaser.Scene {
     return announcement
   }
   async systemMessage (message, delay = 1000) {
-    const y = this.mapInfo && this.mapInfo.warning ? 52 : 22
-    const text = this.add.text((20).byRight, y, message, { align: 'right', fontSize: 12, fontFamily: config.FONTS.TEXT }).setPadding(0, 2, 0, 0).setOrigin(1, 0.5)
+    const text = this.add.text((20).byRight, 22, message, { align: 'right', fontSize: 12, fontFamily: config.FONTS.TEXT }).setPadding(0, 2, 0, 0).setOrigin(1, 0.5)
     await fadeIn(this, text)
     await fadeOut(this, text, { delay })
     return text
