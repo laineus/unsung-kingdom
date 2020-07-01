@@ -16,7 +16,10 @@ export default class MenuSetting extends Phaser.GameObjects.Container {
     const controlMode = this.getControlMode(220, 240)
     const lang = this.getLanguage(220, 320)
     const toTitle = this.getBackToTitle(220, 410).setVisible(!titleMode)
-    this.add([bgm, se, controlMode, lang, toTitle])
+    const restart = this.getRestart(560, 410)
+    this.updateRestartButtonVisible = () => restart.setVisible(this.scene.setting.initializedLang !== this.scene.setting.state.lang)
+    this.updateRestartButtonVisible()
+    this.add([bgm, se, controlMode, lang, toTitle, restart])
     slideIn(scene, [bgm, se, controlMode, lang, toTitle], { x: -100 })
   }
   getVolumeSetting (x, y, key, name) {
@@ -60,6 +63,7 @@ export default class MenuSetting extends Phaser.GameObjects.Container {
     radio.on('updated', index => {
       this.scene.setting.state.lang = langs[index].value
       this.scene.setting.save()
+      this.updateRestartButtonVisible()
       if (this.scene.menuButton) this.scene.menuButton.updateLabel()
     })
     return container
@@ -80,6 +84,17 @@ export default class MenuSetting extends Phaser.GameObjects.Container {
       this.emit('backToTitle')
     })
     container.add([title, confirm, underline, button])
+    return container
+  }
+  getRestart (x, y) {
+    const container = this.scene.add.container(x, y)
+    const needTo = this.scene.add.text(0, 0, 'Need to', { fill: 0xEE8811.toColorString, fontSize: 14, fontStyle: 'bold', fontFamily: config.FONTS.UI })
+    const restart = this.scene.add.text(needTo.width + 5, 0, 'Restart', { fill: 0xEE8811.toColorString, fontSize: 14, fontStyle: 'bold', fontFamily: config.FONTS.UI })
+    restart.setInteractive().on('pointerdown', () => {
+      window.location.reload()
+    })
+    const underline = this.scene.add.rectangle(needTo.width + 6, 15, restart.width, 1, 0xEE8811).setOrigin(0, 0)
+    container.add([needTo, restart, underline])
     return container
   }
 }

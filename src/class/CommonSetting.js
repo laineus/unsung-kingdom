@@ -1,6 +1,7 @@
 export default class CommonSetting {
   constructor () {
     this.state = this.getDefaultSetting()
+    this.initializedLang = this.state.lang
   }
   loadSetting () {
     window.appStorage.getItem('setting').then(settingString => {
@@ -8,6 +9,7 @@ export default class CommonSetting {
       try {
         const setting = JSON.parse(settingString)
         this.state = setting
+        this.initializedLang = setting.lang
       } catch (error) {
       }
     })
