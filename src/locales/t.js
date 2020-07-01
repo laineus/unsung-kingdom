@@ -8,7 +8,7 @@ export default (key, values) => {
     return 'Missing'
   }
   if (!values) return text
-  if (values instanceof String || typeof values === 'number') {
+  if (['string', 'number'].includes(typeof values)) {
     return text.replace(new RegExp('\\#\\{\\w+\\}', 'g'), values)
   } else {
     return Object.keys(values).reduce((text, key) => {

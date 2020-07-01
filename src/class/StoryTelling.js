@@ -9,7 +9,7 @@ export default class StoryTelling extends Phaser.GameObjects.Container {
     scene.add.existing(this)
     this.bg = scene.add.rectangle(0, 0, config.WIDTH, config.HEIGHT, 0x111111).setOrigin(0, 0).setInteractive()
     this.add(this.bg)
-    messages.filter(m => !(m instanceof String)).forEach(m => m.setAlpha(0))
+    messages.filter(m => typeof m !== 'string').forEach(m => m.setAlpha(0))
     this.tri = this.scene.add.triangle((25).byRight, (20).byBottom, -5, -3, 5, -3, 0, 4, config.COLORS.white).setAlpha(0)
     scene.add.tween({ targets: this.tri, duration: 400, loop: -1, yoyo: true, y: this.tri.y - 4 })
     this.add(this.tri)
