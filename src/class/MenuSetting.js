@@ -60,7 +60,7 @@ export default class MenuSetting extends Phaser.GameObjects.Container {
     radio.on('updated', index => {
       this.scene.setting.state.lang = langs[index].value
       this.scene.setting.save()
-      this.scene.menuButton.updateLabel()
+      if (this.scene.menuButton) this.scene.menuButton.updateLabel()
     })
     return container
   }
