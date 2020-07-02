@@ -42,7 +42,7 @@ export default class MenuSetting extends Phaser.GameObjects.Container {
   getControlMode (x, y) {
     const container = this.scene.add.container(x, y)
     const title = this.scene.add.text(0, 0, 'UI Type :', { fill: config.COLORS.gray.toColorString, fontSize: 14, fontStyle: 'bold', fontFamily: config.FONTS.UI })
-    const radio = new Radio(this.scene, 0, 40, ['Auto Detection', 'Click to Walk', 'Virtual Stick'])
+    const radio = new Radio(this.scene, 0, 40, [t('ui.setting.autoDetection'), t('ui.setting.clickToAction'), t('ui.setting.virtualStick')])
     container.add([title, radio])
     radio.setValue(this.scene.setting.state.controller)
     radio.on('updated', index => {

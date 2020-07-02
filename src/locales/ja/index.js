@@ -197,6 +197,11 @@ export default {
       load: 'ロード',
       settings: '設定'
     },
+    setting: {
+      autoDetection: '自動判定',
+      clickToAction: 'タップで行動',
+      virtualStick: '仮想ゲームパッド'
+    },
     battle: {
       attack: '攻撃',
       counter: 'カウンター'
