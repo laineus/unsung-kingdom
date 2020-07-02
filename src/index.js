@@ -8,7 +8,6 @@ import ArchiveManager from './class/ArchiveManager'
 import AppStorage from './class/AppStorage'
 import config from './data/config'
 import storage from './data/storage'
-import setting from './data/setting'
 
 location.query = location.search.substr(1).split('&').filter(Boolean).reduce((obj, v) => {
   const arr = v.split('=')
@@ -36,7 +35,6 @@ if (typeof greenworks !== 'undefined') {
   }
 }
 storage.loadSetting()
-setting.loadSetting()
 
 const option = {
   type: Phaser.AUTO,
