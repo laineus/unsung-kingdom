@@ -36,4 +36,4 @@ You should declare that which files you will translate in issue to avoid duplica
 # Licence
 
 This source code is able to use in MIT Licence.
-Assets such as graphics and sounds are not allowed to use.
+Assets such as graphics, sounds and scenarios are not allowed to use.
