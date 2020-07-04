@@ -8,6 +8,7 @@ Unsung Kingdom is an RPG made of JavaScript.
 
 - [WebSite](https://unsungkingdom.laineus.com/)
 - [Steam](https://store.steampowered.com/app/1344790/Unsung_Kingdom/)
+- [GooglePlay](https://unsungkingdom.laineus.com/)
 
 # Build
 
