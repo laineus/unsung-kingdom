@@ -8,7 +8,7 @@
           "type": "image/png"
       }
   ],
-  "start_url": "https://unsungkingdom.laineus.com/",
+  "start_url": "https://unsungkingdom.laineus.com/app.html",
   "display": "standalone",
   "theme_color": "#111111"
 }
