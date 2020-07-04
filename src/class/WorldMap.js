@@ -56,6 +56,7 @@ export default class WorldMap extends Phaser.GameObjects.Container {
     this.add(this.button)
   }
   onOk () {
+    this.map.removeInteractive()
     if (this.scene.storage.state.map === this.selected.key) return this.onCancel()
     const payload = { r: this.selected.r, informMapName: this.selected.label }
     this.scene.gameScene.mapChange(this.selected.key, this.selected.mapX.toPixelCenter, this.selected.mapY.toPixelCenter, payload).then(() => {
@@ -63,6 +64,7 @@ export default class WorldMap extends Phaser.GameObjects.Container {
     })
   }
   onCancel () {
+    this.map.removeInteractive()
     this.scene.transition('normal').then(() => {
       this.destroy()
     })
