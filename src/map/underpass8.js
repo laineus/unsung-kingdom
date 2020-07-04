@@ -40,7 +40,7 @@ export default {
     if (event) await scene.ui.sleep(500)
     if (event) await scene.camera.look((11).toPixelCenter, (26).toPixelCenter, 1000)
     if (event) await scene.ui.sleep(100)
-    const yList = [23, 24, 25, 26, 27, 28]
+    const yList = [23, 24, 25, 26, 27, 28, 29]
     yList.forEach(y => {
       layer4.layer.data[y][11].index = 79
       layer4.layer.data[y][11].setCollision(false)
