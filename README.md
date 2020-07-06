@@ -24,6 +24,14 @@ $ yarn install
 $ yarn run dev
 ```
 
+# Debug Tips
+
+You can click `M` key to activate debug features.
+It is only works when `development` mode.
+Also it doesn't works on Title screen.
+
+One of them can load SampleSaveData (`/sample_save_data/*`).
+
 # Contribute to translation
 
 1. Make an issue and branch (if not yet opened for the language)
