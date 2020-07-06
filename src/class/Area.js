@@ -1,3 +1,4 @@
+const FRAMES_FOR_NEW_ENTER = 4
 export default class Area extends Phaser.GameObjects.Zone {
   constructor (scene, zoneX, zoneY, zoneWidth, zoneHeight) {
     super(scene, zoneX, zoneY, zoneWidth, zoneHeight)
@@ -5,7 +6,7 @@ export default class Area extends Phaser.GameObjects.Zone {
     this.lastEnteredFrame = 0
     scene.physics.world.enable(this)
     scene.physics.add.overlap(this, scene.player, () => {
-      const newEntered = this.lastEnteredFrame < (scene.frame - 2)
+      const newEntered = this.lastEnteredFrame < (scene.frame - FRAMES_FOR_NEW_ENTER)
       this.lastEnteredFrame = scene.frame
       if (!newEntered) return
       if (this.event && this.active) {
