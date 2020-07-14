@@ -15,7 +15,7 @@ Unsung Kingdom is an RPG made of JavaScript.
 ```
 # prod
 $ yarn install
-$ yarn rub build
+$ yarn run build
 ```
 
 ```
