@@ -65,10 +65,12 @@ export default class TitleScene extends Phaser.Scene {
     fadeIn(this, bgBlur)
     const dark = this.add.rectangle(0, 0, config.WIDTH, config.HEIGHT, config.COLORS.black).setOrigin(0, 0).setAlpha(0.5)
     this.subLogo = this.add.sprite(25, 25, 'logo').setOrigin(0, 0).setScale(0.5, 0.5)
+    this.version = this.add.text((10).byRight, (10).byBottom, `Version: ${APP_VERSION}`, { fontSize: 11, fontFamily: config.FONTS.TEXT, fill: config.COLORS.gray.toColorString }).setOrigin(1, 1)
     const close = () => {
       fadeOut(this, bgBlur)
       this.list.forEach(v => v.destroy())
       this.subLogo.destroy()
+      this.version.destroy()
       dark.destroy()
     }
     this.list = [
@@ -99,6 +101,7 @@ export default class TitleScene extends Phaser.Scene {
   }
   subContent (content) {
     this.subLogo.setVisible(false)
+    this.version.setVisible(false)
     this.list.forEach(v => v.setVisible(false))
     const window = this.add.polygon(0, 0, [[0, 0], [(50).byRight, 0], [(150).byRight, (0).byBottom], [0, (0).byBottom]], config.COLORS.black, 0.7).setOrigin(0, 0)
     this.add.existing(window)
@@ -108,6 +111,7 @@ export default class TitleScene extends Phaser.Scene {
       slideOut(this, [close], { x: 100 })
       slideOut(this, [content, window], { x: -100 })
       this.subLogo.setVisible(true)
+      this.version.setVisible(true)
       this.list.forEach(v => v.setVisible(true))
     })
     this.add.existing(close)

@@ -3,6 +3,7 @@
 const webpack = require('webpack')
 const path = require('path')
 const WriteFilePlugin = require('write-file-webpack-plugin')
+const packageJson = require('./package.json')
 const TileSetPlugin = require('./build/TileSetPlugin')
 const AssetPlugin = require('./build/AssetPlugin')
 const CharaSpritePlugin = require('./build/CharaSpritePlugin')
@@ -39,6 +40,7 @@ module.exports = (_env, argv) => ({
   plugins: [
     new WriteFilePlugin(),
     new webpack.DefinePlugin({
+      'APP_VERSION': JSON.stringify(packageJson.version),
       'ENV': JSON.stringify(argv.mode),
       'typeof CANVAS_RENDERER': JSON.stringify(true),
       'typeof WEBGL_RENDERER': JSON.stringify(true)
