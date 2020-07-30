@@ -1,4 +1,4 @@
-const FRAMES_FOR_NEW_ENTER = 4
+const FRAMES_FOR_NEW_ENTER = 10
 export default class Area extends Phaser.GameObjects.Zone {
   constructor (scene, zoneX, zoneY, zoneWidth, zoneHeight) {
     super(scene, zoneX, zoneY, zoneWidth, zoneHeight)
