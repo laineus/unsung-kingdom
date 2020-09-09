@@ -1,4 +1,4 @@
-import assets from 'assets'
+import assets from '../data/assets'
 export default scene => {
   assets.spritesheet.forEach(args => {
     const key = args[0].split('/').slice(-1)[0]
