@@ -3,8 +3,8 @@
 const webpack = require('webpack')
 const path = require('path')
 const WriteFilePlugin = require('write-file-webpack-plugin')
+const TileExtrudeWebpackPlugin = require('tile-extrude-webpack-plugin')
 const packageJson = require('./package.json')
-const TileSetPlugin = require('./build/TileSetPlugin')
 const AssetPlugin = require('./build/AssetPlugin')
 const CharaSpritePlugin = require('./build/CharaSpritePlugin')
 
@@ -45,7 +45,7 @@ module.exports = (_env, argv) => ({
       'typeof CANVAS_RENDERER': JSON.stringify(true),
       'typeof WEBGL_RENDERER': JSON.stringify(true)
     }),
-    new TileSetPlugin(),
+    new TileExtrudeWebpackPlugin({ size: 32, input: './public/img/tilesets/original', output: './public/img/tilesets/extruded' }),
     new AssetPlugin(),
     new CharaSpritePlugin(),
     new webpack.ProvidePlugin({
