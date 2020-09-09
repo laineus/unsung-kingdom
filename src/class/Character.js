@@ -143,7 +143,7 @@ export default class Character extends Substance {
     }
   }
   get frameLength () {
-    return assets.spritesheet.find(v => v[0] === this.spriteKey)[2].endFrame
+    return assets.spritesheet.find(v => v[0] === this.spriteKey)[2].endFrame + 1
   }
   get _waitAnimName () {
     return `${this.key}_waiting`

@@ -5705,10 +5705,10 @@ performance-now@^2.1.0:
   resolved "https://registry.yarnpkg.com/performance-now/-/performance-now-2.1.0.tgz#6309f4e0e5fa913ec1c69307ae364b4b377c9e7b"
   integrity sha1-Ywn04OX6kT7BxpMHrjZLSzd8nns=
 
-phaser-assets-webpack-plugin@^1.0.7:
-  version "1.0.7"
-  resolved "https://registry.yarnpkg.com/phaser-assets-webpack-plugin/-/phaser-assets-webpack-plugin-1.0.7.tgz#a0380e3144d6ef4ac4a80d17096fddd91eefee45"
-  integrity sha512-XjIH2+BX38iP9gTHIBv3VRS6YZjj6aDK+ckFA1QSC6pKwtz0pwsMYajdywUfBfGt1ZNBoNN79CGz4glksWSq+A==
+phaser-assets-webpack-plugin@^1.0.9:
+  version "1.0.9"
+  resolved "https://registry.yarnpkg.com/phaser-assets-webpack-plugin/-/phaser-assets-webpack-plugin-1.0.9.tgz#503207272826c9cbec9055cea9fefc56e301f7ad"
+  integrity sha512-RrhzpPz5bBD8XQdwPWMPDx+qKV1t6OsRE+5Fpeot73SWfsHZ8/waRRJmcfpFLaJ5nbhFVmwShxcXS+xrfEH3XQ==
   dependencies:
     image-size "^0.9.1"
 
