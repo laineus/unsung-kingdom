@@ -4,10 +4,13 @@ const webpack = require('webpack')
 const path = require('path')
 const WriteFilePlugin = require('write-file-webpack-plugin')
 const TileExtrudeWebpackPlugin = require('tile-extrude-webpack-plugin')
+const PhaserAssetsWebpackPlugin = require('phaser-assets-webpack-plugin')
 const packageJson = require('./package.json')
-const AssetPlugin = require('./build/AssetPlugin')
-const CharaSpritePlugin = require('./build/CharaSpritePlugin')
-
+const replaceToExtrudedTiles = list => {
+  list.forEach(v => {
+    v[1] = v[1].replace('tilesets/original', 'tilesets/extruded')
+  })
+}
 module.exports = (_env, argv) => ({
   entry: {
     app: './src/index.js',
@@ -46,8 +49,20 @@ module.exports = (_env, argv) => ({
       'typeof WEBGL_RENDERER': JSON.stringify(true)
     }),
     new TileExtrudeWebpackPlugin({ size: 32, input: './public/img/tilesets/original', output: './public/img/tilesets/extruded' }),
-    new AssetPlugin(),
-    new CharaSpritePlugin(),
+    new PhaserAssetsWebpackPlugin([
+      { type: 'image', prefix: '', dir: '/img', rule: /^\w+\.png$/ },
+      { type: 'image', prefix: 'map_image/', dir: '/img/map_images', rule: /^\w+\.png$/ },
+      { type: 'image', prefix: 'chara_sprite/', dir: '/img/chara_sprites', rule: /^\w+\.png$/ },
+      { type: 'image', prefix: 'face/', dir: '/img/faces', rule: /^\w+\.png$/ },
+      { type: 'image', prefix: 'enemy/', dir: '/img/enemies', rule: /^\w+\.png$/ },
+      { type: 'image', prefix: 'icon/', dir: '/img/icons', rule: /^\w+\.png$/ },
+      { type: 'image', prefix: 'tileset/', dir: '/img/tilesets/original', rule: /^\w+\.png$/, callback: replaceToExtrudedTiles },
+      { type: 'image', prefix: 'tileset/', dir: '/img/tilesets/image', rule: /^\w+\.png$/ },
+      { type: 'audio', prefix: 'se/', dir: '/audio/se', rule: /^\w+\.wav$/ },
+      { type: 'audio', prefix: 'bgm/', dir: '/audio/bgm', rule: /^\w+\.(m4a|ogg)$/ },
+      { type: 'json', prefix: '', dir: '/map', rule: /^\w+\D\.json$/ },
+      { type: 'tilemapTiledJSON', prefix: '', dir: '/map', rule: /^\w+\d+\.json$/ }
+    ], { useAbsoluteUrl: false }),
     new webpack.ProvidePlugin({
       t: [path.resolve(__dirname, 'src/locales/t'), 'default']
     })

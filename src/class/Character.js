@@ -1,6 +1,6 @@
 import Substance from './Substance'
 import TweetBubble from './TweetBubble'
-import assets from '../data/assets'
+import assets from 'assets'
 const angleData = {
   down: { frame: 1, r: Math.PI / 2 },
   left: { frame: 4, r: Math.PI },
