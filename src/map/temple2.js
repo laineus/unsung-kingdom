@@ -33,7 +33,7 @@ export default {
     const lights = Number(4).toArray().map(i => {
       const x = (i % 2) * 48
       const y = Math.floor(i / 2) * 33
-      return scene.add.sprite(x, y, 'tileset/door_gimmick_light').setOrigin(0, 0).setFrame(i + 4)
+      return scene.add.sprite(x, y, 'tileset/door_gimmick_light').setOrigin(0, 0).setFrame(i)
     })
     scene.add.tween({ targets: lights, duration: 500, alpha: 0.5, yoyo: true, loop: -1 })
     doorContainer.add([...doors, ...lights])
