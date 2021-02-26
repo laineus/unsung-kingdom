@@ -1,3 +1,11 @@
+import { roomBook, roomEv } from './room'
+import { townGreeting, townGreeting4, townBoard, townCommon, townChapter0, townChapter1, townChapter2, townChapter3, townChapter4, townChapter5 } from './town'
+import { jack } from './chapter0'
+import { dog, mercenary, drystan, bear } from './chapter1'
+import { cassandra, princess, moonshine, aragnie } from './chapter2'
+// import { ferdinand, marianne, dario, renfield, evangelina } from './chapter3'
+// import { lorraine, allsRight, nikke, calibur, lute, dragonKiller, templeCharacters } from './chapter4'
+// import { peaceful } from './chapter5'
 export default {
   langLabel: "English",
   chapter: [
@@ -250,19 +258,19 @@ export default {
   princess,
   moonshine,
   aragnie,
-  ferdinand,
-  marianne,
-  dario,
-  renfield,
-  evangelina,
-  lorraine,
-  allsRight,
-  nikke,
-  calibur,
-  lute,
-  dragonKiller,
-  peaceful,
-  templeCharacters,
+  // ferdinand,
+  // marianne,
+  // dario,
+  // renfield,
+  // evangelina,
+  // lorraine,
+  // allsRight,
+  // nikke,
+  // calibur,
+  // lute,
+  // dragonKiller,
+  // peaceful,
+  // templeCharacters,
   storyTelling: [
     "The king is dead.\nThe gates of the castle are barred, the glory beyond unseen.\nWith the death of the Great King the Kingdom abruptly fell.",
     "After a thousand years the kingdom was forgotten to the world, it's name long lost.\nBut the descendants of Verion never left the land where King Edgar sleeps peacefully.",
