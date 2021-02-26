@@ -1,15 +1,15 @@
 export const roomBook = [
   [
-    "According to the history of the Kingdom of Verion, the king was killed by an assassin ...",
+    "According to the history of the Kingdom of Verion, the king was killed by an assassin...",
     "Let's hurry to the royal gardens!",
   ],
   [
-    `"The king died of a sudden illness`,
-    "I suppose the king wasn't that young.",
+    `"The king died of a sudden illness."`,
+    "I suppose the king wasn't all that young.",
   ],
   [
-    `Betrayed and killed by one of his own knights.`,
-    "Is it related to Jack the Kingkiller?",
+    `"Betrayed and killed by one of his own knights."`,
+    "Could this knight be Jack the Kingkiller?",
   ],
   [
     `"The king is said to have been cursed by the ghost of the queen."`,
@@ -32,14 +32,14 @@ export const roomEv = [
     [
       // 0.0.x
       "Thank you again, everyone!", // ann
-      "It's nice to meet you, Ann", // jaquelyn
+      "Of course, Ann", // jaquelyn
       "Ann is leading?  I'm worried.", // francisca
       "Do you truly understand what purpose we came here for?", // francisca
       "Of course!", // ann
     ],
     [
       // 0.1.x
-      "To prevent the king's assassination",
+      "To save the king",
       "Tourism",
     ],
     [
@@ -50,7 +50,7 @@ export const roomEv = [
     [
       // 0.3.x
       "Ha...", // francisca
-      "That's not right, Ann。", // jaquelyn
+      "That's not right, Ann.", // jaquelyn
       "Our purpose is to prevent King Edgar from being assassinated.", // jaquelyn
       "I'm joking！", // ann
       "As if I could forget！", // ann
@@ -66,18 +66,18 @@ export const roomEv = [
       "Posing as travelers, we shall stop the assassination.", // francisca
       "No problem.", // jaquelyn
       "Let's leave as soon as we're ready.", // jaquelyn
-      "Perfect, let's geat ready quickly!", // ann
+      "Perfect, let's get ready!", // ann
       "Ann, we must leave behind the revolvers.", // jaquelyn
       "Appropriate weapons for everyone have been procured.", // jaquelyn
       "A sword from this era!  You plan to fight with this?", // ann
       "We have no choice, guns are prohibited.", // francisca
       "Of course.", // ann
-      "Also, you are properly maintaining the time crystal?", // francisca
+      "Also, you are keeping the time crystal safe?", // francisca
       "Absolutely!", // ann
-      "If something were to happen to it, we can never return to the future.", // francisca
+      "If something were to happen to it, we can never return to our time.", // francisca
       "Perhaps you should give it to Jaquelyn.", // francisca
       "Ann wants to hold it.", // jaquelyn
-      "Indeed…。", // francisca
+      "I know...", // francisca
       "If Ann loses it, I'll find her ancestral home and burn it down.", // francisca
       "Awful!", // ann
       "Ann will protect it.", // jaquelyn
@@ -101,16 +101,16 @@ export const roomEv = [
       "Hey everyone, look at this!", // ann
       "What's wrong?", // jaquelyn
       "The history of the Kingdom of Verion. Did we manage to change history?", // francisca
-      "If the past changes, the content of the book should change.", // jaquelyn
+      "If the past changes, the content of the book must change too.", // jaquelyn
       "That's right, but this ...", // ann
       "Oh no,", // francisca
       `"The king died of a sudden illness."`, // francisca
-      "A sudden illness ...", // jaquelyn
+      "A sudden illness...", // jaquelyn
       "That's less tragic than assassination, is our heritage still so sad?", // ann
       "I'm afraid so.", // francisca
       "The time of his death hardly changed.", // francisca
       "The history that follows remains dark.", // jaquelyn
-      "What should we do…", // ann
+      "What should we do...", // ann
       "Don't get depressed, Anne.", // jaquelyn
       "Yeah,", // ann
       "Anyway, let's investigate this matter too!", // ann
@@ -121,10 +121,10 @@ export const roomEv = [
       "I still have no clue who he is.", // ann
       "We couldn't beat him, and it's possible that he still managed to kill the king.", // francisca
       "No way...!", // ann
-      "He ... was really strong.", // jaquelyn
+      "He... was really strong.", // jaquelyn
       "Yeah, but,", // ann
-      "We will be stronger the next time we meet him!", // ann
-      "That's right.", // jaquelyn
+      "We will be stronger the next time we meet!", // ann
+      "Well said.", // jaquelyn
     ],
   ],
   [
@@ -144,10 +144,10 @@ export const roomEv = [
       "Hmm...", // ann
       "Maybe there's a reason that the king has to die.", // ann
       "I don't know if it's fate, or something more specific.", // ann
-      "I figure out I need to solve this mystery.", // ann
-      "How?", // francisca
+      "If we want to find out we must solve this mystery.", // ann
+      "But how?", // francisca
       "Investigate the next cause and help the king!", // ann
-      "I don't think what we're doing it useless.", // ann
+      "I don't think what we're doing is useless.", // ann
       "I've learned a lot the past few days.", // ann
       "Sure, I want more information too.", // francisca
       "We don't really have a choice anyways.", // jaquelyn
@@ -163,13 +163,13 @@ export const roomEv = [
       "What should we do first?", // jaquelyn
       "Let's find the secret passage.", // ann
       "A secret passage.  Maybe it's used in case of a siege.", // francisca
-      "It is mentioned in the book?", // jaquelyn
-      "Ym,", // ann
+      "Is it mentioned in the book?", // jaquelyn
+      "Um,", // ann
       "Yeah, here it is!", // ann
-      "It seem the basement of the castle has a tunnel leading to the territory of a nobleman known as the Duke of Troias.", // ann
+      "It seems the basement of the castle has a tunnel leading to the territory of a nobleman known as the Duke of Troias.", // ann
       "I'm happy to look for this tunnel,", // francisca
       "but we can't exactly just wander around the castle...", // francisca
-      "Then let's find where it is in the Duke of Troias' territory!", // ann
+      "Then let's find where it is in the Duke of Troias's territory!", // ann
       "Let's go!", // ann
     ],
   ],

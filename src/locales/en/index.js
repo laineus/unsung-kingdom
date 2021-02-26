@@ -3,16 +3,16 @@ export default {
   chapter: [
     { name: "Cp0", title: "Jack the Kingkiller", sub: "" },
     { name: "Cp1", title: "Warcoforsubce", sub: "" },
-    { name: "Cp2", title: "Troias' Secret Passage", sub: "" },
-    { name: "Cp3", title: "St Anterus' Catacombs", sub: "" },
-    { name: "Cp4", title: "Temple Grefalde", sub: "" },
+    { name: "Cp2", title: "Troias's Secret Passage", sub: "" },
+    { name: "Cp3", title: "Catacombs of St Anterus", sub: "" },
+    { name: "Cp4", title: "Temple of Grefalde", sub: "" },
     { name: "Ep", title: "Edgar the Peaceful", sub: "" },
   ],
   area: {
     town: "Royal Capital",
     castle: "Royal Gardens",
     forest: "Walcoforence Forest",
-    underpass: "The Duke of Troias' Underground Passage",
+    underpass: "The Duke of Troias's Underground Passage",
     catacomb: "Cemetery of St. Anterus",
     temple: "Temple of Grefalde",
   },
@@ -75,7 +75,7 @@ export default {
       title: "メアリー王女と公爵令嬢ロレッタ",
       sub: "Princess Mary and Loretta",
     },
-    m2_3: { title: "ディオニューソスの密造酒", sub: "Dionysus' Moonshine" },
+    m2_3: { title: "ディオニューソスの密造酒", sub: "Dionysus's Moonshine" },
     m2_4: { title: "アラグニエのねぐら", sub: "Aragnie's lair" },
     m3_1: { title: "呪われしフェルディナンド卿", sub: "Cursed Lord Ferdinand" },
     m3_2: {
@@ -163,7 +163,7 @@ export default {
   battler: {
     jack: "Jack",
     bee: "Bee",
-    bee2: "Bee",
+    bee2: "Killer Bee",
     slime: "Slime",
     mandrake: "Mandrake",
     wolf: "Wolf",
@@ -264,10 +264,10 @@ export default {
   peaceful,
   templeCharacters,
   storyTelling: [
-    "The king is dead.\nThe gates of the castle are barred, the glory beyond unseen for generations.\nWith the death of the Great King the Kingdom abruptly fell.",
+    "The king is dead.\nThe gates of the castle are barred, the glory beyond unseen for generations.\nFollowing the death of the Great King, the Kingdom abruptly fell.",
     "After a thousand years the kingdom was forgotten to the world, it's name long lost.\nBut the descendants of Verion never left the land where King Edgar sleeps peacefully.",
     "At some point, magicians who lamented the death of the good king discovered a way to alter time.",
-    "It was unnatural to defy the laws of time, but for the good king they were willing to rewrite history.",
+    "It was unnatural to defy the laws of nature, but for the good king they were willing to rewrite history.",
   ],
   missionDescription: {
     m0_1: {

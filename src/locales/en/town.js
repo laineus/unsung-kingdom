@@ -9,9 +9,9 @@ export const townGreeting4 = {
   matilda: "So scary...",
 };
 export const townBoard = [
-  "Information about the city is posted here.",
+  "Local news is posted here.",
   `The ferocious monster "Rex Bear" is wreaking havoc in the forest.  A reward for subduing it is posted.`,
-  "There's a post regarding the penalities of prohibition.", // prohibition?
+  "There's a post regarding the prohibition law, and the penalities for selling alcohol.", // prohibition?
   "There's a post about the fire in the Renfield family's mansion.",
   "There's a post about the dragon's awakening, and forming a team to subdue it.",
   "There's a post about King's Edgar's defeating the dragon.",
@@ -87,8 +87,8 @@ export const townCommon = {
       "Oh, right.  This must look suspicious.", // matilda
       "I'm watching Annabelle at the inn.", // matilda
       "I'm doing nothing wrong.", // matilda
-      "Are you a bad child?", // ann
-      "No.  I'm a very good girl.", // matilda
+      "You do look very suspicious.", // ann
+      "I promise I'm not.  I'm a good girl.", // matilda
       "We used to play together a lot...", // matilda
       "Why not anymore?", // ann
       "Apparently I look suspicious lately.", // matilda
@@ -162,11 +162,11 @@ export const townCommon = {
       "That's how I came up with a great idea.", // elliott
       "First, I find one of those talented individuals who wants to become a mercenary.", // elliott
       "And I lend him good, sturdy, equipment.", // elliott
-      "So he has everything he needs to make good money.", // elliott
+      "So he has everything he needs to earn a good wage.", // elliott
       "After a few jobs, he can pay me back, and then some.", // elliott
       "It's a great idea right?", // elliott
-      "I see.", // ann
-      "But even if start this business, I don't have money to buy the equipment to loan out.", // elliott
+      "It's an interesting idea.", // ann
+      "But even if I started this business, I don't have enough to buy the equipment to loan out.", // elliott
       "So how about you lend me some money first?", // elliott
       "I'll give you some of the money I make from this.", // elliott
       ["Alright", "No"],
@@ -176,13 +176,13 @@ export const townCommon = {
     ],
     [
       // townCommon.elliott.1.x
-      "Do you know the Temple of Grefalde?", // elliott
-      "It's a temple that was built a long time ago", // elliott
+      "Do you know about the Temple of Grefalde?", // elliott
+      "It's a temple that was built a long time ago.", // elliott
       "The dragon that attacked our kingdom ten years ago is sleeping there.", // elliott
       "It was King Edgar who subdued the dragon.", // elliott
-      "It is rumored that somewhere in the temple there are dragon scales cut off by the king.", // elliott
-      "It sounds like just a rumor, but", // elliott
-      "If someone really found it, they'd be worth a fortune..", // elliott
+      "It is rumored that somewhere in the temple there are dragonscales cut off by the king.", // elliott
+      "It sounds like just a rumor, but...", // elliott
+      "If someone really found them, they'd be worth a fortune.", // elliott
     ],
     [
       // townCommon.elliott.2.x
@@ -212,12 +212,12 @@ export const townCommon = {
       "King Edgar is a hero to his people.", // max
       "Everyone respects the king.", // max
       "I heard he defeated the dragon which attacked the kingdom.", // francisca
-      "That's right, everyone in the whole kingdom knows.", // max
+      "That's right, the whole kingdom knows of his heroic feat.", // max
       "Almost ten years ago, the king fought the dragon that was terrorizing the kingdom.", // max
       "King Edgard didn't kill the dragon, he sealed it in the Temple of Grefalde.", // max
       "How strong he must be.", // ann
-      "Indeed.  The kingdom has been peaceful since King Edgar took the throne.", // max
-      "That's why he's known as <The Peaceful King>", // jaquelyn
+      "Indeed.  The kingdom has known peace ever since King Edgar took the throne.", // max
+      "That's why he's known as The Peaceful King", // jaquelyn
       "Correct.", // max
       "Ever since King Edgard's reign began, the country has known peace.", // max
     ],
@@ -227,13 +227,13 @@ export const townCommon = {
       "If true, I fear for the kingdom.", // max
       "That dragon will surely hold a grudge against the king for its imprisonment.", // max
       "If it's awakened, eventually it will gain enough strength to fly away. ", // max
-      "If true, I really fear for our kingdom.", // max
+      "If true, I fear for our kingdom.", // max
     ],
     [
       // townCommon.max.2.x
       "The king has a younger brother named Ezerbald,", // max
       "He's apparently good with a sword.", // max
-      "King Edgar is really old, but", // max
+      "King Edgar is so old now, but,", // max
       "If danger visits our kingdom, I wonder if the prince can handle it.", // max
     ],
     [
@@ -245,12 +245,12 @@ export const townCommon = {
 export const townChapter0 = {
   ann: [
     "By the way, how do we get to the royal gardens?", // ann
-    "Let's ask around the city.", // francisca
+    "Let's ask around town.", // francisca
     "We must try our best to not be suspicious.", // francisca
   ],
   amber: [
-    "A pleasure to meet you, traveler", // amber
-    "What brings you here?", // amber
+    "A pleasure to meet you, traveler.", // amber
+    "What brings you into town?", // amber
     "I came to see the royal castle!", // ann
     "Oh, is that so?", // amber
     "Very good.", // amber
@@ -259,9 +259,9 @@ export const townChapter0 = {
     "That's amazing!", // ann
     "Have you ever entered the castle through the royal gardens?", // ann
     "No, never... always from the main entrance.", // amber
-    "Because I'm on good terms.", // amber
+    "Because I'm on good terms, I have no need to use the rear entrance.", // amber
     "Oh, I see.", // ann
-    "Do you want to go?", // amber
+    "Do you wish to go?", // amber
     "Even if you wish to enter from the gardens, you can't unless you know your way through the forest which surrounds it.", // amber
     "Of course.  Thank you so much for your time.", // ann
   ],
@@ -305,7 +305,7 @@ export const townChapter0 = {
 };
 export const townChapter1 = {
   amber: [
-    "King Edgar, I'm worried ...", // amber
+    "King Edgar, I'm so worried...", // amber
     "What happened to the king?", // ann
     "I heard from someone who is close to the royal family,", // amber
     "It seems that King Edgar has suddely fallen ill.", // amber
@@ -341,7 +341,7 @@ export const townChapter1 = {
     [
       "I heard you're selling medicine.", // ann
       "Oh!  Are you looking to purchase some?", // elliott
-      "Well, I heard there's a magical panacea that works for everything.", // elliott
+      "Well, I have this magical panacea that cures anything.", // elliott
       "I'll sell it for 40 gold.", // elliott name of money?????
       "It can cure any illness?", // ann
       "Of course.", // elliott
@@ -366,7 +366,7 @@ export const townChapter1 = {
       "I'm sure he would be willing to make medicine for our good king.", // max
       "Sister, please.", // elliott
       "It was wrong of me to deceive you.", // elliott
-      "All me to sell you this map of the Warcoforence Forest at a bargain price.", // elliott
+      "Allow me to sell you this map of the Warcoforence Forest at a bargain price.", // elliott
       "Well alright...", // ann
     ],
     [
@@ -378,8 +378,8 @@ export const townChapter1 = {
 export const townChapter2 = {
   amber: {
     question: [
-      "About the secret passage in the royal castle",
-      "About the Duke of Troias",
+      "Ask about the secret passage",
+      "Ask about the Duke of Troias",
       "Nothing",
     ],
     answer0: [
@@ -411,19 +411,19 @@ export const townChapter2 = {
       "How about tulips?", // ann
       "Well, that's a popular gift.", // amber
       "But a nice arrangement would be too expensive for me.", // amber
-      "If you like the flower, then I can arrange them!", // ann
+      "If you like the flowers, then I can arrange them!", // ann
       "Oh, really?", // amber
       "It's fun to watch them bloom in a pretty arrangement.", // amber
-      "Please!", // ann
+      "Please let us design it for you!", // ann
       "Thank you.", // amber
-      "I'll send you the bulbs right away.", // amber
+      "I'll give you the bulbs right away.", // amber
       "We have something to do in that area anyways, we can deliver it too.", // ann
       "Oh really?", // amber
       "I'm sorry to be such a bother.", // amber
       "Really, it's nothing.", // ann
       "Truly?  Well ok then.", // amber
       "I'll write the Duke a letter and give you a map of the area.", // amber
-      "This should allow you to get pas his guards and to the entrance of his mansion.", // amber
+      "This should allow you to get past his guards and to the entrance of his mansion.", // amber
       "Please deliver these to the Duke.", // amber
     ],
   },
@@ -443,15 +443,15 @@ export const townChapter2 = {
   ],
   elliott: [
     "What would please a noble?", // elliott
-    "Well tulips are popular the moment.", // elliott
+    "Well tulips are popular at the moment.", // elliott
     "Tulips...?", // ann
     "Yep.  The nobles enjoy extravagant tulip arrangements.  They brag about who has the most elaborate arrangement.", // elliott
     "I don't know what's so fun about flowers,", // elliott
-    "but I'm interested in the design since nobles pay so much for them.", // elliott
+    "But I'm interested in the design since nobles pay so much for them.", // elliott
     "Do you sell flowers?", // ann
     "No,", // elliott
     "Annabelle, from the inn, grows flowers.  Why not ask her?", // elliott
-    "I'd ask her for some to sell myself, but she wouldn't give me anything...", // elliott
+    "I'd ask her for some to sell myself, but she'd never give anything to me...", // elliott
   ],
   max: [
     "What would make a nobleman happy?", // max

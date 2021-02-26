@@ -34,17 +34,17 @@ export const cassandra = {
     "My brother often goes in and out of there.", // cassandra
     "He's searching for Aragnier's hiding place so he can get me out of here.", // cassandra
     "I see.", // ann
-    "So is it too much trouble?", // ann
+    "So it must be pretty dangerous?", // ann
     "Don't worry, Aragnier is long gone.", // cassandra
-    "Otherwise my brother would have noticed it.", // cassandra
+    "Otherwise my brother would have challenged it.", // cassandra
     "But you'll definitely find the wine.  Please bring me some.", // cassandra
   ],
   util: {
     door: ["Check", "Leave it alone"],
-    key: "I have the underground passage key",
-    unlock: "Unlocked the passage",
-    locked: "Locked", // ann
-    wine: "I got the wine",
+    key: "I found the underground passage key.",
+    unlock: "Unlocked the passage.",
+    locked: "It's locked.", // ann
+    wine: "I got the wine.",
   },
   progress: [
     "Did you find the key?", // cassandra
@@ -57,13 +57,13 @@ export const cassandra = {
     "Well done!", // cassandra
     "Thank you, it's so refreshing.", // cassandra
     "Being trapped here is so awful, this wine really is a nice comfort.  I can't thank you enough.", // cassandra
-    "It's ok.  Letting me know where the key was is more than enough.", // ann
-    "But where is there wine stored down here?", // ann
+    "It's ok.  Letting me know where the key was is more than enough payment.", // ann
+    "But why is there so much wine stored down here?", // ann
     "Moonshine runners use this passage to smuggle liquor.", // cassandra
-    "The people in the castle purchase the liquor.  This Prohibition is ridiculous.", // cassandra
+    "The people in the castle purchase the liquor.  This prohibition is ridiculous.", // cassandra
     "Is that so?", // ann
     "Yep.  Just awhile ago a smuggler entered actually.", // cassandra
-    "Thanks for talking to me.", // cassandra
+    "Thanks for helping me.", // cassandra
   ],
   solved: "Thank you for the wine.",
   tweet: [
@@ -75,7 +75,7 @@ export const cassandra = {
 };
 export const princess = {
   talk1: [
-    "Cha!", // loretta
+    "Hey!", // loretta
     "Who?", // mary
     "How did you get in here?", // loretta
     "Um, well...", // ann
@@ -91,7 +91,7 @@ export const princess = {
     "This is Loretta. The daughter of the Duke of Troias.", // mary
     "Why are you here!?", // ann
     "It's dangerous, there's monsters.", // ann
-    "Leave me.", // loretta
+    "Leave us.", // loretta
     "Mary, who are they?", // loretta
     "Report them to your father.", // loretta
     "You know I can't do that.", // mary
@@ -132,11 +132,11 @@ export const princess = {
     "I wanted to be like her.", // mary
     "I always urged her to take me hunting with her.", // mary
     "I asked her day after day, and finally one day she took me to the forest with her.", // mary
-    "She found a safe area", // mary
-    "but somehow a powerful monster found us.  They're usually never in that area.", // mary
+    "She found a safe area,", // mary
+    "But somehow a powerful monster found us.  They're usually never in that area.", // mary
     "She slayed it while protecting me.", // mary
     "But I was injured.", // mary
-    "How unfortunate", // ann
+    "How unfortunate.", // ann
     "Yes, this eye.", // mary
     "My father was furious and locked her up.  He was so mad I couldn't help her.", // mary
     "I don't hold a grudge regarding my injury.", // mary
@@ -145,13 +145,13 @@ export const princess = {
     "How awful.", // ann
     "Hey, it wasn't Mary's fault right?", // loretta
     "That's right.  You can't blame yourself.", // ann
-    "Even if you say so, it doesn't change that she's locked up.", // mary
+    "Even if you say so, it doesn't change the fact that she's locked up.", // mary
     "That's why you're concerned about how she's doing.", // ann
     "Mary is making a gift for Cassandra", // loretta
     "Hey, don't tell them that!", // mary
     "And it's not much of a gift anyways.", // mary
     "It's ok, maybe they can help you.", // loretta
-    "Sure... I need some help.", // mary
+    "Sure... I do need some help...", // mary
     "We can help!", // ann
     "Can you bring me #{MAGIC_STONES} carbuncle stones?", // mary
     "Please!", // loretta
@@ -159,7 +159,7 @@ export const princess = {
     ["I understand", "I'm afraid not"],
     "Thank you.", // mary
     "There's no need.  They don't have the right to refuse.", // loretta
-    "Come on, go.", // mary
+    "Well then, go.", // mary
   ],
   door: [
     "We're experimenting right now.", // loretta
@@ -168,7 +168,7 @@ export const princess = {
     "We're busy in here...", // loretta ?????
   ],
   progress: [
-    "#{MAGIC_STONES} carbuncle stones。", // mary
+    "#{MAGIC_STONES} carbuncle stones.", // mary
     "Bring them quickly.", // loretta
   ],
   solve: [
@@ -179,10 +179,10 @@ export const princess = {
     "It's great that they're a gift for Casssandra.", // ann
     "What are you making?", // ann
     "It's a secret.", // mary
-    "Come on, thank you.", // mary
+    "Well then, thank you.", // mary
   ],
   solved: [
-    "Thank you, you saved my gift.", // mary
+    "Thank you, you saved my gift.  I was afraid I wouldn't be able to complete it.", // mary
     "Your help is no longer needed, you may leave.", // loretta
   ],
 };
@@ -197,23 +197,23 @@ export const moonshine = {
     "...", // dionysus
     "Oh right, this is wine.", // dionysus
     "Mmmm hmmm.", // ann
-    "Are you trying to throw me out of the castle?", // dionysus
+    "Are you trying to throw me into a dungeon?", // dionysus
     "Is that what you're hoping for?", // dionysus
     "That's not the case...", // ann
     "Can you tell me about this place?", // ann
     "I want to know about this passage, and the castle.", // ann
     "Certainly, I know all about it.", // dionysus
     "As you know, this underground passage leads to the royal castle.", // dionysus
-    "Beyond this hallway is a door leading to the castle storage.", // dionysus
+    "Beyond this hallway is a door leading to the castle's storage room.", // dionysus
     "And you deliver your moonshine there?", // ann
     "Yes.  One barrel a day.", // dionysus
     "I bring it to the back of the underground passage.", // dionysus
     "When 20 barrels have accumulated, it is brought into the castle.", // dionysus
     "Does that mean,", // francisca
-    "that the last door into the castle only opens from within?", // francisca
+    "That the door into the castle only opens from within?", // francisca
     "Yes.", // dionysus
     "Why are you trying to break into the castle?", // dionysus
-    "You can't get past this room to the door anyways.", // dionysus
+    "You can't get past this room to reach the door anyways.", // dionysus
     "Why not?", // ann
     "Orthrus is protecting the next room.", // dionysus
     "You can't open the door if you've been eaten.", // dionysus
@@ -233,22 +233,22 @@ export const moonshine = {
     "It's the only way.", // ann
     "I don't want to see the corpses of three young women.", // dionysus
     "Then what should we do?", // ann
-    "Hmm ...", // dionysus
+    "Hmm...", // dionysus
     "Ok, it's dangerous but I have a plan.", // dionysus
     "Let's cooperate.", // dionysus
     "Hmm?", // ann
-    "ああ。", // dionysus
+    "Ok.", // dionysus
     "I'll make Orthrus easier for you to beat.", // dionysus
     "How?", // ann
     "Just leave it to me.", // dionysus
     "But make sure you beat him, I'm putting my neck out there too.", // dionysus
     "Just wait a minute.", // dionysus
-    "He went in there.", // jaquelyn
+    "He really went in there.", // jaquelyn
     "With the wine barrel, what's he planning?", // ann
-    "OK!  I'm in!", // dionysus
-    "It's going well.", // dionysus
-    "What are you doing?", // ann
-    "Letting him have this barrel of wine.", // dionysus
+    "Ok!  It's done!", // dionysus
+    "It went well.", // dionysus
+    "What were you doing in there?", // ann
+    "Letting him have the barrel of wine.", // dionysus
     "Once he's finished, he'll be easier to defeat.", // dionysus
     "I'll lose today's score, but it'll be worth it in the long run.", // dionysus
     "Come on, go in!", // dionysus
@@ -258,7 +258,7 @@ export const moonshine = {
     "Come on, nows your chance.", // dionysus
   ],
   talk5: [
-    "Is it safe!", // dionysus
+    "You're safe!", // dionysus
     "Did you beat it?", // dionysus
     "Is it done?", // dionysus
     "Now I don't have to be scared of him anymore.", // dionysus
@@ -275,7 +275,7 @@ export const moonshine = {
   orthrus1: [
     "Wow, that's a big dog!", // ann
     "Yeah, he looks pretty hostile.", // jaquelyn
-    "Let's go back and consider how to defeat it.", // francisca
+    "Let's go back for now.", // francisca
   ],
   orthrus2: [
     "Alright Orthrus.", // ann
@@ -294,19 +294,19 @@ export const aragnie = {
     "I'm not answering you.", // jack
     "I really don't have the time for this.", // jack
     "Yoink.", // jack
-    "Oh, wait!", // ann
+    "Hey, wait!", // ann
     "Why is Jack the Kingkiller here?", // ann
     "Is he the knight, Hector, after all?", // jaquelyn
     "Hmmm.", // ann
     "I don't know, but let's go find out.", // ann
   ],
   hector1: [
-    "Who are you!", // hector
+    "Who are you!?", // hector
     "Uh...", // ann
     "And what are you doing with my key?", // hector
     "We just borrowed this.", // ann
     "Are you Cassandra's brother?", // ann
-    "I see.  My sister told you about it.", // hector
+    "I see.  My sister told you where it was hidden.", // hector
     "Yes.  I am Cassandra's brother.", // hector
     "What are you doing here?", // hector
     "Cassandra told us about everything.", // ann
@@ -317,7 +317,7 @@ export const aragnie = {
     "It's...", // hector
     "I...", // hector
     "I have a confession to make.", // hector
-    "I have a grudge against the king.", // hector
+    "I have a grievance to settle with the king.", // hector
     "I want my revenge.", // hector
     "It's you...", // ann
     "It wasn't always like this!", // hector
@@ -326,7 +326,7 @@ export const aragnie = {
     "Even then, I only thought of defeating Aragnier and releasing my sister.", // hector
     "But I searched for years, and I've found nothing!", // hector
     "Then after I'd given up, and I was at my lowest point, a man came to me.", // hector
-    "Yes, the guy in the black robe. You must have met.", // hector
+    "Yes, the guy in the black robe. You must have met him on the way in.", // hector
     "Hey!", // ann
     "What did you talk to him about?", // ann
     "He's a snake.", // hector
@@ -355,18 +355,18 @@ export const aragnie = {
     "...", // hector
     "Please, just give me a chance.", // mary
     "A chance?", // hector
-    "Yes, look at this?", // mary
+    "Yes, look at this.", // mary
     "A lantern?", // hector
-    "This is a magic stone lantern.", // mary
-    "This light illuminates the traces of Aragnier.", // mary
+    "This is a carbuncle stone lantern.", // mary
+    "This light illuminates any traces of Aragnier.", // mary
     "That's...", // hector
     "Mary and I studied for years and came up with this.", // loretta
     "These three helped us find the carbuncle stones.", // loretta
-    "We needed them to make the magical light.", // ann
+    "You needed them to make the magical light.", // ann
     "Your sister... will this save her?", // hector
     "Yes!", // loretta
-    "Quit your plot for revenge.", // loretta
-    "Let's go free Cassandra's ", // mary
+    "Abandon your plot for revenge.", // loretta
+    "Let's go free Cassandra.", // mary
     "You three, come on!", // mary
     "Huh?", // ann
     "You can't refuse the princess!", // loretta
@@ -377,7 +377,7 @@ export const aragnie = {
     "...", // hector
     "...Right.", // hector
     "There's no reason to hesitate.", // hector
-    "Let's go free my sister..", // hector
+    "Let's go free my sister.", // hector
   ],
   cassandra1: [
     "Cassandra.", // hector
@@ -388,14 +388,14 @@ export const aragnie = {
     "I need to apologize to you.", // mary
     "Huh?", // cassandra
     "I need to get you out of here.", // mary
-    "I can't go out.", // cassandra
+    "I can't leave.", // cassandra
     "And you don't need to apologize.", // cassandra
     "I need to apologize to you.", // cassandra
     "Listen, Cassandra.", // hector
-    "The princess made a tool to find Aragnier.", // hector
+    "The princess made a magical lantern to find Aragnier.", // hector
     "What?", // cassandra
     "Is that true?", // cassandra
-    "Yes.  For you?", // hector
+    "Yes.  For you.", // hector
     "Just for me?", // cassandra
     "There is no reason to ignore the princess's feelings.", // hector
     "...", // cassandra
@@ -411,7 +411,7 @@ export const aragnie = {
     "Aragnier must be hiding here!", // hector
     "Let's proceed.", // ann
     "Whoa!!", // hector
-    "This is so cool...", // hector
+    "This is no good...", // hector
     "Seriously?", // francisca
   ],
   boss: [
@@ -426,8 +426,8 @@ export const aragnie = {
     "Let's get back to Cassandra!", // mary
   ],
   last1: [
-    "It really opened!", // loretta
-    "Great!", // mary
+    "We can really cut the thread!", // loretta
+    "Amazing!", // mary
     "Cassandra, you're free at last.", // mary
     "...", // cassandra
     "I can't leave here after all.", // cassandra
@@ -437,13 +437,13 @@ export const aragnie = {
     "You are being punished in your own prison.", // cassandra
     "How can I look upon your face?", // cassandra
     "Cassandra, stop.", // mary
-    "Yeah, don't be afraid to come out.", // loretta
-    "You don't know?", // loretta
+    "Yeah, don't be afraid to leave here.", // loretta
+    "Can't you realize why Mary went through all this?", // loretta
     "Mary has that same feeling when she sees you in prison.", // loretta
     "Lady Loretta ...", // cassandra
     "Cassandra, come out.", // hector
     "Let's go some place far away and start over.", // hector
-    "... I understand.", // cassandra
+    "...I understand.", // cassandra
     "How can I thank you?", // cassandra
     "Cassandra, you spent seven years in this prison because of my mistake.", // mary
     "I didn't do this out of pity, it is my atonement.", // mary

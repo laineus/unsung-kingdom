@@ -1,19 +1,19 @@
 export const dog = {
   start: [
-    "This is forest is dangerous, unless you're here on urgent business I suggest you don't go much further.", // hunter
+    "This forest is dangerous, unless you're here on urgent business I suggest you don't go any further.", // hunter
     "Why is it so dangerous?", // ann
     "A ferocious bear has appeared.", // hunter
     "A bear?", // ann
     "Not just any bear, this is a truly ferocious beast.", // hunter
     "Originally it wasn't a threat, until it tasted its first human.", // hunter
-    "It remembers the taste, and now aggressively hunts anyone who enters the forest.", // hunter
+    "It remembered the taste, and now aggressively hunts anyone who enters the forest.", // hunter
     "Whoa!", // ann
-    "Royal hunters, and even a mercenary unit were dispatched to capture the bear, but I wonder what happened to them.", // hunter
+    "Royal hunters, and even a mercenary unit, were dispatched to capture the bear, but no one's heard from them since.", // hunter
     "Is there a reward for bringing down the bear?", // ann
     "Surely there must be a reward.", // francisca
     "Hmmm.  Perhaps the stories have been greatly exaggerated.", // hunter
     "It's a good story for those who don't need to enter the forest.", // hunter
-    "Anyways, myself and my fellow hunters have no desire to see such a ferocious bear.", // hunter
+    "Anyways, myself and my fellow hunters have no desire to see such a ferocious beast.", // hunter
     "If someone takes him down, we'd all be happy.", // hunter
     "So you and your friends are hunters.", // ann
     "What do you hunt in here?", // ann
@@ -21,13 +21,13 @@ export const dog = {
     "But now I'm just looking for my dogs that ran away.", // hunter
     "Your dogs ran away?", // ann
     "My friend's hunting dog had five puppies, they're not even a year old yet.", // hunter
-    "Sorry to bother you, but if you see that puppy could you bring it to me?", // hunter
+    "Sorry to bother you, but if you see any puppies could you bring them to me?", // hunter
     ["Sure", "I'm awfully busy"],
     ["Thank you.  It was nice to meet you.", "I see."], // hunter
   ],
   started: [
     "Thank you!", // hunter
-    "#{count} puppies remain.", // hunter
+    "#{count} puppies remain. ", // hunter
     "I'm so lucky to have met you.", // hunter
   ],
   solve: [
@@ -42,18 +42,18 @@ export const dog = {
     "It takes time, but it's the safest way to hunt.", // hunter
     "Hmmm.", // ann
     "By the way, the other day, there was a suspicious man who asked me to share the venom used for the poison.", // hunter
-    "He refused because he was so suspicious looking...", // hunter
-    "You all be wary of any strange people.", // hunter
+    "I refused because he was so suspicious looking...", // hunter
+    "But you all be wary of any strange people you see.", // hunter
   ],
   solved: [
     "You saved them all, thanks so much.", // hunter
   ],
   dog: {
-    notStarted: "What are you doing in a place like this, dog?", // ann
-    d1: "Hey, come over here.", // ann
+    notStarted: "What are you doing out here alone, buddy?", // ann
+    d1: "Hey, come over here little guy.", // ann
     d2: "Good boy.", // jaquelyn
-    d3: "Hey dog, over here.", // francisca
-    d4: "Hey, look at this.", // ann
+    d3: "Hey puppy, over here.", // francisca
+    d4: "Hey, come here buddy.", // ann
     d5: "Come on, the hunter must be worried.", // jaquelyn
     jaquelyn: "#{remain} dogs remain",
     francisca: "#{remain} dogs remain",
@@ -65,8 +65,8 @@ export const mercenary = {
     "Are you two ok!?", // ann
     "Yes, we're ok.", // leader
     "It looks like you're injured...", // jaquelyn
-    "We came to subdue the cannibal bear known as Rex Bear, but he overwhelmed us.", // leader
-    "We were all beaten up.  I'm sorry.", // leader
+    "We came to subdue that monster, Rex Bear, but he overwhelmed us.", // leader
+    "It really beat us up.  I'm sorry.", // leader
     "Is there a reward for subduing the bear?", // ann
     "Of course.", // leader
     "The king has offered a generous reward.", // leader
@@ -74,7 +74,7 @@ export const mercenary = {
     "He's not just a hassle to those who use the forest.", // leader
     "We believe the bear is related to the royal illness.", // leader
     "How could this bear possibly be involved in that?", // jaquelyn
-    "It is said that an old hermit named Drystan lives in the depths of this forest, and can create the medicine needed to cure the illness.", // leader
+    "It is said that an old hermit named Drystan lives in the depths of this forest, and can create medicine to cure any illness.", // leader
     "In order to do so, he requires Rex Bear's blood, however.", // leader
     "I've never heard of using monster blood as an ingredient for medicine.", // francisca
     "Is this hermit truly a doctor?", // francisca
@@ -90,10 +90,10 @@ export const mercenary = {
     ["Sure.", "I'm really busy."],
     ["Thank you so much.", "I see."], // leader
   ],
-  started: "I'm sure they haven't gone that far.", // leader
+  started: "I'm sure he hasn't gone far.", // leader
   flower: [
-    "What is this flower?  It's odd.", // ann
-    "Let's find out.",
+    "Isn't this an odd flower?  I've never seen one like it before.", // ann
+    "Let's check it out.",
     "Leave it alone.",
   ],
   battle: [
@@ -102,7 +102,7 @@ export const mercenary = {
     "Ugh...", // member2
     "Whoa!", // ann
     "Are you ok?", // jaquelyn
-    "I'm saved...", // member2
+    "You saved me...", // member2
     "You were eaten by the flower monster?", // jaquelyn
     "No, I jumped in on my own.", // member2
     "On your own?", // francisca
@@ -114,8 +114,8 @@ export const mercenary = {
     "I didn't intend to end up in the flower's stomach.", // member2
     "I see...", // ann
     "I instantly regretted my decision.", // member2
-    "If it meant dissolving slowly in the flower's stomach,", // member2
-    "I wish I'd just faced the bear and been killed.", // member2
+    "If I knew I would be dissolving slowly in the flower's stomach,", // member2
+    "I would have just faced the bear and been killed.", // member2
     "Wow...", // ann
     "But thanks to you three, I'm saved!", // member2
     "What an awful situation.", // jaquelyn
@@ -150,7 +150,7 @@ export const drystan = {
     "Are you Drystan?", // ann
     "Yes, what's it to you?", // drystan
     "I heard you can make medicine to cure any illness.", // ann
-    "More of you.", // drystan
+    "Even more of you.", // drystan
     "More?", // ann
     "First the royal family came.", // drystan
     "Then the merchants wanting to sell the cure to the royal family.", // drystan
@@ -181,7 +181,7 @@ export const bear = {
     "Rex Bear has been stomping around the forest, making a ruckus.", // drystan
     "You mean Rex Bear's blood?", // ann
     "Yes.", // drystan
-    "With the blood of a monster which has absorbed the vitality of many living, I can create the cure.", // drystan
+    "With the blood of a monster which has absorbed the vitality of many living beings, I can create the cure.", // drystan
     "But the amount that you'll have on your sword won't be enough, I require an entire bottle.", // drystan
     "We'll need to defeat Rex Bear.", // ann
     "Alright, I'll bring you that blood.", // ann
@@ -223,7 +223,7 @@ export const bear = {
     "Okay.  I don't know what you're looking for, but I'll do as you say.", // drystan
     "By the way, do you have any guesses as to how the king suddenly became ill?", // ann
     "It's not such a rare occurence to be healthy one day and sick the next.", // drystan
-    "I was once summoned to the castle to see the king", // drystan
+    "I was brought to the castle to examine the king.", // drystan
     "I'm wondering if he really is sick.", // drystan
     "What do you mean?", // ann
     "Surely you know that I can distingush between illness and poison.", // drystan
