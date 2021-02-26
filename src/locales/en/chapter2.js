@@ -1,9 +1,9 @@
 export const cassandra = {
   talk1: [
-    "…。", // cassandra
+    "...", // cassandra
     "What are you looking at?", // cassandra
     "Is this a prison?", // ann
-    "…。", // cassandra
+    "...", // cassandra
     "Yes.", // cassandra
     "Did you do something wrong?", // ann
     "Yes.", // cassandra
@@ -194,7 +194,7 @@ export const moonshine = {
     "I heard there is a suspicious guy who brings in moonshine, would that be you?", // ann
     "No, of course not.", // dionysus
     "Then what's in that barrel?", // ann
-    "…。", // dionysus
+    "...", // dionysus
     "Oh right, this is wine.", // dionysus
     "Mmmm hmmm.", // ann
     "Are you trying to throw me out of the castle?", // dionysus
@@ -215,15 +215,15 @@ export const moonshine = {
     "Why are you trying to break into the castle?", // dionysus
     "You can't get past this room to the door anyways.", // dionysus
     "Why not?", // ann
-    "Orthus is protecting the next room.", // dionysus
+    "Orthrus is protecting the next room.", // dionysus
     "You can't open the door if you've been eaten.", // dionysus
-    "Orthus?", // ann
-    "Oh right.  Orthus is the castle's two headed guard dog.", // dionysus
+    "Orthrus?", // ann
+    "Oh right.  Orthrus is the castle's two headed guard dog.", // dionysus
     "I always wait for him to sleep and then sneak through, but three of you could never sneak by him.", // dionysus
     "Now that you know, you should turn back.", // dionysus
   ],
   talk2: [
-    "Orthus is the castle's two headed guard dog.  You won't get past him.", // dionysus
+    "Orthrus is the castle's two headed guard dog.  You won't get past him.", // dionysus
     "Now that you know, you should turn back.", // dionysus
   ],
   talk3: [
@@ -238,7 +238,7 @@ export const moonshine = {
     "Let's cooperate.", // dionysus
     "Hmm?", // ann
     "ああ。", // dionysus
-    "I'll make Orthus easier for you to beat.", // dionysus
+    "I'll make Orthrus easier for you to beat.", // dionysus
     "How?", // ann
     "Just leave it to me.", // dionysus
     "But make sure you beat him, I'm putting my neck out there too.", // dionysus
@@ -254,7 +254,7 @@ export const moonshine = {
     "Come on, go in!", // dionysus
   ],
   talk4: [
-    "Orthus is drunk.", // dionysus
+    "Orthrus is drunk.", // dionysus
     "Come on, nows your chance.", // dionysus
   ],
   talk5: [
@@ -263,7 +263,7 @@ export const moonshine = {
     "Is it done?", // dionysus
     "Now I don't have to be scared of him anymore.", // dionysus
     "Thanks for giving him your barrel of wine.", // ann
-    "Haha!  Even the dragon in the Temple of Grifarde could be defeated if it was drunk enough!", // dionysus
+    "Haha!  Even the dragon in the Temple of Grefalde could be defeated if it was drunk enough!", // dionysus
     "I'm glad we ran into each other.", // dionysus
     "What a beneficial exchange.", // dionysus
     "Thank you!", // ann
@@ -278,7 +278,7 @@ export const moonshine = {
     "Let's go back and consider how to defeat it.", // francisca
   ],
   orthrus2: [
-    "Alright Orthus.", // ann
+    "Alright Orthrus.", // ann
     "Everyone, let's go!", // ann
     "We managed to beat it.", // ann
     "Let's tell the smuggler.", // jaquelyn
@@ -352,7 +352,7 @@ export const aragnie = {
     "Hector, please don't resent your father.", // mary
     "Cassandra's imprisonment and your dismissal are all my fault.", // mary
     "I've caused so much grief.", // mary
-    "…", // hector
+    "...", // hector
     "Please, just give me a chance.", // mary
     "A chance?", // hector
     "Yes, look at this?", // mary
@@ -374,7 +374,7 @@ export const aragnie = {
     "I see, defeat Aragnier, leave it to us!", // ann
     "Wait.", // hector
     "No, don't wait.", // mary
-    "…", // hector
+    "...", // hector
     "...Right.", // hector
     "There's no reason to hesitate.", // hector
     "Let's go free my sister..", // hector
@@ -398,13 +398,13 @@ export const aragnie = {
     "Yes.  For you?", // hector
     "Just for me?", // cassandra
     "There is no reason to ignore the princess's feelings.", // hector
-    "…", // cassandra
+    "...", // cassandra
     "Now let's light the magic stone.", // loretta
     "Whoa!", // ann
     "I can see Aragnier's threads!", // ann
     "Now we can hunt it down.", // ann
   ],
-  cassandra2: "…。",
+  cassandra2: "...",
   lamp: ["Search", "Wait"],
   aragnie_hector: [
     "I never knew there was such a place!", // hector
@@ -429,7 +429,7 @@ export const aragnie = {
     "It really opened!", // loretta
     "Great!", // mary
     "Cassandra, you're free at last.", // mary
-    "…。", // cassandra
+    "...", // cassandra
     "I can't leave here after all.", // cassandra
     "What, why not?", // mary
     "Your eye.", // cassandra

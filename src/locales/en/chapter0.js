@@ -57,7 +57,7 @@ export const jack = [
     // jack.3.x
     "Look over there! Is that King Edgar?", // ann
     "Has Ezel not returned yet?", // king
-    "His Highness is still at the Temple of Grifarde.", // soldier
+    "His Highness is still at the  Grifarde.", // soldier
     "Negotiations with the dragon do not seem to be proceeding smoothly.", // king
     "It's hard to say, but it does seem that way.", // soldier
     "I see...", // king
