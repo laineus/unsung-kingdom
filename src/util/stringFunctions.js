@@ -4,6 +4,7 @@ export const splitString = (str, length) => {
   return str.match(regexPattern) || []
 }
 
+// TODO: can be removed
 export const lineBreak = (string, limit) => {
   const resultArray = ['']
   string.split('').reduce((currentLength, letter) => {
