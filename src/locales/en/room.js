@@ -59,7 +59,7 @@ export const roomEv = [
       // 0.4.x
       "The descendants of Verion have always regretted his death.", // ann
       "It's true.", // jaquelyn
-      "According to the history of the Kingdom of Verion, the king will be assassinated tomorrow evening in the royal gardens. ", // francisca
+      "According to the history of the Kingdom of Verion,|the king will be assassinated tomorrow evening in the royal gardens.", // francisca
       "The identity and purpose of the assassin is unknown.", // francisca
       "A mysterious figure only known by the title history gave him: Jack the Kingkiller", // ann
       "Indeed.", // francisca
