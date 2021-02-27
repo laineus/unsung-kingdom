@@ -8,7 +8,7 @@ export const dog = {
     "Originally it wasn't a threat, until it tasted its first human.", // hunter
     "It remembered the taste, and now aggressively hunts anyone who enters the forest.", // hunter
     "Whoa!", // ann
-    "Royal hunters, and even a mercenary unit, were dispatched to capture the bear, but no one's heard from them since.", // hunter
+    "Royal hunters, and even a mercenary unit, were dispatched to capture the bear, |But no one's heard from them since.", // hunter
     "Is there a reward for bringing down the bear?", // ann
     "Surely there must be a reward.", // francisca
     "Hmmm.  Perhaps the stories have been greatly exaggerated.", // hunter
@@ -49,7 +49,7 @@ export const dog = {
     "You saved them all, thanks so much.", // hunter
   ],
   dog: {
-    notStarted: "What are you doing out here alone, buddy?", // ann
+    notStarted: "What are you doing out here all alone, buddy?", // ann
     d1: "Hey, come over here little guy.", // ann
     d2: "Good boy.", // jaquelyn
     d3: "Hey puppy, over here.", // francisca
@@ -74,7 +74,7 @@ export const mercenary = {
     "He's not just a hassle to those who use the forest.", // leader
     "We believe the bear is related to the royal illness.", // leader
     "How could this bear possibly be involved in that?", // jaquelyn
-    "It is said that an old hermit named Drystan lives in the depths of this forest, and can create medicine to cure any illness.", // leader
+    "It is said that an old hermit named Drystan lives in the depths of this forest, |And can create medicine to cure any illness.", // leader
     "In order to do so, he requires Rex Bear's blood, however.", // leader
     "I've never heard of using monster blood as an ingredient for medicine.", // francisca
     "Is this hermit truly a doctor?", // francisca
@@ -123,7 +123,7 @@ export const mercenary = {
     "Your leader is looking for you south of here.", // jaquelyn
     "Really?  Thank you for everything.", // member2
     "Please come by again later, I'd like to thank you.", // member2
-    "You all need to be careful in here.", // member2
+    "You all need to be careful in this forest.", // member2
   ],
   member1: [
     "I can't find him...",
@@ -136,7 +136,7 @@ export const mercenary = {
     "Will you accept a gift from my leader?",
   ],
   leader: [
-    "Oh, youre back!",
+    "Oh, you're back!",
     "My soldier told me everything.",
     "He was swallowed by a flower monster.",
     "No wonder we couldn't find him.",
@@ -165,7 +165,7 @@ export const drystan = {
   ],
   progress: [
     "#{MANDRAKE_COUNT} mandrake roots.", // drystan
-    "Bring it quickly.", // drystan
+    "Bring them quickly.", // drystan
   ],
   solve: [
     "I have collected the mandrake roots.", // ann
@@ -181,8 +181,8 @@ export const bear = {
     "Rex Bear has been stomping around the forest, making a ruckus.", // drystan
     "You mean Rex Bear's blood?", // ann
     "Yes.", // drystan
-    "With the blood of a monster which has absorbed the vitality of many living beings, I can create the cure.", // drystan
-    "But the amount that you'll have on your sword won't be enough, I require an entire bottle.", // drystan
+    "With the blood of a monster which has absorbed the vitality of many living beings, |I can create the cure.", // drystan
+    "But the amount that you'll have on your sword won't be enough, |I require an entire bottle.", // drystan
     "We'll need to defeat Rex Bear.", // ann
     "Alright, I'll bring you that blood.", // ann
   ],
@@ -207,7 +207,7 @@ export const bear = {
     "Disgusting, I don't want that.", // drystan
     "Have you ever mixed blood with medicine before?", // drystan
     "Then why did you want it!?", // ann
-    "Because that stupid bear was in the way.", // drystan
+    "Because that stupid bear was annoying.", // drystan
     "I couldn't even wander around my own forest.", // drystan
     "What about the vitality stuff?  Was that a lie?", // ann
     "What if it was?", // drystan
@@ -223,7 +223,7 @@ export const bear = {
     "Okay.  I don't know what you're looking for, but I'll do as you say.", // drystan
     "By the way, do you have any guesses as to how the king suddenly became ill?", // ann
     "It's not such a rare occurence to be healthy one day and sick the next.", // drystan
-    "I was brought to the castle to examine the king.", // drystan
+    "I was brought to the castle to see the king.", // drystan
     "I'm wondering if he really is sick.", // drystan
     "What do you mean?", // ann
     "Surely you know that I can distingush between illness and poison.", // drystan

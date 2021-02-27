@@ -5,7 +5,7 @@ export const ferdinand = {
     "It's dangerous to stand so close to the edge.", // jaquelyn
     "......", // ferdinand
     "Hey!", // ann
-    "......huh, what is it?......", // ferdinand
+    "......Huh, what is it?......", // ferdinand
     "Who are you...?", // ferdinand
     "......", // ferdinand
     "Hey, where am I!?", // ferdinand
@@ -14,10 +14,10 @@ export const ferdinand = {
     "Where are we?", // ferdinand
     "We're in the catacombs.", // ann
     "The catacombs?", // ferdinand
-    "The catacombs of St. Anterus.", // ann
+    "The catacombs of St Anterus.", // ann
     "What...?", // ferdinand
-    "That's in Verion...", // ferdinand
-    "What am I doing in Verion........", // ferdinand
+    "That's in Bellion...", // ferdinand
+    "What am I doing in Bellion........", // ferdinand
     "Seriously, are you going to be alright?", // ann
     "Did someone bring you here?", // ann
     "No.", // ferdinand
@@ -35,7 +35,7 @@ export const ferdinand = {
     "Don't be crazy!", // ferdinand
     "Damn!  Damn!", // ferdinand
     "This is getting pretty weird.", // ann
-    "Maybe we should go home?", // ann
+    "Maybe you should go home?", // ann
     "Damn it.", // ferdinand
     "It's all because of the Renfield family.", // ferdinand
     "I'm sure the slaves and female spirits sold to them are haunting me.", // ferdinand
@@ -45,7 +45,7 @@ export const ferdinand = {
     "Or maybe it's a hallucination created by the weight of his guilt.", // jaquelyn
     "Hey!  Quit talking like that.", // ferdinand
     "Damn, I don't know if it's a curse,", // ferdinand
-    "It's all thanks to the Ferdinand family that I'm in this mess.", // ferdinand
+    "It's all thanks to the Renfield family that I'm in this mess.", // ferdinand
     "Hey, can you do something about it?", // ferdinand
     "Like what?", // ann
     "I don't know!", // ferdinand
@@ -114,7 +114,7 @@ export const marianne = {
     "She sounds like a great person.", // ann
     "Yes, she was.", // marianne
     "And I fell in love with her.", // marianne
-    "I am a nun married to God.", // marianne
+    "Even though I am a nun married to God.", // marianne
     "It's unforgivable.", // marianne
     "When she died, so did my heart,", // marianne
     "And now here I am.", // marianne
@@ -136,7 +136,7 @@ export const marianne = {
   ],
   solve: [
     "Yes, sister,", // ann
-    "you need to take care of yourself... I brought some water.", // ann
+    "You need to take care of yourself... I brought some water.", // ann
     "...", // marianne
     "Thank you...", // marianne
     "You're too generous.", // marianne
@@ -146,13 +146,13 @@ export const marianne = {
     "Ah,", // marianne
     "Thank you for your kindness, please take this amulet.", // marianne
     "Thank you.", // ann
-    "By the way, Marianne said she was on good terms with the queen.", // ann
+    "By the way, you said Marianne was on good terms with the queen.", // ann
     "Can I ask you a little about the queen?", // ann
     "Yes we talked sometimes, so I know about her.", // marianne
     "Um,", // ann
     "Did the queen hold a grudge against the king?", // ann
     "Impossible.", // marianne
-    "The Queen must have loved His Majesty until the moment she died from illness.", // marianne
+    "The Queen loved His Majesty until the moment she died.", // marianne
     "Oh, I see.", // ann
     "I'm sorry to ask such a strange question.", // ann
     "Come on, can you stand up?", // ann
@@ -190,7 +190,7 @@ export const dario = {
     "It's not harmless, either.", // dario
     "Even if you don't notice it, the longer you're here the more overwhelmed by sorrow you'll become.", // dario
     "That's why you should leave as soon as you're done, don't tarry long.", // dario
-    "Especially stay away from the northern royal and noble's graveyards.", // dario
+    "Especially stay away from the royal and noble's graveyards.", // dario
     "But,", // ann
     "we want to visit the queen's grave.", // ann
     "What?", // dario
@@ -198,12 +198,12 @@ export const dario = {
     "Why not?", // ann
     "Does the ghost of the queen appear?", // ann
     "Yes", // dario
-    "Well yes, but not, not exactly.", // dario
+    "Well yes, but no, not exactly.", // dario
     "That ghost might look like our queen, but she is not.", // dario
     "What do you mean?", // ann
     "The ghost...", // dario
     "The ghost was made by gathering the souls of the evil spirits who call these catacombs home.", // dario
-    "I ..., I made ...", // dario
+    "I... I made...", // dario
     "Uh, wait a minute.", // ann
     "You gathered the evil spirits in this graveyard,", // ann
     "and formed them into the shape of the queen?", // ann
@@ -212,15 +212,15 @@ export const dario = {
     "Why would anyone do that?", // ann
     "I can manipulate the dead.", // dario
     "A man forced me to summon the ghost of the queen.", // dario
-    "I don't know why, but he intends to use the queen's ghost to kill His Majesty, the King", // dario
+    "I don't know why, but he intends to use the queen's ghost to kill His Majesty, the King.", // dario
     "If His Majesty were to die, it... it would be my fault.", // dario
     "Does the ghost not listen to you? You made it, right? ", // ann
     "Impossible.", // dario
     "I am powerless now.", // dario
     "That thing has become a vicious being beyond my power.", // dario
     "Be careful,", // dario
-    "The ghost's resentment is directed at His Majesty, the King, but she shall turn her rage on you if you get too close.", // dario
-    "Wow, so powerful...", // ann
+    "The ghost's resentment is directed at His Majesty, the King, |But she shall turn her rage on you if you get too close.", // dario
+    "Wow, so scary...", // ann
     "Oh,", // ann
     "Was the man who threatened you wearing a black robe?", // ann
     "How did you know!?", // dario
@@ -240,28 +240,28 @@ export const dario = {
     "He has the dagger I used to summon the ghost of the queen.", // dario
     "If you get the chance,", // dario
     "maybe you can bring it back to me.", // dario
-    "Remember, it's a dagger.", // ann
+    "I'll remember, find the dagger.", // ann
   ],
   started: [
     "He has the dagger I used to summon the ghost of the queen.", // dario
     "If you can get it back, bring it to me.", // dario
-    "Remember, it's a dagger.", // ann
+    "I'll remember, find the dagger.", // ann
   ],
   jack1: [
-    "Hey Ann, do you a feeling like someone is watching us?", // jaquelyn
-    "I don't know ..., let's proceed with caution.", // ann
+    "Hey Ann, do you have a feeling like someone is watching us?", // jaquelyn
+    "I don't know... let's proceed with caution.", // ann
   ],
   jack2: [
     "What are you doing here?", // jack
-    "!!", // ann
+    "!!!", // ann
     "So this is where you've been hiding!", // ann
     "You disrupted my plans in the underground passage.", // jack
     "Yeah!", // ann
     "What's next?", // ann
-    "You're going to make a fake evil spirit of the queen to kill the king.", // ann
+    "You've made a fake evil spirit of the queen to kill the king.", // ann
     "That necromancer told you?", // jack
     "Why are you trying to kill the king?", // ann
-    "I suppose your persistence deserves a quick answer.", // jack
+    "I suppose your persistence deserves an answer.", // jack
     "To protect our kingdom.", // jack
     "To protect ...?", // ann
     "How could killing the King Edgar the Peaceful possibly protect the kingdom?", // ann
@@ -285,7 +285,7 @@ export const dario = {
     "This can't end here, not like this...", // jack
   ],
   jack4: [
-    "!!", // ann
+    "!!!", // ann
     "He jumped...", // jaquelyn
     "This is bad...", // francisca
     "What should we do?", // ann
@@ -301,7 +301,7 @@ export const dario = {
     "The ghost of the queen still lingers.", // francisca
     "Right.", // ann
     "It seems impossible to chase,", // jaquelyn
-    "let's resolve the issue with the queen's ghost.", // jaquelyn
+    "Let's resolve the issue with the queen's ghost.", // jaquelyn
     "Yeah, let's do it.", // ann
   ],
   solve: [
@@ -357,7 +357,7 @@ export const renfield = {
     "A man with dirty blood and a traitor to the Renfield family.", // ray
     "Why would you do this to your ancestor's tomb?", // ann
     "The Renfield family is a dirty family.", // ray
-    "Sold slaves and girls to the Ferdinand family in order to become a noblility.", // ray
+    "Sold slaves and girls to the Ferdinand family in order to become noblility.", // ray
     "Selling the people of your own land is as low as it gets.", // ray
     "Trash shouldn't be buried here.", // ray
     "I'll dig it up, burn it, and toss it on the road.", // ray
@@ -366,8 +366,8 @@ export const renfield = {
   start2: [
     "Whoa!", // ann
     "Something came out!", // ann
-    "!!", // ray
-    "It's gone...", // ray
+    "!!!", // ray
+    "They're gone...", // ray
     "What are you doing!", // ann
     "They've died twice now.", // ray
     "Take a look.", // ray
@@ -376,8 +376,8 @@ export const renfield = {
     "What!?", // ann
     "You're scared!", // ann
     "Hey, come on!", // ray
-    "I was just offering.", // ray
-    "It was a polite offer...", // ray
+    "I was just offering to let you fight the ghosts.", // ray
+    "It was the polite thing to do...", // ray
   ],
   started: [
     "Hey, I'm not scared!", // ray
@@ -392,7 +392,7 @@ export const renfield = {
     "I'll give you the key I brought.", // ray
     "You can use it somewhere.", // ray
     "Oh, yeah, thank you.", // ann
-    "That's fine ...,", // ann
+    "That's nice of you...", // ann
     "But what will you do?", // ann
     "Won't your family get angry when they find out?", // ann
     "Doesn't matter anymore.", // ray
@@ -400,7 +400,7 @@ export const renfield = {
     "Uh...", // ann
     "The only survivors of the Renfield family are myself and my brothers who live far away from here.", // ray
     "Luckily...", // ray
-    "Otherwise, more people would have been sacrificed ...", // ray
+    "Otherwise, more people would have been sacrificed...", // ray
     "If that's the way it is...", // ann
     "...", // ray
     "Well then.", // ray
@@ -414,18 +414,18 @@ export const evangelina = {
     "Don't be scared.", // ann
   ],
   boss1: [
-    "...hey, that.", // ann
-    "Her Majesty the Queen ...?", // ann
+    "...Hey, is that...", // ann
+    "Her Majesty the Queen?", // ann
     "No.", // evangelina
-    "？", // ann
-    "... I won't forgive ...", // evangelina
+    "?", // ann
+    "...I won't forgive...", // evangelina
     "Edgar...", // evangelina
     "Never forgive.", // evangelina
     "Is this her?", // ann
-    "...kill", // evangelina
+    "...Kill...", // evangelina
   ],
   boss2: [
-    "...defeated?", // ann
+    "Did we defeat her??", // ann
     "I think so.", // jaquelyn
     "Then we've saved the king?", // ann
     "I hope the ghost wasn't really the queen.", // francisca
@@ -440,25 +440,25 @@ export const evangelina = {
     "Please wait.", // evangelina
     "Huh?", // ann
     "All of you,", // evangelina
-    "thank you.", // evangelina
+    "Thank you.", // evangelina
     "Ummm...", // ann
     "Are you really Queen Evangelina?", // ann
     "Yes.", // evangelina
     "Thank you.", // evangelina
-    "Protect my resting place from the evil beings pretending to be me.", // evangelina
-    "No no, it's ok.  You're welcome.", // ann
+    "For protecting my resting place from the evil beings pretending to be me.", // evangelina
+    "No, no, it's ok.  You're welcome.", // ann
     "Um,", // ann
     "Do you really hold a grudge against King Edgar?", // ann
     "No.", // evangelina
     "I know why you ask.", // evangelina
     "Let me answer.", // evangelina
-    "I never hold any grudges.", // evangelina
+    "I never held any grudges.", // evangelina
     "I was sick,", // evangelina
     "That's why I wouldn't go out in public much.", // evangelina
     "That's how the rumors started.", // evangelina
     "I was always so thankful of Edgar.", // evangelina
     "Great.", // ann
-    "I will ill from the start.", // evangelina
+    "I was ill from the start.", // evangelina
     "Since the first time I met Edgar.", // evangelina
     "I was already fated to die.", // evangelina
     "Still Edgar,", // evangelina

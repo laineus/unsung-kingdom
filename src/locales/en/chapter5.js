@@ -2,7 +2,7 @@ export const peaceful = {
   soldier: [
     "An assassin dressed in a black robe.", // soldier1
     "According to His Royal Highness, the assassin is being hunted down to be executed.", // soldier1
-    "An assassin dressed in a black robe.", // soldier2
+    "An assassin dressed in a black robe...", // soldier2
   ],
   talk1: [
     "You came.", // jack
@@ -34,10 +34,10 @@ export const peaceful = {
     "Sonberk resented the king and wanted revenge.", // ethel
     "I went to the Temple of Grifarde many times,", // ethel
     "To negotiate with Sonberk on behalf of my older brother.", // ethel
-    "I persuaded Sonberk to not seek revenge on the kingdom in exchange for whatever he wanted.", // ethel
+    "I persuaded Sonberk to not seek revenge on the kingdom in exchange for whatever it wanted.", // ethel
     "I offered everything I could think of, but Sonberk's wishes were consistent:", // ethel
     "The king's death in exchange for leaving the kingdom in peace.", // ethel
-    "Eventually I gave up.  I agreed to Sonberk's demands.", // ethel
+    "Eventually I gave in.  I agreed to Sonberk's demands.", // ethel
     "Regretfully, I thought I would save the kingdom at the cost of losing my brother.", // ethel
     "Oh, that's awful.", // ann
     "Do you remember the first time we ran across each other here?", // ethel
@@ -58,28 +58,28 @@ export const peaceful = {
     "This ruined royal castle,", // ethel
     "At that time, this kingdom was destroyed.", // ethel
     "Eh!?", // ann
-    "That should be...", // ann
+    "That shouldn't be...", // ann
     "I saw it with my own eyes.", // ethel
     "It was unquestionably the work of a dragon.", // ethel
     "Sonberk burned down our kingdom because I failed to kill my brother that day.", // ethel
     "That's...", // ann
     "I don't know what the kingdom's future was like before you came.", // ethel
-    "But Sonberk's must be prevented at all costs.", // ethel
+    "But I knew that Sonberk's wrath had to be contained at all costs.", // ethel
     "I understood that much.", // ethel
     "So, even after returning to this era, I kept looking for another opportunity to kill the king.", // ethel
     "...", // ann
-    "But in the end you stopped assassinating the king and faced Sonberk yourselves, right?", // ann
+    "But in the end you stopped assassinating the king and faced Sonberk yourself, right?", // ann
     "I changed my mind.", // ethel
     "No, I had never thought of defeating a dragon in the first place.", // ethel
-    "But after you challenged and defeatd me in the graveyard,", // ethel
+    "But after you challenged and defeated me in the catacombs,", // ethel
     "I decided to confront the dragon with my brother.", // ethel
     "In the end I broke and you helped me.", // ethel
     "It was the king who defeated Sonberk to begin with.", // ann
     "That's right.", // ethel
-    "I decided to try to help him to do it again.", // ethel
+    "I decided to try to help him do it again.", // ethel
     "Anyways, I no longer had a choice.", // ethel
-    "I'm sorry to call here like this.", // ethel
-    "I thought there would trouble if I didn't return this crystal.", // ethel
+    "I'm sorry to call you here like this.", // ethel
+    "I thought there might be trouble if I didn't return this crystal.", // ethel
   ],
   item: "Time Crystal",
   talk4: [
@@ -90,7 +90,7 @@ export const peaceful = {
     "You have always been a mystery.", // ann
     "And then,", // ann
     "I'm glad you reconsidered the assassination at the end.", // ann
-    "We were going home because we finished our purpose here,", // ann
+    "We wish to go home because we finished our purpose here.", // ann
     "Honestly, I was a little worried we would never make it home...", // ann
     "But,", // ann
     "You can rest assured that this era belongs to you.", // ann
@@ -104,11 +104,11 @@ export const peaceful = {
   end1: [
     "The times shine brightly.", // ethel
     "Our kingdom,", // ethel
-    "Guaranteed by the Peaceful King Edgar.", // ethel
+    "Ruled by King Edgar the Peaceful .", // ethel
   ],
   end2: [
     "Hey, over there!", // soldier1
-    "Assassin in a black robe!", // soldier1
+    "The assassin in a black robe!", // soldier1
     "Don't let him get away, shoot!", // soldier2
   ],
   end3: [

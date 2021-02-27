@@ -1,14 +1,14 @@
 export const templeCharacters = {
   soldier1: [
-    "It's just as his majesty said.", // soldier1
+    "It's just as His Majesty said.", // soldier1
     "The princess slipped through the guards at the castle,", // soldier1
-    "And she followed his majesty here.", // soldier1
+    "And she followed His Majesty here.", // soldier1
     "But we can't allow you to go inside.", // soldier1
   ],
   soldier2: [
     "No matter how many times you ask, I can't let you through.", // soldier2
     "You can't disobey me, I'll tell my father!", // mary
-    "My orders came directly from his highness.", // soldier2
+    "My orders come directly from His Highness.", // soldier2
     "Please forgive me.", // soldier2
   ],
   mary: [
@@ -18,7 +18,7 @@ export const templeCharacters = {
     "It's dangerous.", // ann
     "My dad and uncle are fighting the dragon.", // mary
     "We can't just wait here!", // mary
-    "But these knights won't let us go ahead.", // mary
+    "But these knights won't let us go any further.", // mary
     "Please do something!", // mary
     "Hmmm, I don't think there's anything that can be done.", // ann
   ],
@@ -26,13 +26,13 @@ export const templeCharacters = {
     "?", // loretta
     "You all look familiar.", // loretta
     "Seriously, you forgot?", // ann
-    "Look, the Lady Loretta from the underground passage.", // ann
+    "Look, it's the Lady Loretta from the underground passage.", // ann
     "Oh, now I remember.", // loretta
     "What are you doing here?", // ann
-    "Your majesty is planning to fight the dragon.", // loretta
+    "His Majesty is planning to fight the dragon.", // loretta
     "Mary and I rushed here.", // loretta
     "Well I'm worried...", // ann
-    "If something were to happen to his majesty, then Mary...", // loretta
+    "If something were to happen to His Majesty, then Mary...", // loretta
     "I have to lend my support...", // loretta
     "I'm sure things will be ok.", // ann
   ],
@@ -40,9 +40,9 @@ export const templeCharacters = {
     talk1: [
       "Oh!  You're the necromancer from the catacombs.", // ann
       "It's you three.", // dario
-      "Good.", // dario
+      "Excellent.", // dario
       "I needed to thank you.", // dario
-      "Thank you for stilling the ghost of the queen.", // dario
+      "Thank you for easing the ghost of the queen.", // dario
       "I'm so sorry about the danger I put you in.", // dario
       "It's alright.", // ann
       "What are you doing here though?", // ann
@@ -57,7 +57,7 @@ export const templeCharacters = {
     option: ["Please", "Alright"],
   },
   drystan: [
-    "You are the wise man from the Warcoforence Forest!", // ann
+    "You are the wise man from Warkano Forest!", // ann
     "Thanks again for making the medicine.", // ann
     "I was thinking the three of you might show up.", // drystan double check 誰かと思えばあのときの者達か。
     "Have you come to save the royal house again?", // drystan
@@ -102,20 +102,20 @@ export const lorraine = {
     "They open and close doors.", // architect
     "Are you this statue's sculptor?", // ann
     "No.", // architect
+    "This temple was made and abandoned long ago.", // architect
     "I just maintain the mechanisms.", // architect
-    "Anyway, this temple was abandoned long ago.", // architect
     "It was a just coincidence that I found this mechanism.", // architect
     "Really?  By chance?", // ann
     "Ever since my first visit here I became fascinated with the statues.", // architect
     "I could never forget this statue.", // architect
     "I became a sculptor myself eventually.", // architect
     "One day I was studying this statue so intensely that I completely forgot to eat,", // architect
-    "That's when I found this mechanism.", // ann
-    "Ah what a great day.", // architect
+    "That's when you found this mechanism.", // ann
+    "Ah yes, what a wonderful day.", // architect
     "I can still remember my excitement at seeing the mechanism hidden in the pedestal.", // architect
     "It was broken, but I fixed it and made it work again.", // architect
     "Wow.", // ann
-    "By the way, are you all in trouble?", // architect
+    "But anyways, what did you wish to know?", // architect
   ],
   option: ["Ask about the statue", "Ask about the dragon"],
   start2: [
@@ -123,7 +123,7 @@ export const lorraine = {
     "I could, but I won't.", // architect
     "As I said, I'm fascinated by this statue, even in its broken form.", // architect
     "Above all, I respect the person who carved this statue.", // architect
-    "I couldn't modify it.", // architect
+    "I could never modify such perfect work.", // architect
     "That's why I only ensure the mechanisms work.", // architect
     "It took me years though.", // architect
     "Oh you've been here a long time.", // ann
@@ -135,7 +135,7 @@ export const lorraine = {
     "The dragon was sleeping in the basement of this temple, but woke up about half a month ago.", // architect
     "Since then the prince has been visiting the dragon frequently.", // architect
     "What for?", // ann
-    "I believe the prince was negotiating with the dragon on behalf of His Majesty, trying to calm the dragon's wrath.", // architect
+    "I believe the prince was negotiating with the dragon on behalf of His Majesty, |Trying to calm the dragon's rage.", // architect
     "The dragon's anger was too great though, His Majesty came here today to try to fix things.", // architect
     "That's right.", // ann
     "We also wish to see the dragon,", // ann
@@ -147,8 +147,8 @@ export const lorraine = {
     "It's no substitute, but,", // architect
     "Here.", // architect
     "What's this?", // ann
-    "If you trigger the mechanism with this, you can reach the rooftop.", // architect
-    "You'll have to study the mechanism, but I'm sure you'll figure it out.", // architect
+    "If you trigger other mechanisms with this, you can reach the rooftop.", // architect
+    "You'll have to study the mechanisms, but I'm sure you'll figure it out.", // architect
     "Thank you!", // ann
   ],
   item: "Simple Key",
@@ -156,7 +156,7 @@ export const lorraine = {
     "Think about how to trigger the mechanisms.", // architect
   ],
   solved: [
-    "It looks like this mechanism has been solved.", // architect
+    "It looks like you have solved the mechanisms.", // architect
     "If you wish to go underground, look for Lyla.", // architect
   ],
   tweet: [
@@ -169,12 +169,12 @@ export const lorraine = {
 export const allsRight = {
   start: [
     "Hmmm?", // zi
-    "This door should have been sealed...", // zi
-    "Ah!  The dragon?", // ann
-    "Is this your first time to meet a dragon?", // zi
+    "The door should have been sealed...", // zi
+    "Ah!  A dragon?", // ann
+    "Is this your first time meeting a dragon?", // zi
     "Uh, yeah.", // ann
     "I was surprised.", // ann
-    "We are a dragon tribe.", // zi
+    "I am part of a dragon tribe.", // zi
     "I'm sorry if you were frightened.", // zi
     "Wow there are many dragons in the kingdom.", // ann  // double check this and the next one
     "There are.", // zi
@@ -197,16 +197,16 @@ export const allsRight = {
     "Did you come to challenge him too?", // zi
     "Ummm, well yes.", // ann
     "You don't have to worry about me.", // zi
-    "I too am a dragon, but Sonberk is violent in my eyes as well.", // zi
+    "I might be a dragon, but Sonberk is violent in my eyes as well.", // zi
     "I know you sought this fight reluctantly.", // zi
     "But Sonberk is a mighty dragon.", // zi
     "You have little hope of defeating him.", // zi
     "How did the king manage it before?", // ann
     "Humans are a crafty race.", // zi
     "Powerful weapons and tools narrowed the gap between man and dragon.", // zi
-    "For example, the holy sword Caliburnus, which is sealed in this temple.", // zi
+    "For example, the holy sword Calibrenus, which is sealed in this temple.", // zi
     "That sword is undeniably a threat to us.", // zi
-    "Holy sword Caliburnus...", // ann
+    "Holy sword Calibrenus...", // ann
     "If we had the holy sword could we stand against Sonberk?", // ann
     "The sword would give you hope.", // zi
     "I don't know what sword the king wields.", // ann
@@ -222,7 +222,7 @@ export const allsRight = {
     "I see...", // ann
     "We're in trouble...", // ann
     "...", // zi
-    "Create an opportunity to speak with the Nikke", // zi
+    "But I can help create an opportunity to speak with the Nikke.", // zi
     "An opportunity?", // ann
     "The Nikke are reclusive.", // zi
     "They will not respond to a human's call.", // zi
@@ -236,7 +236,7 @@ export const allsRight = {
     "I can't say I understand, but I'll help find them!", // ann
   ],
   solve: [
-    "I collected them?", // ann
+    "I collected them.", // ann
     "Ok.", // zi
     "Wait a minute.", // zi
     "Finished.", // zi
@@ -268,12 +268,12 @@ export const calibur = {
     "Yes", // nikke
     "I heard Zi's message.", // nikke
     "Who are you?", // nikke
-    "I'm Ann", // ann
+    "I'm Ann.", // ann
     "Ann, do you seek the holy sword?", // nikke
     "Yes!  Can you lend it to me?", // ann
     "It is a wonderous sword.", // nikke
     "A terrifying thing to us dragons.", // nikke
-    "It takes courage to hand it out to a human.", // nikke
+    "It takes courage to hand it over to a human.", // nikke
     "I will convince you by any means necessary.", // ann
     "Any means?", // nikke
     "Any means.", // ann
@@ -331,14 +331,14 @@ export const calibur = {
     "You're very strong.", // nikke
     "Alright.  I surrender.", // nikke
     "Well done.  I am a less powerful dragon though, do not become overconfident.", // nikke
-    "Well, the sword.", // nikke
+    "Well then... the sword.", // nikke
     "Here, take it.", // nikke
     "Thank you.", // ann
     "Yes.  It looks good in your hands.", // nikke
     "Thank you.", // ann
     "Yeah...", // nikke
-    "Well,", // nikke
-    "I no longer have to keep an eye on my sword,", // nikke
+    "Well...", // nikke
+    "Since I no longer have to keep an eye on that sword,", // nikke
     "I might go on a trip somewhere.", // nikke
     "Ah,", // nikke
     "By the way,", // nikke
@@ -364,9 +364,9 @@ export const lute = {
     "Oh, I see.", // lyla
     "What you are looking for is this goddess statue.", // lyla
     "Really!?", // ann
-    "Is that Lyla?", // ann
+    "You must be Lyla.", // ann
     "Really.", // lyla
-    "Did you ask the sculptor?", // lyla
+    "Did you speak with the sculptor?", // lyla
     "Only you can trigger this mechanism.", // ann
     "Correct.", // lyla
     "Do you want me to open it?", // lyla
@@ -379,10 +379,10 @@ export const lute = {
     "I don't really want you to do that much...", // lyla
     "Oh,", // ann
     "Then can you open it?", // ann
-    "No, I have to do something.", // lyla
+    "No, you have to do something.", // lyla
     "Uh...", // ann
     "Then, hmmm,", // ann
-    "Do you collect apples?", // ann
+    "Do you enjoy apples?", // ann
     "I like them.", // lyla
     "So!", // lyla
     "I'll ask you to find me a beautiful one.", // lyla
@@ -416,15 +416,15 @@ export const lute = {
     "I don't really understand either.", // lyla
     "I think the goddess responds to the love of music.", // lyla
     "What do you mean?", // ann
-    "Even if you play the same tune, it won't open unless you put your heart into it.", // lyla
+    "Even if you play the same tune, it won't open unless you pour your heart into it.", // lyla
     "But if you play it with all your heart, it will open.", // lyla
-    "I'm sure the person who made this mechanism long ago also loved the goddess.", // lyla
+    "I'm sure the person who made this mechanism also loved the goddess.", // lyla
     "That's nice.", // ann
     "It's like the apple my daughter brought me.", // lyla
     "So delicious.", // lyla
     "You must have thought of me when you found it.", // lyla
     "Hehe.", // ann
-    "Come on then,", // lyla
+    "Well then,", // lyla
     "Do be careful.", // lyla
     "Thank you!", // ann
   ],
@@ -435,8 +435,8 @@ export const lute = {
 export const dragonKiller = {
   soldier: [
     "The dragon... was much more powerful than we expected...", // soldier1
-    "How did the king manage to beat him ten years ago...", // soldier2
-    "I want to help His Majesty... but I can't move my body anymore...", // soldier3
+    "How did the king manage to beat the dragon ten years ago...", // soldier2
+    "I want to help His Majesty... but I can't moveanymore...", // soldier3
   ],
   block: [
     "Hey, don't you want to talk to the injured soldiers?", // francisca
@@ -463,7 +463,7 @@ export const dragonKiller = {
     "There's no time to gossip.", // ethel
   ],
   confirm: [
-    "Beyond lies the dragon's lair.", // francisca
+    "The dragon's lair is beyond.", // francisca
   ],
   confirmOption: ["Go ahead", "Stop"],
   king1: [
@@ -479,15 +479,15 @@ export const dragonKiller = {
     "Your brother Ezerbald has fulfilled his promise.", // sonberk
     "You wish to trade your own life for the good of your kingdom.", // sonberk
     "Yes.", // king
-    "I don't know negotiations you made with my brother, but that's what I want.", // king
-    "Shower me in flame until you're satisfied.", // king
+    "I don't know what my brother agreed to, but that's what I want.", // king
+    "Shower me in flame until you've satisfied your anger.", // king
   ],
   king2: [
     "Huwa!", // king
     "!", // ann
     "Hurry up!", // ann
     "...", // king
-    "I'm going to faint!", // ann
+    "He's collapsed!", // ann
   ],
   sonberk: [
     "Sonberk! Prepare yourself!", // ann
@@ -502,9 +502,9 @@ export const dragonKiller = {
     "With this sword.", // ann
     "That sword is...", // sonberk
     "I know that sword.", // sonberk
-    "Why is it in your posession?", // sonberk
+    "Why is it in your possession?", // sonberk
     "No matter.", // sonberk
-    "It still in the hands of a little girl.", // sonberk
+    "It's still in the hands of a little girl.", // sonberk
     "If you wish to die here next to your king, I shall grant your wish.", // sonberk
     "Come on!", // sonberk
   ],

@@ -59,7 +59,7 @@ export const jack = [
     "Has Ezerbald not returned yet?", // king
     "His Highness is still at the Temple of Grefalde.", // soldier
     "Negotiations with the dragon do not seem to be proceeding smoothly.", // king
-    "It's hard to say, but it does seem that way.", // soldier
+    "It's hard to say, but it does seem that way, Your Grace.", // soldier
     "I see...", // king
     "Oh great, he's still safe.", // jaquelyn
     "But where is Jack?", // francisca

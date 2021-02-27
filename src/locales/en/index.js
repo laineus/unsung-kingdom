@@ -1,31 +1,50 @@
-import { roomBook, roomEv } from './room'
-import { townGreeting, townGreeting4, townBoard, townCommon, townChapter0, townChapter1, townChapter2, townChapter3, townChapter4, townChapter5 } from './town'
-import { jack } from './chapter0'
-import { dog, mercenary, drystan, bear } from './chapter1'
-import { cassandra, princess, moonshine, aragnie } from './chapter2'
-import { ferdinand, marianne, dario, renfield, evangelina } from './chapter3'
-import { lorraine, allsRight, nikke, calibur, lute, dragonKiller, templeCharacters } from './chapter4'
-import { peaceful } from './chapter5'
+import { roomBook, roomEv } from "./room";
+import {
+  townGreeting,
+  townGreeting4,
+  townBoard,
+  townCommon,
+  townChapter0,
+  townChapter1,
+  townChapter2,
+  townChapter3,
+  townChapter4,
+  townChapter5,
+} from "./town";
+import { jack } from "./chapter0";
+import { dog, mercenary, drystan, bear } from "./chapter1";
+import { cassandra, princess, moonshine, aragnie } from "./chapter2";
+import { ferdinand, marianne, dario, renfield, evangelina } from "./chapter3";
+import {
+  lorraine,
+  allsRight,
+  nikke,
+  calibur,
+  lute,
+  dragonKiller,
+  templeCharacters,
+} from "./chapter4";
+import { peaceful } from "./chapter5";
 export default {
   langLabel: "English",
   chapter: [
-    { name: "Cp0", title: "Jack the Kingkiller", sub: "" },
-    { name: "Cp1", title: "Warcoforsubce", sub: "" },
-    { name: "Cp2", title: "Troias's Secret Passage", sub: "" },
-    { name: "Cp3", title: "Catacombs of St Anterus", sub: "" },
-    { name: "Cp4", title: "Temple of Grefalde", sub: "" },
-    { name: "Ep", title: "Edgar the Peaceful", sub: "" },
+    { name: "Prologue:", title: "Jack the Kingkiller", sub: "" },
+    { name: "Chapter 1:", title: "Warkano Forest", sub: "" },
+    { name: "Chapter 2:", title: "Troias's Secret Passage", sub: "" },
+    { name: "Chapter 3:", title: "Catacombs of St Anterus", sub: "" },
+    { name: "Chapter 4:", title: "Temple of Grefalde", sub: "" },
+    { name: "Epilogue:", title: "Edgar the Peaceful", sub: "" },
   ],
   area: {
     town: "Royal Capital",
     castle: "Royal Gardens",
-    forest: "Walcoforence Forest",
-    underpass: "The Duke of Troias's Underground Passage",
-    catacomb: "Cemetery of St. Anterus",
+    forest: "Warkano Forest",
+    underpass: "Duke's Secret Passage",
+    catacomb: "Cemetery of St Anterus",
     temple: "Temple of Grefalde",
   },
   areaSub: {
-    bellion: "Kingdom of Belion",
+    bellion: "Kingdom of Bellion",
     room: "base", // double check
     forest: {
       a: "Eastern Section",
@@ -49,7 +68,7 @@ export default {
       h: "Corridor",
       i: "Castle Entrance",
     },
-    aragnie: "Aragnie's Chamber",
+    aragnie: "Aragnier's Chamber",
     catacomb: {
       a: "Entrance",
       b: "East Room",
@@ -70,41 +89,50 @@ export default {
     },
   },
   mission: {
-    m0_1: { title: "王殺しのジャック", sub: "Jack the Kingkiller" },
-    m1_1: { title: "マシューと狩猟犬", sub: "Matthew and the Hunting Dogs" },
+    m0_1: { title: "Jack the Kingkiller", sub: "Jack the Kingkiller" },
+    m1_1: {
+      title: "Matthew and the Hunting Dogs",
+      sub: "Matthew and the Hunting Dogs",
+    },
     m1_2: {
-      title: "アイザムバード傭兵団の討伐遠征",
-      sub: "Isambard Mercenaries",
+      title: "The Isambard Mercenaries",
+      sub: "The Isambard Mercenaries",
     },
-    m1_3: { title: "森の賢人ドリスタン", sub: "Drystan the Hermit" },
-    m1_4: { title: "ワルコフォレンスの人食い熊", sub: "The Rex Bear" },
-    m2_1: { title: "幽閉されしカサンドラ", sub: "Incarcerated Cassandra" },
+    m1_3: { title: "Drystan the Hermit", sub: "Drystan the Hermit" },
+    m1_4: { title: "Rex Bear", sub: "Rex Bear" },
+    m2_1: { title: "Imprisoned Cassandra", sub: "Imprisoned Cassandra" },
     m2_2: {
-      title: "メアリー王女と公爵令嬢ロレッタ",
-      sub: "Princess Mary and Loretta",
+      title: "Princess Mary and Lady Loretta",
+      sub: "Princess Mary and Lady Loretta",
     },
-    m2_3: { title: "ディオニューソスの密造酒", sub: "Dionysus's Moonshine" },
-    m2_4: { title: "アラグニエのねぐら", sub: "Aragnie's lair" },
-    m3_1: { title: "呪われしフェルディナンド卿", sub: "Cursed Lord Ferdinand" },
+    m2_3: { title: "Dionysus's Moonshine", sub: "Dionysus's Moonshine" },
+    m2_4: { title: "Aragnier's Lair", sub: "Aragnier's Lair" },
+    m3_1: { title: "Cursed Lord Ferdinand", sub: "Cursed Lord Ferdinand" },
     m3_2: {
-      title: "マリアンヌの歌を聞いてから死ね",
-      sub: "Die after listening Marianne's song.",
+      title: "To Hear Marianne's song again",
+      sub: "To Hear Marianne's song again",
     },
-    m3_3: { title: "ダリオの哀しみ", sub: "Dario's Sorrow" },
+    m3_3: { title: "Dario's Sorrow", sub: "Dario's Sorrow" },
     m3_4: {
-      title: "レンフィールド家の大罪",
-      sub: "Sins of the Renfield family",
+      title: "The Sins of the Renfield Family",
+      sub: "The Sins of the Renfield Family",
     },
     m3_5: {
-      title: "エヴァンジェリナ妃の亡霊",
+      title: "Ghost of Princess Evangelina",
       sub: "Ghost of Princess Evangelina",
     },
-    m4_1: { title: "清浄なるロレイン像", sub: "Sacred Lorraine's statue" },
-    m4_2: { title: "すべて世はこともなし", sub: "All's right with the world" },
-    m4_3: { title: "聖剣カリブルヌス", sub: "Caliburnus" },
-    m4_4: { title: "女神さまに捧ぐリュート", sub: "Lute for goddess" },
-    m4_5: { title: "竜殺しの王", sub: "The Dragonkiller King" },
-    m5_1: { title: "平和王エドガー", sub: "Edgar the Peaceful" },
+    m4_1: {
+      title: "Grefalde's Sacred Statue",
+      sub: "Grefalde's Sacred Statue",
+    },
+    m4_2: {
+      title: "The Words of Dragons",
+      sub: "The Words of Dragons",
+    },
+    m4_3: { title: "Calibrenus", sub: "Calibrenus" },
+    m4_4: { title: "Music for the Goddess", sub: "Music for the Goddess" },
+    m4_5: { title: "The Dragonkiller King", sub: "The Dragonkiller King" },
+    m5_1: { title: "Edgar the Peaceful", sub: "Edgar the Peaceful" },
   },
   chara: {
     ann: "Ann",
@@ -112,7 +140,7 @@ export default {
     francisca: "Francisca",
     king: "King",
     jack: "Jack",
-    ethel: "Ethel",
+    ethel: "Ezerbald",
     guard: "Guard",
     soldier: "Soldier",
     injuredSoldier: "Injured Soldier",
@@ -132,7 +160,7 @@ export default {
     drystan: "Drystan",
     queen: "Queen",
     sonberk: "Sonberk",
-    fdn: "フェルディナンド卿",
+    fdn: "Sir Ferdinand",
     klaus: "Klaus",
     injuredLeader: "Injured Mercenary Captain",
     injuredMercenary: "Injured Mercenary",
@@ -144,7 +172,7 @@ export default {
   },
   weapon: {
     1: "Short Sword",
-    2: "Short Bow",
+    2: "Shortbow",
     3: "Cutlass",
     4: "Spear",
     5: "Gladius",
@@ -178,7 +206,7 @@ export default {
     flower: "Flower",
     bear: "Bear",
     goblin: "Goblin",
-    goblin2: "Goblin",
+    goblin2: "Hobgoblin",
     carbuncle: "Carbuncle",
     orthrus: "Orthrus",
     gargoyle: "Gargoyle",
@@ -197,7 +225,7 @@ export default {
     knight: "Knight",
     thief: "Thief",
     nikke: "Nikke",
-    dragon: "Dragon",
+    dragon: "Sonberk",
   },
   item: {
     dragonScale: "Dragonscale",
@@ -224,14 +252,14 @@ export default {
     recommendedLevel: "Recommended Level",
     undefinedArea: "Undefinied Area",
   },
-  missionStart: "『#{title}』Start",
-  missionComplete: "『#{title}』Complete",
+  missionStart: `"#{title}" Start`,
+  missionComplete: `"#{title}" Complete`,
   unlockArea: `"#{area}" Unlocked`,
   gotItem: `"#{name}" picked up`,
   hpRecovered: "HP recovered",
   weaponDrop: "#{name} found!",
   itemDrop: {
-    mandrake: "#Found {num} mandrake roots!",
+    mandrake: "Found #{num} mandrake roots!",
     magicStone: "Found #{num} carbuncle stones!",
     water: "Got #{num} bottles of water.",
     dagger: "Recovered Dario's dagger!",
@@ -272,11 +300,11 @@ export default {
   peaceful,
   templeCharacters,
   storyTelling: [
-    "The king is dead.\nThe gates of the castle are barred, the glory beyond unseen for generations.\nFollowing the death of the Great King, the Kingdom abruptly fell.",
-    "— The history of Bellion",
-    "After a thousand years the kingdom was forgotten to the world, it's name long lost.\nBut the descendants of Verion never left the land where King Edgar sleeps peacefully.",
-    "At some point, magicians who lamented the death of the good king discovered a way to alter time.",
-    "It was unnatural to defy the laws of nature,\nbut for the good king they were willing to rewrite history.",
+    "The Great King is dead.\nThe gates of the castle barred, the glory beyond unseen for generations.\nFollowing the death of the Great King, the Kingdom of Bellion abruptly fell.",
+    "— The History of Bellion",
+    "After a thousand years the kingdom was forgotten to the world, it's name long lost.\nBut the descendants of Bellion never left the land where King Edgar sleeps peacefully.",
+    "At some point, magicians who lamented the death of the Great King discovered a way to alter time.",
+    "It was unnatural to defy the laws of nature,\nbut for King Edgar the Peaceful they were willing to rewrite history.",
   ],
   missionDescription: {
     m0_1: {
@@ -391,21 +419,21 @@ export default {
   afterBattle: {
     m1_3: "It looks like the mandrake roots have been gathered.", // jaquelyn
     m2_2: "The Carbuncle stones have been gathered.", // fraancisca
-    m3_2: "Sufficient drinking water has been collected.", // francisca
+    m3_2: "I think enough drinking water has been collected.", // francisca
     m4_2: "The Kerune feathers have been gathered.", // jaquelyn
   },
   tweet: {
-    ca1: "Hide yourself somewhere and wait.", // francisca
+    ca1: "Let's hide somewhere and wait.", // francisca
     ct1: "Catacombs... a little scary...", // ann
-    fr1: "Is this the Forest of Warcoforence?", // ann
+    fr1: "Is this Warkano Forest?", // ann
     tm1: "We've arrived at the entrance to the temple.", // jaquelyn
-    aplg: "Delicious apple.", // ann
+    aplg: "A delicious looking apple.", // ann
     aplb: "It's a damaged apple.", // ann
     clbr: "Is that the holy sword?", // francisca
-    un1: "We've successfully invaded", // francisca うまく侵入できたね not sure what this is double check
+    un1: "We've successfully invaded.", // francisca うまく侵入できたね not sure what this is double check
     lost: {
-      francisca: ["Well, wait!", "disappeared..."],
-      jaquelyn: ["Ann, don't leave it", "Ann, where?"], // double check
+      francisca: ["Hey, wait!", "You disappeared..."],
+      jaquelyn: ["Ann, don't leave me!", "Ann, where did you go?"], // double check
     },
   },
   mapEvent: {
