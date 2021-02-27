@@ -14,10 +14,11 @@ export default class Talk extends Phaser.GameObjects.Container {
           arr.push(Object.assign({}, v, { text }))
         })
       } else {
-        arr.push(Object.assign({}, v))
+        arr.push(v ? Object.assign({}, v) : v)
       }
       return arr
     }, [])
+    console.log(this.events)
     scene.add.existing(this)
     this.npc = this.events.filter(v => v && v.chara.constructor === Character).map(v => v.chara)
     this.npc.forEach(c => {
