@@ -8,6 +8,16 @@ export default class Talk extends Phaser.GameObjects.Container {
     this.events = events
     this.callback = callback
     this.index = 0
+    this.events = events.reduce((arr, v) => {
+      if (v && typeof v.text === 'string') {
+        v.text.split('|').forEach(text => {
+          arr.push(Object.assign({}, v, { text }))
+        })
+      } else {
+        arr.push(Object.assign({}, v))
+      }
+      return arr
+    }, [])
     scene.add.existing(this)
     this.npc = this.events.filter(v => v && v.chara.constructor === Character).map(v => v.chara)
     this.npc.forEach(c => {
