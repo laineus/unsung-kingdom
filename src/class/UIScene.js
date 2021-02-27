@@ -285,7 +285,8 @@ export default class UIScene extends Phaser.Scene {
       const data = [
         { label: 'Written by', name: 'Laineus' },
         { label: 'Illustrations by', name: '真符' },
-        { label: 'Music by', name: 'Laineus' }
+        { label: 'Music by', name: 'Laineus' },
+        { label: 'English translations by', name: 'uribgp' } // TODO: ask
       ]
       const list = data.map(v => {
         const c = this.add.container(config.WIDTH.half, config.HEIGHT.half)
