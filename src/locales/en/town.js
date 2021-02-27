@@ -9,15 +9,15 @@ export const townGreeting4 = {
   matilda: "So scary...",
 };
 export const townBoard = [
-  "Information about the city is posted here.",
+  "Local news is posted here.",
   `The ferocious monster "Rex Bear" is wreaking havoc in the forest.  A reward for subduing it is posted.`,
-  "There's a post regarding the penalities of prohibition.", // prohibition?
+  "There's a post regarding the prohibition law, and the penalities for selling alcohol.", // prohibition?
   "There's a post about the fire in the Renfield family's mansion.",
   "There's a post about the dragon's awakening, and forming a team to subdue it.",
   "There's a post about King's Edgar's defeating the dragon.",
 ];
 export const townCommon = {
-  amber: "今日もいい天気ね。",
+  amber: "It's nice weather today.",
   annabelle: [
     [
       // townCommon.annabelle.0.x
@@ -59,7 +59,7 @@ export const townCommon = {
     [
       // townCommon.annabelle.2.x
       "Do you know the story of the dragon which attacked ten years ago?", // annabelle
-      "King Edgar fought the dragon and sealed it in the Temple of Grifarde.", // annabelle
+      "King Edgar fought the dragon and sealed it in the Temple of Grefalde.", // annabelle
       "Daddy and Mommy always told me this story.", // annabelle
       "Our inn also has a painting of King Edgar fighting the dragon.", // annabelle
       "Please take a look if you like.", // annabelle
@@ -68,15 +68,15 @@ export const townCommon = {
     ],
     [
       // townCommon.annabelle.3.x
-      "マチルダとはね、", // annabelle
-      "昔は結構仲が良かったんだ。", // annabelle
-      "でもいつの間にか避けられるようになってね、", // annabelle
-      "さりげなーく近づくと、慌てて逃げていっちゃうの。", // annabelle
-      "可愛いでしょ。", // annabelle
+      "There's Matilda,", // annabelle
+      "We used to be pretty good friends.", // annabelle
+      "But now she's avoiding me.", // annabelle
+      "Anytime I casually approach her, she runs away in a hurry.", // annabelle
+      "Isn't it cute?", // annabelle
     ],
     [
       // townCommon.annabelle.4.x
-      "今日もいい天気ですね。", // annabelle
+      "It's nice weather today.", // annabelle
     ],
   ],
   matilda: [
@@ -87,8 +87,8 @@ export const townCommon = {
       "Oh, right.  This must look suspicious.", // matilda
       "I'm watching Annabelle at the inn.", // matilda
       "I'm doing nothing wrong.", // matilda
-      "Are you a bad child?", // ann
-      "No.  I'm a very good girl.", // matilda
+      "You do look very suspicious.", // ann
+      "I promise I'm not.  I'm a good girl.", // matilda
       "We used to play together a lot...", // matilda
       "Why not anymore?", // ann
       "Apparently I look suspicious lately.", // matilda
@@ -109,7 +109,7 @@ export const townCommon = {
       // townCommon.matilda.1.x
       "What's wrong?  Why the sad face?", // ann
       "Ah,", // matilda
-      "King Edgar once sealed a dragon in the Temple of Grifarde.", // matilda
+      "King Edgar once sealed a dragon in the Temple of Grefalde.", // matilda
       "I heard rumors that the dragon might have awakened.", // matilda
       "I'm so scared...", // matilda
       "Really?", // ann
@@ -122,8 +122,8 @@ export const townCommon = {
     ],
     [
       // townCommon.matilda.2.x
-      "…。", // matilda
-      "………。", // matilda
+      "...", // matilda
+      "......", // matilda
       "Oh!  I'm sorry!", // matilda
       "I didn't notice... I was drowsy.", // matilda
       "Are you ok?", // ann
@@ -137,16 +137,16 @@ export const townCommon = {
     ],
     [
       // townCommon.matilda.3.x
-      "昔ね…、", // matilda
-      "アナベルがふざけて私にキスしたことがあるの。", // matilda
-      "ずるいよね。", // matilda
-      "自分だけ何もなかったみたいな顔して…。", // matilda
-      "あれ、なんだったのかな…。", // matilda
+      "Once upon a time ...", // matilda
+      "Annabele kissed me playfully", // matilda
+      "Crazy.", // matilda
+      "She acted like it was nothing...", // matilda
+      "But what was it?", // matilda
     ],
     [
       // townCommon.matilda.4.x
-      "アナベル…。", // matilda
-      "はあ…。", // matilda
+      "Annabelle...", // matilda
+      "Ah...", // matilda
     ],
   ],
   elliott: [
@@ -162,11 +162,11 @@ export const townCommon = {
       "That's how I came up with a great idea.", // elliott
       "First, I find one of those talented individuals who wants to become a mercenary.", // elliott
       "And I lend him good, sturdy, equipment.", // elliott
-      "So he has everything he needs to make good money.", // elliott
+      "So he has everything he needs to earn a good wage.", // elliott
       "After a few jobs, he can pay me back, and then some.", // elliott
       "It's a great idea right?", // elliott
-      "I see.", // ann
-      "But even if start this business, I don't have money to buy the equipment to loan out.", // elliott
+      "It's an interesting idea.", // ann
+      "But even if I started this business, I don't have enough to buy the equipment to loan out.", // elliott
       "So how about you lend me some money first?", // elliott
       "I'll give you some of the money I make from this.", // elliott
       ["Alright", "No"],
@@ -176,13 +176,13 @@ export const townCommon = {
     ],
     [
       // townCommon.elliott.1.x
-      "Do you know the Temple of Grifarde?", // elliott
-      "It's a temple that was built a long time ago", // elliott
+      "Do you know about the Temple of Grefalde?", // elliott
+      "It's a temple that was built a long time ago.", // elliott
       "The dragon that attacked our kingdom ten years ago is sleeping there.", // elliott
       "It was King Edgar who subdued the dragon.", // elliott
-      "It is rumored that somewhere in the temple there are dragon scales cut off by the king.", // elliott
-      "It sounds like just a rumor, but", // elliott
-      "If someone really found it, they'd be worth a fortune..", // elliott
+      "It is rumored that somewhere in the temple there are dragonscales cut off by the king.", // elliott
+      "It sounds like just a rumor, but...", // elliott
+      "If someone really found them, they'd be worth a fortune.", // elliott
     ],
     [
       // townCommon.elliott.2.x
@@ -212,28 +212,28 @@ export const townCommon = {
       "King Edgar is a hero to his people.", // max
       "Everyone respects the king.", // max
       "I heard he defeated the dragon which attacked the kingdom.", // francisca
-      "That's right, everyone in the whole kingdom knows.", // max
+      "That's right, the whole kingdom knows of his heroic feat.", // max
       "Almost ten years ago, the king fought the dragon that was terrorizing the kingdom.", // max
-      "King Edgard didn't kill the dragon, he sealed it in the Temple of Grifarde.", // max
+      "King Edgard didn't kill the dragon, he sealed it in the Temple of Grefalde.", // max
       "How strong he must be.", // ann
-      "Indeed.  The kingdom has been peaceful since King Edgar took the throne.", // max
-      "That's why he's known as <The Peaceful King>", // jaquelyn
+      "Indeed.  The kingdom has known peace ever since King Edgar took the throne.", // max
+      "That's why he's known as The Peaceful King", // jaquelyn
       "Correct.", // max
       "Ever since King Edgard's reign began, the country has known peace.", // max
     ],
     [
       // townCommon.max.1.x
-      "Recently there's been rumors that the dragon has awakened in the Temple of Grifarde.", // max
+      "Recently there's been rumors that the dragon has awakened in the Temple of Grefalde.", // max
       "If true, I fear for the kingdom.", // max
       "That dragon will surely hold a grudge against the king for its imprisonment.", // max
       "If it's awakened, eventually it will gain enough strength to fly away. ", // max
-      "If true, I really fear for our kingdom.", // max
+      "If true, I fear for our kingdom.", // max
     ],
     [
       // townCommon.max.2.x
       "The king has a younger brother named Ezerbald,", // max
       "He's apparently good with a sword.", // max
-      "King Edgar is really old, but", // max
+      "King Edgar is so old now, but,", // max
       "If danger visits our kingdom, I wonder if the prince can handle it.", // max
     ],
     [
@@ -245,12 +245,12 @@ export const townCommon = {
 export const townChapter0 = {
   ann: [
     "By the way, how do we get to the royal gardens?", // ann
-    "Let's ask around the city.", // francisca
+    "Let's ask around town.", // francisca
     "We must try our best to not be suspicious.", // francisca
   ],
   amber: [
-    "A pleasure to meet you, traveler", // amber
-    "What brings you here?", // amber
+    "A pleasure to meet you, traveler.", // amber
+    "What brings you into town?", // amber
     "I came to see the royal castle!", // ann
     "Oh, is that so?", // amber
     "Very good.", // amber
@@ -259,9 +259,9 @@ export const townChapter0 = {
     "That's amazing!", // ann
     "Have you ever entered the castle through the royal gardens?", // ann
     "No, never... always from the main entrance.", // amber
-    "Because I'm on good terms.", // amber
+    "Because I'm on good terms, I have no need to use the rear entrance.", // amber
     "Oh, I see.", // ann
-    "Do you want to go?", // amber
+    "Do you wish to go?", // amber
     "Even if you wish to enter from the gardens, you can't unless you know your way through the forest which surrounds it.", // amber
     "Of course.  Thank you so much for your time.", // ann
   ],
@@ -305,7 +305,7 @@ export const townChapter0 = {
 };
 export const townChapter1 = {
   amber: [
-    "King Edgar, I'm worried ...", // amber
+    "King Edgar, I'm so worried...", // amber
     "What happened to the king?", // ann
     "I heard from someone who is close to the royal family,", // amber
     "It seems that King Edgar has suddely fallen ill.", // amber
@@ -341,7 +341,7 @@ export const townChapter1 = {
     [
       "I heard you're selling medicine.", // ann
       "Oh!  Are you looking to purchase some?", // elliott
-      "Well, I heard there's a magical panacea that works for everything.", // elliott
+      "Well, I have this magical panacea that cures anything.", // elliott
       "I'll sell it for 40 gold.", // elliott name of money?????
       "It can cure any illness?", // ann
       "Of course.", // elliott
@@ -366,7 +366,7 @@ export const townChapter1 = {
       "I'm sure he would be willing to make medicine for our good king.", // max
       "Sister, please.", // elliott
       "It was wrong of me to deceive you.", // elliott
-      "All me to sell you this map of the Warcoforence Forest at a bargain price.", // elliott
+      "Allow me to sell you this map of the Warcoforence Forest at a bargain price.", // elliott
       "Well alright...", // ann
     ],
     [
@@ -378,8 +378,8 @@ export const townChapter1 = {
 export const townChapter2 = {
   amber: {
     question: [
-      "About the secret passage in the royal castle",
-      "About the Duke of Troias",
+      "Ask about the secret passage",
+      "Ask about the Duke of Troias",
       "Nothing",
     ],
     answer0: [
@@ -411,19 +411,19 @@ export const townChapter2 = {
       "How about tulips?", // ann
       "Well, that's a popular gift.", // amber
       "But a nice arrangement would be too expensive for me.", // amber
-      "If you like the flower, then I can arrange them!", // ann
+      "If you like the flowers, then I can arrange them!", // ann
       "Oh, really?", // amber
       "It's fun to watch them bloom in a pretty arrangement.", // amber
-      "Please!", // ann
+      "Please let us design it for you!", // ann
       "Thank you.", // amber
-      "I'll send you the bulbs right away.", // amber
+      "I'll give you the bulbs right away.", // amber
       "We have something to do in that area anyways, we can deliver it too.", // ann
       "Oh really?", // amber
       "I'm sorry to be such a bother.", // amber
       "Really, it's nothing.", // ann
       "Truly?  Well ok then.", // amber
       "I'll write the Duke a letter and give you a map of the area.", // amber
-      "This should allow you to get pas his guards and to the entrance of his mansion.", // amber
+      "This should allow you to get past his guards and to the entrance of his mansion.", // amber
       "Please deliver these to the Duke.", // amber
     ],
   },
@@ -443,15 +443,15 @@ export const townChapter2 = {
   ],
   elliott: [
     "What would please a noble?", // elliott
-    "Well tulips are popular the moment.", // elliott
+    "Well tulips are popular at the moment.", // elliott
     "Tulips...?", // ann
     "Yep.  The nobles enjoy extravagant tulip arrangements.  They brag about who has the most elaborate arrangement.", // elliott
     "I don't know what's so fun about flowers,", // elliott
-    "but I'm interested in the design since nobles pay so much for them.", // elliott
+    "But I'm interested in the design since nobles pay so much for them.", // elliott
     "Do you sell flowers?", // ann
     "No,", // elliott
     "Annabelle, from the inn, grows flowers.  Why not ask her?", // elliott
-    "I'd ask her for some to sell myself, but she wouldn't give me anything...", // elliott
+    "I'd ask her for some to sell myself, but she'd never give anything to me...", // elliott
   ],
   max: [
     "What would make a nobleman happy?", // max
@@ -460,92 +460,92 @@ export const townChapter2 = {
 };
 export const townChapter3 = {
   amber: [
-    "王妃が亡くなった理由？", // amber
-    "ご病気らしいわ。", // amber
-    "ごめんね、私も王妃については詳しいことはあまり分からないの。", // amber
-    "王妃はご交友が広くなくてね、", // amber
-    "表に出てこられることも少なくて、", // amber
-    "私も見かけたとこは数えるほどしかなかったわ。", // amber
-    "陛下とは不仲だったっていう噂もあるけど、", // amber
-    "どうかしらね。", // amber
+    "Why did the queen die?", // amber
+    "It sounds like she was sick.", // amber
+    "Sorry, I don't know much about the queen either.", // amber
+    "The queen didn't have a lot of friends,", // amber
+    "It was rare for her to make public appearances,", // amber
+    "I only caught a brief glimpse of her.", // amber
+    "Supposedly she was estranged from the king,", // amber
+    "but who knows?", // amber
   ],
   matilda: [
-    "王妃のこと？", // matilda
-    "ごめんね、よく知らないかな。", // matilda
-    "王妃が亡くなったのは私が小さい頃のことだし…。", // matilda
-    "みんなは王様とは仲が悪かったって噂をするけど、", // matilda
-    "そうなのかな。", // matilda
-    "そんなことないと思うけどな…。", // matilda
-    "だって結婚したんでしょ？", // matilda
-    "そうだね。", // ann
-    "もし王妃のことが気になるんだったら、", // matilda
-    "会いに行ってみたらいいんじゃないかな？", // matilda
-    "会いに？", // ann
-    "うん、", // matilda
-    "王妃は聖アンテルスの墓地で眠っているよ。", // matilda
-    "なるほどね！", // ann
-    "ありがとう！", // ann
+    "The queen?", // matilda
+    "Sorry, I'm not too sure.", // matilda
+    "The queen died when I was little...", // matilda
+    "The rumors were that she wasn't on good terms with the king.", // matilda
+    "I wonder.", // matilda
+    "I don't know if that was really the case...", // matilda
+    "They got married, right?", // matilda
+    "Yeah.", // ann
+    "If you care so much about the queen,", // matilda
+    "Why don't you go ask her?", // matilda
+    "Ask her?", // ann
+    "Yeah,", // matilda
+    "The Queen is sleeping in the cemetery of St. Anterus.", // matilda
+    "I see!", // ann
+    "Thank you!", // ann
   ],
   max: [
-    "王と王妃の仲が悪かったかって？", // max
-    "知らないな。", // max
-    "確かに噂では仲が悪かったとは聞くが、", // max
-    "そもそも王妃は滅多に人前に出てこなかったんだ。", // max
-    "よく分からないな。", // max
-    "よく分からないからこそ、", // max
-    "想像で色んな噂を勝手にたてられるんだろうな。", // max
-    "ついでにもう一つ別の噂を教えてやろう。", // max
-    "王妃はな、", // max
-    "王が自ら剣をとってドラゴンと戦ったその姿に心奪われたらしい。", // max
-    "噂、だがな。", // max
-    "俺はそっちは信じるぜ。", // max
-    "なんせあの勇姿には誰もが心を揺さぶられたんだ。", // max
+    "Did the king and queen get along?", // max
+    "I don't know.", // max
+    "I heard rumors that they weren't on good terms.", // max
+    "The queen rarely appeared in public.", // max
+    "But I don't know.", // max
+    "I don't really understand the royalty.", // max
+    "And it's easy to make up rumors.", // max
+    "I'll tell you another rumor.", // max
+    "Queen Hana,", // max
+    "was fascinated by the king's appearance when he fought the dragon.", // max
+    "Just another rumor,", // max
+    "but I certainly believe it.", // max
+    "Everyone was moved by that brave figure.", // max
   ],
 };
 export const townChapter4 = {
   amber: [
-    "大変よ、", // amber
-    "グリファルデ神殿に封じられていたドラゴンが目覚めたの。", // amber
-    "それで王と王弟が率いる討伐隊がグリファルデ神殿に向かったわ。", // amber
-    "こんなことになるなんて…、", // amber
-    "大丈夫かしら…。", // amber
-    "きっとあのドラゴンは、この国に十年前の復讐をするつもりなんだわ。", // amber
+    "It's just awful,", // amber
+    "The dragon that was sealed in the Temple of Grefalde has awakened.", // amber
+    "That's why the king and his younger brother's knights headed for the temple.", // amber
+    "Do you think they can handle a dragon?", // amber
+    "I hope they'll be ok...", // amber
+    "I'm sure the dragon is going to take revenge on this country for what happened ten years ago.", // amber
   ],
   annabelle: [
-    "ドラゴンが目覚めたって噂、本当だったんだ。", // annabelle
-    "ここ最近、王弟がよく神殿に通ってたみたいだけど、", // annabelle
-    "きっとドラゴンの様子を見張っていたのね。", // annabelle
-    "はぁ、", // annabelle
-    "うまくいって平和になるといいんだけど。", // annabelle
+    "The rumor that the dragon has awoken was true.", // annabelle
+    "My brother was at the temple before,", // annabelle
+    "He saw the dragon himself.", // annabelle
+    "Ugh,", // annabelle
+    "I really hope things work out.", // annabelle
   ],
   matilda: [
-    "ドラゴンって見たことないけれど、とても大きいんだよね。", // matilda
-    "人間が剣で戦って倒すだなんて、想像つかないな…。", // matilda
-    "どうなっちゃうんだろう…。", // matilda
-    "十年前に起きたことはよく知らないけど、ドラゴンはきっと私たちを恨んでいるんだよね…。", // matilda
-    "こわいな…。", // matilda
+    "I've never seen a dragon, but it must be gigantic.", // matilda
+    "I can't imagine humans fighting with just swords can defeat it...", // matilda
+    "What's going to happen?", // matilda
+    "I don't know the details of what happened ten years, but clearly the dragon wants revenge.", // matilda
+    "I'm scared.", // matilda
   ],
   elliott: [
-    "王自らドラゴン討伐に向かうなんて、", // elliott
-    "もう若くないのによくやるよ。", // elliott
-    "十年前みたいにうまくやれるとは限らねえぞ。", // elliott
-    "あの時だって、倒すどころか神殿に封じ込めるだけで奇跡的だったんだ。", // elliott
-    "もし失敗したらこの国は…、", // elliott
-    "考えたくもねえ。", // elliott
+    "The king himself leads the quest to subdue the dragon.", // elliott
+    "I'm not so young anymore,", // elliott
+    "but I can still remember what happened ten years ago.", // elliott
+    "At that time, it was miraculous to contain it in the temple, no one could think of defeating it.", // elliott
+    "If the king fails, then our kingdom is...", // elliott
+    "I don't want to think about.", // elliott
   ],
   max: [
-    "王と王弟が率いる討伐隊がドラゴン退治に向かったらしい。", // max
-    "半月ほど前に流れていたドラゴンが目覚めたって噂、本当だったんだな。", // max
-    "黙って帰りを待ってるしかないなんて、情けない話だな。", // max
-    "でも俺は、エドガー王ならまたやれってくれるって信じてるぜ。", // max
-    "もし…、", // max
-    "もし止められなかったら、きっとあのドラゴンはこの国を襲いに来るはずだ。", // max
-    "そのときは俺も久々に剣を抜くぜ。", // max
+    "It seems that the party led by the king and his younger brother have already left to subdue the dragon.", // max
+    "It was true that the dragon began stirring about half a month ago, and has finally woken up.", // max
+    "It's a pity that all I can do is keep silent and wait for their return.", // max
+    "But I believe that King Edgar will succeed.", // max
+    "If...", // max
+    "If he can't stop it, then the dragon will surely wreak havoc on the kingdom.", // max
+    "If that happens, then I'll be forced to unsheathe my sword for the first time in years.", // max
   ],
   ann: [
-    "よし、", // ann
-    "行き先は一つだね！", // ann
-    "行こう！", // ann
+    "Ok,", // ann
+    "We know our destination!", // ann
+    "Let's go!", // ann
   ],
 };
 export const townChapter5 = {

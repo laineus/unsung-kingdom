@@ -1,26 +1,29 @@
 export const roomBook = [
   [
-    "According to the history of the Kingdom of Verion, the king was killed by an assassin ...",
+    "According to the history of the Kingdom of Verion, the king was killed by an assassin...",
     "Let's hurry to the royal gardens!",
   ],
   [
-    `"The king died of a sudden illness`,
-    "I suppose the king wasn't that young.",
+    `"The king died of a sudden illness."`,
+    "I suppose the king wasn't all that young.",
   ],
   [
-    `Betrayed and killed by one of his own knights.`,
-    "Is it related to Jack the Kingkiller?",
-  ],
-  ["「王は王妃の亡霊に呪い殺されたと語られている」", "ほんとかなあ…？"],
-  [
-    "「王はドラゴンとの戦いに破れて死ぬ」",
-    "ドラゴンか…。",
-    "きっと凄く強いんだよね。",
+    `"Betrayed and killed by one of his own knights."`,
+    "Could this knight be Jack the Kingkiller?",
   ],
   [
-    "「王は安らかに天命を全うした」",
-    "うん、",
-    "嬉しくて何度も読み直したくなるね。",
+    `"The king is said to have been cursed by the ghost of the queen."`,
+    "Really?",
+  ],
+  [
+    `"The king is defeated in battle with the dragon and dies."`,
+    "Dragon...",
+    "I'm sure it's very strong.",
+  ],
+  [
+    `"The king fulfilled his destiny and ruled in peace "`,
+    "Nice,",
+    "I'm happy and want to read it over and over again.",
   ],
 ];
 export const roomEv = [
@@ -29,14 +32,14 @@ export const roomEv = [
     [
       // 0.0.x
       "Thank you again, everyone!", // ann
-      "It's nice to meet you, Ann", // jaquelyn
+      "Of course, Ann", // jaquelyn
       "Ann is leading?  I'm worried.", // francisca
       "Do you truly understand what purpose we came here for?", // francisca
       "Of course!", // ann
     ],
     [
       // 0.1.x
-      "To prevent the king's assassination",
+      "To save the king",
       "Tourism",
     ],
     [
@@ -47,7 +50,7 @@ export const roomEv = [
     [
       // 0.3.x
       "Ha...", // francisca
-      "That's not right, Ann。", // jaquelyn
+      "That's not right, Ann.", // jaquelyn
       "Our purpose is to prevent King Edgar from being assassinated.", // jaquelyn
       "I'm joking！", // ann
       "As if I could forget！", // ann
@@ -63,18 +66,18 @@ export const roomEv = [
       "Posing as travelers, we shall stop the assassination.", // francisca
       "No problem.", // jaquelyn
       "Let's leave as soon as we're ready.", // jaquelyn
-      "Perfect, let's geat ready quickly!", // ann
+      "Perfect, let's get ready!", // ann
       "Ann, we must leave behind the revolvers.", // jaquelyn
       "Appropriate weapons for everyone have been procured.", // jaquelyn
       "A sword from this era!  You plan to fight with this?", // ann
       "We have no choice, guns are prohibited.", // francisca
       "Of course.", // ann
-      "Also, you are properly maintaining the time crystal?", // francisca
+      "Also, you are keeping the time crystal safe?", // francisca
       "Absolutely!", // ann
-      "If something were to happen to it, we can never return to the future.", // francisca
+      "If something were to happen to it, we can never return to our time.", // francisca
       "Perhaps you should give it to Jaquelyn.", // francisca
       "Ann wants to hold it.", // jaquelyn
-      "Indeed…。", // francisca
+      "I know...", // francisca
       "If Ann loses it, I'll find her ancestral home and burn it down.", // francisca
       "Awful!", // ann
       "Ann will protect it.", // jaquelyn
@@ -98,16 +101,16 @@ export const roomEv = [
       "Hey everyone, look at this!", // ann
       "What's wrong?", // jaquelyn
       "The history of the Kingdom of Verion. Did we manage to change history?", // francisca
-      "If the past changes, the content of the book should change.", // jaquelyn
+      "If the past changes, the content of the book must change too.", // jaquelyn
       "That's right, but this ...", // ann
       "Oh no,", // francisca
       `"The king died of a sudden illness."`, // francisca
-      "A sudden illness ...", // jaquelyn
+      "A sudden illness...", // jaquelyn
       "That's less tragic than assassination, is our heritage still so sad?", // ann
       "I'm afraid so.", // francisca
       "The time of his death hardly changed.", // francisca
       "The history that follows remains dark.", // jaquelyn
-      "What should we do…", // ann
+      "What should we do...", // ann
       "Don't get depressed, Anne.", // jaquelyn
       "Yeah,", // ann
       "Anyway, let's investigate this matter too!", // ann
@@ -118,10 +121,10 @@ export const roomEv = [
       "I still have no clue who he is.", // ann
       "We couldn't beat him, and it's possible that he still managed to kill the king.", // francisca
       "No way...!", // ann
-      "He ... was really strong.", // jaquelyn
+      "He... was really strong.", // jaquelyn
       "Yeah, but,", // ann
-      "We will be stronger the next time we meet him!", // ann
-      "That's right.", // jaquelyn
+      "We will be stronger the next time we meet!", // ann
+      "Well said.", // jaquelyn
     ],
   ],
   [
@@ -141,10 +144,10 @@ export const roomEv = [
       "Hmm...", // ann
       "Maybe there's a reason that the king has to die.", // ann
       "I don't know if it's fate, or something more specific.", // ann
-      "I figure out I need to solve this mystery.", // ann
-      "How?", // francisca
+      "If we want to find out we must solve this mystery.", // ann
+      "But how?", // francisca
       "Investigate the next cause and help the king!", // ann
-      "I don't think what we're doing it useless.", // ann
+      "I don't think what we're doing is useless.", // ann
       "I've learned a lot the past few days.", // ann
       "Sure, I want more information too.", // francisca
       "We don't really have a choice anyways.", // jaquelyn
@@ -160,13 +163,13 @@ export const roomEv = [
       "What should we do first?", // jaquelyn
       "Let's find the secret passage.", // ann
       "A secret passage.  Maybe it's used in case of a siege.", // francisca
-      "It is mentioned in the book?", // jaquelyn
-      "Ym,", // ann
+      "Is it mentioned in the book?", // jaquelyn
+      "Um,", // ann
       "Yeah, here it is!", // ann
-      "It seem the basement of the castle has a tunnel leading to the territory of a nobleman known as the Duke of Troias.", // ann
+      "It seems the basement of the castle has a tunnel leading to the territory of a nobleman known as the Duke of Troias.", // ann
       "I'm happy to look for this tunnel,", // francisca
       "but we can't exactly just wander around the castle...", // francisca
-      "Then let's find where it is in the Duke of Troias' territory!", // ann
+      "Then let's find where it is in the Duke of Troias's territory!", // ann
       "Let's go!", // ann
     ],
   ],
@@ -174,108 +177,108 @@ export const roomEv = [
     // Cp3
     [
       // 3.0.x
-      "さあアン、王国史はどうなった？", // francisca
-      "次はなにで死ぬことになった？", // francisca
-      "ちょっと！まだそうと決まったわけじゃないでしょ！", // ann
-      "助かっているといいわね。", // jaquelyn
-      "ええっと、", // ann
-      "「王は王妃の亡霊に呪い殺されたと語られている」", // ann
-      "何それ！怖い！", // ann
-      "というかやっぱりまた死んじゃうの？", // ann
-      "しかも亡霊に呪い殺されるって…、", // francisca
-      "そんなことあるかしら。", // jaquelyn
-      "もし噂が語り継がれただけだとしたら、今回は情報がないようなものね。", // jaquelyn
-      "ねえ、今回の件もジャックが絡んでいるんじゃないかな？", // ann
-      "うん、そうだろうね。", // francisca
-      "地下通路でも怪しかったわ。", // jaquelyn
-      "きっとどの死因もジャックが黒幕だったのかも。", // ann
-      "ジャックは王を殺そうとしたけど、それを私たちが妨害した。", // ann
-      "するとジャックは別の方法でまた王を殺そうとする。", // ann
-      "だから何度も王が死ぬ歴史になっちゃうんだ。", // ann
-      "うんうん、それなら納得がいくわ。", // jaquelyn
-      "つまりジャックを殺せばいいわけね。", // francisca
-      "そ、そうなるのか…。", // ann
-      "何か別の方法はないかな？", // ann
-      "ジャックに会って説得するのはどうかしら？", // jaquelyn
-      "説得できないとしても、何故王を殺そうとしているのか理由を聞きたいわ。", // jaquelyn
-      "それがよさそうだね。", // ann
-      "どうやってジャックを見つけようか？", // ann
-      "また今回の死因を追いかければ、ジャックのところに行き着くんじゃないかな。", // francisca
-      "たしかに。", // ann
-      "よし、それじゃあ決まり！", // ann
-      "また街に出て聞き込みに行くよ！", // ann
+      "Come on, what happened to the history of the kingdom?", // francisca
+      "What made him die next?", // francisca
+      "Hey! We don't know that yet!", // ann
+      "I hope he's finally saved.", // jaquelyn
+      "Um...", // ann
+      `"The king is said to have been cursed by the ghost of the queen."`, // ann
+      "What!  That's scary!", // ann
+      "So he dies again?", // ann
+      "And this time because of a spirit's curse...", // francisca
+      "I wonder if that's really possible,", // jaquelyn
+      "if it's just handed down rumors, then we have no good information this time.", // jaquelyn
+      "Hey, I think Jack is involved in this case too", // ann
+      "He must be.", // francisca
+      "It's really suspicious that he was in the underground passage too.", // jaquelyn
+      "Maybe Jack was the mastermind behind all the causes of death.", // ann
+      "Every time Jack tried to kill the king, we prevented him.", // ann
+      "Then Jack tries to kill the king again in another way.", // ann
+      "That's why the history of the king always meets a tragic end.", // ann
+      "Yeah, that makes sense.", // jaquelyn
+      "That's why we should kill Jack.", // francisca
+      "That's one method...", // ann
+      "Is there any other way?", // ann
+      "Why don't we meet with Jack and persuade him to stop?", // jaquelyn
+      "Even if we can't convince him, I'd like to ask why he's trying to kill the king.", // jaquelyn
+      "That's a good plan.", // ann
+      "But how do we locate Jack?", // ann
+      "If we chase the king's cause of death, we're bound to run into him.", // francisca
+      "True.", // ann
+      "Okay, then it's decided!", // ann
+      "Let's gather information in town.", // ann
     ],
   ],
   [
     // Cp4
     [
-      "最後に王妃の亡霊が言っていたこと、気になるわね。", // jaquelyn
-      "ドラゴンのことだね。", // ann
-      "あとジャックのことも、どうなったかな。", // francisca
-      "あそこで死なれていたとしたら厄介だ。", // francisca
-      "そうなの？", // ann
-      "まだ時間水晶を取り返していない。", // francisca
-      "たしかに！", // ann
-      "とにかく、まずは王国史を確認してみましょう。", // jaquelyn
-      "オーケー。", // ann
-      "ええと、", // ann
-      "「王はドラゴンとの戦いに破れて死ぬ」", // ann
-      "これは…、", // ann
-      "王妃の言っていた件だね。", // ann
-      "ドラゴン…、", // jaquelyn
-      "私たちの手に負えるかしら。", // jaquelyn
-      "でもやることシンプルだね！", // ann
-      "倒せばいいんでしょ？", // ann
-      "たしかに、今までみたいに回りくどいことはないね。", // francisca
-      "ところでさ、", // francisca
-      "なんか外が騒がしくない？", // francisca
-      "そう言われてみれば、", // ann
-      "今日は街の様子がいつもと違うね。", // ann
-      "見に行ってみよう！", // ann
+      "I'm curious about what the queen was saying.", // jaquelyn
+      "A dragon.", // ann
+      "What happened to Jack?", // francisca
+      "I hope he didn't actually die.", // francisca
+      "Really?", // ann
+      "If he did, then we'll never recover the crystal.", // francisca
+      "Right.", // ann
+      "Anyway, let's check the history of the kingdom first.", // jaquelyn
+      "Ok.", // ann
+      "Ummm,", // ann
+      `"The king was defeated in battle with the dragon and dies"`, // ann
+      "This is...", // ann
+      "That's what the queen was saying.", // ann
+      "A dragon...", // jaquelyn
+      "I wonder if we can handle it.", // jaquelyn
+      "It'll be simple!", // ann
+      "We just need to beat him up!", // ann
+      "Sure, it's not as roundabout as it used to be.", // francisca
+      "By the way,", // francisca
+      "Isn't it noisy outside?", // francisca
+      "You're right.", // ann
+      "The town seems different than usual.", // ann
+      "Let's go check it out!", // ann
     ],
   ],
   [
     // Ep
     [
-      "やっと落ち着いたね。", // ann
-      "大変だった…。", // francisca
-      "でもうまいこと王がドラゴンを倒したことにできてよかったわね。", // jaquelyn
-      "そうだね。", // ann
-      "で、王国史は？", // francisca
-      "今度こそ王は助かったかしら？", // jaquelyn
-      "うん、助かったと思う。", // ann
-      "そんな気がする。", // ann
-      "じゃあ見るよ。", // ann
-      "えっとね…、", // ann
-      "あ！ほら、見て！", // ann
-      "「王は安らかに天命を全うした」", // ann
-      "王が亡くなる時期が20年近く先になってる！", // ann
-      "これって…、", // ann
-      "うん。", // francisca
-      "そうね。", // jaquelyn
-      "助けられたって十分言えるね。", // francisca
-      "そうだよね、よかった！", // ann
-      "じゃあ私たちの時代はどうなったかな…！", // ann
-      "待ってアン、", // jaquelyn
-      "その先は読まないでおきましょう。", // jaquelyn
-      "そっか、", // ann
-      "未来へ帰ったら、直接確かめられるんだね。", // ann
-      "よし、じゃあ帰ろう！私たちの時代に！", // ann
-      "そうしたいけどね。", // francisca
-      "え…？", // ann
-      "時間水晶をまだ取り返していないわ。", // jaquelyn
-      "そうだった！", // ann
-      "どうしよう…。", // ann
-      "ジャックを探すしかないね。", // francisca
-      "グリファルデ神殿では出会わなかったわ。", // jaquelyn
-      "やっぱり、聖アンテルスの墓地で落ちたときに死んじゃったのかな…。", // ann
-      "王が殺される歴史じゃなくなったことも考えると、", // jaquelyn
-      "確かにジャックが既に死んでいる可能性は高いわね。", // jaquelyn
-      "そうなのかな…。", // ann
-      "でもなんとなくまだ生きている気がするんだよね。", // ann
-      "そう？", // francisca
-      "アンがそう思うなら、探しに行ってみましょう。", // jaquelyn
-      "そうしよう！", // ann
+      "Things have finally calmed down.", // ann
+      "That was difficult...", // francisca
+      "I'm glad the king defeated the dragon.", // jaquelyn
+      "Me too.", // ann
+      "How about the history book?", // francisca
+      "Is the king finally saved this time?", // jaquelyn
+      "Yeah, I think he was finally saved.", // ann
+      "I can feel it.", // ann
+      "Let's see.", // ann
+      "Um...", // ann
+      "Oh! Look!", // ann
+      `The king fulfilled his destiny and lived out his days in peace."`, // ann
+      "The won't king doesn't die for another twenty years!", // ann
+      "That's...", // ann
+      "Yeah.", // francisca
+      "Yeah.", // jaquelyn
+      "We finally managed to save him.", // francisca
+      "Oh I'm so glad!", // ann
+      "I wonder what happened to our time.", // ann
+      "Wait Anne,", // jaquelyn
+      "You can't keep reading.", // jaquelyn
+      "Oh,", // ann
+      "I guess we'll see whenever we make it back to our time.", // ann
+      "Okay, let's go home!", // ann
+      "I'd really like to.", // francisca
+      "Huh?", // ann
+      "We haven't recovered the time crystal yet.", // jaquelyn
+      "Oh, that's right.", // ann
+      "What can we do?", // ann
+      "Our only option is to look for Jack.", // francisca
+      "He wasn't at the Temple of Grefalde", // jaquelyn
+      "I wonder if he died when he fell in the catacombs of St. Anterus ...", // ann
+      "Considering that there's no more plots to kill the king,", // jaquelyn
+      "it's very likely that Jack is dead.", // jaquelyn
+      "That makes sense...", // ann
+      "But I feel like he's still alove.", // ann
+      "Yeah?", // francisca
+      "I trust Ann's instincts, let's go find out.", // jaquelyn
+      "Let's do it!", // ann
     ],
   ],
 ];
