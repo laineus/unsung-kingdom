@@ -273,9 +273,10 @@ export default {
   templeCharacters,
   storyTelling: [
     "The king is dead.\nThe gates of the castle are barred, the glory beyond unseen for generations.\nFollowing the death of the Great King, the Kingdom abruptly fell.",
+    "— The history of Bellion",
     "After a thousand years the kingdom was forgotten to the world, it's name long lost.\nBut the descendants of Verion never left the land where King Edgar sleeps peacefully.",
     "At some point, magicians who lamented the death of the good king discovered a way to alter time.",
-    "It was unnatural to defy the laws of nature, but for the good king they were willing to rewrite history.",
+    "It was unnatural to defy the laws of nature,\nbut for the good king they were willing to rewrite history.",
   ],
   missionDescription: {
     m0_1: {
