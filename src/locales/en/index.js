@@ -234,7 +234,7 @@ export default {
     sub: {
       menu: "Menu",
       close: "Close",
-      quests: "Quests",
+      quests: "Map & Quests",
       characters: "Characters",
       save: "Save",
       load: "Load",
