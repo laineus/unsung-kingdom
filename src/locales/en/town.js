@@ -84,19 +84,19 @@ export const townCommon = {
       // townCommon.matilda.0.x
       "Hello.", // ann
       "Why are you standing in the shadows?", // ann
-      "Oh, right.  This must look suspicious.", // matilda
-      "I'm watching Annabelle at the inn.", // matilda
-      "I'm doing nothing wrong.", // matilda
-      "You do look very suspicious.", // ann
-      "I promise I'm not.  I'm a good girl.", // matilda
+      "Oh, right.", // matilda
+      "This must look suspicious.", // matilda
+      "I'm watching Annabelle at the inn so she doesn't something wrong.", // matilda
+      "Is she a bad girl?", // ann
+      "No, she isn't. She's a good girl.", // matilda
       "We used to play together a lot...", // matilda
-      "Why not anymore?", // ann
-      "Apparently I look suspicious lately.", // matilda
+      "So why are you watching her?", // ann
+      "Apparently She looks suspicious lately.", // matilda
       "So... I'm worried...", // matilda
-      "Then you should stop lurking in the shadows.", // ann
+      "Then you should stop her.", // ann
       "You two were good friends before?", // ann
       "That's right...", // matilda
-      "I'm embarassed to talk about it...", // matilda
+      "I'm embarrassed to talk with her...", // matilda
       "I wonder why...", // matilda
       "Is that so?", // ann
       "Well that happens sometimes.", // ann
@@ -308,7 +308,7 @@ export const townChapter1 = {
     "King Edgar, I'm so worried...", // amber
     "What happened to the king?", // ann
     "I heard from someone who is close to the royal family,", // amber
-    "It seems that King Edgar has suddely fallen ill.", // amber
+    "It seems that King Edgar has suddenly fallen ill.", // amber
     "Oh no...", // ann
     "I sure hope he gets better.", // amber
     "Oh, I shouldn't have shared that.  I'm just so worried, please keep it secret, alright?", // amber
