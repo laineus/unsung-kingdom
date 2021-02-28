@@ -110,7 +110,7 @@ export default class MenuMap extends Phaser.GameObjects.Container {
     const container = this.scene.add.container(x, y)
     const title = this.scene.add.text(0, 0, mission.title, { fontSize: 15, fontStyle: 'bold', fontFamily: config.FONTS.TEXT }).setOrigin(0, 0)
     const text = missionDescriptions[mission.key] ? missionDescriptions[mission.key](storage.state) : '-'
-    const desc = this.scene.add.text(0, 30, text, { fill: config.COLORS.gray.toColorString, fontSize: 13, fontStyle: 'bold', fontFamily: config.FONTS.TEXT }).setOrigin(0, 0)
+    const desc = this.scene.add.text(0, 30, text, { fill: config.COLORS.gray.toColorString, fontSize: 13, fontStyle: 'bold', fontFamily: config.FONTS.TEXT, wordWrap: { width: 480, useAdvancedWrap: true } }).setOrigin(0, 0)
     desc.setLineSpacing(10)
     container.add([title, desc])
     return container
