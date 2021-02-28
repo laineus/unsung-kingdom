@@ -37,15 +37,15 @@ export default {
   ],
   area: {
     town: "Royal Capital",
-    castle: "Royal Gardens",
+  castle: "Royal Gardens",
     forest: "Warkano Forest",
-    underpass: "Duke's Secret Passage",
-    catacomb: "Cemetery of St Anterus",
+    underpass: "Troias's Secret Passage",
+    catacomb: "Catacombs of St Anterus",
     temple: "Temple of Grefalde",
   },
   areaSub: {
     bellion: "Kingdom of Bellion",
-    room: "base", // double check
+    room: "Base", // double check
     forest: {
       a: "Eastern Section",
       b: "Hunter's Heights",
@@ -68,7 +68,7 @@ export default {
       h: "Corridor",
       i: "Castle Entrance",
     },
-    aragnie: "Aragnier's Chamber",
+    aragnie: "Aragnier's Lair",
     catacomb: {
       a: "Entrance",
       b: "East Room",
@@ -118,8 +118,8 @@ export default {
       sub: "The Sins of the Renfield Family",
     },
     m3_5: {
-      title: "Ghost of Princess Evangelina",
-      sub: "Ghost of Princess Evangelina",
+      title: "Ghost of Queen Evangelina",
+      sub: "Ghost of Queen Evangelina",
     },
     m4_1: {
       title: "Grefalde's Sacred Statue",
@@ -158,9 +158,9 @@ export default {
     nikke: "Nikke",
     dario: "Dario",
     drystan: "Drystan",
-    queen: "Queen",
+    queen: "Queen Evangelina",
     sonberk: "Sonberk",
-    fdn: "Sir Ferdinand",
+    fdn: "Lord Ferdinand",
     klaus: "Klaus",
     injuredLeader: "Injured Mercenary Captain",
     injuredMercenary: "Injured Mercenary",
@@ -211,7 +211,7 @@ export default {
     orthrus: "Orthrus",
     gargoyle: "Gargoyle",
     succubus: "Succubus",
-    aragnie: "Aragnie",
+    aragnie: "Aragnier",
     phantom: "Phantom",
     skull: "Skull",
     ghost: "Ghost",
@@ -219,7 +219,7 @@ export default {
     wraith: "Wraith",
     dullahan: "Dullahan",
     queen: "Queen",
-    bird: "Bird",
+    bird: "Kellune",
     lizard: "Lizard",
     tree: "Tree",
     knight: "Knight",
@@ -403,9 +403,9 @@ export default {
     },
     m4_4: {
       base:
-        "Lyra's lute playing seems to be able to open the door to the basement.",
-      started: "Collect apples for Lyra.",
-      cnt: "Collected #{current}/#{max}）apples.",
+        "Lyla's lute playing seems to be able to open the door to the basement.",
+      started: "Collect apples for Lyla.",
+      cnt: "Collected (#{current}/#{max}）apples.",
     },
     m4_5: {
       base: "The king is fighting the dragon alone.",
