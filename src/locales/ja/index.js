@@ -234,6 +234,7 @@ export default {
       save: "セーブ",
       load: "ロード",
       settings: "設定",
+      battleResult: "戦闘結果"
     },
     setting: {
       autoDetection: "自動判定",

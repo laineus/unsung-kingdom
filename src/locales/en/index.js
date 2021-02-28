@@ -37,7 +37,7 @@ export default {
   ],
   area: {
     town: "Royal Capital",
-  castle: "Royal Gardens",
+    castle: "Royal Gardens",
     forest: "Warkano Forest",
     underpass: "Troias's Secret Passage",
     catacomb: "Catacombs of St Anterus",
@@ -239,6 +239,7 @@ export default {
       save: "Save",
       load: "Load",
       settings: "Settings",
+      battleResult: "Result"
     },
     setting: {
       autoDetection: "Auto Detection",
