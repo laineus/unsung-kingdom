@@ -337,8 +337,6 @@ export default class UIScene extends Phaser.Scene {
   async showMapInfo (e, reload = false) {
     this.clearMapInfo()
     if (!e) return
-    const mapName = e.name || t('ui.undefinedArea')
-    const boxWidth = Math.max(70 + mapName.width * 6, 200)
     const diff = e.enemyLevel ? e.enemyLevel - Math.average(...this.storage.state.battlers.map(b => b.lv)) : 0
     const warning = diff >= 2
     const alert = diff >= 4
@@ -347,6 +345,11 @@ export default class UIScene extends Phaser.Scene {
       if (warning) return 0xEE9900
       return config.COLORS.theme
     })()
+    const mapName = e.name || t('ui.undefinedArea')
+    const map = this.add.text(42, 6, mapName, { align: 'left', fill: config.COLORS.white.toColorString, fontSize: 12, fontFamily: config.FONTS.TEXT }).setOrigin(0, 0)
+    const lvInfo = e.enemyLevel ? `${t('ui.recommendedLevel')} ${e.enemyLevel}〜` : `${t('ui.recommendedLevel')} -`
+    const lv = this.add.text(42, 21, lvInfo, { align: 'left', fill: color.toColorString, fontSize: 12, fontFamily: config.FONTS.TEXT }).setOrigin(0, 0)
+    const boxWidth = Math.max(map.width + 70, lv.width + 70, 180)
     const container = this.add.container(0, 0)
     container.warning = warning
     if (warning) {
@@ -365,9 +368,6 @@ export default class UIScene extends Phaser.Scene {
       circle.strokeColor = color
       return circle
     })()
-    const map = this.add.text(42, 6, mapName, { align: 'left', fill: config.COLORS.white.toColorString, fontSize: 12, fontFamily: config.FONTS.TEXT }).setOrigin(0, 0)
-    const lvInfo = e.enemyLevel ? `${t('ui.recommendedLevel')} ${e.enemyLevel}〜` : `${t('ui.recommendedLevel')} -`
-    const lv = this.add.text(42, 21, lvInfo, { align: 'left', fill: color.toColorString, fontSize: 12, fontFamily: config.FONTS.TEXT }).setOrigin(0, 0)
     container.add([box, icon, map, lv])
     const movedX = -(boxWidth - 10)
     if (!reload) {
