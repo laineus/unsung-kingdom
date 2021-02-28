@@ -27,7 +27,7 @@ export const dog = {
   ],
   started: [
     'ありがとう！', // hunter
-    'あと#{count}匹いるはずなんだ', // hunter
+    'あと#{count}匹いるはずなんだ。', // hunter
     'よろしく頼んだよ。' // hunter
   ],
   solve: [

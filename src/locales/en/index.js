@@ -162,8 +162,8 @@ export default {
     sonberk: "Sonberk",
     fdn: "Lord Ferdinand",
     klaus: "Klaus",
-    injuredLeader: "Injured Mercenary Captain",
-    injuredMercenary: "Injured Mercenary",
+    injuredLeader: "Mercenary Captain",
+    injuredMercenary: "Mercenary",
     dionysus: "Dionysus",
     ray: "Ray",
     sister: "Sister",
@@ -315,7 +315,7 @@ export default {
       second: "Let's leave town and head to the royal gardens.",
     },
     m1_1: {
-      base: "Hunter Matthew's five puppies hae escaped.",
+      base: "Hunter Matthew's five puppies have escaped.",
       cnt: "Number of puppies found: #{current}/5.",
     },
     m1_2: {
