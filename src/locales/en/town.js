@@ -643,8 +643,8 @@ export const townChapter5 = {
     "I'm really proud of belong to Bellion.", // elliott
   ],
   max: [
-    "It turned out exactly as I said.", // max
-    "King Edgar has finally done it.", // max
+    "It turned out exactly as I predicted.", // max
+    "King Edgar has actually did it.", // max
     "...", // max
     "Well, to be honest I did have my doubts.", // max
     "But King Edgar the Peaceful has defended our realm's peace.", // max

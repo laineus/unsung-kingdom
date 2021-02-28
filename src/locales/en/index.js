@@ -300,7 +300,7 @@ export default {
   peaceful,
   templeCharacters,
   storyTelling: [
-    "The Great King is dead.\nThe gates of the castle barred, the glory beyond unseen for generations.\nFollowing the death of the Great King, the Kingdom of Bellion abruptly fell.",
+    "The King is dead.\nThe Glory of the past can no longer be seen beyond the closed Gates of the Castle.\nThe Kingdom came to an end with the Death of the Great King.",
     "— The History of Bellion",
     "After a thousand years the kingdom was forgotten to the world, it's name long lost.\nBut the descendants of Bellion never left the land where King Edgar sleeps peacefully.",
     "At some point, magicians who lamented the death of the Great King discovered a way to alter time.",
