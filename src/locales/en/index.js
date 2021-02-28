@@ -45,7 +45,7 @@ export default {
   },
   areaSub: {
     bellion: "Kingdom of Bellion",
-    room: "Base", // double check
+    room: "Home",
     forest: {
       a: "Eastern Section",
       b: "Hunter's Heights",
@@ -325,7 +325,7 @@ export default {
     },
     m1_3: {
       base: "Deliver mandrake roots to Drystan.",
-      cnt: "Collected #{current}/#{max}）mandrake roots.",
+      cnt: "Collected (#{current}/#{max}）mandrake roots.",
     },
     m1_4: {
       base: "Defeat the ferocious Rex Bear and deliver its blood to Drystan.",
@@ -340,8 +340,8 @@ export default {
     },
     m2_2: {
       base:
-        "Princess Mary and the Duke's daughter Loretta are collecting carbuncle stones to craft a gift for Cassandra.\n Collect carbuncle stones.",
-      cnt: "Collected #{current}/#{max}）carbuncle stones",
+        "Princess Mary and the Duke's daughter Loretta are collecting carbuncle stones to craft a gift for Cassandra.\nCollect carbuncle stones.",
+      cnt: "Collected (#{current}/#{max}）carbuncle stones",
     },
     m2_3: {
       base:
@@ -431,10 +431,10 @@ export default {
     aplg: "A delicious looking apple.", // ann
     aplb: "It's a damaged apple.", // ann
     clbr: "Is that the holy sword?", // francisca
-    un1: "We've successfully invaded.", // francisca うまく侵入できたね not sure what this is double check
+    un1: "We've successfully invaded.", // francisca
     lost: {
       francisca: ["Hey, wait!", "You disappeared..."],
-      jaquelyn: ["Ann, don't leave me!", "Ann, where did you go?"], // double check
+      jaquelyn: ["Ann, don't leave me!", "Ann, where did you go?"],
     },
   },
   mapEvent: {

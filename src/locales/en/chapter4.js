@@ -429,7 +429,7 @@ export const lute = {
     "Thank you!", // ann
   ],
   option: ["Pick up", "Don't need"],
-  apple: "I found an apple.",
+  apple: `"Apple" picked up`,
   tweet: "Five apples have been gathered.",
 };
 export const dragonKiller = {

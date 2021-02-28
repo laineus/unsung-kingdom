@@ -156,7 +156,7 @@ export const roomEv = [
       "Is there more information regarding the death of the king this time?", // jaquelyn
       "Yeah, read it.", // ann
       "The king is murdered by Hector, a former knight who stormed the castle in a midnight raid.", // ann
-      `"Hector is said to have invaded through a secret passage in the basement of the royal castle."`, // ann
+      `"Hector is said to have invaded through a secret passage in the basement of the royal castle."`, // ann TODO: check height
       "I wonder why.", // ann
       "Do you think Hector could be Jack the Kingkiller?", // jaquelyn
       "That would make sense.", // francisca

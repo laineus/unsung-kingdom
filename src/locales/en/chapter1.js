@@ -202,7 +202,7 @@ export const bear = {
     "I brought it.  Here is Rex Bear's blood.", // ann
     "Show me.", // drystan
     "Hmm. It looks like you've really defeated Rex Bear.", // drystan
-    "Ok, let's make the medicine.", // drystan
+    "Ok, this is the medicine.", // drystan
     "Well don't you need this blood to make it?", // ann
     "Disgusting, I don't want that.", // drystan
     "Have you ever mixed blood with medicine before?", // drystan
@@ -212,7 +212,7 @@ export const bear = {
     "What about the vitality stuff?  Was that a lie?", // ann
     "What if it was?", // drystan
     "The royal family is important, but so is my own well being.", // drystan
-    "Anyways, I'm making the medicine.  Don't complain.", // drystan
+    "Anyways, I made the medicine.  Don't complain.", // drystan
     "I don't need any money.", // drystan
     "... Is that so?", // ann
     "Thank you for the medicine.", // ann
