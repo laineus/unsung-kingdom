@@ -338,7 +338,7 @@ export default class UIScene extends Phaser.Scene {
     this.clearMapInfo()
     if (!e) return
     const mapName = e.name || t('ui.undefinedArea')
-    const boxWidth = Math.max(70 + mapName.width * 6, 180)
+    const boxWidth = Math.max(70 + mapName.width * 6, 200)
     const diff = e.enemyLevel ? e.enemyLevel - Math.average(...this.storage.state.battlers.map(b => b.lv)) : 0
     const warning = diff >= 2
     const alert = diff >= 4
