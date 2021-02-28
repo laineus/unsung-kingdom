@@ -1,6 +1,6 @@
 import Button from './Button'
 import config from '../data/config'
-const WIDTH = 240
+const WIDTH = 240 // TODO: or 260
 const HEIGHT = 40
 const MERGIN = 15
 export default class Select extends Phaser.GameObjects.Container {
