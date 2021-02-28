@@ -18,7 +18,8 @@ module.exports = {
     Phaser: true,
     greenworks: true,
     t: true,
-    ENV: true
+    ENV: true,
+    APP_VERSION: true
   },
   ignorePatterns: ['src/shader/']
 }
