@@ -86,7 +86,7 @@ export const townCommon = {
       "Why are you standing in the shadows?", // ann
       "Oh, right.", // matilda
       "This must look suspicious.", // matilda
-      "I'm watching Annabelle at the inn so she doesn't something wrong.", // matilda
+      "I'm watching Annabelle at the inn so she doesn't do something wrong.", // matilda
       "Is she a bad girl?", // ann
       "No, she isn't. She's a good girl.", // matilda
       "We used to play together a lot...", // matilda
@@ -333,8 +333,8 @@ export const townChapter1 = {
   ],
   elliott: [
     [
-      "Did you decide to become a street vendor?", // ann
-      "Yeah.", // elliott
+      "Excuse me sir, what are you selling?", // ann
+      "Yo.", // elliott
       "I'm afraid I don't sell anything tourists would be interested in though.", // elliott
       "I'm sorry.", // elliott
     ],
@@ -359,7 +359,7 @@ export const townChapter1 = {
       "That someone in the royal family is seriously ill.", // max
       "What do you know?", // elliott
       "Young lady, I've been hearing this story often recently.", // max
-      "If you seek a real panacea, there's a wise hermit living in the Warkano Forest", // max
+      "If you seek a real panacea, there's a wise hermit living in the Warkano Forest.", // max
       "He is the only one who could make such a panacea.", // max
       "This wise hermit of the forest is that talented with making medicine?", // ann
       "Yes, if someone truly needs medicine, they go to him.", // max
