@@ -31,5 +31,6 @@ export default class SpeachBubble extends Phaser.GameObjects.Container {
   }
   setText (text) {
     this.text.text = text
+    this.text.setLineSpacing(this.text.height < 90 ? 4.5 : 0)
   }
 }
