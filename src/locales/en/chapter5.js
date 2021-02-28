@@ -14,16 +14,16 @@ export const peaceful = {
     "Let me introduce myself again.", // jack
   ],
   talk2: [
-    "I'm the prince Ezerbald.", // ethel
+    "I'm the king's younger brother, prince Ezerbald.", // ethel
     "!", // ann
-    "I'm sorry.", // ethel
-    "I've lied.  I've used my sword against you.", // ethel
-    "What do you mean?", // ann
+    "I'm so sorry.", // ethel
+    "I lied.  I used my sword against you.", // ethel
+    "You of all people?", // ann
     "You've tried to kill the king so many times...", // ann
     "Oh no doubt.", // ethel
     "I plotted to kill the king.", // ethel
     "Please let me explain everything.", // ethel
-    "You know that the king fought the dragon ten years ago?", // ethel
+    "You know that the king fought the dragon ten years ago, yes?", // ethel
   ],
   question: ["We know", "We didn't know"],
   talk3: [
@@ -45,18 +45,18 @@ export const peaceful = {
     "But you three stopped me.", // ethel
     "And I robbed you of this crystal.", // ethel
     "The time crystal!", // ann
-    "Is this something special?", // ethel
-    "Soon after, this crystal took me to another world.", // ethel
+    "This is clearly a wonderous artifact.", // ethel
+    "Soon after that day, this crystal took me to another world.", // ethel
     "I didn't know what had happened, but soon I realized something,", // ethel
     "I was here... but in a different era.", // ethel
     "Was it...", // ethel
-    "The time from when you came?", // ethel
+    "The era from when you came?", // ethel
     "Yes.", // ann
-    "The crystal connects two time periods.", // ann
+    "The crystal connects two periods of time.", // ann
     "You went to our time.", // ann
     "What did you see there?", // ann
-    "This ruined royal castle,", // ethel
-    "At that time, this kingdom was destroyed.", // ethel
+    "This royal castle...", // ethel
+    "In ruins, our entire kingdom was destroyed.", // ethel
     "Eh!?", // ann
     "That shouldn't be...", // ann
     "I saw it with my own eyes.", // ethel
@@ -68,9 +68,9 @@ export const peaceful = {
     "I understood that much.", // ethel
     "So, even after returning to this era, I kept looking for another opportunity to kill the king.", // ethel
     "...", // ann
-    "But in the end you stopped assassinating the king and faced Sonberk yourself, right?", // ann
+    "But in the end you stopped your attempts on the king and faced Sonberk yourself, right?", // ann
     "I changed my mind.", // ethel
-    "No, I had never thought of defeating a dragon in the first place.", // ethel
+    "Originally I had never thought of defeating a dragon in the first place.", // ethel
     "But after you challenged and defeated me in the catacombs,", // ethel
     "I decided to confront the dragon with my brother.", // ethel
     "In the end I broke and you helped me.", // ethel
@@ -85,15 +85,15 @@ export const peaceful = {
   talk4: [
     "Thank you.", // ann
     "What a surprise,", // ann
-    "I still haven't wrapped my head around it.", // ann
+    "I still haven't wrapped my head around it all.", // ann
     "I'm glad to finally learn what you were doing.", // ann
     "You have always been a mystery.", // ann
     "And then,", // ann
     "I'm glad you reconsidered the assassination at the end.", // ann
-    "We wish to go home because we finished our purpose here.", // ann
-    "Honestly, I was a little worried we would never make it home...", // ann
+    "Now that we've finished our purpose here, we wish to go home.", // ann
+    "Honestly, I was a little worried we would never make it back...", // ann
     "But,", // ann
-    "You can rest assured that this era belongs to you.", // ann
+    "You can rest assured that this era is one of peace.", // ann
     "...", // ethel
     "Yes, you shouldn't have to worry anymore.", // ethel
     "Come on... go home.", // ethel
@@ -103,7 +103,7 @@ export const peaceful = {
   ],
   end1: [
     "The times shine brightly.", // ethel
-    "Our kingdom,", // ethel
+    "Our peaceful kingdom,", // ethel
     "Ruled by King Edgar the Peaceful .", // ethel
   ],
   end2: [
