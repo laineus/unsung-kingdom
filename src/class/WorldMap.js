@@ -112,9 +112,9 @@ export default class WorldMap extends Phaser.GameObjects.Container {
     this.setMarker(area ? SCALE.ZOOM : SCALE.DEFAULT, positionX, positionY)
   }
   getMission (area, x, y) {
-    const container = this.scene.add.container(x, y).setSize(220, 32)
+    const container = this.scene.add.container(x, y).setSize(240, 32)
     container.area = area
-    const box = new Box(this.scene, 0, 0, 220, 32)
+    const box = new Box(this.scene, 0, 0, 240, 32)
     container.setInteractive().on('pointerdown', () => {
       this.scene.audio.se('click')
       this.setArea(area)
