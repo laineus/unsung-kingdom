@@ -140,7 +140,7 @@ export default {
     francisca: "Francisca",
     king: "King",
     jack: "Jack",
-    ethel: "Ezerbald",
+    ethel: "Ezerbald", // TODO: ask later
     guard: "Guard",
     soldier: "Soldier",
     injuredSoldier: "Injured Soldier",
