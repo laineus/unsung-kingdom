@@ -29,20 +29,16 @@ export default {
   langLabel: "日本語",
   chapter: [
     { name: "序章", title: "王殺しのジャック", sub: "Jack the Kingkiller" },
-    { name: "1章", title: "ワルコフォレンスの森", sub: "Warcoforence" },
-    {
-      name: "2章",
-      title: "トロイア公爵邸の地下通路",
-      sub: "Troy's secret passage",
-    },
-    { name: "3章", title: "聖アンテルスの墓地", sub: "St Anterus' catacomb" },
-    { name: "4章", title: "グリファルデ神殿", sub: "Temple Grefalde" },
-    { name: "終章", title: "平和王エドガー", sub: "Edgar the Peaceful" },
+    { name: "1章", title: "ワルカノの森", sub: "Warkano Forest" },
+    { name: "2章", title: "トロイア公爵邸の地下通路", sub: "Troia's Secret Passage" },
+    { name: "3章", title: "聖アンテルスの墓地", sub: "Catacombs of St Anterus" },
+    { name: "4章", title: "グリファルデ神殿", sub: "Temple of Grefalde" },
+    { name: "終章", title: "平和王エドガー", sub: "Edgar the Peaceful" }
   ],
   area: {
     town: "王都",
     castle: "王城 - 裏庭",
-    forest: "ワルコフォレンスの森",
+    forest: "ワルカノの森",
     underpass: "トロイア公爵邸の地下通路",
     catacomb: "聖アンテルスの墓地",
     temple: "グリファルデ神殿",
@@ -100,7 +96,7 @@ export default {
       sub: "Isambard mercenaries",
     },
     m1_3: { title: "森の賢人ドリスタン", sub: "Philosopher Drystan" },
-    m1_4: { title: "ワルコフォレンスの人食い熊", sub: "The Rex Bear" },
+    m1_4: { title: "ワルカノの人食い熊", sub: "The Rex Bear" },
     m2_1: { title: "幽閉されしカサンドラ", sub: "Incarcerated Cassandra" },
     m2_2: {
       title: "メアリー王女と公爵令嬢ロレッタ",
@@ -418,7 +414,7 @@ export default {
   tweet: {
     ca1: "どこかに身を隠して待とう", // francisca
     ct1: "墓地…ちょっと怖いね…", // ann
-    fr1: "ここがワルコフォレンスの森か", // ann
+    fr1: "ここがワルカノの森か", // ann
     tm1: "神殿の入り口に着いたわ", // jaquelyn
     aplg: "おいしそうなリンゴ", // ann
     aplb: "傷んだリンゴだね", // ann
