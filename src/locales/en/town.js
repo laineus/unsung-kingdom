@@ -186,7 +186,7 @@ export const townCommon = {
     ],
     [
       // townCommon.elliott.2.x
-      "The cemetery of St Anterus holds regular citizens and the royal family.", // elliott
+      "The catacombs of St Anterus holds regular citizens and the royal family.", // elliott
       "Of course there are differences in how they're handled.", // elliott
       "In the upper class areas,", // elliott
       "sometimes graverobbers search for gold.", // elliott
@@ -482,7 +482,7 @@ export const townChapter3 = {
     "Why don't you go ask her?", // matilda
     "Ask her?", // ann
     "Yeah,", // matilda
-    "The Queen is sleeping in the cemetery of St Anterus.", // matilda
+    "The Queen is sleeping in the catacombs of St Anterus.", // matilda
     "I see!", // ann
     "Thank you!", // ann
   ],
@@ -513,8 +513,8 @@ export const townChapter4 = {
   ],
   annabelle: [
     "The rumor that the dragon has awoken turned out to be true.", // annabelle
-    "My brother was at the temple before,", // annabelle
-    "He saw the dragon himself.", // annabelle
+    "King's younger brother was at the temple recently,", // annabelle
+    "He must have watched the dragon.", // annabelle
     "Ugh,", // annabelle
     "I really hope things work out.", // annabelle
   ],
@@ -527,7 +527,7 @@ export const townChapter4 = {
   ],
   elliott: [
     "The king himself leads the quest to subdue the dragon.", // elliott
-    "I'm not so young anymore,", // elliott
+    "He's not so young anymore,", // elliott
     "but I can still remember what happened ten years ago.", // elliott
     "At that time, it was miraculous to contain it in the temple, no one could think of defeating it.", // elliott
     "If the king fails, then our kingdom is...", // elliott
@@ -617,9 +617,9 @@ export const townChapter5 = {
     "...", // matilda
     "What's wrong?", // ann
     "Uh, yeah yeah...", // matilda
-    "I'm finally at peace.", // matilda
-    "Really!?", // ann
-    "I'm very happy about something.", // matilda
+    "We're finally at peace.", // matilda
+    "Yeah, we are!", // ann
+    "And I'm very happy about another something now.", // matilda
     "Which has been on my mind for so long...", // matilda
     "What happened?", // ann
     "Well, I finally talked to Annabelle.", // matilda

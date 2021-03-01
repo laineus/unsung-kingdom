@@ -197,7 +197,7 @@ export default {
     3: "Heal Party",
   },
   battler: {
-    jack: "Jack",
+    jack: "Jack the Kingkiller",
     bee: "Bee",
     bee2: "Killer Bee",
     slime: "Slime",

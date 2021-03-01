@@ -110,6 +110,7 @@ export const peaceful = {
     'おい、居たぞ！', // soldier1
     '黒いローブの暗殺者だ！', // soldier1
     '逃がすな、射て！' // soldier2
+    // TODO
   ],
   end3: [
     '王よ、', // ethel
