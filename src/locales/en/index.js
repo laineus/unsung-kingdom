@@ -30,7 +30,7 @@ export default {
   chapter: [
     { name: "Prologue:", title: "Jack the Kingkiller", sub: "" },
     { name: "Chapter 1:", title: "Warkano Forest", sub: "" },
-    { name: "Chapter 2:", title: "Troias's Secret Passage", sub: "" },
+    { name: "Chapter 2:", title: "Troias's Secret Passage", sub: "" }, // TODO: ask later
     { name: "Chapter 3:", title: "Catacombs of St Anterus", sub: "" },
     { name: "Chapter 4:", title: "Temple of Grefalde", sub: "" },
     { name: "Epilogue:", title: "Edgar the Peaceful", sub: "" },
