@@ -154,7 +154,8 @@ export const peaceful = (scene, area1, area2, soldier1, soldier2, jack) => {
     await scene.talk([
       { chara, text: t('peaceful.end1.0') },
       { chara, text: t('peaceful.end1.1') },
-      { chara, text: t('peaceful.end1.2') }
+      { chara, text: t('peaceful.end1.2') },
+      { chara, text: t('peaceful.end1.3') }
     ], { angle: false })
     await scene.ui.sleep(1500)
     soldier1.setSpeed(180).setTargetPosition(soldier1.x + 200, soldier1.y)
@@ -162,7 +163,8 @@ export const peaceful = (scene, area1, area2, soldier1, soldier2, jack) => {
     await scene.talk([
       { chara: soldier1, text: t('peaceful.end2.0') },
       { chara: soldier1, text: t('peaceful.end2.1') },
-      { chara: soldier2, text: t('peaceful.end2.2') }
+      { chara: soldier2, text: t('peaceful.end2.2') },
+      { chara, text: t('peaceful.end2.3') }
     ], { angle: false })
     await scene.ui.sleep(800)
     const red = scene.add.rectangle(0, 0, scene.map.width, scene.map.height, 0xEE2200).setAlpha(0).setDepth(140000).setOrigin(0, 0)

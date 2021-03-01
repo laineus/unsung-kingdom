@@ -102,6 +102,7 @@ export const peaceful = {
     "Goodbye.", // ann
   ],
   end1: [
+    "My role is over.", // ethel
     "The times shine brightly.", // ethel
     "Our peaceful kingdom,", // ethel
     "Ruled by King Edgar the Peaceful .", // ethel
@@ -110,6 +111,7 @@ export const peaceful = {
     "Hey, over there!", // soldier1
     "The assassin in a black robe!", // soldier1
     "Don't let him get away, shoot!", // soldier2
+    "So, do it."
   ],
   end3: [
     "A King,", // ethel
