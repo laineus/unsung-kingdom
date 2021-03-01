@@ -26,7 +26,7 @@ const list = [
   // m3_2
   (group, event) => {
     if (event.m3_2.completed || !event.m3_2.started) return
-    const result = collection(group, 'phantom', 75)
+    const result = collection(group, 'phantom', 85)
     if (!result) return
     event.m3_2.count += result
     return `${t('itemDrop.water', result)}（${event.m3_2.count}/${WATER_COUNT}）`
