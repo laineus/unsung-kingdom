@@ -14,7 +14,7 @@ export const peaceful = {
     "Let me introduce myself again.", // jack
   ],
   talk2: [
-    "I'm the king's younger brother, prince Ezerbald.", // ethel
+    "I'm the king's younger brother, prince Ethelbald.", // ethel
     "!", // ann
     "I'm so sorry.", // ethel
     "I lied.  I used my sword against you.", // ethel

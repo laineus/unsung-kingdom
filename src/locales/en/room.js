@@ -169,7 +169,7 @@ export const roomEv = [
       "It seems the basement of the castle has a tunnel. |It leads to the territory of a nobleman known as the Duke of Troias.", // ann
       "I'm happy to look for this tunnel,", // francisca
       "but we can't exactly just wander around the castle...", // francisca
-      "Then let's find where it is in the Duke of Troias's territory!", // ann
+      "Then let's find where it is in the Duke of Troia's territory!", // ann
       "Let's go!", // ann
     ],
   ],

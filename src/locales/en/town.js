@@ -114,7 +114,7 @@ export const townCommon = {
       "I'm so scared...", // matilda
       "Really?", // ann
       "Yeah, it seems that no one has seen it in person yet,", // matilda
-      "but recently, Prince Ezerbald has frequently visited the temple.", // matilda
+      "but recently, Prince Ethelbald has frequently visited the temple.", // matilda
       "That's why everyone is worried that something is happening there...", // matilda
       "I've been told since I was little that it will wake up someday,", // matilda
       "It's so scary...", // matilda
@@ -231,7 +231,7 @@ export const townCommon = {
     ],
     [
       // townCommon.max.2.x
-      "The king has a younger brother named Ezerbald,", // max
+      "The king has a younger brother named Ethelbald,", // max
       "He's apparently good with a sword.", // max
       "King Edgar is so old now, but,", // max
       "If danger visits our kingdom, I wonder if the prince can handle it.", // max
@@ -391,7 +391,7 @@ export const townChapter2 = {
       "Of course.", // ann
     ],
     answer1: [
-      "The Duke of Troias's residence is southeast of town.", // amber
+      "The Duke of Troia's residence is southeast of town.", // amber
       "Do you want to go?", // amber
       "You can go close to it, but he doesn't allow anyone on his premises.", // amber
       "You included, Amber?", // ann

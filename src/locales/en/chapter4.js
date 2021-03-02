@@ -475,7 +475,7 @@ export const dragonKiller = {
     "You worry about your kingdom?", // sonberk
     "You seek peace of mind.", // sonberk
     "You are here now.", // sonberk
-    "Your brother Ezerbald has fulfilled his promise.", // sonberk
+    "Your brother Ethelbald has fulfilled his promise.", // sonberk
     "You wish to trade your own life for the good of your kingdom.", // sonberk
     "Yes.", // king
     "I don't know what my brother agreed to, but that's what I want.", // king
