@@ -25,7 +25,7 @@ export const cassandra = {
     ["OK", "No thank you"],
     "So...", // cassandra
     "There's a wine cellar at the end of this underground passage.", // cassandra
-    "Is there wine in this underground passage?", // ann
+    "There's wine in the passage?", // ann
     "Yes.", // cassandra
     "But the door is locked.", // ann
     "Look closely at the candlestick next to the door.", // cassandra
@@ -34,9 +34,9 @@ export const cassandra = {
     "My brother often goes in and out of there.", // cassandra
     "He's searching for Aragnier's hiding place so he can get me out of here.", // cassandra
     "I see.", // ann
-    "So it must be a problem if I take the key?", // ann
-    "Don't worry, Aragnier can never be found anyways.", // cassandra
-    "My brother seems realized that and he isn't coming here recently.", // cassandra
+    "So is it a problem if I take the key?", // ann
+    "Don't worry, Aragnier can't be found anyways.", // cassandra
+    "My brother seems to have realized that and hasn't come here recently..", // cassandra
     "But you'll definitely find the wine.  Please bring me some.", // cassandra
   ],
   util: {

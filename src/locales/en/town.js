@@ -91,7 +91,7 @@ export const townCommon = {
       "No, she isn't. She's a good girl.", // matilda
       "We used to play together a lot...", // matilda
       "So why are you watching her?", // ann
-      "Apparently She looks suspicious lately.", // matilda
+      "Apparently she began a suspicious job recently.", // matilda
       "So... I'm worried...", // matilda
       "Then you should stop her.", // ann
       "You two were good friends before?", // ann
@@ -513,8 +513,8 @@ export const townChapter4 = {
   ],
   annabelle: [
     "The rumor that the dragon has awoken turned out to be true.", // annabelle
-    "King's younger brother was at the temple recently,", // annabelle
-    "He must have watched the dragon.", // annabelle
+    "The king's younger brother was at the temple recently,", // annabelle
+    "He must have seen the dragon.", // annabelle
     "Ugh,", // annabelle
     "I really hope things work out.", // annabelle
   ],
@@ -619,7 +619,7 @@ export const townChapter5 = {
     "Uh, yeah yeah...", // matilda
     "We're finally at peace.", // matilda
     "Yeah, we are!", // ann
-    "And I'm very happy about another something now.", // matilda
+    "And I'm very happy about something else now too.", // matilda
     "Which has been on my mind for so long...", // matilda
     "What happened?", // ann
     "Well, I finally talked to Annabelle.", // matilda
