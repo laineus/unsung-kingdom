@@ -26,7 +26,7 @@ export const templeCharacters = {
     "?", // loretta
     "You all look familiar.", // loretta
     "Seriously, you forgot?", // ann
-    "It's me. We've met in the underground passage.", // ann // TODO: ask
+    "It's me, Ann. We met in the underground passage.", // ann // TODO: ask
     "Oh, now I remember.", // loretta
     "What are you doing here?", // ann
     "His Majesty is planning to fight the dragon.", // loretta
@@ -59,7 +59,7 @@ export const templeCharacters = {
   drystan: [
     "You are the wise man from Warkano Forest!", // ann
     "Thanks again for making the medicine.", // ann
-    "I was thinking the three of you might show up.", // drystan
+    "It's the three girls from Warkano Forest.", // drystan
     "Have you come to save the royal house again?", // drystan
     "What are you doing here?", // ann
     "I don't like to leave my forest,", // drystan
@@ -132,7 +132,7 @@ export const lorraine = {
     "Do you know about the dragon?", // ann
     "Of course.", // architect
     "The dragon was sleeping in the basement of this temple, but woke up about half a month ago.", // architect
-    "Since then the prince has been visiting the dragon frequently.", // architect // TODO: ask later
+    "Since then, Prince Ethelbald has been visiting the dragon frequently.", // architect
     "What for?", // ann
     "I believe the prince was negotiating with the dragon on behalf of His Majesty, |Trying to calm the dragon's rage.", // architect
     "The dragon's anger was too great though, His Majesty came here today to try to fix things.", // architect

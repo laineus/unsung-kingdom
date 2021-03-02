@@ -114,7 +114,7 @@ export const peaceful = {
     "So, do it."
   ],
   end3: [
-    "A King,", // ethel
-    "And a kingdom known to the ages.", // ethel // TODO: ask later
+    "A King,|And a kingdom,", // ethel
+    "Sung of through the ages.", // ethel
   ],
 };

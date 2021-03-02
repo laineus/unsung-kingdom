@@ -95,7 +95,7 @@ export const princess = {
     "Mary, who are they?", // loretta
     "Report them to your father.", // loretta
     "No need to do that.", // mary
-    "Even thought they can enter here, they never can enter the castle.", // mary
+    "Even though they've found this passage, they'll never get past Orthrus.", // mary
     "And we're meeting here secretly, we're not supposed to be down here either.", // mary
     "True.", // loretta
     "So it's a secret that any of us were ever here.", // mary
@@ -344,7 +344,7 @@ export const aragnie = {
     "Look, over there.", // hector
   ],
   hector2: [
-    "We can find it!", // mary
+    "We can find Aragnier now!", // mary
     "Hector it's been a long time!", // mary
     "Princess Mary!", // hector
     "Lady Loretta!", // hector

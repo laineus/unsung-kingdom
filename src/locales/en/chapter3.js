@@ -160,9 +160,9 @@ export const marianne = {
     "No...", // marianne
     "My feelings are the same.", // marianne
     "That...", // ann
-    "If I become able to be with Marianne,", // marianne // TODO: She wants to choose even die, if she will be able to meet Marianne again.
-    "If I become able to hear her song again,", // marianne
-    "I will follow her to the afterlife.", // marianne
+    "I must be with Marianne.", // marianne // TODO: She wants to choose even die, if she will be able to meet Marianne again.
+    "If you had heard her song, you would understand.", // marianne
+    "I will follow her anywhere, even to the afterlife.", // marianne
   ],
   solved: [
     "Marianne...", // marianne
@@ -184,9 +184,9 @@ export const dario = {
     "In the last few years, many evil spirits have settled in this graveyard.", // dario
     "For awhile now, this has been a depressing place.", // dario
     "So full of sorrow.", // dario
-    "You can feel it in the air.", // dario // TODO: Only Dario can feel sorrow just like normal people feel wind
-    "Just like one bathes in the sun's warmth or a wind's chill,", // dario
-    "the longer you're here, the more you'll bathe in the sorrows of the dead.", // dario
+    "I can feel it in the air.", // dario
+    "Just like you might feel the sun's warmth on your skin,", // dario
+    "I can sense the sorrow of the dead.", // dario
     "It's not harmless, either.", // dario
     "Even if you don't notice it, the longer you're here the more overwhelmed by sorrow you'll become.", // dario
     "That's why you should leave as soon as you're done, don't tarry long.", // dario
