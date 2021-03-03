@@ -1,7 +1,7 @@
 export const peaceful = {
   soldier: [
     "An assassin dressed in a black robe.", // soldier1
-    "According to His Royal Highness,|we've been allowed to execute the assasin immediatelly when he's found.", // soldier1 // TODO: ask later
+    "According to His Royal Highness, we're to shoot the assassin on sight.", // soldier1
     "An assassin dressed in a black robe...", // soldier2
   ],
   talk1: [
@@ -102,7 +102,7 @@ export const peaceful = {
     "Goodbye.", // ann
   ],
   end1: [
-    "My role is over.", // ethel
+    "My role is over, I won't run from the guards.", // ethel
     "The times shine brightly.", // ethel
     "Our peaceful kingdom,", // ethel
     "Ruled by King Edgar the Peaceful .", // ethel

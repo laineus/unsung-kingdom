@@ -431,7 +431,7 @@ export default {
     aplg: "A delicious looking apple.", // ann
     aplb: "It's a damaged apple.", // ann
     clbr: "Is that the holy sword?", // francisca
-    un1: "We've successfully invaded.", // francisca
+    un1: "We snuck in.", // francisca
     lost: {
       francisca: ["Hey, wait!", "You disappeared..."],
       jaquelyn: ["Ann, don't leave me!", "Ann, where did you go?"],
