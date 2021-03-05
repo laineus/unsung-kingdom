@@ -419,7 +419,7 @@ export const lute = {
     "But if you play it with all your heart, it will open.", // lyla
     "I'm sure the person who made this mechanism also loved the goddess.", // lyla
     "That's nice.", // ann
-    "It's like the apples you brought me.", // lyla // TODO: ask later
+    "These apples are beautiful. |The kindness you showed in picking them reminds me of the care the sculptor took when making the statue of this goddess.", // lyla
     "So delicious.", // lyla
     "You must have thought of me when you found it.", // lyla
     "Hehe.", // ann
