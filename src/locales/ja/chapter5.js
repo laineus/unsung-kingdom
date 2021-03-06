@@ -102,6 +102,7 @@ export const peaceful = {
     'さようなら。' // ann
   ],
   end1: [
+    '俺の役割はここまでだ。', // ethel
     '君たちの時代が明るいことは、', // ethel
     '我らが王、', // ethel
     '平和王エドガーが保証する。' // ethel
@@ -109,7 +110,8 @@ export const peaceful = {
   end2: [
     'おい、居たぞ！', // soldier1
     '黒いローブの暗殺者だ！', // soldier1
-    '逃がすな、射て！' // soldier2
+    '逃がすな、射て！', // soldier2
+    '…さあ、やれ。' // ethel
   ],
   end3: [
     '王よ、', // ethel

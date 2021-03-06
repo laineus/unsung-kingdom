@@ -84,19 +84,19 @@ export const townCommon = {
       // townCommon.matilda.0.x
       "Hello.", // ann
       "Why are you standing in the shadows?", // ann
-      "Oh, right.  This must look suspicious.", // matilda
-      "I'm watching Annabelle at the inn.", // matilda
-      "I'm doing nothing wrong.", // matilda
-      "You do look very suspicious.", // ann
-      "I promise I'm not.  I'm a good girl.", // matilda
+      "Oh, right.", // matilda
+      "This must look suspicious.", // matilda
+      "I'm watching Annabelle at the inn so she doesn't do something wrong.", // matilda
+      "Is she a bad girl?", // ann
+      "No, she isn't. She's a good girl.", // matilda
       "We used to play together a lot...", // matilda
-      "Why not anymore?", // ann
-      "Apparently I look suspicious lately.", // matilda
+      "So why are you watching her?", // ann
+      "Apparently she began a suspicious job recently.", // matilda
       "So... I'm worried...", // matilda
-      "Then you should stop lurking in the shadows.", // ann
+      "Then you should stop her.", // ann
       "You two were good friends before?", // ann
       "That's right...", // matilda
-      "I'm embarassed to talk about it...", // matilda
+      "I'm embarrassed to talk with her...", // matilda
       "I wonder why...", // matilda
       "Is that so?", // ann
       "Well that happens sometimes.", // ann
@@ -114,7 +114,7 @@ export const townCommon = {
       "I'm so scared...", // matilda
       "Really?", // ann
       "Yeah, it seems that no one has seen it in person yet,", // matilda
-      "but recently, Prince Ezerbald has frequently visited the temple.", // matilda
+      "but recently, Prince Ethelbald has frequently visited the temple.", // matilda
       "That's why everyone is worried that something is happening there...", // matilda
       "I've been told since I was little that it will wake up someday,", // matilda
       "It's so scary...", // matilda
@@ -186,7 +186,7 @@ export const townCommon = {
     ],
     [
       // townCommon.elliott.2.x
-      "The cemetery of St Anterus holds regular citizens and the royal family.", // elliott
+      "The catacombs of St Anterus holds regular citizens and the royal family.", // elliott
       "Of course there are differences in how they're handled.", // elliott
       "In the upper class areas,", // elliott
       "sometimes graverobbers search for gold.", // elliott
@@ -231,7 +231,7 @@ export const townCommon = {
     ],
     [
       // townCommon.max.2.x
-      "The king has a younger brother named Ezerbald,", // max
+      "The king has a younger brother named Ethelbald,", // max
       "He's apparently good with a sword.", // max
       "King Edgar is so old now, but,", // max
       "If danger visits our kingdom, I wonder if the prince can handle it.", // max
@@ -308,7 +308,7 @@ export const townChapter1 = {
     "King Edgar, I'm so worried...", // amber
     "What happened to the king?", // ann
     "I heard from someone who is close to the royal family,", // amber
-    "It seems that King Edgar has suddely fallen ill.", // amber
+    "It seems that King Edgar has suddenly fallen ill.", // amber
     "Oh no...", // ann
     "I sure hope he gets better.", // amber
     "Oh, I shouldn't have shared that.  I'm just so worried, please keep it secret, alright?", // amber
@@ -333,8 +333,8 @@ export const townChapter1 = {
   ],
   elliott: [
     [
-      "Did you decide to become a street vendor?", // ann
-      "Yeah.", // elliott
+      "Excuse me sir, what are you selling?", // ann
+      "Yo.", // elliott
       "I'm afraid I don't sell anything tourists would be interested in though.", // elliott
       "I'm sorry.", // elliott
     ],
@@ -359,7 +359,7 @@ export const townChapter1 = {
       "That someone in the royal family is seriously ill.", // max
       "What do you know?", // elliott
       "Young lady, I've been hearing this story often recently.", // max
-      "If you seek a real panacea, there's a wise hermit living in the Warkano Forest", // max
+      "If you seek a real panacea, there's a wise hermit living in the Warkano Forest.", // max
       "He is the only one who could make such a panacea.", // max
       "This wise hermit of the forest is that talented with making medicine?", // ann
       "Yes, if someone truly needs medicine, they go to him.", // max
@@ -391,7 +391,7 @@ export const townChapter2 = {
       "Of course.", // ann
     ],
     answer1: [
-      "The Duke of Troias's residence is southeast of town.", // amber
+      "The Duke of Troia's residence is southeast of town.", // amber
       "Do you want to go?", // amber
       "You can go close to it, but he doesn't allow anyone on his premises.", // amber
       "You included, Amber?", // ann
@@ -482,7 +482,7 @@ export const townChapter3 = {
     "Why don't you go ask her?", // matilda
     "Ask her?", // ann
     "Yeah,", // matilda
-    "The Queen is sleeping in the cemetery of St Anterus.", // matilda
+    "The Queen is sleeping in the catacombs of St Anterus.", // matilda
     "I see!", // ann
     "Thank you!", // ann
   ],
@@ -513,8 +513,8 @@ export const townChapter4 = {
   ],
   annabelle: [
     "The rumor that the dragon has awoken turned out to be true.", // annabelle
-    "My brother was at the temple before,", // annabelle
-    "He saw the dragon himself.", // annabelle
+    "The king's younger brother was at the temple recently,", // annabelle
+    "He must have seen the dragon.", // annabelle
     "Ugh,", // annabelle
     "I really hope things work out.", // annabelle
   ],
@@ -527,7 +527,7 @@ export const townChapter4 = {
   ],
   elliott: [
     "The king himself leads the quest to subdue the dragon.", // elliott
-    "I'm not so young anymore,", // elliott
+    "He's not so young anymore,", // elliott
     "but I can still remember what happened ten years ago.", // elliott
     "At that time, it was miraculous to contain it in the temple, no one could think of defeating it.", // elliott
     "If the king fails, then our kingdom is...", // elliott
@@ -617,9 +617,9 @@ export const townChapter5 = {
     "...", // matilda
     "What's wrong?", // ann
     "Uh, yeah yeah...", // matilda
-    "I'm finally at peace.", // matilda
-    "Really!?", // ann
-    "I'm very happy about something.", // matilda
+    "We're finally at peace.", // matilda
+    "Yeah, we are!", // ann
+    "And I'm very happy about something else now too.", // matilda
     "Which has been on my mind for so long...", // matilda
     "What happened?", // ann
     "Well, I finally talked to Annabelle.", // matilda

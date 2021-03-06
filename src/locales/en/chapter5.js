@@ -1,7 +1,7 @@
 export const peaceful = {
   soldier: [
     "An assassin dressed in a black robe.", // soldier1
-    "According to His Royal Highness, the assassin is being hunted down to be executed.", // soldier1
+    "According to His Royal Highness, we're to shoot the assassin on sight.", // soldier1
     "An assassin dressed in a black robe...", // soldier2
   ],
   talk1: [
@@ -14,7 +14,7 @@ export const peaceful = {
     "Let me introduce myself again.", // jack
   ],
   talk2: [
-    "I'm the king's younger brother, prince Ezerbald.", // ethel
+    "I'm the king's younger brother, prince Ethelbald.", // ethel
     "!", // ann
     "I'm so sorry.", // ethel
     "I lied.  I used my sword against you.", // ethel
@@ -102,6 +102,7 @@ export const peaceful = {
     "Goodbye.", // ann
   ],
   end1: [
+    "My role is over, I won't run from the guards.", // ethel
     "The times shine brightly.", // ethel
     "Our peaceful kingdom,", // ethel
     "Ruled by King Edgar the Peaceful .", // ethel
@@ -110,9 +111,10 @@ export const peaceful = {
     "Hey, over there!", // soldier1
     "The assassin in a black robe!", // soldier1
     "Don't let him get away, shoot!", // soldier2
+    "So, do it."
   ],
   end3: [
-    "A King,", // ethel
-    "And a kingdom known to the ages.", // ethel
+    "A King,|And a kingdom,", // ethel
+    "Sung of through the ages.", // ethel
   ],
 };

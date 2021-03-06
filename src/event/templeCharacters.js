@@ -117,7 +117,7 @@ export default (scene, characters) => {
   drystan.setTapEvent(async chara => {
     if (state.talked_drystan) {
       await scene.talk([
-        { chara, text: t('templeCharacters.drystan.17') }
+        { chara, text: t('templeCharacters.drystan.16') }
       ])
     } else {
       await scene.talk([
@@ -136,10 +136,9 @@ export default (scene, characters) => {
         { chara, text: t('templeCharacters.drystan.12') },
         { chara, text: t('templeCharacters.drystan.13') },
         { chara, text: t('templeCharacters.drystan.14') },
-        { chara, text: t('templeCharacters.drystan.15') },
-        { chara: 'ann', text: t('templeCharacters.drystan.16') },
-        { chara, text: t('templeCharacters.drystan.17') },
-        { chara, text: t('templeCharacters.drystan.18') }
+        { chara: 'ann', text: t('templeCharacters.drystan.15') },
+        { chara, text: t('templeCharacters.drystan.16') },
+        { chara, text: t('templeCharacters.drystan.17') }
       ])
       state.talked_drystan = true
     }

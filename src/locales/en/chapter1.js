@@ -13,14 +13,14 @@ export const dog = {
     "Surely there must be a reward.", // francisca
     "Hmmm.  Perhaps the stories have been greatly exaggerated.", // hunter
     "It's a good story for those who don't need to enter the forest.", // hunter
-    "Anyways, myself and my fellow hunters have no desire to see such a ferocious beast.", // hunter
+    "Anyways, I have no desire to see such a ferocious beast.", // hunter
     "If someone takes him down, we'd all be happy.", // hunter
-    "So you and your friends are hunters.", // ann
+    "So you are hunter.", // ann
     "What do you hunt in here?", // ann
     "Not ferocious bears, that for sure!  Just small game for meat.", // hunter
     "But now I'm just looking for my dogs that ran away.", // hunter
     "Your dogs ran away?", // ann
-    "My friend's hunting dog had five puppies, they're not even a year old yet.", // hunter
+    "My hunting dog had five puppies, they're not even a year old yet.", // hunter
     "Sorry to bother you, but if you see any puppies could you bring them to me?", // hunter
     ["Sure", "I'm awfully busy"],
     ["Thank you.  It was nice to meet you.", "I see."], // hunter
@@ -202,7 +202,7 @@ export const bear = {
     "I brought it.  Here is Rex Bear's blood.", // ann
     "Show me.", // drystan
     "Hmm. It looks like you've really defeated Rex Bear.", // drystan
-    "Ok, let's make the medicine.", // drystan
+    "Ok, here's the medicine.", // drystan
     "Well don't you need this blood to make it?", // ann
     "Disgusting, I don't want that.", // drystan
     "Have you ever mixed blood with medicine before?", // drystan
@@ -212,7 +212,7 @@ export const bear = {
     "What about the vitality stuff?  Was that a lie?", // ann
     "What if it was?", // drystan
     "The royal family is important, but so is my own well being.", // drystan
-    "Anyways, I'm making the medicine.  Don't complain.", // drystan
+    "Anyways, I made the medicine.  Don't complain.", // drystan
     "I don't need any money.", // drystan
     "... Is that so?", // ann
     "Thank you for the medicine.", // ann

@@ -26,7 +26,7 @@ export const templeCharacters = {
     "?", // loretta
     "You all look familiar.", // loretta
     "Seriously, you forgot?", // ann
-    "Look, it's the Lady Loretta from the underground passage.", // ann
+    "It's me, Ann. We met in the underground passage.", // ann // TODO: ask
     "Oh, now I remember.", // loretta
     "What are you doing here?", // ann
     "His Majesty is planning to fight the dragon.", // loretta
@@ -59,7 +59,7 @@ export const templeCharacters = {
   drystan: [
     "You are the wise man from Warkano Forest!", // ann
     "Thanks again for making the medicine.", // ann
-    "I was thinking the three of you might show up.", // drystan double check 誰かと思えばあのときの者達か。
+    "It's the three girls from Warkano Forest.", // drystan
     "Have you come to save the royal house again?", // drystan
     "What are you doing here?", // ann
     "I don't like to leave my forest,", // drystan
@@ -71,7 +71,6 @@ export const templeCharacters = {
     "They have special powers, unknown to humans.", // drystan
     "Wisdom, not power, is essential to counteract the dragon's powers.", // drystan
     "A long time ago, the humans who built this temple were wise in these ways.", // drystan
-    "I seek such wisdom.", // drystan
     "But it is lost to us all.", // drystan
     "Wisdom...", // ann
     "I think this time you should not interfere.", // drystan
@@ -133,7 +132,7 @@ export const lorraine = {
     "Do you know about the dragon?", // ann
     "Of course.", // architect
     "The dragon was sleeping in the basement of this temple, but woke up about half a month ago.", // architect
-    "Since then the prince has been visiting the dragon frequently.", // architect
+    "Since then, Prince Ethelbald has been visiting the dragon frequently.", // architect
     "What for?", // ann
     "I believe the prince was negotiating with the dragon on behalf of His Majesty, |Trying to calm the dragon's rage.", // architect
     "The dragon's anger was too great though, His Majesty came here today to try to fix things.", // architect
@@ -420,16 +419,16 @@ export const lute = {
     "But if you play it with all your heart, it will open.", // lyla
     "I'm sure the person who made this mechanism also loved the goddess.", // lyla
     "That's nice.", // ann
-    "It's like the apple my daughter brought me.", // lyla
-    "So delicious.", // lyla
-    "You must have thought of me when you found it.", // lyla
+    "These apples are beautiful.", // lyla
+    "You must have taken great care in picking them.", // lyla
+    "I'm sure the sculptor of this statue took similar care when carving the likeness of his goddess.", // lyla
     "Hehe.", // ann
     "Well then,", // lyla
     "Do be careful.", // lyla
     "Thank you!", // ann
   ],
   option: ["Pick up", "Don't need"],
-  apple: "I found an apple.",
+  apple: `"Apple" picked up`,
   tweet: "Five apples have been gathered.",
 };
 export const dragonKiller = {
@@ -476,7 +475,7 @@ export const dragonKiller = {
     "You worry about your kingdom?", // sonberk
     "You seek peace of mind.", // sonberk
     "You are here now.", // sonberk
-    "Your brother Ezerbald has fulfilled his promise.", // sonberk
+    "Your brother Ethelbald has fulfilled his promise.", // sonberk
     "You wish to trade your own life for the good of your kingdom.", // sonberk
     "Yes.", // king
     "I don't know what my brother agreed to, but that's what I want.", // king

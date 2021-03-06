@@ -22,29 +22,29 @@ export const cassandra = {
     "Hey can you bring me some wine if you have the time?", // cassandra
     "I know it's illegal to purchase alcohol, but I know where to find it.", // cassandra
     "I'll tell you where to get it.", // cassandra
-    ["OK", "Of course"],
+    ["OK", "No thank you"],
     "So...", // cassandra
     "There's a wine cellar at the end of this underground passage.", // cassandra
-    "Just ahead?", // ann
+    "There's wine in the passage?", // ann
     "Yes.", // cassandra
-    "And the key?", // ann
+    "But the door is locked.", // ann
     "Look closely at the candlestick next to the door.", // cassandra
     "The key should be hidden there.", // cassandra
     "Who would hide the key there?", // ann
     "My brother often goes in and out of there.", // cassandra
     "He's searching for Aragnier's hiding place so he can get me out of here.", // cassandra
     "I see.", // ann
-    "So it must be pretty dangerous?", // ann
-    "Don't worry, Aragnier is long gone.", // cassandra
-    "Otherwise my brother would have challenged it.", // cassandra
+    "So is it a problem if I take the key?", // ann
+    "Don't worry, Aragnier can't be found anyways.", // cassandra
+    "My brother seems to have realized that and hasn't come here recently..", // cassandra
     "But you'll definitely find the wine.  Please bring me some.", // cassandra
   ],
   util: {
     door: ["Check", "Leave it alone"],
-    key: "I found the underground passage key.",
-    unlock: "Unlocked the passage.",
+    key: `"Underground passage key" picked up`,
+    unlock: "Unlocked the passage",
     locked: "It's locked.", // ann
-    wine: "I got the wine.",
+    wine: `"Wine" picked up`,
   },
   progress: [
     "Did you find the key?", // cassandra
@@ -94,8 +94,8 @@ export const princess = {
     "Leave us.", // loretta
     "Mary, who are they?", // loretta
     "Report them to your father.", // loretta
-    "You know I can't do that.", // mary
-    "I can't enter the castle from down here.", // mary
+    "No need to do that.", // mary
+    "Even though they've found this passage, they'll never get past Orthrus.", // mary
     "And we're meeting here secretly, we're not supposed to be down here either.", // mary
     "True.", // loretta
     "So it's a secret that any of us were ever here.", // mary
@@ -159,7 +159,7 @@ export const princess = {
     ["I understand", "I'm afraid not"],
     "Thank you.", // mary
     "There's no need.  They don't have the right to refuse.", // loretta
-    "Well then, go.", // mary
+    "Well then, go.", // loretta
   ],
   door: [
     "We're experimenting right now.", // loretta
@@ -344,7 +344,7 @@ export const aragnie = {
     "Look, over there.", // hector
   ],
   hector2: [
-    "I found him!", // mary
+    "We can find Aragnier now!", // mary
     "Hector it's been a long time!", // mary
     "Princess Mary!", // hector
     "Lady Loretta!", // hector
@@ -363,7 +363,7 @@ export const aragnie = {
     "Mary and I studied for years and came up with this.", // loretta
     "These three helped us find the carbuncle stones.", // loretta
     "You needed them to make the magical light.", // ann
-    "Your sister... will this save her?", // hector
+    "Will this save my sister?", // hector
     "Yes!", // loretta
     "Abandon your plot for revenge.", // loretta
     "Let's go free Cassandra.", // mary

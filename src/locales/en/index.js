@@ -30,7 +30,7 @@ export default {
   chapter: [
     { name: "Prologue:", title: "Jack the Kingkiller", sub: "" },
     { name: "Chapter 1:", title: "Warkano Forest", sub: "" },
-    { name: "Chapter 2:", title: "Troias's Secret Passage", sub: "" },
+    { name: "Chapter 2:", title: "Troia's Secret Passage", sub: "" },
     { name: "Chapter 3:", title: "Catacombs of St Anterus", sub: "" },
     { name: "Chapter 4:", title: "Temple of Grefalde", sub: "" },
     { name: "Epilogue:", title: "Edgar the Peaceful", sub: "" },
@@ -39,13 +39,13 @@ export default {
     town: "Royal Capital",
     castle: "Royal Gardens",
     forest: "Warkano Forest",
-    underpass: "Duke's Secret Passage",
-    catacomb: "Cemetery of St Anterus",
+    underpass: "Troia's Secret Passage",
+    catacomb: "Catacombs of St Anterus",
     temple: "Temple of Grefalde",
   },
   areaSub: {
     bellion: "Kingdom of Bellion",
-    room: "base", // double check
+    room: "Home",
     forest: {
       a: "Eastern Section",
       b: "Hunter's Heights",
@@ -68,7 +68,7 @@ export default {
       h: "Corridor",
       i: "Castle Entrance",
     },
-    aragnie: "Aragnier's Chamber",
+    aragnie: "Aragnier's Lair",
     catacomb: {
       a: "Entrance",
       b: "East Room",
@@ -118,8 +118,8 @@ export default {
       sub: "The Sins of the Renfield Family",
     },
     m3_5: {
-      title: "Ghost of Princess Evangelina",
-      sub: "Ghost of Princess Evangelina",
+      title: "Ghost of Queen Evangelina",
+      sub: "Ghost of Queen Evangelina",
     },
     m4_1: {
       title: "Grefalde's Sacred Statue",
@@ -140,7 +140,7 @@ export default {
     francisca: "Francisca",
     king: "King",
     jack: "Jack",
-    ethel: "Ezerbald",
+    ethel: "Ethelbald",
     guard: "Guard",
     soldier: "Soldier",
     injuredSoldier: "Injured Soldier",
@@ -158,12 +158,12 @@ export default {
     nikke: "Nikke",
     dario: "Dario",
     drystan: "Drystan",
-    queen: "Queen",
+    queen: "Queen Evangelina",
     sonberk: "Sonberk",
-    fdn: "Sir Ferdinand",
+    fdn: "Lord Ferdinand",
     klaus: "Klaus",
-    injuredLeader: "Injured Mercenary Captain",
-    injuredMercenary: "Injured Mercenary",
+    injuredLeader: "Mercenary Captain",
+    injuredMercenary: "Mercenary",
     dionysus: "Dionysus",
     ray: "Ray",
     sister: "Sister",
@@ -197,7 +197,7 @@ export default {
     3: "Heal Party",
   },
   battler: {
-    jack: "Jack",
+    jack: "Jack the Kingkiller",
     bee: "Bee",
     bee2: "Killer Bee",
     slime: "Slime",
@@ -211,7 +211,7 @@ export default {
     orthrus: "Orthrus",
     gargoyle: "Gargoyle",
     succubus: "Succubus",
-    aragnie: "Aragnie",
+    aragnie: "Aragnier",
     phantom: "Phantom",
     skull: "Skull",
     ghost: "Ghost",
@@ -219,7 +219,7 @@ export default {
     wraith: "Wraith",
     dullahan: "Dullahan",
     queen: "Queen",
-    bird: "Bird",
+    bird: "Kellune",
     lizard: "Lizard",
     tree: "Tree",
     knight: "Knight",
@@ -234,11 +234,12 @@ export default {
     sub: {
       menu: "Menu",
       close: "Close",
-      quests: "Quests",
+      quests: "Map & Quests",
       characters: "Characters",
       save: "Save",
       load: "Load",
       settings: "Settings",
+      battleResult: "Result"
     },
     setting: {
       autoDetection: "Auto Detection",
@@ -314,7 +315,7 @@ export default {
       second: "Let's leave town and head to the royal gardens.",
     },
     m1_1: {
-      base: "Hunter Matthew's five puppies hae escaped.",
+      base: "Hunter Matthew's five puppies have escaped.",
       cnt: "Number of puppies found: #{current}/5.",
     },
     m1_2: {
@@ -324,7 +325,7 @@ export default {
     },
     m1_3: {
       base: "Deliver mandrake roots to Drystan.",
-      cnt: "Collected #{current}/#{max}）mandrake roots.",
+      cnt: "Collected (#{current}/#{max}）mandrake roots.",
     },
     m1_4: {
       base: "Defeat the ferocious Rex Bear and deliver its blood to Drystan.",
@@ -339,8 +340,8 @@ export default {
     },
     m2_2: {
       base:
-        "Princess Mary and the Duke's daughter Loretta are collecting carbuncle stones to craft a gift for Cassandra.\n Collect carbuncle stones.",
-      cnt: "Collected #{current}/#{max}）carbuncle stones",
+        "Princess Mary and the Duke's daughter Loretta are collecting carbuncle stones to craft a gift for Cassandra.\nCollect carbuncle stones.",
+      cnt: "Collected (#{current}/#{max}）carbuncle stones",
     },
     m2_3: {
       base:
@@ -403,16 +404,16 @@ export default {
     },
     m4_4: {
       base:
-        "Lyra's lute playing seems to be able to open the door to the basement.",
-      started: "Collect apples for Lyra.",
-      cnt: "Collected #{current}/#{max}）apples.",
+        "Lyla's lute playing seems to be able to open the door to the basement.",
+      started: "Collect apples for Lyla.",
+      cnt: "Collected (#{current}/#{max}）apples.",
     },
     m4_5: {
       base: "The king is fighting the dragon alone.",
       started: "Let's go to the innermost part and defeat Sonberk.",
     },
     m5_1: {
-      base: `The letter from my brother Ezerbald just said, "Wait in the castle garden."`,
+      base: `The letter from my brother Ethelbald just said, "Wait in the castle garden."`,
       started: "Let's head to castle's garden.",
     },
   },
@@ -430,10 +431,10 @@ export default {
     aplg: "A delicious looking apple.", // ann
     aplb: "It's a damaged apple.", // ann
     clbr: "Is that the holy sword?", // francisca
-    un1: "We've successfully invaded.", // francisca うまく侵入できたね not sure what this is double check
+    un1: "We snuck past the Duke's guards, this must be the passage.", // francisca
     lost: {
       francisca: ["Hey, wait!", "You disappeared..."],
-      jaquelyn: ["Ann, don't leave me!", "Ann, where did you go?"], // double check
+      jaquelyn: ["Ann, don't leave me!", "Ann, where did you go?"],
     },
   },
   mapEvent: {

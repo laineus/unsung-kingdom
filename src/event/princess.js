@@ -124,7 +124,7 @@ export const princess = (scene, mary, loretta) => {
         ] : [
           { chara: loretta, text: t('princess.talk1.83') }
         ]),
-        { chara: mary, text: t('princess.talk1.84') }
+        { chara: loretta, text: t('princess.talk1.84') }
       ])
       state.started = true
       scene.ui.missionUpdate('m2_2')
