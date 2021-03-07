@@ -23,21 +23,21 @@ export const townCommon = {
       // townCommon.annabelle.0.x
       "Greetings traveler.", // annabelle
       "Have you decided on an inn for the evening?", // annabelle
-      "If you don't mind, you can stay with us.", // annabelle
+      "If you haven't, you can stay with us.", // annabelle
       "Thank you,", // ann
       "but we've already chosen an inn.", // ann
       "I see,", // annabelle
       "But it's even nicer here than the other inn.", // annabelle
       "Is that so?", // ann
-      "It's a little expensive, but,", // annabelle
-      "I can promise we have the best service in town.", // annabelle
+      "It's a little expensive,", // annabelle
+      "But I can promise we have the best service in town.", // annabelle
       "This is a luxury inn?", // ann
       "It doesn't look like it...", // ann
       "Oh no, it's not.", // annabelle
-      "You can see it when you come.", // annabelle
-      "I'll do my best for you, sister.", // annabelle
+      "You'll see why when stay.", // annabelle
+      "I'll do my best to make sure you have a pleasant stay, sister.", // annabelle
       "?", // ann
-      "Please, come if you feel like it.", // annabelle
+      "Please, come on in if you feel like it.", // annabelle
     ],
     [
       // townCommon.annabelle.1.x
@@ -64,7 +64,7 @@ export const townCommon = {
       "Our inn also has a painting of King Edgar fighting the dragon.", // annabelle
       "Please take a look if you like.", // annabelle
       "My dad paid a fortune for the painting, but it's brought us a good reputation.", // annabelle
-      "I'm proud of this story of the Belion people.", // annabelle
+      "I'm proud of this story of the Bellion people.", // annabelle
     ],
     [
       // townCommon.annabelle.3.x
@@ -116,7 +116,7 @@ export const townCommon = {
       "Yeah, it seems that no one has seen it in person yet,", // matilda
       "but recently, Prince Ethelbald has frequently visited the temple.", // matilda
       "That's why everyone is worried that something is happening there...", // matilda
-      "I've been told since I was little that it will wake up someday,", // matilda
+      "Since I was little, I was told that it will wake up someday,", // matilda
       "It's so scary...", // matilda
       "That's horrible.", // ann
     ],
@@ -125,7 +125,7 @@ export const townCommon = {
       "...", // matilda
       "......", // matilda
       "Oh!  I'm sorry!", // matilda
-      "I didn't notice... I was daydreaming.", // matilda
+      "I didn't notice you... I was daydreaming.", // matilda
       "Are you ok?", // ann
       "Were you watching Annabelle again?", // ann
       "Ah yeah...", // matilda
@@ -186,7 +186,7 @@ export const townCommon = {
     ],
     [
       // townCommon.elliott.2.x
-      "The catacombs of St Anterus holds regular citizens and the royal family.", // elliott
+      "The Catacombs of St Anterus holds regular citizens and the royal family.", // elliott
       "Of course there are differences in how they're handled.", // elliott
       "In the upper class areas,", // elliott
       "sometimes graverobbers search for gold.", // elliott
@@ -328,14 +328,14 @@ export const townChapter1 = {
     "A panacea can cure anything, right?", // ann
     "I don't want to speak for him, he might not even have it.", // annabelle
     "I see.", // ann
-    "If you change your mind and want to try out medicine, let me know.", // annabelle
+    "If you change your mind and want to try our medicine, let me know.", // annabelle
     "I don't need it...", // ann
   ],
   elliott: [
     [
       "Excuse me sir, what are you selling?", // ann
       "Yo.", // elliott
-      "I'm afraid I don't sell anything tourists would be interested in though.", // elliott
+      "I'm afraid I don't sell anything tourists would be interested in.", // elliott
       "I'm sorry.", // elliott
     ],
     [
@@ -359,14 +359,14 @@ export const townChapter1 = {
       "That someone in the royal family is seriously ill.", // max
       "What do you know?", // elliott
       "Young lady, I've been hearing this story often recently.", // max
-      "If you seek a real panacea, there's a wise hermit living in the Warkano Forest.", // max
+      "If you seek a real panacea, there's a wise hermit living in Warkano Forest.", // max
       "He is the only one who could make such a panacea.", // max
       "This wise hermit of the forest is that talented with making medicine?", // ann
       "Yes, if someone truly needs medicine, they go to him.", // max
       "I'm sure he would be willing to make medicine for our good king.", // max
       "Sister, please.", // elliott
       "It was wrong of me to deceive you.", // elliott
-      "Allow me to sell you this map of the Warkano Forest at a bargain price.", // elliott
+      "Allow me to sell you this map of Warkano Forest at a bargain price.", // elliott
       "Well alright...", // ann
     ],
     [
@@ -379,7 +379,7 @@ export const townChapter2 = {
   amber: {
     question: [
       "Ask about the secret passage",
-      "Ask about the Duke of Troias",
+      "Ask about the Duke of Troia",
       "Nothing",
     ],
     answer0: [
@@ -429,10 +429,10 @@ export const townChapter2 = {
   },
   annabelle: [
     "Flowers?", // annabelle
-    "Sure, I grow a lot.", // annabelle
+    "Sure, I grow a lot of flowers.", // annabelle
     "You want tulips too?", // annabelle
     "I had a bunch, but I sold most of them.", // annabelle
-    "Oh really.", // ann
+    "Oh really?", // ann
     "I'll give you some extra bulbs instead.", // annabelle
     "If you create a beautiful pattern you can sell the arrangement for a lot.", // annabelle
     "Wow really!?", // ann
@@ -495,7 +495,7 @@ export const townChapter3 = {
     "I don't really understand the royalty.", // max
     "And it's easy to make up rumors.", // max
     "I'll tell you another rumor.", // max
-    "Queen evangelina,", // max
+    "Queen Evangelina,", // max
     "Was fascinated by the king's appearance when he fought the dragon.", // max
     "Just another rumor,", // max
     "But I certainly believe it.", // max

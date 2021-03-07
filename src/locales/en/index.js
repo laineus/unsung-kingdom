@@ -107,10 +107,10 @@ export default {
     },
     m2_3: { title: "Dionysus's Moonshine", sub: "Dionysus's Moonshine" },
     m2_4: { title: "Aragnier's Lair", sub: "Aragnier's Lair" },
-    m3_1: { title: "Cursed Lord Ferdinand", sub: "Cursed Lord Ferdinand" },
+    m3_1: { title: "Lord Ferdinand's Curse", sub: "Lord Ferdinand's Curse" },
     m3_2: {
-      title: "To Hear Marianne's song again",
-      sub: "To Hear Marianne's song again",
+      title: "To Hear Marianne's Song Again",
+      sub: "To Hear Marianne's Song Again",
     },
     m3_3: { title: "Dario's Sorrow", sub: "Dario's Sorrow" },
     m3_4: {
@@ -118,8 +118,8 @@ export default {
       sub: "The Sins of the Renfield Family",
     },
     m3_5: {
-      title: "Ghost of Queen Evangelina",
-      sub: "Ghost of Queen Evangelina",
+      title: "The Ghost of Queen Evangelina",
+      sub: "The Ghost of Queen Evangelina",
     },
     m4_1: {
       title: "Grefalde's Sacred Statue",
@@ -239,7 +239,7 @@ export default {
       save: "Save",
       load: "Load",
       settings: "Settings",
-      battleResult: "Result"
+      battleResult: "Result",
     },
     setting: {
       autoDetection: "Auto Detection",

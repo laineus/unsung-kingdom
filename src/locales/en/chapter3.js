@@ -14,7 +14,7 @@ export const ferdinand = {
     "Where are we?", // ferdinand
     "We're in the catacombs.", // ann
     "The catacombs?", // ferdinand
-    "The catacombs of St Anterus.", // ann
+    "The Catacombs of St Anterus.", // ann
     "What...?", // ferdinand
     "That's in Bellion...", // ferdinand
     "What am I doing in Bellion........", // ferdinand
@@ -38,7 +38,7 @@ export const ferdinand = {
     "Maybe you should go home?", // ann
     "Damn it.", // ferdinand
     "It's all because of the Renfield family.", // ferdinand
-    "I'm sure the slaves and female spirits sold to them are haunting me.", // ferdinand
+    "The spirits of the slaves I bought from them are haunting me.", // ferdinand
     "You're a slaver?", // ann
     "In that case I bet it's a grudge.", // francisca
     "A grudge or a curse...", // jaquelyn
@@ -109,7 +109,7 @@ export const marianne = {
     "Tell me, what was she like?", // ann
     "The most beautiful voice.", // marianne
     "Marianne was a special person.  She sang in both the shrine and the castle.", // marianne
-    "Even his royal highness was friends with her, would shower her with lavish presents.", // marianne
+    "Even His Royal Highness was friends with her, would shower her with lavish presents.", // marianne
     "Her song was so, so special.", // marianne
     "She sounds like a great person.", // ann
     "Yes, she was.", // marianne
@@ -141,7 +141,7 @@ export const marianne = {
     "Thank you...", // marianne
     "You're too generous.", // marianne
     "It was nothing.", // ann
-    "Delicious...", // marianne
+    "Refreshing...", // marianne
     "Good.", // ann
     "Ah,", // marianne
     "Thank you for your kindness, please take this amulet.", // marianne
@@ -197,7 +197,7 @@ export const dario = {
     "I don't recommend it.", // dario
     "Why not?", // ann
     "Does the ghost of the queen appear?", // ann
-    "Yes", // dario
+    "Yes.", // dario
     "Well yes, but no, not exactly.", // dario
     "That ghost might look like our queen, but she is not.", // dario
     "What do you mean?", // ann
@@ -263,11 +263,11 @@ export const dario = {
     "Why are you trying to kill the king?", // ann
     "I suppose your persistence deserves an answer.", // jack
     "To protect our kingdom.", // jack
-    "To protect ...?", // ann
+    "To protect...?", // ann
     "How could killing the King Edgar the Peaceful possibly protect the kingdom?", // ann
     "If I explain, will you get out of my way?", // jack
     "...", // ann
-    "Exactly, there's no point.", // jack
+    "Exactly, there's no point explaining.", // jack
     "We're finished here.", // jack
     "I can't waste any more time.", // jack
     "You force me to make a regrettable decision.", // jack
@@ -351,9 +351,9 @@ export const renfield = {
     `"Our tomb?"`, // ann
     "What does that mean?", // ann
     "My ancestral tomb.", // ray
-    "This is the grave of the Renfield family", // ray
+    "This is the grave of the Renfield family.", // ray
     "A family of horrible people.", // ray
-    "And I'm Ray Renfield.", // ray
+    "And I am Ray Renfield.", // ray
     "A man with dirty blood and a traitor to the Renfield family.", // ray
     "Why would you do this to your ancestor's tomb?", // ann
     "The Renfield family is a dirty family.", // ray
@@ -425,7 +425,7 @@ export const evangelina = {
     "...Kill...", // evangelina
   ],
   boss2: [
-    "Did we defeat her??", // ann
+    "Did we defeat her?", // ann
     "I think so.", // jaquelyn
     "Then we've saved the king?", // ann
     "I hope the ghost wasn't really the queen.", // francisca

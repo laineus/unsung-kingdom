@@ -88,7 +88,7 @@ export const princess = {
     "You've never heard of the Princess Mary?", // loretta
     "Oh?", // ann
     "They can't be from around here.", // mary
-    "This is Loretta. The daughter of the Duke of Troias.", // mary
+    "This is Loretta. The daughter of the Duke of Troia.", // mary
     "Why are you here!?", // ann
     "It's dangerous, there's monsters.", // ann
     "Leave us.", // loretta
@@ -176,7 +176,7 @@ export const princess = {
     "They did it!", // loretta
     "Thank you!", // mary
     "You're welcome.", // ann
-    "It's great that they're a gift for Casssandra.", // ann
+    "It's great that they're for a gift for Casssandra.", // ann
     "What are you making?", // ann
     "It's a secret.", // mary
     "Well then, thank you.", // mary
@@ -311,7 +311,7 @@ export const aragnie = {
     "What are you doing here?", // hector
     "Cassandra told us about everything.", // ann
     "You're looking for Aragnier to break Cassandra out of prison, right?", // ann
-    "I was hunting it for a time.", // hector
+    "I hunted that spider for years.", // hector
     "But I gave up on it awhile ago.", // hector
     "Then why are you here?", // ann
     "It's...", // hector

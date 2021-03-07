@@ -30,10 +30,18 @@ export default {
   chapter: [
     { name: "序章", title: "王殺しのジャック", sub: "Jack the Kingkiller" },
     { name: "1章", title: "ワルカノの森", sub: "Warkano Forest" },
-    { name: "2章", title: "トロイア公爵邸の地下通路", sub: "Troia's Secret Passage" },
-    { name: "3章", title: "聖アンテルスの墓地", sub: "Catacombs of St Anterus" },
+    {
+      name: "2章",
+      title: "トロイア公爵邸の地下通路",
+      sub: "Troia's Secret Passage",
+    },
+    {
+      name: "3章",
+      title: "聖アンテルスの墓地",
+      sub: "Catacombs of St Anterus",
+    },
     { name: "4章", title: "グリファルデ神殿", sub: "Temple of Grefalde" },
-    { name: "終章", title: "平和王エドガー", sub: "Edgar the Peaceful" }
+    { name: "終章", title: "平和王エドガー", sub: "Edgar the Peaceful" },
   ],
   area: {
     town: "王都",
@@ -104,7 +112,10 @@ export default {
     },
     m2_3: { title: "ディオニューソスの密造酒", sub: "Dionysus' Moonshine" },
     m2_4: { title: "アラグニエのねぐら", sub: "Aragnie's lair" },
-    m3_1: { title: "呪われしフェルディナンド卿", sub: "Cursed Lord Ferdinand" },
+    m3_1: {
+      title: "呪われしフェルディナンド卿",
+      sub: "Lord Ferdinand's Curse",
+    },
     m3_2: {
       title: "マリアンヌの歌を聞いてから死ね",
       sub: "Die after listening Marianne's song.",
@@ -230,7 +241,7 @@ export default {
       save: "セーブ",
       load: "ロード",
       settings: "設定",
-      battleResult: "戦闘結果"
+      battleResult: "戦闘結果",
     },
     setting: {
       autoDetection: "自動判定",
