@@ -393,8 +393,8 @@ export default {
     m4_2: {
       base:
         "The dragon tribe Zi, who live in the temple, told us about the holy sword, Calibrenus. \nThey prepared a message for the protectors of the holy sword: the dragon tribe Nikke.",
-      started: "Kill Kerune and collect their feathers.",
-      cnt: "Collected (#{current}/#{max}）Kerune feathers",
+      started: "Kill Kellune and collect their feathers.",
+      cnt: "Collected (#{current}/#{max}）Kellune feathers",
     },
     m4_3: {
       base: "The holy sword Calibrenus is protected by the dragon tribe Nikke.",
@@ -421,7 +421,7 @@ export default {
     m1_3: "It looks like the mandrake roots have been gathered.", // jaquelyn
     m2_2: "The Carbuncle stones have been gathered.", // fraancisca
     m3_2: "I think enough drinking water has been collected.", // francisca
-    m4_2: "The Kerune feathers have been gathered.", // jaquelyn
+    m4_2: "The Kellune feathers have been gathered.", // jaquelyn
   },
   tweet: {
     ca1: "Let's hide somewhere and wait.", // francisca

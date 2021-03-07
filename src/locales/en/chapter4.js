@@ -103,7 +103,7 @@ export const lorraine = {
     "No.", // architect
     "This temple was made and abandoned long ago.", // architect
     "I just maintain the mechanisms.", // architect
-    "It was a just coincidence that I found this mechanism.", // architect
+    "It was just a coincidence that I found this mechanism.", // architect
     "Really?  By chance?", // ann
     "Ever since my first visit here I became fascinated with the statues.", // architect
     "I could never forget this statue.", // architect
@@ -435,7 +435,7 @@ export const dragonKiller = {
   soldier: [
     "The dragon... was much more powerful than we expected...", // soldier1
     "How did the king manage to beat the dragon ten years ago...", // soldier2
-    "I want to help His Majesty... but I can't moveanymore...", // soldier3
+    "I want to help His Majesty... but I can't move anymore...", // soldier3
   ],
   block: [
     "Hey, don't you want to talk to the injured soldiers?", // francisca
@@ -452,9 +452,9 @@ export const dragonKiller = {
     "Yes", // ethel double check.
     "Edgar and the dragon are ahead.", // ethel
     "You're badly hurt.", // ann
-    "Don't worry.", // ethel
-    "He fight's alone now.", // ethel
-    "Brother...", // ethel
+    "Don't worry about me.", // ethel
+    "My brother fight's alone now.", // ethel
+    "Edgar...", // ethel
     "Help my brother...", // ethel
   ],
   started: [

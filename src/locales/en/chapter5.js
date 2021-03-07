@@ -32,7 +32,7 @@ export const peaceful = {
     "But about half a month ago,", // ethel
     "Custodians at the Temple of Grefalde told me the dragon was awakening.", // ethel
     "Sonberk resented the king and wanted revenge.", // ethel
-    "I went to the Temple of Grifarde many times,", // ethel
+    "I went to the Temple of Grefalde many times,", // ethel
     "To negotiate with Sonberk on behalf of my older brother.", // ethel
     "I persuaded Sonberk to not seek revenge on the kingdom in exchange for whatever it wanted.", // ethel
     "I offered everything I could think of, but Sonberk's wishes were consistent:", // ethel
@@ -111,7 +111,7 @@ export const peaceful = {
     "Hey, over there!", // soldier1
     "The assassin in a black robe!", // soldier1
     "Don't let him get away, shoot!", // soldier2
-    "So, do it."
+    "So, do it.",
   ],
   end3: [
     "A King,|And a kingdom,", // ethel

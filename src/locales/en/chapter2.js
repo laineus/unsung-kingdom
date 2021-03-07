@@ -341,7 +341,7 @@ export const aragnie = {
     "Perhaps.", // hector
     "Help us find the spider.", // ann
     "I can't. I couldn't find Aragnier.  I spent years searching.", // hector
-    "Look, over there.", // hector
+    "Leave me alone.", // hector
   ],
   hector2: [
     "We can find Aragnier now!", // mary

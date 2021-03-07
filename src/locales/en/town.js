@@ -506,7 +506,7 @@ export const townChapter4 = {
   amber: [
     "It's just awful,", // amber
     "The dragon that was sealed in the Temple of Grefalde has awakened.", // amber
-    "The king, his brother, and their knights have all headed for the temple.", // amber
+    "The king, his brother, and their knights are all headed for the temple.", // amber
     "Do you think they can handle a dragon?", // amber
     "I hope they'll be ok...", // amber
     "I'm sure the dragon wants to take revenge on this country for what happened ten years ago.", // amber
@@ -569,7 +569,7 @@ export const townChapter5 = {
       "That's it.", // ann
       "What, that's it?", // francisca
       "Strange.", // jaquelyn
-      "The backyard was the location of the first assassination attempt.", // ann
+      "The garden was the location of the first assassination attempt.", // ann
       "Hmm.", // ann
       "I don't know, but we have to go.", // ann
     ],
@@ -644,7 +644,7 @@ export const townChapter5 = {
   ],
   max: [
     "It turned out exactly as I predicted.", // max
-    "King Edgar has actually did it.", // max
+    "King Edgar actually did it.", // max
     "...", // max
     "Well, to be honest I did have my doubts.", // max
     "But King Edgar the Peaceful has defended our realm's peace.", // max
