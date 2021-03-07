@@ -34,7 +34,7 @@ export const townCommon = {
       "This is a luxury inn?", // ann
       "It doesn't look like it...", // ann
       "Oh no, it's not.", // annabelle
-      "You'll see why when stay.", // annabelle
+      "You'll see why when you stay here.", // annabelle
       "I'll do my best to make sure you have a pleasant stay, sister.", // annabelle
       "?", // ann
       "Please, come on in if you feel like it.", // annabelle
