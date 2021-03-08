@@ -23,12 +23,12 @@ export const dog = {
     "My hunting dog had five puppies, they're not even a year old yet.", // hunter
     "Sorry to bother you, but if you see any puppies could you bring them to me?", // hunter
     ["Sure", "I'm awfully busy"],
-    ["Thank you.  It was nice to meet you.", "I see."], // hunter
+    ["Thank you.  It was nice to meet you.", "I see."] // hunter
   ],
   started: [
     "Thank you!", // hunter
     "#{count} puppies remain. ", // hunter
-    "I'm so lucky to have met you.", // hunter
+    "I'm so lucky to have met you." // hunter
   ],
   solve: [
     "Thank you!  All three of you!", // hunter
@@ -43,10 +43,10 @@ export const dog = {
     "Hmmm.", // ann
     "By the way, the other day, there was a suspicious man who asked me to share the venom used for the poison.", // hunter
     "I refused because he was so suspicious looking...", // hunter
-    "But you all be wary of any strange people you see.", // hunter
+    "But you all be wary of any strange people you see." // hunter
   ],
   solved: [
-    "You saved them all, thanks so much.", // hunter
+    "You saved them all, thanks so much." // hunter
   ],
   dog: {
     notStarted: "What are you doing out here all alone, buddy?", // ann
@@ -57,9 +57,9 @@ export const dog = {
     d5: "Come on, the hunter must be worried.", // jaquelyn
     jaquelyn: "#{remain} dogs remain",
     francisca: "#{remain} dogs remain",
-    foundAll: "That's all of them.",
-  },
-};
+    foundAll: "That's all of them."
+  }
+}
 export const mercenary = {
   start: [
     "Are you two ok!?", // ann
@@ -88,13 +88,13 @@ export const mercenary = {
     "We got split up when the bear attacked and he must be lost.", // leader
     "I can't withdraw from the forest until I've found him.", // leader
     ["Sure.", "I'm really busy."],
-    ["Thank you so much.", "I see."], // leader
+    ["Thank you so much.", "I see."] // leader
   ],
   started: "I'm sure he hasn't gone far.", // leader
   flower: [
     "Isn't this an odd flower?  I've never seen one like it before.", // ann
     "Let's check it out.",
-    "Leave it alone.",
+    "Leave it alone."
   ],
   battle: [
     "Whoa... It was a monster.", // ann
@@ -123,17 +123,17 @@ export const mercenary = {
     "Your leader is looking for you south of here.", // jaquelyn
     "Really?  Thank you for everything.", // member2
     "Please come by again later, I'd like to thank you.", // member2
-    "You all need to be careful in this forest.", // member2
+    "You all need to be careful in this forest." // member2
   ],
   member1: [
     "I can't find him...",
     "He must be...",
     "Thank you so much for helping my friend.",
-    "No way, he was really hiding in the stomach of a flower monster!",
+    "No way, he was really hiding in the stomach of a flower monster!"
   ],
   member2: [
     "Thanks again for saving me.",
-    "Will you accept a gift from my leader?",
+    "Will you accept a gift from my leader?"
   ],
   leader: [
     "Oh, you're back!",
@@ -141,9 +141,9 @@ export const mercenary = {
     "He was swallowed by a flower monster.",
     "No wonder we couldn't find him.",
     "Thank you for saving him.  Thank you so much.",
-    "We are withdrawing, Rex Bear was too strong.",
-  ],
-};
+    "We are withdrawing, Rex Bear was too strong."
+  ]
+}
 export const drystan = {
   door: "I'm away.", // ann
   start: [
@@ -161,18 +161,18 @@ export const drystan = {
     "First of all I need #{MANDRAKE_COUNT} mandrake roots.", // drystan
     "Yes, what else?", // ann
     "Bring it first, then I'll tell you.", // drystan
-    "I'm a busy man.", // drystan
+    "I'm a busy man." // drystan
   ],
   progress: [
     "#{MANDRAKE_COUNT} mandrake roots.", // drystan
-    "Bring them quickly.", // drystan
+    "Bring them quickly." // drystan
   ],
   solve: [
     "I have collected the mandrake roots.", // ann
     "That was fast.", // drystan
-    "Hmmm.  Yes this will do.", // drystan
-  ],
-};
+    "Hmmm.  Yes this will do." // drystan
+  ]
+}
 export const bear = {
   start: [
     "What's the next ingredient?", // ann
@@ -184,19 +184,19 @@ export const bear = {
     "With the blood of a monster which has absorbed the vitality of many living beings, |I can create the cure.", // drystan
     "But the amount that you'll have on your sword won't be enough, |I require an entire bottle.", // drystan
     "We'll need to defeat Rex Bear.", // ann
-    "Alright, I'll bring you that blood.", // ann
+    "Alright, I'll bring you that blood." // ann
   ],
   progress:
     "It's Rex Bear. Make sure you kill it and bring me a bottle of its blood.", // drystan
   bearArea: [
     "There are no monsters here?", // ann
-    "Strange.  Let's proceed cautiously.", // francisca
+    "Strange.  Let's proceed cautiously." // francisca
   ],
   bear: [
     "Ah!", // ann
     "Everyone, let's go!", // ann
     "We did it.", // francisca
-    "Ok, I've gathered the blood.  Let's return to the hermit.", // ann
+    "Ok, I've gathered the blood.  Let's return to the hermit." // ann
   ],
   solve: [
     "I brought it.  Here is Rex Bear's blood.", // ann
@@ -233,12 +233,12 @@ export const bear = {
     "I don't know.", // drystan
     "I don't want to get involved.", // drystan
     "That's why I choose to live out here after all.", // drystan
-    "Anways I'll give the messenger the medicine, go home.", // drystan
+    "Anways I'll give the messenger the medicine, go home." // drystan
   ],
   end: [
     "Ok, we've completed our mission!", // ann
     "Yeah, you did a great job Ann.", // jaquelyn
     "Now let's go back.", // francisca
-    "I want to check the history again.", // francisca
-  ],
-};
+    "I want to check the history again." // francisca
+  ]
+}

@@ -2,7 +2,7 @@ export const peaceful = {
   soldier: [
     "An assassin dressed in a black robe.", // soldier1
     "According to His Royal Highness, we're to shoot the assassin on sight.", // soldier1
-    "An assassin dressed in a black robe...", // soldier2
+    "An assassin dressed in a black robe..." // soldier2
   ],
   talk1: [
     "You came.", // jack
@@ -11,7 +11,7 @@ export const peaceful = {
     "Huh...?", // ann
     "That face injury...", // ann
     "...", // jack
-    "Let me introduce myself again.", // jack
+    "Let me introduce myself again." // jack
   ],
   talk2: [
     "I'm the king's younger brother, prince Ethelbald.", // ethel
@@ -23,7 +23,7 @@ export const peaceful = {
     "Oh no doubt.", // ethel
     "I plotted to kill the king.", // ethel
     "Please let me explain everything.", // ethel
-    "You know that the king fought the dragon ten years ago, yes?", // ethel
+    "You know that the king fought the dragon ten years ago, yes?" // ethel
   ],
   question: ["We know", "We didn't know"],
   talk3: [
@@ -79,7 +79,7 @@ export const peaceful = {
     "I decided to try to help him do it again.", // ethel
     "Anyways, I no longer had a choice.", // ethel
     "I'm sorry to call you here like this.", // ethel
-    "I thought there might be trouble if I didn't return this crystal.", // ethel
+    "I thought there might be trouble if I didn't return this crystal." // ethel
   ],
   item: "Time Crystal",
   talk4: [
@@ -99,22 +99,22 @@ export const peaceful = {
     "Come on... go home.", // ethel
     "Yeah.", // ann
     "...", // ann
-    "Goodbye.", // ann
+    "Goodbye." // ann
   ],
   end1: [
     "My role is over, I won't run from the guards.", // ethel
     "The times shine brightly.", // ethel
     "Our peaceful kingdom,", // ethel
-    "Ruled by King Edgar the Peaceful .", // ethel
+    "Ruled by King Edgar the Peaceful ." // ethel
   ],
   end2: [
     "Hey, over there!", // soldier1
     "The assassin in a black robe!", // soldier1
     "Don't let him get away, shoot!", // soldier2
-    "So, do it.",
+    "So, do it."
   ],
   end3: [
     "A King,|And a kingdom,", // ethel
-    "Sung of through the ages.", // ethel
-  ],
-};
+    "Sung of through the ages." // ethel
+  ]
+}

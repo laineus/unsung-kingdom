@@ -49,11 +49,11 @@ export const ferdinand = {
     "Hey, can you do something about it?", // ferdinand
     "Like what?", // ann
     "I don't know!", // ferdinand
-    "I'm just asking!", // ferdinand
+    "I'm just asking!" // ferdinand
   ],
   talk2: [
     "Please help.", // ferdinand
-    "Please do something about the curse.", // ferdinand
+    "Please do something about the curse." // ferdinand
   ],
   talk3: [
     "Were you able to do something about the curse?", // ferdinand
@@ -65,7 +65,7 @@ export const ferdinand = {
     "...", // ferdinand
     "Give it here.", // ferdinand
     "Here you go.", // ann
-    "Fine. I'll put this stupid thing on.", // ferdinand
+    "Fine. I'll put this stupid thing on." // ferdinand
   ],
   talk4: [
     "Whoa!", // ferdinand
@@ -78,9 +78,9 @@ export const ferdinand = {
     "It looked like a hand pulled him down.", // ann
     "Is he... dead?", // ann
     "He fell down the cliff, he must be.", // jaquelyn
-    "I'm scared.", // francisca
-  ],
-};
+    "I'm scared." // francisca
+  ]
+}
 export const marianne = {
   start: [
     "Sister, are you ok?", // ann
@@ -126,13 +126,13 @@ export const marianne = {
     "Wait a minute.", // ann
     "Let me find you some water.", // ann
     "No, no, I don't want to bother you.", // marianne
-    "Don't worry about it.", // ann
+    "Don't worry about it." // ann
   ],
   started: [
     "Wait a minute.", // ann
     "Let me find you some water.", // ann
     "No, no, I don't want to bother you.", // marianne
-    "Don't worry about it.", // ann
+    "Don't worry about it." // ann
   ],
   solve: [
     "Here you are, sister,", // ann
@@ -162,19 +162,19 @@ export const marianne = {
     "That...", // ann
     "I must be with Marianne.", // marianne // TODO: She wants to choose even die, if she will be able to meet Marianne again.
     "If you had heard her song, you would understand.", // marianne
-    "I will follow her anywhere, even to the afterlife.", // marianne
+    "I will follow her anywhere, even to the afterlife." // marianne
   ],
   solved: [
-    "Marianne...", // marianne
+    "Marianne..." // marianne
   ],
-  item: "Holy Amulet",
-};
+  item: "Holy Amulet"
+}
 export const dario = {
   unavailable: [
     "Uh.", // ann
     "...", // dario
     "It looks like he's busy thinking.", // ann
-    "Let's come back later.", // ann
+    "Let's come back later." // ann
   ],
   start: [
     "You all need to leave this graveyard as soon as you're done.", // dario
@@ -240,16 +240,16 @@ export const dario = {
     "He has the dagger I used to summon the ghost of the queen.", // dario
     "If you get the chance,", // dario
     "maybe you can bring it back to me.", // dario
-    "I'll remember, find the dagger.", // ann
+    "I'll remember, find the dagger." // ann
   ],
   started: [
     "He has the dagger I used to summon the ghost of the queen.", // dario
     "If you can get it back, bring it to me.", // dario
-    "I'll remember, find the dagger.", // ann
+    "I'll remember, find the dagger." // ann
   ],
   jack1: [
     "Hey Ann, do you have a feeling like someone is watching us?", // jaquelyn
-    "I don't know... let's proceed with caution.", // ann
+    "I don't know... let's proceed with caution." // ann
   ],
   jack2: [
     "What are you doing here?", // jack
@@ -273,7 +273,7 @@ export const dario = {
     "You force me to make a regrettable decision.", // jack
     "Yes, it had to come to this.", // ann
     "I can't let you leave alive this time.", // jack
-    "It won't be like the last time.  Defend yourself.", // ann
+    "It won't be like the last time.  Defend yourself." // ann
   ],
   jack3: [
     "I lost... how?", // jack
@@ -282,7 +282,7 @@ export const dario = {
     "The one you stole from us in the royal garden.  You haven't lost it, have you?", // ann
     "...Not yet.", // jack
     "What?", // ann
-    "This can't end here, not like this...", // jack
+    "This can't end here, not like this..." // jack
   ],
   jack4: [
     "!!!", // ann
@@ -302,7 +302,7 @@ export const dario = {
     "Right.", // ann
     "It seems impossible to chase,", // jaquelyn
     "Let's resolve the issue with the queen's ghost.", // jaquelyn
-    "Yeah, let's do it.", // ann
+    "Yeah, let's do it." // ann
   ],
   solve: [
     "You're looking for a dagger right?", // ann
@@ -329,12 +329,12 @@ export const dario = {
     "Here, take it.", // daio
     "Thank you.", // ann
     "I'm so sorry...", // daio
-    "Please come back alive.", // daio
+    "Please come back alive." // daio
   ],
   solved: [
-    "Please don't lose...", // daio
-  ],
-};
+    "Please don't lose..." // daio
+  ]
+}
 export const renfield = {
   start1: [
     "Tomb robbing!?", // ann
@@ -361,7 +361,7 @@ export const renfield = {
     "Selling the people of your own land is as low as it gets.", // ray
     "Trash shouldn't be buried here.", // ray
     "I'll dig it up, burn it, and toss it on the road.", // ray
-    "Wow...", // ann
+    "Wow..." // ann
   ],
   start2: [
     "Whoa!", // ann
@@ -377,13 +377,13 @@ export const renfield = {
     "You're scared!", // ann
     "Hey, come on!", // ray
     "I was just offering to let you fight the ghosts.", // ray
-    "It was the polite thing to do...", // ray
+    "It was the polite thing to do..." // ray
   ],
   started: [
     "Hey, I'm not scared!", // ray
     "Then what...?", // ann
     "...", // ray
-    "Don't worry about it, stop being nosy!", // ray
+    "Don't worry about it, stop being nosy!" // ray
   ],
   solve: [
     "So strong.", // ray
@@ -403,15 +403,15 @@ export const renfield = {
     "Otherwise, more people would have been sacrificed...", // ray
     "If that's the way it is...", // ann
     "...", // ray
-    "Well then.", // ray
+    "Well then." // ray
   ],
-  item: "Rusted Key",
-};
+  item: "Rusted Key"
+}
 export const evangelina = {
   unavailable: [
     "This looks like the royal tomb.", // jaquelyn
     "Does anyone else have a bad feeling about this?", // francisca
-    "Don't be scared.", // ann
+    "Don't be scared." // ann
   ],
   boss1: [
     "...Hey, is that...", // ann
@@ -422,7 +422,7 @@ export const evangelina = {
     "Edgar...", // evangelina
     "Never forgive.", // evangelina
     "Is this her?", // ann
-    "...Kill...", // evangelina
+    "...Kill..." // evangelina
   ],
   boss2: [
     "Did we defeat her?", // ann
@@ -434,7 +434,7 @@ export const evangelina = {
     "You think the real queen is different?", // ann
     "I don't know,", // jaquelyn
     "Maybe it will say in the history of the kingdom now.", // jaquelyn
-    "Yeah, let's go back.", // ann
+    "Yeah, let's go back." // ann
   ],
   solve1: [
     "Please wait.", // evangelina
@@ -474,12 +474,12 @@ export const evangelina = {
     "I want to help.", // evangelina
     "But I can only offer prayers.", // evangelina
     "If you want peace in the kingdom,", // evangelina
-    "Please help the king.", // evangelina
+    "Please help the king." // evangelina
   ],
   solve2: [
     "Oh wait!", // ann
     "I wanted to hear more...", // ann
     "I guess there's nothing to be done.", // ann
-    "We can't do anything now, let's go home.", // francisca
-  ],
-};
+    "We can't do anything now, let's go home." // francisca
+  ]
+}

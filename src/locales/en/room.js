@@ -1,31 +1,31 @@
 export const roomBook = [
   [
     "According to the history of the Kingdom of Bellion, the king was killed by an assassin...",
-    "Let's hurry to the royal gardens!",
+    "Let's hurry to the royal gardens!"
   ],
   [
     `"The king died of a sudden illness."`,
-    "I suppose the king wasn't all that young.",
+    "I suppose the king wasn't all that young."
   ],
   [
     `"Betrayed and killed by one of his own knights."`,
-    "Could this knight be Jack the Kingkiller?",
+    "Could this knight be Jack the Kingkiller?"
   ],
   [
     `"The king is said to have been cursed by the ghost of the queen."`,
-    "Really?",
+    "Really?"
   ],
   [
     `"The king was defeated in battle with a dragon and died."`,
     "A dragon...",
-    "I'm sure it's very strong.",
+    "I'm sure it's very strong."
   ],
   [
     `"The king fulfilled his destiny and ruled in peace."`,
     "Nice,",
-    "I'm so happy I want to read it over and over again.",
-  ],
-];
+    "I'm so happy I want to read it over and over again."
+  ]
+]
 export const roomEv = [
   [
     // Cp0
@@ -35,17 +35,17 @@ export const roomEv = [
       "Of course, Ann.", // jaquelyn
       "Ann is leading?|  That worries me.", // francisca
       "Do you truly understand what purpose we came here for?", // francisca
-      "Of course!", // ann
+      "Of course!" // ann
     ],
     [
       // 0.1.x
       "To save the king",
-      "Tourism",
+      "Tourism"
     ],
     [
       // 0.2.x
       "Our goal is to prevent king Edgar's assassination.", // ann
-      "Well said, Ann.", // jaquelyn
+      "Well said, Ann." // jaquelyn
     ],
     [
       // 0.3.x
@@ -53,7 +53,7 @@ export const roomEv = [
       "That's not right, Ann.", // jaquelyn
       "Our purpose is to prevent King Edgar from being assassinated.", // jaquelyn
       "I'm joking！", // ann
-      "As if I could forget！", // ann
+      "As if I could forget！" // ann
     ],
     [
       // 0.4.x
@@ -81,8 +81,8 @@ export const roomEv = [
       "If Ann loses it, I'll find her ancestral home and burn it down.", // francisca
       "That's awful!", // ann
       "Ann will protect it.", // jaquelyn
-      "Alright, let's go.", // jaquelyn
-    ],
+      "Alright, let's go." // jaquelyn
+    ]
   ],
   [
     // Cp1
@@ -93,7 +93,7 @@ export const roomEv = [
       "It's hard to say we were successful, but it does appear that way.", // francisca
       "But where did Jack disappear to?", // jaquelyn
       "Hmmm.", // ann
-      "Regardless of how things happened, it seems we got the result we wanted.", // ann
+      "Regardless of how things happened, it seems we got the result we wanted." // ann
     ],
     [
       // 1.1.x
@@ -124,8 +124,8 @@ export const roomEv = [
       "He... was really strong.", // jaquelyn
       "Yeah, but,", // ann
       "We will be stronger the next time we meet!", // ann
-      "Well said.", // jaquelyn
-    ],
+      "Well said." // jaquelyn
+    ]
   ],
   [
     // Cp2
@@ -170,8 +170,8 @@ export const roomEv = [
       "I'm happy to look for this tunnel,", // francisca
       "but we can't exactly just wander around the castle...", // francisca
       "Then let's find where it is in the Duke of Troia's territory!", // ann
-      "Let's go!", // ann
-    ],
+      "Let's go!" // ann
+    ]
   ],
   [
     // Cp3
@@ -206,8 +206,8 @@ export const roomEv = [
       "If we chase the king's cause of death, we're bound to run into him.", // francisca
       "True.", // ann
       "Okay, then it's decided!", // ann
-      "Let's gather information in town.", // ann
-    ],
+      "Let's gather information in town." // ann
+    ]
   ],
   [
     // Cp4
@@ -234,8 +234,8 @@ export const roomEv = [
       "Isn't it noisy outside?", // francisca
       "You're right.", // ann
       "The town seems more lively than usual.", // ann
-      "Let's go check it out!", // ann
-    ],
+      "Let's go check it out!" // ann
+    ]
   ],
   [
     // Ep
@@ -278,7 +278,7 @@ export const roomEv = [
       "But I feel like he's still alive.", // ann
       "Yeah?", // francisca
       "I trust Ann's instincts, let's go find out.", // jaquelyn
-      "Let's do it!", // ann
-    ],
-  ],
-];
+      "Let's do it!" // ann
+    ]
+  ]
+]

@@ -3,13 +3,13 @@ export const templeCharacters = {
     "It's just as His Majesty said.", // soldier1
     "The princess slipped through the guards at the castle,", // soldier1
     "And she followed His Majesty here.", // soldier1
-    "But we can't allow you to go inside.", // soldier1
+    "But we can't allow you to go inside." // soldier1
   ],
   soldier2: [
     "No matter how many times you ask, I can't let you through.", // soldier2
     "You can't disobey me, I'll tell my father!", // mary
     "My orders come directly from His Highness.", // soldier2
-    "Please forgive me.", // soldier2
+    "Please forgive me." // soldier2
   ],
   mary: [
     "Oh hey, it's the suspicious people I met in the underground passage.", // mary
@@ -20,7 +20,7 @@ export const templeCharacters = {
     "We can't just wait here!", // mary
     "But these knights won't let us go any further.", // mary
     "Please do something!", // mary
-    "Hmmm, I don't think there's anything that can be done.", // ann
+    "Hmmm, I don't think there's anything that can be done." // ann
   ],
   loretta: [
     "?", // loretta
@@ -34,7 +34,7 @@ export const templeCharacters = {
     "Well I'm worried...", // ann
     "If something were to happen to His Majesty, then Mary...", // loretta
     "I have to lend my support...", // loretta
-    "I'm sure things will be ok.", // ann
+    "I'm sure things will be ok." // ann
   ],
   dario: {
     talk1: [
@@ -49,12 +49,12 @@ export const templeCharacters = {
       "I heard that the Sage of the Forest was called in to help subdue the dragon.", // dario
       "I came with because I was worried.", // dario
       "Feel free to tell me if you need to recover.", // dario
-      "Thank you!", // ann
+      "Thank you!" // ann
     ],
     talk2: [
-      "Do you need to recover?", // dario
+      "Do you need to recover?" // dario
     ],
-    option: ["Please", "Alright"],
+    option: ["Please", "Alright"]
   },
   drystan: [
     "You are the wise man from Warkano Forest!", // ann
@@ -74,7 +74,7 @@ export const templeCharacters = {
     "But it is lost to us all.", // drystan
     "Wisdom...", // ann
     "I think this time you should not interfere.", // drystan
-    "This isn't like getting rid of a bear.", // drystan
+    "This isn't like getting rid of a bear." // drystan
   ],
   ray: [
     "Hey, you're the graverobber!", // ann
@@ -88,9 +88,9 @@ export const templeCharacters = {
     "Why's that matter?", // ray
     "So cocky.", // ann
     "Well, stay safe.", // ann
-    "Hmmm.", // ray
-  ],
-};
+    "Hmmm." // ray
+  ]
+}
 
 export const lorraine = {
   start1: [
@@ -114,7 +114,7 @@ export const lorraine = {
     "I can still remember my excitement at seeing the mechanism hidden in the pedestal.", // architect
     "It was broken, but I fixed it and made it work again.", // architect
     "Wow.", // ann
-    "But anyways, what did you wish to know?", // architect
+    "But anyways, what did you wish to know?" // architect
   ],
   option: ["Ask about the statue", "Ask about the dragon"],
   start2: [
@@ -126,7 +126,7 @@ export const lorraine = {
     "That's why I only ensure the mechanisms work.", // architect
     "It took me years though.", // architect
     "Oh you've been here a long time.", // ann
-    "Oh, I've spent most my life here.", // architect
+    "Oh, I've spent most my life here." // architect
   ],
   start3: [
     "Do you know about the dragon?", // ann
@@ -148,23 +148,23 @@ export const lorraine = {
     "What's this?", // ann
     "If you trigger other mechanisms with this, you can reach the rooftop.", // architect
     "You'll have to study the mechanisms, but I'm sure you'll figure it out.", // architect
-    "Thank you!", // ann
+    "Thank you!" // ann
   ],
   item: "Simple Key",
   started: [
-    "Think about how to trigger the mechanisms.", // architect
+    "Think about how to trigger the mechanisms." // architect
   ],
   solved: [
     "It looks like you have solved the mechanisms.", // architect
-    "If you wish to go underground, look for Lyla.", // architect
+    "If you wish to go underground, look for Lyla." // architect
   ],
   tweet: [
     "Here's a mechanism.", // jaquelyn
     "Can Ann solve it?", // francisca
     "Good luck!", // jaquelyn
-    "I did it!", // ann
-  ],
-};
+    "I did it!" // ann
+  ]
+}
 export const allsRight = {
   start: [
     "Hmmm?", // zi
@@ -232,7 +232,7 @@ export const allsRight = {
     "Collect #{KELUNNE_COUNT} feathers of Kelunne", // zi
     "Use those to make a message.", // zi
     "A message?", // ann
-    "I can't say I understand, but I'll help find them!", // ann
+    "I can't say I understand, but I'll help find them!" // ann
   ],
   solve: [
     "I collected them.", // ann
@@ -247,17 +247,17 @@ export const allsRight = {
     "Wow, really...", // ann
     "Unplug this bottle near the holy sword.", // zi
     "My words should reach the Nikke.", // zi
-    "Ok, thank you!", // ann
+    "Ok, thank you!" // ann
   ],
   solved1: [
     "Near the holy sword, unplug the bottle to release the words.", // zi
-    "My words should reach the Nikke.", // zi
+    "My words should reach the Nikke." // zi
   ],
   solved2: [
     "All the world is nothing.", // zi
-    "My home here is nothing, just a peaceful place.", // zi
-  ],
-};
+    "My home here is nothing, just a peaceful place." // zi
+  ]
+}
 export const calibur = {
   start: [
     "Ok, let's release the words of the Zi.", // ann
@@ -316,14 +316,14 @@ export const calibur = {
     "Fight me.", // nikke
     "I see.", // ann
     "Are you up to the task? ", // nikke
-    "Prepare yourself!", // nikke
+    "Prepare yourself!" // nikke
   ],
   talked: [
-    "Are you ready?", // nikke
+    "Are you ready?" // nikke
   ],
   option: ["Yes", "No"],
   cancel: [
-    "Then come back when you're ready.", // nikke
+    "Then come back when you're ready." // nikke
   ],
   solve: [
     "Wow.", // nikke
@@ -346,13 +346,13 @@ export const calibur = {
     "I feel like time is distorted when you are nearby.", // nikke
     "...", // ann
     "Well,", // nikke
-    "Probably another power crafted by you humans.", // nikke
-  ],
-};
+    "Probably another power crafted by you humans." // nikke
+  ]
+}
 export const lute = {
   unavailable: [
     "Ah...", // ann
-    "Taking a nap.", // ann
+    "Taking a nap." // ann
   ],
   start: [
     "Hello, young lady.", // lyla
@@ -385,19 +385,19 @@ export const lute = {
     "I like them.", // lyla
     "So!", // lyla
     "I'll ask you to find me a beautiful one.", // lyla
-    "Leave it to me!", // ann
+    "Leave it to me!" // ann
   ],
   started: [
     "Have you found a beautiful apple?", // lyla
-    "I'm looking forward to it.", // lyla
+    "I'm looking forward to it." // lyla
   ],
   solve1: [
     "I've collected the apples!", // ann
-    "Very nice.", // lyla
+    "Very nice." // lyla
   ],
   answer: [
     ["Yes, delicious.", "Thank you."], // lyla
-    ["Hmmm this apple isn't that good.", "Well, I guess it can't be helped."], // lyla
+    ["Hmmm this apple isn't that good.", "Well, I guess it can't be helped."] // lyla
   ],
   solve2: [
     "Well I made a promise.", // lyla
@@ -406,7 +406,7 @@ export const lute = {
     "I must play my lute.", // lyla
     "The door opens in response to the music.", // lyla
     "Huh.", // ann
-    "Listen.", // lyla
+    "Listen." // lyla
   ],
   solve3: [
     "Well, it should be opened now.", // lyla
@@ -425,20 +425,20 @@ export const lute = {
     "Hehe.", // ann
     "Well then,", // lyla
     "Do be careful.", // lyla
-    "Thank you!", // ann
+    "Thank you!" // ann
   ],
   option: ["Pick up", "Don't need"],
   apple: `"Apple" picked up`,
-  tweet: "Five apples have been gathered.",
-};
+  tweet: "Five apples have been gathered."
+}
 export const dragonKiller = {
   soldier: [
     "The dragon... was much more powerful than we expected...", // soldier1
     "How did the king manage to beat the dragon ten years ago...", // soldier2
-    "I want to help His Majesty... but I can't move anymore...", // soldier3
+    "I want to help His Majesty... but I can't move anymore..." // soldier3
   ],
   block: [
-    "Hey, don't you want to talk to the injured soldiers?", // francisca
+    "Hey, don't you want to talk to the injured soldiers?" // francisca
   ],
   start: [
     "Are you ok!?", // ann
@@ -455,14 +455,14 @@ export const dragonKiller = {
     "Don't worry about me.", // ethel
     "My brother fight's alone now.", // ethel
     "Edgar...", // ethel
-    "Help my brother...", // ethel
+    "Help my brother..." // ethel
   ],
   started: [
     "Have we met somewhere before?", // ann
-    "There's no time to gossip.", // ethel
+    "There's no time to gossip." // ethel
   ],
   confirm: [
-    "The dragon's lair is beyond.", // francisca
+    "The dragon's lair is beyond." // francisca
   ],
   confirmOption: ["Go ahead", "Stop"],
   king1: [
@@ -479,14 +479,14 @@ export const dragonKiller = {
     "You wish to trade your own life for the good of your kingdom.", // sonberk
     "Yes.", // king
     "I don't know what my brother agreed to, but that's what I want.", // king
-    "Shower me in flame until you've satisfied your anger.", // king
+    "Shower me in flame until you've satisfied your anger." // king
   ],
   king2: [
     "Huwa!", // king
     "!", // ann
     "Hurry up!", // ann
     "...", // king
-    "He's collapsed!", // ann
+    "He's collapsed!" // ann
   ],
   sonberk: [
     "Sonberk! Prepare yourself!", // ann
@@ -505,7 +505,7 @@ export const dragonKiller = {
     "No matter.", // sonberk
     "It's still in the hands of a little girl.", // sonberk
     "If you wish to die here next to your king, I shall grant your wish.", // sonberk
-    "Come on!", // sonberk
+    "Come on!" // sonberk
   ],
   solve: [
     "Finished!  Defeated!", // ann
@@ -514,6 +514,6 @@ export const dragonKiller = {
     "Okay, we need to help the king and his knights!", // ann
     "Yes.", // jaquelyn
     "Once we've helped them, we can disappear.", // francisca
-    "Ok!", // ann
-  ],
-};
+    "Ok!" // ann
+  ]
+}

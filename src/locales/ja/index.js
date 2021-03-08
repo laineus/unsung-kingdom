@@ -1,4 +1,4 @@
-import { roomBook, roomEv } from "./room";
+import { roomBook, roomEv } from "./room"
 import {
   townGreeting,
   townGreeting4,
@@ -9,12 +9,12 @@ import {
   townChapter2,
   townChapter3,
   townChapter4,
-  townChapter5,
-} from "./town";
-import { jack } from "./chapter0";
-import { dog, mercenary, drystan, bear } from "./chapter1";
-import { cassandra, princess, moonshine, aragnie } from "./chapter2";
-import { ferdinand, marianne, dario, renfield, evangelina } from "./chapter3";
+  townChapter5
+} from "./town"
+import { jack } from "./chapter0"
+import { dog, mercenary, drystan, bear } from "./chapter1"
+import { cassandra, princess, moonshine, aragnie } from "./chapter2"
+import { ferdinand, marianne, dario, renfield, evangelina } from "./chapter3"
 import {
   lorraine,
   allsRight,
@@ -22,9 +22,9 @@ import {
   calibur,
   lute,
   dragonKiller,
-  templeCharacters,
-} from "./chapter4";
-import { peaceful } from "./chapter5";
+  templeCharacters
+} from "./chapter4"
+import { peaceful } from "./chapter5"
 export default {
   langLabel: "日本語",
   chapter: [
@@ -33,15 +33,15 @@ export default {
     {
       name: "2章",
       title: "トロイア公爵邸の地下通路",
-      sub: "Troia's Secret Passage",
+      sub: "Troia's Secret Passage"
     },
     {
       name: "3章",
       title: "聖アンテルスの墓地",
-      sub: "Catacombs of St Anterus",
+      sub: "Catacombs of St Anterus"
     },
     { name: "4章", title: "グリファルデ神殿", sub: "Temple of Grefalde" },
-    { name: "終章", title: "平和王エドガー", sub: "Edgar the Peaceful" },
+    { name: "終章", title: "平和王エドガー", sub: "Edgar the Peaceful" }
   ],
   area: {
     town: "王都",
@@ -49,7 +49,7 @@ export default {
     forest: "ワルカノの森",
     underpass: "トロイア公爵邸の地下通路",
     catacomb: "聖アンテルスの墓地",
-    temple: "グリファルデ神殿",
+    temple: "グリファルデ神殿"
   },
   areaSub: {
     bellion: "ベリオン王国",
@@ -63,7 +63,7 @@ export default {
       f: "キャンプ",
       g: "高台北西",
       h: "北西部",
-      i: "賢人の家",
+      i: "賢人の家"
     },
     underpass: {
       a: "牢獄",
@@ -74,7 +74,7 @@ export default {
       f: "番犬の間",
       g: "王家側通路",
       h: "廊下",
-      i: "王城への扉",
+      i: "王城への扉"
     },
     aragnie: "アラグニエのねぐら",
     catacomb: {
@@ -84,7 +84,7 @@ export default {
       d: "共同墓地南",
       e: "西区画",
       f: "上流階級の墓",
-      g: "王家の墓",
+      g: "王家の墓"
     },
     temple: {
       a: "入口",
@@ -93,48 +93,48 @@ export default {
       d: "2階",
       e: "東部",
       f: "地下",
-      g: "最深部",
-    },
+      g: "最深部"
+    }
   },
   mission: {
     m0_1: { title: "王殺しのジャック", sub: "Jack the Kingkiller" },
     m1_1: { title: "マシューと狩猟犬", sub: "Matthew and Hunting dogs" },
     m1_2: {
       title: "アイザムバード傭兵団の討伐遠征",
-      sub: "Isambard mercenaries",
+      sub: "Isambard mercenaries"
     },
     m1_3: { title: "森の賢人ドリスタン", sub: "Philosopher Drystan" },
     m1_4: { title: "ワルカノの人食い熊", sub: "The Rex Bear" },
     m2_1: { title: "幽閉されしカサンドラ", sub: "Incarcerated Cassandra" },
     m2_2: {
       title: "メアリー王女と公爵令嬢ロレッタ",
-      sub: "Princess Mary and Loretta",
+      sub: "Princess Mary and Loretta"
     },
     m2_3: { title: "ディオニューソスの密造酒", sub: "Dionysus' Moonshine" },
     m2_4: { title: "アラグニエのねぐら", sub: "Aragnie's lair" },
     m3_1: {
       title: "呪われしフェルディナンド卿",
-      sub: "Lord Ferdinand's Curse",
+      sub: "Lord Ferdinand's Curse"
     },
     m3_2: {
       title: "マリアンヌの歌を聞いてから死ね",
-      sub: "Die after listening Marianne's song.",
+      sub: "Die after listening Marianne's song."
     },
     m3_3: { title: "ダリオの哀しみ", sub: "Dario's Sorrow" },
     m3_4: {
       title: "レンフィールド家の大罪",
-      sub: "Sins of the Renfield family",
+      sub: "Sins of the Renfield family"
     },
     m3_5: {
       title: "エヴァンジェリナ妃の亡霊",
-      sub: "Ghost of Princess Evangelina",
+      sub: "Ghost of Princess Evangelina"
     },
     m4_1: { title: "清浄なるロレイン像", sub: "Grefalde's Sacred statue" },
     m4_2: { title: "すべて世はこともなし", sub: "All's right with the world" },
     m4_3: { title: "聖剣カリブルヌス", sub: "Caliburnus" },
     m4_4: { title: "女神さまに捧ぐリュート", sub: "Music for goddess" },
     m4_5: { title: "竜殺しの王", sub: "The Dragonkiller King" },
-    m5_1: { title: "平和王エドガー", sub: "Edgar the Peaceful" },
+    m5_1: { title: "平和王エドガー", sub: "Edgar the Peaceful" }
   },
   chara: {
     ann: "アン",
@@ -170,7 +170,7 @@ export default {
     ray: "レイ",
     sister: "シスター",
     lyla: "ライラ",
-    unknown: "？？？",
+    unknown: "？？？"
   },
   weapon: {
     1: "ショートソード",
@@ -191,12 +191,12 @@ export default {
     16: "バイキングアクス",
     17: "フランベルジュ",
     18: "カタナ",
-    19: "カリブルヌス",
+    19: "カリブルヌス"
   },
   ability: {
     1: "全体攻撃",
     2: "回復",
-    3: "全体回復",
+    3: "全体回復"
   },
   battler: {
     jack: "王殺しのジャック",
@@ -227,10 +227,10 @@ export default {
     knight: "レムリアンナイト",
     thief: "シーフェン",
     nikke: "ニッケ",
-    dragon: "ソンベルク",
+    dragon: "ソンベルク"
   },
   item: {
-    dragonScale: "ドラゴンの鱗",
+    dragonScale: "ドラゴンの鱗"
   },
   ui: {
     sub: {
@@ -241,19 +241,19 @@ export default {
       save: "セーブ",
       load: "ロード",
       settings: "設定",
-      battleResult: "戦闘結果",
+      battleResult: "戦闘結果"
     },
     setting: {
       autoDetection: "自動判定",
       clickToAction: "タップで行動",
-      virtualStick: "仮想ゲームパッド",
+      virtualStick: "仮想ゲームパッド"
     },
     battle: {
       attack: "攻撃",
-      counter: "カウンター",
+      counter: "カウンター"
     },
     recommendedLevel: "推奨レベル",
-    undefinedArea: "不明なエリア",
+    undefinedArea: "不明なエリア"
   },
   missionStart: "『#{title}』を開始",
   missionComplete: "『#{title}』を完了",
@@ -266,7 +266,7 @@ export default {
     magicStone: "カーバンクルの魔石を#{num}個獲得！",
     water: "水の小瓶を#{num}個獲得！",
     dagger: "ダリオの短剣を獲得！",
-    kelunne: "ケルーネの羽を#{num}個獲得！",
+    kelunne: "ケルーネの羽を#{num}個獲得！"
   },
   roomBook,
   roomEv,
@@ -307,55 +307,55 @@ export default {
     "― 『ベリオン王国史』",
     "千年ののち、王国はその名も失い世界から忘れ去られた。\nしかしベリオンの民の末裔は〈平和王エドガー〉の眠るその地を決して離れようとはしなかった。",
     "そしてある時、王と王国の死を嘆く魔術師たちの手によって、時間を移動する術が発見された。",
-    "それはこの世の理に背くことであったが、彼らは歴史を変えることを厭わなかった。",
+    "それはこの世の理に背くことであったが、彼らは歴史を変えることを厭わなかった。"
   ],
   missionDescription: {
     m0_1: {
       base:
         "エドガー王の暗殺を阻止するため、暗殺現場とされる王城の裏庭へ向かう。",
       first: "王城の裏庭への行き方を街の人に訪ねよう。",
-      second: "街の外へ出て王城の裏庭へ向かおう。",
+      second: "街の外へ出て王城の裏庭へ向かおう。"
     },
     m1_1: {
       base: "狩猟家マシューが連れていた5匹の仔犬が逃げ出してしまった。",
-      cnt: "見つけた狩猟犬の数（#{current}/5）",
+      cnt: "見つけた狩猟犬の数（#{current}/5）"
     },
     m1_2: {
       base: "アイザムバード傭兵団の負傷兵が行方不明になっている。",
       started: "付近を捜索しよう。",
-      solved: "負傷兵を助けた。傭兵団のキャンプへ寄ろう",
+      solved: "負傷兵を助けた。傭兵団のキャンプへ寄ろう"
     },
     m1_3: {
       base: "薬の材料となるマンドレイクの根を集めてドリスタンに届ける。",
-      cnt: "収集したマンドレイク（#{current}/#{max}）",
+      cnt: "収集したマンドレイク（#{current}/#{max}）"
     },
     m1_4: {
       base:
         "凶暴なレックスベアを倒し、薬の材料となるレックスベアの血液をドリスタンに\n届ける。",
       bear: "森の深くに棲むレックスベアを探し出して倒そう。",
-      solved: "レックスベアの血液を手に入れた。ドリスタンの元へ届けよう。",
+      solved: "レックスベアの血液を手に入れた。ドリスタンの元へ届けよう。"
     },
     m2_1: {
       base: "アラグニエの糸の牢獄に幽閉されたカサンドラはワインを求めている。",
       wip: "地下通路のどこかにあるワインを見つけよう。",
-      cnt: "見つけたワイン（#{current}/3）",
+      cnt: "見つけたワイン（#{current}/3）"
     },
     m2_2: {
       base:
         "メアリー王女と公爵令嬢ロレッタは、カサンドラへの贈り物に使うための素材と\nなる魔石を集めている。",
-      cnt: "収集したカーバンクルの魔石（#{current}/#{max}）",
+      cnt: "収集したカーバンクルの魔石（#{current}/#{max}）"
     },
     m2_3: {
       base:
         "密造酒の密売人ディオニューソスは、番犬オルトロスが眠るのを待っている。",
       wip: "ディオニューソスがオルトロスを泥酔させた。オルトロスを倒そう。",
-      solved: "オルトロスを倒した。ディオニューソスの元へ戻ろう。",
+      solved: "オルトロスを倒した。ディオニューソスの元へ戻ろう。"
     },
     m2_4: {
       base:
         "ヘクター元騎士は、カサンドラを投獄した王への復讐を考えている。\nメアリーとロレッタと協力し、カサンドラを解放しよう。",
       search: "魔石のランタンを使ってアラグニエのねぐらを探そう。",
-      solved: "アラグニエを倒した。カサンドラの元へ戻ろう。",
+      solved: "アラグニエを倒した。カサンドラの元へ戻ろう。"
     },
     m3_1: {
       base: "異国の貴族フェルディンドは正気を失っている。",
@@ -363,64 +363,64 @@ export default {
         "霊に呪われていると言う彼に、何か役立ちそうなものを持っていこう。",
       solved:
         "霊に呪われていると言う彼に、マリアンヌがくれたお守りを持っていこう。",
-      completed: "彼は彼を恨む亡霊たちによって崖の底へ引きずり込まれていった。",
+      completed: "彼は彼を恨む亡霊たちによって崖の底へ引きずり込まれていった。"
     },
     m3_2: {
       base: "シスターはマリアンヌの墓に寄り添っている。",
       started:
         "モンスターから水の小瓶を集めて、衰弱するシスターに持っていこう。",
-      cnt: "収集した水の小瓶（#{current}/#{max}）",
+      cnt: "収集した水の小瓶（#{current}/#{max}）"
     },
     m3_3: {
       base:
         "ネクロマンサーのダリオは、ジャックに脅され王妃の悪霊を生み出してしまった。",
       started: "近くにジャックがまだ潜んで居るらしい。探し出そう。",
-      solved: "ジャックを倒した。ジャックが落とした短剣をダリオに届けよう。",
+      solved: "ジャックを倒した。ジャックが落とした短剣をダリオに届けよう。"
     },
     m3_4: {
       base: "レイはレンフィールド家への復讐のために墓を荒らしている。",
       started: "レンフィールド家の亡霊が姿を現した！",
-      cnt: "倒したレンフィールド家の亡霊（#{current}/5）",
+      cnt: "倒したレンフィールド家の亡霊（#{current}/5）"
     },
     m3_5: {
       base:
         "ダリオが生み出した偽物のエヴァンジェリナ妃の亡霊は王を恨んでいる。",
-      started: "王妃の亡霊を探し出して倒そう。",
+      started: "王妃の亡霊を探し出して倒そう。"
     },
     m4_1: {
       base: "彫刻家のクラウスから神殿の仕掛けのことを教えてもらった。",
-      started: "像の仕掛けを解いて2階への扉を開放しよう。",
+      started: "像の仕掛けを解いて2階への扉を開放しよう。"
     },
     m4_2: {
       base:
         "神殿に暮らす竜族のズィから聖剣のことを聞いた。\n彼は聖剣を守る竜族のニッケに伝言を用意してくれるようだ。",
       started: "ケルーネを倒して必要な材料を集めよう。",
-      cnt: "集めたケルーネの羽根（#{current}/#{max}）",
+      cnt: "集めたケルーネの羽根（#{current}/#{max}）"
     },
     m4_3: {
       base: "聖剣カリブルヌスは竜族のニッケが守っている。",
       started: "ズィにもらった言葉の煙を使ってニッケを呼び出そう。",
-      talked: "力を証明するためにニッケの挑戦を受けよう。",
+      talked: "力を証明するためにニッケの挑戦を受けよう。"
     },
     m4_4: {
       base: "リュート弾きのライラは地下への扉を開けられるらしい。",
       started: "ライラのためにリンゴを集めよう。",
-      cnt: "集めたリンゴ（#{current}/#{max}）",
+      cnt: "集めたリンゴ（#{current}/#{max}）"
     },
     m4_5: {
       base: "王は独りドラゴンと戦っている。",
-      started: "最奥部へ行ってソンベルクを倒そう。",
+      started: "最奥部へ行ってソンベルクを倒そう。"
     },
     m5_1: {
       base: "王弟エゼルバルドからの手紙には「王城の裏庭で待つ」とだけあった。",
-      started: "王城の裏庭へ向かおう。",
-    },
+      started: "王城の裏庭へ向かおう。"
+    }
   },
   afterBattle: {
     m1_3: "マンドレイクの根が集まったみたいね", // jaquelyn
     m2_2: "カーバンクルの魔石が集まったね", // fraancisca
     m3_2: "飲み水が十分に集まったね", // francisca
-    m4_2: "ケルーネの羽根が集まったね", // jaquelyn
+    m4_2: "ケルーネの羽根が集まったね" // jaquelyn
   },
   tweet: {
     ca1: "どこかに身を隠して待とう", // francisca
@@ -433,31 +433,31 @@ export default {
     un1: "うまく侵入できたね", // francisca
     lost: {
       francisca: ["ま、待って！", "アンが消えた…"],
-      jaquelyn: ["アン、置いていっちゃいやよ", "アン、どこ？"],
-    },
+      jaquelyn: ["アン、置いていっちゃいやよ", "アン、どこ？"]
+    }
   },
   mapEvent: {
     underpass8: {
-      candle: "燭台の火が消えてる…。",
+      candle: "燭台の火が消えてる…。"
     },
     temple6: {
       statue: "台座に仕掛けがある！", // ann
-      option: ["仕掛けを動かす", "何もしない"],
+      option: ["仕掛けを動かす", "何もしない"]
     },
     room1: {
       bed: [
         "早く出発しよう", // francisca
-        "アン、眠たいの？", // jaquelyn
-      ],
+        "アン、眠たいの？" // jaquelyn
+      ]
     },
     catacomb1: {
       guard: [
         "ここから先へは十分に注意して進んでくれ。",
-        "近年、出没するモンスターが増えてきて、我々も手に負えなくなってきているんだ。",
-      ],
+        "近年、出没するモンスターが増えてきて、我々も手に負えなくなってきているんだ。"
+      ]
     },
     catacomb6: {
-      door: "さっきもらった鍵がぴったりだ！",
-    },
-  },
-};
+      door: "さっきもらった鍵がぴったりだ！"
+    }
+  }
+}

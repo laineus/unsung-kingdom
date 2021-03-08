@@ -9,7 +9,7 @@ export const jack = [
     "You'll find out when we catch him.", // francisca
     "I wonder why he would kill the king.", // ann
     "There must be many reasons to kill the king of a country.", // jaquelyn
-    `Edgar "The Peaceful King"... killing a gentle king who only wishes for peace...`, // ann
+    `Edgar "The Peaceful King"... killing a gentle king who only wishes for peace...` // ann
   ],
   [
     // jack.1.x
@@ -38,7 +38,7 @@ export const jack = [
     "Ann, I'm sure this is the guy.", // francisca
     "Well, let's catch him.", // jaquelyn
     "Let's do it.", // ann
-    "Prepare yourself!", // ann
+    "Prepare yourself!" // ann
   ],
   [
     // jack.2.x
@@ -51,7 +51,7 @@ export const jack = [
     "Ugh, no.", // ann
     "Huh!?  Where is the time crystal?", // ann
     "He must have taken it with our equipment.", // francisca
-    "Quickly now, we need to chase him.", // francisca
+    "Quickly now, we need to chase him." // francisca
   ],
   [
     // jack.3.x
@@ -64,6 +64,6 @@ export const jack = [
     "Oh great, he's still safe.", // jaquelyn
     "But where is Jack?", // francisca
     "Maybe he gave up the assassination attempt.  Anyways, let's get out of here.", // jaquelyn
-    "Alright.", // ann
-  ],
-];
+    "Alright." // ann
+  ]
+]

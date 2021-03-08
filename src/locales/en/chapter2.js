@@ -15,7 +15,7 @@ export const cassandra = {
     "Aragnier is a giant spider monster.", // cassandra
     "It disappeared after building this prison.", // cassandra
     "Now no one can find it.", // cassandra
-    "I guess it grew bored of here and moved on.", // cassandra
+    "I guess it grew bored of here and moved on." // cassandra
   ],
   talk2: [
     "You want to speak to me?", // cassandra
@@ -37,19 +37,19 @@ export const cassandra = {
     "So is it a problem if I take the key?", // ann
     "Don't worry, Aragnier can't be found anyways.", // cassandra
     "My brother seems to have realized that and hasn't come here recently..", // cassandra
-    "But you'll definitely find the wine.  Please bring me some.", // cassandra
+    "But you'll definitely find the wine.  Please bring me some." // cassandra
   ],
   util: {
     door: ["Check", "Leave it alone"],
     key: `"Underground passage key" picked up`,
     unlock: "Unlocked the passage",
     locked: "It's locked.", // ann
-    wine: `"Wine" picked up`,
+    wine: `"Wine" picked up`
   },
   progress: [
     "Did you find the key?", // cassandra
     "Look closely at the bottom of the candlestick next to the door.", // cassandra
-    "Did you find the wine yet?", // cassandra
+    "Did you find the wine yet?" // cassandra
   ],
   solve: [
     "Was the wine there?", // cassandra
@@ -63,16 +63,16 @@ export const cassandra = {
     "The people in the castle purchase the liquor.  This prohibition is ridiculous.", // cassandra
     "Is that so?", // ann
     "Yep.  Just awhile ago I heard a smuggler enter actually.", // cassandra
-    "Thanks for helping me.", // cassandra
+    "Thanks for helping me." // cassandra
   ],
   solved: "Thank you for the wine.",
   tweet: [
     "Is this the wine?", // ann
     "Two more.", // ann
     "Need to find one more", // francisca
-    "It looks like they're all gathered", // jaquelyn
-  ],
-};
+    "It looks like they're all gathered" // jaquelyn
+  ]
+}
 export const princess = {
   talk1: [
     "Hey!", // loretta
@@ -159,17 +159,17 @@ export const princess = {
     ["I understand", "I'm afraid not"],
     "Thank you.", // mary
     "There's no need.  They don't have the right to refuse.", // loretta
-    "Well then, go.", // loretta
+    "Well then, go." // loretta
   ],
   door: [
     "We're experimenting right now.", // loretta
     "Don't disturb.", // loretta
     "Oh, don't go in!", // loretta
-    "We're busy in here...", // loretta ?????
+    "We're busy in here..." // loretta ?????
   ],
   progress: [
     "#{MAGIC_STONES} carbuncle stones.", // mary
-    "Bring them quickly.", // loretta
+    "Bring them quickly." // loretta
   ],
   solve: [
     "That glow!  They brought the stones!", // mary
@@ -179,13 +179,13 @@ export const princess = {
     "It's great that they're for a gift for Casssandra.", // ann
     "What are you making?", // ann
     "It's a secret.", // mary
-    "Well then, thank you.", // mary
+    "Well then, thank you." // mary
   ],
   solved: [
     "Thank you, you saved my gift.  I was afraid I wouldn't be able to complete it.", // mary
-    "Your help is no longer needed, you may leave.", // loretta
-  ],
-};
+    "Your help is no longer needed, you may leave." // loretta
+  ]
+}
 export const moonshine = {
   talk1: [
     "Wow! Who are you?", // dionysus
@@ -220,11 +220,11 @@ export const moonshine = {
     "Orthrus?", // ann
     "Oh right.  Orthrus is the castle's two headed guard dog.", // dionysus
     "I always wait for him to sleep and then sneak through, |But three of you could never sneak by him.", // dionysus
-    "Now that you know, you should turn back.", // dionysus
+    "Now that you know, you should turn back." // dionysus
   ],
   talk2: [
     "Orthrus is the castle's two headed guard dog.  You won't get past him.", // dionysus
-    "Now that you know, you should turn back.", // dionysus
+    "Now that you know, you should turn back." // dionysus
   ],
   talk3: [
     "Are you seriously going in there?", // dionysus
@@ -251,11 +251,11 @@ export const moonshine = {
     "Letting him have the barrel of wine.", // dionysus
     "Once he's finished, he'll be easier to defeat.", // dionysus
     "I'll lose today's score, but it'll be worth it in the long run.", // dionysus
-    "Come on, go in!", // dionysus
+    "Come on, go in!" // dionysus
   ],
   talk4: [
     "Orthrus is drunk.", // dionysus
-    "Come on, now's your chance.", // dionysus
+    "Come on, now's your chance." // dionysus
   ],
   talk5: [
     "You're safe!", // dionysus
@@ -267,23 +267,23 @@ export const moonshine = {
     "I'm glad we ran into each other.", // dionysus
     "What a beneficial exchange.", // dionysus
     "Thank you!", // ann
-    "Well then, good luck sneaking into the castle.", // dionysus
+    "Well then, good luck sneaking into the castle." // dionysus
   ],
   solved: [
-    "Well then, be careful.", // dionysus
+    "Well then, be careful." // dionysus
   ],
   orthrus1: [
     "Wow, that's a big dog!", // ann
     "Yeah, he looks pretty hostile.", // jaquelyn
-    "Let's go back for now.", // francisca
+    "Let's go back for now." // francisca
   ],
   orthrus2: [
     "Alright Orthrus.", // ann
     "Everyone, let's go!", // ann
     "We managed to beat it.", // ann
-    "Let's tell the smuggler.", // jaquelyn
-  ],
-};
+    "Let's tell the smuggler." // jaquelyn
+  ]
+}
 export const aragnie = {
   jack: [
     "Hey, you!", // ann
@@ -298,7 +298,7 @@ export const aragnie = {
     "Why is Jack the Kingkiller here?", // ann
     "Is he the knight, Hector, after all?", // jaquelyn
     "Hmmm.", // ann
-    "I don't know, but let's go find out.", // ann
+    "I don't know, but let's go find out." // ann
   ],
   hector1: [
     "Who are you!?", // hector
@@ -341,7 +341,7 @@ export const aragnie = {
     "Perhaps.", // hector
     "Help us find the spider.", // ann
     "I can't. I couldn't find Aragnier.  I spent years searching.", // hector
-    "Leave me alone.", // hector
+    "Leave me alone." // hector
   ],
   hector2: [
     "We can find Aragnier now!", // mary
@@ -377,7 +377,7 @@ export const aragnie = {
     "...", // hector
     "...Right.", // hector
     "There's no reason to hesitate.", // hector
-    "Let's go free my sister.", // hector
+    "Let's go free my sister." // hector
   ],
   cassandra1: [
     "Cassandra.", // hector
@@ -402,7 +402,7 @@ export const aragnie = {
     "Now let's light the magic stone.", // loretta
     "Whoa!", // ann
     "I can see Aragnier's threads!", // ann
-    "Now we can hunt it down.", // ann
+    "Now we can hunt it down." // ann
   ],
   cassandra2: "...",
   lamp: ["Search", "Wait"],
@@ -412,7 +412,7 @@ export const aragnie = {
     "Let's proceed.", // ann
     "Whoa!!", // hector
     "This is no good...", // hector
-    "Seriously?", // francisca
+    "Seriously?" // francisca
   ],
   boss: [
     "Here it is!  Aragnier!", // mary
@@ -423,7 +423,7 @@ export const aragnie = {
     "Well done!", // loretta
     "I'm ashamed.", // hector
     "What an amazing fight.", // hector
-    "Let's get back to Cassandra!", // mary
+    "Let's get back to Cassandra!" // mary
   ],
   last1: [
     "We were really able to cut the thread!", // loretta
@@ -448,18 +448,18 @@ export const aragnie = {
     "Cassandra, you spent seven years in this prison because of my mistake.", // mary
     "I didn't do this out of pity, it is my atonement.", // mary
     "Come on, don't look back.  Come out!", // mary
-    "Ok... Ok, let's go!", // cassandra
+    "Ok... Ok, let's go!" // cassandra
   ],
   last2: [
     "They're gone.", // loretta
     "Yeah...", // mary
     "Cassandra...", // mary
     "My sister...", // mary
-    "Cheer up, Mary.", // loretta
+    "Cheer up, Mary." // loretta
   ],
   last3: [
     "Hector has abandoned his plot of revenge against the king.", // ann
     "That's right.  We did our best Ann.", // jaquelyn
-    "Let's go back and check the history book.", // francisca
-  ],
-};
+    "Let's go back and check the history book." // francisca
+  ]
+}
