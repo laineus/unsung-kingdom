@@ -1,3 +1,4 @@
+/* eslint-disable quotes */
 export const jack = [
   [
     // jack.0.x

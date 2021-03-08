@@ -1,3 +1,4 @@
+/* eslint-disable quotes */
 export const ferdinand = {
   talk1: [
     "Are you ok?  You've gone pale.", // ann

@@ -1,3 +1,4 @@
+/* eslint-disable quotes */
 export const templeCharacters = {
   soldier1: [
     "It's just as His Majesty said.", // soldier1

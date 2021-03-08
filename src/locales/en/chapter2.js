@@ -1,3 +1,4 @@
+/* eslint-disable quotes */
 export const cassandra = {
   talk1: [
     "...", // cassandra

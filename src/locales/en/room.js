@@ -1,3 +1,4 @@
+/* eslint-disable quotes */
 export const roomBook = [
   [
     "According to the history of the Kingdom of Bellion, the king was killed by an assassin...",

@@ -1,4 +1,4 @@
-import { roomBook, roomEv } from "./room"
+import { roomBook, roomEv } from './room'
 import {
   townGreeting,
   townGreeting4,
@@ -10,11 +10,11 @@ import {
   townChapter3,
   townChapter4,
   townChapter5
-} from "./town"
-import { jack } from "./chapter0"
-import { dog, mercenary, drystan, bear } from "./chapter1"
-import { cassandra, princess, moonshine, aragnie } from "./chapter2"
-import { ferdinand, marianne, dario, renfield, evangelina } from "./chapter3"
+} from './town'
+import { jack } from './chapter0'
+import { dog, mercenary, drystan, bear } from './chapter1'
+import { cassandra, princess, moonshine, aragnie } from './chapter2'
+import { ferdinand, marianne, dario, renfield, evangelina } from './chapter3'
 import {
   lorraine,
   allsRight,
@@ -23,8 +23,9 @@ import {
   lute,
   dragonKiller,
   templeCharacters
-} from "./chapter4"
-import { peaceful } from "./chapter5"
+} from './chapter4'
+import { peaceful } from './chapter5'
+/* eslint-disable quotes */
 export default {
   langLabel: "English",
   chapter: [

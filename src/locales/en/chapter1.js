@@ -1,3 +1,4 @@
+/* eslint-disable quotes */
 export const dog = {
   start: [
     "This forest is dangerous, unless you're here on urgent business I suggest you don't go any further.", // hunter

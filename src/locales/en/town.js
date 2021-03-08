@@ -1,3 +1,4 @@
+/* eslint-disable quotes */
 export const townGreeting = {
   amber: "Nice weather",
   elliott: "Yo",

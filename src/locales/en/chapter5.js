@@ -1,3 +1,4 @@
+/* eslint-disable quotes */
 export const peaceful = {
   soldier: [
     "An assassin dressed in a black robe.", // soldier1
