@@ -1,7 +1,7 @@
 {
   "name": "unsung-kingdom",
-  "version": "1.0.2",
-  "main": "index.js",
+  "version": "1.0.3",
+  "main": "src/index.js",
   "author": "Laineus",
   "license": "MIT",
   "scripts": {
