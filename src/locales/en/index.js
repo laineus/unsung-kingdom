@@ -107,10 +107,10 @@ export default {
     },
     m2_3: { title: "Dionysus's Moonshine", sub: "Dionysus's Moonshine" },
     m2_4: { title: "Aragnier's Lair", sub: "Aragnier's Lair" },
-    m3_1: { title: "Cursed Lord Ferdinand", sub: "Cursed Lord Ferdinand" },
+    m3_1: { title: "Lord Ferdinand's Curse", sub: "Lord Ferdinand's Curse" },
     m3_2: {
-      title: "To Hear Marianne's song again",
-      sub: "To Hear Marianne's song again",
+      title: "To Hear Marianne's Song Again",
+      sub: "To Hear Marianne's Song Again",
     },
     m3_3: { title: "Dario's Sorrow", sub: "Dario's Sorrow" },
     m3_4: {
@@ -118,8 +118,8 @@ export default {
       sub: "The Sins of the Renfield Family",
     },
     m3_5: {
-      title: "Ghost of Queen Evangelina",
-      sub: "Ghost of Queen Evangelina",
+      title: "The Ghost of Queen Evangelina",
+      sub: "The Ghost of Queen Evangelina",
     },
     m4_1: {
       title: "Grefalde's Sacred Statue",
@@ -239,7 +239,7 @@ export default {
       save: "Save",
       load: "Load",
       settings: "Settings",
-      battleResult: "Result"
+      battleResult: "Result",
     },
     setting: {
       autoDetection: "Auto Detection",
@@ -393,8 +393,8 @@ export default {
     m4_2: {
       base:
         "The dragon tribe Zi, who live in the temple, told us about the holy sword, Calibrenus. \nThey prepared a message for the protectors of the holy sword: the dragon tribe Nikke.",
-      started: "Kill Kerune and collect their feathers.",
-      cnt: "Collected (#{current}/#{max}）Kerune feathers",
+      started: "Kill Kellune and collect their feathers.",
+      cnt: "Collected (#{current}/#{max}）Kellune feathers",
     },
     m4_3: {
       base: "The holy sword Calibrenus is protected by the dragon tribe Nikke.",
@@ -421,7 +421,7 @@ export default {
     m1_3: "It looks like the mandrake roots have been gathered.", // jaquelyn
     m2_2: "The Carbuncle stones have been gathered.", // fraancisca
     m3_2: "I think enough drinking water has been collected.", // francisca
-    m4_2: "The Kerune feathers have been gathered.", // jaquelyn
+    m4_2: "The Kellune feathers have been gathered.", // jaquelyn
   },
   tweet: {
     ca1: "Let's hide somewhere and wait.", // francisca

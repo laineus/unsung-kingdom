@@ -11,7 +11,7 @@ export const dog = {
     "Royal hunters, and even a mercenary unit, were dispatched to capture the bear, |But no one's heard from them since.", // hunter
     "Is there a reward for bringing down the bear?", // ann
     "Surely there must be a reward.", // francisca
-    "Hmmm.  Perhaps the stories have been greatly exaggerated.", // hunter
+    "Hmmm.  I hope the stories have been greatly exaggerated.", // hunter
     "It's a good story for those who don't need to enter the forest.", // hunter
     "Anyways, I have no desire to see such a ferocious beast.", // hunter
     "If someone takes him down, we'd all be happy.", // hunter
@@ -161,7 +161,7 @@ export const drystan = {
     "First of all I need #{MANDRAKE_COUNT} mandrake roots.", // drystan
     "Yes, what else?", // ann
     "Bring it first, then I'll tell you.", // drystan
-    "I don't have much time now.", // drystan
+    "I'm a busy man.", // drystan
   ],
   progress: [
     "#{MANDRAKE_COUNT} mandrake roots.", // drystan

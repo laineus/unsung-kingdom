@@ -179,22 +179,22 @@ export const roomEv = [
       // 3.0.x
       "Come on, what happened to the history of the kingdom?", // francisca
       "What made him die next?", // francisca
-      "Hey! We don't know that yet!", // ann
+      "Hey! We don't know that he died yet!", // ann
       "I hope he's finally saved.", // jaquelyn
       "Um...", // ann
       `"The king is said to have been cursed by the ghost of the queen."`, // ann
       "What!  That's scary!", // ann
-      "So he dies again?", // ann
+      "So he does die again?", // ann
       "And this time because of a spirit's curse...", // francisca
       "I wonder if that's really possible,", // jaquelyn
-      "if it's just handed down rumors, then we have no good information this time.", // jaquelyn
+      "If it's just handed down rumors, then we have no good information this time.", // jaquelyn
       "Hey, I think Jack is involved in this case too.", // ann
       "He must be.", // francisca
       "It's really suspicious that he was in the underground passage too.", // jaquelyn
       "Maybe Jack was the mastermind behind all the causes of death.", // ann
       "Every time Jack tried to kill the king, we prevented him.", // ann
       "Then Jack tries to kill the king again in another way.", // ann
-      "That's why the history of the king always meets a tragic end.", // ann
+      "That's why the king always meets a tragic end.", // ann
       "Yeah, that makes sense.", // jaquelyn
       "That's why we should kill Jack.", // francisca
       "That's one method...", // ann
