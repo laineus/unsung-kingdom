@@ -42,6 +42,10 @@ One of them can load SampleSaveData (`/sample_save_data/*`).
 If some people contributing for the language,
 You should declare that which files you will translate in issue to avoid duplication.
 
+# Contributers
+
+English translations by [@uribgp](https://github.com/uribgp)
+
 # Licence
 
 This source code is able to use in MIT Licence.
