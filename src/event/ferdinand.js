@@ -1,11 +1,14 @@
 export const ferdinand = (scene, fdn) => {
   const state = scene.storage.state.event.m3_1
+  if (!state.started && state.completed) {
+    state.completed = false // BUGFIX: https://steamcommunity.com/app/1344790/discussions/0/3093383255707226734/
+  }
   fdn.setDisplayName(t('chara.fdn'))
   if (state.completed) {
     return fdn.destroy()
   }
   fdn.setTapEvent(async chara => {
-    if (scene.storage.state.event.m3_2.completed) {
+    if (state.started && scene.storage.state.event.m3_2.completed) {
       await scene.talk([
         { chara, text: t('ferdinand.talk3.0') },
         { chara: 'ann', text: t('ferdinand.talk3.1') },
