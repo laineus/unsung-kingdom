@@ -252,7 +252,8 @@ export default {
       counter: "Counter"
     },
     recommendedLevel: "Recommended Level",
-    undefinedArea: "Undefinied Area"
+    undefinedArea: "Undefinied Area",
+    completed: "Completed"
   },
   missionStart: `"#{title}" Start`,
   missionComplete: `"#{title}" Complete`,

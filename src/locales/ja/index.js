@@ -227,7 +227,8 @@ export default {
       counter: 'カウンター'
     },
     recommendedLevel: '推奨レベル',
-    undefinedArea: '不明なエリア'
+    undefinedArea: '不明なエリア',
+    completed: 'クリアデータ'
   },
   missionStart: '『#{title}』を開始',
   missionComplete: '『#{title}』を完了',

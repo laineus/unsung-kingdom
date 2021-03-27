@@ -37,7 +37,8 @@ export default class MenuSave extends Phaser.GameObjects.Container {
     item.setActive = bool => tx.setFill(config.COLORS[bool ? 'theme' : 'white'].toColorString)
     if (data.exists) {
       const progress = this.getProgress(data.state).toFixed(1)
-      const time = this.scene.add.text(120, 0, `Chapter-${data.state.chapter}    ${progress}%`, { fontSize: 13, fontFamily: config.FONTS.UI, fill: config.COLORS.gray.toColorString }).setOrigin(1, 0.5)
+      const cpName = data.state.event.m5_1.completed ? 'Completed' : `Chapter-${data.state.chapter}`
+      const time = this.scene.add.text(120, 0, `${cpName}    ${progress}%`, { fontSize: 13, fontFamily: config.FONTS.UI, fill: config.COLORS.gray.toColorString }).setOrigin(1, 0.5)
       item.add(time)
     }
     return item
@@ -80,7 +81,8 @@ export default class MenuSave extends Phaser.GameObjects.Container {
         })
       }
       const chapter = chapters[data.state.chapter]
-      const detail = this.scene.add.text(110, 220, `${chapter.name} ${chapter.title}`, { fontSize: 16, fontStyle: 'bold', fontFamily: config.FONTS.TEXT })
+      const title = data.state.event.m5_1.completed ? t('ui.completed') : `${chapter.name} ${chapter.title}`
+      const detail = this.scene.add.text(110, 220, title, { fontSize: 16, fontStyle: 'bold', fontFamily: config.FONTS.TEXT })
       const timeString = moment(data.state.saved, 'X').format('YYYY/MM/DD  HH:mm')
       const progress = this.getProgress(data.state).toFixed(1)
       const date = this.scene.add.text(110, 247, `${timeString}     Progress  ${progress}%`, { fontSize: 13, fontFamily: config.FONTS.UI, fill: config.COLORS.gray.toColorString })

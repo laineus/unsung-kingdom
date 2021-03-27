@@ -3,6 +3,11 @@ export const peaceful = (scene, area1, area2, soldier1, soldier2, jack) => {
   soldier1.setDisplayName(t('chara.guard')).setR('right')
   soldier2.setDisplayName(t('chara.guard')).setR('left')
   const state = scene.storage.state.event.m5_1
+  if (state.completed) {
+    soldier1.setVisible(false)
+    soldier2.setVisible(false)
+    return
+  }
   const afterSawSoldiers = () => {
     jack.setVisible(true)
     soldier1.setVisible(false)
@@ -179,6 +184,14 @@ export const peaceful = (scene, area1, area2, soldier1, soldier2, jack) => {
     ], { angle: false })
     await scene.ui.sleep(2000)
     await scene.ui.credit()
+    Object.assign(scene.storage.state, {
+      map: 'room1',
+      x: (19).toPixelCenter,
+      y: (11).toPixel,
+      r: 90
+    })
+    scene.storage.lastSnapshot = null
+    scene.storage.save(0)
     scene.scene.start('Title')
   }).setActive(false)
   if (state.soldiers) afterSawSoldiers()

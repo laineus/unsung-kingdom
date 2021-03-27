@@ -58,7 +58,11 @@ export default class SaveDataManager {
     this.state.saved = moment().unix()
     const str = encrypt(JSON.stringify(this.state), SHIFT)
     promises.push(window.appStorage.setItem(`${STORAGE_KEY}_${number}`, str))
-    if (this.lastSnapshot) promises.push(window.appStorage.setItem(`${STORAGE_KEY}_${number}_ss`, this.lastSnapshot))
+    if (this.lastSnapshot) {
+      promises.push(window.appStorage.setItem(`${STORAGE_KEY}_${number}_ss`, this.lastSnapshot))
+    } else {
+      promises.push(window.appStorage.removeItem(`${STORAGE_KEY}_${number}_ss`))
+    }
     if (number > 0) this.lastNumber = number
     promises.push(window.appStorage.setItem(`${STORAGE_KEY}_last_saved_number`, String(number)))
     return Promise.all(promises)
