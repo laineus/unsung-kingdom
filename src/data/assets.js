@@ -1,4 +1,4 @@
-import assets from 'assets'
+import assets from '../assets.json'
 const getReplacedPath = path => {
   return path.replace(/^\.\/(.*)/, `${window.ASSET_HOST}/$1`)
 }

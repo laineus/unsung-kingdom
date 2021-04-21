@@ -1,5 +1,6 @@
 node_modules
 ignore
+/src/assets.json
 /nw/*
 !/nw/public
 /public/js/*.bundle.js

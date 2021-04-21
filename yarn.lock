@@ -1960,6 +1960,11 @@ commander@^5.1.0:
   resolved "https://registry.yarnpkg.com/commander/-/commander-5.1.0.tgz#46abbd1652f8e059bddaef99bbdcb2ad9cf179ae"
   integrity sha512-P0CysNDQ7rtVw4QIQtm+MRxV66vKFSvlsQvGYXZWR3qFU0jlMKHZZZgw8e+8DSah4UDKMqnknRDQz+xuQXQ/Zg==
 
+commander@^6.2.1:
+  version "6.2.1"
+  resolved "https://registry.yarnpkg.com/commander/-/commander-6.2.1.tgz#0792eb682dfbc325999bb2b84fddddba110ac73c"
+  integrity sha512-U7VdrJFnJgo4xjrHpTzu0yrHPGImdsmD95ZlgYSEajAn2JKzDhDTPG9kBTefmObL2w/ngeZnilk+OV9CG3d7UA==
+
 commander@~2.8.1:
   version "2.8.1"
   resolved "https://registry.yarnpkg.com/commander/-/commander-2.8.1.tgz#06be367febfda0c330aa1e2a072d3dc9762425d4"
@@ -5770,10 +5775,10 @@ performance-now@^2.1.0:
   resolved "https://registry.yarnpkg.com/performance-now/-/performance-now-2.1.0.tgz#6309f4e0e5fa913ec1c69307ae364b4b377c9e7b"
   integrity sha1-Ywn04OX6kT7BxpMHrjZLSzd8nns=
 
-phaser-assets-webpack-plugin@^1.0.9:
-  version "1.0.9"
-  resolved "https://registry.yarnpkg.com/phaser-assets-webpack-plugin/-/phaser-assets-webpack-plugin-1.0.9.tgz#503207272826c9cbec9055cea9fefc56e301f7ad"
-  integrity sha512-RrhzpPz5bBD8XQdwPWMPDx+qKV1t6OsRE+5Fpeot73SWfsHZ8/waRRJmcfpFLaJ5nbhFVmwShxcXS+xrfEH3XQ==
+phaser-assets-webpack-plugin@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/phaser-assets-webpack-plugin/-/phaser-assets-webpack-plugin-2.0.0.tgz#35dd5290b0b39e447ec9875fb5649123d8e10c6c"
+  integrity sha512-s5GaDOkyTfx3LMzlYv9sXNT5qdjU32K7wt+1c4iPiwhiyJXm+Py91sbaJRmYTopuz2ijqCjXo4O4s+kZikcqrg==
   dependencies:
     image-size "^0.9.1"
 
@@ -7178,11 +7183,12 @@ thunky@^1.0.2:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/thunky/-/thunky-1.0.3.tgz#f5df732453407b09191dae73e2a8cc73f381a826"
 
-tile-extrude-webpack-plugin@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/tile-extrude-webpack-plugin/-/tile-extrude-webpack-plugin-1.0.0.tgz#edf588272f66ddb60b32c4b323cc6334249bc33a"
-  integrity sha512-hMOHMJR0fyqBmMTvhd4zynQmJCM4xGEJfxdCb5RGkbl7QD+5p31TdQxwQM1anDOlncwN6fTn+zVce6rwCdYsXw==
+tile-extrude-webpack-plugin@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/tile-extrude-webpack-plugin/-/tile-extrude-webpack-plugin-1.2.0.tgz#6dcc93a5476f955fa8d4beadd4c36c61ce91d169"
+  integrity sha512-4InWc1cY/4ZP4yaX4dc3BjVyEwciJ87VULgFB976JAG2A+IbScFg/+/QZiQFuqebW/4lAToQS4hUuCBUvVaCug==
   dependencies:
+    commander "^6.2.1"
     imagemin "^7.0.1"
     imagemin-pngquant "^9.0.0"
     tile-extruder "^2.0.6"
