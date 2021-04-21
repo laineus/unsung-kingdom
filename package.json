@@ -11,6 +11,8 @@
     "lint": "eslint src"
   },
   "dependencies": {
+    "@sentry/browser": "^6.3.0",
+    "@sentry/tracing": "^6.3.0",
     "moment": "^2.24.0",
     "phaser": "^3.22"
   },

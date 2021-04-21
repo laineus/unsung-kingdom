@@ -1,5 +1,7 @@
 import 'phaser'
 import './util/extendNativeClassFunctions'
+import * as Sentry from '@sentry/browser'
+import { Integrations } from '@sentry/tracing'
 import BootScene from './class/BootScene'
 import TitleScene from './class/TitleScene'
 import GameScene from './class/GameScene'
@@ -8,6 +10,13 @@ import ArchiveManager from './class/ArchiveManager'
 import AppStorage from './class/AppStorage'
 import config from './data/config'
 import storage from './data/storage'
+
+Sentry.init({
+  dsn: 'https://0180594f74c948eabada6f1e8c2e3c1a@o569163.ingest.sentry.io/5729629',
+  integrations: [new Integrations.BrowserTracing()],
+  release: `unsung-kingdom@${APP_VERSION}`,
+  tracesSampleRate: 1.0
+})
 
 location.query = location.search.substr(1).split('&').filter(Boolean).reduce((obj, v) => {
   const arr = v.split('=')
