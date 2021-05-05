@@ -35,7 +35,10 @@ export default class UIScene extends Phaser.Scene {
     this.storage = storage
     this.setting = setting
     this.audio = new AudioController(this)
-    this.input.keyboard.on('keydown_S', this.snapShot.bind(this))
+    this.input.keyboard.on('keydown_F12', e => {
+      e.preventDefault()
+      this.snapShot(this)
+    })
     this.menuButton = this.getMenuButton((70).byRight, (35).byBottom)
     this.add.existing(this.menuButton)
     this.loadEncounter()
