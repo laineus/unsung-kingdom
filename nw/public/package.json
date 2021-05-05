@@ -9,6 +9,5 @@
     "min_height": 540,
     "icon":"icon.png"
   },
-  "user-agent": "Mozilla/5.0 (%osinfo) AppleWebKit/%webkit_ver Chrome/%chromium_ver %name",
-  "chromium-args" : "--disable-devtools"
+  "user-agent": "Mozilla/5.0 (%osinfo) AppleWebKit/%webkit_ver Chrome/%chromium_ver %name"
 }

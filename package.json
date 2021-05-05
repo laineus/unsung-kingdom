@@ -1,13 +1,13 @@
 {
   "name": "unsung-kingdom",
-  "version": "1.0.5",
+  "version": "1.0.7",
   "main": "src/index.js",
   "author": "Laineus",
   "license": "MIT",
   "scripts": {
     "dev": "webpack-dev-server --mode development --host 0.0.0.0",
     "build": "webpack --mode production",
-    "nwbuild": "nwbuild -p linux64,win64,osx64 -v0.46.2 -o nw/ nw/public/",
+    "nwbuild": "nwbuild -p linux64,win64,osx64 -v0.46.2 -o nw/ nw/public/ --flavor normal",
     "lint": "eslint src"
   },
   "dependencies": {
