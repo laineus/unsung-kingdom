@@ -267,7 +267,7 @@ export const moonshine = {
     'よっしゃ、あんたらにこれをやるよ。', // dionysus
     '俺が持ってるより役に立つだろう。', // dionysus
     'ありがとう！', // ann
-    'さ、じゃあまたな譲ちゃんたち。' // dionysus
+    'さ、じゃあまたな嬢ちゃんたち。' // dionysus
   ],
   solved: [
     'じゃあな、気をつけるんだぞ。' // dionysus
