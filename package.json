@@ -13,7 +13,7 @@
   "dependencies": {
     "@sentry/browser": "^6.3.0",
     "@sentry/tracing": "^6.3.0",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "phaser": "^3.22"
   },
   "devDependencies": {
