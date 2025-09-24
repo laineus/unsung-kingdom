@@ -62,7 +62,8 @@ const option = {
   },
   input: {
     activePointers: 3
-  }
+  },
+  preserveDrawingBuffer: true
   // fps: { target: 30, forceSetTimeOut: true }
 }
 
