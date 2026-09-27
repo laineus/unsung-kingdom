@@ -24,7 +24,8 @@ export default class CommonSetting {
       if (nav.languages) return nav.languages[0]
       return nav.language || nav.userLanguage || nav.browserLanguage
     }
-    const lang = getDefaultLang().startsWith('ja') ? 'ja' : 'en'
+    const defaultLang = getDefaultLang()
+    const lang = defaultLang.startsWith('ja') ? 'ja' : defaultLang.startsWith('id') ? 'id' : 'en'
     return {
       bgm: 100,
       se: 100,
