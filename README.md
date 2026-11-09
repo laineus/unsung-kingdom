@@ -45,6 +45,7 @@ If more than one person is contributing to the same language localization, to av
 # Contributers
 
 English translations by [@uribgp](https://github.com/uribgp)
+Indonesian translations by [@fazelllyyy](https://github.com/fazelllyyy)
 
 # Licence
 
